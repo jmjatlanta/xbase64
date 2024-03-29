@@ -1,0 +1,12 @@
+
+
+At times, the Xbase64 library will create temporary work files with the
+following naming pattern:  xbtmpNNN.xxx  Where NNN is a sequential 
+number and xxx is either dbf, dbt, ndx, mdx.
+
+These files should be automatically deleted by the library when 
+the task is complete.  However, if the program crashes in a particular
+step, the temp files might not be cleaned up automatically.
+
+If you run into these files, and they have an older timestamp on them,
+it is safe to delete them.

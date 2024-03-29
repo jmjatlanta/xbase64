@@ -1,0 +1,1776 @@
+\hypertarget{classxb_1_1xbString}{}\doxysection{xb\+::xb\+String Class Reference}
+\label{classxb_1_1xbString}\index{xb::xbString@{xb::xbString}}
+
+
+Class for handling string data.  
+
+
+
+
+{\ttfamily \#include $<$xbstring.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classxb_1_1xbString_a63f9313217e0ff3c9789ec59316216a1}{xb\+String}} (xb\+UInt32 size)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString_a146840c386d2876ccb7ec929398d5f5b}{xb\+String}} (char c\+In)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString_a65113c1b7e78b912310a4287cbabfc3e}{xb\+String}} (const char $\ast$s\+In, xb\+UInt32 ul\+Max\+Len)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString_aac28cadec768736ef9e9e19f29238a55}{xb\+String}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString_a5d46700c769b857862bfcd5311f2d080}{xb\+String}} (const char $\ast$s\+In=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString_ad865b55e3b08dffd527afee8e7e8e3fe}{xb\+String}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString_a10a6549efab02bc76ab33b15916b1eb1}{$\sim$xb\+String}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a4f69d11cbd43edf71725a606d0ca8f40}{operator=}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s)
+\begin{DoxyCompactList}\small\item\em Set operator =. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a84ae7d16c5d73c5aa2270aa9895a7f7c}{operator=}} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Set operator =. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString_a545df0ae9590f0ea5844a165e38a6388}{operator const char $\ast$}} () const
+\begin{DoxyCompactList}\small\item\em Operator const char $\ast$. \end{DoxyCompactList}\item 
+char \& \mbox{\hyperlink{classxb_1_1xbString_abe45e463226ac8e18550ced18c5a9df3}{operator\mbox{[}$\,$\mbox{]}}} (xb\+UInt32 n) const
+\begin{DoxyCompactList}\small\item\em operator \mbox{[}\mbox{]} \end{DoxyCompactList}\item 
+char \& \mbox{\hyperlink{classxb_1_1xbString_a4deaa68d9571753349c29baacb5613e8}{operator\mbox{[}$\,$\mbox{]}}} (xb\+Int32 n) const
+\begin{DoxyCompactList}\small\item\em operator \mbox{[}\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a76a47af239797a266ada6141c150001c}{operator+=}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s)
+\begin{DoxyCompactList}\small\item\em Append operator +=. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_ab319120dbad9107e1e7090139c956100}{operator+=}} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Append operator +=. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_ae12f45b8be84e438e032c0b860f985c6}{operator+=}} (char c)
+\begin{DoxyCompactList}\small\item\em Append operator +=. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_aa7f4db1b4eae9dfad46346db6e17ea15}{operator-\/=}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s)
+\begin{DoxyCompactList}\small\item\em Append operator -\/=. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_aaae97e6eda3d18c9f463993ade985bf4}{operator-\/=}} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Append operator -\/=. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_adcafd019df23bb5724c46e34f3f31194}{operator-\/=}} (char c)
+\begin{DoxyCompactList}\small\item\em Append operator -\/=. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_a2df3ed2fc9456214f5fd2fcf77b69bc1}{operator==}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&) const
+\begin{DoxyCompactList}\small\item\em operator == \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_a94031269af3c433393d4cf0ff9b4be38}{operator==}} (const char $\ast$) const
+\begin{DoxyCompactList}\small\item\em operator == \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_acf89691607050b0505dc6af28d059c38}{operator!=}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&) const
+\begin{DoxyCompactList}\small\item\em operator != \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_a822448f2a0ce653473d4c1de5763a3a6}{operator!=}} (const char $\ast$) const
+\begin{DoxyCompactList}\small\item\em operator != \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_a71c7aafa0d523c72cbe58c474be2270a}{operator$<$}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&) const
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$<$}{<} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_ae46f6a45da5686b607a4edf2786a2fff}{operator$>$}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&) const
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$>$}{>} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_a461f245e60cddfdf5f78a972a46e5880}{operator$<$=}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&) const
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$<$}{<}= \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_a8f16643cb7ba3ee9cf685422c9ea0e67}{operator$>$=}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&) const
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$>$}{>}= \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbString_a06abec236b95f6933ba17bf67089f7cf}{operator-\/}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s)
+\begin{DoxyCompactList}\small\item\em Concatonate operator -\/. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbString_aab556e8c3cb478dd95643327d72a48bd}{operator+}} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Concatonate operator +. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbString_a1f289d577ba90c500bc1be3ec7bb0206}{operator+}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s)
+\begin{DoxyCompactList}\small\item\em Concatonate operator +. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbString_af559654baba81c3c0c19823c0b7a69d3}{operator+}} (const char c)
+\begin{DoxyCompactList}\small\item\em Concatonate operator +. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a6c4fdb689d27a9d19a0b5b4236e1ca62}{Add\+Back\+Slash}} (char c)
+\begin{DoxyCompactList}\small\item\em Add a prefixing back slash to specified characters in the string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a8f202e4798491f2ae9ce51ff58dd5815}{Append}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s)
+\begin{DoxyCompactList}\small\item\em Append data to string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a1922319303feb6da1f40b5994c5e8240}{Append}} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Append data to string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_ab36afc9ce956cbd505bbccfa55ff786c}{Append}} (const char $\ast$s, xb\+UInt32 ul\+Byte\+Count)
+\begin{DoxyCompactList}\small\item\em Append data to string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a093c6ab5df375a2589755bb8f48fa5c7}{Append}} (char c)
+\begin{DoxyCompactList}\small\item\em Append data to string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_ad90789d8e49b2fdb94cd41a873f35f9a}{Assign}} (const char $\ast$src\+Str, xb\+UInt32 ul\+Start\+Pos, xb\+UInt32 ul\+Copy\+Len)
+\begin{DoxyCompactList}\small\item\em Assign portion of string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a9062c8c8edf0d54a7567f0c08d039109}{Assign}} (const char $\ast$src\+Str, xb\+UInt32 ul\+Start\+Pos)
+\begin{DoxyCompactList}\small\item\em Assign portion of string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_acf454c08623300ab676dd8b96018ca1f}{Assign}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&src\+Str, xb\+UInt32 ul\+Start\+Pos, xb\+UInt32 ul\+Copy\+Len)
+\begin{DoxyCompactList}\small\item\em Assign portion of string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_ace4bf55888ed338987b4fbaf0e89e25e}{Assign}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&src\+Str, xb\+UInt32 ul\+Start\+Pos)
+\begin{DoxyCompactList}\small\item\em Assign portion of string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbString_ac7a8466b03c04df838bd182ef244f792}{Copy}} () const
+\begin{DoxyCompactList}\small\item\em Copy a string. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbString_a26bc14d92dc7ce1f2bf31cd74af0db0f}{Count\+Char}} (char c) const
+\begin{DoxyCompactList}\small\item\em Count the number of characters in the string. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbString_adc0204bcfd1c052b9aea9229b10acf72}{Count\+Char}} (char c, xb\+Int16 i\+Opt) const
+\begin{DoxyCompactList}\small\item\em Count the number of characters in the string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbString_a0a737bd408a94903f214eb2879eb56de}{Cvt\+Hex\+Char}} (char \&c\+Out)
+\begin{DoxyCompactList}\small\item\em Convert hex character to string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbString_ab5eb6918a0ae9ab6c0e961318f3d1eb0}{Cvt\+Hex\+String}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Convert string of hex characters to string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbString_a1528b30b84a41c3564ef31d1f4496b15}{Cvt\+ULong\+Long}} (xb\+UInt64 \&ull\+Out)
+\begin{DoxyCompactList}\small\item\em Convert string to xb\+UInt64 number. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbString_ae3ab18365e132323f8ae4c99eb72181c}{Cvt\+Long\+Long}} (xb\+Int64 \&ll\+Out)
+\begin{DoxyCompactList}\small\item\em Convert string to xb\+Int64 number. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a6b33a8df49cdcb76033cbce5d8dc59d7}{Extract\+Element}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s, char delim, xb\+UInt32 i\+Cnt, xb\+Int16 i\+Opt=0)
+\begin{DoxyCompactList}\small\item\em Extract an element out of a delimited string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a77195fc4957952625cb33bb503517a3e}{Extract\+Element}} (const char $\ast$src, char delim, xb\+UInt32 i\+Cnt, xb\+Int16 i\+Opt=0)
+\begin{DoxyCompactList}\small\item\em Extract an element out of a delimited string. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classxb_1_1xbString_a72de24c43d4085813ec7720f8a970095}{Get\+Character}} (xb\+UInt32 ul\+Pos) const
+\begin{DoxyCompactList}\small\item\em Get a character by position. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbString_ac7698665f44413a5e99a5b5bc573c6df}{Get\+Last\+Pos}} (char c) const
+\begin{DoxyCompactList}\small\item\em Get the position of the last occurrence of a given character. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbString_a1c55587904fe7e534290559d0ecb8646}{Get\+Last\+Pos}} (const char $\ast$s) const
+\begin{DoxyCompactList}\small\item\em Get the position of the last occurrence of a given string. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classxb_1_1xbString_af8b8b808cf43cd352321b43f500142db}{Get\+Path\+Separator}} () const
+\begin{DoxyCompactList}\small\item\em Get the path separator out of the string. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbString_a6c33e73659f8e98819289d2661c7271c}{Get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Retrieve the size of the string buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_aa13f6b72e5a529eab04545892bbc98b4}{Has\+Alpha\+Chars}} () const
+\begin{DoxyCompactList}\small\item\em Determine if the string has any alpha characters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_a4a255a30d683acd62ea09c1617b53cb3}{Is\+Empty}} () const
+\begin{DoxyCompactList}\small\item\em Determine if string is empty. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_a3fa34fa31bcb7244ecb054ab628ad500}{Is\+Null}} () const
+\begin{DoxyCompactList}\small\item\em Determine if string is NULL. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_acdc3a6d6955b99f0a6b1d181fb3098b9}{Left}} (xb\+UInt32 ul\+Len)
+\begin{DoxyCompactList}\small\item\em Retain left part of string, drop rightmost characters. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbString_a998b240eedac311aea5843047f55649b}{Len}} () const
+\begin{DoxyCompactList}\small\item\em Retrieve length of current string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a90e0d0be4fd0d82dd2ebbe689adf18ee}{Ltrim}} ()
+\begin{DoxyCompactList}\small\item\em Left trim white space from string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a656f5854f74064b7257ff96d96dfb68b}{Ltrunc}} (xb\+UInt32 ul\+Cnt)
+\begin{DoxyCompactList}\small\item\em Left truncate string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a0f9eefc836b24c4ee7c5a316c5d812b7}{Mid}} (xb\+UInt32 ul\+Pos, xb\+UInt32 l\+Len)
+\begin{DoxyCompactList}\small\item\em Extract portion of data from string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a6a09cfed22066b0c72432f26960f9e7b}{Pad\+Left}} (char c, xb\+UInt32 ul\+Len)
+\begin{DoxyCompactList}\small\item\em Left pad string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_aba13f0c77eb6c4a22996039569fad284}{Pad\+Right}} (char c, xb\+UInt32 ul\+Len)
+\begin{DoxyCompactList}\small\item\em Right pad string. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbString_a1b586890138da8bf0e23090bd8b34581}{Pos}} (char c, xb\+UInt32 ul\+Start\+Pos) const
+\begin{DoxyCompactList}\small\item\em Determine position of a given character. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbString_a3baf59d15099589ff631995f129e582b}{Pos}} (char c) const
+\begin{DoxyCompactList}\small\item\em Determine position of a given character. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbString_a8705d7277b72f5aa98021e84438914da}{Pos}} (const char $\ast$s) const
+\begin{DoxyCompactList}\small\item\em Determine position of a given substring. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a1bae6fa8f608261f6e889616482f6e39}{Put\+At}} (xb\+UInt32 ul\+Pos, char c)
+\begin{DoxyCompactList}\small\item\em Insert character into string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_afaac65eaa6d9ef1596d6a0e7b91ed0f2}{Remove}} (xb\+UInt32 ul\+Pos, xb\+UInt32 ulN)
+\begin{DoxyCompactList}\small\item\em Remove portion of string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_ac721d643c60b5c5acf60c2bce99596fa}{Replace}} (const char $\ast$s\+Replace, const char $\ast$s\+Replace\+With, xb\+Int16 i\+Opt=0)
+\begin{DoxyCompactList}\small\item\em Replace a value within a string with another value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_aa6d346ab04e5bb8852f0bb996163a35e}{Resize}} (xb\+UInt32 l\+Size)
+\begin{DoxyCompactList}\small\item\em Resize a string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_aaf330188d67c347ecae0d16f65b22077}{Rtrim}} ()
+\begin{DoxyCompactList}\small\item\em Right trim the string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_ab85753d2c39882e946a8468cbb587700}{Set}} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Set the value of the string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_ac0d08bd688fd0e3707e32886d0dfeb09}{Set}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s)
+\begin{DoxyCompactList}\small\item\em Set the value of the string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a6eba6ccd0c805a22516de2c18a30f8a3}{Set}} (const char $\ast$s, xb\+UInt32 ul\+Size)
+\begin{DoxyCompactList}\small\item\em Set the value of the string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a3af5b1f111f94b0667551fcbd1d97abd}{Set\+Num}} (xb\+Int32 l\+Num)
+\begin{DoxyCompactList}\small\item\em Set the string to long integer numeric value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a9e9bfa29d86377b915f1628aeb0e9195}{Sprintf}} (const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em Printf routine for formatting a string. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{classxb_1_1xbString_a6715f4c0010f3ab487c9d787838a29b3}{Str}} () const
+\begin{DoxyCompactList}\small\item\em Return string data. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{classxb_1_1xbString_a3bc9e856c34f0c240a6e36e5b6e3ea7b}{strncpy}} (char $\ast$c\+Dest, xb\+UInt32 n) const
+\begin{DoxyCompactList}\small\item\em Copy all or part of string to character array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a054683872e1f05d11c2cf8683a63a6fe}{Swap\+Chars}} (char from, char to)
+\begin{DoxyCompactList}\small\item\em Swap characters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a602cac1a6ef3f6b52f587ac4c0ef4fb2}{To\+Lower\+Case}} ()
+\begin{DoxyCompactList}\small\item\em Replace all upper case charaters with lower case characters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a68001d0a44e6b4fe61e29a4e41ded9d4}{To\+Upper\+Case}} ()
+\begin{DoxyCompactList}\small\item\em Replace all lower case charaters with lower case characters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_abc9bd33687d4e03ca52d77885721d626}{Trim}} ()
+\begin{DoxyCompactList}\small\item\em Trim all leading and trailing white space from string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_a72b16c15fd8822efaa5f158c34df7b1e}{Valid\+Logical\+Value}} () const
+\begin{DoxyCompactList}\small\item\em Check for valid logical field data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbString_aeed920d2a25111f776ddde2d530eb81b}{Valid\+Numeric\+Value}} () const
+\begin{DoxyCompactList}\small\item\em This function returns true if the data is valid numeric data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_a2fd30956a26a260d1ef6fdbe73dd93f9}{Zap\+Char}} (char c)
+\begin{DoxyCompactList}\small\item\em Remove every instance of a character from a string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_addc3a470f6cd85d4c21bf9da38cf5ac9}{Zap\+Leading\+Char}} (char c)
+\begin{DoxyCompactList}\small\item\em Remove leading character from a string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbString_afe3415bfa2e1089b792aeda0462fb99e}{Zap\+Trailing\+Char}} (char c)
+\begin{DoxyCompactList}\small\item\em Remove trailing character from a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+XBDLLEXPORT friend std\+::ostream \& \mbox{\hyperlink{classxb_1_1xbString_a8e5856ab09babb5b10c2fcb64434ca60}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s)
+\begin{DoxyCompactList}\small\item\em Stream insertion operator \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for handling string data. 
+
+This class defines a basic string class with all the functions one would expect in a string class.
+
+For purposes of the \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} class, a string is defined as a variable sized array of one byte characters terminated with a null (0x00 or \textbackslash{}0) byte.~\newline
+~\newline
+
+
+This version of the \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} class does not support wide (wchar\+\_\+t) characters. Perhaps you would be interested in creating a class for supporting wide characters.~\newline
+~\newline
+
+
+This string class handle strings in a 1-\/based (not 0 based) fashion. Any string routines taking an offset use a 1-\/based value. That is, the first position of the string is position 1, not 0.~\newline
+~\newline
+ ~\newline
+
+
+Position 1 (not 0) is considered the first position in a string. ~\newline
+ A return of 0 would indicate a not found condition. A return of 1, would be the first byte. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classxb_1_1xbString_a63f9313217e0ff3c9789ec59316216a1}\label{classxb_1_1xbString_a63f9313217e0ff3c9789ec59316216a1}} 
+\index{xb::xbString@{xb::xbString}!xbString@{xbString}}
+\index{xbString@{xbString}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{xbString()}{xbString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily xb\+::xb\+String\+::xb\+String (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Size }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Size} & -\/ Allocation size. The allocation size is normally handled internally by the class, but it can be set in this constructor. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_a146840c386d2876ccb7ec929398d5f5b}\label{classxb_1_1xbString_a146840c386d2876ccb7ec929398d5f5b}} 
+\index{xb::xbString@{xb::xbString}!xbString@{xbString}}
+\index{xbString@{xbString}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{xbString()}{xbString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily xb\+::xb\+String\+::xb\+String (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & -\/ Initialize string to c. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_a65113c1b7e78b912310a4287cbabfc3e}\label{classxb_1_1xbString_a65113c1b7e78b912310a4287cbabfc3e}} 
+\index{xb::xbString@{xb::xbString}!xbString@{xbString}}
+\index{xbString@{xbString}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{xbString()}{xbString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily xb\+::xb\+String\+::xb\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s,  }\item[{xb\+UInt32}]{ul\+Max\+Len }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Initialize string to s. \\
+\hline
+{\em ul\+Max\+Len} & Maximum length of string. Truncate any characters greater than ul\+Max\+Len. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_aac28cadec768736ef9e9e19f29238a55}\label{classxb_1_1xbString_aac28cadec768736ef9e9e19f29238a55}} 
+\index{xb::xbString@{xb::xbString}!xbString@{xbString}}
+\index{xbString@{xbString}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{xbString()}{xbString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily xb\+::xb\+String\+::xb\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Initialize string to s. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_a5d46700c769b857862bfcd5311f2d080}\label{classxb_1_1xbString_a5d46700c769b857862bfcd5311f2d080}} 
+\index{xb::xbString@{xb::xbString}!xbString@{xbString}}
+\index{xbString@{xbString}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{xbString()}{xbString()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily xb\+::xb\+String\+::xb\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ Initialize string to s. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_ad865b55e3b08dffd527afee8e7e8e3fe}\label{classxb_1_1xbString_ad865b55e3b08dffd527afee8e7e8e3fe}} 
+\index{xb::xbString@{xb::xbString}!xbString@{xbString}}
+\index{xbString@{xbString}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{xbString()}{xbString()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily xb\+::xb\+String\+::xb\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & -\/ Initiailize string to d. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_a10a6549efab02bc76ab33b15916b1eb1}\label{classxb_1_1xbString_a10a6549efab02bc76ab33b15916b1eb1}} 
+\index{xb::xbString@{xb::xbString}!````~xbString@{$\sim$xbString}}
+\index{````~xbString@{$\sim$xbString}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{$\sim$xbString()}{~xbString()}}
+{\footnotesize\ttfamily xb\+::xb\+String\+::$\sim$xb\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classxb_1_1xbString_a6c4fdb689d27a9d19a0b5b4236e1ca62}\label{classxb_1_1xbString_a6c4fdb689d27a9d19a0b5b4236e1ca62}} 
+\index{xb::xbString@{xb::xbString}!AddBackSlash@{AddBackSlash}}
+\index{AddBackSlash@{AddBackSlash}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{AddBackSlash()}{AddBackSlash()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Add\+Back\+Slash (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Add a prefixing back slash to specified characters in the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Character to prefix with a backslash. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a093c6ab5df375a2589755bb8f48fa5c7}\label{classxb_1_1xbString_a093c6ab5df375a2589755bb8f48fa5c7}} 
+\index{xb::xbString@{xb::xbString}!Append@{Append}}
+\index{Append@{Append}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Append()}{Append()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Append (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Append data to string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & String data to append. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a1922319303feb6da1f40b5994c5e8240}\label{classxb_1_1xbString_a1922319303feb6da1f40b5994c5e8240}} 
+\index{xb::xbString@{xb::xbString}!Append@{Append}}
+\index{Append@{Append}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Append()}{Append()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Append (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Append data to string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String data to append. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_ab36afc9ce956cbd505bbccfa55ff786c}\label{classxb_1_1xbString_ab36afc9ce956cbd505bbccfa55ff786c}} 
+\index{xb::xbString@{xb::xbString}!Append@{Append}}
+\index{Append@{Append}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Append()}{Append()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Append (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s,  }\item[{xb\+UInt32}]{ul\+Byte\+Count }\end{DoxyParamCaption})}
+
+
+
+Append data to string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String data to append. ~\newline
+ \\
+\hline
+{\em ul\+Byte\+Count} & Maximum number of bytes to append. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a8f202e4798491f2ae9ce51ff58dd5815}\label{classxb_1_1xbString_a8f202e4798491f2ae9ce51ff58dd5815}} 
+\index{xb::xbString@{xb::xbString}!Append@{Append}}
+\index{Append@{Append}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Append()}{Append()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Append (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Append data to string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String data to append. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a9062c8c8edf0d54a7567f0c08d039109}\label{classxb_1_1xbString_a9062c8c8edf0d54a7567f0c08d039109}} 
+\index{xb::xbString@{xb::xbString}!Assign@{Assign}}
+\index{Assign@{Assign}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Assign()}{Assign()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Assign (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s\+Str,  }\item[{xb\+UInt32}]{ul\+Start\+Pos }\end{DoxyParamCaption})}
+
+
+
+Assign portion of string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Str} & -\/ Source string for copy operation. s\+Str needs to be a Null terminated string. \\
+\hline
+{\em ul\+Start\+Pos} & -\/ Starting position within source string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_ad90789d8e49b2fdb94cd41a873f35f9a}\label{classxb_1_1xbString_ad90789d8e49b2fdb94cd41a873f35f9a}} 
+\index{xb::xbString@{xb::xbString}!Assign@{Assign}}
+\index{Assign@{Assign}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Assign()}{Assign()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Assign (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s\+Str,  }\item[{xb\+UInt32}]{ul\+Start\+Pos,  }\item[{xb\+UInt32}]{ul\+Copy\+Len }\end{DoxyParamCaption})}
+
+
+
+Assign portion of string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Str} & -\/ Source string for copy operation. s\+Str needs to be a Null terminated string. \\
+\hline
+{\em ul\+Start\+Pos} & -\/ Starting position within source string. \\
+\hline
+{\em ul\+Copy\+Len} & -\/ Length of data to copy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_ace4bf55888ed338987b4fbaf0e89e25e}\label{classxb_1_1xbString_ace4bf55888ed338987b4fbaf0e89e25e}} 
+\index{xb::xbString@{xb::xbString}!Assign@{Assign}}
+\index{Assign@{Assign}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Assign()}{Assign()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Assign (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Str,  }\item[{xb\+UInt32}]{ul\+Start\+Pos }\end{DoxyParamCaption})}
+
+
+
+Assign portion of string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Str} & -\/ Source string for copy operation. s\+Str needs to be a Null terminated string. \\
+\hline
+{\em ul\+Start\+Pos} & -\/ Starting position within source string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_acf454c08623300ab676dd8b96018ca1f}\label{classxb_1_1xbString_acf454c08623300ab676dd8b96018ca1f}} 
+\index{xb::xbString@{xb::xbString}!Assign@{Assign}}
+\index{Assign@{Assign}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Assign()}{Assign()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Assign (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Str,  }\item[{xb\+UInt32}]{ul\+Start\+Pos,  }\item[{xb\+UInt32}]{ul\+Copy\+Len }\end{DoxyParamCaption})}
+
+
+
+Assign portion of string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Str} & -\/ Source string for copy operation. s\+Str needs to be a Null terminated string. \\
+\hline
+{\em ul\+Start\+Pos} & -\/ Starting position within source string. \\
+\hline
+{\em ul\+Copy\+Len} & -\/ Length of data to copy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_ac7a8466b03c04df838bd182ef244f792}\label{classxb_1_1xbString_ac7a8466b03c04df838bd182ef244f792}} 
+\index{xb::xbString@{xb::xbString}!Copy@{Copy}}
+\index{Copy@{Copy}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+String\+::\+Copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Copy a string. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a26bc14d92dc7ce1f2bf31cd74af0db0f}\label{classxb_1_1xbString_a26bc14d92dc7ce1f2bf31cd74af0db0f}} 
+\index{xb::xbString@{xb::xbString}!CountChar@{CountChar}}
+\index{CountChar@{CountChar}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{CountChar()}{CountChar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+String\+::\+Count\+Char (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption}) const}
+
+
+
+Count the number of characters in the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Character to count. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of characters. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_adc0204bcfd1c052b9aea9229b10acf72}\label{classxb_1_1xbString_adc0204bcfd1c052b9aea9229b10acf72}} 
+\index{xb::xbString@{xb::xbString}!CountChar@{CountChar}}
+\index{CountChar@{CountChar}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{CountChar()}{CountChar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+String\+::\+Count\+Char (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{xb\+Int16}]{i\+Opt }\end{DoxyParamCaption}) const}
+
+
+
+Count the number of characters in the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Character to count. \\
+\hline
+{\em i\+Opt} & 0 -\/ Count the number of characters.~\newline
+ 1 -\/ Count the number of characters not between single or double quotes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of characters. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a0a737bd408a94903f214eb2879eb56de}\label{classxb_1_1xbString_a0a737bd408a94903f214eb2879eb56de}} 
+\index{xb::xbString@{xb::xbString}!CvtHexChar@{CvtHexChar}}
+\index{CvtHexChar@{CvtHexChar}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{CvtHexChar()}{CvtHexChar()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+String\+::\+Cvt\+Hex\+Char (\begin{DoxyParamCaption}\item[{char \&}]{c\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert hex character to string. 
+
+This routine converts a four byte string in the format of 0x00 to a one byte char value. The first four bytes of the string must be in the format 0x00. Anything past the first four bytes is disregarded.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+Out} & Output character. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+INVALID\+\_\+\+PARM on error~\newline
+ XB\+\_\+\+NO\+\_\+\+ERROR on success. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_ab5eb6918a0ae9ab6c0e961318f3d1eb0}\label{classxb_1_1xbString_ab5eb6918a0ae9ab6c0e961318f3d1eb0}} 
+\index{xb::xbString@{xb::xbString}!CvtHexString@{CvtHexString}}
+\index{CvtHexString@{CvtHexString}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{CvtHexString()}{CvtHexString()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+String\+::\+Cvt\+Hex\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert string of hex characters to string. 
+
+This routine converts a string of one or more four byte sequences 0x00 to a string of one byte chars.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Out} & Output string of converted characters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+INVALID\+\_\+\+PARM on error~\newline
+ XB\+\_\+\+NO\+\_\+\+ERROR on success. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_ae3ab18365e132323f8ae4c99eb72181c}\label{classxb_1_1xbString_ae3ab18365e132323f8ae4c99eb72181c}} 
+\index{xb::xbString@{xb::xbString}!CvtLongLong@{CvtLongLong}}
+\index{CvtLongLong@{CvtLongLong}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{CvtLongLong()}{CvtLongLong()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+String\+::\+Cvt\+Long\+Long (\begin{DoxyParamCaption}\item[{xb\+Int64 \&}]{ll\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert string to xb\+Int64 number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ll\+Out} & -\/ output long long. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a1528b30b84a41c3564ef31d1f4496b15}\label{classxb_1_1xbString_a1528b30b84a41c3564ef31d1f4496b15}} 
+\index{xb::xbString@{xb::xbString}!CvtULongLong@{CvtULongLong}}
+\index{CvtULongLong@{CvtULongLong}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{CvtULongLong()}{CvtULongLong()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+String\+::\+Cvt\+ULong\+Long (\begin{DoxyParamCaption}\item[{xb\+UInt64 \&}]{ull\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert string to xb\+UInt64 number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ull\+Out} & -\/ output unsigned long long. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a77195fc4957952625cb33bb503517a3e}\label{classxb_1_1xbString_a77195fc4957952625cb33bb503517a3e}} 
+\index{xb::xbString@{xb::xbString}!ExtractElement@{ExtractElement}}
+\index{ExtractElement@{ExtractElement}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{ExtractElement()}{ExtractElement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Extract\+Element (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p\+Src,  }\item[{char}]{c\+Delim,  }\item[{xb\+UInt32}]{l\+Skip\+Cnt,  }\item[{xb\+Int16}]{i\+Opt = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Extract an element out of a delimited string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Src} & Source string. \\
+\hline
+{\em c\+Delim} & Delimiter. \\
+\hline
+{\em l\+Skip\+Cnt} & Number of delimiters to skip. \\
+\hline
+{\em i\+Opt} & 0 -\/ ignore single and double quotes.~\newline
+ 1 -\/ ignore delimiters between single or double quotes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to string extracted from element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a6b33a8df49cdcb76033cbce5d8dc59d7}\label{classxb_1_1xbString_a6b33a8df49cdcb76033cbce5d8dc59d7}} 
+\index{xb::xbString@{xb::xbString}!ExtractElement@{ExtractElement}}
+\index{ExtractElement@{ExtractElement}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{ExtractElement()}{ExtractElement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Extract\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Src,  }\item[{char}]{c\+Delim,  }\item[{xb\+UInt32}]{l\+Skip\+Cnt,  }\item[{xb\+Int16}]{i\+Opt = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Extract an element out of a delimited string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Src} & Source string. \\
+\hline
+{\em c\+Delim} & Delimiter. \\
+\hline
+{\em l\+Skip\+Cnt} & Number of delimiters to skip. \\
+\hline
+{\em i\+Opt} & 0 -\/ ignore single and double quotes.~\newline
+ 1 -\/ ignore delimiters between single or double quotes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to string extracted from element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a72de24c43d4085813ec7720f8a970095}\label{classxb_1_1xbString_a72de24c43d4085813ec7720f8a970095}} 
+\index{xb::xbString@{xb::xbString}!GetCharacter@{GetCharacter}}
+\index{GetCharacter@{GetCharacter}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{GetCharacter()}{GetCharacter()}}
+{\footnotesize\ttfamily char xb\+::xb\+String\+::\+Get\+Character (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Get a character by position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & -\/ Position in string to extract. First position is 1 (not 0). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Character from position n, or null. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_ac7698665f44413a5e99a5b5bc573c6df}\label{classxb_1_1xbString_ac7698665f44413a5e99a5b5bc573c6df}} 
+\index{xb::xbString@{xb::xbString}!GetLastPos@{GetLastPos}}
+\index{GetLastPos@{GetLastPos}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{GetLastPos()}{GetLastPos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+String\+::\+Get\+Last\+Pos (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption}) const}
+
+
+
+Get the position of the last occurrence of a given character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & -\/ Character to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Last position of character in the string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a1c55587904fe7e534290559d0ecb8646}\label{classxb_1_1xbString_a1c55587904fe7e534290559d0ecb8646}} 
+\index{xb::xbString@{xb::xbString}!GetLastPos@{GetLastPos}}
+\index{GetLastPos@{GetLastPos}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{GetLastPos()}{GetLastPos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+String\+::\+Get\+Last\+Pos (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption}) const}
+
+
+
+Get the position of the last occurrence of a given string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ String to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Last position of character in the string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_af8b8b808cf43cd352321b43f500142db}\label{classxb_1_1xbString_af8b8b808cf43cd352321b43f500142db}} 
+\index{xb::xbString@{xb::xbString}!GetPathSeparator@{GetPathSeparator}}
+\index{GetPathSeparator@{GetPathSeparator}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{GetPathSeparator()}{GetPathSeparator()}}
+{\footnotesize\ttfamily char xb\+::xb\+String\+::\+Get\+Path\+Separator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the path separator out of the string. 
+
+This method assumes the string is a valid path name. If it is, it returns either / or . \begin{DoxyReturn}{Returns}
+Char value containing either / or \textbackslash{} depending on OS. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a6c33e73659f8e98819289d2661c7271c}\label{classxb_1_1xbString_a6c33e73659f8e98819289d2661c7271c}} 
+\index{xb::xbString@{xb::xbString}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+String\+::\+Get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieve the size of the string buffer. 
+
+\begin{DoxyReturn}{Returns}
+Size of string buffer including the null terminating byte. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_aa13f6b72e5a529eab04545892bbc98b4}\label{classxb_1_1xbString_aa13f6b72e5a529eab04545892bbc98b4}} 
+\index{xb::xbString@{xb::xbString}!HasAlphaChars@{HasAlphaChars}}
+\index{HasAlphaChars@{HasAlphaChars}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{HasAlphaChars()}{HasAlphaChars()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::\+Has\+Alpha\+Chars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Determine if the string has any alpha characters. 
+
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ String contains one or more alpha characters.~\newline
+ xb\+False -\/ String contains no alpha characters. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a4a255a30d683acd62ea09c1617b53cb3}\label{classxb_1_1xbString_a4a255a30d683acd62ea09c1617b53cb3}} 
+\index{xb::xbString@{xb::xbString}!IsEmpty@{IsEmpty}}
+\index{IsEmpty@{IsEmpty}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{IsEmpty()}{IsEmpty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::\+Is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Determine if string is empty. 
+
+\begin{DoxyReturn}{Returns}
+xb\+True if string is empty.~\newline
+ xb\+False if string is not empty. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a3fa34fa31bcb7244ecb054ab628ad500}\label{classxb_1_1xbString_a3fa34fa31bcb7244ecb054ab628ad500}} 
+\index{xb::xbString@{xb::xbString}!IsNull@{IsNull}}
+\index{IsNull@{IsNull}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{IsNull()}{IsNull()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::\+Is\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Determine if string is NULL. 
+
+\begin{DoxyReturn}{Returns}
+xb\+True if string is NULL.~\newline
+ xb\+False if string is not NULL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_acdc3a6d6955b99f0a6b1d181fb3098b9}\label{classxb_1_1xbString_acdc3a6d6955b99f0a6b1d181fb3098b9}} 
+\index{xb::xbString@{xb::xbString}!Left@{Left}}
+\index{Left@{Left}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Left()}{Left()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Left (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Len }\end{DoxyParamCaption})}
+
+
+
+Retain left part of string, drop rightmost characters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Len} & New string length, truncate rightmost excess. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a998b240eedac311aea5843047f55649b}\label{classxb_1_1xbString_a998b240eedac311aea5843047f55649b}} 
+\index{xb::xbString@{xb::xbString}!Len@{Len}}
+\index{Len@{Len}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Len()}{Len()}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+String\+::\+Len (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieve length of current string. 
+
+\begin{DoxyReturn}{Returns}
+String length, excluding the terminating null byte. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a90e0d0be4fd0d82dd2ebbe689adf18ee}\label{classxb_1_1xbString_a90e0d0be4fd0d82dd2ebbe689adf18ee}} 
+\index{xb::xbString@{xb::xbString}!Ltrim@{Ltrim}}
+\index{Ltrim@{Ltrim}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Ltrim()}{Ltrim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Ltrim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Left trim white space from string. 
+
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a656f5854f74064b7257ff96d96dfb68b}\label{classxb_1_1xbString_a656f5854f74064b7257ff96d96dfb68b}} 
+\index{xb::xbString@{xb::xbString}!Ltrunc@{Ltrunc}}
+\index{Ltrunc@{Ltrunc}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Ltrunc()}{Ltrunc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Ltrunc (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Cnt }\end{DoxyParamCaption})}
+
+
+
+Left truncate string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Cnt} & Number of bytes to remove from the left. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a0f9eefc836b24c4ee7c5a316c5d812b7}\label{classxb_1_1xbString_a0f9eefc836b24c4ee7c5a316c5d812b7}} 
+\index{xb::xbString@{xb::xbString}!Mid@{Mid}}
+\index{Mid@{Mid}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Mid()}{Mid()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Mid (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Start\+Pos,  }\item[{xb\+UInt32}]{ul\+Targ\+Len }\end{DoxyParamCaption})}
+
+
+
+Extract portion of data from string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Start\+Pos} & Starting position \\
+\hline
+{\em ul\+Targ\+Len} & Length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a545df0ae9590f0ea5844a165e38a6388}\label{classxb_1_1xbString_a545df0ae9590f0ea5844a165e38a6388}} 
+\index{xb::xbString@{xb::xbString}!operator const char $\ast$@{operator const char $\ast$}}
+\index{operator const char $\ast$@{operator const char $\ast$}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator const char $\ast$()}{operator const char *()}}
+{\footnotesize\ttfamily xb\+::xb\+String\+::operator const char $\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Operator const char $\ast$. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to string data. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a822448f2a0ce653473d4c1de5763a3a6}\label{classxb_1_1xbString_a822448f2a0ce653473d4c1de5763a3a6}} 
+\index{xb::xbString@{xb::xbString}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::operator!= (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption}) const}
+
+
+
+operator != 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Strings don\textquotesingle{}t match.~\newline
+ zb\+False -\/ Strings match.~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_acf89691607050b0505dc6af28d059c38}\label{classxb_1_1xbString_acf89691607050b0505dc6af28d059c38}} 
+\index{xb::xbString@{xb::xbString}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption}) const}
+
+
+
+operator != 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Strings don\textquotesingle{}t match.~\newline
+ xb\+False -\/ Strings match.~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_aab556e8c3cb478dd95643327d72a48bd}\label{classxb_1_1xbString_aab556e8c3cb478dd95643327d72a48bd}} 
+\index{xb::xbString@{xb::xbString}!operator+@{operator+}}
+\index{operator+@{operator+}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+String\+::operator+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s1 }\end{DoxyParamCaption})}
+
+
+
+Concatonate operator +. 
+
+Concatonate left string with right string returning reference to new string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & Right string operator. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_af559654baba81c3c0c19823c0b7a69d3}\label{classxb_1_1xbString_af559654baba81c3c0c19823c0b7a69d3}} 
+\index{xb::xbString@{xb::xbString}!operator+@{operator+}}
+\index{operator+@{operator+}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+String\+::operator+ (\begin{DoxyParamCaption}\item[{const char}]{c }\end{DoxyParamCaption})}
+
+
+
+Concatonate operator +. 
+
+Concatonate left string with right string returning reference to new string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Right string operator. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_a1f289d577ba90c500bc1be3ec7bb0206}\label{classxb_1_1xbString_a1f289d577ba90c500bc1be3ec7bb0206}} 
+\index{xb::xbString@{xb::xbString}!operator+@{operator+}}
+\index{operator+@{operator+}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+String\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s1 }\end{DoxyParamCaption})}
+
+
+
+Concatonate operator +. 
+
+Concatonate left string with right string returning reference to new string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & Right string operator. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_ae12f45b8be84e438e032c0b860f985c6}\label{classxb_1_1xbString_ae12f45b8be84e438e032c0b860f985c6}} 
+\index{xb::xbString@{xb::xbString}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::operator+= (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Append operator +=. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & -\/ Append c to the string. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_ab319120dbad9107e1e7090139c956100}\label{classxb_1_1xbString_ab319120dbad9107e1e7090139c956100}} 
+\index{xb::xbString@{xb::xbString}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::operator+= (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Append operator +=. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ Append s to the string. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_a76a47af239797a266ada6141c150001c}\label{classxb_1_1xbString_a76a47af239797a266ada6141c150001c}} 
+\index{xb::xbString@{xb::xbString}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Append operator +=. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ Append s to the string. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_a06abec236b95f6933ba17bf67089f7cf}\label{classxb_1_1xbString_a06abec236b95f6933ba17bf67089f7cf}} 
+\index{xb::xbString@{xb::xbString}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+String\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s1 }\end{DoxyParamCaption})}
+
+
+
+Concatonate operator -\/. 
+
+Concatonate left string with right string returning reference to new string. Both strings are trimmed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & Right string operator. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_adcafd019df23bb5724c46e34f3f31194}\label{classxb_1_1xbString_adcafd019df23bb5724c46e34f3f31194}} 
+\index{xb::xbString@{xb::xbString}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::operator-\/= (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Append operator -\/=. 
+
+Append c to the right of this string, trimming right space on this string first. 
+\begin{DoxyParams}{Parameters}
+{\em c} & -\/ Append s to the right of the string value. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_aaae97e6eda3d18c9f463993ade985bf4}\label{classxb_1_1xbString_aaae97e6eda3d18c9f463993ade985bf4}} 
+\index{xb::xbString@{xb::xbString}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::operator-\/= (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Append operator -\/=. 
+
+Append s to the right of this string, right trimming both strings. 
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ Append s to the right of the string value. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_aa7f4db1b4eae9dfad46346db6e17ea15}\label{classxb_1_1xbString_aa7f4db1b4eae9dfad46346db6e17ea15}} 
+\index{xb::xbString@{xb::xbString}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Append operator -\/=. 
+
+Append s to the right of this string, right trimming both strings. 
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ Append s to the right of the string value. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_a71c7aafa0d523c72cbe58c474be2270a}\label{classxb_1_1xbString_a71c7aafa0d523c72cbe58c474be2270a}} 
+\index{xb::xbString@{xb::xbString}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption}) const}
+
+
+
+operator \texorpdfstring{$<$}{<} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Left string is less than the right string.~\newline
+ zb\+False -\/ Left string is not less than the right string.~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a461f245e60cddfdf5f78a972a46e5880}\label{classxb_1_1xbString_a461f245e60cddfdf5f78a972a46e5880}} 
+\index{xb::xbString@{xb::xbString}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption}) const}
+
+
+
+operator \texorpdfstring{$<$}{<}= 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Left string is less than or equal to the right string.~\newline
+ zb\+False -\/ Left string is not less than or equal to the right string.~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a84ae7d16c5d73c5aa2270aa9895a7f7c}\label{classxb_1_1xbString_a84ae7d16c5d73c5aa2270aa9895a7f7c}} 
+\index{xb::xbString@{xb::xbString}!operator=@{operator=}}
+\index{operator=@{operator=}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::operator= (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Set operator =. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ Set the string to the string on the right of the equal sign. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_a4f69d11cbd43edf71725a606d0ca8f40}\label{classxb_1_1xbString_a4f69d11cbd43edf71725a606d0ca8f40}} 
+\index{xb::xbString@{xb::xbString}!operator=@{operator=}}
+\index{operator=@{operator=}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Set operator =. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ Set the string to the string on the right of the equal sign. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbString_a94031269af3c433393d4cf0ff9b4be38}\label{classxb_1_1xbString_a94031269af3c433393d4cf0ff9b4be38}} 
+\index{xb::xbString@{xb::xbString}!operator==@{operator==}}
+\index{operator==@{operator==}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::operator== (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption}) const}
+
+
+
+operator == 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Strings match.~\newline
+ zb\+False -\/ Strings don\textquotesingle{}t match.~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a2df3ed2fc9456214f5fd2fcf77b69bc1}\label{classxb_1_1xbString_a2df3ed2fc9456214f5fd2fcf77b69bc1}} 
+\index{xb::xbString@{xb::xbString}!operator==@{operator==}}
+\index{operator==@{operator==}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption}) const}
+
+
+
+operator == 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Strings match.~\newline
+ zb\+False -\/ Strings don\textquotesingle{}t match.~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_ae46f6a45da5686b607a4edf2786a2fff}\label{classxb_1_1xbString_ae46f6a45da5686b607a4edf2786a2fff}} 
+\index{xb::xbString@{xb::xbString}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption}) const}
+
+
+
+operator \texorpdfstring{$>$}{>} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Left string is greater than the right string.~\newline
+ zb\+False -\/ Left string is not greater than the right string.~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a8f16643cb7ba3ee9cf685422c9ea0e67}\label{classxb_1_1xbString_a8f16643cb7ba3ee9cf685422c9ea0e67}} 
+\index{xb::xbString@{xb::xbString}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption}) const}
+
+
+
+operator \texorpdfstring{$>$}{>}= 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Left string is greater than or equal to the right string.~\newline
+ zb\+False -\/ Left string is not greater than or equal to the right string.~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a4deaa68d9571753349c29baacb5613e8}\label{classxb_1_1xbString_a4deaa68d9571753349c29baacb5613e8}} 
+\index{xb::xbString@{xb::xbString}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily char \& xb\+::xb\+String\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{xb\+Int32}]{n }\end{DoxyParamCaption}) const}
+
+
+
+operator \mbox{[}\mbox{]} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & -\/ Offset into the string of the byte to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+c -\/ The character to return from the offset within the \mbox{[}\mbox{]} brackets. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_abe45e463226ac8e18550ced18c5a9df3}\label{classxb_1_1xbString_abe45e463226ac8e18550ced18c5a9df3}} 
+\index{xb::xbString@{xb::xbString}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily char \& xb\+::xb\+String\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{n }\end{DoxyParamCaption}) const}
+
+
+
+operator \mbox{[}\mbox{]} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & -\/ Offset into the string of the byte to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+c -\/ The character to return from the offset within the \mbox{[}\mbox{]} brackets. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a6a09cfed22066b0c72432f26960f9e7b}\label{classxb_1_1xbString_a6a09cfed22066b0c72432f26960f9e7b}} 
+\index{xb::xbString@{xb::xbString}!PadLeft@{PadLeft}}
+\index{PadLeft@{PadLeft}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{PadLeft()}{PadLeft()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Pad\+Left (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{xb\+UInt32}]{ul\+New\+Len }\end{DoxyParamCaption})}
+
+
+
+Left pad string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Padding character. \\
+\hline
+{\em ul\+New\+Len} & New string length. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_aba13f0c77eb6c4a22996039569fad284}\label{classxb_1_1xbString_aba13f0c77eb6c4a22996039569fad284}} 
+\index{xb::xbString@{xb::xbString}!PadRight@{PadRight}}
+\index{PadRight@{PadRight}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{PadRight()}{PadRight()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Pad\+Right (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{xb\+UInt32}]{ul\+New\+Len }\end{DoxyParamCaption})}
+
+
+
+Right pad string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Padding character. \\
+\hline
+{\em ul\+New\+Len} & New string length. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a3baf59d15099589ff631995f129e582b}\label{classxb_1_1xbString_a3baf59d15099589ff631995f129e582b}} 
+\index{xb::xbString@{xb::xbString}!Pos@{Pos}}
+\index{Pos@{Pos}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Pos()}{Pos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+String\+::\+Pos (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption}) const}
+
+
+
+Determine position of a given character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Seek character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Position within string. Returns 0 if not found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a1b586890138da8bf0e23090bd8b34581}\label{classxb_1_1xbString_a1b586890138da8bf0e23090bd8b34581}} 
+\index{xb::xbString@{xb::xbString}!Pos@{Pos}}
+\index{Pos@{Pos}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Pos()}{Pos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+String\+::\+Pos (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{xb\+UInt32}]{ul\+Start\+Pos }\end{DoxyParamCaption}) const}
+
+
+
+Determine position of a given character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Seek character \\
+\hline
+{\em ul\+Start\+Pos} & starting position for search, first position is 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Position within string. Returns 0 if not found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a8705d7277b72f5aa98021e84438914da}\label{classxb_1_1xbString_a8705d7277b72f5aa98021e84438914da}} 
+\index{xb::xbString@{xb::xbString}!Pos@{Pos}}
+\index{Pos@{Pos}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Pos()}{Pos()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+String\+::\+Pos (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption}) const}
+
+
+
+Determine position of a given substring. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Substring \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Position within string. Returns 0 if not found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a1bae6fa8f608261f6e889616482f6e39}\label{classxb_1_1xbString_a1bae6fa8f608261f6e889616482f6e39}} 
+\index{xb::xbString@{xb::xbString}!PutAt@{PutAt}}
+\index{PutAt@{PutAt}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{PutAt()}{PutAt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Put\+At (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Pos,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Insert character into string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Pos} & Insertion position. \\
+\hline
+{\em c} & Character to insert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_afaac65eaa6d9ef1596d6a0e7b91ed0f2}\label{classxb_1_1xbString_afaac65eaa6d9ef1596d6a0e7b91ed0f2}} 
+\index{xb::xbString@{xb::xbString}!Remove@{Remove}}
+\index{Remove@{Remove}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Remove (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Start\+Pos,  }\item[{xb\+UInt32}]{ul\+Del\+Size }\end{DoxyParamCaption})}
+
+
+
+Remove portion of string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Start\+Pos} & Starting position for removal operation. \\
+\hline
+{\em ul\+Del\+Size} & Size of deletion. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_ac721d643c60b5c5acf60c2bce99596fa}\label{classxb_1_1xbString_ac721d643c60b5c5acf60c2bce99596fa}} 
+\index{xb::xbString@{xb::xbString}!Replace@{Replace}}
+\index{Replace@{Replace}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Replace()}{Replace()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Replace (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s\+Replace,  }\item[{const char $\ast$}]{s\+Replace\+With,  }\item[{xb\+Int16}]{i\+Option = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Replace a value within a string with another value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Replace} & -\/ Character string to replace. \\
+\hline
+{\em s\+Replace\+With} & -\/ Character string to replace with \\
+\hline
+{\em i\+Option} & -\/ 0 = All occurrences, 1 = first occurrence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_aa6d346ab04e5bb8852f0bb996163a35e}\label{classxb_1_1xbString_aa6d346ab04e5bb8852f0bb996163a35e}} 
+\index{xb::xbString@{xb::xbString}!Resize@{Resize}}
+\index{Resize@{Resize}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Resize (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Size }\end{DoxyParamCaption})}
+
+
+
+Resize a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Size} & -\/ New string size, including null termination byte. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_aaf330188d67c347ecae0d16f65b22077}\label{classxb_1_1xbString_aaf330188d67c347ecae0d16f65b22077}} 
+\index{xb::xbString@{xb::xbString}!Rtrim@{Rtrim}}
+\index{Rtrim@{Rtrim}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Rtrim()}{Rtrim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Rtrim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Right trim the string. 
+
+This routine removes any trailing white space on the string.
+
+\begin{DoxyReturn}{Returns}
+Reference to string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_ab85753d2c39882e946a8468cbb587700}\label{classxb_1_1xbString_ab85753d2c39882e946a8468cbb587700}} 
+\index{xb::xbString@{xb::xbString}!Set@{Set}}
+\index{Set@{Set}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Set (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Set the value of the string. 
+
+Note\+: This routine fails if you try to set the string to itself or some part of itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Value to set the string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a6eba6ccd0c805a22516de2c18a30f8a3}\label{classxb_1_1xbString_a6eba6ccd0c805a22516de2c18a30f8a3}} 
+\index{xb::xbString@{xb::xbString}!Set@{Set}}
+\index{Set@{Set}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Set (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s,  }\item[{xb\+UInt32}]{ul\+Size }\end{DoxyParamCaption})}
+
+
+
+Set the value of the string. 
+
+Note\+: This routine fails if you try to set the string to itself or some part of itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Value to set the string. \\
+\hline
+{\em ul\+Size} & Maximum size of resultant string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_ac0d08bd688fd0e3707e32886d0dfeb09}\label{classxb_1_1xbString_ac0d08bd688fd0e3707e32886d0dfeb09}} 
+\index{xb::xbString@{xb::xbString}!Set@{Set}}
+\index{Set@{Set}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Set (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Set the value of the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Value to set the string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a3af5b1f111f94b0667551fcbd1d97abd}\label{classxb_1_1xbString_a3af5b1f111f94b0667551fcbd1d97abd}} 
+\index{xb::xbString@{xb::xbString}!SetNum@{SetNum}}
+\index{SetNum@{SetNum}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{SetNum()}{SetNum()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Set\+Num (\begin{DoxyParamCaption}\item[{xb\+Int32}]{l\+Num }\end{DoxyParamCaption})}
+
+
+
+Set the string to long integer numeric value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+Num} & Value to set the string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a9e9bfa29d86377b915f1628aeb0e9195}\label{classxb_1_1xbString_a9e9bfa29d86377b915f1628aeb0e9195}} 
+\index{xb::xbString@{xb::xbString}!Sprintf@{Sprintf}}
+\index{Sprintf@{Sprintf}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Sprintf()}{Sprintf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Sprintf (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s\+Format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Printf routine for formatting a string. 
+
+See documentation on the standard C printf function for how to use this.
+
+My\+String.\+Sprintf( \char`\"{}a number \%d  some text \%s\char`\"{}, 100, \char`\"{}test text data\char`\"{} );
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Format} & A format specifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to a formatted string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a6715f4c0010f3ab487c9d787838a29b3}\label{classxb_1_1xbString_a6715f4c0010f3ab487c9d787838a29b3}} 
+\index{xb::xbString@{xb::xbString}!Str@{Str}}
+\index{Str@{Str}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Str()}{Str()}}
+{\footnotesize\ttfamily const char $\ast$ xb\+::xb\+String\+::\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return string data. 
+
+\begin{DoxyReturn}{Returns}
+char $\ast$ to string data or NULL if string is empty 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a3bc9e856c34f0c240a6e36e5b6e3ea7b}\label{classxb_1_1xbString_a3bc9e856c34f0c240a6e36e5b6e3ea7b}} 
+\index{xb::xbString@{xb::xbString}!strncpy@{strncpy}}
+\index{strncpy@{strncpy}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{strncpy()}{strncpy()}}
+{\footnotesize\ttfamily char $\ast$ xb\+::xb\+String\+::strncpy (\begin{DoxyParamCaption}\item[{char $\ast$}]{c\+Dest,  }\item[{xb\+UInt32}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Copy all or part of string to character array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+Dest} & pointer to destination buffer. \\
+\hline
+{\em n} & Number of bytes to copy. It is the responsibility of the application to verify the buffer is large enough to hold the string contents. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char $\ast$ to result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a054683872e1f05d11c2cf8683a63a6fe}\label{classxb_1_1xbString_a054683872e1f05d11c2cf8683a63a6fe}} 
+\index{xb::xbString@{xb::xbString}!SwapChars@{SwapChars}}
+\index{SwapChars@{SwapChars}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{SwapChars()}{SwapChars()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Swap\+Chars (\begin{DoxyParamCaption}\item[{char}]{c\+From,  }\item[{char}]{c\+To }\end{DoxyParamCaption})}
+
+
+
+Swap characters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+From} & character to replace. \\
+\hline
+{\em c\+To} & character to replace with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a602cac1a6ef3f6b52f587ac4c0ef4fb2}\label{classxb_1_1xbString_a602cac1a6ef3f6b52f587ac4c0ef4fb2}} 
+\index{xb::xbString@{xb::xbString}!ToLowerCase@{ToLowerCase}}
+\index{ToLowerCase@{ToLowerCase}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{ToLowerCase()}{ToLowerCase()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+To\+Lower\+Case (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Replace all upper case charaters with lower case characters. 
+
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a68001d0a44e6b4fe61e29a4e41ded9d4}\label{classxb_1_1xbString_a68001d0a44e6b4fe61e29a4e41ded9d4}} 
+\index{xb::xbString@{xb::xbString}!ToUpperCase@{ToUpperCase}}
+\index{ToUpperCase@{ToUpperCase}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{ToUpperCase()}{ToUpperCase()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+To\+Upper\+Case (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Replace all lower case charaters with lower case characters. 
+
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_abc9bd33687d4e03ca52d77885721d626}\label{classxb_1_1xbString_abc9bd33687d4e03ca52d77885721d626}} 
+\index{xb::xbString@{xb::xbString}!Trim@{Trim}}
+\index{Trim@{Trim}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{Trim()}{Trim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Trim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Trim all leading and trailing white space from string. 
+
+\begin{DoxyReturn}{Returns}
+Reference to string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a72b16c15fd8822efaa5f158c34df7b1e}\label{classxb_1_1xbString_a72b16c15fd8822efaa5f158c34df7b1e}} 
+\index{xb::xbString@{xb::xbString}!ValidLogicalValue@{ValidLogicalValue}}
+\index{ValidLogicalValue@{ValidLogicalValue}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{ValidLogicalValue()}{ValidLogicalValue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::\+Valid\+Logical\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Check for valid logical field data. 
+
+Valid logical data is one \textquotesingle{}T\textquotesingle{}, \textquotesingle{}F\textquotesingle{}, \textquotesingle{}N\textquotesingle{} or \textquotesingle{}Y\textquotesingle{}.~\newline
+
+
+\begin{DoxyReturn}{Returns}
+xb\+True if the data is valid logical data.~\newline
+ xb\+False if not valid logical data. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_aeed920d2a25111f776ddde2d530eb81b}\label{classxb_1_1xbString_aeed920d2a25111f776ddde2d530eb81b}} 
+\index{xb::xbString@{xb::xbString}!ValidNumericValue@{ValidNumericValue}}
+\index{ValidNumericValue@{ValidNumericValue}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{ValidNumericValue()}{ValidNumericValue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+String\+::\+Valid\+Numeric\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+This function returns true if the data is valid numeric data. 
+
+\begin{DoxyReturn}{Returns}
+xb\+True if valid numeric data.~\newline
+ xb\+False if not valid numeric daata. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_a2fd30956a26a260d1ef6fdbe73dd93f9}\label{classxb_1_1xbString_a2fd30956a26a260d1ef6fdbe73dd93f9}} 
+\index{xb::xbString@{xb::xbString}!ZapChar@{ZapChar}}
+\index{ZapChar@{ZapChar}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{ZapChar()}{ZapChar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Zap\+Char (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Remove every instance of a character from a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & character to remove from string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this stirng.\+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_addc3a470f6cd85d4c21bf9da38cf5ac9}\label{classxb_1_1xbString_addc3a470f6cd85d4c21bf9da38cf5ac9}} 
+\index{xb::xbString@{xb::xbString}!ZapLeadingChar@{ZapLeadingChar}}
+\index{ZapLeadingChar@{ZapLeadingChar}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{ZapLeadingChar()}{ZapLeadingChar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Zap\+Leading\+Char (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Remove leading character from a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & character to remove from beginning of string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbString_afe3415bfa2e1089b792aeda0462fb99e}\label{classxb_1_1xbString_afe3415bfa2e1089b792aeda0462fb99e}} 
+\index{xb::xbString@{xb::xbString}!ZapTrailingChar@{ZapTrailingChar}}
+\index{ZapTrailingChar@{ZapTrailingChar}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{ZapTrailingChar()}{ZapTrailingChar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+String\+::\+Zap\+Trailing\+Char (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Remove trailing character from a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & character to remove from ending of string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this string. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classxb_1_1xbString_a8e5856ab09babb5b10c2fcb64434ca60}\label{classxb_1_1xbString_a8e5856ab09babb5b10c2fcb64434ca60}} 
+\index{xb::xbString@{xb::xbString}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!xb::xbString@{xb::xbString}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily XBDLLEXPORT friend std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Stream insertion operator \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}. 
+
+std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} My\+String \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl;
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Output stream \\
+\hline
+{\em s} & String to send to output stream \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+7/src/include/\mbox{\hyperlink{xbstring_8h}{xbstring.\+h}}\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+7/src/core/\mbox{\hyperlink{xbstring_8cpp}{xbstring.\+cpp}}\end{DoxyCompactItemize}

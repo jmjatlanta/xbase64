@@ -1,0 +1,61 @@
+\hypertarget{xbtypes_8h_source}{}\doxysection{xbtypes.\+h}
+\label{xbtypes_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbtypes.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbtypes.h}}
+\mbox{\hyperlink{xbtypes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbtypes.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef \_\_XB\_XTYPES\_H\_\_}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define \_\_XB\_XTYPES\_H\_\_}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{typedef} \textcolor{keywordtype}{float}       \mbox{\hyperlink{namespacexb_a83aa6a550398db55973aa9fb4257e66e}{xbFloat}};}
+\DoxyCodeLine{23 \textcolor{keyword}{typedef} \textcolor{keywordtype}{double}      \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}};}
+\DoxyCodeLine{24 \textcolor{keyword}{typedef} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int}   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}};}
+\DoxyCodeLine{25 \textcolor{keyword}{typedef} xbUInt64    \mbox{\hyperlink{namespacexb_ac963d9fde6debb416303cfbed35fb793}{xbOffT}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define xbTrue  1}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define xbFalse 0}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifdef HAVE\_\_FILENO\_F}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{  \#define xbFileNo \_fileno}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{  \#define xbFileNo fileno}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#ifdef XB\_LOCKING\_SUPPORT}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{ \#if defined( HAVE\_LONG\_LONG )}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{  \#define LK4026531839 4026531839LL}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{  \#define LK4026531838 4026531838LL}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{  \#define LK3026531838 3026531838LL}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{  \#define LK1000000000 1000000000LL}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{ \#else}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{  \#define LK4026531839 4026531839L}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{  \#define LK4026531838 4026531838L}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{  \#define LK3026531838 3026531838L}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{  \#define LK1000000000 1000000000L}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{ \#endif}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \}  \textcolor{comment}{/* namespace */}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{/*  \_\_XB\_XTYPES\_H\_\_  */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,54 @@
+
+Auto Update Design / Functionality
+
+
+Auto update functionality in the library is used to automatically update 
+records in tables, when the user moves off a particular record without
+explicitly posting an update for the new data updates.
+
+The auto Update logic defaults to ON, and there is nothing that the
+end user needs to worry about.
+
+However, if it is desired to change the behavior of the library, the 
+Auto Update logic can be turned off.
+
+There are two levels to the Auto Update logic.
+
+The first level is the DBMS level, which controls how all tables are
+handled, if the Auto Update logic is not over ridden at the table level.
+
+The second level is the table level.  The DBMS Auto Update logic can
+be over ridden at the table level.
+
+
+For the DBMS level settings, see methods:
+    xBase::GetDefaultAutoUpdate
+    xBase::SetDefaultAutoUpdate
+
+At the DBMS level, there are two settings
+   xbFalse = AutoUpdate is off
+   xbTrue  = AutoUpdate is on
+
+For the Table level settings, see methods:
+    xbDbf::SetAutoUpdate
+    xbDbf::GetAutoUpdate
+
+At the table level, there are three settings
+    -1  = Use the DBMS setting (this is the default)
+     0  = Do not use Auto Update on this table
+     1  = Use Auto Update on this table.
+
+These seetings would be for a more advanceed implementation of
+XBase64.  For the most part, you can ignore these settings and
+use the defaults that are already set in the library and you should
+be OK.
+
+
+This document is missing some functions 
+
+x:DisableDefaultAutoLock()
+x:EnableDefaultAutoLock()
+
+
+
+

@@ -1,0 +1,60 @@
+\hypertarget{xblog_8h_source}{}\doxysection{xblog.\+h}
+\label{xblog_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xblog.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xblog.h}}
+\mbox{\hyperlink{xblog_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xblog.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef \_\_XB\_XBLOG\_H\_\_}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define \_\_XB\_XBLOG\_H\_\_}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifdef  CMAKE\_COMPILER\_IS\_GNUCC}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#pragma interface}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#ifdef XB\_LOGGING\_SUPPORT}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{41 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{namespacexb_a4a31fbe9110c9e55495ce71e642d785c}{xbLog}} : \textcolor{keyword}{public} xbFile \{}
+\DoxyCodeLine{42   \textcolor{keyword}{public}:}
+\DoxyCodeLine{43    \mbox{\hyperlink{namespacexb_a4a31fbe9110c9e55495ce71e642d785c}{xbLog}}();}
+\DoxyCodeLine{44    \mbox{\hyperlink{namespacexb_a4a31fbe9110c9e55495ce71e642d785c}{xbLog}}( \textcolor{keyword}{const} xbString \&sLogFileName );}
+\DoxyCodeLine{45    \string~xbLog();}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47    xbInt16  LogClose     ();}
+\DoxyCodeLine{48    xbInt16  LogGetStatus ();}
+\DoxyCodeLine{49    xbInt16  LogOpen      ();}
+\DoxyCodeLine{50    \textcolor{keywordtype}{void}     LogSetStatus ( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bLogStatus );}
+\DoxyCodeLine{51    \textcolor{keywordtype}{void}     LogSetLogSize( \textcolor{keywordtype}{size\_t} lSize );                  \textcolor{comment}{//   \{ LogSize = size; \}}}
+\DoxyCodeLine{52    xbInt16  LogWrite     ( \textcolor{keyword}{const} xbString \&LogEntry, xbInt16 iOutputOption = 0 );}
+\DoxyCodeLine{53    xbInt16  LogWriteBytes( xbUInt32 lByteCnt, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p );}
+\DoxyCodeLine{54    \textcolor{keywordtype}{size\_t}   LogGetLogSize()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lLogSize; \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56   \textcolor{keyword}{private}:}
+\DoxyCodeLine{57    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bLoggingStatus;        \textcolor{comment}{// false = logging off}}
+\DoxyCodeLine{58                                    \textcolor{comment}{// true  = logging on}}
+\DoxyCodeLine{59    \textcolor{keywordtype}{size\_t}   lLogSize;}
+\DoxyCodeLine{60    xbInt16  iShareMode;}
+\DoxyCodeLine{61 \};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif          }\textcolor{comment}{// XB\_LOGGING\_SUPPORT}}
+\DoxyCodeLine{64 \}               \textcolor{comment}{// namespace}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif          }\textcolor{comment}{// XB\_XBLOG\_H\_\_}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 }
+
+\end{DoxyCode}

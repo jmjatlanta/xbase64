@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['dateisvalid_0',['DateIsValid',['../classxb_1_1xbDate.html#a367f66ef0c03c1747c12a18784554ccb',1,'xb::xbDate']]],
+  ['dayof_1',['DayOf',['../classxb_1_1xbDate.html#a46e5e2ade84867cea89afd9eef3fb6c9',1,'xb::xbDate']]],
+  ['dblequals_2',['dblEquals',['../tstfuncs_8cpp.html#a8b8e417213c57f2ea0bcb61a7fb28860',1,'tstfuncs.cpp']]],
+  ['dblmax_3',['dblMax',['../tstfuncs_8cpp.html#a69a6e718e066af7f8392e5f1fea40d1b',1,'tstfuncs.cpp']]],
+  ['dblmin_4',['dblMin',['../tstfuncs_8cpp.html#a4d7b8f3f1ce52c6c0a281f25419f4c93',1,'tstfuncs.cpp']]],
+  ['deleteall_5',['DeleteAll',['../classxb_1_1xbDbf.html#a01c26b67e312be1e674b3da710e031b9',1,'xb::xbDbf']]],
+  ['deleteallrecords_6',['DeleteAllRecords',['../classxb_1_1xbDbf.html#a3067fdfa3a7a5c15651f6e89d1102176',1,'xb::xbDbf']]],
+  ['deleterecord_7',['DeleteRecord',['../classxb_1_1xbDbf.html#acd8c10579229f3a2e2c5fdb7fcef90db',1,'xb::xbDbf']]],
+  ['deletetable_8',['DeleteTable',['../classxb_1_1xbDbf.html#a4085ed4f049d976124d8edc3d3c56397',1,'xb::xbDbf']]],
+  ['determinexbasememoversion_9',['DetermineXbaseMemoVersion',['../classxb_1_1xbFile.html#a5a740033664c9ad2611c90e2a6d0c2d3',1,'xb::xbFile']]],
+  ['determinexbasetableversion_10',['DetermineXbaseTableVersion',['../classxb_1_1xbFile.html#ae2b6ac26018dc28f77afbb3f008c3f66',1,'xb::xbFile']]],
+  ['devtester_11',['DevTester',['../xb__test__expression_8cpp.html#aee57237c5f5b9b4d80e84bf530eb42bc',1,'xb_test_expression.cpp']]],
+  ['disablemsglogging_12',['DisableMsgLogging',['../classxb_1_1xbXBase.html#ae357fac4fdebdf49e46563cf611caf65',1,'xb::xbXBase']]],
+  ['displayerror_13',['DisplayError',['../classxb_1_1xbSsv.html#a97dfa59ab9a8e9f17454da0faceb023d',1,'xb::xbSsv']]],
+  ['displaytablelist_14',['DisplayTableList',['../classxb_1_1xbTblMgr.html#a5eebffb9e8cc64141e35c2622045cb50',1,'xb::xbTblMgr']]],
+  ['dumpheader_15',['DumpHeader',['../classxb_1_1xbDbf.html#a47643728f74cf3b6e0ffc55259895bdb',1,'xb::xbDbf']]],
+  ['dumprecord_16',['DumpRecord',['../classxb_1_1xbDbf.html#a0085c72e82391669e029fbfaabe88e13',1,'xb::xbDbf']]],
+  ['dumprecs_17',['DumpRecs',['../xb__test__relate2_8cpp.html#a4c1895f3e6830e78ab481fb43b5f74f0',1,'xb_test_relate2.cpp']]]
+];

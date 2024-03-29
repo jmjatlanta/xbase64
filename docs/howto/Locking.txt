@@ -1,0 +1,53 @@
+
+Xbase64 - Multi user / Record Locking
+
+
+
+If you are using the Xbase64 library in a multi user environment, 
+
+The Record Locking functionality of Xbase64 is designed to work in an evironment
+where the files are not cached on a local client machine.
+
+If you are using the Xbase64 library in a multi user environment, you will need
+to verify that Oplocks are turned off for the files in question.
+
+Oplocks is short for Opportunistic Locking.
+
+
+If you are using Samba software as your file server software, you will
+need to add the following to your smb.conf config files.
+
+
+In the global section of the smb.conf file:
+
+[global]
+veto oplock files = /*.dbf/*.DBF/*.dbt/*.DBT/*.ndx/*.NDX/*.cdx/*.CDX/*.mdx/*.MDX
+
+
+Or you could set this at the share level
+[share_name]
+veto oplock files = /*.dbf/*.DBF/*.dbt/*.DBT/*.ndx/*.NDX/*.cdx/*.CDX/*.mdx/*.MDX
+
+
+Sometimes locking issues can be related to the network config, more than the programs
+For example, the locking logic might fail if the underlying file structure does not
+support it.
+
+Mac OSX does not support locking functionality on SMB / Samba shares
+Mac OSX does support locking functionality on NFS shares
+Per Apple, this is by design
+
+
+Function:  xbase::SetMultiUser( xbTrue || xbFalse )
+
+  Use this function to turn multi user mode on or off.
+  This function needs to be called before any files are opened or created.
+  If this function is called after files are opened or created, the files
+  will need to be closed and reopened for this setting to take effect.
+  
+  This setting turns file buffering on and off.  In a single user environment,
+  set this switch to off to improve the performance of the application.
+ 
+
+
+

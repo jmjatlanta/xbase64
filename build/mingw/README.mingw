@@ -1,0 +1,21 @@
+
+Mingw build steps for Xbase64 running on Windows - 3/7/23
+
+1)  Verify cmake is installed with command:  cmake --version
+    If it is not installed, install the latest version.
+
+
+2)  Verify mingw gcc is intalled with the command:  mingw32-make --version
+    If it is not installed, install the latest version.
+
+
+3)  Build xbase64 library
+
+      cd build/mingw       (go to the appropriate build directory)
+      BuildMinGw.bat       (configure for your environment and compile)
+      mingw32-make test    (test library buiild)
+      mingw32-make install (install it)
+
+      "c:\Program Files (x86)\xbase64\bin\xb_cfg_chk"
+                           (test install)
+

@@ -1,0 +1,90 @@
+\hypertarget{xbfilter_8h_source}{}\doxysection{xbfilter.\+h}
+\label{xbfilter_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbfilter.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbfilter.h}}
+\mbox{\hyperlink{xbfilter_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbfilter.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{This class manages the user data area (UDA)}}
+\DoxyCodeLine{15 \textcolor{comment}{}}
+\DoxyCodeLine{16 \textcolor{comment}{*/}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef \_\_XB\_XBFILTER\_H\_\_}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define \_\_XB\_XBFILTER\_H\_\_}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifdef  CMAKE\_COMPILER\_IS\_GNUCC}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#pragma interface}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#ifdef XB\_FILTER\_SUPPORT}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{class }XBDLLEXPORT xbFilter \{}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35  \textcolor{keyword}{public}:}
+\DoxyCodeLine{36   xbFilter( \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} *dbf );}
+\DoxyCodeLine{37   \string~xbFilter();}
+\DoxyCodeLine{38   xbInt16 Set( \textcolor{keyword}{const} xbString \&sFilterExpression );}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{  \#ifdef XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{41   xbInt16 Set( \textcolor{keyword}{const} xbString \&sFilterExpression, xbIx *ix, \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{42   xbInt16 Set( \textcolor{keyword}{const} xbString \&sFilterExpression, \textcolor{keyword}{const} xbString \&sTagName );}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44   xbInt16 SetIxTag( xbIx *ix, \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{45   xbInt16 SetIxTag( \textcolor{keyword}{const} xbString \&sTagName );}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49   xbInt16 GetFirstRecord( xbInt16 iOpt = \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\_ACTIVE\_RECS}} );}
+\DoxyCodeLine{50   xbInt16 GetNextRecord ( xbInt16 iOpt = \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\_ACTIVE\_RECS}} );}
+\DoxyCodeLine{51   xbInt16 GetPrevRecord ( xbInt16 iOpt = \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\_ACTIVE\_RECS}} );}
+\DoxyCodeLine{52   xbInt16 GetLastRecord ( xbInt16 iOpt = \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\_ACTIVE\_RECS}} );}
+\DoxyCodeLine{53   \textcolor{keywordtype}{void}    SetLimit( xbInt32 ulLimit );}
+\DoxyCodeLine{54   xbInt32 GetLimit() \textcolor{keyword}{const};}
+\DoxyCodeLine{55   \textcolor{keywordtype}{void}    ResetQryCnt();}
+\DoxyCodeLine{56   xbInt32 GetQryCnt() \textcolor{keyword}{const};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{preprocessor}{  \#ifdef XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{59   xbInt16 Find( \textcolor{keyword}{const} xbString \&sKey,  xbInt16 iOpt = \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\_ACTIVE\_RECS}}  );}
+\DoxyCodeLine{60   xbInt16 Find( \textcolor{keyword}{const} xbDate   \&dtKey, xbInt16 iOpt = \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\_ACTIVE\_RECS}}  );}
+\DoxyCodeLine{61   xbInt16 Find( \textcolor{keyword}{const} \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dKey,  xbInt16 iOpt = \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\_ACTIVE\_RECS}}  );}
+\DoxyCodeLine{62   xbInt16 GetFirstRecordIx( xbInt16 iOpt = \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\_ACTIVE\_RECS}} );}
+\DoxyCodeLine{63   xbInt16 GetNextRecordIx ( xbInt16 iOpt = \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\_ACTIVE\_RECS}} );}
+\DoxyCodeLine{64   xbInt16 GetPrevRecordIx ( xbInt16 iOpt = \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\_ACTIVE\_RECS}} );}
+\DoxyCodeLine{65   xbInt16 GetLastRecordIx ( xbInt16 iOpt = \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\_ACTIVE\_RECS}} );}
+\DoxyCodeLine{66 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68  \textcolor{keyword}{private}:}
+\DoxyCodeLine{69   \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}}    *dbf;}
+\DoxyCodeLine{70   xbExp    *exp;}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72   xbInt32  lLimit;           \textcolor{comment}{// max number rows returned}}
+\DoxyCodeLine{73   xbInt32  lCurQryCnt;       \textcolor{comment}{// current count of rows returned, neg\# is moving from bottom to top}}
+\DoxyCodeLine{74                              \textcolor{comment}{//                                 pos\# is moving from top to bottom}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{  \#ifdef XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{77   xbIx     *pIx;             \textcolor{comment}{// optional index tag}}
+\DoxyCodeLine{78   \textcolor{keywordtype}{void}     *vpTag;}
+\DoxyCodeLine{79 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \};}
+\DoxyCodeLine{82 \}        \textcolor{comment}{/* namespace */}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* XB\_FILTER\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XBFILTER\_H\_\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

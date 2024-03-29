@@ -1,0 +1,77 @@
+\hypertarget{structxb_1_1xbSchema}{}\doxysection{xb\+::xb\+Schema Struct Reference}
+\label{structxb_1_1xbSchema}\index{xb::xbSchema@{xb::xbSchema}}
+
+
+Schema used for defining tables with Create\+Table methods.  
+
+
+
+
+{\ttfamily \#include $<$xbdbf.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{structxb_1_1xbSchema_a514183856094123fd37df67885b4681e}{c\+Field\+Name}} \mbox{[}11\mbox{]}
+\item 
+char \mbox{\hyperlink{structxb_1_1xbSchema_a1d612b2ed5dc0b0289c9e91b3cda3a25}{c\+Type}}
+\item 
+xb\+Int16 \mbox{\hyperlink{structxb_1_1xbSchema_a2da554af25ef628acf59bb52996056ac}{i\+Field\+Len}}
+\item 
+xb\+Int16 \mbox{\hyperlink{structxb_1_1xbSchema_a55bab3bb69dee3508d168c93e182d4b9}{i\+No\+Of\+Decs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Schema used for defining tables with Create\+Table methods. 
+
+See program \mbox{\hyperlink{xb__ex__v3__create__dbf_8cpp}{xb\+\_\+ex\+\_\+v3\+\_\+create\+\_\+dbf.\+cpp}} or \mbox{\hyperlink{xb__ex__v4__create__dbf_8cpp}{xb\+\_\+ex\+\_\+v4\+\_\+create\+\_\+dbf.\+cpp}} as examples on how to use.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{xbSchema MyRecord[] = \{}
+\DoxyCodeLine{\textcolor{comment}{//  FieldName,   Type,          Len, Dec}}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}FIRSTNAME"{}}, \mbox{\hyperlink{xbdbf_8h_a20f739b9d9dc6a002a246a999e76aeaa}{XB\_CHAR\_FLD}},     15, 0 \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}LASTNAME"{}},  \mbox{\hyperlink{xbdbf_8h_a20f739b9d9dc6a002a246a999e76aeaa}{XB\_CHAR\_FLD}},     20, 0 \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}BIRTHDATE"{}}, \mbox{\hyperlink{xbdbf_8h_a7f685e6f5fe804b2174725a27ce73adc}{XB\_DATE\_FLD}},      8, 0 \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}AMOUNT"{}},    \mbox{\hyperlink{xbdbf_8h_ae9fb6d69cc5edc94d36ae403c22ec1c6}{XB\_NUMERIC\_FLD}},   9, 2 \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}RETIRED?"{}},  \mbox{\hyperlink{xbdbf_8h_a2f6d5073af761bc1a806a2c7b1c1d886}{XB\_LOGICAL\_FLD}},   1, 0 \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}ZIPCODE"{}},   \mbox{\hyperlink{xbdbf_8h_ae9fb6d69cc5edc94d36ae403c22ec1c6}{XB\_NUMERIC\_FLD}},   5, 0 \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}NUMFLD1"{}},   \mbox{\hyperlink{xbdbf_8h_a96ab4218d70ab603b4866354ce8c18cd}{XB\_FLOAT\_FLD}},    12, 2 \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}NUMFLD2"{}},   \mbox{\hyperlink{xbdbf_8h_a96ab4218d70ab603b4866354ce8c18cd}{XB\_FLOAT\_FLD}},    14, 2 \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}MEMO1"{}},     \mbox{\hyperlink{xbdbf_8h_a23fa19b19cb43bd6dcc59a5a3f6c30ad}{XB\_MEMO\_FLD}},     10, 0 \},}
+\DoxyCodeLine{  \{ \textcolor{stringliteral}{"{}"{}},0,0,0 \}\};}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structxb_1_1xbSchema_a514183856094123fd37df67885b4681e}\label{structxb_1_1xbSchema_a514183856094123fd37df67885b4681e}} 
+\index{xb::xbSchema@{xb::xbSchema}!cFieldName@{cFieldName}}
+\index{cFieldName@{cFieldName}!xb::xbSchema@{xb::xbSchema}}
+\doxysubsubsection{\texorpdfstring{cFieldName}{cFieldName}}
+{\footnotesize\ttfamily char xb\+::xb\+Schema\+::c\+Field\+Name\mbox{[}11\mbox{]}}
+
+\mbox{\Hypertarget{structxb_1_1xbSchema_a1d612b2ed5dc0b0289c9e91b3cda3a25}\label{structxb_1_1xbSchema_a1d612b2ed5dc0b0289c9e91b3cda3a25}} 
+\index{xb::xbSchema@{xb::xbSchema}!cType@{cType}}
+\index{cType@{cType}!xb::xbSchema@{xb::xbSchema}}
+\doxysubsubsection{\texorpdfstring{cType}{cType}}
+{\footnotesize\ttfamily char xb\+::xb\+Schema\+::c\+Type}
+
+\mbox{\Hypertarget{structxb_1_1xbSchema_a2da554af25ef628acf59bb52996056ac}\label{structxb_1_1xbSchema_a2da554af25ef628acf59bb52996056ac}} 
+\index{xb::xbSchema@{xb::xbSchema}!iFieldLen@{iFieldLen}}
+\index{iFieldLen@{iFieldLen}!xb::xbSchema@{xb::xbSchema}}
+\doxysubsubsection{\texorpdfstring{iFieldLen}{iFieldLen}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Schema\+::i\+Field\+Len}
+
+\mbox{\Hypertarget{structxb_1_1xbSchema_a55bab3bb69dee3508d168c93e182d4b9}\label{structxb_1_1xbSchema_a55bab3bb69dee3508d168c93e182d4b9}} 
+\index{xb::xbSchema@{xb::xbSchema}!iNoOfDecs@{iNoOfDecs}}
+\index{iNoOfDecs@{iNoOfDecs}!xb::xbSchema@{xb::xbSchema}}
+\doxysubsubsection{\texorpdfstring{iNoOfDecs}{iNoOfDecs}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Schema\+::i\+No\+Of\+Decs}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+7/src/include/\mbox{\hyperlink{xbdbf_8h}{xbdbf.\+h}}\end{DoxyCompactItemize}

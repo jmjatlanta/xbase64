@@ -1,0 +1,531 @@
+\hypertarget{xbdbf_8h_source}{}\doxysection{xbdbf.\+h}
+\label{xbdbf_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbdbf.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbdbf.h}}
+\mbox{\hyperlink{xbdbf_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbdbf.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef \_\_XB\_XBDBF\_H\_\_}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define \_\_XB\_XBDBF\_H\_\_}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{//\#ifdef  CMAKE\_COMPILER\_IS\_GNUCC}}
+\DoxyCodeLine{21 \textcolor{comment}{//\#pragma interface}}
+\DoxyCodeLine{22 \textcolor{comment}{//\#endif}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{comment}{/*****************************/}}
+\DoxyCodeLine{27 \textcolor{comment}{/* Field Types               */}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define XB\_CHAR\_FLD      'C'}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define XB\_LOGICAL\_FLD   'L'}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define XB\_NUMERIC\_FLD   'N'}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define XB\_DATE\_FLD      'D'}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define XB\_MEMO\_FLD      'M'}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define XB\_FLOAT\_FLD     'F'}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{comment}{/*****************************/}}
+\DoxyCodeLine{37 \textcolor{comment}{/* File Status Codes         */}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define XB\_CLOSED  0}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define XB\_OPEN    1}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define XB\_UPDATED 2}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{comment}{/*****************************/}}
+\DoxyCodeLine{45 \textcolor{comment}{/* File Access Modes         */}}
+\DoxyCodeLine{46 \textcolor{comment}{// \#define XB\_SINGLE\_USER  0      // file buffering on}}
+\DoxyCodeLine{47 \textcolor{comment}{// \#define XB\_MULTI\_USER   1      // file buffering off}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{comment}{/*****************************/}}
+\DoxyCodeLine{50 \textcolor{comment}{/* File Lock Functions       */}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define XB\_LOCK       0}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define XB\_UNLOCK     1}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define LK\_DBASE      1}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define LK\_CLIPPER    2     }\textcolor{comment}{// future}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define LK\_FOX        3     }\textcolor{comment}{// future}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define LK\_XBASE64    9     }\textcolor{comment}{// future}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{comment}{/*****************************/}}
+\DoxyCodeLine{60 \textcolor{comment}{/* Record retrieve options   */}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define XB\_ALL\_RECS     0}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define XB\_ACTIVE\_RECS  1}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define XB\_DELETED\_RECS 2}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{comment}{/*****************************/}}
+\DoxyCodeLine{67 \textcolor{comment}{/* Other defines             */}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define XB\_OVERLAY     1}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define XB\_DONTOVERLAY 0}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define XB\_CHAREOF  '\(\backslash\)x1A'         }\textcolor{comment}{/* end of DBF        */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define XB\_CHARHDR  '\(\backslash\)x0D'         }\textcolor{comment}{/* header terminator */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 }
+\DoxyCodeLine{76 }
+\DoxyCodeLine{95 \textcolor{keyword}{struct }XBDLLEXPORT \mbox{\hyperlink{structxb_1_1xbSchema}{xbSchema}} \{}
+\DoxyCodeLine{96   \textcolor{keywordtype}{char}      cFieldName[11];}
+\DoxyCodeLine{97   \textcolor{keywordtype}{char}      \mbox{\hyperlink{structxb_1_1xbSchema_a1d612b2ed5dc0b0289c9e91b3cda3a25}{cType}};}
+\DoxyCodeLine{98   xbInt16   \mbox{\hyperlink{structxb_1_1xbSchema_a2da554af25ef628acf59bb52996056ac}{iFieldLen}};      \textcolor{comment}{/* fields are stored as one byte on record*/}}
+\DoxyCodeLine{99   xbInt16   \mbox{\hyperlink{structxb_1_1xbSchema_a55bab3bb69dee3508d168c93e182d4b9}{iNoOfDecs}};}
+\DoxyCodeLine{100 \};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{103 \textcolor{keyword}{struct }XBDLLEXPORT xbSchemaRec \{}
+\DoxyCodeLine{104   \textcolor{keywordtype}{char}     cFieldName[11];   \textcolor{comment}{/* ASCIIZ field name                       */}}
+\DoxyCodeLine{105   \textcolor{keywordtype}{char}     cType;            \textcolor{comment}{/* field type                              */}}
+\DoxyCodeLine{106   \textcolor{keywordtype}{char}     *pAddress;        \textcolor{comment}{/* pointer to field in record buffer 1     */}}
+\DoxyCodeLine{107   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} cFieldLen;   \textcolor{comment}{/* fields are stored as one byte on record */}}
+\DoxyCodeLine{108   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} cNoOfDecs;}
+\DoxyCodeLine{109   \textcolor{keywordtype}{char}     *pAddress2;       \textcolor{comment}{/* pointer to field in record buffer 2     */}}
+\DoxyCodeLine{110   xbInt16  iLongFieldLen;    \textcolor{comment}{/* to handle long field lengths            */}}
+\DoxyCodeLine{111   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} cIxFlag;     \textcolor{comment}{/* DBase IV Index field flag               */}}
+\DoxyCodeLine{112 \};}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 }
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#ifdef XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{119 \textcolor{keyword}{class }XBDLLEXPORT xbIx;}
+\DoxyCodeLine{120 \textcolor{comment}{// structure for file list, each open DBF file can have one or more index files}}
+\DoxyCodeLine{121 \textcolor{keyword}{struct }XBDLLEXPORT xbIxList \{}
+\DoxyCodeLine{122   xbIxList *next;}
+\DoxyCodeLine{123   xbIx     *ix;}
+\DoxyCodeLine{124   xbString *sFmt;}
+\DoxyCodeLine{125 \};}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{128 \textcolor{comment}{}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{131 }
+\DoxyCodeLine{150 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} : \textcolor{keyword}{public} \mbox{\hyperlink{classxb_1_1xbFile}{xbFile}} \{}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152  \textcolor{keyword}{public}:}
+\DoxyCodeLine{153   \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}}( \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}} *x );}
+\DoxyCodeLine{154   \textcolor{keyword}{virtual} \mbox{\hyperlink{classxb_1_1xbDbf}{\string~xbDbf}}();}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156   \textcolor{keyword}{virtual} xbInt16  Abort();}
+\DoxyCodeLine{157   \textcolor{keyword}{virtual} xbInt16  AppendRecord();}
+\DoxyCodeLine{158   \textcolor{keyword}{virtual} xbInt16  BlankRecord();}
+\DoxyCodeLine{159   \textcolor{keyword}{virtual} xbInt16  Commit();}
+\DoxyCodeLine{160   \textcolor{keyword}{virtual} xbInt16  Close();}
+\DoxyCodeLine{161   \textcolor{keyword}{virtual} xbInt16  CopyDbfStructure( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} *dNewTable, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableAlias, xbInt16 iOverlay, xbInt16 iShareMode );}
+\DoxyCodeLine{162   \textcolor{keyword}{virtual} xbInt16  \mbox{\hyperlink{classxb_1_1xbDbf_a73e41bfe679dd06ab16c436652df93f1}{CreateTable}}      ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sAlias, \mbox{\hyperlink{structxb_1_1xbSchema}{xbSchema}} *pSchema, xbInt16 iOverlay, xbInt16 iShareMode ) = 0;}
+\DoxyCodeLine{163   \textcolor{keyword}{virtual} xbInt16  DeleteTable      ();}
+\DoxyCodeLine{164   \textcolor{keyword}{virtual} xbInt16  DeleteAll        ( xbInt16 iOption );}
+\DoxyCodeLine{165   \textcolor{keyword}{virtual} xbInt16  DeleteAllRecords ();}
+\DoxyCodeLine{166   \textcolor{keyword}{virtual} xbInt16  DeleteRecord     ();}
+\DoxyCodeLine{167   \textcolor{keyword}{virtual} xbInt16  DumpHeader       ( xbInt16 iOption );}
+\DoxyCodeLine{168   \textcolor{keyword}{virtual} xbInt16  DumpRecord       ( xbUInt32 ulRecNo, xbInt16 iOutputDest = 0, xbInt16 iOutputFmt = 0, \textcolor{keywordtype}{char} cDelim = \textcolor{charliteral}{','} );}
+\DoxyCodeLine{169   \textcolor{keyword}{virtual} xbInt16  GetAutoCommit    () \textcolor{keyword}{const};}
+\DoxyCodeLine{170   \textcolor{keyword}{virtual} xbInt16  GetAutoCommit    ( xbInt16 iOption ) \textcolor{keyword}{const};}
+\DoxyCodeLine{171   \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   GetBof           ();}
+\DoxyCodeLine{172   \textcolor{keyword}{virtual} xbUInt32 GetCurRecNo      () \textcolor{keyword}{const};}
+\DoxyCodeLine{173   \textcolor{keyword}{virtual} xbInt16  GetDbfStatus     () \textcolor{keyword}{const};}
+\DoxyCodeLine{174   \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   GetEof           ();}
+\DoxyCodeLine{175   \textcolor{keyword}{virtual} xbInt32  GetFieldCnt      () \textcolor{keyword}{const};}
+\DoxyCodeLine{176   \textcolor{keyword}{virtual} xbInt16  GetFirstRecord   ();}
+\DoxyCodeLine{177   \textcolor{keyword}{virtual} xbInt16  GetFirstRecord   ( xbInt16 iOption );}
+\DoxyCodeLine{178   \textcolor{keyword}{virtual} xbUInt16 \mbox{\hyperlink{classxb_1_1xbDbf_ad56be2756b7a9f8318d9ba5cf215dafb}{GetHeaderLen}}     () \textcolor{keyword}{const};}
+\DoxyCodeLine{179   \textcolor{keyword}{virtual} xbInt16  GetLastRecord    ();}
+\DoxyCodeLine{180   \textcolor{keyword}{virtual} xbInt16  GetLastRecord    ( xbInt16 iOption );}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182   \textcolor{keyword}{virtual} xbInt16  GetNextRecord    ();}
+\DoxyCodeLine{183   \textcolor{keyword}{virtual} xbInt16  GetNextRecord    ( xbInt16 iOption );}
+\DoxyCodeLine{184   \textcolor{keyword}{virtual} xbInt16  GetNextRecord    ( xbInt16 iOption, xbUInt32 ulStartRec );}
+\DoxyCodeLine{185   \textcolor{keyword}{virtual} xbInt16  GetPrevRecord    ();}
+\DoxyCodeLine{186   \textcolor{keyword}{virtual} xbInt16  GetPrevRecord    ( xbInt16 iOption );}
+\DoxyCodeLine{187   \textcolor{keyword}{virtual} xbInt16  GetRecord        ( xbUInt32 ulRecNo );}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189   \textcolor{comment}{// virtual xbUInt32 GetRecordCount   ();}}
+\DoxyCodeLine{190   \textcolor{keyword}{virtual} xbInt16  GetRecordCnt     ( xbUInt32 \& ulRecCnt );}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192   \textcolor{keyword}{virtual} \textcolor{keywordtype}{char} *   GetRecordBuf     ( xbInt16 iOpt = 0 ) \textcolor{keyword}{const};}
+\DoxyCodeLine{193   \textcolor{keyword}{virtual} xbUInt16 GetRecordLen     () \textcolor{keyword}{const};}
+\DoxyCodeLine{194   \textcolor{keyword}{virtual} \textcolor{keyword}{const}    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&GetTblAlias() \textcolor{keyword}{const};}
+\DoxyCodeLine{195   \textcolor{keyword}{virtual} xbInt16  \mbox{\hyperlink{classxb_1_1xbDbf_a49212a9eb17f7fa9f303e08d5fc50fc6}{GetVersion}}       () \textcolor{keyword}{const} = 0; }
+\DoxyCodeLine{196   \textcolor{keyword}{virtual} \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}}  *GetXbasePtr     () \textcolor{keyword}{const};   \textcolor{comment}{// return xbase pointer}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199   \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   MemoFieldsExist  () \textcolor{keyword}{const};}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201   \textcolor{keyword}{virtual} xbInt16  Open             ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName );}
+\DoxyCodeLine{202   \textcolor{keyword}{virtual} xbInt16  Open             ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sAlias );}
+\DoxyCodeLine{203   \textcolor{keyword}{virtual} xbInt16  \mbox{\hyperlink{classxb_1_1xbDbf_a4d018cbf44d8d8b2145c9acab02c8adf}{Open}}             ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sAlias, xbInt16 iOpenMode, xbInt16 iShareMode ) = 0;}
+\DoxyCodeLine{204   \textcolor{keyword}{virtual} xbInt16  Pack             ();}
+\DoxyCodeLine{205   \textcolor{keyword}{virtual} xbInt16  Pack             ( xbUInt32 \&ulDeletedRecCnt );}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208   \textcolor{keyword}{virtual} xbInt16  PutRecord        ();     \textcolor{comment}{// Put record to current location}}
+\DoxyCodeLine{209   \textcolor{keyword}{virtual} xbInt16  PutRecord        ( xbUInt32 ulRecNo );}
+\DoxyCodeLine{210 \textcolor{comment}{//  virtual xbInt16  ReadHeader       ( xbInt16 iFilePositionOption, xbInt16 iReadOption );}}
+\DoxyCodeLine{211   \textcolor{keyword}{virtual} xbInt16  RecordDeleted    ( xbInt16 iOpt = 0 ) \textcolor{keyword}{const};}
+\DoxyCodeLine{212   \textcolor{keyword}{virtual} xbInt16  \mbox{\hyperlink{classxb_1_1xbDbf_aeeeb2eb5fabcd0f91d457df07b0e0708}{Rename}}           ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sNewName ) = 0;}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214   \textcolor{keyword}{virtual} xbInt16  SetAutoCommit    ( xbInt16 iAutoCommit );}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216   \textcolor{keyword}{virtual} xbInt16  UndeleteAllRecords();}
+\DoxyCodeLine{217   \textcolor{keyword}{virtual} xbInt16  UndeleteRecord   ();}
+\DoxyCodeLine{218   \textcolor{keyword}{virtual} xbInt16  Zap              ();}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221   \textcolor{comment}{/* field methods */}}
+\DoxyCodeLine{222   \textcolor{comment}{//virtual xbInt16  GetRawField( xbInt16 iFieldNo, char *Buf, xbUInt32 BufSize, xbInt16 iRecBufSw ) const;}}
+\DoxyCodeLine{223   \textcolor{keyword}{virtual} xbInt16  GetField(xbInt16 iFieldNo, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldValue, xbInt16 iRecBufSw ) \textcolor{keyword}{const};}
+\DoxyCodeLine{224   \textcolor{keyword}{virtual} xbInt16  GetField(xbInt16 iFieldNo, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldValue) \textcolor{keyword}{const};}
+\DoxyCodeLine{225   \textcolor{keyword}{virtual} xbInt16  GetField(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldValue) \textcolor{keyword}{const};}
+\DoxyCodeLine{226   \textcolor{keyword}{virtual} xbInt16  GetFieldDecimal( xbInt16 iFieldNo, xbInt16 \&iFieldDecimal ) \textcolor{keyword}{const};}
+\DoxyCodeLine{227   \textcolor{keyword}{virtual} xbInt16  GetFieldDecimal( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, xbInt16 \&iFieldDecimal ) \textcolor{keyword}{const};}
+\DoxyCodeLine{228   \textcolor{keyword}{virtual} xbInt16  GetFieldLen( xbInt16 iFieldNo, xbInt16 \&iFieldLen ) \textcolor{keyword}{const};}
+\DoxyCodeLine{229   \textcolor{keyword}{virtual} xbInt16  GetFieldLen( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, xbInt16 \&iFieldLen ) \textcolor{keyword}{const};}
+\DoxyCodeLine{230   \textcolor{keyword}{virtual} xbInt16  GetFieldName( xbInt16 iFieldNo, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName ) \textcolor{keyword}{const};}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232   \textcolor{keyword}{virtual} xbInt16  GetFieldNo( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, xbInt16 \&iFieldNo ) \textcolor{keyword}{const};}
+\DoxyCodeLine{233   \textcolor{keyword}{virtual} xbInt16  GetFieldNo( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName ) \textcolor{keyword}{const};}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235   \textcolor{keyword}{virtual} xbInt16  GetFieldType( xbInt16 iFieldNo, \textcolor{keywordtype}{char} \&cFieldType ) \textcolor{keyword}{const};}
+\DoxyCodeLine{236   \textcolor{keyword}{virtual} xbInt16  GetFieldType( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \textcolor{keywordtype}{char} \&cFieldType ) \textcolor{keyword}{const};}
+\DoxyCodeLine{237   \textcolor{keyword}{virtual} xbInt16  PutField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldData );}
+\DoxyCodeLine{238   \textcolor{keyword}{virtual} xbInt16  PutField( xbInt16 iFieldNo, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldData );}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240   \textcolor{keyword}{virtual} xbInt16  PutLogicalField( xbInt16 iFieldNo, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldData );}
+\DoxyCodeLine{241   \textcolor{keyword}{virtual} xbInt16  PutLogicalField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \textcolor{keyword}{const}  \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldData );}
+\DoxyCodeLine{242   \textcolor{keyword}{virtual} xbInt16  GetLogicalField( xbInt16 iFieldNo, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldData ) \textcolor{keyword}{const};}
+\DoxyCodeLine{243   \textcolor{keyword}{virtual} xbInt16  GetLogicalField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldData) \textcolor{keyword}{const};}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245   \textcolor{keyword}{virtual} xbInt16  PutLogicalField( xbInt16 iFieldNo, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bFieldData );}
+\DoxyCodeLine{246   \textcolor{keyword}{virtual} xbInt16  PutLogicalField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bFieldData );}
+\DoxyCodeLine{247   \textcolor{keyword}{virtual} xbInt16  GetLogicalField( xbInt16 iFieldNo, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bFieldData ) \textcolor{keyword}{const};}
+\DoxyCodeLine{248   \textcolor{keyword}{virtual} xbInt16  GetLogicalField( xbInt16 iFieldNo, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bFieldData, xbInt16 iRecBufSw ) \textcolor{keyword}{const};}
+\DoxyCodeLine{249   \textcolor{keyword}{virtual} xbInt16  GetLogicalField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bFieldData) \textcolor{keyword}{const};}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251   \textcolor{keyword}{virtual} xbInt16  GetLongField( xbInt16 iFieldNo, xbInt32 \&lFieldValue ) \textcolor{keyword}{const};}
+\DoxyCodeLine{252   \textcolor{keyword}{virtual} xbInt16  GetLongField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, xbInt32 \&lFieldValue ) \textcolor{keyword}{const};}
+\DoxyCodeLine{253   \textcolor{keyword}{virtual} xbInt16  PutLongField( xbInt16 iFieldNo, xbInt32 lFieldValue );}
+\DoxyCodeLine{254   \textcolor{keyword}{virtual} xbInt16  PutLongField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, xbInt32 lFieldValue );}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256   \textcolor{keyword}{virtual} xbInt16  GetULongField( xbInt16 iFieldNo, xbUInt32 \&lFieldValue ) \textcolor{keyword}{const};}
+\DoxyCodeLine{257   \textcolor{keyword}{virtual} xbInt16  GetULongField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, xbUInt32 \&lFieldValue ) \textcolor{keyword}{const};}
+\DoxyCodeLine{258   \textcolor{keyword}{virtual} xbInt16  PutULongField( xbInt16 iFieldNo, xbUInt32 lFieldValue );}
+\DoxyCodeLine{259   \textcolor{keyword}{virtual} xbInt16  PutULongField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldNo, xbUInt32 lFieldValue );}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261   \textcolor{keyword}{virtual} xbInt16  GetDoubleField( xbInt16 FieldNo, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dFieldValue ) \textcolor{keyword}{const};}
+\DoxyCodeLine{262   \textcolor{keyword}{virtual} xbInt16  GetDoubleField( xbInt16 FieldNo, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dFieldValue, xbInt16 iRecBufSw ) \textcolor{keyword}{const};}
+\DoxyCodeLine{263   \textcolor{keyword}{virtual} xbInt16  GetDoubleField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dFieldValue ) \textcolor{keyword}{const};}
+\DoxyCodeLine{264   \textcolor{keyword}{virtual} xbInt16  PutDoubleField( xbInt16 FieldNo, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dFieldValue );}
+\DoxyCodeLine{265   \textcolor{keyword}{virtual} xbInt16  PutDoubleField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&FieldName, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dFieldValue );}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267   \textcolor{keyword}{virtual} xbInt16  GetFloatField( xbInt16 iFieldNo, \mbox{\hyperlink{namespacexb_a83aa6a550398db55973aa9fb4257e66e}{xbFloat}} \&fFieldValue ) \textcolor{keyword}{const};}
+\DoxyCodeLine{268   \textcolor{keyword}{virtual} xbInt16  GetFloatField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \mbox{\hyperlink{namespacexb_a83aa6a550398db55973aa9fb4257e66e}{xbFloat}} \&fFieldValue ) \textcolor{keyword}{const};}
+\DoxyCodeLine{269   \textcolor{keyword}{virtual} xbInt16  PutFloatField( xbInt16 iFieldNo, \mbox{\hyperlink{namespacexb_a83aa6a550398db55973aa9fb4257e66e}{xbFloat}} fFieldValue );}
+\DoxyCodeLine{270   \textcolor{keyword}{virtual} xbInt16  PutFloatField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \mbox{\hyperlink{namespacexb_a83aa6a550398db55973aa9fb4257e66e}{xbFloat}} fFieldValue );}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272   \textcolor{keyword}{virtual} xbInt16  GetDateField( xbInt16 iFieldNo, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{273   \textcolor{keyword}{virtual} xbInt16  GetDateField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{274   \textcolor{keyword}{virtual} xbInt16  PutDateField( xbInt16 iFieldNo, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt );}
+\DoxyCodeLine{275   \textcolor{keyword}{virtual} xbInt16  PutDateField( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt );}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277   \textcolor{keyword}{virtual} xbInt16  GetNullSts( xbInt16 iFieldNo, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bIsNull ) \textcolor{keyword}{const};}
+\DoxyCodeLine{278   \textcolor{keyword}{virtual} xbInt16  GetNullSts( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bIsNull ) \textcolor{keyword}{const};}
+\DoxyCodeLine{279   \textcolor{keyword}{virtual} xbInt16  GetNullSts( xbInt16 iFieldNo, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bIsNull, xbInt16 iRecBufSw ) \textcolor{keyword}{const};}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283 \textcolor{preprocessor}{  \#ifdef XB\_MEMO\_SUPPORT}}
+\DoxyCodeLine{284   \textcolor{keyword}{virtual} xbInt16  GetMemoFieldCnt   () \textcolor{keyword}{const};}
+\DoxyCodeLine{285   \textcolor{keyword}{virtual} xbMemo   *GetMemoPtr       ();}
+\DoxyCodeLine{286   \textcolor{keyword}{virtual} xbUInt32 GetCreateMemoBlockSize() \textcolor{keyword}{const};}
+\DoxyCodeLine{287   \textcolor{keyword}{virtual} xbInt16  GetMemoField      ( xbInt16 iFldNo, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sMemoData );}
+\DoxyCodeLine{288   \textcolor{keyword}{virtual} xbInt16  GetMemoField      ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \& sFldName, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sMemoData );}
+\DoxyCodeLine{289   \textcolor{keyword}{virtual} xbInt16  GetMemoFieldLen   ( xbInt16 iFldNo, xbUInt32 \&ulMemoFieldLen );}
+\DoxyCodeLine{290   \textcolor{keyword}{virtual} xbInt16  GetMemoFieldLen   ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \& sFldName, xbUInt32 \&ulMemoFieldLen );}
+\DoxyCodeLine{291   \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   MemoFieldExists   ( xbInt16 iFieldNo ) \textcolor{keyword}{const};}
+\DoxyCodeLine{292   \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   MemoFieldExists   ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFieldName ) \textcolor{keyword}{const};}
+\DoxyCodeLine{293   \textcolor{keyword}{virtual} xbInt16  SetCreateMemoBlockSize( xbUInt32 ulBlockSize ) = 0;}
+\DoxyCodeLine{294   \textcolor{keyword}{virtual} xbInt16  UpdateMemoField   ( xbInt16 iFldNo, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sMemoData );}
+\DoxyCodeLine{295   \textcolor{keyword}{virtual} xbInt16  UpdateMemoField   ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \& sFldName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sMemoData );}
+\DoxyCodeLine{296 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_MEMO\_SUPPORT}}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299 \textcolor{preprocessor}{  \#ifdef XB\_LOCKING\_SUPPORT}}
+\DoxyCodeLine{300   \textcolor{keyword}{virtual} xbInt16 LockTable         ( xbInt16 iLockFunction );}
+\DoxyCodeLine{301   \textcolor{keyword}{virtual} xbInt16 LockRecord        ( xbInt16 iLockFunction, xbUInt32 ulRecNo );}
+\DoxyCodeLine{302   \textcolor{keyword}{virtual} xbInt16 LockAppend        ( xbInt16 iLockFunction );}
+\DoxyCodeLine{303   \textcolor{keyword}{virtual} xbInt16 LockHeader        ( xbInt16 iLockFunction );}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305 \textcolor{preprocessor}{  \#ifdef XB\_MEMO\_SUPPORT}}
+\DoxyCodeLine{306   \textcolor{keyword}{virtual} xbInt16 LockMemo          ( xbInt16 iLockFunction );}
+\DoxyCodeLine{307   \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  GetMemoLocked     () \textcolor{keyword}{const}; }
+\DoxyCodeLine{308 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_MEMO\_LOCK}}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310 \textcolor{preprocessor}{  \#ifdef XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{311   \textcolor{keyword}{virtual} xbInt16 LockIndices       ( xbInt16 iLockFunction );}
+\DoxyCodeLine{312 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314   xbInt16         GetAutoLock       () \textcolor{keyword}{const};}
+\DoxyCodeLine{315   \textcolor{keywordtype}{void}            SetAutoLock       ( xbInt16 iAutoLock );}
+\DoxyCodeLine{316   xbInt16         GetLockFlavor     () \textcolor{keyword}{const};}
+\DoxyCodeLine{317   \textcolor{keywordtype}{void}            SetLockFlavor     ( xbInt16 iLockFlavor );}
+\DoxyCodeLine{318   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}          GetTableLocked    () \textcolor{keyword}{const};}
+\DoxyCodeLine{319   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}          GetHeaderLocked   () \textcolor{keyword}{const};}
+\DoxyCodeLine{320   xbUInt32        GetAppendLocked   () \textcolor{keyword}{const};}
+\DoxyCodeLine{321   xbLinkListNode<xbUInt32> *  GetFirstRecLock   () \textcolor{keyword}{const};}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{323 \textcolor{preprocessor}{  \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{324   \textcolor{keywordtype}{void}            DumpTableLockStatus() \textcolor{keyword}{const};}
+\DoxyCodeLine{325 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{326 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_LOCKING\_SUPPORT}}
+\DoxyCodeLine{327 }
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329 \textcolor{preprocessor}{  \#ifdef XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{330   \textcolor{keyword}{virtual} xbInt16  CheckTagIntegrity( xbInt16 iTagOpt, xbInt16 iOutputOpt );}
+\DoxyCodeLine{331   \textcolor{keyword}{virtual} xbInt16  CloseIndexFile( xbIx *pIx );}
+\DoxyCodeLine{332   \textcolor{keyword}{virtual} xbInt16  CreateTag( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIxType, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sKey, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFilter, }
+\DoxyCodeLine{333                    xbInt16 iDescending, xbInt16 iUnique, xbInt16 iOverLay, xbIx **xbIxOut, \textcolor{keywordtype}{void} **vpTagOut );}
+\DoxyCodeLine{334   \textcolor{keyword}{virtual} xbInt16  DeleteTag( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIxType, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sName );}
+\DoxyCodeLine{335   \textcolor{keyword}{virtual} xbInt16  DeleteAllIndexFiles();}
+\DoxyCodeLine{336   \textcolor{keyword}{virtual} xbInt16  Find( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sKey );}
+\DoxyCodeLine{337   \textcolor{keyword}{virtual} xbInt16  Find( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}}   \&dtKey );}
+\DoxyCodeLine{338   \textcolor{keyword}{virtual} xbInt16  Find( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dKey );}
+\DoxyCodeLine{339   \textcolor{keyword}{virtual} xbInt16  Find( xbIx *pIx, \textcolor{keywordtype}{void} *vpTag, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sKey );}
+\DoxyCodeLine{340   \textcolor{keyword}{virtual} xbInt16  Find( xbIx *pIx, \textcolor{keywordtype}{void} *vpTag, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}}   \&dtKey );}
+\DoxyCodeLine{341   \textcolor{keyword}{virtual} xbInt16  Find( xbIx *pIx, \textcolor{keywordtype}{void} *vpTag, \textcolor{keyword}{const} \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dKey );}
+\DoxyCodeLine{342   \textcolor{keyword}{virtual} xbIx     *GetCurIx() \textcolor{keyword}{const};}
+\DoxyCodeLine{343   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     *GetCurTag() \textcolor{keyword}{const};}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{345   \textcolor{keyword}{virtual} xbInt16  GetTagPtrs( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTagName,  xbIx **pIx, \textcolor{keywordtype}{void} **pTag );}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{347   \textcolor{keyword}{virtual} xbInt16  GetFirstKey();}
+\DoxyCodeLine{348   \textcolor{keyword}{virtual} xbInt16  GetNextKey();}
+\DoxyCodeLine{349   \textcolor{keyword}{virtual} xbInt16  GetPrevKey();}
+\DoxyCodeLine{350   \textcolor{keyword}{virtual} xbInt16  GetLastKey();}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352   \textcolor{keyword}{virtual} xbInt16  GetFirstKey( xbIx *pIx, \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{353   \textcolor{keyword}{virtual} xbInt16  GetNextKey( xbIx *pIx, \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{354   \textcolor{keyword}{virtual} xbInt16  GetPrevKey( xbIx *pIx, \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{355   \textcolor{keyword}{virtual} xbInt16  GetLastKey( xbIx *pIx, \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{357   \textcolor{keyword}{virtual} \textcolor{keyword}{const}    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&GetCurIxType() \textcolor{keyword}{const};}
+\DoxyCodeLine{358   \textcolor{keyword}{virtual} \textcolor{keyword}{const}    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&GetCurTagName() \textcolor{keyword}{const};}
+\DoxyCodeLine{359   \textcolor{keyword}{virtual} xbIxList *GetIxList() \textcolor{keyword}{const};}
+\DoxyCodeLine{360   \textcolor{keyword}{virtual} xbInt32  GetPhysicalIxCnt () \textcolor{keyword}{const};}
+\DoxyCodeLine{361   xbLinkListNode<xbTag *> *GetTagList   () \textcolor{keyword}{const};}
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363   \textcolor{keyword}{virtual} xbInt16  OpenIndex( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIxType, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIndexName );}
+\DoxyCodeLine{364   \textcolor{keyword}{virtual} xbInt16  Reindex( xbInt16 iTagOpt = 0, xbIx **pIx = NULL, \textcolor{keywordtype}{void} **vpTag = NULL );}
+\DoxyCodeLine{365   \textcolor{keyword}{virtual} xbInt16  SetCurTag( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTagName );}
+\DoxyCodeLine{366   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     SetCurTag( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIxType, xbIx *pIx, \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{368 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370 \textcolor{preprocessor}{  \#ifdef XB\_INF\_SUPPORT}}
+\DoxyCodeLine{371   \textcolor{keyword}{virtual} xbInt16  AssociateIndex( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sType, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sName, xbInt16 iOption );}
+\DoxyCodeLine{372   xbLinkListNode<xbString> *GetInfList() \textcolor{keyword}{const};}
+\DoxyCodeLine{373 \textcolor{preprocessor}{  \#endif   }\textcolor{comment}{// XB\_INF\_SUPPORT}}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{375   \textcolor{comment}{//\#ifdef XB\_MDX\_SUPPORT}}
+\DoxyCodeLine{376   \textcolor{comment}{//virtual xbInt16  GetCreateMdxBlockSize() const;}}
+\DoxyCodeLine{377   \textcolor{comment}{//virtual xbInt16  SetCreateMdxBlockSize( xbInt16 ulBlockSize );}}
+\DoxyCodeLine{378   \textcolor{comment}{//\#endif}}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380 \textcolor{preprocessor}{  \#ifdef XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{381   xbInt16 DisableBlockReadProcessing();}
+\DoxyCodeLine{382   xbInt16 EnableBlockReadProcessing();}
+\DoxyCodeLine{383   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  GetBlockReadStatus() \textcolor{keyword}{const};}
+\DoxyCodeLine{384 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{386  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{387 \textcolor{preprocessor}{  \#ifdef XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{388   \textcolor{keyword}{friend} \textcolor{keyword}{class }xbIx;}
+\DoxyCodeLine{389   \textcolor{keyword}{friend} \textcolor{keyword}{class }xbIxMdx;}
+\DoxyCodeLine{390   \textcolor{keyword}{friend} \textcolor{keyword}{class }xbIxTdx;}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392            xbInt16  AddIndex( xbIx *ix, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFmt );}
+\DoxyCodeLine{393            \textcolor{keywordtype}{void}     ClearTagList();}
+\DoxyCodeLine{394            xbInt16  RemoveIndex( xbIx * ix );}
+\DoxyCodeLine{395            \textcolor{keywordtype}{void}     UpdateSchemaIxFlag( xbInt16 iFldNo, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} cVal );}
+\DoxyCodeLine{396 }
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398   \textcolor{keyword}{virtual}  xbInt16  UpdateTagList      ();}
+\DoxyCodeLine{399 \textcolor{preprocessor}{  \#endif   }\textcolor{comment}{// XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401   \textcolor{keyword}{virtual} xbInt16  ReadHeader       ( xbInt16 iFilePositionOption, xbInt16 iReadOption );}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403 }
+\DoxyCodeLine{404 \textcolor{preprocessor}{  \#ifdef XB\_INF\_SUPPORT}}
+\DoxyCodeLine{405   \textcolor{keyword}{virtual}  xbInt16  GetInfFileName( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sNdxIdxFileName );}
+\DoxyCodeLine{406 \textcolor{preprocessor}{  \#endif   }\textcolor{comment}{// XB\_INF\_SUPPORT}}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{408 \textcolor{preprocessor}{  \#ifdef XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{409   \textcolor{keyword}{friend} \textcolor{keyword}{class }xbBlockRead;}
+\DoxyCodeLine{410 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413 \textcolor{preprocessor}{  \#ifdef XB\_LOCKING\_SUPPORT}}
+\DoxyCodeLine{414   \textcolor{keywordtype}{void}     SetHeaderLocked   ( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bTableLocked );}
+\DoxyCodeLine{415   \textcolor{keywordtype}{void}     SetTableLocked    ( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bTableLocked );}
+\DoxyCodeLine{416 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_LOCKING\_SUPORT}}
+\DoxyCodeLine{417 }
+\DoxyCodeLine{418 \textcolor{preprocessor}{  \#ifdef XB\_MEMO\_SUPPORT}}
+\DoxyCodeLine{419   xbInt16  iMemoFieldCnt;                 \textcolor{comment}{// Memo field cnt in the table}}
+\DoxyCodeLine{420   xbMemo   *Memo;                         \textcolor{comment}{// Pointer to memo class}}
+\DoxyCodeLine{421   xbUInt32 ulCreateMemoBlockSize;         \textcolor{comment}{// blocksize to use when creating dbt file}}
+\DoxyCodeLine{422 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424 \textcolor{preprocessor}{  \#ifdef XB\_INF\_SUPPORT}}
+\DoxyCodeLine{425   \textcolor{keyword}{virtual} xbInt16  DeleteInfData();}
+\DoxyCodeLine{426   \textcolor{keyword}{virtual} xbInt16  LoadInfData();}
+\DoxyCodeLine{427   \textcolor{keyword}{virtual} xbInt16  SaveInfData();}
+\DoxyCodeLine{428 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_INF\_SUPPORT}}
+\DoxyCodeLine{429 }
+\DoxyCodeLine{430 \textcolor{comment}{/*}}
+\DoxyCodeLine{431 \textcolor{comment}{  \#ifdef XB\_MDX\_SUPPORT}}
+\DoxyCodeLine{432 \textcolor{comment}{  xbInt16  iCreateMdxBlockSize;}}
+\DoxyCodeLine{433 \textcolor{comment}{  \#endif // XB\_MDX\_SUPPORT}}
+\DoxyCodeLine{434 \textcolor{comment}{*/}}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{436   \textcolor{keyword}{virtual}  xbInt16  GetRawField( xbInt16 iFieldNo, \textcolor{keywordtype}{char} *Buf, xbUInt32 BufSize, xbInt16 iRecBufSw ) \textcolor{keyword}{const};}
+\DoxyCodeLine{437   \textcolor{keyword}{virtual}  \textcolor{keywordtype}{void}     InitVars(); }
+\DoxyCodeLine{438   \textcolor{keyword}{virtual}  xbInt16  SetVersion() = 0;}
+\DoxyCodeLine{439   \textcolor{keyword}{virtual}  xbInt16  ValidateSchema( \mbox{\hyperlink{structxb_1_1xbSchema}{xbSchema}} * s ) = 0;}
+\DoxyCodeLine{440   xbInt16  WriteHeader( xbInt16 iPositionOption, xbInt16 iWriteOption );}
+\DoxyCodeLine{441 }
+\DoxyCodeLine{442 }
+\DoxyCodeLine{443   xbUInt32 ulCurRec;               \textcolor{comment}{// Current record or zero}}
+\DoxyCodeLine{444   xbInt16  iAutoCommit;            \textcolor{comment}{// Auto commit updates if not explicitly performed before moving off record?}}
+\DoxyCodeLine{445                                    \textcolor{comment}{//  -\/1  -\/-\/>  Use DBMS default}}
+\DoxyCodeLine{446                                    \textcolor{comment}{//   0  -\/-\/>  No auto update on this table, regardless of DBMS setting}}
+\DoxyCodeLine{447                                    \textcolor{comment}{//   1  -\/-\/>  Auto update on this table, regardless of DBMS setting}}
+\DoxyCodeLine{448 }
+\DoxyCodeLine{449   xbInt16  iFileVersion;           \textcolor{comment}{// xBase  file version -\/ which class is in play}}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451 }
+\DoxyCodeLine{452   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sAlias;                 \textcolor{comment}{// table alias}}
+\DoxyCodeLine{453   xbInt16  iNoOfFields;}
+\DoxyCodeLine{454   xbInt16  iDbfStatus;             \textcolor{comment}{// 0 = closed}}
+\DoxyCodeLine{455                                    \textcolor{comment}{// 1 = open}}
+\DoxyCodeLine{456                                    \textcolor{comment}{// 2 = updates pending}}
+\DoxyCodeLine{457 }
+\DoxyCodeLine{458   xbSchemaRec *SchemaPtr;          \textcolor{comment}{// Pointer to field data}}
+\DoxyCodeLine{459   \textcolor{keywordtype}{char}     *RecBuf;                \textcolor{comment}{// Pointer to record buffer}}
+\DoxyCodeLine{460   \textcolor{keywordtype}{char}     *RecBuf2;               \textcolor{comment}{// Pointer to original rec buf allocation}}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462 }
+\DoxyCodeLine{463 \textcolor{comment}{/* Next several variables are database header fields, up through dbase V */}}
+\DoxyCodeLine{464   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} cVersion;}
+\DoxyCodeLine{465   \textcolor{keywordtype}{char}     cUpdateYY;}
+\DoxyCodeLine{466   \textcolor{keywordtype}{char}     cUpdateMM;}
+\DoxyCodeLine{467   \textcolor{keywordtype}{char}     cUpdateDD;}
+\DoxyCodeLine{468   xbUInt32 ulNoOfRecs;}
+\DoxyCodeLine{469   xbUInt16 uiHeaderLen;}
+\DoxyCodeLine{470   xbUInt16 uiRecordLen;}
+\DoxyCodeLine{471   \textcolor{keywordtype}{char}     cTransactionFlag;}
+\DoxyCodeLine{472   \textcolor{keywordtype}{char}     cEncryptionFlag;}
+\DoxyCodeLine{473   \textcolor{keywordtype}{char}     cIndexFlag;}
+\DoxyCodeLine{474   \textcolor{keywordtype}{char}     cLangDriver;                   \textcolor{comment}{// dbase 7 sets to 1B}}
+\DoxyCodeLine{475 }
+\DoxyCodeLine{476 }
+\DoxyCodeLine{477 }
+\DoxyCodeLine{478  \textcolor{keyword}{private}:}
+\DoxyCodeLine{479   \textcolor{keywordtype}{void}     ResetNoOfRecords(); }
+\DoxyCodeLine{480 }
+\DoxyCodeLine{481 }
+\DoxyCodeLine{482 \textcolor{preprocessor}{  \#ifdef XB\_LOCKING\_SUPPORT}}
+\DoxyCodeLine{483   xbInt16  iAutoLock;                     \textcolor{comment}{// 0 -\/ autolock off, 1 -\/ autolock on}}
+\DoxyCodeLine{484   xbInt16  iLockFlavor;}
+\DoxyCodeLine{485   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bTableLocked;                  \textcolor{comment}{// is the table locked}}
+\DoxyCodeLine{486   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bHeaderLocked;                 \textcolor{comment}{// is the header locked}}
+\DoxyCodeLine{487   xbUInt32 ulAppendLocked;                \textcolor{comment}{// record number of the new record for the append lock operation}}
+\DoxyCodeLine{488   xbLinkListOrd<xbUInt32> lloRecLocks;    \textcolor{comment}{// ordered link list of locked records}}
+\DoxyCodeLine{489 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{490 }
+\DoxyCodeLine{491 \textcolor{preprocessor}{  \#ifdef XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{492   xbIxList *ixList;                      \textcolor{comment}{// pointer to a list of indices associated with the table}}
+\DoxyCodeLine{493   xbIx     *pCurIx;                      \textcolor{comment}{// Pointer to current index class}}
+\DoxyCodeLine{494   \textcolor{keywordtype}{void}     *vpCurIxTag;                  \textcolor{comment}{// Pointer to current tag}}
+\DoxyCodeLine{495   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sCurIxType;                   \textcolor{comment}{// Current index type}}
+\DoxyCodeLine{496   xbLinkList<xbTag *> llTags;            \textcolor{comment}{// linked list of open tags}}
+\DoxyCodeLine{497 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{498 }
+\DoxyCodeLine{499 \textcolor{preprocessor}{  \#ifdef XB\_INF\_SUPPORT}}
+\DoxyCodeLine{500   xbLinkList<xbString> llInfData;        \textcolor{comment}{// linked list of strings containing ndx file entries}}
+\DoxyCodeLine{501 \textcolor{preprocessor}{  \#endif   }\textcolor{comment}{// XB\_INF\_SUPPORT}}
+\DoxyCodeLine{502 }
+\DoxyCodeLine{503 \textcolor{preprocessor}{  \#ifdef XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{504   xbBlockRead *pRb;}
+\DoxyCodeLine{505   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}      bBlockReadEnabled;        \textcolor{comment}{// if true, then block read mode is on}}
+\DoxyCodeLine{506 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{507 }
+\DoxyCodeLine{508 }
+\DoxyCodeLine{509 }
+\DoxyCodeLine{510 \};}
+\DoxyCodeLine{511 }
+\DoxyCodeLine{512 }
+\DoxyCodeLine{513 \textcolor{preprocessor}{\#ifdef XB\_DBF3\_SUPPORT}}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{521 \textcolor{keyword}{class }XBDLLEXPORT xbDbf3 : \textcolor{keyword}{public} \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} \{}
+\DoxyCodeLine{522  \textcolor{keyword}{public}:}
+\DoxyCodeLine{523   xbDbf3(\mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}} *x);}
+\DoxyCodeLine{524   \string~xbDbf3();}
+\DoxyCodeLine{525   \textcolor{keyword}{virtual} xbInt16 CreateTable   ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sAlias, \mbox{\hyperlink{structxb_1_1xbSchema}{xbSchema}} *, xbInt16 iOverlay, xbInt16 iShareMode );}
+\DoxyCodeLine{526   \textcolor{keyword}{virtual} xbInt16 GetVersion    () \textcolor{keyword}{const};}
+\DoxyCodeLine{527   \textcolor{keyword}{virtual} xbInt16 Open          ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sAlias, xbInt16 iOpenMode, xbInt16 iShareMode );}
+\DoxyCodeLine{528   \textcolor{keyword}{virtual} xbInt16 Rename        ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sNewName );}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{530 \textcolor{preprocessor}{  \#ifdef XB\_MEMO\_SUPPORT}}
+\DoxyCodeLine{531   \textcolor{keyword}{virtual} xbInt16 SetCreateMemoBlockSize( xbUInt32 iBlockSize );}
+\DoxyCodeLine{532 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{533 }
+\DoxyCodeLine{534  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{535   xbInt16 SetVersion    ();}
+\DoxyCodeLine{536   \textcolor{keyword}{virtual} xbInt16 ValidateSchema( \mbox{\hyperlink{structxb_1_1xbSchema}{xbSchema}} *s );}
+\DoxyCodeLine{537 }
+\DoxyCodeLine{538  \textcolor{keyword}{private}:}
+\DoxyCodeLine{539 }
+\DoxyCodeLine{540 \};}
+\DoxyCodeLine{541 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* XB\_DBF3\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{542 }
+\DoxyCodeLine{543 }
+\DoxyCodeLine{544 \textcolor{preprocessor}{\#ifdef XB\_DBF4\_SUPPORT}}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{551 \textcolor{keyword}{class }XBDLLEXPORT xbDbf4 : \textcolor{keyword}{public} \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} \{}
+\DoxyCodeLine{552  \textcolor{keyword}{public}:}
+\DoxyCodeLine{553   xbDbf4( \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}} *x );}
+\DoxyCodeLine{554 }
+\DoxyCodeLine{555   \string~xbDbf4();}
+\DoxyCodeLine{556 }
+\DoxyCodeLine{557   \textcolor{keyword}{virtual} xbInt16 CreateTable     ( \textcolor{keyword}{const} xbString \&sTableName, \textcolor{keyword}{const} xbString \&sAlias, xbSchema *, xbInt16 iOverlay, xbInt16 iShareMode );}
+\DoxyCodeLine{558   \textcolor{keyword}{virtual} xbInt16 GetVersion      () \textcolor{keyword}{const};}
+\DoxyCodeLine{559   \textcolor{keyword}{virtual} xbInt16 Open            ( \textcolor{keyword}{const} xbString \&sTableName, \textcolor{keyword}{const} xbString \&sAlias, xbInt16 iOpenMode, xbInt16 iShareMode );}
+\DoxyCodeLine{560   \textcolor{keyword}{virtual} xbInt16 Rename          ( \textcolor{keyword}{const} xbString sNewName );}
+\DoxyCodeLine{561 }
+\DoxyCodeLine{562 \textcolor{preprocessor}{  \#ifdef XB\_MEMO\_SUPPORT}}
+\DoxyCodeLine{563   \textcolor{keyword}{virtual} xbInt16 SetCreateMemoBlockSize( xbUInt32 iBlockSize );}
+\DoxyCodeLine{564 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{565 }
+\DoxyCodeLine{566  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{567   \textcolor{comment}{// void    InitVars  ();}}
+\DoxyCodeLine{568   xbInt16 SetVersion();}
+\DoxyCodeLine{569   \textcolor{keyword}{virtual} xbInt16 ValidateSchema  ( xbSchema *s );}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{571  \textcolor{keyword}{private}:}
+\DoxyCodeLine{572 }
+\DoxyCodeLine{573 \};}
+\DoxyCodeLine{574 }
+\DoxyCodeLine{575 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* XB\_DBF4\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{576 }
+\DoxyCodeLine{577 \}        \textcolor{comment}{/* namespace xb    */}}
+\DoxyCodeLine{578 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XB\_DBF\_H\_\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

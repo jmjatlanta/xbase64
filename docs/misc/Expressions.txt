@@ -1,0 +1,13 @@
+
+
+
+Expression Date Logic
+
+
+    DATE -  DATE    returns number
+    DATE -  Number  returns date
+    DATE +  Number  returns date
+    DATE -= Number  returns date
+    DATE += Number  returns date
+    DATE ++         returns date
+    DATE --         returns date

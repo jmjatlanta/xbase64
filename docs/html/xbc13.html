@@ -1,0 +1,767 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Chapter 13</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">Strings</p></H2>
+<p align="center">Chapter Updated 11/21/23</p><hr>
+
+<br><br>
+
+<h3>Class xbString methods</h3>
+<table border=1>
+<tr><th width = 25%>Method</th><th width=30%>Description</th><th width=30%>Parms</th></tr>
+
+
+<tr><td>xbString(xbUInt32 size)<br>
+        xbString(char cIn)<br>
+        xbString(const char *sIn, xbUInt32 ulMaxLen)<br>
+        xbString(const xbString &sIn)<br>
+        xbString(const char *sIn = "")<br>
+        xbString( xbDouble dIn )<br>
+
+        </td><td>Various constructors.</td><td>
+        <em>cIn</em> - Input character<br>
+        <em>sIn</em> - Pointer to char string<br>
+        <em>ulMaxLen</em> - Max length of input string to use<br>
+        <em>dIn</em> - Double value to convert to a string
+        </td></tr>
+
+<tr><td>xbString &operator= (const xbString &sIn)<br>
+        xbString &operator= (const char *sIn)
+        </td><td>Assignment operator.</td><td>
+        <em>sIn</em> - Input pointer to char string
+        </td></tr>
+
+<tr><td>operator const char *() const</td><td>* operator returns pointer to string data.</td></tr>
+
+<tr><td>char &operator[](xbUInt32 n) const<br>
+        char &operator[](xbInt32 n) const</td><td>[] operator. Returns a character at position n.  First position in string is 1 (not 0).</td><td>
+        <em>n</em> - Offset ino the string for the byte to retrieve
+        </td></tr>
+
+<tr><td>xbString &operator+=(const xbString &s)<br>
+        xbString &operator+=(const char *s)<br>
+        xbString &operator+=(char c)</td><td>Append operator.</td></tr>
+
+<tr><td>xbString &operator-=(const xbString &s)<br>
+        xbString &operator-=(const char *s)<br>
+        xbString &operator-=(char c)</td><td>Append operator, right trimming both strings.</td></tr>
+
+<tr><td>xbBool operator == ( const xbString& ) const<br>
+        xbBool operator == ( const char * ) const</td><td>Equals comparison operator.</td></tr>
+
+<tr><td>xbBool operator != ( const xbString& ) const<br>
+        xbBool operator != ( const char * ) const</td><td>Not equals comparison operator.</td></tr>
+
+<tr><td>xbBool operator <  ( const xbString& ) const</td><td>Less than operator.</td></tr>
+
+<tr><td>xbBool operator >  ( const xbString& ) const</td><td>Greater than operator.</td></tr>
+
+<tr><td>xbBool operator <= ( const xbString& ) const/td><td>Less than or equals operator.</td></tr>
+
+<tr><td>xbBool operator >= ( const xbString& ) const/td><td>Greater than or equals operator.</td></tr>
+
+<tr><td>xbString operator-( const xbString &s )</td>
+      <td>Concatonate operator. Concatonate left string with right string returning reference to new string.
+          Both strings are trimmed.
+      </td></tr>
+
+<tr><td>xbString operator+( const char *s )<br>
+        xbString operator+( const xbString &s )<br>
+        xbString operator+( const char c )</td>
+      <td>Concatonate operator. Concatonates left string with right string returning reference to new string.
+      </td></tr>
+
+<tr><td>xbString &AddBackSlash( char c )</td><td>Add a prefixing back slash to specified characters in the string.</td>
+      <td><em>c</em> - Charater to precede with a backslash.</td></tr>
+
+<tr><td>xbString &Append(const xbString &s)<br>
+        xbString &Append(const char *s)<br>
+        xbString &Append(const char *s, xbUInt32 ulByteCount )<br>
+        xbString &Append(char c)</td><td>Append data to the string.</td>
+        <td>
+         <em>s</em> - Data to append to string.<br>
+         <em>ulByteCnt</em> - Max number of bytes to append to string.<br>
+         <em>c</em> - Char value to append to string.
+        </td>
+        </tr>
+
+<tr><td>xbString &Assign(const char *srcStr, xbUInt32 ulStartPos, xbUInt32 ulCopyLen )<br>
+        xbString &Assign(const char *srcStr, xbUInt32 ulStartPos )<br>
+        xbString &Assign(const xbString &srcStr, xbUInt32 ulStartPos, xbUInt32 ulCopyLen )<br>
+        xbString &Assign(const xbString &srcStr, xbUInt32 ulStartPos )</td><td>Assign portion of a string.</td>
+        <td>
+          <em>srcStr</em> - Source string.<br>
+          <em>ulStartPos</em> - Starting position. The first position is 1.<br>
+          <em>ulCopyLen</em> - Max copy length.
+        </td>
+        </tr>
+
+<tr><td>xbString Copy() const</td><td>Copy a string</td></tr>
+
+<tr><td>xbUInt32 CountChar( char c ) const<br>
+        xbUInt32 CountChar( char c, xbInt16 iOpt ) const</td>
+        <td>Count the number of characters in a string.</td>
+        <td>
+          <em>c</em> - Character to count.<br>
+          <em>iOpt</em> - Option
+           <li>0 - Count the number of characters.<br>
+           <li>1 - Count the number of characters not between single or double quotes.
+        </td>
+      </tr>
+
+
+<tr><td>xbInt16 CvtHexChar( char &cOut )</td><td>
+         Convert a four byte string in the format of 0x00 to a one byte char value.
+         The first four bytes of the string must be in the format 0x00.
+         Anything past the first four bytes is disregarded.</td>
+         <td>
+          <em>cOut</em> - Output character.
+         </td></tr>
+
+<tr><td>xbInt16 CvtHexString( xbString &sOut )</td><td>
+   This routine converts a string of one or more four byte sequences 0x00 to a string of one byte chars.</td>
+   <td><em>sOut</em> - Output string.
+   </td></tr>
+
+<tr><td>xbInt16 CvtULongLong( xbUInt64 &ullOut )</td><td>Convert string to xbUInt64 number.</td>
+  <td>
+   <em>ullOut</em> - Output unsigned 64 bit interger.
+  </td></tr>
+
+<tr><td>xbInt16 CvtLongLong( xbInt64 &llOut )</td><td>Convert string to xbInt64 number</td>
+  <td>
+   <em>llOut</em> - Output signed 64 bit interger.
+  </td></tr>
+
+
+<tr><td>void Dump( const char *title ) const<br>
+        void Dump( const char *title, xbInt16 iOption ) const<br>
+        void DumpHex( const char *title ) const
+    </td>
+    <td>Dump string contents to stdout.<br>Only available if compile option XB_DEBUG_SUPPORT is on.</td>
+    <td><em>iOption</em> Output option.Mbr>
+     <li>0 - Print character values.<br>
+     <li>1 - Print as hex data.
+    </td></tr>
+
+<tr><td>xbString  &ExtractElement(xbString &sIn, char delim, xbUInt32 iCnt, xbInt16 iOpt = 0 )<br>
+        xbString  &ExtractElement(const char *sIn, char delim, xbUInt32 iCnt, xbInt16 iOpt = 0 )</td>
+        <td>Extract an element from a delimited string.</td>
+        <td><em>sIn</em> - Input string to extract element from<br>
+            <em>delim</em> - One byte delimiter<br>
+            <em>iCnt</em> - Number of delimiters to skip<br>
+            <em>iOpt</em> - Quote handling option
+                <li>0 - ignore single and double quotes.<br>
+                <li>1 - ignore delimiters between single or double quotes.
+        </td></tr>
+
+<tr><td>char GetCharacter( xbUInt32 ulPos ) const</td>
+    <td>Extract character from position ulPos. First position is 1.</td>
+    <td><em>ulPos</em> - Position within string of character to extract.</em>
+    </td></tr>
+
+<tr><td>xbUInt32 GetLastPos(char c) const<br>
+        xbUInt32 GetLastPos(const char *s) const</td>
+    <td>Get last position of element within string.</td>
+    <td><em>c</em> - character to retrieve the last position in string for.<br>
+        <em>s</em> - string to retrieve the last position in string for.</td></tr>
+
+<tr><td>char GetPathSeparator() const</td>
+    <td>Returns the path separator.<br>
+        Returns <em>\</em> for Windows environment.<br>
+        Returns <em>/</em> for *nix environment.</td></tr>
+
+<tr><td>xbUInt32 GetSize() const</td>
+    <td><li>Returns number of bytes allocated to the data portion of the string including the null termination byte.<br>
+     <li>Returns zero if null.
+     <li>Not to be confused with the Len() method which returns the lenght of the actual string data.
+    </td></tr>
+
+<tr><td>xbBool HasAlphaChars() const</td>
+    <td>Determine if the string has any alpha characters.
+      <li>Returns xbTrue if string contains one or more alpha characters.
+      <li>Returns xbFalse if string contains no alpha characters.
+    </td></tr>
+
+<tr><td>xbBool IsEmpty() const</td>
+    <td>Determine if string is empty.
+     <li>Returns xbTrue if string is empty.
+     <li>Returns xbFalse if string is not empty.
+    </td></tr>
+
+<tr><td>xbBool IsNull() const</td>
+    <td>Determine if string is null.
+     <li>Returns xbTrue if string is null.
+     <li>Returns xbFalse if string is not null.
+    </td></tr>
+
+<tr><td>xbString &Left( xbUInt32 ulLen )<br>
+    <td>Retain left part of string, Truncare rightmost excess.</td>
+    <td><em>ulLen</em> - New string length.
+    </td></tr>
+
+<tr><td>xbUInt32 Len() const</td>
+    <td>
+     <li>Returns the length of the string excluding the terminating null byte.
+     <li>Not to be confused with GetSize() method which returns the memory allocation size.
+    </td></tr>
+
+<tr><td>xbString &Ltrim()</td>
+    <td>Left trim whitespace from string.</td></tr>
+
+<tr><td>xbString &Ltrunc( xbUInt32 ulCnt )</td>
+    <td>Left truncate string.</td>
+    <td>
+     <em>ulCnt</em> - Number of bytes to remove from the left.
+    </td></tr>
+
+<tr><td>xbString &Mid(xbUInt32 ulPos, xbUInt32 lLen )</td>
+    <td>Extract portion of data from string.</td>
+    <td>
+     <em>ulStartPos</em> - Starting position.<br>
+     <em>ulTargLen</em> - Length.
+    </td></tr>
+
+<tr><td>xbString &PadLeft( char c, xbUInt32 ulLen )</td>
+    <td>Left pad string.</td>
+    <td>
+     <em>c</em> - Padding character.<br>
+     <em>ulNewLen</em> -  New string length.
+    </td><tr>
+
+<tr><td>xbString &PadRight( char c, xbUInt32 ulLen )</td>
+    <td>Right pad string.</td>
+    <td>
+     <em>c</em> - Padding character.<br>
+     <em>ulNewLen</em> -  New string length.
+    </td><tr>
+
+<tr><td>xbUInt32 Pos(char c, xbUInt32 ulStartPos ) const<br>
+        xbUInt32 Pos(char c) const<br>
+        xbUInt32 Pos(const char *s) const</td>
+    <td>Determine position of a given character or string.</td>
+    <td>
+     <em>c</em> - Seek character.<br>
+     <em>s</em> - Seek string.<br>
+     <em>ulStartPos</em> - Starting position for search, first position is 1.
+    </td><tr>
+
+<tr><td>xbString &PutAt(xbUInt32 ulPos, char c)</td>
+    <td>Insert character into string.</td>
+    <td>
+     <em>ulPos</em> - Insertion position.<br>
+     <em>c</em> - Character to insert.<br>
+    </td></tr>
+
+<tr><td>xbString &Remove( xbUInt32 ulPos, xbUInt32 ulN )</td>
+     <td>Remove portion of string.</td>
+     <td>
+      <em>ulStartPos</em> - Starting position for removal operation.<br>
+      <em>ulDelSize</em> - Size of deletion.
+     </td></tr>
+
+<tr><td>xbString &Replace( const char *sReplace, const char *sReplaceWith, xbInt16 iOpt = 0 )</td>
+    <td>Replace a value within a string with another value.
+    <td>
+     <em>sReplace</em> - Character string to replace.<br>
+     <em>sReplaceWith</em> - Character string to replace with.<br>
+     <em>iOption</em> - Processing option.<br>
+      <li>0 = All occurrences
+      <li>1 = first occurrence
+    </td></tr>
+
+<tr><td>xbString &Resize( xbUInt32 lSize )</td>
+    <td>Resize a string.</td>
+    <td>
+     <em>ulSize</em> - New string size, including null termination byte.
+    </td><tr>
+
+<tr><td>xbString &Rtrim()</td>
+  <td>Right trim whitespace from string.</td></tr>
+
+
+<tr><td>xbString &Set( const char *s )<br>
+        xbString &Set( const xbString &s )<br>
+        xbString &Set( const char *s, xbUInt32 ulSize )</td>
+    <td>Set the value of the string.</td>
+    <td>
+     <em>s</em> - Value to set the string.<br>
+     <em>ulSize</em> - Maximum size of resultant string.
+    </td></tr>
+
+
+<tr><td>xbString &SetNum( xbInt32 lNum )</td>
+    <td>Set the string to long integer numeric value.</td>
+    <td>
+     <em>lNum</em> - Value to set the string.</td></tr>
+
+
+<tr><td>xbString &Sprintf(const char *format, ...)</td>
+    <td><li>Routine for formatting a string.<br>
+        <li>This routine mimics the standard <em>C printf()</em> routine except
+        <li>it creates a string instead of writing to stdout.<br>
+        <li>See documentation on the standard C printf function for how to set up the formats.<br><br>
+        Example: MyString.Sprintf( "Num: %d  Text %s", 100, "test data" )<br>
+    <td>
+     <em>sFormat</em> - A format specifier.<br>
+     <em>...</em> - variables or data values to insert into formatted string.
+    </td></tr>
+
+<tr><td>const char *Str() const</td>
+    <td>Return string data. Returns char * to string data or NULL if string is empty
+    </td></tr>
+
+</tr>
+<tr><td>char *strncpy( char * cDest, xbUInt32 n ) const</td>
+    <td><li>Copy all or part of string to character array. 
+        <li>It is the responsibility of the application to verify 
+        the buffer is large enough to hold the string contents.</td>
+    <td>
+     <em>cDest</em> - pointer to destination buffer.<br>
+     <em>n</em> Number of bytes to copy.
+    </td><tr>
+
+
+<tr><td>xbString &SwapChars( char from, char to )</td>
+    <td>Swap characters.</td>
+    <td>
+     <em>cFrom</em> - Character to replace.<br>
+     <em>cTo</em> - Character to replace with.
+    </td></tr>
+
+<tr><td>xbString &ToLowerCase()</td>
+    <td>Replace all upper case charaters with lower case characters.</td><tr>
+
+<tr><td>xbString &ToUpperCase()</td>
+    <td>Replace all lower case charaters with upper case characters.</td><tr>
+
+<tr><td>xbString &Trim()</td>
+    <td>Right and left trim whitespace from string.</td></tr>
+
+<tr><td>xbBool ValidLogicalValue() const</td>
+    <td><li>Returns xbTrue if string is valid logical data else returns xbFalse.
+        <li>Valid logical data is one 'T', 'F', 'N' or 'Y'.<br>
+    </td></tr>
+
+<tr><td>xbBool ValidNumericValue() const</td>
+    <td>This function returns true if the string contains valid numeric data, else returns false.</td></tr>
+
+<tr><td>xbString &ZapChar( char c )</td>
+    <td>Remove every instance of specified character from a string.</td>
+    <td><em>c</em> - Character to remove from string.
+    </td></tr>
+
+<tr><td>xbString &ZapLeadingChar( char c )</td>
+    <td>Remove leading character from a string.</td>
+    <td><em>c</em> - Character to remove from beginning of string.</td></tr>
+
+<tr><td>xbString &ZapTrailingChar( char c )</td>
+    <td>Remove trailing character from a string.</td>
+    <td><em>c</em> - Character to remove from ending of string.</td></tr>
+
+
+<tr><td>std::ostream& operator<< ( std::ostream& os, const xbString& s )</td>
+    <td>Stream insertion operator <<</td>
+    <td>
+      <em>os</em> - Output stream.<br>
+      <em>s</em> - String to send to output stream
+    </td></tr>
+
+</table>
+
+
+<br><br><hr><br><br>
+<h2>Example program using xbDate class</h2>
+
+<xmp>
+
+/*  xb_ex_string.cpp
+
+XBase64 Software Library
+
+Copyright (c) 1997,2003,2014,2021,2022 Gary A Kunkel
+
+The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
+
+Email Contact:
+
+    XDB-devel@lists.sourceforge.net
+    XDB-users@lists.sourceforge.net
+
+*/
+
+// This demonstrates the string class
+
+
+#include "xbase.h"
+
+using namespace xb;
+
+int main()
+{
+
+  // create a string, assign a value, print it
+  xbString s1;
+  s1 = "Test String 1";
+  fprintf( stdout, "s1 = [%s]\n", s1.Str());
+
+  // create another string, copy the value from s1 into it, print it
+  xbString s2;
+  s2 = s1;
+  std::cout << "s2 = [" << s2.Str() << "]" << std::endl;
+
+  // create another string with and print it
+  xbString s3( 'X' );
+  std::cout << "s3 = [" << s3.Str() << "]" << std::endl;  
+
+  // create another string with and print it and print it out yet another way
+  xbString s4( "Class constructor test 4" );
+  printf( "s4 = [%s]\n", s4.Str() );
+
+  // create another string with a size limit and print it out
+  xbString s5( "Class constructor test 4", 7 );
+  printf( "s5 = [%s]\n", s5.Str() );
+
+  // create another string from a string
+  xbString s6( s5 );
+  printf( "s6 = [%s]\n", s6.Str() );
+
+  // create 100 byte string with nothing in it
+  xbString s7( (xbUInt32) 100 );
+  printf( "s7 = [%s]\n", s7.Str() );
+
+  // Extract character from a particular position in the string
+  printf( "[] test -- Position 7 (starts from 1) from String 1 = [%c]\n", s1[7] );
+  // or use the getCharacter method
+  printf( "getCharacter() test -- Position 7 (starts from 1) from String 1 = [%c]\n", s1.GetCharacter(7) );
+
+  // set string 7 to a character
+  s7 = 'Z';
+  printf( "updated s7 = [%s]\n", s7.Str() );
+
+  // trim methods
+  s3 = "   abc   ";
+  s3.Ltrim();
+  #ifdef XB_DEBUG_SUPPORT
+  s3.Dump( "LTrim test" );
+  #else
+  std::cout << s3.Str() << std::endl;
+  #endif
+
+  s3 = "   abc   ";
+  s3.Rtrim();
+  std::cout << "RTrim test - " << s3.Str() << std::endl;
+
+  s3.Trim();
+  std::cout << "Trim test - " << s3.Str() << std::endl;
+  printf( "s3 Len = [%d]\n", s3.Len() );
+
+  // Concatenation tests - I
+  s1 = "Concatenation test1 part 1    ";
+  s1 += "Concatenation test1 part 2    ";
+  s2 = " s2 data ";
+  s1 += s2;
+  s1 += 'z';
+
+  // Concatenation tests - II
+  s1 = "Concatenation test1 part 1    ";
+  s1 -= "Concatenation test1 part 2    ";
+  s1 -= 'X';
+  s1 -= s2;
+  std::cout << "Concatenation test 2 - " << s1.Str() << std::endl; 
+
+  // Concatenation tests - III
+  s1 = "s1data  ";
+  s2 = "s2data ";
+
+  s3 = s1 - s2;
+  std::cout << "Concatenation test 3a - " << s3.Str() << std::endl;
+
+  s3 = s1 + s2;
+  std::cout << "Concatenation test 3b - " << s3.Str() << std::endl;
+
+  s3 = s1 + " char * data ";
+  std::cout << "Concatenation test 3c - " << s3.Str() << std::endl;
+
+  s3 = s1 + 'Z';
+  std::cout << "Concatenation test 3d - " << s3.Str() << std::endl;
+
+  s3 = 'A';
+
+  std::cout << s3.Str() << std::endl;
+  s3 += s1;
+
+  std::cout << s3.Str() << std::endl;
+
+  // The following compiles and runs, but is not valid
+  // s3 = 'A' + s1;
+
+  std::cout << std::endl << "== operator tests"  << std::endl;
+  if( s1 == s2 )
+    std::cout << s1.Str() << " == " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " != " << s2.Str() << std::endl;
+
+  s1 = s2;
+  if( s1 == s2 )
+    std::cout << s1.Str() << " == " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " != " << s2.Str() << std::endl;
+
+  if( s1 == "sometestdata" )
+    std::cout << s1.Str() << " == sometestdata" << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " != sometestdata" << s2.Str() << std::endl;
+
+  std::cout << std::endl << "!= operator tests"  << std::endl;
+  s2 = "abc123";
+  std::cout << "s1 - " << s1.Str() << std::endl;
+  std::cout << "s2 - " << s2.Str() << std::endl;
+  
+  if( s1 != s2 )
+    std::cout << s1.Str() << " != " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " == " << s2.Str() << std::endl;
+
+  s1 = s2;
+  if( s1 != s2 )
+    std::cout << s1.Str() << " != " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " == " << s2.Str() << std::endl;
+
+  if( s1 != "sometestdata" )
+    std::cout << s1.Str() << " != [sometestdata]" << std::endl;
+  else
+    std::cout << s1.Str() << " == [sometestdata]" << std::endl;
+
+  std::cout << std::endl << "< operator tests" << std::endl;
+  s1 = "AAA";
+  s2 = "BBB";
+
+  if( s1 < s2 )
+    std::cout << s1.Str() << " < " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " >= " << s2.Str() << std::endl;
+
+  s1 = "BBB";
+  if( s1 < s2 )
+    std::cout << s1.Str() << " < " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " >= " << s2.Str() << std::endl;
+
+  s1 = "CCC";  
+  if( s1 < s2 )
+    std::cout << s1.Str() << " < " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " >= " << s2.Str() << std::endl;
+
+  std::cout << std::endl << "> operator tests" << std::endl;
+  s1 = "AAA";
+  s2 = "BBB";
+
+  if( s1 > s2 )
+    std::cout << s1.Str() << " > " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " <= " << s2.Str() << std::endl;
+
+  s1 = "BBB";
+  if( s1 > s2 )
+    std::cout << s1.Str() << " > " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " <= " << s2.Str() << std::endl;
+
+  s1 = "CCC";
+  if( s1 > s2 )
+    std::cout << s1.Str() << " > " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " <= " << s2.Str() << std::endl;
+
+  std::cout << std::endl << "<= operator tests" << std::endl;
+  s1 = "AAA";
+  s2 = "BBB";
+
+  if( s1 <= s2 )
+    std::cout << s1.Str() << " <= " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " > " << s2.Str() << std::endl;
+
+  s1 = "BBB";
+  if( s1 <= s2 )
+    std::cout << s1.Str() << " <= " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " > " << s2.Str() << std::endl;
+
+  s1 = "CCC";  
+  if( s1 <= s2 )
+    std::cout << s1.Str() << " <= " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " > " << s2.Str() << std::endl;
+
+  std::cout << std::endl << ">= operator tests" << std::endl;
+  s1 = "AAA";
+  s2 = "BBB";
+
+  if( s1 >= s2 )
+    std::cout << s1.Str() << " >= " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " < " << s2.Str() << std::endl;
+
+  s1 = "BBB";
+  if( s1 >= s2 )
+    std::cout << s1.Str() << " >= " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " < " << s2.Str() << std::endl;
+
+  s1 = "CCC";  
+  if( s1 >= s2 )
+    std::cout << s1.Str() << " >= " << s2.Str() << std::endl;
+  else
+    std::cout << s1.Str() << " < " << s2.Str() << std::endl;
+
+  std::cout << "(const char *) " << (const char *) s2.Str() << std::endl;
+
+  std::cout << std::endl << "CountChar() test" << std::endl;
+  s1 = "ABADFDSGA";
+  xbUInt32 i = s1.CountChar( 'A' );
+  std::cout << "There are " << i << " 'A's in " << s1.Str() << std::endl;
+
+  s1.Ltrunc( 4 );
+  std::cout << "lTunc(4) test s1 = [" << s1.Str() << "]" << std::endl;
+
+  std::cout << std::endl << "PutAt() test" << std::endl;
+  s1.PutAt( 3, 'Z' );
+  std::cout << "Third char should be a 'Z' = " << s1.Str() << std::endl;
+
+  std::cout << std::endl << "AddBackSlash() test" << std::endl;
+  s1.AddBackSlash( 'Z' );
+  std::cout << "Should be a backslash before the 'Z' = " << s1.Str() << std::endl;
+
+  std::cout << std::endl << "Assign() test" << std::endl;
+  s2 = "1234567890";
+  std::cout << "s2 = " << s2.Str() << std::endl;
+  s1.Assign( s2, 4, 5 );
+  std::cout << "assign( s2, 4, 5 ) results = " << s1.Str() << std::endl;
+  s1.Assign( s2, 4, 15 );
+  std::cout << "assign( s2, 4, 15 ) results = " << s1.Str() << std::endl;
+
+  s1.Assign( s2, 5 );
+  std::cout << "Assign( s2, 5 ) results = " << s1.Str() << std::endl;
+  s1.Assign( s2, 15 );
+  std::cout << "Assign( s2, 15 ) results = " << s1.Str() << std::endl;
+
+  std::cout << std::endl << "s1.copy() test" << std::endl;
+  s1 = "ABC";
+  std::cout << "s1 = " << s1.Str() << std::endl;
+  std::cout << "s2 = " << s2.Str() << std::endl;
+
+  s1 = s2.Copy();
+  std::cout << "s1.Copy() results"  << s1.Str() << std::endl;
+
+  s1 = "0x35";
+  char hexChar;
+  s1.CvtHexChar( hexChar );
+  std::cout << "CvtHexChar test [" << s1.Str() << "] converts to [" << hexChar << "]" << std::endl;
+  s1 = "0x65";
+  s1.CvtHexChar( hexChar );
+  std::cout << "cvHexChar test [" << s1.Str() << "] converts to [" << hexChar << "]" << std::endl;
+
+  s1 = "0x610x620x630x640x65";
+  s1.CvtHexString( s2 );
+  std::cout << "CvtHexString [" << s1.Str() << "] converts to [" << s2.Str() << "]" << std::endl;
+
+  s1.ExtractElement( "aaaa|bbbb|cccc|dddd", '|', 2, 0 );
+  std::cout << "ExtractElement() " << s1.Str() << std::endl; 
+
+  s1 = "123";
+  s2 = "ABC";
+  std::cout << "HasAlphaChars( " << s1.Str() << " ) = " << s1.HasAlphaChars() << std::endl;   
+  std::cout << "HasAlphaChars( " << s2.Str() << " ) = " << s2.HasAlphaChars() << std::endl;
+
+  s2 = "";
+  std::cout << "IsEmpty( " << s1.Str() << " ) = " << s1.IsEmpty() << std::endl;
+  std::cout << "IsEmpty( " << s2.Str() << " ) = " << s2.IsEmpty() << std::endl;
+
+  s1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  std::cout << s1.Str() << " s1.Mid( 3,5 ) = [" << s1.Mid( 3, 5 ).Str() << "]"  << std::endl;
+  std::cout << s1.Str() << " s1.Mid( 25, 10 ) = [" << s1.Mid( 25, 10 ).Str() << "]"  << std::endl;
+
+  std::cout << s1.Str() << " s1.Pos('G') = " << s1.Pos( 'G' ) << std::endl;
+  std::cout << s1.Str() << " s1.Pos(\"JKL\") = " << s1.Pos( "JKL" ) << std::endl;
+
+  std::cout << "Remove(  3,  5 ) before " << s1.Str() << std::endl;
+  std::cout << s1.Str() << " s1.Remove( 3, 5 ) = [" << s1.Remove( 3, 5 ).Str() << "]" << std::endl; 
+  std::cout << "Remove(  3,  5 ) after  " << s1.Str() << std::endl;
+  s1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  std::cout << "s1.Remove( 20, 10 ) = [" << s1.Remove( 20, 10 ).Str() << "]" << std::endl;
+  
+  std::cout << "Remove( 20, 10 ) - " << s1.Str() << std::endl;
+  
+
+  s1.Sprintf( "%d", 12345 );
+  std::cout << "Sprintf( %d, 12345 ) " << s1.Str() << std::endl;
+
+  s1.SetNum( (long) 123456 );
+  std::cout << "s1.SetNum( 123456 ) = " << s1.Str()  << std::endl;
+
+  s1.Set( "Yet another way to set a string value" );
+  std::cout << "Set - " << s1.Str() << std::endl;
+
+  s1 = "ABCABCABZ";
+  std::cout << "SwapChars( 'A', '9' ) before - " << s1.Str() << std::endl;
+  s1.SwapChars( 'A', '9' );
+  std::cout << "SwapChars( 'A', '9' ) after - " << s1.Str() << std::endl;
+
+  s1.ToLowerCase();
+  std::cout << "ToLowerCase - " << s1.Str() << std::endl;
+
+  s1.ToUpperCase();
+  std::cout << "ToUpperCase - " << s1.Str() << std::endl;
+
+  s1.ZapChar( '9' );
+  std::cout << "ZapChar( '9' )"  << s1.Str() << std::endl;
+
+  s1.ZapLeadingChar( 'B' );
+  std::cout << "ZapLeadingChar( 'B' )"  << s1.Str() << std::endl;
+
+  s1.ZapTrailingChar( 'Z' );
+  std::cout << "ZapLeadingChar( 'Z' ) - " << s1.Str() << std::endl;
+
+  s1 = "123";
+  s1.PadLeft( '0', 9 );
+  std::cout << "s1.PadLeft('0', 9 ) - " << s1.Str() << std::endl;
+
+  s1 = "abc";
+  s1.PadRight( 'Z', 9 );
+  std::cout << "s1.PadRight('Z', 9 ) " << s1.Str() << std::endl;
+
+  xbString sNullString;
+  if( sNullString.IsNull())
+    std::cout << "sNullString is null" << std::endl;
+  else
+    std::cout << "sNullString is not null" << std::endl;
+
+  xbString tstS( "ZZZZZZZZZ" );
+  tstS = s1.Left( 5 );
+
+  std::cout << "tstS = " << tstS.Str() << "\n";
+  std::cout << "s1 = " << s1.Str() << "\n";
+
+  tstS = "1234567890";
+  std::cout << "mid result = " << tstS.Mid( 3, 3 ).Str() << std::endl;
+
+  tstS = "1234567890";
+  std::cout << "left result = " << tstS.Left( 3 ).Str() << std::endl;
+
+
+  return 0;
+}
+
+</xmp>
+
+<br><br>
+<hr>
+<p><img src="xbase.jpg"><br><hr>
+</body>
+</html>

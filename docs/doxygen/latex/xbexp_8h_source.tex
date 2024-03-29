@@ -1,0 +1,165 @@
+\hypertarget{xbexp_8h_source}{}\doxysection{xbexp.\+h}
+\label{xbexp_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbexp.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbexp.h}}
+\mbox{\hyperlink{xbexp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbexp.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef \_\_XB\_EXP\_H\_\_}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define \_\_XB\_EXP\_H\_\_}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{// \#ifdef  CMAKE\_COMPILER\_IS\_GNUCC}}
+\DoxyCodeLine{22 \textcolor{comment}{// \#pragma interface}}
+\DoxyCodeLine{23 \textcolor{comment}{// \#endif}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define XB\_NULL\_DATE 21474835648}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#ifdef XB\_FUNCTION\_SUPPORT}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define XB\_EXP\_CHAR      'C'}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define XB\_EXP\_DATE      'D'}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define XB\_EXP\_LOGICAL   'L'}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define XB\_EXP\_NUMERIC   'N'}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define XB\_EXP\_UNKNOWN   'U'}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifdef XB\_EXPRESSION\_SUPPORT}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define XB\_EXP\_CONSTANT      'C'}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define XB\_EXP\_FUNCTION      'F'}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define XB\_EXP\_FIELD         'D'}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define XB\_EXP\_OPERATOR      'O'}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define XB\_EXP\_NOTROOT       'N'    }\textcolor{comment}{// not root node, needs further parsing}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define XB\_EXP\_PRE\_OPERATOR  'B'    }\textcolor{comment}{// (B)efore) pre increment, pre decrement}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define XB\_EXP\_POST\_OPERATOR 'A'    }\textcolor{comment}{// (A)fter)  post increment, pre decrement}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define XB\_END\_OF\_EXPRESSION -\/100}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{comment}{// \#define XB\_UNBALANCED\_PARENS -\/101}}
+\DoxyCodeLine{49 \textcolor{comment}{// \#define XB\_UNBALANCED\_QUOTES -\/102}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{55 \textcolor{keyword}{struct }XBDLLEXPORT xbExpToken \{}
+\DoxyCodeLine{56   xbString sExpression;      \textcolor{comment}{// in -\/ expression to pull next token from}}
+\DoxyCodeLine{57                              \textcolor{comment}{// out -\/ remainder of the expression after token removed}}
+\DoxyCodeLine{58   xbString sToken;           \textcolor{comment}{// next token pulled from the expression}}
+\DoxyCodeLine{59   \textcolor{keywordtype}{char}     cNodeType;        \textcolor{comment}{// one of XB\_EXP\_CONSTANT, XB\_EXP\_FUNCTION, XB\_EXP\_FIELD, XB\_EXP\_OPERATOR, XB\_EXP\_NOTROOT}}
+\DoxyCodeLine{60   \textcolor{keywordtype}{char}     cReturnType;      \textcolor{comment}{// one of XB\_EXP\_CHAR, XB\_EXP\_DATE, XB\_EXP\_LOGICAL, XB\_EXP\_NUMERIC, XB\_EXP\_UNKNOWN}}
+\DoxyCodeLine{61   xbInt16  iSts;             \textcolor{comment}{// return status after retrieving or attempting next token from expression}}
+\DoxyCodeLine{62                              \textcolor{comment}{// 0 = no error}}
+\DoxyCodeLine{63                              \textcolor{comment}{// XB\_END\_OF\_EXPRESSION}}
+\DoxyCodeLine{64                              \textcolor{comment}{// XB\_UNBALANCED\_PARENS}}
+\DoxyCodeLine{65                              \textcolor{comment}{// XB\_UNBALANCED\_QUOTES}}
+\DoxyCodeLine{66   \textcolor{keywordtype}{char}     cPrevNodeType;    \textcolor{comment}{// previous node type}}
+\DoxyCodeLine{67   \textcolor{keywordtype}{char}     cPrevReturnType;  \textcolor{comment}{// previous return type}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69   \textcolor{comment}{// constructor}}
+\DoxyCodeLine{70   xbExpToken() \{ cNodeType = 0; cReturnType = 0; iSts = 0; cPrevNodeType = 0; cPrevReturnType = 0; \}}
+\DoxyCodeLine{71 \};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{78 }
+\DoxyCodeLine{133 \textcolor{keyword}{class }XBDLLEXPORT xbExp\{}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135   \textcolor{keyword}{public}:}
+\DoxyCodeLine{136     xbExp( \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}} * );}
+\DoxyCodeLine{137     xbExp( \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}} *, \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} * );}
+\DoxyCodeLine{138     \textcolor{keyword}{virtual} \string~xbExp();}
+\DoxyCodeLine{139     \textcolor{keywordtype}{void} ClearTreeHandle();}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \textcolor{preprocessor}{    \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{143     \textcolor{keywordtype}{void}      DumpTree( xbInt16 iOption );}
+\DoxyCodeLine{144     \textcolor{keywordtype}{void}      DumpToken( xbExpToken \&t, xbInt16 iOption = 0 );}
+\DoxyCodeLine{145 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     xbInt16   GetResultLen() \textcolor{keyword}{const};}
+\DoxyCodeLine{148     \textcolor{keywordtype}{char}      GetReturnType() \textcolor{keyword}{const};}
+\DoxyCodeLine{149     xbInt16   GetBoolResult( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bResult );}
+\DoxyCodeLine{150     xbInt16   GetDateResult( xbDate \&dtResult );}
+\DoxyCodeLine{151     xbInt16   GetNumericResult( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dResult );}
+\DoxyCodeLine{152     xbInt16   GetStringResult( xbString \&sResult );}
+\DoxyCodeLine{153     xbInt16   GetStringResult( \textcolor{keywordtype}{char} * vpResult, xbUInt32 ulLen );}
+\DoxyCodeLine{154     xbExpNode *GetTreeHandle();}
+\DoxyCodeLine{155     xbInt16   ParseExpression( \textcolor{keyword}{const} xbString \&sExpression );}
+\DoxyCodeLine{156     xbInt16   ParseExpression( \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} *dbf, \textcolor{keyword}{const} xbString \&sExpression );}
+\DoxyCodeLine{157     xbInt16   ProcessExpression();}
+\DoxyCodeLine{158     xbInt16   ProcessExpression( xbInt16 iRecBufSw );}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{162     xbInt16   GetNextToken( xbExpToken \&t );}
+\DoxyCodeLine{163     xbInt16   OperatorWeight( \textcolor{keyword}{const} xbString \&sOperator );}
+\DoxyCodeLine{164     xbExpNode *GetNextNode( xbExpNode * n ) \textcolor{keyword}{const};  \textcolor{comment}{// traverses the tree from bottom left node, right, then up}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166   \textcolor{keyword}{private}:    \textcolor{comment}{// methods}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     \textcolor{comment}{// xbInt16 CalcExpressionResultLen();}}
+\DoxyCodeLine{169     xbInt16 CalcFunctionResultLen( xbExpNode *n ) \textcolor{keyword}{const};}
+\DoxyCodeLine{170     xbInt16 CalcCharNodeLen( xbExpNode *n );}
+\DoxyCodeLine{171     xbInt16 CheckParensAndQuotes( \textcolor{keyword}{const} xbString \&sExpression );}
+\DoxyCodeLine{172     xbInt16 GetExpressionResultLen() \textcolor{keyword}{const};}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     xbInt16 GetTokenCharConstant   ( xbExpToken \&t );}
+\DoxyCodeLine{175     xbInt16 GetTokenDatabaseField  ( xbExpToken \&t );}
+\DoxyCodeLine{176     xbInt16 GetTokenDateConstant   ( xbExpToken \&t );}
+\DoxyCodeLine{177     xbInt16 GetTokenFunction       ( xbExpToken \&t );}
+\DoxyCodeLine{178     xbInt16 GetTokenLogicalConstant( xbExpToken \&t );}
+\DoxyCodeLine{179     xbInt16 GetTokenNumericConstant( xbExpToken \&t );}
+\DoxyCodeLine{180     xbInt16 GetTokenOperator       ( xbExpToken \&t );}
+\DoxyCodeLine{181     xbInt16 GetTokenParen          ( xbExpToken \&t );}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsFunction             ( \textcolor{keyword}{const} xbString \&sExp, \textcolor{keywordtype}{char} \&cReturnType );}
+\DoxyCodeLine{184     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsLogicalConstant      ( \textcolor{keyword}{const} xbString \&sExp );}
+\DoxyCodeLine{185     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsNumericConstant      ( \textcolor{keyword}{const} xbString \&sExp, \textcolor{keywordtype}{char} cPrevNodeType );}
+\DoxyCodeLine{186     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsOperator             ( \textcolor{keyword}{const} xbString \&sExp );}
+\DoxyCodeLine{187     \textcolor{keywordtype}{char}    IsTokenSeparator       ( \textcolor{keywordtype}{char} c );}
+\DoxyCodeLine{188     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsWhiteSpace           ( \textcolor{keywordtype}{char} c );}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190     xbInt16 ParseExpression        ( \textcolor{keyword}{const} xbString \&sExpression, xbInt16 iWeight );}
+\DoxyCodeLine{191     xbInt16 ParseExpressionConstant( xbExpToken \&t, xbExpNode *n );}
+\DoxyCodeLine{192     xbInt16 ParseExpressionFunction( xbExpToken \&t, xbExpNode *n, xbInt16 iWeight );}
+\DoxyCodeLine{193     xbInt16 ParseExpressionFunctionParms( \textcolor{keyword}{const} xbString \&sParms, xbLinkList<xbString> \&llParms );}
+\DoxyCodeLine{194     xbInt16 ParseExpressionField   ( xbExpToken \&t, xbExpNode *n );}
+\DoxyCodeLine{195     xbInt16 ParseExpressionOperator( xbExpToken \&t, xbExpNode *n, xbInt16 iWeight );}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     xbInt16 ProcessExpressionFunction( xbExpNode *n, xbInt16 iRecBufSw = 0 );}
+\DoxyCodeLine{198     xbInt16 ProcessExpressionOperator( xbExpNode *n );}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200   \textcolor{keyword}{private}:   \textcolor{comment}{// fields}}
+\DoxyCodeLine{201     \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}}   *xbase;}
+\DoxyCodeLine{202     \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}}     *dbf;}
+\DoxyCodeLine{203     xbExpNode *nTree;        \textcolor{comment}{// pointer to tree of expNodes}}
+\DoxyCodeLine{204     \textcolor{comment}{// xbInt16   iExpLen;       // size of expression result}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 \};}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 \textcolor{comment}{/* Expression handler */}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212 \};}
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#endif        }\textcolor{comment}{// XB\_EXPRESSION\_SUPPORT}}
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#endif        }\textcolor{comment}{// \_\_XB\_EXP\_H\_\_}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216 }
+
+\end{DoxyCode}

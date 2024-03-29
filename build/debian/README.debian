@@ -1,0 +1,26 @@
+
+3/26/23
+
+Debian build steps for Xbase64
+
+1)  Verify cmake is installed with command:  cmake --version
+    If it is not installed, install the latest version through the Debian software store.
+
+2)  Verify gcc is intalled with the command:  gcc --version
+    If it is not installed, execute the following commands:
+
+      sudo apt update
+      sudo apt install build-essential
+      gcc --version
+
+3)  Build xbase64 library
+
+      cd build/debian      (go to the appropriate build directory)
+      cmake .              (configure for your environment)
+      make                 (compile it)
+      make test            (test library build)
+      sudo make install    (install it)
+      xb_cfg_chk           (test install)
+
+
+

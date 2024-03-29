@@ -1,0 +1,69 @@
+\hypertarget{xbblkread_8h_source}{}\doxysection{xbblkread.\+h}
+\label{xbblkread_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbblkread.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbblkread.h}}
+\mbox{\hyperlink{xbblkread_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbblkread.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef \_\_XB\_BLKREAD\_H\_\_}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define \_\_XB\_BLKREAD\_H\_\_}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifdef XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{32 \textcolor{keyword}{class }XBDLLEXPORT xbBlockRead \{}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34   \textcolor{keyword}{public}:}
+\DoxyCodeLine{35     xbBlockRead( \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} * d );}
+\DoxyCodeLine{36     \string~xbBlockRead();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{    \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void}     DumpReadBlockInternals();}
+\DoxyCodeLine{40 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     xbInt16  Init( xbUInt32 ulBlkSize = 0 );}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     xbUInt32 GetBlockFirstRecNo() \textcolor{keyword}{const};}
+\DoxyCodeLine{45     xbUInt32 GetBlockRecCnt() \textcolor{keyword}{const};}
+\DoxyCodeLine{46     xbUInt32 GetBlockSize() \textcolor{keyword}{const};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     xbInt16  GetRecord( xbUInt32 ulRecNo );            \textcolor{comment}{// retrieve a data record from a block to RecBuf}}
+\DoxyCodeLine{49     xbInt16  SetBlockSize( xbUInt32 ulBlkSize );}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52   \textcolor{keyword}{private}:}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     xbInt16  GetBlockForRecNo( xbUInt32 ulRecNo );    \textcolor{comment}{// retrieve block from disk for a given record number}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{char}     *pBlock;             \textcolor{comment}{// block pointer}}
+\DoxyCodeLine{57     xbUInt32 ulBlkSize;           \textcolor{comment}{// block size in bytes}}
+\DoxyCodeLine{58     xbUInt32 ulFirstBlkRec;       \textcolor{comment}{// first recod number in the block}}
+\DoxyCodeLine{59     xbUInt32 ulRecCnt;            \textcolor{comment}{// number of records in block}}
+\DoxyCodeLine{60     xbUInt32 ulMaxRecs;           \textcolor{comment}{// max number of records block can handle}}
+\DoxyCodeLine{61     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bEof;                \textcolor{comment}{// EOF flag}}
+\DoxyCodeLine{62     \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}}    *dbf;                \textcolor{comment}{// reference to associated dbf file}}
+\DoxyCodeLine{63 \textcolor{comment}{//    xbXBase  *xbase;              // reference to main xbXBase structure}}
+\DoxyCodeLine{64     time\_t   tFmTime;             \textcolor{comment}{// file modify time at time of block read}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// XB\_BLOCKREAD}}
+\DoxyCodeLine{69 \}  \textcolor{comment}{/* namespace */}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{/*  \_\_XB\_BLOCKREAD\_H\_\_  */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,22 @@
+
+64 bit Visual Studio build steps for Xbase64 running on Windows - 3/7/23
+
+1)  Verify cmake is installed with command:  cmake --version
+    If it is not installed, install the latest version.
+
+
+2)  Verify Visual Studio is intalled with the command.
+
+
+3)  Build xbase64 library
+
+      Open Visual Studio Command Prompt for 64 bit environment
+      cd build/win64vs     (go to the appropriate build directory)
+      BuildWin.bat         (configure for your environment and compile)
+      nmake test           (test library buiild)
+      nmake install        (install it)
+
+      "c:\Program Files (x86)\xbase64\bin\xb_cfg_chk"    (test install)
+
+
+Also of note, batch file CleanWin.bat initializes the win64vs build folders.

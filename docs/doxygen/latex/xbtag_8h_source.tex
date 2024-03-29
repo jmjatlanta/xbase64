@@ -1,0 +1,69 @@
+\hypertarget{xbtag_8h_source}{}\doxysection{xbtag.\+h}
+\label{xbtag_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbtag.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbtag.h}}
+\mbox{\hyperlink{xbtag_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbtag.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef \_\_XB\_XBTAG\_H\_\_}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define \_\_XB\_XBTAG\_H\_\_}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{//\#ifdef  CMAKE\_COMPILER\_IS\_GNUCC}}
+\DoxyCodeLine{21 \textcolor{comment}{//\#pragma interface}}
+\DoxyCodeLine{22 \textcolor{comment}{//\#endif}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#ifdef XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }XBDLLEXPORT xbIx;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{45 \textcolor{keyword}{class }XBDLLEXPORT xbTag \{}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47  \textcolor{keyword}{public}:}
+\DoxyCodeLine{48   xbTag( xbIx *pIx, \textcolor{keywordtype}{void} *vpTag, xbString \&sType, xbString \&sTagName, xbString \&sExpression, xbString \&sFilter, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bUnique, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bSort );}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50   xbIx   *GetIx()                  \textcolor{keyword}{const};}
+\DoxyCodeLine{51   \textcolor{keywordtype}{void}   *GetVpTag()               \textcolor{keyword}{const};}
+\DoxyCodeLine{52   \textcolor{keyword}{const}  xbString \&GetType()       \textcolor{keyword}{const};}
+\DoxyCodeLine{53   \textcolor{keyword}{const}  xbString \&GetTagName()    \textcolor{keyword}{const};}
+\DoxyCodeLine{54   \textcolor{keyword}{const}  xbString \&GetExpression() \textcolor{keyword}{const};}
+\DoxyCodeLine{55   \textcolor{keyword}{const}  xbString \&GetFilter()     \textcolor{keyword}{const};}
+\DoxyCodeLine{56   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} GetUnique()               \textcolor{keyword}{const};}
+\DoxyCodeLine{57   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} GetSort()                 \textcolor{keyword}{const};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59  \textcolor{keyword}{private}:}
+\DoxyCodeLine{60   xbIx     *pIx;}
+\DoxyCodeLine{61   \textcolor{keywordtype}{void}     *vpTag;}
+\DoxyCodeLine{62   xbString sType;}
+\DoxyCodeLine{63   xbString sTagName;}
+\DoxyCodeLine{64   xbString sExpression;}
+\DoxyCodeLine{65   xbString sFilter;}
+\DoxyCodeLine{66   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bUnique;}
+\DoxyCodeLine{67   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bSort;          \textcolor{comment}{// 0 = Ascending, 1 = Descending}}
+\DoxyCodeLine{68 \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \}        \textcolor{comment}{/* namespace xb    */}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XB\_TAG\_H\_\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

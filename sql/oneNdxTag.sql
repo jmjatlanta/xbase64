@@ -1,0 +1,18 @@
+# HELP;
+
+# where the tables live
+USE /mnt/1Tdata/xbase/xbase.35/data;
+
+
+DROP TABLE IF EXISTS OneNdxTg.DBF;
+
+CREATE TABLE OneNdxTg.DBF( CHRFLD CHAR(50), DTFLD DATE, INTFLD INTEGER, SMINTFLD SMALLINT, NUMFLD NUMERIC(9,4), DECFLD DECIMAL(9,4), FLTFLD FLOAT(9,4)  LGFLD LOGICAL ); 
+
+CREATE INDEX OneNdxTg.NDX ON OneNdxTg.DBF( CHRFLD ) ASSOCIATE;
+
+INSERT INTO OneNdxTg.DBF ( CHRFLD ) Values ('AAA' );
+INSERT INTO OneNdxTg.DBF ( CHRFLD ) Values ('BBB' );
+INSERT INTO OneNdxTg.DBF ( CHRFLD ) Values ('CCC' );
+INSERT INTO OneNdxTg.DBF ( CHRFLD ) Values ('aaa' );
+INSERT INTO OneNdxTg.DBF ( CHRFLD ) Values ('bbb' );
+INSERT INTO OneNdxTg.DBF ( CHRFLD ) Values ('ccc' );

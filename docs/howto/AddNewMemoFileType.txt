@@ -1,0 +1,9 @@
+
+
+How to create a new memo file format
+
+1)  Derive a child class from xbMemo Pure Virtual Class
+
+2)  Create header file
+3)  Create cpp file
+4)  Update CMakeLists.txt

@@ -1,0 +1,485 @@
+\hypertarget{xbretcod_8h}{}\doxysection{/mnt/1\+Tdata/xbase/xbase64-\/4.1.7/src/include/xbretcod.h File Reference}
+\label{xbretcod_8h}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbretcod.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbretcod.h}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacexb}{xb}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_ac720d5b4ec45bfd606f5865d40816e23}{XB\+\_\+\+NO\+\_\+\+ERROR}}~0
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_ae687fc7d872ba0475a8477e4447f9b54}{XB\+\_\+\+NO\+\_\+\+MEMORY}}~-\/100
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_af1cd0baf346cad686fa4dd11f700012a}{XB\+\_\+\+INVALID\+\_\+\+OPTION}}~-\/101
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a1b78533ada854b4185c51ad8a5ce9f02}{XB\+\_\+\+INVALID\+\_\+\+PARAMETER}}~-\/102
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_ac18036408d10e5eee1bf76cf92352b95}{XB\+\_\+\+DUP\+\_\+\+TABLE\+\_\+\+OR\+\_\+\+ALIAS}}~-\/110
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a13e6876470bd34c8c4e5533f115e04eb}{XB\+\_\+\+INVALID\+\_\+\+NODELINK}}~-\/120
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_ad60dbb1862c0c1c2dc0464cfbfd93a34}{XB\+\_\+\+KEY\+\_\+\+NOT\+\_\+\+UNIQUE}}~-\/121
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_aa2925f035e3b186d7efa14648ea0e86d}{XB\+\_\+\+MEMCPY\+\_\+\+ERROR}}~-\/122
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_ae4a1ddd703ada1b148cdac5cac26a991}{XB\+\_\+\+ALREADY\+\_\+\+DEFINED}}~-\/123
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a54303a9677dbd5342233f33dd08c64d0}{XB\+\_\+\+FILE\+\_\+\+EXISTS}}~-\/200
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_aa2ff8301503f446c6a5f6510090e520f}{XB\+\_\+\+ALREADY\+\_\+\+OPEN}}~-\/201
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a8104510b347c87998eadd0b27201e3c2}{XB\+\_\+\+DBF\+\_\+\+FILE\+\_\+\+NOT\+\_\+\+OPEN}}~-\/202
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_ad090af330c93111d12f6de35dbb065bc}{XB\+\_\+\+FILE\+\_\+\+NOT\+\_\+\+FOUND}}~-\/203
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_ab7b9130a5f1df9975cfeaf6241933596}{XB\+\_\+\+FILE\+\_\+\+TYPE\+\_\+\+NOT\+\_\+\+SUPPORTED}}~-\/204
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a373f30b2efcbbab9f6d060fb3fe8cba3}{XB\+\_\+\+RENAME\+\_\+\+ERROR}}~-\/205
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a418c047353bc683d0fd6ecbbdd5b7885}{XB\+\_\+\+INVALID\+\_\+\+OBJECT}}~-\/206
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a9474b400f647bdefbbb07e5177e8d7a1}{XB\+\_\+\+NOT\+\_\+\+OPEN}}~-\/207
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_ac2606659a54111334f5b02861e533700}{XB\+\_\+\+NOT\+\_\+\+FOUND}}~-\/208
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_aaab55236993a1d3acb29206252a904c8}{XB\+\_\+\+OPEN\+\_\+\+ERROR}}~-\/209
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a030684d5541cf6127a76d81b0684b235}{XB\+\_\+\+CLOSE\+\_\+\+ERROR}}~-\/210
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a0455ad8719e153b08ec68b10c81e9f41}{XB\+\_\+\+SEEK\+\_\+\+ERROR}}~-\/211
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_adbd40585db8bb748d191f94a33bac710}{XB\+\_\+\+READ\+\_\+\+ERROR}}~-\/212
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_aef34ebe6726057f805d6063130280549}{XB\+\_\+\+WRITE\+\_\+\+ERROR}}~-\/213
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a8b47031e90c3f86306c7058e4490d3b7}{XB\+\_\+\+EOF}}~-\/214
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_ade5f3a7cf1467d12761e4e21b5e4200f}{XB\+\_\+\+BOF}}~-\/215
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a1bd22921612389c37f6b2eac438c62c5}{XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+SIZE}}~-\/216
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a4e13b529b486c43ca600ce7d8ddbf3c2}{XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+NO}}~-\/217
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a0fd212f912b2e62700a66bae95bd73a1}{XB\+\_\+\+INVALID\+\_\+\+RECORD}}~-\/218
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_ada15513935d5ede9216f07c0438f34d2}{XB\+\_\+\+DELETE\+\_\+\+FAILED}}~-\/219
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a53891c95a78483704d2a8e14c4499f92}{XB\+\_\+\+INVALID\+\_\+\+TABLE\+\_\+\+NAME}}~-\/220
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a18068d0cbe0c7a1b4dd3176220180c29}{XB\+\_\+\+EMPTY}}~-\/221
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a59f1a8a6aca19595c2d1804349a24850}{XB\+\_\+\+LIMIT\+\_\+\+REACHED}}~-\/222
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_aae9241d91cfb37f5d236128b3bce0a4a}{XB\+\_\+\+BLOCKREAD\+\_\+\+NOT\+\_\+\+ENABLED}}~-\/223
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_af532df74147ce2d872f61abfee49c53e}{XB\+\_\+\+DIRECTORY\+\_\+\+ERROR}}~-\/224
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a79e2588f067d6e236c0e5a2c0728ba9f}{XB\+\_\+\+INVALID\+\_\+\+FIELD\+\_\+\+TYPE}}~-\/300
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a09d6c08a44316f551108a74003efd381}{XB\+\_\+\+INVALID\+\_\+\+FIELD\+\_\+\+NO}}~-\/301
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_afb40bbed323ecb369dd430a2e1242f9a}{XB\+\_\+\+INVALID\+\_\+\+DATA}}~-\/302
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a59403978784130834cf39434cb73f96e}{XB\+\_\+\+INVALID\+\_\+\+FIELD\+\_\+\+NAME}}~-\/303
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a187c50745f51bfe4aa6f70a92f16c59f}{XB\+\_\+\+INVALID\+\_\+\+MEMO\+\_\+\+FIELD}}~-\/304
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a34180b2e2bd350ba2ebcdd1335e15d7e}{XB\+\_\+\+INVALID\+\_\+\+FIELD}}~-\/305
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a7bd322c0efbba17f68ccccd6cf624411}{XB\+\_\+\+INVALID\+\_\+\+FIELD\+\_\+\+LEN}}~-\/306
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a702475500357a27b8a34463be3e11925}{XB\+\_\+\+INVALID\+\_\+\+DATE}}~-\/307
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_ab45735e63c208eb7e6d6df31fd527aec}{XB\+\_\+\+INVALID\+\_\+\+LOCK\+\_\+\+OPTION}}~-\/400
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a001e24b39e0f155fb1e892f5b1b9cff1}{XB\+\_\+\+LOCK\+\_\+\+FAILED}}~-\/401
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_af6aaf779fddecca521d785666f6dc56b}{XB\+\_\+\+TABLE\+\_\+\+NOT\+\_\+\+LOCKED}}~-\/402
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_aec713cac2b03a0d536a2d16336ae7c0b}{XB\+\_\+\+PARSE\+\_\+\+ERROR}}~-\/500
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a2b7e5e440dbcf5e6dc885b24dbe28742}{XB\+\_\+\+INVALID\+\_\+\+FUNCTION}}~-\/501
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a4cedf96581c9cbc9c14d07494143702d}{XB\+\_\+\+INVALID\+\_\+\+PARM}}~-\/502
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_adc4b24bfffa202f8df25409894e547b9}{XB\+\_\+\+INCONSISTENT\+\_\+\+PARM\+\_\+\+LENS}}~-\/503
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_af141ec58b7ca7360e0be6c61d015ea74}{XB\+\_\+\+INCOMPATIBLE\+\_\+\+OPERANDS}}~-\/504
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_aff5646a6b0884ff81004de6961473ea6}{XB\+\_\+\+UNBALANCED\+\_\+\+PARENS}}~-\/505
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_aedfa20a6c4eb9ba3063ba56be8280eac}{XB\+\_\+\+UNBALANCED\+\_\+\+QUOTES}}~-\/506
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a54db562c3cae97581812b4fccd52b71a}{XB\+\_\+\+INVALID\+\_\+\+EXPRESSION}}~-\/507
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_aec2c0ac2bd62e0329ef130e4fbda39f8}{XB\+\_\+\+INVALID\+\_\+\+KEYNO}}~-\/600
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_acd175ef0541e2cad424791bd87619dd4}{XB\+\_\+\+INVALID\+\_\+\+INDEX}}~-\/601
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a176d917912d3433f065483f905a4c50a}{XB\+\_\+\+INVALID\+\_\+\+TAG}}~-\/602
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_ad0aba12b5ae2137f8d6abd28b47f95f0}{XB\+\_\+\+INVALID\+\_\+\+PAGE}}~-\/603
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a5db3a90f215534143bdde81253729c7f}{XB\+\_\+\+SYNTAX\+\_\+\+ERROR}}~-\/700
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a299419a9c80e000b74bf97a2d24d6a3d}{XB\+\_\+\+MAX\+\_\+\+ERROR\+\_\+\+NO}}~-\/999
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{xbretcod_8h_ae4a1ddd703ada1b148cdac5cac26a991}\label{xbretcod_8h_ae4a1ddd703ada1b148cdac5cac26a991}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_ALREADY\_DEFINED@{XB\_ALREADY\_DEFINED}}
+\index{XB\_ALREADY\_DEFINED@{XB\_ALREADY\_DEFINED}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_ALREADY\_DEFINED}{XB\_ALREADY\_DEFINED}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+ALREADY\+\_\+\+DEFINED~-\/123}
+
+\mbox{\Hypertarget{xbretcod_8h_aa2ff8301503f446c6a5f6510090e520f}\label{xbretcod_8h_aa2ff8301503f446c6a5f6510090e520f}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_ALREADY\_OPEN@{XB\_ALREADY\_OPEN}}
+\index{XB\_ALREADY\_OPEN@{XB\_ALREADY\_OPEN}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_ALREADY\_OPEN}{XB\_ALREADY\_OPEN}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+ALREADY\+\_\+\+OPEN~-\/201}
+
+\mbox{\Hypertarget{xbretcod_8h_aae9241d91cfb37f5d236128b3bce0a4a}\label{xbretcod_8h_aae9241d91cfb37f5d236128b3bce0a4a}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_BLOCKREAD\_NOT\_ENABLED@{XB\_BLOCKREAD\_NOT\_ENABLED}}
+\index{XB\_BLOCKREAD\_NOT\_ENABLED@{XB\_BLOCKREAD\_NOT\_ENABLED}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_BLOCKREAD\_NOT\_ENABLED}{XB\_BLOCKREAD\_NOT\_ENABLED}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+BLOCKREAD\+\_\+\+NOT\+\_\+\+ENABLED~-\/223}
+
+\mbox{\Hypertarget{xbretcod_8h_ade5f3a7cf1467d12761e4e21b5e4200f}\label{xbretcod_8h_ade5f3a7cf1467d12761e4e21b5e4200f}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_BOF@{XB\_BOF}}
+\index{XB\_BOF@{XB\_BOF}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_BOF}{XB\_BOF}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+BOF~-\/215}
+
+\mbox{\Hypertarget{xbretcod_8h_a030684d5541cf6127a76d81b0684b235}\label{xbretcod_8h_a030684d5541cf6127a76d81b0684b235}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_CLOSE\_ERROR@{XB\_CLOSE\_ERROR}}
+\index{XB\_CLOSE\_ERROR@{XB\_CLOSE\_ERROR}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_CLOSE\_ERROR}{XB\_CLOSE\_ERROR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+CLOSE\+\_\+\+ERROR~-\/210}
+
+\mbox{\Hypertarget{xbretcod_8h_a8104510b347c87998eadd0b27201e3c2}\label{xbretcod_8h_a8104510b347c87998eadd0b27201e3c2}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_DBF\_FILE\_NOT\_OPEN@{XB\_DBF\_FILE\_NOT\_OPEN}}
+\index{XB\_DBF\_FILE\_NOT\_OPEN@{XB\_DBF\_FILE\_NOT\_OPEN}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_DBF\_FILE\_NOT\_OPEN}{XB\_DBF\_FILE\_NOT\_OPEN}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+DBF\+\_\+\+FILE\+\_\+\+NOT\+\_\+\+OPEN~-\/202}
+
+\mbox{\Hypertarget{xbretcod_8h_ada15513935d5ede9216f07c0438f34d2}\label{xbretcod_8h_ada15513935d5ede9216f07c0438f34d2}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_DELETE\_FAILED@{XB\_DELETE\_FAILED}}
+\index{XB\_DELETE\_FAILED@{XB\_DELETE\_FAILED}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_DELETE\_FAILED}{XB\_DELETE\_FAILED}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+DELETE\+\_\+\+FAILED~-\/219}
+
+\mbox{\Hypertarget{xbretcod_8h_af532df74147ce2d872f61abfee49c53e}\label{xbretcod_8h_af532df74147ce2d872f61abfee49c53e}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_DIRECTORY\_ERROR@{XB\_DIRECTORY\_ERROR}}
+\index{XB\_DIRECTORY\_ERROR@{XB\_DIRECTORY\_ERROR}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_DIRECTORY\_ERROR}{XB\_DIRECTORY\_ERROR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+DIRECTORY\+\_\+\+ERROR~-\/224}
+
+\mbox{\Hypertarget{xbretcod_8h_ac18036408d10e5eee1bf76cf92352b95}\label{xbretcod_8h_ac18036408d10e5eee1bf76cf92352b95}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_DUP\_TABLE\_OR\_ALIAS@{XB\_DUP\_TABLE\_OR\_ALIAS}}
+\index{XB\_DUP\_TABLE\_OR\_ALIAS@{XB\_DUP\_TABLE\_OR\_ALIAS}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_DUP\_TABLE\_OR\_ALIAS}{XB\_DUP\_TABLE\_OR\_ALIAS}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+DUP\+\_\+\+TABLE\+\_\+\+OR\+\_\+\+ALIAS~-\/110}
+
+\mbox{\Hypertarget{xbretcod_8h_a18068d0cbe0c7a1b4dd3176220180c29}\label{xbretcod_8h_a18068d0cbe0c7a1b4dd3176220180c29}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_EMPTY@{XB\_EMPTY}}
+\index{XB\_EMPTY@{XB\_EMPTY}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EMPTY}{XB\_EMPTY}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EMPTY~-\/221}
+
+\mbox{\Hypertarget{xbretcod_8h_a8b47031e90c3f86306c7058e4490d3b7}\label{xbretcod_8h_a8b47031e90c3f86306c7058e4490d3b7}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_EOF@{XB\_EOF}}
+\index{XB\_EOF@{XB\_EOF}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EOF}{XB\_EOF}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EOF~-\/214}
+
+\mbox{\Hypertarget{xbretcod_8h_a54303a9677dbd5342233f33dd08c64d0}\label{xbretcod_8h_a54303a9677dbd5342233f33dd08c64d0}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_FILE\_EXISTS@{XB\_FILE\_EXISTS}}
+\index{XB\_FILE\_EXISTS@{XB\_FILE\_EXISTS}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_FILE\_EXISTS}{XB\_FILE\_EXISTS}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+FILE\+\_\+\+EXISTS~-\/200}
+
+\mbox{\Hypertarget{xbretcod_8h_ad090af330c93111d12f6de35dbb065bc}\label{xbretcod_8h_ad090af330c93111d12f6de35dbb065bc}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_FILE\_NOT\_FOUND@{XB\_FILE\_NOT\_FOUND}}
+\index{XB\_FILE\_NOT\_FOUND@{XB\_FILE\_NOT\_FOUND}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_FILE\_NOT\_FOUND}{XB\_FILE\_NOT\_FOUND}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+FILE\+\_\+\+NOT\+\_\+\+FOUND~-\/203}
+
+\mbox{\Hypertarget{xbretcod_8h_ab7b9130a5f1df9975cfeaf6241933596}\label{xbretcod_8h_ab7b9130a5f1df9975cfeaf6241933596}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_FILE\_TYPE\_NOT\_SUPPORTED@{XB\_FILE\_TYPE\_NOT\_SUPPORTED}}
+\index{XB\_FILE\_TYPE\_NOT\_SUPPORTED@{XB\_FILE\_TYPE\_NOT\_SUPPORTED}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_FILE\_TYPE\_NOT\_SUPPORTED}{XB\_FILE\_TYPE\_NOT\_SUPPORTED}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+FILE\+\_\+\+TYPE\+\_\+\+NOT\+\_\+\+SUPPORTED~-\/204}
+
+\mbox{\Hypertarget{xbretcod_8h_af141ec58b7ca7360e0be6c61d015ea74}\label{xbretcod_8h_af141ec58b7ca7360e0be6c61d015ea74}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INCOMPATIBLE\_OPERANDS@{XB\_INCOMPATIBLE\_OPERANDS}}
+\index{XB\_INCOMPATIBLE\_OPERANDS@{XB\_INCOMPATIBLE\_OPERANDS}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INCOMPATIBLE\_OPERANDS}{XB\_INCOMPATIBLE\_OPERANDS}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INCOMPATIBLE\+\_\+\+OPERANDS~-\/504}
+
+\mbox{\Hypertarget{xbretcod_8h_adc4b24bfffa202f8df25409894e547b9}\label{xbretcod_8h_adc4b24bfffa202f8df25409894e547b9}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INCONSISTENT\_PARM\_LENS@{XB\_INCONSISTENT\_PARM\_LENS}}
+\index{XB\_INCONSISTENT\_PARM\_LENS@{XB\_INCONSISTENT\_PARM\_LENS}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INCONSISTENT\_PARM\_LENS}{XB\_INCONSISTENT\_PARM\_LENS}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INCONSISTENT\+\_\+\+PARM\+\_\+\+LENS~-\/503}
+
+\mbox{\Hypertarget{xbretcod_8h_a4e13b529b486c43ca600ce7d8ddbf3c2}\label{xbretcod_8h_a4e13b529b486c43ca600ce7d8ddbf3c2}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_BLOCK\_NO@{XB\_INVALID\_BLOCK\_NO}}
+\index{XB\_INVALID\_BLOCK\_NO@{XB\_INVALID\_BLOCK\_NO}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_BLOCK\_NO}{XB\_INVALID\_BLOCK\_NO}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+NO~-\/217}
+
+\mbox{\Hypertarget{xbretcod_8h_a1bd22921612389c37f6b2eac438c62c5}\label{xbretcod_8h_a1bd22921612389c37f6b2eac438c62c5}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_BLOCK\_SIZE@{XB\_INVALID\_BLOCK\_SIZE}}
+\index{XB\_INVALID\_BLOCK\_SIZE@{XB\_INVALID\_BLOCK\_SIZE}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_BLOCK\_SIZE}{XB\_INVALID\_BLOCK\_SIZE}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+SIZE~-\/216}
+
+\mbox{\Hypertarget{xbretcod_8h_afb40bbed323ecb369dd430a2e1242f9a}\label{xbretcod_8h_afb40bbed323ecb369dd430a2e1242f9a}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_DATA@{XB\_INVALID\_DATA}}
+\index{XB\_INVALID\_DATA@{XB\_INVALID\_DATA}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_DATA}{XB\_INVALID\_DATA}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+DATA~-\/302}
+
+\mbox{\Hypertarget{xbretcod_8h_a702475500357a27b8a34463be3e11925}\label{xbretcod_8h_a702475500357a27b8a34463be3e11925}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_DATE@{XB\_INVALID\_DATE}}
+\index{XB\_INVALID\_DATE@{XB\_INVALID\_DATE}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_DATE}{XB\_INVALID\_DATE}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+DATE~-\/307}
+
+\mbox{\Hypertarget{xbretcod_8h_a54db562c3cae97581812b4fccd52b71a}\label{xbretcod_8h_a54db562c3cae97581812b4fccd52b71a}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_EXPRESSION@{XB\_INVALID\_EXPRESSION}}
+\index{XB\_INVALID\_EXPRESSION@{XB\_INVALID\_EXPRESSION}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_EXPRESSION}{XB\_INVALID\_EXPRESSION}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+EXPRESSION~-\/507}
+
+\mbox{\Hypertarget{xbretcod_8h_a34180b2e2bd350ba2ebcdd1335e15d7e}\label{xbretcod_8h_a34180b2e2bd350ba2ebcdd1335e15d7e}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_FIELD@{XB\_INVALID\_FIELD}}
+\index{XB\_INVALID\_FIELD@{XB\_INVALID\_FIELD}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_FIELD}{XB\_INVALID\_FIELD}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+FIELD~-\/305}
+
+\mbox{\Hypertarget{xbretcod_8h_a7bd322c0efbba17f68ccccd6cf624411}\label{xbretcod_8h_a7bd322c0efbba17f68ccccd6cf624411}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_FIELD\_LEN@{XB\_INVALID\_FIELD\_LEN}}
+\index{XB\_INVALID\_FIELD\_LEN@{XB\_INVALID\_FIELD\_LEN}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_FIELD\_LEN}{XB\_INVALID\_FIELD\_LEN}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+FIELD\+\_\+\+LEN~-\/306}
+
+\mbox{\Hypertarget{xbretcod_8h_a59403978784130834cf39434cb73f96e}\label{xbretcod_8h_a59403978784130834cf39434cb73f96e}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_FIELD\_NAME@{XB\_INVALID\_FIELD\_NAME}}
+\index{XB\_INVALID\_FIELD\_NAME@{XB\_INVALID\_FIELD\_NAME}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_FIELD\_NAME}{XB\_INVALID\_FIELD\_NAME}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+FIELD\+\_\+\+NAME~-\/303}
+
+\mbox{\Hypertarget{xbretcod_8h_a09d6c08a44316f551108a74003efd381}\label{xbretcod_8h_a09d6c08a44316f551108a74003efd381}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_FIELD\_NO@{XB\_INVALID\_FIELD\_NO}}
+\index{XB\_INVALID\_FIELD\_NO@{XB\_INVALID\_FIELD\_NO}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_FIELD\_NO}{XB\_INVALID\_FIELD\_NO}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+FIELD\+\_\+\+NO~-\/301}
+
+\mbox{\Hypertarget{xbretcod_8h_a79e2588f067d6e236c0e5a2c0728ba9f}\label{xbretcod_8h_a79e2588f067d6e236c0e5a2c0728ba9f}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_FIELD\_TYPE@{XB\_INVALID\_FIELD\_TYPE}}
+\index{XB\_INVALID\_FIELD\_TYPE@{XB\_INVALID\_FIELD\_TYPE}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_FIELD\_TYPE}{XB\_INVALID\_FIELD\_TYPE}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+FIELD\+\_\+\+TYPE~-\/300}
+
+\mbox{\Hypertarget{xbretcod_8h_a2b7e5e440dbcf5e6dc885b24dbe28742}\label{xbretcod_8h_a2b7e5e440dbcf5e6dc885b24dbe28742}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_FUNCTION@{XB\_INVALID\_FUNCTION}}
+\index{XB\_INVALID\_FUNCTION@{XB\_INVALID\_FUNCTION}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_FUNCTION}{XB\_INVALID\_FUNCTION}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+FUNCTION~-\/501}
+
+\mbox{\Hypertarget{xbretcod_8h_acd175ef0541e2cad424791bd87619dd4}\label{xbretcod_8h_acd175ef0541e2cad424791bd87619dd4}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_INDEX@{XB\_INVALID\_INDEX}}
+\index{XB\_INVALID\_INDEX@{XB\_INVALID\_INDEX}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_INDEX}{XB\_INVALID\_INDEX}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+INDEX~-\/601}
+
+\mbox{\Hypertarget{xbretcod_8h_aec2c0ac2bd62e0329ef130e4fbda39f8}\label{xbretcod_8h_aec2c0ac2bd62e0329ef130e4fbda39f8}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_KEYNO@{XB\_INVALID\_KEYNO}}
+\index{XB\_INVALID\_KEYNO@{XB\_INVALID\_KEYNO}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_KEYNO}{XB\_INVALID\_KEYNO}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+KEYNO~-\/600}
+
+\mbox{\Hypertarget{xbretcod_8h_ab45735e63c208eb7e6d6df31fd527aec}\label{xbretcod_8h_ab45735e63c208eb7e6d6df31fd527aec}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_LOCK\_OPTION@{XB\_INVALID\_LOCK\_OPTION}}
+\index{XB\_INVALID\_LOCK\_OPTION@{XB\_INVALID\_LOCK\_OPTION}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_LOCK\_OPTION}{XB\_INVALID\_LOCK\_OPTION}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+LOCK\+\_\+\+OPTION~-\/400}
+
+\mbox{\Hypertarget{xbretcod_8h_a187c50745f51bfe4aa6f70a92f16c59f}\label{xbretcod_8h_a187c50745f51bfe4aa6f70a92f16c59f}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_MEMO\_FIELD@{XB\_INVALID\_MEMO\_FIELD}}
+\index{XB\_INVALID\_MEMO\_FIELD@{XB\_INVALID\_MEMO\_FIELD}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_MEMO\_FIELD}{XB\_INVALID\_MEMO\_FIELD}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+MEMO\+\_\+\+FIELD~-\/304}
+
+\mbox{\Hypertarget{xbretcod_8h_a13e6876470bd34c8c4e5533f115e04eb}\label{xbretcod_8h_a13e6876470bd34c8c4e5533f115e04eb}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_NODELINK@{XB\_INVALID\_NODELINK}}
+\index{XB\_INVALID\_NODELINK@{XB\_INVALID\_NODELINK}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_NODELINK}{XB\_INVALID\_NODELINK}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+NODELINK~-\/120}
+
+\mbox{\Hypertarget{xbretcod_8h_a418c047353bc683d0fd6ecbbdd5b7885}\label{xbretcod_8h_a418c047353bc683d0fd6ecbbdd5b7885}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_OBJECT@{XB\_INVALID\_OBJECT}}
+\index{XB\_INVALID\_OBJECT@{XB\_INVALID\_OBJECT}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_OBJECT}{XB\_INVALID\_OBJECT}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+OBJECT~-\/206}
+
+\mbox{\Hypertarget{xbretcod_8h_af1cd0baf346cad686fa4dd11f700012a}\label{xbretcod_8h_af1cd0baf346cad686fa4dd11f700012a}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_OPTION@{XB\_INVALID\_OPTION}}
+\index{XB\_INVALID\_OPTION@{XB\_INVALID\_OPTION}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_OPTION}{XB\_INVALID\_OPTION}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+OPTION~-\/101}
+
+\mbox{\Hypertarget{xbretcod_8h_ad0aba12b5ae2137f8d6abd28b47f95f0}\label{xbretcod_8h_ad0aba12b5ae2137f8d6abd28b47f95f0}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_PAGE@{XB\_INVALID\_PAGE}}
+\index{XB\_INVALID\_PAGE@{XB\_INVALID\_PAGE}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_PAGE}{XB\_INVALID\_PAGE}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+PAGE~-\/603}
+
+\mbox{\Hypertarget{xbretcod_8h_a1b78533ada854b4185c51ad8a5ce9f02}\label{xbretcod_8h_a1b78533ada854b4185c51ad8a5ce9f02}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_PARAMETER@{XB\_INVALID\_PARAMETER}}
+\index{XB\_INVALID\_PARAMETER@{XB\_INVALID\_PARAMETER}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_PARAMETER}{XB\_INVALID\_PARAMETER}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+PARAMETER~-\/102}
+
+\mbox{\Hypertarget{xbretcod_8h_a4cedf96581c9cbc9c14d07494143702d}\label{xbretcod_8h_a4cedf96581c9cbc9c14d07494143702d}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_PARM@{XB\_INVALID\_PARM}}
+\index{XB\_INVALID\_PARM@{XB\_INVALID\_PARM}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_PARM}{XB\_INVALID\_PARM}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+PARM~-\/502}
+
+\mbox{\Hypertarget{xbretcod_8h_a0fd212f912b2e62700a66bae95bd73a1}\label{xbretcod_8h_a0fd212f912b2e62700a66bae95bd73a1}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_RECORD@{XB\_INVALID\_RECORD}}
+\index{XB\_INVALID\_RECORD@{XB\_INVALID\_RECORD}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_RECORD}{XB\_INVALID\_RECORD}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+RECORD~-\/218}
+
+\mbox{\Hypertarget{xbretcod_8h_a53891c95a78483704d2a8e14c4499f92}\label{xbretcod_8h_a53891c95a78483704d2a8e14c4499f92}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_TABLE\_NAME@{XB\_INVALID\_TABLE\_NAME}}
+\index{XB\_INVALID\_TABLE\_NAME@{XB\_INVALID\_TABLE\_NAME}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_TABLE\_NAME}{XB\_INVALID\_TABLE\_NAME}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+TABLE\+\_\+\+NAME~-\/220}
+
+\mbox{\Hypertarget{xbretcod_8h_a176d917912d3433f065483f905a4c50a}\label{xbretcod_8h_a176d917912d3433f065483f905a4c50a}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_TAG@{XB\_INVALID\_TAG}}
+\index{XB\_INVALID\_TAG@{XB\_INVALID\_TAG}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_INVALID\_TAG}{XB\_INVALID\_TAG}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+TAG~-\/602}
+
+\mbox{\Hypertarget{xbretcod_8h_ad60dbb1862c0c1c2dc0464cfbfd93a34}\label{xbretcod_8h_ad60dbb1862c0c1c2dc0464cfbfd93a34}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_KEY\_NOT\_UNIQUE@{XB\_KEY\_NOT\_UNIQUE}}
+\index{XB\_KEY\_NOT\_UNIQUE@{XB\_KEY\_NOT\_UNIQUE}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_KEY\_NOT\_UNIQUE}{XB\_KEY\_NOT\_UNIQUE}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+KEY\+\_\+\+NOT\+\_\+\+UNIQUE~-\/121}
+
+\mbox{\Hypertarget{xbretcod_8h_a59f1a8a6aca19595c2d1804349a24850}\label{xbretcod_8h_a59f1a8a6aca19595c2d1804349a24850}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_LIMIT\_REACHED@{XB\_LIMIT\_REACHED}}
+\index{XB\_LIMIT\_REACHED@{XB\_LIMIT\_REACHED}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_LIMIT\_REACHED}{XB\_LIMIT\_REACHED}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+LIMIT\+\_\+\+REACHED~-\/222}
+
+\mbox{\Hypertarget{xbretcod_8h_a001e24b39e0f155fb1e892f5b1b9cff1}\label{xbretcod_8h_a001e24b39e0f155fb1e892f5b1b9cff1}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_LOCK\_FAILED@{XB\_LOCK\_FAILED}}
+\index{XB\_LOCK\_FAILED@{XB\_LOCK\_FAILED}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_LOCK\_FAILED}{XB\_LOCK\_FAILED}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+LOCK\+\_\+\+FAILED~-\/401}
+
+\mbox{\Hypertarget{xbretcod_8h_a299419a9c80e000b74bf97a2d24d6a3d}\label{xbretcod_8h_a299419a9c80e000b74bf97a2d24d6a3d}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_MAX\_ERROR\_NO@{XB\_MAX\_ERROR\_NO}}
+\index{XB\_MAX\_ERROR\_NO@{XB\_MAX\_ERROR\_NO}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_MAX\_ERROR\_NO}{XB\_MAX\_ERROR\_NO}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+MAX\+\_\+\+ERROR\+\_\+\+NO~-\/999}
+
+\mbox{\Hypertarget{xbretcod_8h_aa2925f035e3b186d7efa14648ea0e86d}\label{xbretcod_8h_aa2925f035e3b186d7efa14648ea0e86d}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_MEMCPY\_ERROR@{XB\_MEMCPY\_ERROR}}
+\index{XB\_MEMCPY\_ERROR@{XB\_MEMCPY\_ERROR}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_MEMCPY\_ERROR}{XB\_MEMCPY\_ERROR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+MEMCPY\+\_\+\+ERROR~-\/122}
+
+\mbox{\Hypertarget{xbretcod_8h_ac720d5b4ec45bfd606f5865d40816e23}\label{xbretcod_8h_ac720d5b4ec45bfd606f5865d40816e23}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_NO\_ERROR@{XB\_NO\_ERROR}}
+\index{XB\_NO\_ERROR@{XB\_NO\_ERROR}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_NO\_ERROR}{XB\_NO\_ERROR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+NO\+\_\+\+ERROR~0}
+
+\mbox{\Hypertarget{xbretcod_8h_ae687fc7d872ba0475a8477e4447f9b54}\label{xbretcod_8h_ae687fc7d872ba0475a8477e4447f9b54}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_NO\_MEMORY@{XB\_NO\_MEMORY}}
+\index{XB\_NO\_MEMORY@{XB\_NO\_MEMORY}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_NO\_MEMORY}{XB\_NO\_MEMORY}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+NO\+\_\+\+MEMORY~-\/100}
+
+\mbox{\Hypertarget{xbretcod_8h_ac2606659a54111334f5b02861e533700}\label{xbretcod_8h_ac2606659a54111334f5b02861e533700}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_NOT\_FOUND@{XB\_NOT\_FOUND}}
+\index{XB\_NOT\_FOUND@{XB\_NOT\_FOUND}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_NOT\_FOUND}{XB\_NOT\_FOUND}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+NOT\+\_\+\+FOUND~-\/208}
+
+\mbox{\Hypertarget{xbretcod_8h_a9474b400f647bdefbbb07e5177e8d7a1}\label{xbretcod_8h_a9474b400f647bdefbbb07e5177e8d7a1}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_NOT\_OPEN@{XB\_NOT\_OPEN}}
+\index{XB\_NOT\_OPEN@{XB\_NOT\_OPEN}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_NOT\_OPEN}{XB\_NOT\_OPEN}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+NOT\+\_\+\+OPEN~-\/207}
+
+\mbox{\Hypertarget{xbretcod_8h_aaab55236993a1d3acb29206252a904c8}\label{xbretcod_8h_aaab55236993a1d3acb29206252a904c8}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_OPEN\_ERROR@{XB\_OPEN\_ERROR}}
+\index{XB\_OPEN\_ERROR@{XB\_OPEN\_ERROR}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_OPEN\_ERROR}{XB\_OPEN\_ERROR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+OPEN\+\_\+\+ERROR~-\/209}
+
+\mbox{\Hypertarget{xbretcod_8h_aec713cac2b03a0d536a2d16336ae7c0b}\label{xbretcod_8h_aec713cac2b03a0d536a2d16336ae7c0b}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_PARSE\_ERROR@{XB\_PARSE\_ERROR}}
+\index{XB\_PARSE\_ERROR@{XB\_PARSE\_ERROR}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_PARSE\_ERROR}{XB\_PARSE\_ERROR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+PARSE\+\_\+\+ERROR~-\/500}
+
+\mbox{\Hypertarget{xbretcod_8h_adbd40585db8bb748d191f94a33bac710}\label{xbretcod_8h_adbd40585db8bb748d191f94a33bac710}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_READ\_ERROR@{XB\_READ\_ERROR}}
+\index{XB\_READ\_ERROR@{XB\_READ\_ERROR}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_READ\_ERROR}{XB\_READ\_ERROR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+READ\+\_\+\+ERROR~-\/212}
+
+\mbox{\Hypertarget{xbretcod_8h_a373f30b2efcbbab9f6d060fb3fe8cba3}\label{xbretcod_8h_a373f30b2efcbbab9f6d060fb3fe8cba3}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_RENAME\_ERROR@{XB\_RENAME\_ERROR}}
+\index{XB\_RENAME\_ERROR@{XB\_RENAME\_ERROR}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_RENAME\_ERROR}{XB\_RENAME\_ERROR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+RENAME\+\_\+\+ERROR~-\/205}
+
+\mbox{\Hypertarget{xbretcod_8h_a0455ad8719e153b08ec68b10c81e9f41}\label{xbretcod_8h_a0455ad8719e153b08ec68b10c81e9f41}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_SEEK\_ERROR@{XB\_SEEK\_ERROR}}
+\index{XB\_SEEK\_ERROR@{XB\_SEEK\_ERROR}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_SEEK\_ERROR}{XB\_SEEK\_ERROR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+SEEK\+\_\+\+ERROR~-\/211}
+
+\mbox{\Hypertarget{xbretcod_8h_a5db3a90f215534143bdde81253729c7f}\label{xbretcod_8h_a5db3a90f215534143bdde81253729c7f}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_SYNTAX\_ERROR@{XB\_SYNTAX\_ERROR}}
+\index{XB\_SYNTAX\_ERROR@{XB\_SYNTAX\_ERROR}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_SYNTAX\_ERROR}{XB\_SYNTAX\_ERROR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+SYNTAX\+\_\+\+ERROR~-\/700}
+
+\mbox{\Hypertarget{xbretcod_8h_af6aaf779fddecca521d785666f6dc56b}\label{xbretcod_8h_af6aaf779fddecca521d785666f6dc56b}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_TABLE\_NOT\_LOCKED@{XB\_TABLE\_NOT\_LOCKED}}
+\index{XB\_TABLE\_NOT\_LOCKED@{XB\_TABLE\_NOT\_LOCKED}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_TABLE\_NOT\_LOCKED}{XB\_TABLE\_NOT\_LOCKED}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+TABLE\+\_\+\+NOT\+\_\+\+LOCKED~-\/402}
+
+\mbox{\Hypertarget{xbretcod_8h_aff5646a6b0884ff81004de6961473ea6}\label{xbretcod_8h_aff5646a6b0884ff81004de6961473ea6}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_UNBALANCED\_PARENS@{XB\_UNBALANCED\_PARENS}}
+\index{XB\_UNBALANCED\_PARENS@{XB\_UNBALANCED\_PARENS}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_UNBALANCED\_PARENS}{XB\_UNBALANCED\_PARENS}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+UNBALANCED\+\_\+\+PARENS~-\/505}
+
+\mbox{\Hypertarget{xbretcod_8h_aedfa20a6c4eb9ba3063ba56be8280eac}\label{xbretcod_8h_aedfa20a6c4eb9ba3063ba56be8280eac}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_UNBALANCED\_QUOTES@{XB\_UNBALANCED\_QUOTES}}
+\index{XB\_UNBALANCED\_QUOTES@{XB\_UNBALANCED\_QUOTES}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_UNBALANCED\_QUOTES}{XB\_UNBALANCED\_QUOTES}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+UNBALANCED\+\_\+\+QUOTES~-\/506}
+
+\mbox{\Hypertarget{xbretcod_8h_aef34ebe6726057f805d6063130280549}\label{xbretcod_8h_aef34ebe6726057f805d6063130280549}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_WRITE\_ERROR@{XB\_WRITE\_ERROR}}
+\index{XB\_WRITE\_ERROR@{XB\_WRITE\_ERROR}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_WRITE\_ERROR}{XB\_WRITE\_ERROR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+WRITE\+\_\+\+ERROR~-\/213}
+

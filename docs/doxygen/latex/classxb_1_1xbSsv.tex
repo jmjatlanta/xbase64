@@ -1,0 +1,427 @@
+\hypertarget{classxb_1_1xbSsv}{}\doxysection{xb\+::xb\+Ssv Class Reference}
+\label{classxb_1_1xbSsv}\index{xb::xbSsv@{xb::xbSsv}}
+
+
+Class for handling shared system variables.  
+
+
+
+
+{\ttfamily \#include $<$xbssv.\+h$>$}
+
+Inheritance diagram for xb\+::xb\+Ssv\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classxb_1_1xbSsv}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classxb_1_1xbSsv_a58f85692c3167af20b1a7c17c621523b}{xb\+Ssv}} ()
+\begin{DoxyCompactList}\small\item\em Class Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbSsv_a97dfa59ab9a8e9f17454da0faceb023d}{Display\+Error}} (xb\+Int16 Error\+Code) const
+\begin{DoxyCompactList}\small\item\em Display error message on console for a given error number. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbSsv_a6fbb9c3a550ab0b3378f9586a57791d2}{Get\+Default\+Date\+Format}} () const
+\begin{DoxyCompactList}\small\item\em Get the default date format. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbSsv_a1d803a4bfc8ba0561267a0bf9e51f7d9}{Get\+Data\+Directory}} () const
+\begin{DoxyCompactList}\small\item\em Get the current data directory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbSsv_abfaeef85935331073d213465bb362a61}{Get\+Temp\+Directory}} () const
+\begin{DoxyCompactList}\small\item\em Get the current temp directory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbSsv_abc9c06c95d71fbad8294e1ae8862cea9}{Get\+Home\+Dir}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Home\+Dir\+Out)
+\begin{DoxyCompactList}\small\item\em Get home directory. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbSsv_a49cd162f066eef2b829ba7c9f6620243}{Get\+Endian\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Get the Endian type. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{classxb_1_1xbSsv_a56961d2a67b8e7470098626ac4dac7e4}{Get\+Error\+Message}} (xb\+Int16 Error\+Code) const
+\begin{DoxyCompactList}\small\item\em Get an error message. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classxb_1_1xbSsv_a63cee13b473ee13970e93b11837b9e35}{Get\+Path\+Separator}} () const
+\begin{DoxyCompactList}\small\item\em Get the OS dependent path separator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbSsv_a57caaaadfbd089d9a58ecfcb50c88a6c}{Set\+Data\+Directory}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Data\+Directory)
+\begin{DoxyCompactList}\small\item\em Set the data directory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbSsv_a5f74db23f8902846d581935c7db73f9c}{Set\+Default\+Date\+Format}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Default\+Date\+Format)
+\begin{DoxyCompactList}\small\item\em Set the default date format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbSsv_a17c229a20ef9ab4034df8f9cd657adb2}{Set\+Temp\+Directory}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Temp\+Directory)
+\begin{DoxyCompactList}\small\item\em Set the temp directory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbSsv_a62e4fd0a5888665c76bbbad962794e72}{Bit\+Set}} (unsigned char c, xb\+Int16 i\+Bit\+No) const
+\begin{DoxyCompactList}\small\item\em Check a bit in a one byte field and see if it is set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbSsv_a8551b15a3ce4fa2a40d698db01f4a9ae}{Bit\+Dump}} (unsigned char c) const
+\item 
+void \mbox{\hyperlink{classxb_1_1xbSsv_aba1395b8e4c7f28c3614061de6e49190}{Bit\+Dump}} (char c) const
+\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbSsv_a6982f973e81587b04916f4509746aaf5}{Get\+Default\+Auto\+Commit}} () const
+\begin{DoxyCompactList}\small\item\em Get the default auto commit setting. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbSsv_a25542afadaaf39b4fb5a1772a29cc0bd}{Set\+Default\+Auto\+Commit}} (\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} b\+Default\+Auto\+Commit)
+\begin{DoxyCompactList}\small\item\em Set the default auto commit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbSsv_a4822315bded3969b59aeeb683c373051}{Get\+Log\+Directory}} () const
+\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbSsv_afaef09435be73b3111f5edbd7091d861}{Get\+Log\+File\+Name}} () const
+\item 
+void \mbox{\hyperlink{classxb_1_1xbSsv_a7b992ed97281bf25b5b66f5df686225e}{Set\+Log\+Directory}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Log\+Directory)
+\item 
+void \mbox{\hyperlink{classxb_1_1xbSsv_a7f05738e7dfd759e89990242ef503544}{Set\+Log\+File\+Name}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Log\+File\+Name)
+\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbSsv_abd58031c5f1c3766c24d47a82e6fd9c5}{Get\+Multi\+User}} () const
+\begin{DoxyCompactList}\small\item\em Get the multi user setting. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbSsv_aba6e59512f7172dd55dcf92059e5928c}{Set\+Multi\+User}} (\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} b\+Multi\+User)
+\begin{DoxyCompactList}\small\item\em Get the multi user setting. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ \mbox{\hyperlink{classxb_1_1xbSsv_a6219f1b5e24ea12fe158cd5aea56988e}{Error\+Code\+Text}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classxb_1_1xbSsv_a904ec348fd029d4a76e72b8fde636108}{Set\+Endian\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Set the endian type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static xb\+Int16 \mbox{\hyperlink{classxb_1_1xbSsv_a5849e813f5e8e1cd180f0366637adbf3}{i\+Endian\+Type}} = 0
+\item 
+static \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbSsv_a9dec3164c3b264882df634915ecf21da}{s\+Null\+String}} = \char`\"{}\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for handling shared system variables. 
+
+This class defines static variables which are referenced across class instances.
+
+This class is designed to have the variables set when the \mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} class constructor is called (\mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} is a derived class). The xb\+Xbase class is designed to be called first in an application programs, and it is only called once. The static values in this class are typically initialized at program startup and don\textquotesingle{}t require additional updates. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a58f85692c3167af20b1a7c17c621523b}\label{classxb_1_1xbSsv_a58f85692c3167af20b1a7c17c621523b}} 
+\index{xb::xbSsv@{xb::xbSsv}!xbSsv@{xbSsv}}
+\index{xbSsv@{xbSsv}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{xbSsv()}{xbSsv()}}
+{\footnotesize\ttfamily xb\+::xb\+Ssv\+::xb\+Ssv (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Class Constructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classxb_1_1xbSsv_aba1395b8e4c7f28c3614061de6e49190}\label{classxb_1_1xbSsv_aba1395b8e4c7f28c3614061de6e49190}} 
+\index{xb::xbSsv@{xb::xbSsv}!BitDump@{BitDump}}
+\index{BitDump@{BitDump}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{BitDump()}{BitDump()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Bit\+Dump (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classxb_1_1xbSsv_a8551b15a3ce4fa2a40d698db01f4a9ae}\label{classxb_1_1xbSsv_a8551b15a3ce4fa2a40d698db01f4a9ae}} 
+\index{xb::xbSsv@{xb::xbSsv}!BitDump@{BitDump}}
+\index{BitDump@{BitDump}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{BitDump()}{BitDump()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Bit\+Dump (\begin{DoxyParamCaption}\item[{unsigned char}]{c }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classxb_1_1xbSsv_a62e4fd0a5888665c76bbbad962794e72}\label{classxb_1_1xbSsv_a62e4fd0a5888665c76bbbad962794e72}} 
+\index{xb::xbSsv@{xb::xbSsv}!BitSet@{BitSet}}
+\index{BitSet@{BitSet}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{BitSet()}{BitSet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Ssv\+::\+Bit\+Set (\begin{DoxyParamCaption}\item[{unsigned char}]{c,  }\item[{xb\+Int16}]{i\+Bit\+No }\end{DoxyParamCaption}) const}
+
+
+
+Check a bit in a one byte field and see if it is set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & One byte char field to examine. \\
+\hline
+{\em i\+Bit\+No} & which bit to examine. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True Bit is set~\newline
+ xb\+False Bit is not set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a97dfa59ab9a8e9f17454da0faceb023d}\label{classxb_1_1xbSsv_a97dfa59ab9a8e9f17454da0faceb023d}} 
+\index{xb::xbSsv@{xb::xbSsv}!DisplayError@{DisplayError}}
+\index{DisplayError@{DisplayError}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{DisplayError()}{DisplayError()}}
+{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Display\+Error (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Error\+Code }\end{DoxyParamCaption}) const}
+
+
+
+Display error message on console for a given error number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Error\+Code} & Error number to reference \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a1d803a4bfc8ba0561267a0bf9e51f7d9}\label{classxb_1_1xbSsv_a1d803a4bfc8ba0561267a0bf9e51f7d9}} 
+\index{xb::xbSsv@{xb::xbSsv}!GetDataDirectory@{GetDataDirectory}}
+\index{GetDataDirectory@{GetDataDirectory}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{GetDataDirectory()}{GetDataDirectory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Ssv\+::\+Get\+Data\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the current data directory. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} containing the current data directory where the database files are stored. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a6982f973e81587b04916f4509746aaf5}\label{classxb_1_1xbSsv_a6982f973e81587b04916f4509746aaf5}} 
+\index{xb::xbSsv@{xb::xbSsv}!GetDefaultAutoCommit@{GetDefaultAutoCommit}}
+\index{GetDefaultAutoCommit@{GetDefaultAutoCommit}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{GetDefaultAutoCommit()}{GetDefaultAutoCommit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Ssv\+::\+Get\+Default\+Auto\+Commit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the default auto commit setting. 
+
+When auto commit is enabled, the library will automatically post any updates when moving off an updated record or closing files. If auto commit is disabled, the application program will need to explicitly update the tables using using dbf-\/\texorpdfstring{$>$}{>}Put() and dbf-\/\texorpdfstring{$>$}{>}Append\+Record().
+
+\begin{DoxyReturn}{Returns}
+xb\+True if auto commit is turned on~\newline
+ xb\+False is auto commit is turned off 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a6fbb9c3a550ab0b3378f9586a57791d2}\label{classxb_1_1xbSsv_a6fbb9c3a550ab0b3378f9586a57791d2}} 
+\index{xb::xbSsv@{xb::xbSsv}!GetDefaultDateFormat@{GetDefaultDateFormat}}
+\index{GetDefaultDateFormat@{GetDefaultDateFormat}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{GetDefaultDateFormat()}{GetDefaultDateFormat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Ssv\+::\+Get\+Default\+Date\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the default date format. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} containing the default date format. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a49cd162f066eef2b829ba7c9f6620243}\label{classxb_1_1xbSsv_a49cd162f066eef2b829ba7c9f6620243}} 
+\index{xb::xbSsv@{xb::xbSsv}!GetEndianType@{GetEndianType}}
+\index{GetEndianType@{GetEndianType}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{GetEndianType()}{GetEndianType()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Ssv\+::\+Get\+Endian\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Endian type. 
+
+\begin{DoxyReturn}{Returns}
+B -\/ Big endian~\newline
+ L -\/ Little endian~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a56961d2a67b8e7470098626ac4dac7e4}\label{classxb_1_1xbSsv_a56961d2a67b8e7470098626ac4dac7e4}} 
+\index{xb::xbSsv@{xb::xbSsv}!GetErrorMessage@{GetErrorMessage}}
+\index{GetErrorMessage@{GetErrorMessage}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{GetErrorMessage()}{GetErrorMessage()}}
+{\footnotesize\ttfamily const char $\ast$ xb\+::xb\+Ssv\+::\+Get\+Error\+Message (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Error\+Code }\end{DoxyParamCaption}) const}
+
+
+
+Get an error message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Error\+Code} & Error\+Code is the error number of description to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a pointer to a string containing a text description for the error code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbSsv_abc9c06c95d71fbad8294e1ae8862cea9}\label{classxb_1_1xbSsv_abc9c06c95d71fbad8294e1ae8862cea9}} 
+\index{xb::xbSsv@{xb::xbSsv}!GetHomeDir@{GetHomeDir}}
+\index{GetHomeDir@{GetHomeDir}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{GetHomeDir()}{GetHomeDir()}}
+{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Get\+Home\+Dir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Home\+Dir\+Out }\end{DoxyParamCaption})}
+
+
+
+Get home directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Home\+Dir\+Out} & -\/ Output home directory for current user. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a4822315bded3969b59aeeb683c373051}\label{classxb_1_1xbSsv_a4822315bded3969b59aeeb683c373051}} 
+\index{xb::xbSsv@{xb::xbSsv}!GetLogDirectory@{GetLogDirectory}}
+\index{GetLogDirectory@{GetLogDirectory}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{GetLogDirectory()}{GetLogDirectory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Ssv\+::\+Get\+Log\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classxb_1_1xbSsv_afaef09435be73b3111f5edbd7091d861}\label{classxb_1_1xbSsv_afaef09435be73b3111f5edbd7091d861}} 
+\index{xb::xbSsv@{xb::xbSsv}!GetLogFileName@{GetLogFileName}}
+\index{GetLogFileName@{GetLogFileName}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{GetLogFileName()}{GetLogFileName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Ssv\+::\+Get\+Log\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classxb_1_1xbSsv_abd58031c5f1c3766c24d47a82e6fd9c5}\label{classxb_1_1xbSsv_abd58031c5f1c3766c24d47a82e6fd9c5}} 
+\index{xb::xbSsv@{xb::xbSsv}!GetMultiUser@{GetMultiUser}}
+\index{GetMultiUser@{GetMultiUser}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{GetMultiUser()}{GetMultiUser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Ssv\+::\+Get\+Multi\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the multi user setting. 
+
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Multi user mode turned on.~\newline
+ xb\+False -\/ Multi user mode turned off.~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a63cee13b473ee13970e93b11837b9e35}\label{classxb_1_1xbSsv_a63cee13b473ee13970e93b11837b9e35}} 
+\index{xb::xbSsv@{xb::xbSsv}!GetPathSeparator@{GetPathSeparator}}
+\index{GetPathSeparator@{GetPathSeparator}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{GetPathSeparator()}{GetPathSeparator()}}
+{\footnotesize\ttfamily char xb\+::xb\+Ssv\+::\+Get\+Path\+Separator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the OS dependent path separator. 
+
+\begin{DoxyReturn}{Returns}
+Returns \textquotesingle{}\textbackslash{}\textquotesingle{} for windows environment, otherwise returns \textquotesingle{}/\textquotesingle{}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbSsv_abfaeef85935331073d213465bb362a61}\label{classxb_1_1xbSsv_abfaeef85935331073d213465bb362a61}} 
+\index{xb::xbSsv@{xb::xbSsv}!GetTempDirectory@{GetTempDirectory}}
+\index{GetTempDirectory@{GetTempDirectory}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{GetTempDirectory()}{GetTempDirectory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Ssv\+::\+Get\+Temp\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the current temp directory. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} containing the current data directory where the database files are stored. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a57caaaadfbd089d9a58ecfcb50c88a6c}\label{classxb_1_1xbSsv_a57caaaadfbd089d9a58ecfcb50c88a6c}} 
+\index{xb::xbSsv@{xb::xbSsv}!SetDataDirectory@{SetDataDirectory}}
+\index{SetDataDirectory@{SetDataDirectory}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{SetDataDirectory()}{SetDataDirectory()}}
+{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Data\+Directory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Data\+Directory }\end{DoxyParamCaption})}
+
+
+
+Set the data directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Data\+Directory} & Set the data directory. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a25542afadaaf39b4fb5a1772a29cc0bd}\label{classxb_1_1xbSsv_a25542afadaaf39b4fb5a1772a29cc0bd}} 
+\index{xb::xbSsv@{xb::xbSsv}!SetDefaultAutoCommit@{SetDefaultAutoCommit}}
+\index{SetDefaultAutoCommit@{SetDefaultAutoCommit}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{SetDefaultAutoCommit()}{SetDefaultAutoCommit()}}
+{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Default\+Auto\+Commit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}}}]{b\+Default\+Auto\+Commit }\end{DoxyParamCaption})}
+
+
+
+Set the default auto commit. 
+
+Disabling auto commit requires the application execute explicit updates using dbf-\/\texorpdfstring{$>$}{>}Put() and dbf-\/\texorpdfstring{$>$}{>}Append\+Record(). With auto commit on, the library posts updates automatically when moving off the current record or closing a file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em b\+Default\+Auto\+Commit} & xb\+True -\/ Enable default auto commit.~\newline
+ xb\+False -\/ Disable default auto commit.~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a5f74db23f8902846d581935c7db73f9c}\label{classxb_1_1xbSsv_a5f74db23f8902846d581935c7db73f9c}} 
+\index{xb::xbSsv@{xb::xbSsv}!SetDefaultDateFormat@{SetDefaultDateFormat}}
+\index{SetDefaultDateFormat@{SetDefaultDateFormat}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{SetDefaultDateFormat()}{SetDefaultDateFormat()}}
+{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Default\+Date\+Format (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Default\+Date\+Format }\end{DoxyParamCaption})}
+
+
+
+Set the default date format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Default\+Date\+Format} & Set the default date format. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a904ec348fd029d4a76e72b8fde636108}\label{classxb_1_1xbSsv_a904ec348fd029d4a76e72b8fde636108}} 
+\index{xb::xbSsv@{xb::xbSsv}!SetEndianType@{SetEndianType}}
+\index{SetEndianType@{SetEndianType}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{SetEndianType()}{SetEndianType()}}
+{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Endian\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Set the endian type. 
+
+This routine determines the Endian-\/ness at run time instead of compile time as some processers (ie; Sparc,ARM) can be switched either way. This routine is called automatically by the library at startup and does not need to be called in an application program. \mbox{\Hypertarget{classxb_1_1xbSsv_a7b992ed97281bf25b5b66f5df686225e}\label{classxb_1_1xbSsv_a7b992ed97281bf25b5b66f5df686225e}} 
+\index{xb::xbSsv@{xb::xbSsv}!SetLogDirectory@{SetLogDirectory}}
+\index{SetLogDirectory@{SetLogDirectory}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{SetLogDirectory()}{SetLogDirectory()}}
+{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Log\+Directory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Log\+Directory }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classxb_1_1xbSsv_a7f05738e7dfd759e89990242ef503544}\label{classxb_1_1xbSsv_a7f05738e7dfd759e89990242ef503544}} 
+\index{xb::xbSsv@{xb::xbSsv}!SetLogFileName@{SetLogFileName}}
+\index{SetLogFileName@{SetLogFileName}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{SetLogFileName()}{SetLogFileName()}}
+{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Log\+File\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Log\+File\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classxb_1_1xbSsv_aba6e59512f7172dd55dcf92059e5928c}\label{classxb_1_1xbSsv_aba6e59512f7172dd55dcf92059e5928c}} 
+\index{xb::xbSsv@{xb::xbSsv}!SetMultiUser@{SetMultiUser}}
+\index{SetMultiUser@{SetMultiUser}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{SetMultiUser()}{SetMultiUser()}}
+{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Multi\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}}}]{b\+Multi\+User }\end{DoxyParamCaption})}
+
+
+
+Get the multi user setting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b\+Multi\+User} & xb\+True -\/ Turn on Multi user mode.~\newline
+ xb\+False -\/ Turn off Multi user mode.~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a17c229a20ef9ab4034df8f9cd657adb2}\label{classxb_1_1xbSsv_a17c229a20ef9ab4034df8f9cd657adb2}} 
+\index{xb::xbSsv@{xb::xbSsv}!SetTempDirectory@{SetTempDirectory}}
+\index{SetTempDirectory@{SetTempDirectory}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{SetTempDirectory()}{SetTempDirectory()}}
+{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Temp\+Directory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Temp\+Directory }\end{DoxyParamCaption})}
+
+
+
+Set the temp directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Temp\+Directory} & Set the data direcroty. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classxb_1_1xbSsv_a6219f1b5e24ea12fe158cd5aea56988e}\label{classxb_1_1xbSsv_a6219f1b5e24ea12fe158cd5aea56988e}} 
+\index{xb::xbSsv@{xb::xbSsv}!ErrorCodeText@{ErrorCodeText}}
+\index{ErrorCodeText@{ErrorCodeText}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{ErrorCodeText}{ErrorCodeText}}
+{\footnotesize\ttfamily const char$\ast$ xb\+::xb\+Ssv\+::\+Error\+Code\+Text\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classxb_1_1xbSsv_a5849e813f5e8e1cd180f0366637adbf3}\label{classxb_1_1xbSsv_a5849e813f5e8e1cd180f0366637adbf3}} 
+\index{xb::xbSsv@{xb::xbSsv}!iEndianType@{iEndianType}}
+\index{iEndianType@{iEndianType}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{iEndianType}{iEndianType}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Ssv\+::i\+Endian\+Type = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbSsv_a9dec3164c3b264882df634915ecf21da}\label{classxb_1_1xbSsv_a9dec3164c3b264882df634915ecf21da}} 
+\index{xb::xbSsv@{xb::xbSsv}!sNullString@{sNullString}}
+\index{sNullString@{sNullString}!xb::xbSsv@{xb::xbSsv}}
+\doxysubsubsection{\texorpdfstring{sNullString}{sNullString}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+Ssv\+::s\+Null\+String = \char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+7/src/include/\mbox{\hyperlink{xbssv_8h}{xbssv.\+h}}\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+7/src/core/\mbox{\hyperlink{xbssv_8cpp}{xbssv.\+cpp}}\end{DoxyCompactItemize}

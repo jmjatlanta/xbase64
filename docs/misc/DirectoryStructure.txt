@@ -1,0 +1,36 @@
+11/28/23 - The directory structure as of V4.1.6
+
+xbase64.x.y.z
+    build
+	borland5.5		Borland 5.5 build directory
+	debian			Debian build directory
+	linux32			Linux 32 bit build directory (tested with Slackware)
+	linux64			Linux 64 bit build directory (tested with Slackware)
+	mac64			Mac OS build directory
+	mingw			Mingw build directory
+	win32vs			Windows 32 bit Visual Studio build directory
+	win64vs			Windows 64 bit Visual Studio build directory
+
+    data			Default data file directory
+
+    docs
+	doxygen			Doxygen documentation
+	howto			Misc Howto docs
+	html			HTML documentation
+	license			LGPL license
+	man			Man pages
+	misc			Misc docs
+	
+    logs			Default folder for log files
+
+    sql				Examples of supported sql code
+
+    src				Source Tree
+	core			Core Xbase64 functionality
+	examples		Example programs
+	include			Include files
+	sql			SQL code, built on the core functionality
+	tests			Library test programs
+	utils			Utility programs
+
+   tmp				Default temp file directory

@@ -1,0 +1,287 @@
+\hypertarget{xblnklst_8h_source}{}\doxysection{xblnklst.\+h}
+\label{xblnklst_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xblnklst.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xblnklst.h}}
+\mbox{\hyperlink{xblnklst_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xblnklst.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef \_\_XB\_XBLNKLST\_H\_\_}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define \_\_XB\_XBLNKLST\_H\_\_}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifdef XB\_LINKLIST\_SUPPORT}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{26 \textcolor{keyword}{class }XBDLLEXPORT xbLinkList \{}
+\DoxyCodeLine{27   \textcolor{keyword}{public}:}
+\DoxyCodeLine{28    xbLinkList();}
+\DoxyCodeLine{29    \string~xbLinkList();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31    xbLinkListNode<xbNodeType> *GetHeadNode() \textcolor{keyword}{const};}
+\DoxyCodeLine{32    xbLinkListNode<xbNodeType> *GetEndNode() \textcolor{keyword}{const};}
+\DoxyCodeLine{33    xbLinkListNode<xbNodeType> *GetNodeForNo( xbUInt32 ulNodeNo ) \textcolor{keyword}{const};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35    \textcolor{keywordtype}{void}        Clear();}
+\DoxyCodeLine{36    xbUInt32    GetNodeCnt     () \textcolor{keyword}{const};}
+\DoxyCodeLine{37    xbInt16     InsertAtEnd    ( \textcolor{keyword}{const} xbNodeType \&xbLLN );}
+\DoxyCodeLine{38    xbInt16     InsertAtEnd    ( \textcolor{keyword}{const} xbNodeType \& ntKey, xbLinkListNode<xbNodeType> **np  );}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40    xbInt16     InsertAtFront  ( \textcolor{keyword}{const} xbNodeType \&xbLLN );}
+\DoxyCodeLine{41    xbInt16     RemoveByVal    ( \textcolor{keyword}{const} xbNodeType \&xbLLN );}
+\DoxyCodeLine{42    xbInt16     RemoveFromEnd  ();}
+\DoxyCodeLine{43    xbInt16     RemoveFromEnd  ( xbNodeType \&xbLLN );}
+\DoxyCodeLine{44    xbInt16     RemoveFromFront( xbNodeType \&xbLLN );}
+\DoxyCodeLine{45    xbInt16     SearchFor      ( \textcolor{keyword}{const} xbNodeType \&xbLLN );}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47   \textcolor{keyword}{private}:}
+\DoxyCodeLine{48    xbUInt32 ulNodeCnt;}
+\DoxyCodeLine{49    xbLinkListNode<xbNodeType> *llStartPtr;}
+\DoxyCodeLine{50    xbLinkListNode<xbNodeType> *llEndPtr;}
+\DoxyCodeLine{51 \};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{54 xbLinkList<xbNodeType>::xbLinkList()\{}
+\DoxyCodeLine{55   ulNodeCnt  = 0;}
+\DoxyCodeLine{56   llStartPtr = NULL;}
+\DoxyCodeLine{57   llEndPtr   = NULL;}
+\DoxyCodeLine{58 \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{61 xbLinkList<xbNodeType>::\string~xbLinkList()\{}
+\DoxyCodeLine{62   Clear();}
+\DoxyCodeLine{63 \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{66 \textcolor{keywordtype}{void} xbLinkList<xbNodeType>::Clear()\{}
+\DoxyCodeLine{67   xbLinkListNode<xbNodeType> *cPtr = llStartPtr, *tPtr;}
+\DoxyCodeLine{68   \textcolor{keywordflow}{for}( xbUInt32 i = 0; i < ulNodeCnt; i++ )\{}
+\DoxyCodeLine{69     tPtr = cPtr;}
+\DoxyCodeLine{70     cPtr = cPtr-\/>GetNextNode();}
+\DoxyCodeLine{71     \textcolor{keyword}{delete} tPtr;}
+\DoxyCodeLine{72   \}}
+\DoxyCodeLine{73   ulNodeCnt  = 0;}
+\DoxyCodeLine{74   llStartPtr = NULL;}
+\DoxyCodeLine{75   llEndPtr   = NULL;}
+\DoxyCodeLine{76 \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{80 xbLinkListNode<xbNodeType> *xbLinkList<xbNodeType>::GetHeadNode()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{81   \textcolor{keywordflow}{return} llStartPtr;}
+\DoxyCodeLine{82 \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{85 xbLinkListNode<xbNodeType> *xbLinkList<xbNodeType>::GetEndNode()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{86   \textcolor{keywordflow}{return} llEndPtr;}
+\DoxyCodeLine{87 \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{91 xbLinkListNode<xbNodeType> *xbLinkList<xbNodeType>::GetNodeForNo( xbUInt32 ulNo )\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93   xbLinkListNode<xbNodeType> *cPtr = llStartPtr;}
+\DoxyCodeLine{94   xbUInt32 i;}
+\DoxyCodeLine{95   \textcolor{keywordflow}{for}( i = 0; i < ulNo \&\& i < ulNodeCnt; i++ )}
+\DoxyCodeLine{96     cPtr = cPtr-\/>GetNextNode();}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98   \textcolor{keywordflow}{if}( i == ulNo )}
+\DoxyCodeLine{99     \textcolor{keywordflow}{return} cPtr;}
+\DoxyCodeLine{100   \textcolor{keywordflow}{else} }
+\DoxyCodeLine{101     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{102 \}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{107 xbUInt32 xbLinkList<xbNodeType>::GetNodeCnt()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{108   \textcolor{keywordflow}{return} ulNodeCnt;}
+\DoxyCodeLine{109 \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{112 xbInt16 xbLinkList<xbNodeType>::InsertAtFront( \textcolor{keyword}{const} xbNodeType \& ntKey )\{}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114   xbLinkListNode<xbNodeType> *p = \textcolor{keyword}{new} xbLinkListNode<xbNodeType>( ntKey );}
+\DoxyCodeLine{115   \textcolor{keywordflow}{if}( p == 0 )}
+\DoxyCodeLine{116     \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_ae687fc7d872ba0475a8477e4447f9b54}{XB\_NO\_MEMORY}};}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118   \textcolor{keywordflow}{if}( ulNodeCnt > 0 )\{}
+\DoxyCodeLine{119     llStartPtr-\/>SetPrevNode( p );}
+\DoxyCodeLine{120     p-\/>SetNextNode( llStartPtr );}
+\DoxyCodeLine{121   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{122     llEndPtr = p;}
+\DoxyCodeLine{123   \}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125   llStartPtr = p;}
+\DoxyCodeLine{126   ulNodeCnt++;}
+\DoxyCodeLine{127   \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_ac720d5b4ec45bfd606f5865d40816e23}{XB\_NO\_ERROR}};}
+\DoxyCodeLine{128 \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{131 xbInt16 xbLinkList<xbNodeType>::InsertAtEnd( \textcolor{keyword}{const} xbNodeType \& ntKey )\{}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133   xbLinkListNode<xbNodeType> *p = \textcolor{keyword}{new} xbLinkListNode<xbNodeType>( ntKey );}
+\DoxyCodeLine{134   \textcolor{keywordflow}{if}( p == 0 )}
+\DoxyCodeLine{135     \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_ae687fc7d872ba0475a8477e4447f9b54}{XB\_NO\_MEMORY}};}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137   \textcolor{keywordflow}{if}( ulNodeCnt > 0 )\{}
+\DoxyCodeLine{138     llEndPtr-\/>SetNextNode( p );}
+\DoxyCodeLine{139     p-\/>SetPrevNode( llEndPtr );}
+\DoxyCodeLine{140     llEndPtr = p;}
+\DoxyCodeLine{141   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{142     llStartPtr = p;}
+\DoxyCodeLine{143   \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145   llEndPtr = p;}
+\DoxyCodeLine{146   ulNodeCnt++;}
+\DoxyCodeLine{147   \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_ac720d5b4ec45bfd606f5865d40816e23}{XB\_NO\_ERROR}};}
+\DoxyCodeLine{148 \}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{152 xbInt16 xbLinkList<xbNodeType>::InsertAtEnd( \textcolor{keyword}{const} xbNodeType \& ntKey, xbLinkListNode<xbNodeType> **np  )\{}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154   xbLinkListNode<xbNodeType> *p = \textcolor{keyword}{new} xbLinkListNode<xbNodeType>( ntKey );}
+\DoxyCodeLine{155   \textcolor{keywordflow}{if}( p == 0 )}
+\DoxyCodeLine{156     \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_ae687fc7d872ba0475a8477e4447f9b54}{XB\_NO\_MEMORY}};}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158   *np = p;}
+\DoxyCodeLine{159   \textcolor{keywordflow}{if}( ulNodeCnt > 0 )\{}
+\DoxyCodeLine{160     llEndPtr-\/>SetNextNode( p );}
+\DoxyCodeLine{161     p-\/>SetPrevNode( llEndPtr );}
+\DoxyCodeLine{162     llEndPtr = p;}
+\DoxyCodeLine{163   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{164     llStartPtr = p;}
+\DoxyCodeLine{165   \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167   llEndPtr = p;}
+\DoxyCodeLine{168   ulNodeCnt++;}
+\DoxyCodeLine{169   \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_ac720d5b4ec45bfd606f5865d40816e23}{XB\_NO\_ERROR}};}
+\DoxyCodeLine{170 \}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{175 xbInt16 xbLinkList<xbNodeType>::RemoveByVal( \textcolor{keyword}{const} xbNodeType \& ntKey )\{}
+\DoxyCodeLine{176   \textcolor{comment}{// Remove the first instance of ntKey from the node chain}}
+\DoxyCodeLine{177   xbLinkListNode<xbNodeType> *currPtr = llStartPtr;}
+\DoxyCodeLine{178   xbLinkListNode<xbNodeType> *prevPtr = NULL;}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180   \textcolor{keywordflow}{for}( xbUInt32 i = 0; i < ulNodeCnt; i++ )\{}
+\DoxyCodeLine{181     \textcolor{keywordflow}{if}( currPtr-\/>GetKey() == ntKey )\{}
+\DoxyCodeLine{182       \textcolor{keywordflow}{if}( prevPtr == NULL )\{                   \textcolor{comment}{//then this is the first node}}
+\DoxyCodeLine{183         llStartPtr = currPtr-\/>GetNextNode();}
+\DoxyCodeLine{184         \textcolor{keywordflow}{if}( llStartPtr )                      \textcolor{comment}{// if more than one link in the linked list}}
+\DoxyCodeLine{185           llStartPtr-\/>SetPrevNode( NULL );}
+\DoxyCodeLine{186         \textcolor{keyword}{delete} currPtr;}
+\DoxyCodeLine{187         ulNodeCnt-\/-\/;}
+\DoxyCodeLine{188         \textcolor{keywordflow}{return} i + 1;}
+\DoxyCodeLine{189       \}}
+\DoxyCodeLine{190       \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{191         prevPtr-\/>SetNextNode( currPtr-\/>GetNextNode());}
+\DoxyCodeLine{192         \textcolor{keywordflow}{if}( currPtr-\/>GetNextNode())}
+\DoxyCodeLine{193           currPtr-\/>GetNextNode()-\/>SetPrevNode( prevPtr );}
+\DoxyCodeLine{194         \textcolor{keyword}{delete} currPtr;}
+\DoxyCodeLine{195         ulNodeCnt-\/-\/;}
+\DoxyCodeLine{196         \textcolor{keywordflow}{return} i + 1;}
+\DoxyCodeLine{197       \}}
+\DoxyCodeLine{198     \}}
+\DoxyCodeLine{199     prevPtr = currPtr;}
+\DoxyCodeLine{200     currPtr = currPtr-\/>GetNextNode();}
+\DoxyCodeLine{201   \}}
+\DoxyCodeLine{202   \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_ac2606659a54111334f5b02861e533700}{XB\_NOT\_FOUND}};}
+\DoxyCodeLine{203 \}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{207 xbInt16 xbLinkList<xbNodeType>::RemoveFromFront( xbNodeType \& ntKey )\{}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209   \textcolor{keywordflow}{if}( ulNodeCnt <= 0 )}
+\DoxyCodeLine{210     \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_a13e6876470bd34c8c4e5533f115e04eb}{XB\_INVALID\_NODELINK}};}
+\DoxyCodeLine{211   xbLinkListNode<xbNodeType> *p = llStartPtr;}
+\DoxyCodeLine{212   llStartPtr = p-\/>GetNextNode();}
+\DoxyCodeLine{213   \textcolor{keywordflow}{if}( llStartPtr )}
+\DoxyCodeLine{214     llStartPtr-\/>SetPrevNode( NULL );}
+\DoxyCodeLine{215   ntKey = p-\/>GetKey();}
+\DoxyCodeLine{216   \textcolor{keyword}{delete} p;}
+\DoxyCodeLine{217   ulNodeCnt-\/-\/;}
+\DoxyCodeLine{218   \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_ac720d5b4ec45bfd606f5865d40816e23}{XB\_NO\_ERROR}};}
+\DoxyCodeLine{219 \}}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{223 xbInt16 xbLinkList<xbNodeType>::RemoveFromEnd( xbNodeType \& ntKey )\{}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225   \textcolor{keywordflow}{if}( ulNodeCnt <= 0 )}
+\DoxyCodeLine{226     \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_a13e6876470bd34c8c4e5533f115e04eb}{XB\_INVALID\_NODELINK}};}
+\DoxyCodeLine{227   xbLinkListNode<xbNodeType> *p = llEndPtr;}
+\DoxyCodeLine{228   \textcolor{keywordflow}{if}( p-\/>GetPrevNode())\{}
+\DoxyCodeLine{229     llEndPtr = p-\/>GetPrevNode();}
+\DoxyCodeLine{230     llEndPtr-\/>SetNextNode( NULL );}
+\DoxyCodeLine{231   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{232     \textcolor{comment}{// there are no more nodes}}
+\DoxyCodeLine{233     llStartPtr = NULL;}
+\DoxyCodeLine{234     llEndPtr   = NULL;}
+\DoxyCodeLine{235   \}}
+\DoxyCodeLine{236   ntKey = p-\/>GetKey();}
+\DoxyCodeLine{237   \textcolor{keyword}{delete} p;}
+\DoxyCodeLine{238   ulNodeCnt-\/-\/;}
+\DoxyCodeLine{239   \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_ac720d5b4ec45bfd606f5865d40816e23}{XB\_NO\_ERROR}};}
+\DoxyCodeLine{240 \}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{244 xbInt16 xbLinkList<xbNodeType>::RemoveFromEnd()\{}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246   \textcolor{keywordflow}{if}( ulNodeCnt <= 0 )}
+\DoxyCodeLine{247     \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_a13e6876470bd34c8c4e5533f115e04eb}{XB\_INVALID\_NODELINK}};}
+\DoxyCodeLine{248   xbLinkListNode<xbNodeType> *p = llEndPtr;}
+\DoxyCodeLine{249   \textcolor{keywordflow}{if}( p-\/>GetPrevNode())\{}
+\DoxyCodeLine{250     llEndPtr = p-\/>GetPrevNode();}
+\DoxyCodeLine{251     llEndPtr-\/>SetNextNode( NULL );}
+\DoxyCodeLine{252   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{253     \textcolor{comment}{// there are no more nodes}}
+\DoxyCodeLine{254     llStartPtr = NULL;}
+\DoxyCodeLine{255     llEndPtr   = NULL;}
+\DoxyCodeLine{256   \}}
+\DoxyCodeLine{257   \textcolor{keyword}{delete} p-\/>GetKey();}
+\DoxyCodeLine{258   \textcolor{keyword}{delete} p;}
+\DoxyCodeLine{259   ulNodeCnt-\/-\/;}
+\DoxyCodeLine{260   \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_ac720d5b4ec45bfd606f5865d40816e23}{XB\_NO\_ERROR}};}
+\DoxyCodeLine{261 \}}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{265 xbInt16 xbLinkList<xbNodeType>::SearchFor( \textcolor{keyword}{const} xbNodeType \& ntKey )\{}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267   xbLinkListNode<xbNodeType> *cPtr = llStartPtr;}
+\DoxyCodeLine{268   \textcolor{keywordflow}{for}( xbUInt32 i = 0; i < ulNodeCnt; i++ )\{}
+\DoxyCodeLine{269     \textcolor{keywordflow}{if}( cPtr-\/>GetKey() == ntKey )}
+\DoxyCodeLine{270       \textcolor{keywordflow}{return} i+1;}
+\DoxyCodeLine{271     cPtr = cPtr-\/>GetNextNode();}
+\DoxyCodeLine{272   \}}
+\DoxyCodeLine{273   \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_ac720d5b4ec45bfd606f5865d40816e23}{XB\_NO\_ERROR}};}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275 \}}
+\DoxyCodeLine{276 \}               \textcolor{comment}{// namespace}}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#endif          }\textcolor{comment}{// XB\_LINKLIST\_SUPPORT}}
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#endif          }\textcolor{comment}{// XB\_XBLNKLST\_H\_\_}}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281 }
+
+\end{DoxyCode}

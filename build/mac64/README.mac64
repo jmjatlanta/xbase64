@@ -1,0 +1,21 @@
+
+Mingw build steps for Xbase64 running on Windows - 3/7/23
+
+1)  Verify cmake is installed with command:  cmake --version
+    If it is not installed, install the latest version.
+
+
+
+2)  Verify you have xcode installed and operational.
+
+
+3)  Build xbase64 library
+
+
+     cd build/mac64
+     cmake . -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
+     make			build the library
+     make test			tsst the library
+     make install		install it
+     xb_cfg_check		test it
+

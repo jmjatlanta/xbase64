@@ -1,0 +1,167 @@
+\hypertarget{xbsql_8h_source}{}\doxysection{xbsql.\+h}
+\label{xbsql_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbsql.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbsql.h}}
+\mbox{\hyperlink{xbsql_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbsql.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{This class manages a list of open tables, open indices are connected to the open tables}}
+\DoxyCodeLine{15 \textcolor{comment}{}}
+\DoxyCodeLine{16 \textcolor{comment}{*/}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef \_\_XB\_XBSQL\_H\_\_}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define \_\_XB\_XBSQL\_H\_\_}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifdef  CMAKE\_COMPILER\_IS\_GNUCC}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#pragma interface}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#ifdef XB\_SQL\_SUPPORT}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{struct }XBDLLEXPORT xbSqlFld\{}
+\DoxyCodeLine{33   \textcolor{keywordtype}{char}     cType;      \textcolor{comment}{// F -\/ Database field}}
+\DoxyCodeLine{34                        \textcolor{comment}{// L -\/ Literal}}
+\DoxyCodeLine{35                        \textcolor{comment}{// E -\/ Expression}}
+\DoxyCodeLine{36   xbInt16  iFldNo;     \textcolor{comment}{// Field number if db field}}
+\DoxyCodeLine{37   xbExp *  pExp;       \textcolor{comment}{// If cType=E, pointer to parsed expression}}
+\DoxyCodeLine{38   xbString sFldAlias;  \textcolor{comment}{// Alias name for query display}}
+\DoxyCodeLine{39   xbSqlFld * Next;     \textcolor{comment}{// Next field in list}}
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{class }xbStmt;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{struct }XBDLLEXPORT xbTblJoin \{            \textcolor{comment}{//  structure for defining joined tables in the query}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47   xbString sTableName;}
+\DoxyCodeLine{48   xbString sAlias;}
+\DoxyCodeLine{49   xbString sJoinExp;                      \textcolor{comment}{// table join expression}}
+\DoxyCodeLine{50   \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}}    *pDbf;                         \textcolor{comment}{// pointer the the dbf structure for this table}}
+\DoxyCodeLine{51   xbTag    *pTag;                         \textcolor{comment}{// pointer to relevant tag for this table, null for record order}}
+\DoxyCodeLine{52   xbExp    *pLinkExp;                     \textcolor{comment}{// pointer to parsed linkage expression}}
+\DoxyCodeLine{53   \textcolor{keywordtype}{char}     cJoinType;                     \textcolor{comment}{// M -\/ Master}}
+\DoxyCodeLine{54                                           \textcolor{comment}{// L -\/ Left   or Full Left}}
+\DoxyCodeLine{55                                           \textcolor{comment}{// R -\/ Right  or Full Right}}
+\DoxyCodeLine{56                                           \textcolor{comment}{// I -\/ Inner}}
+\DoxyCodeLine{57                                           \textcolor{comment}{// O -\/ Outer  or Full Outer Outer}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59   xbTblJoin *pMaster;                     \textcolor{comment}{// pointer to master table, null if this is the primary master}}
+\DoxyCodeLine{60   xbLinkList<xbTblJoin *> llSubList;      \textcolor{comment}{// linked list of subordinate tables}}
+\DoxyCodeLine{61 \textcolor{comment}{//  xbStmt    *pSubQuery;                 // pointer to sub query}}
+\DoxyCodeLine{62   xbTblJoin   *next;                      \textcolor{comment}{// next tbl}}
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{class }XBDLLEXPORT xbStmt : \textcolor{keyword}{public} xbSsv\{}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68  \textcolor{keyword}{public}:}
+\DoxyCodeLine{69   xbStmt( \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}} *x );}
+\DoxyCodeLine{70   \string~xbStmt();}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{  \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{73   xbInt16 DumpStmtInternals();}
+\DoxyCodeLine{74   xbInt16 Test();}
+\DoxyCodeLine{75 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77   xbInt16 ExecuteQuery( \textcolor{keyword}{const} xbString \&sCmdLine ); }
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{comment}{//  xbInt16 FetchFirst();}}
+\DoxyCodeLine{80 \textcolor{comment}{//  xbInt16 FetchNext();}}
+\DoxyCodeLine{81 \textcolor{comment}{//  xbInt16 FetchPrev();}}
+\DoxyCodeLine{82 \textcolor{comment}{//  xbInt16 FetchLast();}}
+\DoxyCodeLine{83 \textcolor{comment}{//  xbString \&GetField( const xbString sFldName );}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87  \textcolor{keyword}{private}:}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89   xbInt16  AddQryTbl( \textcolor{keyword}{const} xbString \&sTable, \textcolor{keyword}{const} xbString \&sAlias, \textcolor{keyword}{const} xbString \&sExpression, \textcolor{keyword}{const} \textcolor{keywordtype}{char} cJoinType );}
+\DoxyCodeLine{90   xbInt16  CvtSqlExp2DbaseExp( \textcolor{keyword}{const} xbString \&sExpIn, xbString \&sExpOut );}
+\DoxyCodeLine{91   xbInt16  GetNextFromSeg( \textcolor{keyword}{const} xbString \&sLineIn, xbString \&sFromSegOut );}
+\DoxyCodeLine{92   xbUInt32 GetNextToken( \textcolor{keyword}{const} xbString \&sCmdLineIn, xbString \&sTokenOut, xbUInt32 ulStartPos );}
+\DoxyCodeLine{93   xbInt16  GetParenCnt( \textcolor{keyword}{const} xbString \&sToken );}
+\DoxyCodeLine{94   xbInt16  ParseFromStmt( \textcolor{keyword}{const} xbString \&sFromLine );}
+\DoxyCodeLine{95   xbInt16  ParseStmt( \textcolor{keyword}{const} xbString \&sCmdLine );}
+\DoxyCodeLine{96   xbInt16  ProcessFromSeg( \textcolor{keyword}{const} xbString \&sFromStmtSeg );}
+\DoxyCodeLine{97   xbInt16  UpdateJoinList( \textcolor{keywordtype}{char} cType, \textcolor{keyword}{const} xbString \&sTableName, \textcolor{keyword}{const} xbString \&sAlias, \textcolor{keyword}{const} xbString \&sExp, \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} *d, xbExp *e  );   \textcolor{comment}{//, xbTag *t);}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99   \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}}  *xbase;    \textcolor{comment}{// pointer to xbase structure}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102   xbTblJoin * pTblList;}
+\DoxyCodeLine{103   xbSqlFld *fl;       \textcolor{comment}{// field list in sql select statement}}
+\DoxyCodeLine{104   xbString sStmt;     \textcolor{comment}{// complete query statment}}
+\DoxyCodeLine{105   xbString sFields;   \textcolor{comment}{// list of fields}}
+\DoxyCodeLine{106   xbString sFrom;     \textcolor{comment}{// from statment}}
+\DoxyCodeLine{107   xbString sWhere;    \textcolor{comment}{// where clause}}
+\DoxyCodeLine{108   xbString sOrderBy;  \textcolor{comment}{// sort order}}
+\DoxyCodeLine{109   xbString sGroupBy;  \textcolor{comment}{// group by}}
+\DoxyCodeLine{110   xbString sHaving;   \textcolor{comment}{// having}}
+\DoxyCodeLine{111   xbUInt32 ulFromPos;}
+\DoxyCodeLine{112   xbUInt32 ulWherePos;}
+\DoxyCodeLine{113   xbUInt32 ulOrderByPos;}
+\DoxyCodeLine{114   xbUInt32 ulGroupByPos;}
+\DoxyCodeLine{115   xbUInt32 ulHavingPos;}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{keyword}{class }XBDLLEXPORT xbSql : \textcolor{keyword}{public} xbSsv \{}
+\DoxyCodeLine{122  \textcolor{keyword}{public}:}
+\DoxyCodeLine{123    \textcolor{comment}{// xbSql();}}
+\DoxyCodeLine{124    xbSql( \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}} *x );}
+\DoxyCodeLine{125    \string~xbSql();}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127    xbInt16 ExecuteNonQuery( \textcolor{keyword}{const} xbString \&sCmdLine );}
+\DoxyCodeLine{128    \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}} *GetXbasePtr() \textcolor{keyword}{const};}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132  \textcolor{keyword}{private}:}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134    xbInt16  SqlAlterTable( \textcolor{keyword}{const} xbString \&sCmdLine );}
+\DoxyCodeLine{135    xbInt16  SqlCreateTable( \textcolor{keyword}{const} xbString \&sCmdLine );}
+\DoxyCodeLine{136    xbInt16  SqlDelete( \textcolor{keyword}{const} xbString \&sCmdLine );}
+\DoxyCodeLine{137    xbInt16  SqlDropTable( \textcolor{keyword}{const} xbString \&sCmdLine );}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{preprocessor}{   \#ifdef XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{140    xbInt16  SqlCreateIndex( \textcolor{keyword}{const} xbString \&sCmdLine );}
+\DoxyCodeLine{141    xbInt16  SqlDropIndex( \textcolor{keyword}{const} xbString \&sCmdLine );}
+\DoxyCodeLine{142 \textcolor{preprocessor}{   \#endif  }\textcolor{comment}{// XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{comment}{// xbInt16  SqlCreateView( const xbString \&sCmdLine );}}
+\DoxyCodeLine{145 \textcolor{comment}{// xbInt16  SqlDropView( const xbString \&sCmdLine );}}
+\DoxyCodeLine{146 \textcolor{comment}{// xbInt16  SqlUpdate( const xbString \&sCmdLine );}}
+\DoxyCodeLine{147 \textcolor{comment}{// xbInt16  SqlSelect( const xbString \&sCmdLine );}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149    \textcolor{keywordtype}{void}     SqlHelp() \textcolor{keyword}{const};}
+\DoxyCodeLine{150    xbInt16  SqlInsert( \textcolor{keyword}{const} xbString \&sCmLine );}
+\DoxyCodeLine{151    xbInt16  SqlSet( \textcolor{keyword}{const} xbString \&sCmdLine );}
+\DoxyCodeLine{152    xbInt16  SqlUse( \textcolor{keyword}{const} xbString \&sCmdLine );}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154    \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}} *xbase;}
+\DoxyCodeLine{155    xbUda   uda;}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \};}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \}        \textcolor{comment}{/* namespace xb    */}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* XB\_SQL\_SUPPORT  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XB\_XBSQL\_H\_\_  */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

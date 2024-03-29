@@ -1,0 +1,40 @@
+Xbase64 Authors / Contributors
+
+
+
+This is a list of the people who are or have worked on or after version 4.0.0 of the Xbase64 Library.
+
+
+------------------------------------------------------------------------------
+The following is the list of AUTHORS that contributed after release 4.0.0
+------------------------------------------------------------------------------
+
+Gary Kunkel       <XDB-devel@lists.sourceforge.net>  - original author, current maintainer
+Brecht Sanders    <XDB-devel@lists.sourceforge.net>  - mingw port
+
+------------------------------------------------------------------------------
+The following is the list of AUTHORS that contributed prior to release 4.0.0
+------------------------------------------------------------------------------
+
+This is a partial list of the people that have helped with the xbase
+project and something specific they worked on.  Most have worked on more
+than what is listed.
+
+
+Derry Bryson      <derry@techass.com>         - last maintainer
+Bob Cotton        <bcotton@synix.com>         - Clipper NTX index support
+Denis Braussen    <postoffice@mail.dotcom.fr> - general support
+Denis Pershin     <dyp@inetlab.com>           - provided library enhancements
+Eirk Bachman      <ebp@geocities.com>         - keeper of definitive Xbase spec 
+Frolov Sergey                                 - bugfixes (memory leaks)
+Gabriel Emerson   <egabriel@io.com>           - provided logo
+Kehl Hubertus     <kehlh@hotmail.com>         - Xbase to Xbase C++ Perl Converter
+Mario Motta                                   - testing and bugfixes
+Michael Bedward   <mbedward@ozemail.com.au>   - Expression logic support
+Paul Foster       <paulf@quillandmouse.com>   - general support
+
+
+------------------------------------------------------------------------------
+
+If you are missing and you should be included in this file, please let me
+know at XDB-devel@lists.sourceforge.net.  Thanks, Gary Kunkel.

@@ -1,0 +1,42 @@
+
+3/26/23
+
+Install steps for Xbase64 with Borland compiler version 5.5
+
+1)  Verify cmake is installed with command:  cmake --version
+    If it is not installed, take necessary steps to install it.
+
+2)  Verify gcc is intalled with the command:  gcc --version
+    If it is not installed, execute the following commands:
+
+
+3)  Build xbase64 library
+
+      cd build/borland5.5  (go to the appropriate build directory)
+      BuildBorland.bat     (configure and compile for your environment)
+      make test            (test library build)
+
+      sudo make install    (install it)
+      xb_cfg_chk           (test install)
+
+      if xb_cg-chk does not execute, add "C:\Program Files\xbase64\bin"
+      to the path.
+
+
+Also of note:
+
+    CleanBorland.bat  - initializes the borland5.5 build library
+
+
+11/15/23
+
+    When trying to run the "make test" command on a Samba network
+    and a Windows 7 PC, the xb_test_ndx and xb_test_mdx programs
+    ran for a long time.
+
+    Running the tests where everything was on the C: drive
+    eliminated the issue.
+
+    There are reported issues with the Windows 7 / Samba combination
+    and since Windows 7 has long been out of circulation I didn't
+    spend much time trying to solve the issue.   Gary

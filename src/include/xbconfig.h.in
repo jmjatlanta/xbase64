@@ -1,0 +1,129 @@
+// the configured options and settings for xbase
+
+#define xbase_VERSION_MAJOR     @xbase_VERSION_MAJOR@
+#define xbase_VERSION_MINOR     @xbase_VERSION_MINOR@
+#define xbase_VERSION_PATCH     @xbase_VERSION_PATCH@
+
+#define PROJECT_PARENT_DIR     "@PROJECT_PARENT_DIR@"
+#define PROJECT_BINARY_DIR     "@PROJECT_BINARY_DIR@"
+
+#define PROJECT_SOURCE_DIR     "@PROJECT_SOURCE_DIR@"
+#define PROJECT_RUNTIME_DIR    "@PROJECT_RUNTIME_DIR@"
+#define PROJECT_DATA_DIR       "@PROJECT_DATA_DIR@"
+#define PROJECT_LOG_DIR        "@PROJECT_LOG_DIR@"
+#define PROJECT_TEMP_DIR       "@PROJECT_TEMP_DIR@"
+#define PROJECT_DFLT_LOGFILE   "@CMAKE_SYSTEM_NAME@_@XB_PLATFORM@.xbLog.txt"
+#define EXTRA_LIBS             "@EXTRA_LIBS@"
+#define CMAKE_RUNTIME_OUTPUT_DIRECTORY "@CMAKE_RUNTIME_OUTPUT_DIRECTORY@"
+
+
+#define CMAKE_HOME_DIRECTORY   "@CMAKE_HOME_DIRECTORY@"
+#define CMAKE_PROJECT_NAME     "@CMAKE_PROJECT_NAME@"
+#define BUILD_SHARED_LIBS      "@BUILD_SHARED_LIBS@"
+#define CMAKE_SYSTEM_NAME      "@CMAKE_SYSTEM_NAME@"
+#define CMAKE_SYSTEM_PROCESSOR "@CMAKE_SYSTEM_PROCESSOR@"
+#define CMAKE_SYSTEM_VERSION   "@CMAKE_SYSTEM_VERSION@"
+#define CMAKE_BUILD_TYPE       "@CMAKE_BUILD_TYPE@"
+#define CMAKE_C_FLAGS          "@CMAKE_C_FLAGS@"
+#define CMAKE_C_FLAGS_DEBUG    "@CMAKE_C_FLAGS_DEBUG@"
+#define CMAKE_C_FLAGS_RELEASE  "@CMAKE_C_FLAGS_RELEASE@"
+
+
+#define XB_PLATFORM            "@XB_PLATFORM@"
+#define Mylibrary_Exports      "@Mylibrary_Exports@"
+#define MYLIB_EXPORT           "@MYLIB_EXPORT@"
+#define CMAKE_SIZEOF_VOID_P    "@CMAKE_SIZEOF_VOID_P@"
+
+#define CMAKE_COMPILER         "@CMAKE_CXX_COMPILER_ID@"
+
+// integer definitions
+#define xbInt16                 @xbInt16@
+#define xbUInt16                @xbUInt16@
+#define xbInt32                 @xbInt32@
+#define xbUInt32                @xbUInt32@
+#define xbInt64                 @xbInt64@
+#define xbUInt64                @xbUInt64@
+
+#cmakedefine UNIX
+
+#cmakedefine CMAKE_COMPILER_IS_GNUCC
+#cmakedefine HAVE_CTYPE_H
+#cmakedefine HAVE_DIRENT_H
+#cmakedefine HAVE_DOS_H
+#cmakedefine HAVE_FCNTL_H
+#cmakedefine HAVE_INTTYPES_H
+#cmakedefine HAVE_PWD_H
+#cmakedefine HAVE_STDARG_H
+#cmakedefine HAVE_STDARGS_H
+#cmakedefine HAVE_STRING_H
+#cmakedefine HAVE_STRINGS_H
+#cmakedefine HAVE_STAT_H
+#cmakedefine HAVE_UNISTD_H
+#cmakedefine HAVE_VARARGS_H
+#cmakedefine HAVE_WINDOWS_H
+
+#cmakedefine HAVE__CLOSE_F
+#cmakedefine HAVE_CREATEPROCESSW_F
+#cmakedefine HAVE_CREATEPROCESSW_F2
+#cmakedefine HAVE_FCNTL_F
+#cmakedefine HAVE__FDOPEN_F
+#cmakedefine HAVE__FILENO_F
+#cmakedefine HAVE_FOPEN_S_F
+#cmakedefine HAVE__FSOPEN_F
+#cmakedefine HAVE_FORK_F
+#cmakedefine HAVE__FSEEKI64_F
+#cmakedefine HAVE_FSEEKO_F
+#cmakedefine HAVE_FTRUNCATE_F
+
+#cmakedefine HAVE_GETENV_S_F
+#cmakedefine HAVE__LOCALTIME64_S_F
+#cmakedefine HAVE_LOCKFILE_F
+#cmakedefine HAVE_LOCKING_F
+#cmakedefine HAVE__LOCKING_F
+#cmakedefine HAVE__OPEN_F
+#cmakedefine HAVE_SETENDOFFILE_F
+#cmakedefine HAVE_VSNPRINTF_F
+#cmakedefine HAVE__VSNPRINTF_S_F
+#cmakedefine HAVE_VSPRINTF_S_F
+
+
+#cmakedefine XB_PLATFORM_32
+#cmakedefine XB_PLATFORM_64
+#cmakedefine XB_DEBUG_SUPPORT
+#cmakedefine XB_LINKLIST_SUPPORT
+#cmakedefine XB_MEMO_SUPPORT
+#cmakedefine XB_LOGGING_SUPPORT
+#cmakedefine XB_DBF3_SUPPORT
+#cmakedefine XB_DBF4_SUPPORT
+#cmakedefine XB_LOCKING_SUPPORT
+#cmakedefine XB_FUNCTION_SUPPORT
+#cmakedefine XB_EXPRESSION_SUPPORT
+#cmakedefine XB_INDEX_SUPPORT
+#cmakedefine XB_NDX_SUPPORT
+#cmakedefine XB_MDX_SUPPORT
+#cmakedefine XB_TDX_SUPPORT
+#cmakedefine XB_SQL_SUPPORT
+#cmakedefine XB_INF_SUPPORT
+#cmakedefine XB_FILTER_SUPPORT
+#cmakedefine XB_BLOCKREAD_SUPPORT
+#cmakedefine XB_RELATE_SUPPORT
+
+#cmakedefine XB_UTILS_SUPPORT
+#cmakedefine XB_EXAMPLES_SUPPORT
+
+#cmakedefine HAVE_LONG_LONG
+
+#if defined (WIN32)
+  #if defined ( Mylibrary_Exports )
+    #define  XBDLLEXPORT __declspec(dllexport)
+  #else
+    #define  XBDLLEXPORT __declspec(dllimport)
+  #endif
+#else
+  #define  XBDLLEXPORT
+#endif
+
+#if defined (UNIX) && defined (XB_PLATFORM_32)
+  #define _FILE_OFFSET_BITS 64
+#endif
+

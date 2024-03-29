@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Chapter 9</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">Class xbXBase</p></H2>
+<p align="center">Chapter Updated 11/21/23</p><hr>
+
+<h3>Class xbXBase - Core Level Class</h3>
+
+
+The xbXBase class is the core class that needs to be in every application program.
+Established an instance of class xbXBase before any other Xbase calls are made.
+
+<i>xbXBase x</i>
+
+<br><br>
+xbXBase is derived from base classes xbTblMgr and xbSsv.
+<br><br><br><br>
+
+<center>
+<table border=1>
+<tr><th width=40%>Method</th><th>Description</th><th>Category</th></tr>
+
+
+<tr><td>xbInt16 CloseAllTables()</td><td>Close all open tables.</td><td>Table</tr>
+
+<tr><td>xbInt16  OpenHighestVersion( const xbString &sTableName, const xbString &sAlias, xbDbf &dbf, int dummy )</td><td>Open highest version available for sTableName.</td><td>Table</tr>
+<tr><td>xbInt16  OpenHighestVersion( const xbString &sTableName, const xbString &sAlias, xbDbf **dbf )</td><td>Open highest version available for sTableName.</td><td>Table</tr>
+<tr><td>xbDbf *  Open( const xbString &sTableName, xbInt16 &iRc )</td><td>Open the highest available version of the dbf file. Defaults to XB_READ_WRITE and XB_MULTI_USER mode.</td><td>Table</tr>
+<tr><td>xbDbf *  Open( const xbString &sTableName, const xbString &sAlias, xbInt16 iOpenMode, xbInt16 iShareMode, xbInt16 iVersion, xbInt16 &iRc )</td><td>Open table.</td><td>Table</tr>
+
+<tr><td colspan=3><hr></td></tr>
+<tr><td>void DisableMsgLogging()</td><td>Disable logging routines.</td><td>Logging</td></tr>
+<tr><td>void EnableMsgLogging ()</td><td>Enable logging routines.</td><td>Logging</td></tr>
+<tr><td>xbInt16 FlushLog()</td><td>Flush any queued logfile updates to disk.</td><td>Logging</td></tr>
+<tr><td>const xbString &GetLogDirectory () const</td><td>Get the current logfile directory.</td><td>Logging</td></tr>
+<tr><td>const xbString &GetLogFileName () const</td><td>Get the current logfile name.</td><td>Logging</td></tr>
+<tr><td>const xbString &GetLogFqFileName() const</td><td>Get fully qualified logfile name.</td><td>Logging</td></tr>
+<tr><td>xbBool GetLogStatus () const</td><td>Get the logging status.</td><td>Logging</td></tr>
+<tr><td>void SetLogDirectory( const xbString &sLogFileDirectory )</td><td>Set the log directory.  Must be done while logging is off.</td><td>Logging</td></tr>
+<tr><td>void SetLogFileName( const xbString &sLogFileName )</td><td>Set the log file name. Must be done while logging is off.</td><td>Logging</td></tr>
+<tr><td>void SetLogSize( size_t lSize )</td><td>Set the logfile size.  After the size is reached, the log file roll.</td><td>Logging</td></tr>
+<tr><td>xbInt16 WriteLogBytes ( xbUInt32 lCnt, const char *p )</td><td>Write lCnt bytes pointed to by pointer p to the logfile.</td><td>Logging</td></tr>
+<tr><td>xbInt16 WriteLogMessage( const xbString &sLogMessage, xbInt16 iOutputOpt = 0 )</td><td>Write a string to the logfile.</td><td>Logging</td></tr>
+
+<tr><td colspan=3><hr></td></tr>
+
+<tr><td>xbInt16 xbXBase::CreateFqn( const xbString &sDirIn, const xbString &sNameIn, const xbString &sExtIn, xbString &sFqnOut )</td>
+<td>Create fully qualified file name from directory, file name and optional extension.  This routine sets the correct separators dependent on OS.
+</td><td>Misc</td></tr>
+
+
+<tr><td>xbInt16 xbXBase::GetCmdLineOpt( xbInt32 lArgc, char **sArgv, xbString &sOptRqst, xbString &sParmOut )<br>
+xbXBase::GetCmdLineOpt( xbInt32 lArgc, char **sArgv, const char *sOptRqst, xbString &sParmOut )</td><td>Parse command line values seeking given parameter info.</td><td>Misc</td></tr>
+
+<tr><td>void xbSleep( xbInt32 lMillisecs )</td><td>Sleep command, used mainly in lock commands for waiting between retries.</td><td>Misc</td></td></tr>
+
+<tr><td colspan=3><hr></td></tr>
+<tr><td>xbInt16 ABS( xbDouble dIn, xbDouble &dOut )</td><td>Dbase ABS function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 ALLTRIM( const xbString &sIn, xbString &sOut )</td><td>Dbase ALLTRIM function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 ASC( const xbString &s, xbDouble &dAscOut )</td><td>Dbase ASC function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 AT( const xbString &sSrchFor, const xbString &sBase, xbDouble &dPos )</td><td>Dbase AT function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 CDOW( xbDate &dInDate, xbString &sOutDow )</td><td>Dbase CDOW function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 CHR( xbDouble dAsciCd, xbString &sOut )</td><td>Dbase CHR function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 CMONTH( xbDate &dInDate, xbString &sOutMonth )</td><td>Dbase CMONTH function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 CTOD( const xbString &sInDate, xbDate &dOutDate )</td><td>Dbase CTOD function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DATE( xbDate &dOutDate )</td><td>Dbase DATE function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DAY( const xbDate &dInDate, xbDouble &dOutDay )</td><td>Dbase DAY function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DEL( xbDbf * d, xbString &sOut, xbInt16 iRecBufSw = 0 )</td><td>Dbase DEL function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DELETED( xbDbf * d, xbBool &bOut, xbInt16 iRecBufSw = 0 )</td><td>Dbase DELETED function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DESCEND( const xbString &sIn,xbString &sOut )<br>xbInt16 DESCEND( const xbDate &dInDate, xbDate &dOutDate )<br>xbInt16 DESCEND( const xbDouble dIn, xbDouble &dsOut )</td><td>Dbase DESCEND function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DOW( const xbDate &sInDate, xbDouble &dDowOut )</td><td>Dbase DOW function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DTOC( xbDate &dInDate, xbString &sOutFmtDate )</td><td>Dbase DTOC function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DTOS( xbDate &dInDate, xbString &sOutFmtDate )</td><td>Dbase DTOS function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 EXP( xbDouble dIn, xbDouble &dOut )</td><td>Dbase EXP function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 IIF( xbBool bResult, const xbString &sTrueResult, const xbString &sFalseResult, xbString &sResult )</td><td>Dbase IIF function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 INT( xbDouble dIn, xbDouble &dOut )</td><td>Dbase INT function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 ISALPHA( const xbString &s, xbBool &bResult )</td><td>Dbase ISALPHA function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 ISLOWER( const xbString &s, xbBool &bResult )</td><td>Dbase ISLOWER function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 ISUPPER( const xbString &s, xbBool &bResult )</td><td>Dbase ISUPPER function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 LEFT( const xbString &sIn, xbUInt32 lCharCnt, xbString &sOut )</td><td>Dbase LEF function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 LEN( const xbString &sIn, xbDouble &dLen )</td><td>Dbase LEN function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 LOG( xbDouble dIn, xbDouble &dOut )</td><td>Dbase LOG function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 LOWER( const xbString &sIn, xbString &sOut )</td><td>Dbase LOWER function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 LTRIM( const xbString &sIn, xbString & sOut )</td><td>Dbase LTRIM function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 MAX( xbDouble dIn1, xbDouble dIn2, xbDouble &dOut )</td><td>Dbase MAX function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 MIN( xbDouble dIn1, xbDouble dIn2, xbDouble &dOut )</td><td>Dbase MIN function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 MONTH( xbDate &dInDate, xbDouble &dMonthOut )</td><td>Dbase MONTH function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 RECCOUNT( xbDbf * d, xbDouble &dRecOut )</td><td>Dbase RECCOUNT function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 RECNO( xbDbf * d, xbDouble &dRecOut )</td><td>Dbase RECNO function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 REPLICATE( const xbString &sIn, xbUInt32 ulRepCnt, xbString &sOut )</td><td>Dbase REPLICATE function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 RIGHT( const xbString &sIn, xbUInt32 iCharCnt, xbString &sOut )</td><td>Dbase RIGHT function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 RTRIM( const xbString &sIn, xbString &sOut )</td><td>Dbase RTRIM function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 SPACE( xbInt32 lCnt, xbString &sOut )</td><td>Dbase SPACE function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 SQRT( xbDouble dBase, xbDouble &dSqrRt )</td><td>Dbase SQRT function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 STOD( const xbString &sIn, xbDate &sDateOut )</td><td>Dbase STOD function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 STR( xbDouble dIn, xbString &sOut )</td><td>Dbase function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 STR( xbDouble dIn, xbUInt32 ulLen, xbString &sOut )<br>
+        xbInt16 STR( xbDouble dIn, xbUInt32 ulLen, xbUInt32 ulDec, xbString &sOut )<br>
+        xbInt16 STR( xbDouble dIn, xbUInt32 ulLen, xbUInt32 ulDec, xbString &sPadChar, xbString &sOut )</td><td>Dbase STR function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 STRZERO( xbDouble dIn, xbUInt32 ulLen, xbUInt32 ulDec, xbString &sOut )</td><td>Dbase STRZERO function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 SUBSTR( const xbString &sIn, xbUInt32 ulStartPos, xbUInt32 ulLen, xbString &sOut )</td><td>Dbase SUBSTR function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 TRIM( const xbString &sIn, xbString &sOut )</td><td>Dbase TRIM function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 UPPER( const xbString &sIn, xbString &sOut )</td><td>Dbase UPPER function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 VAL( const xbString &sIn, xbDouble &dOut )</td><td>Dbase VAL function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 YEAR( xbDate &dInDate, xbDouble &dOutYear )</td><td>Dbase YEAR function.</td><td>Expression</td></tr>
+</table>
+
+<br><br>
+<hr>
+
+<h3>Example program using xbXbase methods</h3>
+</center>
+<xmp>
+/*  xb_ex_ssv.cpp
+XBase64 Software Library
+
+Copyright (c) 1997,2003,2014,2021,2022,2023 Gary A Kunkel
+
+The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
+
+Email Contact:
+
+    XDB-devel@lists.sourceforge.net
+    XDB-users@lists.sourceforge.net
+
+This program demonstrates using functionality of the xbSsv class  (Shared system values)
+
+*/
+
+#include "xbase.h"
+
+using namespace xb;
+
+int main( int ac, char ** av ){
+
+  xbXBase  x;              // set up xbase for business
+  xbString sMsg;           // a message string
+
+  sMsg.Sprintf( "Program [%s] initializing...", av[0] );
+  std::cout << sMsg.Str() << std::endl;
+
+  // example code to set up log file usage
+ #ifdef XB_LOGGING_SUPPORT
+    char     cSeperator;                      // is this a unix (/) or windows (\) file system
+    xbString sLog;                            // general string for log file activities
+    sLog = x.GetLogFqFileName().Str();        // get the system default log file name
+    std::cout << "System default logfile is [" << sLog.Str() << "]" << std::endl;
+
+    cSeperator = sLog.GetPathSeparator();     // get the seperator from 
+    std::cout << "Path seperator = [" << cSeperator << "]" << std::endl;
+
+    sLog.Sprintf( "..%c", cSeperator );
+    x.SetLogDirectory( sLog );
+    std::cout << "sLog = [" << sLog.Str() << "]\n";
+
+    sLog = x.GetLogFqFileName().Str();        // get the system default log file name
+    std::cout << "New logfile is [" << sLog.Str() << "]" << std::endl;
+
+    // turn on logging after file name set
+    x.EnableMsgLogging(); 
+  #endif  // XB_LOGGING_SUPPORT
+
+  // const char *GetErrorMessage( xbInt16 ErrorCode ) const;
+  // void DisplayError( xbInt16 ErrorCode ) const;
+  std::cout << "DisplayError( -100 ) - ";
+  x.DisplayError( -100 );
+  //  << "]" << std::endl;
+
+
+  // void      SetDefaultDateFormat( const xbString &sDefaultDateFormat );
+  // xbString& GetDefaultDateFormat() const;
+  std::cout << "GetDefaultDateFormat() - " << x.GetDefaultDateFormat() << std::endl;
+
+  //  void       SetDataDirectory          ( const xbString &sDataDirectory );
+  // xbString& GetDataDirectory() const;
+  std::cout << "GetDataDirectory() - " << x.GetDataDirectory() << std::endl;
+
+  // xbInt16 GetEndianType() const;
+  if( x.GetEndianType() == 'L' )
+    std::cout << "Little Endian Architecture." << std::endl;
+  else
+    std::cout << "Bid Endian Architecture." << std::endl;
+
+  //xbBool GetDefaultAutoCommit() const;
+  //void SetDefaultAutoCommit( xbBool bDefaultAutoCommit );
+  if( x.GetDefaultAutoCommit())
+    std::cout << "AutoCommit is on." << std::endl;
+  else
+    std::cout << "AutoCommit is off." << std::endl;
+
+  //xbBool     GetMultiUser              () const;
+  //void       SetMultiUser              ( xbBool bMultiUser );
+  if( x.GetMultiUser())
+    std::cout << "Multi user (locking) is enabled." << std::endl;
+  else
+    std::cout << "Multi user (locking) not enabled." << std::endl;
+
+  #if defined (XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
+  // xbInt16    GetUniqueKeyOpt           () const;
+  // xbInt16    SetUniqueKeyOpt           ( xbInt16 iUniqueKeyOpt );
+  //   XB_HALT_ON_DUPKEY
+  //   XB_EMULATE_DBASE
+  if( x.GetUniqueKeyOpt() == XB_HALT_ON_DUPKEY )
+    std::cout << "UniqueKey option - XB_HALT_ON_DUPKEY" << std::endl;
+  else if( x.GetUniqueKeyOpt() == XB_EMULATE_DBASE )
+    std::cout << "UniqueKey option - XB_EMULATE_DBASE" << std::endl;
+  #endif  // (XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
+
+  #ifdef XB_LOCKING_SUPPORT
+  //xbInt16    GetDefaultLockRetries     () const;
+  //void       SetDefaultLockRetries     ( xbInt16 iRetryCount );
+  //xbInt32    GetDefaultLockWait        () const;
+  //void       SetDefaultLockWait        ( xbInt32 lRetryWait );
+  //xbInt16    GetDefaultLockFlavor      () const;
+  //void       SetDefaultLockFlavor      ( xbInt16 iLockFlavor );
+  //xbBool     GetDefaultAutoLock        () const;
+  //void       SetDefaultAutoLock        ( xbBool bAutoLock );
+  //void       EnableDefaultAutoLock     ();
+  //void       DisableDefaultAutoLock    ();
+  
+  std::cout << "GetDefaultLockRetries() - " << x.GetDefaultLockRetries() << std::endl;
+  std::cout << "GetDefaultLockWait() - " << x.GetDefaultLockWait() << std::endl;
+  std::cout << "GetDefaultAutoLock() - " << x.GetDefaultAutoLock() << std::endl;
+  #endif  // XB_LOCKING_SUPPORT
+
+  #ifdef XB_MDX_SUPPORT
+  // xbInt16    GetCreateMdxBlockSize() const;
+  // xbInt16    SetCreateMdxBlockSize( xbInt16 ulBlockSize );
+  std::cout << "GetCreateMdxBlockSize() - " << x.GetCreateMdxBlockSize() << std::endl;
+  #endif  // XB_MDX_SUPPORT
+
+  #ifdef XB_BLOCKREAD_SUPPORT
+  // xbUInt32   GetDefaultBlockReadSize() const;
+  // void       SetDefaultBlockReadSize( xbUInt32 ulDfltBlockReadSize );
+  std::cout << "GetDefaultBlockReadSize() - " << x.GetDefaultBlockReadSize() << std::endl;  
+  #endif  // XB_BLOCKREAD_SUPPORT
+
+  //xbBool     BitSet                    ( unsigned char c, xbInt16 iBitNo ) const;
+  //void       BitDump                   ( unsigned char c ) const;
+  //void       BitDump                   ( char c ) const;
+  std::cout << "BitDump( 'A' ) - ";
+  x.BitDump( 'A' );
+
+  return 0;
+}
+
+
+</xmp>
+
+<br><br>
+<hr>
+<p><img src="xbase.jpg"><br><hr>
+</BODY>
+</HTML>

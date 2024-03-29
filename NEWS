@@ -1,0 +1,217 @@
+Xbase64  (01/20/24)
+------------------------
+
+4.1.7 - 01/20/24
+
+1)   Fix segfault error in program xb_dbfutil when exiting with open tables.
+2)   Updated xb_dbfutil program menu option 8.7 CreateIndexTag() 
+     - Rebuild index after defining it
+     - Associate it in INF file if XB_INF_SUPPORT enabled
+3)   Updated xb_dbfutil type errors regarding menu =11
+4)   Updated xb_dbfutil - added Dup Key display value setting to menu 2.1
+5)   Updated xb_dbfutil - added menu option 2.13, toggle index unique key processing option
+6)   Updated xb_dbfutil - updated option 3.2, added #3 option for users home folder
+7)   Updates to xbNdx::CheckTagIntegrity() - updated logic to better support unique indices with multple recs having the same key
+     With unique indices, DBase (TM) allows multiple DBF records to have the same key value, only the first rec is indexed
+8)   pdated xb_test_ndx, additional testing scenarios for duplicate keys with unique indices, improved log messages
+9)   Updates to COPYING file.
+10)  Updates to xbMdx::CheckTagIntegrity() - updated logic to better support unique indices with multple recs having the same key
+     With unique indices, DBase (TM) allows multiple DBF records to have the same key value, only the first rec is indexed
+11)  Updates to xb_dbfutil.  Updated reindex menu option to allaw choice between current tag and all tags.
+12)  Updates to Chapter 5 (xbc5.html) - notes on how indices handle duplicate keys and deleted keys.
+13)  Updates to xb_dbfutil program, menu option 8.7 to populate new index tag when created
+
+
+4.1.6 - 11/27/23
+
+1)   Updated test program xb_test_relate2 for additional test scenarios.
+2)   Updated error logging in xbFilter class.
+3)   Updates to xbRelate class to support filters on the relations.
+4)   Updates to xbFilter class to better support xbRelate class.
+5)   Created new utility program xb_reindex.
+6)   Refreshed man pages.
+7)   Updated utility program xb_dumprecs to include table name in output.
+8)   Updates to documentation for xbFilter and xbRelation classes.
+
+
+4.1.5 - 11/09/23
+
+1)  Implemented bug fix identified by Brent Sanders 
+    src/include/xbstring.h 
+    XBDLLEXPORT friend std::ostream& operator<<(std::ostream& os, const xbString& s);
+2)  Misc updates to library build test programs - xb_test_log, xb_test_xbase
+3)  Updates to xb_import program.
+4)  Updates to xb_dumprecs program.
+5)  Updates to documentation, added html chapter 13 - xbString.
+6)  New error message -123, XB_ALREDY_DEFINED
+7)  Alpha release of relation logic
+
+
+
+4.1.4 - 06/01/23
+
+1)  Created html chapter for log routines.
+2)  Created sample log program.
+3)  Added logic to enable/disable block processing for xbDbf::Reindex method.
+4)  Updated usage of xbDbf::GetRecordCnt() to support error capture logic.
+5)  Updated message handling logic in the SQL processor routines (beta).
+6)  New utility program called xb_import, used to import records from a flat file into a DBF file/table.
+7)  Updates to the xbDate class for handling null date values.  Upgrade notes - xbDate values now default
+    to a null date on initialization, previous versions defaults to current date.
+8)  Added method xbDbf::GetNullSts() - used to determine if a field is considered null.
+9)  Reolved memory leak in expression parser when error condition encountered.
+10) Updates to Reindex routine, memory leak fix when error condition encountered
+11) Reindex, delete tag if reindex failure, updates to test programs to verify
+
+
+
+4.1.3 - 04/14/23
+
+1)  Changed xbDbf::ReadHeader() to be a protected method, was private
+2)  Added new config option for temp directory for temp file processing
+3)  Added support for termporary indices (.TDX)
+4)  New method xbFile::CreateFqn()
+5)  Updated methods and shared static variables for Data, Log and Temp folders
+    Also moved Set and Get methods for log file to xbSsv class.
+6)  Updated method xbFile::CreateUniqueFileName() to check for path separator at the 
+    end of the supplied path, if not there, add it.
+7)  Fix to xbDbf::DeleteTag() logic for setting cur tag to null when no tags exist.
+
+
+
+4.1.2 - 04/05/23
+
+1)  New method created - xbSsv::GetPathSeparator()
+2)  Updates to lock testing program.
+3)  Updates for doxygen auto documentation.
+4)  Documentation updates, added html chapter 19.
+5)  Updates to CMakeLists.txt config file
+
+
+
+4.1.1 - 03/28/23
+
+1)  Updates to AUTHORS file
+2)  Port for mingw
+    -  New mingw build folder
+    -  Updates to CMakeLists.txt
+3)  Documentation updates
+4)  Added support for getenv_s for Visual Studio compiles
+5)  Updates to Drop Table routine
+6)  Updates to Create Table routine
+7)  Updates to xb_lock_test and xb_lock_test2 library testing programs
+
+
+
+4.1.0 - 03/02/23
+
+1)  Created block read functionality, class xbBlockRead
+2)  SQL Updates - Started development of structures needed to support basic 
+       SQL SELECT statement - SELECT f FROM t WHERE x=z ORDER BY o
+       Caveat:  ****  SQL support is still in development phase  ******
+3)  Updates to class xbTblMgr functionality
+4)  New method xbString::Pos( char c, xbUInt32 ulStartPos )
+5)  Updated xb_cfg_check program
+6)  Added method xbDbf::GetHeaderLen()
+7)  Documentation updates
+8)  Updates to SQL Create Table logic
+9)  Updates to MDX create tag key length calculation
+10) Updated default log file folder to $HOME/xbase64/logs
+11) Updated default data file folder to $HOME/xbase64/data
+12) Created initial round of man pages for utility programs
+13) Created Debian specific build folder
+
+
+
+4.0.3 - 12/26/22
+
+1)  Additional documentation updates
+2)  Updates to the rename methods
+3)  Added SQL command - "ALTER TABLE tablename.DBF RENAME TO newname.DBF"
+4)  Added SQL command - "DELETE FROM tablename.DBF [WHERE expression]"
+5)  Update to xbDbf::DumpRecs method to support deleted records
+6)  Update to xbDbf::GetLongField - bug fix
+7)  Misc updates to xb_dbfutil program
+8)  Added reindex logic to xb_pack utility program
+9)  Created method xbString::Replace(s1,s2)
+10) Updates to test program xb_ndx_test
+
+
+
+4.0.2 - 12/15/22  Documentation cleanup and updates.
+
+
+
+4.0.1 - 11/22/22  Rewrite of core library.
+The library has been refreshed (Major rewrite) with release 4.0.1
+
+1)  32/64 bit support.
+2)  Big Endian or Little Endian support.
+3)  Updates for error handling and exception processing.
+4)  DBF III and DBF IV support.
+5)  NDX, MDX index support.
+6)  DBT Memo file support for both version III and version IV files.
+7)  Updates and fixes to record and file locking.
+8)  Support for logfile generation
+9)  The beginnings of SQL support.
+10) CDX and NTX index support which was available in earlier releases
+    is still pending inclusion in the latest library rewrite.
+11) Encapsulated library into a namespace called "xb".
+12) Migrated from autoconf and automake to cmake.
+13) Significant testing.
+14) General library cleanup.
+15) Updated license to be the latest GPL.
+16) Updated xbString method names to be more consistant with the rest of the library.
+17) String functions were updated from 0 based routines to 1 based routines.
+
+
+
+
+Xbase64  (Sept 15, 2003)
+------------------------
+
+Xbase64 was branched off the xbase C++ class lib project and given a new name.
+
+There are significant changes in this release.
+
+1)  The original author (Gary Kunkel) has resumed working on the project.
+
+2)  The project was branched and renamed to xbase64 with 64 bit file 
+    processing capabilities.  The xbase name is being used by other projects,
+    so I thought it was time for a new name.
+
+3)  Modified the license from LGPL to GPL as recommended by the GNU web site.
+    Files that I have not been able to get permission from the original 
+    author for GPL terms have beed deleted from the library.
+
+4)  Trimmed the tree: Dropped support for the xbHtml class, the turbo vision 
+    interface, and the ybase directory.  These are either unused, not working,
+    undocumented, not maintained, or I didn't have authority to change the 
+    license from LGPL to GPL. 
+
+5)  Didn't move make files forward that were not documented or working.
+    These need to be reviewed and brought forward.
+
+6)  Worked on the locking logic. 
+
+7)  Added support for Borland C++ 5.x compiler.
+
+8)  Created a new data type of XB_BOOL.  Current bool data type was causing
+    issues in certain environments.
+
+9)  Dropped support for XB_CASTELLANO dates.  Changed the logic to use
+    system locale settings, this supports descriptive dates in different
+    languages.
+
+10) Cleaned up memory leaks.
+
+11) Updates to the documentation.
+
+12) Enhancements to the expression logic
+
+13) Fixed the broken index logic - the ndx and ntx indices are working 
+    again.  
+
+-----------------------------------------------------------------------
+For a the historical NEWS file history (pre 9/15/03), review the older 
+xbase library.

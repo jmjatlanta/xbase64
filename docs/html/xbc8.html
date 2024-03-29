@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Chapter 8</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">Class xbSsv</p></H2>
+<p align="center">Chapter Updated 11/21/28</p><hr>
+
+<h3>Class xbSsv - Shared System Values.</h3>
+
+Base class xbSsv is used for maintaining static variables used system
+wide by the XBase library routines and is a base class that is used by the xbXBase class.
+See the diagram in chapter 15 to gain an understanding of where the xbSsv class sits in relation to the
+other classes.  Accessing the methods in this class are done via the xbXBase class instance.<br><br>
+Additionally, there are a few other misc routines contained in this class that are available to all
+subordinate classes/objects.
+<br><br><br><br>
+
+<center>
+<table border=1>
+<tr><th width=40%>Method</th><th>Description</th></tr>
+
+<tr><td>void BitDump( unsigned char c ) const<br>void BitDump( char c ) const</td><td>These routines dump the bits for a specified char field to stdout.</td></tr>
+<tr><td>xbBool BitSet( unsigned char c, xbInt16 iBitNo ) const</td><td>This routine will set a specified bit in a char field.</td></tr>
+<tr><td>void DisplayError( xbInt16 ErrorCode ) const</td><td>This routine prints a description for a specifed error to stdout.</td></tr>
+
+<tr><td>xbString& GetDataDirectory() const<br>void SetDataDirectory( const xbString &sDataDirectory )</td>
+       <td>Get and Set the current directory where the library routines expect to find the .DBF, .DBT, .NDX and .MDX files.</td></tr>
+
+<tr><td>xbString& GetDefaultDateFormat() const<br>void SetDefaultDateFormat( const xbString &sDefaultDateFormat )</td>
+       <td>Get and Set the current default date format used by the date formatting routines if no format specifier is provided.</td></tr>
+
+<tr><td>xbInt16 GetEndianType() const</td><td>Returns the current Endian type of the machine the library is operating on.</td></tr>
+<tr><td>const char *GetErrorMessage( xbInt16 ErrorCode ) const</td><td>Returns a pointer to an error message for a given error number.</td></tr>
+
+<tr><td>xbBool GetDefaultAutoCommit() const<br>void SetDefaultAutoCommit( xbBool bDefaultAutoCommit )</td>
+       <td>Get and Set the default auto commit status.  If auto commit is on, the library will automatically post any updates to the database when navigating away from an updated record.</td></tr>
+
+<tr><td>xbBool GetHomeDir( xbString &sHomeDirOut )</td><td>Get the home directory for the current user.</td></tr>
+
+<tr><td>xbString& GetLogDirectory() const<br>void SetLogDirectory( const xbString &sLogDirectory )</td>
+       <td>Get and set the directory location for any system generated logfiles.</td></tr>
+<tr><td>xbString& GetLogFileName() const<br>void SetLogFileName( const xbString &sLogFileName )</td><td>Returns the default log file name.</td></tr>
+
+
+<tr><td>xbBool GetMultiUser() const<br>void SetMultiUser( xbBool bMultiUser )</td>
+      <td>Get and set multi user status.  This turns auto locking on and off. For better performance in single user applications, turn multuser off.</td></tr>
+
+<tr><td>char GetPathSeparator() const</td>
+      <td>Get the path separator value for the current environment. Returns either \ (for Windows environment) or / (for Unix environment).</td></tr>
+
+<tr><td>xbString& GetTempDirectory() const<br>void SetTempDirectory( const xbString &sTempDirectory )</td><td>Get and set the temp folder.</td></tr>
+
+
+<tr><td>xbInt16 GetUniqueKeyOpt() const<br>xbInt16 SetUniqueKeyOpt( xbInt16 iUniqueKeyOpt )</td>
+   <td>Determines library behavior for unique key processing. The original Dbase (tm) product allowed duplicate recrds in the .DBF file when the unique option was specified for a given index tag.
+       The Xbase library supports either the original DBase behavior (XB_EMULATE_DBASE), or the prevention of duplicate records for duplicate keys (XB_HALT_ON_DUPKEY).</td></tr>
+
+
+<tr><td>xbInt16 GetDefaultLockRetries() const<br>void SetDefaultLockRetries( xbInt16 iRetryCount )</td>
+   <td>Get and Set the number of times to attempt a lock</td></tr>
+
+<tr><td>xbInt32 GetDefaultLockWait() const<br>void SetDefaultLockWait( xbInt32 lRetryWait )
+   </td><td>Get and Set the wait time between lock attempts.</td></tr>
+
+<tr><td>xbInt16 GetDefaultLockFlavor() const<br>void SetDefaultLockFlavor( xbInt16 iLockFlavor )
+   </td><td>For future use.  With current versions, only DBase (TM) locking offsets are supported.</td></tr>
+
+<tr><td>xbBool GetDefaultAutoLock() const<br>void SetDefaultAutoLock( xbBool bAutoLock )<br>void EnableDefaultAutoLock()<br>void DisableDefaultAutoLock()
+   </td><td>Set, Get or update Auto Lock Status</td></tr>
+
+
+<tr><td>xbInt16 GetCreateMdxBlockSize() const<br>xbInt16 SetCreateMdxBlockSize( xbInt16 ulBlockSize )
+   </td><td>Set or get MDX Index block size.  Must be a multiple of 512.</td></tr>
+
+<tr><td>xbUInt32 GetDefaultBlockReadSize() const<br>void SetDefaultBlockReadSize( xbUInt32 ulDfltBlockReadSize )
+   </td><td>Set or Get the default block size for Block Read functionality.  Block reading is used to improve sequentential access performance.</td></tr>
+</table>
+
+<br><br>
+
+<h3>Example program using xbSsv methods</h3>
+</center>
+<xmp>
+/*  xb_ex_ssv.cpp
+XBase64 Software Library
+
+Copyright (c) 1997,2003,2014,2021,2022,2023 Gary A Kunkel
+
+The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
+
+Email Contact:
+
+    XDB-devel@lists.sourceforge.net
+    XDB-users@lists.sourceforge.net
+
+This program demonstrates using functionality of the xbSsv class  (Shared system values)
+
+*/
+
+#include "xbase.h"
+
+using namespace xb;
+
+int main( int ac, char ** av ){
+
+  xbXBase  x;              // set up xbase for business
+  xbString sMsg;           // a message string
+
+  sMsg.Sprintf( "Program [%s] initializing...", av[0] );
+  std::cout << sMsg.Str() << std::endl;
+
+  // example code to set up log file usage
+ #ifdef XB_LOGGING_SUPPORT
+    char     cSeperator;                      // is this a unix (/) or windows (\) file system
+    xbString sLog;                            // general string for log file activities
+    sLog = x.GetLogFqFileName().Str();        // get the system default log file name
+    std::cout << "System default logfile is [" << sLog.Str() << "]" << std::endl;
+
+    cSeperator = sLog.GetPathSeparator();     // get the seperator from 
+    std::cout << "Path seperator = [" << cSeperator << "]" << std::endl;
+
+    sLog.Sprintf( "..%c", cSeperator );
+    x.SetLogDirectory( sLog );
+    std::cout << "sLog = [" << sLog.Str() << "]\n";
+
+    sLog = x.GetLogFqFileName().Str();        // get the system default log file name
+    std::cout << "New logfile is [" << sLog.Str() << "]" << std::endl;
+
+    // turn on logging after file name set
+    x.EnableMsgLogging(); 
+  #endif  // XB_LOGGING_SUPPORT
+
+  // const char *GetErrorMessage( xbInt16 ErrorCode ) const;
+  // void DisplayError( xbInt16 ErrorCode ) const;
+  std::cout << "DisplayError( -100 ) - ";
+  x.DisplayError( -100 );
+  //  << "]" << std::endl;
+
+
+  // void      SetDefaultDateFormat( const xbString &sDefaultDateFormat );
+  // xbString& GetDefaultDateFormat() const;
+  std::cout << "GetDefaultDateFormat() - " << x.GetDefaultDateFormat() << std::endl;
+
+  //  void       SetDataDirectory          ( const xbString &sDataDirectory );
+  // xbString& GetDataDirectory() const;
+  std::cout << "GetDataDirectory() - " << x.GetDataDirectory() << std::endl;
+
+  // xbInt16 GetEndianType() const;
+  if( x.GetEndianType() == 'L' )
+    std::cout << "Little Endian Architecture." << std::endl;
+  else
+    std::cout << "Bid Endian Architecture." << std::endl;
+
+  //xbBool GetDefaultAutoCommit() const;
+  //void SetDefaultAutoCommit( xbBool bDefaultAutoCommit );
+  if( x.GetDefaultAutoCommit())
+    std::cout << "AutoCommit is on." << std::endl;
+  else
+    std::cout << "AutoCommit is off." << std::endl;
+
+  //xbBool     GetMultiUser              () const;
+  //void       SetMultiUser              ( xbBool bMultiUser );
+  if( x.GetMultiUser())
+    std::cout << "Multi user (locking) is enabled." << std::endl;
+  else
+    std::cout << "Multi user (locking) not enabled." << std::endl;
+
+  #if defined (XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
+  // xbInt16    GetUniqueKeyOpt           () const;
+  // xbInt16    SetUniqueKeyOpt           ( xbInt16 iUniqueKeyOpt );
+  //   XB_HALT_ON_DUPKEY
+  //   XB_EMULATE_DBASE
+  if( x.GetUniqueKeyOpt() == XB_HALT_ON_DUPKEY )
+    std::cout << "UniqueKey option - XB_HALT_ON_DUPKEY" << std::endl;
+  else if( x.GetUniqueKeyOpt() == XB_EMULATE_DBASE )
+    std::cout << "UniqueKey option - XB_EMULATE_DBASE" << std::endl;
+  #endif  // (XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
+
+  #ifdef XB_LOCKING_SUPPORT
+  //xbInt16    GetDefaultLockRetries     () const;
+  //void       SetDefaultLockRetries     ( xbInt16 iRetryCount );
+  //xbInt32    GetDefaultLockWait        () const;
+  //void       SetDefaultLockWait        ( xbInt32 lRetryWait );
+  //xbInt16    GetDefaultLockFlavor      () const;
+  //void       SetDefaultLockFlavor      ( xbInt16 iLockFlavor );
+  //xbBool     GetDefaultAutoLock        () const;
+  //void       SetDefaultAutoLock        ( xbBool bAutoLock );
+  //void       EnableDefaultAutoLock     ();
+  //void       DisableDefaultAutoLock    ();
+  
+  std::cout << "GetDefaultLockRetries() - " << x.GetDefaultLockRetries() << std::endl;
+  std::cout << "GetDefaultLockWait() - " << x.GetDefaultLockWait() << std::endl;
+  std::cout << "GetDefaultAutoLock() - " << x.GetDefaultAutoLock() << std::endl;
+  #endif  // XB_LOCKING_SUPPORT
+
+  #ifdef XB_MDX_SUPPORT
+  // xbInt16    GetCreateMdxBlockSize() const;
+  // xbInt16    SetCreateMdxBlockSize( xbInt16 ulBlockSize );
+  std::cout << "GetCreateMdxBlockSize() - " << x.GetCreateMdxBlockSize() << std::endl;
+  #endif  // XB_MDX_SUPPORT
+
+  #ifdef XB_BLOCKREAD_SUPPORT
+  // xbUInt32   GetDefaultBlockReadSize() const;
+  // void       SetDefaultBlockReadSize( xbUInt32 ulDfltBlockReadSize );
+  std::cout << "GetDefaultBlockReadSize() - " << x.GetDefaultBlockReadSize() << std::endl;  
+  #endif  // XB_BLOCKREAD_SUPPORT
+
+  //xbBool     BitSet                    ( unsigned char c, xbInt16 iBitNo ) const;
+  //void       BitDump                   ( unsigned char c ) const;
+  //void       BitDump                   ( char c ) const;
+  std::cout << "BitDump( 'A' ) - ";
+  x.BitDump( 'A' );
+
+  return 0;
+}
+
+
+</xmp>
+
+<br><br>
+<hr>
+<p><img src="xbase.jpg"><br><hr>
+</BODY>
+</HTML>

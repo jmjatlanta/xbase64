@@ -1,0 +1,142 @@
+\hypertarget{xbrelate_8h_source}{}\doxysection{xbrelate.\+h}
+\label{xbrelate_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbrelate.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbrelate.h}}
+\mbox{\hyperlink{xbrelate_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbrelate.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef \_\_XB\_RELATE\_H\_\_}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define \_\_XB\_RELATE\_H\_\_}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifdef  CMAKE\_COMPILER\_IS\_GNUCC}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#pragma interface}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{comment}{//\#define XB\_REL\_READY 0}}
+\DoxyCodeLine{27 \textcolor{comment}{//\#define XB\_REL\_FOUND 1}}
+\DoxyCodeLine{28 \textcolor{comment}{//\#define XB\_REL\_NF\_OPT 2}}
+\DoxyCodeLine{29 \textcolor{comment}{//\#define XB\_REL\_NF\_REQ 3}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{struct }XBDLLEXPORT \mbox{\hyperlink{structxb_1_1xbRelation}{xbRelation}}\{}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35   \mbox{\hyperlink{structxb_1_1xbRelation}{xbRelation}} * \mbox{\hyperlink{structxb_1_1xbRelation_a78f8ce451f3951446eebb1d264af7cdd}{pParent}};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{38   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}   * \mbox{\hyperlink{structxb_1_1xbRelation_afe3520692c36499fb1fe4a960578d00b}{sParentExpression}};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{41   xbExp      * \mbox{\hyperlink{structxb_1_1xbRelation_a9e2105b745a9323bffbe72f165782332}{pParentExp}};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44   xbUInt32     \mbox{\hyperlink{structxb_1_1xbRelation_aca82e4f3ff6c82a37fee957b40b9c27f}{ulSaveParRecNo}};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46   \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}}      * \mbox{\hyperlink{structxb_1_1xbRelation_a36c11499c6aab859ce0528f3fac4c811}{dDbf}};}
+\DoxyCodeLine{47   xbIx       * \mbox{\hyperlink{structxb_1_1xbRelation_a491d66b6a37af9b6b60f7ea07242af15}{pIx}};}
+\DoxyCodeLine{48   \textcolor{keywordtype}{void}       * \mbox{\hyperlink{structxb_1_1xbRelation_a6fd8fac0fc95f54c3d522f48af84f5aa}{pTag}};}
+\DoxyCodeLine{49   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}   * \mbox{\hyperlink{structxb_1_1xbRelation_a2a5f9fe4adbd4a3885a4cede38334bd0}{sFilter}};}
+\DoxyCodeLine{50   \textcolor{keywordtype}{char}         \mbox{\hyperlink{structxb_1_1xbRelation_a63b486bdcf162c523f2224b80afe2d60}{cType}};     \textcolor{comment}{// M -\/ Master}}
+\DoxyCodeLine{51                           \textcolor{comment}{// O -\/ Optional}}
+\DoxyCodeLine{52                           \textcolor{comment}{// R -\/ Required}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{55   xbInt16      \mbox{\hyperlink{structxb_1_1xbRelation_a051dcbde04215942920ba2e7052e7995}{iStatus}};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{58   xbInt32      \mbox{\hyperlink{structxb_1_1xbRelation_ae6e3bd84ea5ae30cf66e90d3e3b8e4cf}{ulRecPos}};  \textcolor{comment}{// }}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{61   xbFilter   * \mbox{\hyperlink{structxb_1_1xbRelation_a12e3962a535dd0b3e1679c2183db9971}{pFilt}};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{64   xbLinkList<xbRelation *> \mbox{\hyperlink{structxb_1_1xbRelation_a7f1f3d2be9f73045cf17a57638deac9d}{llChildren}};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{67   xbLinkListNode<xbRelation *> *\mbox{\hyperlink{structxb_1_1xbRelation_a7734f16f09b6323522ee918f6fc7005c}{pParentNp}};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbRelate}{xbRelate}} \{}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73  \textcolor{keyword}{public}:}
+\DoxyCodeLine{74   \mbox{\hyperlink{classxb_1_1xbRelate_ad7ab5fba2bcccd06d67eaf48c5cb547f}{xbRelate}}( \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}} *xbase );}
+\DoxyCodeLine{75   \mbox{\hyperlink{classxb_1_1xbRelate_a7ee06b12824c15881d426b8ee1a5e840}{\string~xbRelate}}();}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_abf4878aeec036ec7b73670f57109678a}{AddRelation}}( }
+\DoxyCodeLine{78       \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} *dParent,                    \textcolor{comment}{// parent table}}
+\DoxyCodeLine{79       \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&ParentExpression,  \textcolor{comment}{// parent expression, needs to match pChildTag}}
+\DoxyCodeLine{80       \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} *dChild,                     \textcolor{comment}{// child table }}
+\DoxyCodeLine{81       xbIx *pChildIx,                    \textcolor{comment}{// child index}}
+\DoxyCodeLine{82       \textcolor{keywordtype}{void} *pChildTag,                   \textcolor{comment}{// child tag}}
+\DoxyCodeLine{83       \textcolor{keywordtype}{char} cType = \textcolor{charliteral}{'O'},                  \textcolor{comment}{// O = Optional, R = required}}
+\DoxyCodeLine{84       \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFilter = \textcolor{stringliteral}{"{}"{}}       \textcolor{comment}{// optional child record filter}}
+\DoxyCodeLine{85   );}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_a2848acfb7a3ad3620f9bc981ea5a9f5b}{AddRelation}}( }
+\DoxyCodeLine{88       \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} *dParent,                    \textcolor{comment}{// parent table}}
+\DoxyCodeLine{89       \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&ParentExpression,  \textcolor{comment}{// parent expression, needs to match pChildTag}}
+\DoxyCodeLine{90       \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} *dChild,                     \textcolor{comment}{// child table }}
+\DoxyCodeLine{91       \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sChildTagName,     \textcolor{comment}{// child tag name}}
+\DoxyCodeLine{92       \textcolor{keywordtype}{char} cType = \textcolor{charliteral}{'O'},                  \textcolor{comment}{// O = Optional, R = required}}
+\DoxyCodeLine{93       \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFilter = \textcolor{stringliteral}{"{}"{}}       \textcolor{comment}{// optional child record filter}}
+\DoxyCodeLine{94   );}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_aac3ff9c15e4e46cd6c4ea588e79f7b5b}{CheckTblSts}}( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} *d );}
+\DoxyCodeLine{97   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_a370eec53e54530ee7a569c3bd92bd95c}{GetFirstRelRecord}}();}
+\DoxyCodeLine{98   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_a78f3c4d7aa47405512848c8f729bc380}{GetLastRelRecord}}();}
+\DoxyCodeLine{99   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_af06ce562407cc49d6c58df202974f09e}{GetNextRelRecord}}();}
+\DoxyCodeLine{100   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_af2d4a35dd35ba35294a427ea2b695157}{GetPrevRelRecord}}();}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_af0e53210e6feef8657db5a79162c0093}{SetMaster}}( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * d, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFilter = \textcolor{stringliteral}{"{}"{}} );}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{  \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{105   \textcolor{keywordtype}{void} DumpRelationList();}
+\DoxyCodeLine{106   \textcolor{keywordtype}{void} DumpRelationNode( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTitle, \mbox{\hyperlink{structxb_1_1xbRelation}{xbRelation}} *pRel );}
+\DoxyCodeLine{107   \textcolor{keywordtype}{void} DumpRelationTree();}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109   xbInt16 CheckRecNo( xbInt16 iPo, xbInt32 lRec0, xbInt32 lRec1 = -\/1,}
+\DoxyCodeLine{110                       xbInt32 lRec2 = -\/1, xbInt32 lRec3 = -\/1, xbInt32 lRec4 = -\/1,}
+\DoxyCodeLine{111                       xbInt32 lRec5 = -\/1, xbInt32 lRec6 = -\/1, xbInt32 lRec7 = -\/1 );}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_a7ab045ee1cae596321b4f19b987fc2af}{CompareKeys}}( \mbox{\hyperlink{structxb_1_1xbRelation}{xbRelation}} *pRel, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s1, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s2, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&d1, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&d2, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt1, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt2 );}
+\DoxyCodeLine{118   xbLinkListNode<xbRelation *> *\mbox{\hyperlink{classxb_1_1xbRelate_ae8809bd37c53d3b9e6f7c96f0b4d61ab}{FindNodeForDbf}}( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * d );}
+\DoxyCodeLine{119   xbLinkListNode<xbRelation *> *\mbox{\hyperlink{classxb_1_1xbRelate_a8177b0d84e6392d754e79601cf9a0225}{GetLastTreeNode}}( xbLinkListNode<xbRelation *> *lln );}
+\DoxyCodeLine{120   xbLinkListNode<xbRelation *> *\mbox{\hyperlink{classxb_1_1xbRelate_a12127519f9ed7de58cd2e931a4c6b3c0}{GetNextTreeNode}}( xbLinkListNode<xbRelation *> *lln );}
+\DoxyCodeLine{121   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_aaabe25c833ebd2d28d959e16be83a50d}{GetRelRecord}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} cDirection );}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_aa407c78b8c191397bd09a53e3f2ffd59}{GetFirstRecForNode}}( xbLinkListNode<xbRelation *> *lln );}
+\DoxyCodeLine{124   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_a3526427ac6b4b6decf1217cd6dfaf27c}{GetLastRecForNode}}( xbLinkListNode<xbRelation *> *lln );}
+\DoxyCodeLine{125   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_aedc262d61fddad093b92045c77d40c05}{GetNextRecForNode}}( xbLinkListNode<xbRelation *> *lln );}
+\DoxyCodeLine{126   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_a932e6c9195a4891df899d655aece3788}{GetPrevRecForNode}}( xbLinkListNode<xbRelation *> *lln );}
+\DoxyCodeLine{127   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_afaab067e4736ecfeaaf2340faa24c5c1}{GetParentRelKeys}}( \mbox{\hyperlink{structxb_1_1xbRelation}{xbRelation}} *pRel, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&d, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt );}
+\DoxyCodeLine{128   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_a32bfabcc6399727df5fe84cbcd44eaf4}{GetChildRelKeys}}( \mbox{\hyperlink{structxb_1_1xbRelation}{xbRelation}} *pRel, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&d, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt );}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_a41079e67bb4b518646211018c24d676f}{InitQuery}}();}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132   xbInt16 \mbox{\hyperlink{classxb_1_1xbRelate_a1511ee7484219c00998c3e592dcacb13}{RelKeySearch}}( \mbox{\hyperlink{structxb_1_1xbRelation}{xbRelation}} *pRel, \textcolor{keyword}{const} \textcolor{keywordtype}{char} cFL,  \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&d, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt );}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134  \textcolor{keyword}{private}:}
+\DoxyCodeLine{135   \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}}    *xbase;       \textcolor{comment}{// pointer to main structures}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137   xbLinkList<xbRelation *> llQryTree;   \textcolor{comment}{// pointer to structured tree of linked lists}}
+\DoxyCodeLine{138   xbLinkList<xbRelation *> llQryList;   \textcolor{comment}{// linked list of relations used by the query routines}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \};}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \}  \textcolor{comment}{/* namespace */}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{/*  \_\_XB\_RELATE\_H\_\_  */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

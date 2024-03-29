@@ -1,0 +1,30 @@
+
+
+
+
+Differences between Dbase III and Dbase IV
+
+    Dbase IV adds field type "F" Float
+    Dbase IV adds a more sophisticated DBT memo file, utilizes logic to reclaim disk space on memo field updates
+    Dbase IV adds support for MDX multi tag indices
+    
+    
+    
+    
+Version III Field Types
+
+    C	Char
+    N	Numeric
+    D	Date
+    M	Memo
+    L	Logical
+    
+    
+Version IV Field Types
+
+    C	Char
+    N	Numeric
+    D	Date
+    M	Memo
+    L	Logical
+    F	Float	(Similar to numeric)

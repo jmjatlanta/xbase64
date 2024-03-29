@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Chapter 11</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">Logging</p></H2>
+<p align="center">Chapter Updated 11/21/23</p><hr>
+
+<br><br>
+The objective of this chapter is to provide information regarding the logging funcitionality contained within the Xbase64 library.
+
+<br><br>
+When the Xbase64 generates an error, it writes an entry in the logfile if logging is enabled.
+The library generates an error mesage with an error code value and an error stop value.
+The error code identifies what the error is, the error stop identifies where it errored in the libary.
+
+<br><br>
+The xbLog class supports the following functionality:<br><br>
+<li>Error and message logging.
+<li>Rolling log files. When log file fills, full file is closed and new file is opened.
+<li>Configurable size.
+<li>Configurable name.
+<li>Configurable location.
+<br><br><br>
+
+
+<h3>Default Logfile Settings:</h3>
+<table border=1>
+<tr><th>Setting</th><th>Default Value</th><th>Initialization Source</th></tr>
+<tr><td>Folder:</td><td>#define PROJECT_LOG_DIR</td><td>CMakelists.txt</td></tr>
+<tr><td>Name:</td><td>#define PROJECT_DFLT_LOGFILE</td><td>xbconfig.h.in</td></tr>
+<tr><td>Size:</td><td>100000</td><td>xbLog::xbLog()</td></tr>
+</table>
+
+<br><br>
+<br><br>
+
+The logfile is controlled by the main xbXBase class via the methods listed in the table below.
+To change the logfile location or name or size, use the DisableMsgLogging() and EnableMessageLogging()
+to get the updates to take effect.
+
+<br><br>
+
+
+<h3>Methods for managing the logfile</h3>
+<table border=1>
+<tr><th>Method</th><th>Description</th></tr>
+<tr><td>xbString& xbSsv::GetLogDirectory() const</td><td>Get the log file directory.</td><tr>
+<tr><td>xbString& xbSsv::GetLogFileName() const</td><td>Get the log file name.</td></tr>
+<tr><td>xbString& xbSsv::SetLogDirectory( const xbString &sLogDirectory )</td><td>Set the log file directory.</td><tr>
+<tr><td>void xbSsv::SetLogFileName( const xbString &sLogFileName )</td><td>Set the log file name.</td></tr>
+<tr><td>void xbXBase::DisableMsgLogging()</td><td>Disable message logging.</td></tr>
+<tr><td>void xbXBase::EnableMsgLogging()</td><td>Enable message logging.</td></tr>
+<tr><td>xbInt16 xbXBase::FlushLog()</td><td>Flush any buffered log file messages to disk.</td></tr>
+<tr><td>const xbXBase::xbString &GetLogFqFileName() const</td><td>Get fully qualified logfile name.</td></tr>
+<tr><td>size_t xbXBase::GetLogSize() const</td><td>Get the log file roll over size.</td></tr>
+<tr><td>xbBool xbXBase::GetLogStatus() const</td><td>Get the logging file status.</td></tr>
+<tr><td>void xbXBase::SetLogSize( size_t lSize )</td><td>Set the logfile roll over size.</td></tr>
+</table>
+
+
+<br><br>
+<h3>Example program demonstrating logfile related methods.</h3>
+
+<xmp>
+/*  xb_ex_log.cpp
+
+XBase64 Software Library
+
+Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel
+
+The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
+
+Email Contact:
+
+    XDB-devel@lists.sourceforge.net
+    XDB-users@lists.sourceforge.net
+
+*/
+
+// This program demostrates how to use logging
+
+
+#include "xbase.h"
+
+using namespace xb;
+
+int main( int argCnt, char **av )
+{
+
+  #ifdef XB_LOGGING_SUPPORT
+
+  xbXBase  x;
+  xbString sMsg;
+
+
+  std::cout << "Default Logfile Name is: [" << x.GetLogFqFileName().Str() 
+            << "]  Rollover size = [" << x.GetLogSize() 
+            << "]" << std::endl;
+
+  if( x.GetLogStatus() )
+    std::cout << "Logging is active" << std::endl;
+  else
+    std::cout << "Logging is inactive" << std::endl;
+
+  x.SetLogDirectory( PROJECT_LOG_DIR );               // use the library log directory
+  x.SetLogFileName ( "MySpecialLogFile.txt" );        // set to use a special name
+  x.SetLogSize     ( x.GetLogSize() * 2 );            // double the log file size
+
+  // enable the logfile and write a message for the new settings to take effect
+  x.EnableMsgLogging();
+  sMsg.Sprintf( "Program [%s] initializing...", av[0] );
+  x.WriteLogMessage( sMsg );
+
+  std::cout << "New Logfile Name is: [" << x.GetLogFqFileName().Str()
+            << "]  Rollover size = [" << x.GetLogSize() 
+            << "]" << std::endl;
+
+  if( x.GetLogStatus() )
+    std::cout << "Logging is active" << std::endl;
+  else
+    std::cout << "Logging is inactive" << std::endl;
+
+  // write some messages to the logfile
+  for( int i = 0; i < 5; i++ ){
+    sMsg.Sprintf( "Test message [%d]", i );
+    x.WriteLogMessage( sMsg );
+  }
+
+  sMsg.Sprintf( "Program [%s] terminating..", av[0] );
+  x.WriteLogMessage( sMsg );
+
+  x.FlushLog();   // not really needed, but here for demonstration purposes
+
+  #endif          // B_LOGGING_SUPPORT
+
+  return 0;
+}
+
+</xmp>
+
+
+<br><br>
+<hr>
+<p><img src="xbase.jpg"><br><hr>
+</BODY>
+</HTML>

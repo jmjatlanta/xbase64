@@ -1,0 +1,86 @@
+
+To build the xbase library
+
+1) Verify you have the correct software prerequisites installed 
+        A) cmake 2.6 or LATER
+        B) Compiler and linker
+
+2) Verify you have access to the target location of the library
+
+3) Unpack the tar or zip file
+
+4) For Linux 64 bit or 32 bit plat forms
+
+  cd xbase/build/Linux64 or  xbase/build/Linux32
+  cmake .
+  make
+  make test
+  sudo make install
+
+  Verify the ld.so.conf file has the library target directory
+    For example
+     update file /etc/ld.so.conf to include /usr/local/lib
+     and run ldconfig
+     Your mileage may vary depending on Linux Distro
+
+
+  To update the configuration file
+  cd xbase/build/Linux64 or  xbase/build/Linux32
+  ccmake .
+
+
+
+5) For Mac
+
+  Verify you have xcode installed and operational
+  cd xbase/build/Mac
+  cmake . -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
+  make
+  make test
+
+
+6) For Windows 64 bit with Visual Studio
+
+  Open a Visual Studio 64 bit Shell
+  cd xbase\build\Win64VS
+  buildwin.bat
+  nmake test
+
+  From a VS Studio 64 bit shell in admin mode
+  nmake install
+
+  Also of note:  cleanwin.bat  resets everything
+
+7) For Windows 32 bit with Visual Studio
+
+  Open a Visual Studio 32 bit Shell
+  cd xbase\build\Win32VS
+  buildwin.bat
+  nmake test
+
+  From a VS Studio 32 bit shell in admin mode
+  nmake install
+
+
+
+8) For Windows 32 bit with Borland 5.5 free compiler
+
+  cd xbase\build\Win32Borland
+  BuildBorland.bat
+  make test
+
+
+9) For other platforms
+
+  Here is something to start with...
+
+  cd xbase
+  md MyPlatform
+  cd MyPlatform
+  cp ../Cmake/CmakeLists.txt .
+
+  Enter the appropriate make command for your environment - check the cmake web site for help
+  On Linux, it is .cmake, then make
+  your mileage may vary
+
+  Send your results to the library maintainer so it can be added to this library

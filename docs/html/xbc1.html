@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC>
+<html>
+<title>Xbase64 DBMS Chapter 1</title>
+<body BGCOLOR=#FFFFFF>
+
+<h1><p align="center">Getting Started</p></h1>
+<p align="center">Chapter Updated 11/21/23</p>
+
+<hr><h2>Overview</h2>
+
+Welcome to Xbase64 DBMS, a collection of specifications, programs, 
+utilities and a C++ class library for manipulating legacy Xbase (DBF) type
+data files and indices.
+<br><br>
+
+The term Xbase is often used used to describe the format of the original 
+DBase, Clipper and Foxbase (.DBF) files.   The XBase file format is well
+documented and has stood the test of time.  Various popular programs
+still create and read xbase formatted files.<br><br>
+ 
+The purpose of the Xbase64 library is to provide reliable and usable
+programming tools for reading, writing and updating DBF databases, 
+indices and memo fields.  Version 4.x.x has been tested for compatability
+with DBase III (TM) and DBase IV (TM) version data files and indices 
+*.DBF (data), *.NDX (single tag index), *.MDX (multi tag index) and
+*.DBT (memo).<br><br>
+
+Version 4.x.x is a major rewrite of the library to strengthen error
+processing and bring consistency across modules.  It includes updates
+to the locking process and also includes a module to support MDX multi
+tag indices.<br><br>
+
+Earlier versions of the library have included NTX and CDX index formats 
+and that code will be re-incorporated into the latest version in the 
+future.
+
+
+<br><br>
+<B>Why use the Xbase library? </B>
+The DBF file format is a ubiquitous industry standard with
+widespread usage and application.  Using this standard file format removes any 
+<em>vender specific</em> locks that bind you to a particular platform.
+Additionally, with Xbase64 only the options needed can be compiled into or out of the library
+to provide a custom configuration specific to project requirements.
+For a small footprint, locking, memo fields and indices could be excluded from
+the library build which would reduce the library size.
+This tool is usefull for small to medium sized apps that don't need all the 
+overhead, sophistication and cost of a complex client server configuration.
+The Xbase library is designed to be flexible in which options can be compiled
+into or out of the library and also which environments it can be run on.<br><br>
+Xbase64 is designed to compile and run on most any platform or architecture with a 
+supporting C++ compiler.
+
+
+
+<br><br>
+<h3>Library Features</h3>
+<li>Supports 32 and 64 bit architectures
+<li>Supports big endian and little endian architectures
+<li>Compatible code, same API across multiple platforms / archtiectures
+<li>Supports single and multi user configurations with record and file locking
+<li>Includes support for logfiles
+
+
+
+<br><br><br>
+
+<hr><h2>System Requirements</h2>
+
+To build the Xbase64 library, the following items are needed:<br><br>
+
+A computer, a C/C++ compiler and CMAKE.<br><br>
+
+The original source code was developed on a Linux platform with the GCC  
+public domain C/C++ compiler. 
+<br><br>
+
+Xbase64 DBMS has been successfully ported and runs on Linux, Mac and Windows.
+<br><br>
+
+<hr><h2>Classes and User Interface</h2>
+
+<a href="..\doxygen\html\index.html">Classes and User Interface Documentation via Doxygen</a>
+
+<br><br>
+<hr><h2>Portability, Type Defs and Structures</h2>
+
+To make the Xbase64 library as portable as possible, the following things occurred:
+<br><br>
+<li>The software was developed to compile and run on either 32 or 64 bit architectures.
+<li>The software was developed to compile and run on either big endian or little endian archtectures.
+<li>All numeric data is stored in little endian format.
+<li>The library is built using <a href="https://cmake.org">Cmake</a> to provide support on a wide variety of platforms.
+<li>Field types were defined to be consistent across various OS and CPU configurations.
+Xbase64 defines the following field types:<br><br><br>
+<CENTER>
+<TABLE BORDER>
+<CAPTION ALIGN=TOP><h3>Field Types</h3></CAPTION>
+<TR ALIGN=BASELINE>
+<TR><TH ALIGN=LEFT>Type<TD>Description
+<TR><TH ALIGN=LEFT>xbBool<TD>Contains xbTrue (0)  or xbFalse (1)
+<TR><TH ALIGN=LEFT>xbInt16<TD>16 bit int
+<TR><TH ALIGN=LEFT>xbUInt16<TD>16 bit unsigned int
+<TR><TH ALIGN=LEFT>xbInt32<TD>32 bit int
+<TR><TH ALIGN=LEFT>xbUInt32<TD>32 bit unsigned int
+<TR><TH ALIGN=LEFT>xbInt64<TD>64 bit int
+<TR><TH ALIGN=LEFT>xbUInt64<TD>64 bit unsigned int
+<TR><TH ALIGN=LEFT>xbDouble<TD>double
+<TR><TH ALIGN=LEFT>char<TD>char
+<TR><TH ALIGN=LEFT>void<TD>void
+<TR><TH ALIGN=LEFT>struct SCHEMA<TD>Used for defining record structures
+</TABLE></CENTER>
+<br><br>
+
+Xbase64 was designed for portability utilizing standard ANSI-C/C++ compliant 
+code.  If you decide to write updates to the Xbase64 project, please try
+to keep your work to standard C/C++ generic calls and use the above predefined field types.<br><br>
+
+<hr><h2>Compilation Overview</h2>
+To build the xbase64 library, verify you have:<br>
+<li>Xbase64 source code
+<li>cmake 2.6 or LATER
+<li>Compiler and linker
+
+<br><br>
+If you run into issues, verify you have access rights to the target location of the library.
+
+<br><br>
+For Linux:
+<br><br>
+<li>cd build/linux64   or  cd build/linux32
+<li>cmake .
+<li>make
+<li>make test
+<li>sudo make install
+<li>Verify the ld.so.conf file has the library target directory. For example
+update file /etc/ld.so.conf to include /usr/local/lib and run ldconfig.
+<br><br>
+
+For Mac:
+<br><br>
+<li>Verify you have xcode installed and operational.
+<li>cd build/mac64
+<li>cmake . -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
+<li>make
+<li>make test
+<br><br>
+
+For Windows 64 bit with Visual Studio:
+<br><br>
+<li>Open a Visual Studio 64 bit Shell
+<li>cd build\win64vs
+<li>buildwin.bat
+<li>nmake test
+<li>From a VS Studio 64 bit shell in admin mode:  nmake install
+<br><br>
+
+For Windows 32 bit with Visual Studio:
+<br><br>
+<li>Open a Visual Studio 32 bit Shell
+<li>cd build\win32vs
+<li>buildwin.bat
+<li>nmake test
+<li>From a VS Studio 32 bit shell in admin mode:  nmake install
+<br><br>
+
+For Windows 32 bit with Borland 5.5 free compiler
+<br><br>
+<li>cd build\borland5.5
+<li>BuildBorland.bat
+<li>make test
+<li>make install (if errors, run in administrator mode)
+<li>xb_cfg_check (if errors, add path c:\Program Files\xbase64\bin)
+
+<br><br>
+
+For other platforms:
+<br><br>
+Here is something to start with...
+<li>cd xbase
+<li>md MyPlatform
+<li>cd MyPlatform
+<li>cp ../Cmake/CmakeLists.txt.
+<li>Enter the appropriate make command for your environment. Check the cmake web site for help.<br>
+  On Linux, it is .cmake, then make
+  your mileage may vary
+
+  Send your results to the library maintainer so it can be added to this library
+
+
+
+To use the Xbase classes, include the following header file in the program:
+<br><br>
+
+#include &lt;xbase.h&gt;<br><br>
+
+For more information on getting started, check out the sample programs in the src/examples folder.
+<br><br>
+
+<hr><br>
+<h2>System Limitations</h2>
+<br>
+Maximum size of a database file is the size of LONG - 2,147,483,647 bytes<br>
+Total number of fields in a database - 255 <br>
+Total number of characters in all fields - 32767<br>
+Maximum number of characters in a field - 254<br>
+Total number of records in a file - 1 billion<br>
+Maximum index key length - 100 bytes<br>
+Maximum .DBT file memo block size - 32256<br>
+Maximum expression result length - 100 bytes<br>
+Maximum NDX index key length - 100 bytes<br><br>
+<hr><br>
+<p><img src=xbase.jpg><br><hr>
+</body>
+</html>

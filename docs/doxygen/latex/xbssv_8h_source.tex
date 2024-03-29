@@ -1,0 +1,187 @@
+\hypertarget{xbssv_8h_source}{}\doxysection{xbssv.\+h}
+\label{xbssv_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbssv.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbssv.h}}
+\mbox{\hyperlink{xbssv_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbssv.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef \_\_XB\_XBSSV\_H\_\_}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define \_\_XB\_XBSSV\_H\_\_}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifdef  CMAKE\_COMPILER\_IS\_GNUCC}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#pragma interface}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{30 \textcolor{keyword}{struct }XBDLLEXPORT xbErrorMessage\{}
+\DoxyCodeLine{31   xbInt16    iErrorNo;}
+\DoxyCodeLine{32   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sErrorText;}
+\DoxyCodeLine{33 \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{38 }
+\DoxyCodeLine{49 \textcolor{comment}{// By design, DBase allows mutliple records in a table all having the same key, but only one entry in a unique index}}
+\DoxyCodeLine{50 \textcolor{comment}{// XB\_HALT\_ON\_DUP\_KEY tells the library to not allow appending records which generate duplicate keys in a unique index}}
+\DoxyCodeLine{51 \textcolor{comment}{//}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#if defined (XB\_NDX\_SUPPORT) || defined (XB\_MDX\_SUPPORT)}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define XB\_HALT\_ON\_DUPKEY 0}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define XB\_EMULATE\_DBASE  1}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbSsv}{xbSsv}}\{}
+\DoxyCodeLine{60  \textcolor{keyword}{public}:}
+\DoxyCodeLine{61   \mbox{\hyperlink{classxb_1_1xbSsv}{xbSsv}}();}
+\DoxyCodeLine{62   \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keywordtype}{char} *ErrorCodeText[];}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64   \textcolor{keywordtype}{void}       DisplayError              ( xbInt16 ErrorCode ) \textcolor{keyword}{const};}
+\DoxyCodeLine{65   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\&  GetDefaultDateFormat      () \textcolor{keyword}{const};}
+\DoxyCodeLine{66   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\&  GetDataDirectory          () \textcolor{keyword}{const};}
+\DoxyCodeLine{67   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\&  GetTempDirectory          () \textcolor{keyword}{const};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69   \textcolor{keywordtype}{void}       GetHomeDir                ( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sHomeDirOut );}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72   xbInt16    GetEndianType             () \textcolor{keyword}{const};}
+\DoxyCodeLine{73   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *GetErrorMessage          ( xbInt16 ErrorCode ) \textcolor{keyword}{const};}
+\DoxyCodeLine{74   \textcolor{keywordtype}{char}       GetPathSeparator          () \textcolor{keyword}{const};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76   \textcolor{keywordtype}{void}       SetDataDirectory          ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDataDirectory );}
+\DoxyCodeLine{77   \textcolor{keywordtype}{void}       SetDefaultDateFormat      ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDefaultDateFormat );}
+\DoxyCodeLine{78   \textcolor{keywordtype}{void}       SetTempDirectory          ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTempDirectory );}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}     BitSet                    ( \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} c, xbInt16 iBitNo ) \textcolor{keyword}{const};}
+\DoxyCodeLine{82   \textcolor{keywordtype}{void}       BitDump                   ( \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} c ) \textcolor{keyword}{const};}
+\DoxyCodeLine{83   \textcolor{keywordtype}{void}       BitDump                   ( \textcolor{keywordtype}{char} c ) \textcolor{keyword}{const};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}     GetDefaultAutoCommit      () \textcolor{keyword}{const};}
+\DoxyCodeLine{86   \textcolor{keywordtype}{void}       SetDefaultAutoCommit      ( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bDefaultAutoCommit );}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\&  GetLogDirectory           () \textcolor{keyword}{const};}
+\DoxyCodeLine{89   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\&  GetLogFileName            () \textcolor{keyword}{const};}
+\DoxyCodeLine{90   \textcolor{keywordtype}{void}       SetLogDirectory           ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sLogDirectory );}
+\DoxyCodeLine{91   \textcolor{keywordtype}{void}       SetLogFileName            ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sLogFileName );}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}     GetMultiUser              () \textcolor{keyword}{const};}
+\DoxyCodeLine{95   \textcolor{keywordtype}{void}       SetMultiUser              ( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bMultiUser );}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{  \#if defined (XB\_NDX\_SUPPORT) || defined (XB\_MDX\_SUPPORT)}}
+\DoxyCodeLine{98   xbInt16    GetUniqueKeyOpt           () \textcolor{keyword}{const};}
+\DoxyCodeLine{99   xbInt16    SetUniqueKeyOpt           ( xbInt16 iUniqueKeyOpt );}
+\DoxyCodeLine{100 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// (XB\_NDX\_SUPPORT) || defined (XB\_MDX\_SUPPORT)}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{preprocessor}{  \#ifdef XB\_LOCKING\_SUPPORT}}
+\DoxyCodeLine{103   xbInt16    GetDefaultLockRetries     () \textcolor{keyword}{const};}
+\DoxyCodeLine{104   \textcolor{keywordtype}{void}       SetDefaultLockRetries     ( xbInt16 iRetryCount );}
+\DoxyCodeLine{105   xbInt32    GetDefaultLockWait        () \textcolor{keyword}{const};}
+\DoxyCodeLine{106   \textcolor{keywordtype}{void}       SetDefaultLockWait        ( xbInt32 lRetryWait );}
+\DoxyCodeLine{107   xbInt16    GetDefaultLockFlavor      () \textcolor{keyword}{const};}
+\DoxyCodeLine{108   \textcolor{keywordtype}{void}       SetDefaultLockFlavor      ( xbInt16 iLockFlavor );}
+\DoxyCodeLine{109   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}     GetDefaultAutoLock        () \textcolor{keyword}{const};}
+\DoxyCodeLine{110   \textcolor{keywordtype}{void}       SetDefaultAutoLock        ( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bAutoLock );}
+\DoxyCodeLine{111   \textcolor{keywordtype}{void}       EnableDefaultAutoLock     ();}
+\DoxyCodeLine{112   \textcolor{keywordtype}{void}       DisableDefaultAutoLock    ();}
+\DoxyCodeLine{113 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_LOCKING\_SUPPORT}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{  \#ifdef XB\_MDX\_SUPPORT}}
+\DoxyCodeLine{116   xbInt16    GetCreateMdxBlockSize() \textcolor{keyword}{const};}
+\DoxyCodeLine{117   xbInt16    SetCreateMdxBlockSize( xbInt16 ulBlockSize );}
+\DoxyCodeLine{118 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_MDX\_SUPPORT}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 \textcolor{preprocessor}{  \#ifdef XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{121   xbUInt32   GetDefaultBlockReadSize() \textcolor{keyword}{const};}
+\DoxyCodeLine{122   \textcolor{keywordtype}{void}       SetDefaultBlockReadSize( xbUInt32 ulDfltBlockReadSize );}
+\DoxyCodeLine{123 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128   \textcolor{keywordtype}{void}       SetEndianType             ();}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130   \textcolor{keyword}{static} xbInt16  \mbox{\hyperlink{classxb_1_1xbSsv_a5849e813f5e8e1cd180f0366637adbf3}{iEndianType}};             \textcolor{comment}{// B=Big Endian  L=Little Endian}}
+\DoxyCodeLine{131   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \mbox{\hyperlink{classxb_1_1xbSsv_a9dec3164c3b264882df634915ecf21da}{sNullString}};             \textcolor{comment}{// Null String}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134  \textcolor{keyword}{private}:}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sDefaultDateFormat;}
+\DoxyCodeLine{137   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sDataDirectory;          \textcolor{comment}{//Data file directory}}
+\DoxyCodeLine{138   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sTempDirectory;          \textcolor{comment}{//Temp file directory}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{preprocessor}{  \#ifdef XB\_LOGGING\_SUPPORT}}
+\DoxyCodeLine{141   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sLogDirectory;           \textcolor{comment}{//Default location to store log files}}
+\DoxyCodeLine{142   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sLogFileName;            \textcolor{comment}{//Default LogFileName}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145   \textcolor{keyword}{static} xbInt16  iDefaultFileVersion;     \textcolor{comment}{// 3 = DBase 3}}
+\DoxyCodeLine{146                                            \textcolor{comment}{// 4 = DBase 4}}
+\DoxyCodeLine{147                                            \textcolor{comment}{// default version used in CreateTable command}}
+\DoxyCodeLine{148                                            \textcolor{comment}{// can be over ridden at the Xbase level, or table level}}
+\DoxyCodeLine{149                                            \textcolor{comment}{// Different versions can be open simultaneously}}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151   \textcolor{keyword}{static} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bDefaultAutoCommit;      \textcolor{comment}{// Default dbf auto commit switch}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153   \textcolor{keyword}{static} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bMultiUser;              \textcolor{comment}{// True if multi user mode is turned on}}
+\DoxyCodeLine{154                                            \textcolor{comment}{// Turn this off for better performance in single user mode}}
+\DoxyCodeLine{155                                            \textcolor{comment}{// This needs to be turned on or off before any data tables are opened}}
+\DoxyCodeLine{156                                            \textcolor{comment}{// turning this on after tables are opened, can result in out of date}}
+\DoxyCodeLine{157                                            \textcolor{comment}{// file buffers if multiple users are sharing the files}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#ifdef XB\_LOCKING\_SUPPORT}}
+\DoxyCodeLine{160   \textcolor{keyword}{static} xbInt32  lDefaultLockWait;        \textcolor{comment}{// Number of milliseconds between lock retries}}
+\DoxyCodeLine{161   \textcolor{keyword}{static} xbInt16  iDefaultLockRetries;     \textcolor{comment}{// Number of times to retry a lock before conceding}}
+\DoxyCodeLine{162   \textcolor{keyword}{static} xbInt16  bDefaultAutoLock;        \textcolor{comment}{// Autolocking enabled?}}
+\DoxyCodeLine{163   \textcolor{keyword}{static} xbInt16  iDefaultLockFlavor;      \textcolor{comment}{// 1 = DBase}}
+\DoxyCodeLine{164                                            \textcolor{comment}{// 2 = Clipper   -\/ not developed yet}}
+\DoxyCodeLine{165                                            \textcolor{comment}{// 3 = FoxPro    -\/ not developed yet}}
+\DoxyCodeLine{166                                            \textcolor{comment}{// 9 = Xbase64   -\/ not developed yet}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#if defined (XB\_NDX\_SUPPORT) || defined (XB\_MDX\_SUPPORT)}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172   \textcolor{keyword}{static} xbInt16 iUniqueKeyOpt;}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174   \textcolor{comment}{// is one of:}}
+\DoxyCodeLine{175   \textcolor{comment}{//    XB\_HALT\_ON\_DUPKEY}}
+\DoxyCodeLine{176   \textcolor{comment}{//    XB\_EMULATE\_DBASE}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#ifdef XB\_MDX\_SUPPORT}}
+\DoxyCodeLine{182   \textcolor{keyword}{static} xbInt16  iCreateMdxBlockSize;     \textcolor{comment}{// System level Mdx Block Size}}
+\DoxyCodeLine{183 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// XB\_MDX\_SUPPORT}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#ifdef XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{187   \textcolor{keyword}{static} xbUInt32 ulDefaultBlockReadSize;}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{// XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 \};}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193 \}        \textcolor{comment}{/* namespace xb    */}}
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XB\_XBSSV\_H\_\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

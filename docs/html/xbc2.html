@@ -1,0 +1,372 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Chapter 2</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">System Overview</p></H2>
+<p align="center">Chapter Updated 11/21/23</p><hr>
+
+<br><br>
+The <em>XBase64</em> library is a cross platform object oriented C++ set of classes for
+accessing and manipulating the following Xbase file types:<br><br>
+
+
+<table border=1>
+<tr><th>Extension</th><th>Description</th><th>Supported by Xbase64 library?</th></tr>
+<tr><td>*.DBF</td><td>Main DBF file or table name</td><td><center>Y</center></td></tr>
+<tr><td>*.DBT</td><td>Verson 3 or Version 4 memo file</td><td><center>Y</center></td></tr>
+<tr><td>*.NDX</td><td>Single tag index file</td><td><center>Y</center></td></tr>
+<tr><td>*.MDX</td><td>Multi tag index file</td><td><center>Y</center></td></tr>
+<tr><td>*.INF</td><td>ODBC file used for auto open of NDX files</td><td><center>Y</center></td></tr>
+<tr><td>*.NTX</td><td>Clipper indexfile </td><td><center>Future</center></td></tr>
+<tr><td>*.CDX</td><td>Fox Pro indexfile </td><td><center>Future</center></td></tr>
+<tr><td>*.IDX</td><td>Fox Pro index file</td><td><center>Future</center></td></tr>
+</table>
+
+
+
+
+<br><br>
+
+DBF files are comprised of a variable length header record which stores
+information about the file and describes he fixed length record format, 
+followed by a series of fixed length data records.
+<br><br>
+
+Each fixed length data record is preceded by a one byte indicator
+which identifies if the record has been deleted.  If the record is
+not deleted, the indicator is a space (0x20). If deleted, the
+indicator contains an asterisk (0x2A).  Data fields are stored in records
+without field separators or record terminators.<br><br>
+
+In earlier releases of dBASE, there is an ASCII NULL character
+between the $0D end of header indicator and the start of the data.
+This NULL was removed starting with dBASE III Plus, making a Plus
+header one byte shorter than an identically structured III file.
+The methods documented in the Xbase software and documentation follow 
+the more recent version where the NULL character is not included.
+<br><br>
+
+Each database file is comprised of zero, one or many records.  A record is
+comprised of fields.  Only one record is accessed at a time.<br><br>
+
+Zero, one or many database files can be open simultaneously.<br><br>
+
+<hr>
+
+<h3>The Record Buffer</h3>
+
+When using the Xbase routines, each open data file has a record buffer 
+which is manipulated by calling the database, index and field routines.
+<br><br>
+
+If <i>AutoCommit</i> is turned on (Default), updates are committed from 
+the record buffer to the database when a write, or append is performed.
+The library automatically writes updates to the database if the buffer has 
+been updated and the record is repositioned or the database is closed.
+<br><br>
+
+If <i>AutoCommit</i> is turned off, updates will need to be explicity
+committed to the database file with one of <i>dbf->Put(), dbf->Append()
+or dbf->Commit()</i> command depending on context..  
+Updates can be cancelled with the <i>Abort()</i> command.
+<br><br>
+The record buffer is not used for handling the actual data portion of 
+memo fields.  When working with memo fields, the application program must
+allocate enough buffer space for reading and writing memo fields or use
+the xbString class for handling memo data.<br><br>
+
+Internal to the library, there is an additional record buffer which
+stores the original value of the data record before any changes are made.
+This is used by the index routines for finding and deleting original key
+values from any open indices before adding the new keys. If the key values
+are not changed, no index updates occur. Additionally, calling the Abort()
+method will back out any updates to the record buffer.
+
+
+<br><br>
+<hr>
+<br>
+<h3>Xbase Database File Header - DBF Version III and Version IV</h3>
+
+The Xbase file header, located at the beginning of the database, describes 
+the .DBF database.  Knowledge of this structure is not necessary to 
+effectively utilize the Xbase64 libraries.<br><br><br>
+
+<TABLE BORDER>
+<TR valign="BASELINE">
+<TR><TH ALIGN="LEFT">Position<TD>Length<TD>Description
+<TR><TH ALIGN="LEFT">0<TD>1 byte<TD>file version number<br>
+  (03H without a .DBT file)<br>
+  (83H with a .DBT file)   
+<TR><TH ALIGN="LEFT">1-3<TD>3 bytes<TD>date of last update<br>
+  (YY MM DD) in binary format
+<TR><TH ALIGN="LEFT">4-7<TD>32 bit number<TD>number of records in data file
+<TR><TH ALIGN="LEFT">8-9<TD>16 bit number<TD>length of header structure
+<TR><TH ALIGN="LEFT">10-11<TD>16 bit number<TD>length of the record
+<TR><TH ALIGN="LEFT">12-31<TD>20 bytes<TD>reserved
+<TR><TH ALIGN="LEFT">32-n<TD>32 bytes each<TD>field descriptor record (see below)
+<TR><TH ALIGN="LEFT">n+1<TD>1 byte<TD>0DH as the field terminator
+</TABLE>
+<BR><BR>
+
+<hr>
+<br>
+<h3>Xbase Field Descriptor Record</h3>
+The Xbase field descriptor record stores information about each field in the
+database.  Each database has from 1 to 1024 fields.  
+Knowledge of this structure is not necessary to 
+effectively utilize the Xbase libraries.<br><br><br>
+
+<TABLE BORDER>
+<TR VALIGN="BASELIGN">
+<TR><TH ALIGN="LEFT">Position<TD>Length<TD>Description
+<TR><TH ALIGN="LEFT">0-10<TD>11 bytes<TD>field name in ASCII zero-filled
+<TR><TH ALIGN="LEFT">11<TD>1 byte<TD>field type in ASCII   (C N L D or M)                
+<TR><TH ALIGN="LEFT">12-15<TD>32 bit number<TD>field data address
+<TR><TH ALIGN="LEFT">16<TD>1 byte<TD>field length in binary
+<TR><TH ALIGN="LEFT">17<TD>1 byte<TD>field decimal count in binary
+<TR><TH ALIGN="LEFT">18-31<TD>14 bytes<TD>reserved bytes (version 1.00)
+</TABLE>
+<BR><BR>
+<hr>
+<br>
+<h3>Field Data Format</h3>
+Data are stored in ASCII format in the database as follows:<br><br>
+<TABLE BORDER>
+<TR VALIGN="BASELIGN">
+<TR><TH ALIGN="LEFT">DATA TYPE<TD>DATA RECORD STORAGE
+<TR><TH ALIGN="LEFT">Character<TD>ASCII characters, left justified, right blank filled
+<TR><TH ALIGN="LEFT">Date<TD>(8 digits in YYYYMMDD format, such as<BR>
+                  19601007 for October 7, 1960)
+<TR><TH ALIGN="LEFT">Logical<TD>? Y y N n T t F f  (? when not initialized)
+<TR><TH ALIGN="LEFT">Memo<TD>10 digits representing a .DBT block number
+<TR><TH ALIGN="LEFT">Numeric<TD>. 0 1 2 3 4 5 6 7 8 9 + -, right justified, left blank filled
+<TR><TH ALIGN="LEFT">Float (Version IV only)<TD>. 0 1 2 3 4 5 6 7 8 9 + -, right justified, left blank filled
+</TABLE>
+<BR><BR>
+
+<hr>
+<h3>Memo Fields</h3>
+
+Memo fields store variable length data elements in a seperate .DBT file.
+The main .DBF file maintains a ten byte field which is used by the Xbase
+routines for determining the location of the data in the .DBT file.
+<br><br>
+
+Xbase DBMS supports both dBASE III+ and dBASE IV version memo files.
+The version IV files are somewhat more efficient in that they reuse
+unused memo space when data are deleted or freed from use.  With version
+III files, all new updates are appended to the end of the file and the 
+unused space is not reclaimed until the datafiles are packed.
+<br><br>
+
+Memo fields can be used for storing a variety of date type.  However,
+type 3 files are limited to storing textual data because most internal
+memo field processing in a type 3 file relies on two contiguous 0x1a
+charaters.  <br><br>
+
+Type 4 memo fields can be used for storing BLOB (binary large object)
+data reliably, as the internal file structure does not rely on any 
+special characters embedded in the data.<br><br>
+
+
+<h3>Technical memo file information</h3>
+
+The following info on memo fields is for the curious.
+It is not required
+reading if you don't need to know the internals.<br><br>
+
+<li>Memo files are made up of one or more blocks
+<li>For version III files, the block size is 512
+<li>For version IV files, the block size is a multiple of 512
+<li>The minimum amout of space necessary to store one memo field is 
+one block or 512 bytes.
+<li>The default block size can be adjusted by manipulating the 
+XB_DBT_BLOCK_SIZE macro in the options.h file.
+
+
+<li>The main .DBF file maintains a ten byte numeric field which is blank if 
+no memo data exists for a given field. Otherwise it contains a number, which
+when multiplied by the block size, points to the offset in the file of the head 
+block in the file/
+<br><br>
+
+For version 3 memo field files, there are two fields in the head block of
+the file, <em>NextBlockNo</em> and <em>Version</em>.  Depending on the 
+Xbase software, some vendors products update these two fields, some do not.
+The Xbase library keeps the fields updated, but does not rely on them to
+be valued with correct data.  This helps to support maximum compatibility
+amoungst all Xbase tools available.<br><br>
+
+For version 4 memo field files,
+the first block in the .DBT file is a header block which is comprised of
+8 bytes of data which maintain the file's block size and the next free
+block available in the file.  Blocks two through n contain the actual
+memo data. A chain of empty blocks is maintained within the file for 
+potential future use.  When an add or update routine executes, it first 
+attempts to find a spot in a set of blocks which were earlier allocated,
+but not currently in use for the data. If no free spot is found, data are 
+appended to the end of the file.
+
+The free block chain is sorted in block number order.  When blocks of
+data are freed and added to the free block chain, the routines will attempt
+to concatonate free block chains togethor where possible. When a delete
+occurs, or an update which requires less space occurs, the new free space 
+is added to the free block chain.
+
+<br><br>
+
+<h3>Various Memo File Block Types</h3>
+
+<TABLE BORDER>
+<TR VALIGN="BASELIGN">
+<TR><TH ALIGN="LEFT">Valid Block Types
+<TR><TH ALIGN="LEFT">Head Block
+<TR><TH ALIGN="LEFT">Only data block for memo field
+<TR><TH ALIGN="LEFT">First of several contiguous data block set
+<TR><TH ALIGN="LEFT">2-n of contiguous data block set
+<TR><TH ALIGN="LEFT">Only data block in free chain (version IV only)
+<TR><TH ALIGN="LEFT">First of several contiguous free block set (version IV only)
+<TR><TH ALIGN="LEFT">2-n of contiguous free block set (type 4 only)
+</TABLE>
+<BR><BR>
+
+<h3>Head Block Structure</h3>
+<TABLE BORDER>
+<TR VALIGN="BASELIGN">
+<TR><TH ALIGN="LEFT">1-4<TD>LONG<TD>Next Block ID
+<TR><TH ALIGN="LEFT">5-8<TD>LONG<TD>Not used all 0x00's
+<TR><TH ALIGN="LEFT">9-16<TD>CHAR(8)<TD>Filename (Version IV Only)
+<TR><TH ALIGN="LEFT">17<TD>CHAR<TD>Version (0x03 = Version III, 0x00 = Version IV)
+<TR><TH ALIGN="LEFT">18-20<TD>CHAR(3)<TD>Not used all 0x00's
+<TR><TH ALIGN="LEFT">21-22<TD>SHORT<TD>Block Size (Version IV only )
+<TR><TH ALIGN="LEFT">23-Remainder of block<TD>CHAR<TD>Not used
+</TABLE>
+<BR><BR>
+
+
+<h3>Version IV Head Data Block Structure</h3>
+<TABLE BORDER>
+<TR VALIGN="BASELIGN">
+<TR><TH ALIGN="LEFT">xbShort<TD>0-1<TD>-1
+<TR><TH ALIGN="LEFT">xbShort<TD>2-3<TD>Starting position of data (always 8 ?)
+<TR><TH ALIGN="LEFT">xbLong<TD>4-7<TD>Length of data includes first 8 bytes
+<TR><TH ALIGN="LEFT">char (9) - Blocksize<TD>8-15<TD>Data
+</TABLE>
+<BR><BR>
+
+<h3>Version IV Head Free Block Structure</h3>
+<TABLE BORDER>
+<TR VALIGN="BASELIGN">
+<TR><TH ALIGN="LEFT">xbLong<TD>0-3<TD>Next free block in the free block chain
+<TR><TH ALIGN="LEFT">xbLong<TD>4-7<TD>Number of free blocks in this contiguous free
+                             block set
+</table>
+<br><br>
+Version 3 and 4 memo fields are terminated with two contiguous 0x1A bytes of data.
+<br><br>
+<hr>
+
+
+<h3>Block Reads</h3>
+
+As of release 4.1.1, the Xbase library includes functionality for reading a DBF file in blocks, rather than one record at a time.<br><br>
+
+This functionality can be used to improve application performance in situations where a data file is being read sequentially.
+For situations where records are retrieved randomly from the file, enabling this probably won't help much.  In short, this 
+can be turned on when accessing a file sequentially and should be left off when not processing sequentially.<br><br>
+
+The logic is handled internally within the library, all that is needed is to 
+enable it and the library handles the rest.  Additionally, the block read functionality 
+was designed with for sequential file access and is designed with reporting in mind. 
+It doesn't currently have any auto locking associated with it.
+<br><br>
+
+To enable and disable Block Reading for a DBF file, use 
+<em>xbDbf::EnableBlockReadProcessing()</em>
+and <em>xbDbf::DisableBlockReadProcessing()</em>.
+<br><br>
+
+<hr>
+<h3>Locking Overview</h3>
+
+Xbase64 supports multi-user processing through file and record locks.
+Record locking restricts multiple cooperating programs from simultaneously 
+accessing the same data and corrupting it. Without record and file locking 
+in a multi-user environment, simultaneous access to the data and index files
+can cause the files to become inaccurate and unusable.<br><br>
+
+Automatic record locking is on by default in the Xbase64 library. To disable it,
+use method xbXBase::DisableDefaultAutoLock() and to enable it, use method xbXBase::EnableDefaultAutoLock().
+<br><br>
+Locking can also be enabled / disabled at the table level with with xbDbf::SetAutoLock().<br><br>
+If autolocking is disabled and the code base is being used in a multi user environment, it is 
+up to the application program to verify the needed locks are set as there is no checking or
+setting any locks if autolocking is turned off.  It is only safe to turn off the autolocking functionality
+if the library is being used in a single user environment.
+
+<br><br>
+The current Xbase64 record locking logic is modeled after DBase (tm) V7 locking.
+<br><br>
+
+The locking methods return either XB_LOCK_FAILED or XB_NO_ERROR.  If they return
+XB_LOCK_FAILED the actual reason can be found in the global variable 
+<em>errno</em> or function <em>perror()</em> can be executed to view the
+results.
+<br><br>
+
+The errno field may contain one of the following values if the lock was not
+successful.<br><br>
+<TABLE BORDER>
+<TR VALIGN="BASELINE">
+<TR><TH ALIGN="LEFT">Error Code<TD>Description
+<TR><TH ALIGN="LEFT">EBADF<TD>Invalid file descriptor
+<TR><TH ALIGN="LEFT">EINVAL<TD>Invalid lock information or file does not support locks
+<TR><TH ALIGN="LEFT">EACCESS<BR>EAGAIN<TD>Lock can not be set because it is blocked by an existing lock on the file.
+<TR><TH ALIGN="LEFT">ENOLCK<TD>The system is out of lock resources, too many file locks in place.
+<TR><TH ALIGN="LEFT">EDEADLK<TD>Deadlock condition
+<TR><TH ALIGN="LEFT">EINTR<TD>Process was interrupted by a signal while it was waiting
+</TABLE>
+<br><br>
+
+<h3>Linux/Windows File Locking Compatibility Issue</h3>
+
+There is a compatibility locking issue to be aware of.   Windows environments allow for the exclusive 
+opening of file handles and Linux/Unix platforms do not.  If you are writing an application that will be
+using a tool like Dbase on a Windows machine, accessing a file on a Linux/Samba configure machine,
+be aware that the file could be opened in exclusive mode by DBase on the Windows system, and the same file could 
+be simultaneously opened with a program on the Unix box.  That could cause some issues.
+
+<br><br>
+In Unix, a program can not lock a file so another process can not access it.<br>
+In Windows, a program can lock a file so another process can not access it.<br>
+DBase(tm) supports routines to open files exclusively, preventing other users from opening a file.<br>
+Locking on the Mac/Apple platform only works on NFS shares.  It does not work with SMB shares.
+
+<br><h3>Samba settings</h3>
+
+If you will be using Samba on Linux/Unix and sharing files between Linux and Windows machines, 
+you will need to disable oplocks. In the smb.conf file, set:<br>
+<br>
+[sharename]<br>
+oplocks = False<br>
+level2 oplocks = False
+
+<br><br>There is a known issue with Samba and Windows 7.  Xbase64 runs very slow on Windows 7 
+connecting to a Samba Server.  If you know how to resolve this, please send an email to support. Thanks.
+<br><br>
+
+
+<br><h3>iLockFlavor</h3>
+
+The library was constructed in a manner so that it could be updated to support alternate lock "flavors".
+The 4.x.x library is built to mirror the DBase locking, but the structure is in place to expand to other locking 
+types if needed.
+
+
+<br><br>
+<hr>
+<p><img src="xbase.jpg"><hr>
+</BODY>
+</HTML>
+

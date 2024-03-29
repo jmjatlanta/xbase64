@@ -1,0 +1,53 @@
+
+
+
+Valid dBASE for Windows table file, bits 0-2 indicate version number: 3 for dBASE Level 5, 4 for dBASE Level 7.
+Bit 3 and bit 7 indicate presence of a dBASE IV or dBASE for Windows memo file;
+bits 4-6 indicate the presence of a dBASE IV SQL table; 
+bit 7 indicates the presence of any .DBT memo file (either a dBASE III PLUS type or a dBASE IV or dBASE for Windows memo file). 
+
+
+The first byte of the DBF file determines the xbase file version
+
+76543210
+00000000
+
+|        -  True if any memo file
+    |    -  True if Version 4 memo file
+      || -  True for both V3 and V4 files
+
+
+
+
+00000011  - Could be a version III or version IV file, lib defaults to IV
+10000011  - Version III with memo
+10001011  - Version IV with memo
+
+
+
+Logic for checking for which version
+
+  3      bit 4 not set, bit 5&6 set, if bit 0 set and bit 3 not set, then V3
+  4      bit 4 not set, bit 5&6 set, if bit 0 set and bit 3 set
+  5      bit 4 not set, bit 5&6 set, if bit 0 set and bit 3 set 
+>=7      bit 4 set
+
+
+
+		bit 0		bit 3				bit 4	bit 5	bit 6
+V III	Optional	0					0		1		1			No field type F
+V IV	Optional	if bit0 then 1		0		1		1			Supports field type F
+V V		Optional	if bit0 then 1		0		1		1			Supports field type F
+
+V VII	?			?					1		0		0
+
+
+
+pseudocode logic
+
+if not bit 4, and bit 5 and bit 6
+{
+	if V4 compiled in, if not (bit0 and not bit3)  return V4
+	else
+	if V3 compiled in and not bit3, and not prod mdx, return V3
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Appendix C</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">Library Build Compile Options</p></H2>
+<p align="center">Chapter Updated 11/21/23</p><hr>
+
+
+
+<center>
+<H2>Library Build Compile Options</H2>
+<table >
+<TABLE BORDER>
+<TR VALIGN="BASELINE">
+<TR><TH>Options</TH><TH>Description</TH><TH>Prerequisites - Notes</TH></TR>
+<TR><TD>XB_BLOCKREAD_SUPPORT</TD><TD>Include Block Read support</TD></TR>
+<TR><TD>XB_DBF3_SUPPORT</TD><TD>Include DBF Version III support?</TD><TD>At lease one of XB_DBF3_SUPPORT or<br> XB_DBF4_SUPPORT required</TD></TR>
+<TR><TD>XB_DBF4_SUPPORT</TD><TD>Include DBF Version IV support?</TD><TD>At least one of XB_DBF3_SUPPORT or<br> XB_DBF4_SUPPORT required</TD></TR>
+<TR><TD>XB_DEBUG_SUPPORT</TD><TD>Include library debugging functionality</TD></TR>
+<TR><TD>XB_EXAMPLES_SUPPORT</TD><TD>Build example programs?</TD></TR>
+<TR><TD>XB_EXPRESSION_SUPPORT</TD><TD>Include Expression support?</TD><TD>Prereq: XB_FUNCTION_SUPPORT<br>and XB_LINKLIST_SUPPORT</TD></TR>
+<TR><TD>XB_FILTER_SUPPORT</TD><TD>Include Filter support</TD><TD>Prereq: XB_EXPRESSION_SUPPORT</TD></TR>
+<TR><TD>XB_FUNCTION_SUPPORT</TD><TD>Include Expression Function support?</TD></TR>
+<TR><TD>XB_INDEX_SUPPORT</TD><TD>Include Index support?</TD><TD>Prereq: XB_EXPRESSION_SUPPORT</TD></TR>
+<TR><TD>XB_INF_SUPPORT</TD><TD>Include INF support (Provides auto open functions for NDX indices)</TD></TR>
+<TR><TD>XB_LINKLIST_SUPPORT</TD><TD>Include Linklist functionality?</TD></TR>
+<TR><TD>XB_LOCKING_SUPPORT</TD><TD>Include File and Record locking support?</TD><TD>Prereq: XB_LINKLIST_SUPPORT</TD></TR>
+<TR><TD>XB_LOGGING_SUPPORT</TD><TD>Include logging support?</TD></TR>
+<TR><TD>XB_MDX_SUPPORT</TD><TD>Include specific MDX Index support?</TD><TD>Prereq: XB_EXPRESSION_SUPPORT</TD></TR>
+<TR><TD>XB_MEMO_SUPPORT</TD><TD>Include Memo file support?</TD><TD>Prereq: XB_LINKLIST_SUPPORT</TD></TR>
+<TR><TD>XB_NDX_SUPPORT</TD><TD>Include specific NDX Index support?</TD><TD>Prereq: XB_EXPRESSION_SUPPORT</TD></TR>
+<TR><TD>XB_RELATE_SUPPORT</TD><TD>Include relation support?</TD><TD>Prereq: XB_MDX_SUPPORT<br>and XB_FILTER_SUPPORT</TD></TR>
+<TR><TD>XB_SQL_SUPPORT</TD><TD>Include SQL support?</TD><TD>Prereq: XB_MEMO_SUPPORT<br>and XB_DBF4_SUPPORT<br>and XB_BLOCKREAD_SUPPORT<br>and XB_EXPRESSION_SUPPORT<br>and XB_RELATE_SUPPORT<TD></TR>
+<TR><TD>XB_TDX_SUPPORT</TD><TD>Include specific TDX Temporary Index support?</TD><TD>Prereq: XB_MDX_SUPPORT</TD></TR>
+<TR><TD>XB_UTILS_SUPPORT</TD><TD>Build utility programs?</TD></TR>
+</TABLE></center>
+
+
+
+<br><br><hr><br><br>
+<center><h2>CMake</h2></center>
+The Xbase64 library is built using the CMake build manager. Cmake provides the architecture for 
+building cross platform projects with a unified build system.  If you are not familiar with CMake, 
+you can familiarize yourself with it at https://cmake.org
+<br><br>
+To modify the XBase64 compile options take the following steps:<br><br><br>
+
+1) Identify which platform you want to build and identify the correct build folder
+<table border=1>
+<tr><td>/xbase64-4.x.x/build/borland5.5</td><td>Older free Borland 5.5 32 bit Windows compiler</td></tr>
+<tr><td>/xbase64-4.x.x/build/debian</td><td>Debian build folder</td></tr>
+<tr><td>/xbase64-4.x.x/build/linux32</td><td>Linux 32 bit build folder</td></tr>
+<tr><td>/xbase64-4.x.x/build/linux64</td><td>Linux 64 bit build folder</td></tr>
+<tr><td>/xbase64-4.x.x/build/mingw</td><td>Mingw build folder</td></tr>
+<tr><td>/xbase64-4.x.x/build/win32vs</td><td>Windows 32 bit Visual Studio folder</td></tr>
+<tr><td>/xbase64-4.x.x/build/win64vs</td><td>Windows 64 bit Visual Studio folder</td></tr>
+<tr><td>/xbase64-4.x.x/build/mac64</td><td>MAC 64 build folder</td></tr>
+</table>
+
+<br><br><br>
+2) Navigate to the appropriate folder identified in step 1.  Once you are in the correct folder,
+verify there is a <em>CmakeLists.txt</em> file.  That file is the main librbary build configuration file.
+<br><br>
+
+3) Select one if the following methods to update the config options 
+<table border=1>
+<tr><td>For Windows users, use program cmake-gui.exe</td></tr>
+<tr><td>For Unix/Linux/Mac users, use program cmake-gui</td></tr>
+<tr><td>For Unix command line, use program "ccmake ."</td></tr>
+<tr><td>Or manually edit the <em>CmakeLists.txt</em> file with your favorite text editor</td></tr>
+</table>
+<br><br><br>
+<hr><br><br><br>
+<center><h2>Debug Support <em>(Option: XB_DEBUG_SUPPORT)</em></h2></center>
+The following methods are included in the build when the XB_DEBUG_OPTION is turned on and are mainly used for library debugging purposes.
+The option can be safely left turned off.<br>
+The <em>dump</em> routines print output to sdtout or an open log file.<br><br><br>
+
+<center><table border=1>
+<TR><TH>Method/Function</TH><TH>Description</TH></TR>
+<tr><td>xbDate::Dump()</td><td>Dump the xbDate object internals to stdout</td></tr>
+<tr><td>xbDate::DumpDateTable()</td><td>Dump internal date tables to stdout</td></tr>
+<tr><td>xbDbf::DumpTableLockStatus()</td><td>Dump internal locking status / structures</td></tr>
+<tr><td>xbExp::DumpToken()</td><td>Dump expression values</td></tr>
+<tr><td>xbExp::DumpTree()</td><td>Dump expression token tree</td></tr>
+<tr><td>xbExpNode::DumpToken()</td><td>Dump expression node values</td></tr>
+<tr><td>xbFile::DumpBlockToDisk</td><td>Dump specified block of data to a disk file</td></tr>
+<tr><td>xbFile::DumpMemToDisk</td><td>Dump specified memory to a disk file</td></tr>
+<tr><td>xbIx::DumpNode</td><td>Dump index node header</td></tr>
+<tr><td>xbIxMdx::DumpBlock</td><td>Dump MDX index block</td></tr>
+<tr><td>xbIxMdx::DumpFreeBlocks</td><td>Dump MDX free block chain</td></tr>
+<tr><td>xbIxMdx::DumpHeader</td><td>Dump MDX file header info</td></tr>
+<tr><td>xbIxMdx::DumpIxForTag</td><td>Dump MDX index keys and values for a given tag</td></tr>
+<tr><td>xbIxMdx::DumpIxNodeChain</td><td>Dump MDX current memory node linked list for a given tag</td></tr>
+<tr><td>xbIxMdx::DumpTagBlocks</td><td>Dump MDX blocks for a given tag</td></tr>
+<tr><td>xbIxNdx::DumpHeader</td><td>Dump MDX file header info</td></tr>
+<tr><td>xbIxNdx::DumpIxNodeChain</td><td>Dump MDX current memory node linked list for a given tag</td></tr>
+<tr><td>xbIxNdx::DumpNode</td><td>Dump index node header</td></tr>
+<tr><td>xbIxNdx::DumpTagBlocks</td><td>Dump NDX blocks for a given tag</td></tr>
+<tr><td>xbMemoDbt3::DumpMemoFreeChain()</td><td>Place holder</td></tr>
+<tr><td>xbMemoDbt4::DumpMemoFreeChain()</td><td>Dump list of free blocks available for reuse</td></tr>
+<tr><td>xbMemoDbt4::DumpMemoInternals()</td><td>Dump V4 memo file internals</td></tr>
+<tr><td>xbString::Dump()</td><td>Dump string internals</td></tr>
+<tr><td>xbString::DumpHex()</td><td>Dump string internals in hex</td></tr>
+<tr><td>xbBlockRead::DumpReadBlockInternals</td><td>Dump sequential read block internals</td></tr>
+</table></center>
+
+
+<br><hr><br><br>
+<p><img src="xbase.jpg"><br><hr>
+</BODY>
+</HTML>

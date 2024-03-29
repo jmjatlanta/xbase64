@@ -1,0 +1,28 @@
+
+
+How to modify the library:
+
+
+The library was redesigned with a structure in mind to allow additional
+dbf, memo and index files to be added relatively easily without trashing
+the underlying codebase.
+
+
+To add functionality to add a DBF, or tailor a particular dbf class,
+create a new derived class using the xbdbf class as a base class.  
+The core xbdbf base class encompasses the DBASE III code base.
+
+At one time there was "Real Delete" processing embedded in the code. It 
+was removed from the core classes because it would be incompatible with 
+later versions of the xbase file structures.  If you were interested in
+adding this back into the library, you could derive a new dbf class 
+and add the mods into the new derived class, leaving the base class
+as it stands.
+
+
+To add additional memo functionality, create a new derived class from 
+the xbMemo class.
+
+
+
+Update xbFile::DetermineXbaseVersion to identify Xbase file type

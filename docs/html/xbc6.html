@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Chapter 6</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">SQL Support</p></H2>
+<p align="center">Chapter Updated 11/21/23</p><hr>
+
+<h3>SQL Command Status</h3>
+
+Development of SQL support is still underway and very preliminary.  As of the 4.1.6 version, the following SQL commands 
+are available.<br><br>
+The SQL commands are modeled after industry standard SQL specifications and do what you would expect an SQL command to do.
+<br>
+Use of <em>[brackets]</em> in this chapter identifies optional components of a given command.
+<br><br>
+<hr>
+<h3>ALTER TABLE</h3>
+Expected format:<br>
+ALTER TABLE tablename.DBF RENAME TO newtablename.DBF
+<br><br>
+<hr>
+<h3>CREATE INDEX</h3>
+Expected format to create an Dbase 3, NDX index:<br>
+CREATE INDEX ixname.NDX ON tablename.dbf ( EXPRESSION ) [ASSOCIATE]
+
+<br><br>
+Expected format to create an Dbase 4, tag on an MDX index:<br>
+CREATE [UNIQUE] INDEX tagname ON tablename.DBF ( EXPRESSION ) [DESC] [FILTER  .NOT. DELETED()]
+
+<br><br>
+The ASSOCIATE parameter is specific to Xbase64 library, it is used to associate non production (NDX) index file to a dbf 
+file so it will be automatically opened with the dbf file whenever the dbf file is opened by the xbase64 routines.
+<br><br>
+The [ASSOCIATE] parameter is not used with MDX production indices
+<br><br>
+Xbase first looks for ".NDX" in the file name to determine if an NDX index should be created.
+If .NDX is not in the filename, it looks in the uda for "IXTYPE" for either NDX or MDX to 
+detmermine the index type to create. if IXTYPE is not found, it creates an MDX tag.
+<br><br>
+The optional DESC parameter defines an entire index key as descending.  This is
+different than other SQL implementations where specific fields can be descending.
+<br><br>
+The optional FILTER parameter is specific to the XBASE64 library, is it used to assign a filter to a tag in an 
+MDX style index.  Everything to the right of the keyword FILTER is considered part of the filter.
+<br><br>
+The original DBASE indices used to '+' to create an index on more than one field 
+<br>ie:  FIELD1+FIELD2+FIELD3
+<br><brSQL uses commas: ie:   FIELD1, FIELD2, FIELD3
+<br>
+The Xbase library supports either '+' or ',' when creating mutli field indices.
+<br><br>
+<hr>
+
+
+
+<h3>CREATE TABLE</h3>
+Expected format:<br>
+CREATE TABLE tablename.dbf (Field1 CHAR(10), INTFLD1 INTEGER, ... )
+<br><br>
+<table border=1>
+<tr><th>SQL TYPE</th><th>XBASE Field Type</th></tr>
+<tr><td>SMALLINT</td><td>NUMERIC(6,0)</td></tr>
+<tr><td>INTEGER</td><td>NUMERIC(11,0)</td></tr>
+<tr><td>DECIMAL(x,y)</td><td>NUMERIC(x+1,y)</td></tr>
+<tr><td>NUMERIC(x,y)</td><td>NUMERIC(x,y)</td></tr>
+<tr><td>FLOAT(x,y)</td><td>FLOAT(x,y)</td></tr>
+<tr><td>CHAR(n)</td><td>CHARACTER(n)</td></tr>
+<tr><td>DATE</td><td>DATE</td></tr>
+<tr><td>VARCHAR</td><td>MEMO</td></tr>
+<tr><td>LOGICAL</td><td>LOGICAL</td></tr>
+</table>
+<br>
+<hr>
+
+
+<h3>DELETE</h3>
+Expected format:<br>
+DELETE FROM tablename.DBF [WHERE expression]
+<br><br>
+<hr>
+
+
+<h3>DROP INDEX</h3>
+Expected format:<br>
+DROP INDEX [IF EXISTS] ixname.NDX ON tablename.DBF<br>
+DROP INDEX [IF EXISTS] tagname ON tablename.DBF<br>
+<br>
+
+
+<hr>
+<h3>DROP TABLE</h3>
+Expected format:<br>
+DROP TABLE [IF EXISTS] tablename.DBF
+<br>
+<hr>
+<h3>INSERT</h3>
+Expexted format:<br>
+INSERT INTO tablename (field1, field2, field3,...) VALUES ( 'charval', numval, 'what is the correct odbc date format to use? CCYYMMDD');
+<br><br>
+<hr>
+<h3>SET</h3>
+Used to set a variable name<br>
+Expected format:<br>
+SET ATTRIBUTE = DATAVALUE<br>
+SET ATTRIBUTE = ^     (to delete an entry) <br>
+<br>
+<hr><br><br>
+<p><img src=xbase.jpg><br><hr>
+
+</BODY>
+</HTML>
+
+

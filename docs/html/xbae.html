@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Appendix E</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">Error Codes</p></H2>
+<p align="center">Chapter Updated 11/21/23</p><hr>
+
+<h3>Error Codes and Error Processing</h3>
+
+Alomost all Xbase64 methods and functions return and xbInt16 return code, which is zero or positive on success and negative 
+if an error condition occurs.
+<br><br>
+As of the 4.x.x release, the library has been extensively updated to use exception processing and most error
+conditions will result in a mesage written to the logfile if logfile processing is enabled.  The error routines
+typically write two values to the logfile, an error code value and an iErrorStop value which identifies where 
+exactly in the library code the error occurred.
+<br><br>
+Error codes are defined in the xbretcod.h file.<br><br><br>
+<br><br>
+<table >
+<TABLE BORDER>
+<TR VALIGN="BASELINE">
+<TR><TH>Description</TH><TH>Error Code</TH><TH>Category</TH></TR>
+<TR><TD> XB_NO_ERROR               </TD><TD>      0       </TD><TD> general </TD></TR>
+<TR><TD> XB_NO_MEMORY              </TD><TD>   -100       </TD><TD> general </TD></TR>
+<TR><TD> XB_INVALID_OPTION         </TD><TD>   -101       </TD><TD> general </TD></TR>
+<TR><TD> XB_INVALID_PARAMETER      </TD><TD>   -102       </TD><TD> general </TD></TR>
+<TR><TD> XB_DUP_TABLE_OR_ALIAS     </TD><TD>   -110       </TD><TD> table manager </TD></TR>
+<TR><TD> XB_INVALID_NODELINK       </TD><TD>   -120       </TD><TD> linklist </TD></TR>
+<TR><TD> XB_KEY_NOT_UNIQUE         </TD><TD>   -121       </TD><TD> linklist </TD></TR>
+<TR><TD> XB_MEMCPY_ERROR           </TD><TD>   -122       </TD><TD> general </TD></TR>
+<TR><TD> XB_ALREADY_DEFINED        </TD><TD>   -123       </TD><TD> general </TD></TR>
+
+
+<TR><TD> XB_FILE_EXISTS            </TD><TD>   -200       </TD><TD> file </TD></TR>
+<TR><TD> XB_ALREADY_OPEN           </TD><TD>   -201       </TD><TD> file </TD></TR>
+<TR><TD> XB_DBF_FILE_NOT_OPEN      </TD><TD>   -202       </TD><TD> file </TD></TR>
+<TR><TD> XB_FILE_NOT_FOUND         </TD><TD>   -203       </TD><TD> file </TD></TR>
+<TR><TD> XB_FILE_TYPE_NOT_SUPPORTED</TD><TD>   -204       </TD><TD> file </TD></TR>
+<TR><TD> XB_RENAME_ERROR           </TD><TD>   -205       </TD><TD> file </TD></TR>
+<TR><TD> XB_INVALID_OBJECT         </TD><TD>   -206       </TD><TD> file </TD></TR>
+<TR><TD> XB_NOT_OPEN               </TD><TD>   -207       </TD><TD> file </TD></TR>
+<TR><TD> XB_NOT_FOUND              </TD><TD>   -208       </TD><TD> file </TD></TR>
+<TR><TD> XB_OPEN_ERROR             </TD><TD>   -209       </TD><TD> file </TD></TR>
+<TR><TD> XB_CLOSE_ERROR            </TD><TD>   -210       </TD><TD> file </TD></TR>
+<TR><TD> XB_SEEK_ERROR             </TD><TD>   -211       </TD><TD> file </TD></TR>
+<TR><TD> XB_READ_ERROR             </TD><TD>   -212       </TD><TD> file </TD></TR>
+<TR><TD> XB_WRITE_ERROR            </TD><TD>   -213       </TD><TD> file </TD></TR>
+<TR><TD> XB_EOF                    </TD><TD>   -214       </TD><TD> file </TD></TR>
+<TR><TD> XB_BOF                    </TD><TD>   -215       </TD><TD> file </TD></TR>
+<TR><TD> XB_INVALID_BLOCK_SIZE     </TD><TD>   -216       </TD><TD> file </TD></TR>
+<TR><TD> XB_INVALID_BLOCK_NO       </TD><TD>   -217       </TD><TD> file </TD></TR>
+<TR><TD> XB_INVALID_RECORD         </TD><TD>   -218       </TD><TD> file </TD></TR>
+<TR><TD> XB_DELETE_FAILED          </TD><TD>   -219       </TD><TD> file </TD></TR>
+<TR><TD> XB_INVALID_TABLE_NAME     </TD><TD>   -220       </TD><TD> file </TD></TR>
+<TR><TD> XB_EMPTY                  </TD><TD>   -221       </TD><TD> file </TD></TR>
+<TR><TD> XB_LIMIT_REACHED          </TD><TD>   -222       </TD><TD> file </TD></TR>
+<TR><TD> XB_BLOCKREAD_NOT_ENABLED  </TD><TD>   -223       </TD><TD> file </TD></TR>
+<TR><TD> XB_DIRECTORY_ERROR        </TD><TD>   -224       </TD><TD  file </TD></TR>
+<TR><TD> XB_INVALID_FIELD_TYPE     </TD><TD>   -300       </TD><TD> field </TD></TR>
+<TR><TD> XB_INVALID_FIELD_NO       </TD><TD>   -301       </TD><TD> field </TD></TR>
+<TR><TD> XB_INVALID_DATA           </TD><TD>   -302       </TD><TD> field </TD></TR>
+<TR><TD> XB_INVALID_FIELD_NAME     </TD><TD>   -303       </TD><TD> field </TD></TR>
+<TR><TD> XB_INVALID_MEMO_FIELD     </TD><TD>   -304       </TD><TD> field </TD></TR>
+<TR><TD> XB_INVALID_FIELD          </TD><TD>   -305       </TD><TD> field </TD></TR>
+<TR><TD> XB_INVALID_FIELD_LEN      </TD><TD>   -306       </TD><TD> field </TD></TR>
+<TR><TD> XB_INVALID_DATE           </TD><TD>   -307       </TD><TD> date field </TD></TR>
+<TR><TD> XB_INVALID_LOCK_OPTION    </TD><TD>   -400       </TD><TD> lock </TD></TR>
+<TR><TD> XB_LOCK_FAILED            </TD><TD>   -401       </TD><TD> lock </TD></TR>
+<TR><TD> XB_TABLE_NOT_LOCKED       </TD><TD>   -402       </TD><TD> lock - need table locked for operation </TD></TR>
+<TR><TD> XB_PARSE_ERROR            </TD><TD>   -500       </TD><TD> expression </TD></TR>
+<TR><TD> XB_INVALID_FUNCTION       </TD><TD>   -501       </TD><TD> expression </TD></TR>
+<TR><TD> XB_INVALID_PARM           </TD><TD>   -502       </TD><TD> expression </TD></TR>
+<TR><TD> XB_INCONSISTENT_PARM_LENS </TD><TD>   -503       </TD><TD> expression </TD></TR>
+<TR><TD> XB_INCOMPATIBLE_OPERANDS  </TD><TD>   -504       </TD><TD> expression </TD></TR>
+<TR><TD> XB_UNBALANCED_PARENS      </TD><TD>   -505       </TD><TD> expression </TD></TR>
+<TR><TD> XB_UNBALANCED_QUOTES      </TD><TD>   -506       </TD><TD> expression </TD></TR>
+<TR><TD> XB_INVALID_EXPRESSION     </TD><TD>   -507       </TD><TD> expression </TD></TR>
+<TR><TD> XB_INVALID_KEYNO          </TD><TD>   -600       </TD><TD> index </TD></TR>
+<TR><TD> XB_INVALID_INDEX          </TD><TD>   -601       </TD><TD> index file error </TD></TR>
+<TR><TD> XB_INVALID_TAG            </TD><TD>   -602       </TD><TD> invalid index tag name, must be <= 10 bytes </TD></TR>
+<TR><TD> XB_INVALID_PAGE           </TD><TD>   -603       </TD><TD> invalid index page </TD></TR>
+<TR><TD> XB_SYNTAX_ERROR           </TD><TD>   -700       </TD><TD> sql syntax error </TD></TR>
+</TABLE>
+
+
+
+<br><hr><br>
+<p><img src="xbase.jpg"><br><hr>
+</BODY>
+</HTML>

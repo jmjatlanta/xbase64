@@ -1,0 +1,207 @@
+\hypertarget{classxb_1_1xbRelate}{}\doxysection{xb\+::xb\+Relate Class Reference}
+\label{classxb_1_1xbRelate}\index{xb::xbRelate@{xb::xbRelate}}
+
+
+{\ttfamily \#include $<$xbrelate.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classxb_1_1xbRelate_ad7ab5fba2bcccd06d67eaf48c5cb547f}{xb\+Relate}} (\mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} $\ast$xbase)
+\item 
+\mbox{\hyperlink{classxb_1_1xbRelate_a7ee06b12824c15881d426b8ee1a5e840}{$\sim$xb\+Relate}} ()
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_abf4878aeec036ec7b73670f57109678a}{Add\+Relation}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$d\+Parent, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&Parent\+Expression, \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$d\+Child, xb\+Ix $\ast$p\+Child\+Ix, void $\ast$p\+Child\+Tag, char c\+Type=\textquotesingle{}O\textquotesingle{}, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Filter=\char`\"{}\char`\"{})
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_a2848acfb7a3ad3620f9bc981ea5a9f5b}{Add\+Relation}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$d\+Parent, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&Parent\+Expression, \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$d\+Child, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Child\+Tag\+Name, char c\+Type=\textquotesingle{}O\textquotesingle{}, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Filter=\char`\"{}\char`\"{})
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_aac3ff9c15e4e46cd6c4ea588e79f7b5b}{Check\+Tbl\+Sts}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$d)
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_a370eec53e54530ee7a569c3bd92bd95c}{Get\+First\+Rel\+Record}} ()
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_a78f3c4d7aa47405512848c8f729bc380}{Get\+Last\+Rel\+Record}} ()
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_af06ce562407cc49d6c58df202974f09e}{Get\+Next\+Rel\+Record}} ()
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_af2d4a35dd35ba35294a427ea2b695157}{Get\+Prev\+Rel\+Record}} ()
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_af0e53210e6feef8657db5a79162c0093}{Set\+Master}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$d, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Filter=\char`\"{}\char`\"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_a7ab045ee1cae596321b4f19b987fc2af}{Compare\+Keys}} (\mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$p\+Rel, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s1, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s2, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d1, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d2, \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&dt1, \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&dt2)
+\item 
+xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbRelate_ae8809bd37c53d3b9e6f7c96f0b4d61ab}{Find\+Node\+For\+Dbf}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$d)
+\item 
+xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbRelate_a8177b0d84e6392d754e79601cf9a0225}{Get\+Last\+Tree\+Node}} (xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$lln)
+\item 
+xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbRelate_a12127519f9ed7de58cd2e931a4c6b3c0}{Get\+Next\+Tree\+Node}} (xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$lln)
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_aaabe25c833ebd2d28d959e16be83a50d}{Get\+Rel\+Record}} (const char c\+Direction)
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_aa407c78b8c191397bd09a53e3f2ffd59}{Get\+First\+Rec\+For\+Node}} (xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$lln)
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_a3526427ac6b4b6decf1217cd6dfaf27c}{Get\+Last\+Rec\+For\+Node}} (xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$lln)
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_aedc262d61fddad093b92045c77d40c05}{Get\+Next\+Rec\+For\+Node}} (xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$lln)
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_a932e6c9195a4891df899d655aece3788}{Get\+Prev\+Rec\+For\+Node}} (xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$lln)
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_afaab067e4736ecfeaaf2340faa24c5c1}{Get\+Parent\+Rel\+Keys}} (\mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$p\+Rel, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d, \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&dt)
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_a32bfabcc6399727df5fe84cbcd44eaf4}{Get\+Child\+Rel\+Keys}} (\mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$p\+Rel, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d, \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&dt)
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_a41079e67bb4b518646211018c24d676f}{Init\+Query}} ()
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbRelate_a1511ee7484219c00998c3e592dcacb13}{Rel\+Key\+Search}} (\mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$p\+Rel, const char c\+FL, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d, \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&dt)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classxb_1_1xbRelate_ad7ab5fba2bcccd06d67eaf48c5cb547f}\label{classxb_1_1xbRelate_ad7ab5fba2bcccd06d67eaf48c5cb547f}} 
+\index{xb::xbRelate@{xb::xbRelate}!xbRelate@{xbRelate}}
+\index{xbRelate@{xbRelate}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{xbRelate()}{xbRelate()}}
+{\footnotesize\ttfamily xb\+::xb\+Relate\+::xb\+Relate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} $\ast$}]{xbase }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_a7ee06b12824c15881d426b8ee1a5e840}\label{classxb_1_1xbRelate_a7ee06b12824c15881d426b8ee1a5e840}} 
+\index{xb::xbRelate@{xb::xbRelate}!````~xbRelate@{$\sim$xbRelate}}
+\index{````~xbRelate@{$\sim$xbRelate}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{$\sim$xbRelate()}{~xbRelate()}}
+{\footnotesize\ttfamily xb\+::xb\+Relate\+::$\sim$xb\+Relate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classxb_1_1xbRelate_a2848acfb7a3ad3620f9bc981ea5a9f5b}\label{classxb_1_1xbRelate_a2848acfb7a3ad3620f9bc981ea5a9f5b}} 
+\index{xb::xbRelate@{xb::xbRelate}!AddRelation@{AddRelation}}
+\index{AddRelation@{AddRelation}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{AddRelation()}{AddRelation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Add\+Relation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{d\+Parent,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{Parent\+Expression,  }\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{d\+Child,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Child\+Tag\+Name,  }\item[{char}]{c\+Type = {\ttfamily \textquotesingle{}O\textquotesingle{}},  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Filter = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_abf4878aeec036ec7b73670f57109678a}\label{classxb_1_1xbRelate_abf4878aeec036ec7b73670f57109678a}} 
+\index{xb::xbRelate@{xb::xbRelate}!AddRelation@{AddRelation}}
+\index{AddRelation@{AddRelation}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{AddRelation()}{AddRelation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Add\+Relation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{d\+Parent,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{Parent\+Expression,  }\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{d\+Child,  }\item[{xb\+Ix $\ast$}]{p\+Child\+Ix,  }\item[{void $\ast$}]{p\+Child\+Tag,  }\item[{char}]{c\+Type = {\ttfamily \textquotesingle{}O\textquotesingle{}},  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Filter = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_aac3ff9c15e4e46cd6c4ea588e79f7b5b}\label{classxb_1_1xbRelate_aac3ff9c15e4e46cd6c4ea588e79f7b5b}} 
+\index{xb::xbRelate@{xb::xbRelate}!CheckTblSts@{CheckTblSts}}
+\index{CheckTblSts@{CheckTblSts}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{CheckTblSts()}{CheckTblSts()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Check\+Tbl\+Sts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_a7ab045ee1cae596321b4f19b987fc2af}\label{classxb_1_1xbRelate_a7ab045ee1cae596321b4f19b987fc2af}} 
+\index{xb::xbRelate@{xb::xbRelate}!CompareKeys@{CompareKeys}}
+\index{CompareKeys@{CompareKeys}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{CompareKeys()}{CompareKeys()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Compare\+Keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$}]{p\+Rel,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s1,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s2,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d1,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d2,  }\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{dt1,  }\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{dt2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_ae8809bd37c53d3b9e6f7c96f0b4d61ab}\label{classxb_1_1xbRelate_ae8809bd37c53d3b9e6f7c96f0b4d61ab}} 
+\index{xb::xbRelate@{xb::xbRelate}!FindNodeForDbf@{FindNodeForDbf}}
+\index{FindNodeForDbf@{FindNodeForDbf}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{FindNodeForDbf()}{FindNodeForDbf()}}
+{\footnotesize\ttfamily xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$ xb\+::xb\+Relate\+::\+Find\+Node\+For\+Dbf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_a32bfabcc6399727df5fe84cbcd44eaf4}\label{classxb_1_1xbRelate_a32bfabcc6399727df5fe84cbcd44eaf4}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetChildRelKeys@{GetChildRelKeys}}
+\index{GetChildRelKeys@{GetChildRelKeys}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetChildRelKeys()}{GetChildRelKeys()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Get\+Child\+Rel\+Keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$}]{p\+Rel,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d,  }\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_aa407c78b8c191397bd09a53e3f2ffd59}\label{classxb_1_1xbRelate_aa407c78b8c191397bd09a53e3f2ffd59}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetFirstRecForNode@{GetFirstRecForNode}}
+\index{GetFirstRecForNode@{GetFirstRecForNode}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetFirstRecForNode()}{GetFirstRecForNode()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Get\+First\+Rec\+For\+Node (\begin{DoxyParamCaption}\item[{xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$}]{lln }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_a370eec53e54530ee7a569c3bd92bd95c}\label{classxb_1_1xbRelate_a370eec53e54530ee7a569c3bd92bd95c}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetFirstRelRecord@{GetFirstRelRecord}}
+\index{GetFirstRelRecord@{GetFirstRelRecord}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetFirstRelRecord()}{GetFirstRelRecord()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Get\+First\+Rel\+Record (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_a3526427ac6b4b6decf1217cd6dfaf27c}\label{classxb_1_1xbRelate_a3526427ac6b4b6decf1217cd6dfaf27c}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetLastRecForNode@{GetLastRecForNode}}
+\index{GetLastRecForNode@{GetLastRecForNode}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetLastRecForNode()}{GetLastRecForNode()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Get\+Last\+Rec\+For\+Node (\begin{DoxyParamCaption}\item[{xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$}]{lln }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_a78f3c4d7aa47405512848c8f729bc380}\label{classxb_1_1xbRelate_a78f3c4d7aa47405512848c8f729bc380}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetLastRelRecord@{GetLastRelRecord}}
+\index{GetLastRelRecord@{GetLastRelRecord}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetLastRelRecord()}{GetLastRelRecord()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Get\+Last\+Rel\+Record (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_a8177b0d84e6392d754e79601cf9a0225}\label{classxb_1_1xbRelate_a8177b0d84e6392d754e79601cf9a0225}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetLastTreeNode@{GetLastTreeNode}}
+\index{GetLastTreeNode@{GetLastTreeNode}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetLastTreeNode()}{GetLastTreeNode()}}
+{\footnotesize\ttfamily xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$ xb\+::xb\+Relate\+::\+Get\+Last\+Tree\+Node (\begin{DoxyParamCaption}\item[{xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$}]{lln }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_aedc262d61fddad093b92045c77d40c05}\label{classxb_1_1xbRelate_aedc262d61fddad093b92045c77d40c05}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetNextRecForNode@{GetNextRecForNode}}
+\index{GetNextRecForNode@{GetNextRecForNode}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetNextRecForNode()}{GetNextRecForNode()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Get\+Next\+Rec\+For\+Node (\begin{DoxyParamCaption}\item[{xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$}]{lln }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_af06ce562407cc49d6c58df202974f09e}\label{classxb_1_1xbRelate_af06ce562407cc49d6c58df202974f09e}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetNextRelRecord@{GetNextRelRecord}}
+\index{GetNextRelRecord@{GetNextRelRecord}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetNextRelRecord()}{GetNextRelRecord()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Get\+Next\+Rel\+Record (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_a12127519f9ed7de58cd2e931a4c6b3c0}\label{classxb_1_1xbRelate_a12127519f9ed7de58cd2e931a4c6b3c0}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetNextTreeNode@{GetNextTreeNode}}
+\index{GetNextTreeNode@{GetNextTreeNode}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetNextTreeNode()}{GetNextTreeNode()}}
+{\footnotesize\ttfamily xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$ xb\+::xb\+Relate\+::\+Get\+Next\+Tree\+Node (\begin{DoxyParamCaption}\item[{xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$}]{lln }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_afaab067e4736ecfeaaf2340faa24c5c1}\label{classxb_1_1xbRelate_afaab067e4736ecfeaaf2340faa24c5c1}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetParentRelKeys@{GetParentRelKeys}}
+\index{GetParentRelKeys@{GetParentRelKeys}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetParentRelKeys()}{GetParentRelKeys()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Get\+Parent\+Rel\+Keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$}]{p\+Rel,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d,  }\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_a932e6c9195a4891df899d655aece3788}\label{classxb_1_1xbRelate_a932e6c9195a4891df899d655aece3788}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetPrevRecForNode@{GetPrevRecForNode}}
+\index{GetPrevRecForNode@{GetPrevRecForNode}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetPrevRecForNode()}{GetPrevRecForNode()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Get\+Prev\+Rec\+For\+Node (\begin{DoxyParamCaption}\item[{xb\+Link\+List\+Node$<$ \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$ $>$ $\ast$}]{lln }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_af2d4a35dd35ba35294a427ea2b695157}\label{classxb_1_1xbRelate_af2d4a35dd35ba35294a427ea2b695157}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetPrevRelRecord@{GetPrevRelRecord}}
+\index{GetPrevRelRecord@{GetPrevRelRecord}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetPrevRelRecord()}{GetPrevRelRecord()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Get\+Prev\+Rel\+Record (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_aaabe25c833ebd2d28d959e16be83a50d}\label{classxb_1_1xbRelate_aaabe25c833ebd2d28d959e16be83a50d}} 
+\index{xb::xbRelate@{xb::xbRelate}!GetRelRecord@{GetRelRecord}}
+\index{GetRelRecord@{GetRelRecord}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{GetRelRecord()}{GetRelRecord()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Get\+Rel\+Record (\begin{DoxyParamCaption}\item[{const char}]{c\+Direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_a41079e67bb4b518646211018c24d676f}\label{classxb_1_1xbRelate_a41079e67bb4b518646211018c24d676f}} 
+\index{xb::xbRelate@{xb::xbRelate}!InitQuery@{InitQuery}}
+\index{InitQuery@{InitQuery}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{InitQuery()}{InitQuery()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Init\+Query (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_a1511ee7484219c00998c3e592dcacb13}\label{classxb_1_1xbRelate_a1511ee7484219c00998c3e592dcacb13}} 
+\index{xb::xbRelate@{xb::xbRelate}!RelKeySearch@{RelKeySearch}}
+\index{RelKeySearch@{RelKeySearch}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{RelKeySearch()}{RelKeySearch()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Rel\+Key\+Search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}} $\ast$}]{p\+Rel,  }\item[{const char}]{c\+FL,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d,  }\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classxb_1_1xbRelate_af0e53210e6feef8657db5a79162c0093}\label{classxb_1_1xbRelate_af0e53210e6feef8657db5a79162c0093}} 
+\index{xb::xbRelate@{xb::xbRelate}!SetMaster@{SetMaster}}
+\index{SetMaster@{SetMaster}!xb::xbRelate@{xb::xbRelate}}
+\doxysubsubsection{\texorpdfstring{SetMaster()}{SetMaster()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Relate\+::\+Set\+Master (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{d,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Filter = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+7/src/include/\mbox{\hyperlink{xbrelate_8h}{xbrelate.\+h}}\end{DoxyCompactItemize}

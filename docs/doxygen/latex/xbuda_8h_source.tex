@@ -1,0 +1,58 @@
+\hypertarget{xbuda_8h_source}{}\doxysection{xbuda.\+h}
+\label{xbuda_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbuda.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbuda.h}}
+\mbox{\hyperlink{xbuda_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbuda.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{This class manages the user data area (UDA)}}
+\DoxyCodeLine{15 \textcolor{comment}{}}
+\DoxyCodeLine{16 \textcolor{comment}{*/}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef \_\_XB\_XBUDA\_H\_\_}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define \_\_XB\_XBUDA\_H\_\_}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifdef  CMAKE\_COMPILER\_IS\_GNUCC}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#pragma interface}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#ifdef XB\_EXPRESSION\_SUPPORT}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{class }XBDLLEXPORT xbUda \{}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34  \textcolor{keyword}{public}:}
+\DoxyCodeLine{35   xbUda();}
+\DoxyCodeLine{36   \string~xbUda();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38   xbInt16 AddTokenForKey( \textcolor{keyword}{const} xbString \&sKey, \textcolor{keyword}{const} xbString \&sToken );}
+\DoxyCodeLine{39   \textcolor{keywordtype}{void}    Clear();}
+\DoxyCodeLine{40   xbInt16 DelTokenForKey( \textcolor{keyword}{const} xbString \&sKey );}
+\DoxyCodeLine{41   xbInt16 GetTokenCnt() \textcolor{keyword}{const};}
+\DoxyCodeLine{42   xbInt16 GetTokenForKey( \textcolor{keyword}{const} xbString \&sKey, xbString \&sData );}
+\DoxyCodeLine{43   xbInt16 UpdTokenForKey( \textcolor{keyword}{const} xbString \&sKey, \textcolor{keyword}{const} xbString \&sToken );}
+\DoxyCodeLine{44   \textcolor{keywordtype}{void}    DumpUda() \textcolor{keyword}{const};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46  \textcolor{keyword}{private}:}
+\DoxyCodeLine{47    xbLinkListOrd<xbString> llOrd;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \};}
+\DoxyCodeLine{50 \}        \textcolor{comment}{/* namespace */}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* XB\_EXPRESSION\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XBUDA\_H\_\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

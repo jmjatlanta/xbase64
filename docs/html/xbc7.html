@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Chapter 7</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">Class Inventory</p></H2>
+<p align="center">Chapter Updated 11/21/23</p><hr>
+<br>
+<center><h3>Class Descriptions</h3></center>
+
+<center>
+<table border=1>
+<tr><th>Class</th><th>Description</th></tr>
+<tr><td>xbBcd</td><td>Supports binary coded decimal data</td></tr>
+<tr><td>xbBlockRead<td>Supports block read functionality for improved sequential file access performance.</td></tr>
+<tr><td>xbDate</td><td>Support date operations on a given date formatted as YYYYMMDD</td></tr>
+<tr><td>xbDbf</td><td>Base class for DBF file handling. If you are adding support for a new file type, <br>derive new file type class from this.</td></tr>
+<tr><td>xbDbf3</td><td>Derived from xbDbf, supports DBase V3 files</td></tr>
+<tr><td>xbDbf4</td><td>Derived from xbDbf, supports DBase V4 files</td></tr>
+<tr><td>xbExp</td><td>Class for supporting expression logic</td></tr>
+<tr><td>xbExpNode</td><td>Class definition of a single node, utilized by xbExp</td></tr>
+<tr><td>xbFile</td><td>Main file class.  If you are porting this library to another platform, start here</td></tr>
+<tr><td>xbFilter</td><td>Supports filters</td></tr>
+<tr><td>xbIx</td><td>Base class for index file support. If you are adding support for a new index type, <br>derive new index type class from this.</td></tr>
+<tr><td>xbIxNdx</td><td>Derived from xbIx, supports NDX style indices.</td></tr>
+<tr><td>xbIxMdx</td><td>Derived from xbIx, supports MDX style indices.</td></tr>
+<tr><td>xbIxTdx</td><td>Derived from xbIxMdx, supports TDX (temporary) style indices.<br>Exclusive to XBase64, not compatible with other XBase tools.</td></tr>
+<tr><td>xbLinkList</td><td>Class supporting linked list functionality</td></tr>
+<tr><td>xbLinkListOrd</td><td>Class supporting ordered linked list functionality</td></tr>
+<tr><td>xbLinkListNode</td><td>Class defining one node, used by xbLinkList and xbLinkListOrd</td></tr>
+<tr><td>xbLog</td><td>Class supporting general log file activity</td></tr>
+<tr><td>xbMemo</td><td>Base class for supporting memo (.DBT)  files. If you are adding support for a new memo type, <br>derive new memo type class from this.</td></tr>
+<tr><td>xbMemoDbt3</td><td>Derived from xbMemo, supports V3 Memo files</td></tr>
+<tr><td>xbMemoDbt4</td><td>Derived from xbMemo, supports V3 Memo files</td></tr>
+<tr><td>xbSql</td><td>Supports SQL access</td></tr>
+<tr><td>xbSsv</td><td>Base class, shared system values</td></tr>
+<tr><td>xbString</td><td>String handling class</td></tr>
+<tr><td>xbTag</td><td>Class to support index tags</td></tr>
+<tr><td>xbTblMgr</td><td>Class used internally in the library for managing multiple open files/tables</td></tr>
+<tr><td>xbUda</td><td>Class for supporting fields for the xbSql functions.  Stands for User data area</td></tr>
+<tr><td>xbXBase</td><td>Class to tie everything together.  Every application program starts with one of these</td></tr>
+</table>
+</center>
+
+<hr>
+<br><br>
+Fix me...
+<p><img src="Xbase64ClassDiagramV2.jpeg" width=1800 height=1800><br>
+
+<br><br>
+<hr>
+<p><img src="xbase.jpg"><br><hr>
+</BODY>
+</HTML>

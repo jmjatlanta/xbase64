@@ -1,0 +1,88 @@
+
+
+Earlier versions of the library included an Xbase specific functin called "Real Delete"
+
+The analysis is as follows:
+
+Updates to xbdbf.h and xbdbf.cpp
+
+#ifdef XB_REAL_DELETE
+  ...
+#endif
+
+Functions included:
+
+  RealDeleteOn()           Turns on RealDelete
+  RealDeleteOff()          Turns off RealDelete
+  GetRealDelete()          Returns the status of RealDelete
+
+Narrative:
+
+This should be done before creating a database with xbDbf::CreateDatabase() and 
+thereafter before opening a database with xbDbfCreateDatabase()
+
+
+You can not turn on real deletes once a database has been created and records added
+
+
+In the Table header
+bytes 12-15 - FirstFreeRec;
+bytes 16-19 - RealNumRecs
+
+
+Updates to the following methods:
+WriteHeader()
+ReadHeader()
+
+The first four bytes of the deleted record is the record number to the next
+deleted record in the chain
+
+Append Record will pull next record from the chain and attempt to use that
+field, otherwise it will append a new record
+
+GetFirstRecord will skip over deleted records looking for the first record
+which is not deleted
+
+GetLastRecord will skip backwards to the next previous undeleted record
+
+GetPrevRecord skips backwards to the the next previous undeleted record
+
+DeleteRecord 
+  -Deletes the memo data 
+  - Adds the record to the front of the free chain
+  
+UndeleteRecord 
+ - Always returns XB_INVALID_RECORD
+ 
+PackDatafiles
+ - Deleted Records are skipped
+ 
+NoOfRecords
+ - Returns no of records not deleted
+ 
+PhysicalNoOfRecords()
+ - Return NoOfRecs - actual number of records in the file
+ 
+
+
+Conclusions:
+
+From a campatibility standpoint:
+
+  This setup will only work on the earlier version of the Xbase file format as this would 
+  be library specific code.
+
+  Also, once past Dbase V3, the bytes used in the header file are used by Dbase 4,5,7
+
+
+Decision:
+
+  In an effort to make the library as portable as possible moving forward, a decision was made to
+  leave this code out of the basic library.  To add this code in the future, a new class can be created
+  using the xbDbf class as a base class, and override the methods mentioned above.
+
+
+  
+  
+  
+

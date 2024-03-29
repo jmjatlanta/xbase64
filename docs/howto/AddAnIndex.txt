@@ -1,0 +1,11 @@
+
+
+How to create an index
+
+1)  Derive a child class from xbIx Pure Virtual Class
+
+2)  Create header file
+3)  Create cpp file
+
+4)  SQL updates 
+     - xbcrix.cpp

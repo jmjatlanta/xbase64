@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Appendix G</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">INF Files</p></H2>
+<p align="center">Chapter Updated 11/21/23</p><hr>
+
+<h3>INF File Details.</h3>
+
+
+
+<li>INF support is used to automatically open .NDX index files at table open time.  Production MDX index files are opened
+automaticially at DBF file open time, but NDX index files are not.  Using the INF option causes the
+NDX index file to be automatically opened.
+<br><br>
+
+<li>Xbase64 INF support uses the same format of the INF files as created by the MS ODBC drivers for compatibility.
+<br><br>
+
+<li>INF support requires the XB_INF_SUPPORT option be enabled at compile time.
+<br><br>
+
+<li>Use method <em>xbDbf::AssociateIndex()</em> to update an INF file in your application program.
+<br><br>
+
+<li>When using the SQL module, use the <em>ASSOCIATE</em> modifier to update the INF file.<br><br>
+
+Example: CREATE INDEX ZipCode.NDX ON ZipCode.DBF( ZIPCODE ) <em>ASSOCIATE;</em><br><br>
+
+The above Create command results in an INF file with the name of ZipCode.INF to be created with the following
+contents:<br><br>
+
+<xml>
+[dbase]<br>
+NDX=ZipCode3.NDX
+</xml>
+<br><br>
+
+
+<hr><br>
+<p><img src="xbase.jpg"><br><hr>
+</BODY>
+</HTML>

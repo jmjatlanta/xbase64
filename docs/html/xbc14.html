@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Chapter 14</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">Filters</p></H2>
+<p align="center">Chapter Updated 11/21/23</p><hr>
+
+<br><br>
+The objective of this chapter is to provide information regarding functionality for
+setting up table filters.
+
+
+<br><br><br>The xFilter class is used to establish a data filter on a given table (DBF file).<br><br>
+
+<li>A filter can be established to limit selected records in a query.
+<li>Similar to a <em>WHERE</em> clause in SQL.
+<li>The filter logic uses the expression module for processing. 
+<li>Any of the expression routines that return a logical value can be used to establish a filter condition. 
+<li>See Chapter four or the xb_ex_expression sample program for more information on valid expressions.
+<br><br>
+
+<h3>Methods for xbFilter</h3>
+<table border=1>
+<tr><th width=35%>Method</th><th>Description</th><th>Parms</th></tr>
+
+
+<tr><td>xbFilter( xbDbf *dbf )</td><td>Constructor</td><td>Pointer to main xbase structure.</td></tr>
+<tr><td>~xbFilter()</td><td>Destructor</td></tr>
+<tr><td>xbInt16 Set( xbString &sFilterExpression )<br>
+        xbInt16 Set( xbString &sFilterExpression, xbIx *ix, void *vpTag )<br>
+    <td>Set filter</td>
+    <td>
+     <em>sFilterExpression</em> - Filter Expression (AGE > 27).
+     <em>xbIx</em> - Pointer to optional index file if using an index.
+     <em>vpTag</em> - Pointer to optional index tag if using an index.
+    </td>
+</tr>
+<tr><td>xbInt16 SetIxTag( xbIx *ix, void *vpTag )<br>
+        xbInt16 SetIxTag( const xbString &sTagName )
+</td>
+   <td>Set index on a given filter.</td>
+    <td>
+     <em>xbIx</em> - Pointer to index file.
+     <em>vpTag</em> - Pointer to index tag.
+     <em>sTagName</em> - Tag Name.
+    </td>
+</tr>
+
+<tr><td>xbInt16 GetFirstRecord( xbInt16 iOpt = XB_ACTIVE_RECS )</td>
+  <td>Get the first qualified record (not indexed).</td></tr>
+<tr><td>xbInt16 GetNextRecord ( xbInt16 iOpt = XB_ACTIVE_RECS )</td>
+  <td>Get the next qualified record (not indexed).</td></tr>
+<tr><td>xbInt16 GetPrevRecord ( xbInt16 iOpt = XB_ACTIVE_RECS )</td>
+  <td>Get the previous qualified record (not indexed).</td></tr>
+<tr><td>xbInt16 GetLastRecord ( xbInt16 iOpt = XB_ACTIVE_RECS )</td><td>
+  <td>Get the last qualified record (not indexed).</td></tr>
+
+<tr><td>void SetLimit( xbInt32 ulLimit )</td>
+  <td>Set the max unmber of records limit.</td></tr>
+
+<tr><td>xbInt32 GetLimit() const</td>
+  <td>Get the current MaxLimit setting.</td></tr>
+
+<tr><td>void ResetQryCnt()</td><td>
+  <td>Rest the limit counter.</td></tr>
+
+<tr><td>xbInt32 GetQryCnt() const</td><td>
+  <td>Return the current query count.</td></tr>
+
+<tr><td>xbInt16 Find( const xbString &sKey,  xbInt16 iOpt = XB_ACTIVE_RECS  )<br>
+        xbInt16 Find( const xbDate   &dtKey, xbInt16 iOpt = XB_ACTIVE_RECS  )<br>
+        xbInt16 Find( const xbDouble &dKey,  xbInt16 iOpt = XB_ACTIVE_RECS  )</td>
+    <td>Find a filtered record for a given index key.</td>
+    <td>
+     <em>sKey</em> - String Key.<br>
+     <em>dtKey</em> - Date Key.<br>
+     <em>dKey</em> - Numeric (xbDouble) Key.
+     <em>iOpt</em> - is one of XB_ACTIVE_RECS, XB_ALL_RECS, XB_DELETED_RECS
+    </td></tr>
+
+
+<tr><td>xbInt16 GetFirstRecordIx( xbInt16 iOpt = XB_ACTIVE_RECS )</td>
+  <td>Get the first qualified record for specified index key.</td></tr>
+
+<tr><td>xbInt16 GetNextRecordIx ( xbInt16 iOpt = XB_ACTIVE_RECS )</td>
+  <td>Get the first qualified record for specified index key.</td></tr>
+
+<tr><td>xbInt16 GetPrevRecordIx ( xbInt16 iOpt = XB_ACTIVE_RECS )</td>
+  <td>Get the first qualified record for specified index key.</td></tr>
+
+<tr><td>xbInt16 GetLastRecordIx ( xbInt16 iOpt = XB_ACTIVE_RECS )</td>
+  <td>Get the first qualified record for specified index key.</td></tr>
+
+</table>
+
+
+
+
+<br><br>
+<h3>Example program demonstrating xbFilter class.</h3>
+
+<xmp>
+
+/* xb_ex_filter.cpp
+
+XBase64 Software Library
+
+Copyright (c) 1997,2003,2014,2020,2022,2023 Gary A Kunkel
+
+The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
+
+Email Contact:
+
+    XDB-devel@lists.sourceforge.net
+    XDB-users@lists.sourceforge.net
+
+*/
+
+// This program demonstrates usage of the xbFilter class
+// It uses the DBF table and NDX index file that were created by the xb_test_filter program.
+
+
+#include "xbase.h"
+
+using namespace xb;
+
+
+int main( int argCnt, char **av )
+{
+  int iRc = 0;
+
+  xbXBase x;
+  x.SetDataDirectory( PROJECT_DATA_DIR );
+
+  x.EnableMsgLogging();
+  x.SetLogSize( 1000000L );
+
+  #ifdef XB_DBF4_SUPPORT
+  xbDbf *myTable = new xbDbf4( &x );
+  #else
+  xbDbf *myTable = new xbDbf3( &x );
+  #endif
+
+  if(( iRc = myTable->Open( "TestFilt.DBF" )) != XB_NO_ERROR ){
+    std::cout << "Error opening TestFilt.DBF" << std::endl;
+    x.DisplayError( iRc );
+    return 1;
+  }
+
+  #ifdef XB_BLOCKREAD_SUPPORT
+  myTable->EnableBlockReadProcessing();    // speed things up
+  #endif
+
+  xbFilter myFilter( myTable );
+  myFilter.Set( "ZFLD = 'Z'" );
+
+  std::cout << "\nLoop through table forwards";
+  iRc = myFilter.GetFirstRecord();
+  while( iRc == XB_NO_ERROR ){
+    myTable->DumpRecord( myTable->GetCurRecNo(), 1, 0, ',' );
+    iRc = myFilter.GetNextRecord();
+  }
+
+  std::cout << "\nLoop through table backwards";
+  iRc = myFilter.GetLastRecord();
+  while( iRc == XB_NO_ERROR ){
+    myTable->DumpRecord( myTable->GetCurRecNo(), 1, 0, ',' );
+    iRc = myFilter.GetPrevRecord();
+  }
+
+  // Index example
+  #ifdef XB_NDX_SUPPORT
+  if(( iRc = myTable->OpenIndex( "NDX", "TestFilt.NDX")) != XB_NO_ERROR ){
+    std::cout << "Error opening TestFilt.NDX" << std::endl;
+    x.DisplayError( iRc );
+    return 1;
+  }
+
+  xbFilter myFilterIx( myTable );
+  myFilterIx.Set( "ZFLD = 'Z'", "TestFilt" );
+
+  std::cout << "\nLoop through table forwards by index";
+  iRc = myFilterIx.GetFirstRecordIx();
+  while( iRc == XB_NO_ERROR ){
+    myTable->DumpRecord( myTable->GetCurRecNo(), 1, 0, ',' );
+    iRc = myFilterIx.GetNextRecordIx();
+  }
+
+  std::cout << "\nLoop through table backwards by index";
+  iRc = myFilterIx.GetLastRecordIx();
+  while( iRc == XB_NO_ERROR ){
+    myTable->DumpRecord( myTable->GetCurRecNo(), 1, 0, ',' );
+    iRc = myFilterIx.GetPrevRecordIx();
+  }
+  #endif   // XB_NDX_SUPPORT
+
+  x.CloseAllTables();
+  return 0;
+}
+
+</xmp>
+
+<br><br>
+<hr>
+<p><img src="xbase.jpg"><br><hr>
+</BODY>
+</HTML>

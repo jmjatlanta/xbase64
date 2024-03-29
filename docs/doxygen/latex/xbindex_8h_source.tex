@@ -1,0 +1,539 @@
+\hypertarget{xbindex_8h_source}{}\doxysection{xbindex.\+h}
+\label{xbindex_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbindex.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbindex.h}}
+\mbox{\hyperlink{xbindex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbindex.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014, 2018, 2022 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef \_\_XB\_INDEX\_H\_\_}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define \_\_XB\_INDEX\_H\_\_}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifdef XB\_INDEX\_SUPPORT}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define XB\_ADD\_KEY 1}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define XB\_UPD\_KEY 2}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define XB\_DEL\_KEY 3}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32 \textcolor{comment}{// structure for index nodes, each node contains information regarding one block}}
+\DoxyCodeLine{33 \textcolor{keyword}{struct }XBDLLEXPORT xbIxNode \{}
+\DoxyCodeLine{34   xbIxNode *npPrev;                     \textcolor{comment}{// pointer to previous node in chain}}
+\DoxyCodeLine{35   xbIxNode *npNext;                     \textcolor{comment}{// pointer to next node in chain}}
+\DoxyCodeLine{36   xbUInt32 iCurKeyNo;                   \textcolor{comment}{// current key number in the node, 0 offset}}
+\DoxyCodeLine{37   xbUInt32 ulBlockNo;                   \textcolor{comment}{// this block number}}
+\DoxyCodeLine{38   xbUInt32 ulBufSize;                   \textcolor{comment}{// size of cpBlockData}}
+\DoxyCodeLine{39   \textcolor{keywordtype}{char}     *cpBlockData;                \textcolor{comment}{// pointer to memory version of block data stored in file}}
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{120 \textcolor{keyword}{class }XBDLLEXPORT xbIx : \textcolor{keyword}{public} xbFile \{}
+\DoxyCodeLine{121  \textcolor{keyword}{public}:}
+\DoxyCodeLine{122    xbIx( \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} * d );}
+\DoxyCodeLine{123    \textcolor{keyword}{virtual} \string~xbIx();}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125    \textcolor{keyword}{virtual} xbInt16  CheckTagIntegrity( \textcolor{keywordtype}{void} *vpTag, xbInt16 iOpt ) = 0;}
+\DoxyCodeLine{126    \textcolor{keyword}{virtual} xbInt16  Close();}
+\DoxyCodeLine{127    \textcolor{keyword}{virtual} xbInt16  CreateTag( \textcolor{keyword}{const} xbString \&sName, \textcolor{keyword}{const} xbString \&sKey, \textcolor{keyword}{const} xbString \&sFilter, xbInt16 iDescending, xbInt16 iUnique, xbInt16 iOverlay, \textcolor{keywordtype}{void} **vpTag ) = 0;}
+\DoxyCodeLine{128    \textcolor{keyword}{virtual} xbInt16  FindKey( \textcolor{keywordtype}{void} *vpTag, \textcolor{keyword}{const} xbString \&sKey, xbInt16 iRetrieveSw );}
+\DoxyCodeLine{129    \textcolor{keyword}{virtual} xbInt16  FindKey( \textcolor{keywordtype}{void} *vpTag, \textcolor{keyword}{const} \textcolor{keywordtype}{char} * cKey, xbInt32 lKeyLen, xbInt16 iRetrieveSw );}
+\DoxyCodeLine{130    \textcolor{keyword}{virtual} xbInt16  FindKey( \textcolor{keywordtype}{void} *vpTag, \textcolor{keyword}{const} xbBcd \&bcd, xbInt16 iRetrieveSw );}
+\DoxyCodeLine{131    \textcolor{keyword}{virtual} xbInt16  FindKey( \textcolor{keywordtype}{void} *vpTag, \textcolor{keyword}{const} xbDate \&dtKey, xbInt16 iRetrieveSw );}
+\DoxyCodeLine{132    \textcolor{keyword}{virtual} xbInt16  FindKey( \textcolor{keywordtype}{void} *vpTag, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dKey, xbInt16 iRetrieveSw );}
+\DoxyCodeLine{133    \textcolor{keyword}{virtual} xbInt16  FindKey( \textcolor{keywordtype}{void} *vpTag, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vKey, xbInt32 lKeyLen, xbInt16 iRetrieveSw ) = 0;}
+\DoxyCodeLine{134    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     *GetCurTag() \textcolor{keyword}{const};}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136    \textcolor{keyword}{virtual} xbInt16  GetCurKeyVal( \textcolor{keywordtype}{void} *vpTag, xbString \&s ) = 0;}
+\DoxyCodeLine{137    \textcolor{keyword}{virtual} xbInt16  GetCurKeyVal( \textcolor{keywordtype}{void} *vpTag, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&d ) = 0;}
+\DoxyCodeLine{138    \textcolor{keyword}{virtual} xbInt16  GetCurKeyVal( \textcolor{keywordtype}{void} *vpTag, xbDate \&dt ) = 0;}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140    \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}}    *GetDbf() \textcolor{keyword}{const};}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142    \textcolor{keyword}{virtual} xbString \&GetKeyExpression( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{143    \textcolor{keyword}{virtual} xbString \&GetKeyFilter( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{144    \textcolor{keyword}{virtual} \textcolor{keywordtype}{char}     GetKeyType( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{145    \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   GetLocked() \textcolor{keyword}{const};}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147    \textcolor{keyword}{virtual} xbInt16  GetFirstKey( \textcolor{keywordtype}{void} *vpTag, xbInt16 iRetrieveSw ) = 0;}
+\DoxyCodeLine{148    \textcolor{keyword}{virtual} xbInt16  GetFirstKey( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{149    \textcolor{keyword}{virtual} xbInt16  GetFirstKey();}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151    \textcolor{keyword}{virtual} xbInt16  GetLastKey( \textcolor{keywordtype}{void} *vpTag, xbInt16 lRetrieveSw ) = 0;}
+\DoxyCodeLine{152    \textcolor{keyword}{virtual} xbInt16  GetLastKey( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{153    \textcolor{keyword}{virtual} xbInt16  GetLastKey();}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155    \textcolor{keyword}{virtual} xbInt16  GetNextKey( \textcolor{keywordtype}{void} *vpTag, xbInt16 iRetrieveSw ) = 0;}
+\DoxyCodeLine{156    \textcolor{keyword}{virtual} xbInt16  GetNextKey( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{157    \textcolor{keyword}{virtual} xbInt16  GetNextKey();}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159    \textcolor{keyword}{virtual} xbInt16  GetPrevKey( \textcolor{keywordtype}{void} *vpTag, xbInt16 iRetrieveSw ) = 0;}
+\DoxyCodeLine{160    \textcolor{keyword}{virtual} xbInt16  GetPrevKey( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{161    \textcolor{keyword}{virtual} xbInt16  GetPrevKey();}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     *GetTag( xbInt16 iTagNo ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{164    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     *GetTag( xbString \&sTagName ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{165    \textcolor{keyword}{virtual} xbInt16  GetTagCount() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167    \textcolor{keyword}{virtual} xbString \&GetTagName( \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{168    \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{char} * GetTagName( \textcolor{keywordtype}{void} *vpTag, xbInt16 iOpt ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{169    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     GetTagName( \textcolor{keywordtype}{void} *vpTag, xbString \&sTagName ) \{\};}
+\DoxyCodeLine{170    \textcolor{keyword}{virtual} \textcolor{keyword}{const}    xbString \&GetType() \textcolor{keyword}{const};}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172    \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   GetUnique( \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{173    \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   GetSortOrder( \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175    \textcolor{keyword}{virtual} xbInt16  Open( \textcolor{keyword}{const} xbString \&sFileName );}
+\DoxyCodeLine{176    \textcolor{keyword}{virtual} xbInt16  SetCurTag( xbInt16 iTagNo ) = 0;}
+\DoxyCodeLine{177    \textcolor{keyword}{virtual} xbInt16  SetCurTag( xbString \&sTagName ) = 0;}
+\DoxyCodeLine{178    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     SetCurTag( \textcolor{keywordtype}{void} * vpCurTag );}
+\DoxyCodeLine{179    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     SetLocked( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bLocked );}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     TestStub( \textcolor{keywordtype}{char} *s, \textcolor{keywordtype}{void} *vpTag ) \{\};}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183    \textcolor{comment}{// virtual xbInt16  ReindexTag( void **vpTag ) = 0;}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 \textcolor{preprocessor}{   \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{187    \textcolor{keyword}{virtual} xbInt16 DumpFreeBlocks( xbInt16 iOpt = 0 ) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{xbretcod_8h_ac720d5b4ec45bfd606f5865d40816e23}{XB\_NO\_ERROR}}; \}}
+\DoxyCodeLine{188    \textcolor{keyword}{virtual} xbInt16 DumpHeader( xbInt16 iDestOpt = 0, xbInt16 iFmtOpt = 0 ) = 0;}
+\DoxyCodeLine{189    \textcolor{keyword}{virtual} xbInt16 DumpIxForTag( \textcolor{keywordtype}{void} *vpTag, xbInt16 iOutputOpt ) = 0;}
+\DoxyCodeLine{190    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    DumpIxNodeChain( \textcolor{keywordtype}{void} *vpTag, xbInt16 iOutputOpt ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{191    \textcolor{keyword}{virtual} xbInt16 DumpNode( \textcolor{keywordtype}{void} * vpTag, xbIxNode * pNode, xbInt16 iOption ) \textcolor{keyword}{const};}
+\DoxyCodeLine{192    \textcolor{keyword}{virtual} xbInt16 DumpTagBlocks( xbInt16 iOpt = 1, \textcolor{keywordtype}{void} *vpTag = NULL  ) = 0;}
+\DoxyCodeLine{193 \textcolor{preprocessor}{   \#endif}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{196    \textcolor{keyword}{friend}  \textcolor{keyword}{class    }\mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}};}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198    \textcolor{keyword}{virtual} xbInt16  AddKey( \textcolor{keywordtype}{void} *vpTag, xbUInt32 ulRecNo ) = 0;}
+\DoxyCodeLine{199    \textcolor{keyword}{virtual} xbInt16  AddKeys( xbUInt32 ulRecNo );}
+\DoxyCodeLine{200    \textcolor{keyword}{virtual} xbIxNode *AllocateIxNode( xbUInt32 ulBufSize = 0, xbInt16 iOption = 0 );}
+\DoxyCodeLine{201    \textcolor{keyword}{virtual} xbInt16  BSearchBlock( \textcolor{keywordtype}{char} cKeyType, xbIxNode *npNode, xbInt32 lKeyLen, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpKey, xbInt32 lSearchKeyLen, xbInt16 \&iCompRc, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bDescending = \mbox{\hyperlink{xbtypes_8h_adc4b6ca5ad299f63675136d9e03938cc}{xbFalse}} ) \textcolor{keyword}{const};}
+\DoxyCodeLine{202    \textcolor{keyword}{virtual} xbInt16  CheckForDupKeys();}
+\DoxyCodeLine{203    \textcolor{keyword}{virtual} xbInt16  CheckForDupKey( \textcolor{keywordtype}{void} *vpTag ) = 0;}
+\DoxyCodeLine{204    \textcolor{keyword}{virtual} xbInt16  CompareKey( \textcolor{keywordtype}{char} cKeyType, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *v1, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *v2, \textcolor{keywordtype}{size\_t} lKeyLen ) \textcolor{keyword}{const};}
+\DoxyCodeLine{205    \textcolor{keyword}{virtual} xbInt16  CreateKeys( xbInt16 iOpt );}
+\DoxyCodeLine{206    \textcolor{keyword}{virtual} xbInt16  CreateKey( \textcolor{keywordtype}{void} * vpTag, xbInt16 iOpt ) = 0;}
+\DoxyCodeLine{207    \textcolor{keyword}{virtual} xbInt16  DeleteFromNode( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npNode, xbInt16 iSlotNo ) = 0;}
+\DoxyCodeLine{208    \textcolor{keyword}{virtual} xbInt16  DeleteKeys();}
+\DoxyCodeLine{209    \textcolor{keyword}{virtual} xbInt16  DeleteKey( \textcolor{keywordtype}{void} *vpTag ) = 0;}
+\DoxyCodeLine{210    \textcolor{keyword}{virtual} xbInt16  DeleteTag( \textcolor{keywordtype}{void} *vpTag ) = 0;}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212    \textcolor{keyword}{virtual} xbInt16  FindKeyForCurRec( \textcolor{keywordtype}{void} *vpTag ) = 0;}
+\DoxyCodeLine{213    \textcolor{keyword}{virtual} xbIxNode *FreeNodeChain( xbIxNode *np );}
+\DoxyCodeLine{214    \textcolor{keyword}{virtual} xbInt16  GetBlock( \textcolor{keywordtype}{void} *vpTag, xbUInt32 ulBlockNo, xbInt16 iOpt, xbUInt32 ulAddlBuf = 0 );}
+\DoxyCodeLine{215    \textcolor{keyword}{virtual} xbInt32  GetKeyCount( xbIxNode *npNode ) \textcolor{keyword}{const};}
+\DoxyCodeLine{216    \textcolor{keyword}{virtual} \textcolor{keywordtype}{char}     *GetKeyData( xbIxNode *npNode, xbInt16 iKeyNo, xbInt16 iKeyItemLen ) \textcolor{keyword}{const};}
+\DoxyCodeLine{217    \textcolor{keyword}{virtual} xbInt16  GetKeySts( \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{218    \textcolor{keyword}{virtual} xbInt16  GetLastKey( xbUInt32 ulNodeNo, \textcolor{keywordtype}{void} *vpTag, xbInt16 lRetrieveSw ) = 0;}
+\DoxyCodeLine{219    \textcolor{keyword}{virtual} xbInt16  InsertNodeL( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npNode, xbInt16 iSlotNo, \textcolor{keywordtype}{char} * cpKeyBuf, xbUInt32 uiPtr ) = 0;}
+\DoxyCodeLine{220    \textcolor{keyword}{virtual} xbInt16  InsertNodeI( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npNode, xbInt16 iSlotNo, xbUInt32 uiPtr ) = 0;}
+\DoxyCodeLine{221    \textcolor{keyword}{virtual} xbInt16  KeyExists( \textcolor{keywordtype}{void} * ) = 0;}
+\DoxyCodeLine{222    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     NodeFree( xbIxNode * ixNode );}
+\DoxyCodeLine{223    \textcolor{keyword}{virtual} xbInt16  ReadHeadBlock( xbInt16 iOpt = 0 ) = 0;}
+\DoxyCodeLine{224    \textcolor{keyword}{virtual} xbInt16  ReindexTag( \textcolor{keywordtype}{void} **vpTag ) = 0;}
+\DoxyCodeLine{225    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     SetDbf( \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} *dbf );}
+\DoxyCodeLine{226    \textcolor{keyword}{virtual} xbInt16  SplitNodeL( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npLeft, xbIxNode *npRight, xbInt16 iSlotNo, \textcolor{keywordtype}{char} *cpKeyBuf, xbUInt32 uiPtr ) = 0;}
+\DoxyCodeLine{227    \textcolor{keyword}{virtual} xbInt16  SplitNodeI( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npLeft, xbIxNode *npRight, xbInt16 iSlotNo, xbUInt32 uiPtr ) = 0;}
+\DoxyCodeLine{228    \textcolor{keyword}{virtual} xbInt16  UpdateTagKey( \textcolor{keywordtype}{char} cAction, \textcolor{keywordtype}{void} *vpTag, xbUInt32 ulRecNo = 0 ) = 0;}
+\DoxyCodeLine{229    \textcolor{keyword}{virtual} xbInt16  WriteHeadBlock( xbInt16 iOption ) = 0;}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231    \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}}    *dbf;}
+\DoxyCodeLine{232    \textcolor{keywordtype}{char}     *cNodeBuf;               \textcolor{comment}{// pointer to memory for processing in a block of index data}}
+\DoxyCodeLine{233    \textcolor{keywordtype}{void}     *vpCurTag;               \textcolor{comment}{// pointer to active tag.  Single index files have only one tag}}
+\DoxyCodeLine{234    xbString sIxType;}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237  \textcolor{keyword}{private}:}
+\DoxyCodeLine{238    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     AppendNodeChain( \textcolor{keywordtype}{void} *vpTag, xbIxNode *npNode ) = 0;}
+\DoxyCodeLine{239    \textcolor{keyword}{virtual} xbInt16  GetKeyPtr( \textcolor{keywordtype}{void} *vpTag, xbInt16 iKeyNo, xbIxNode *npNode, xbUInt32 \&ulKeyPtr ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{240    \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   IsLeaf( \textcolor{keywordtype}{void} *vpTag, xbIxNode *npNode ) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{241    \textcolor{comment}{// virtual void     SetCurNode( void *vpTag, xbIxNode *npNode ) = 0;}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bLocked;               \textcolor{comment}{// index file locked?}}
+\DoxyCodeLine{244 \};}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#ifdef XB\_NDX\_SUPPORT}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#define XB\_NDX\_BLOCK\_SIZE 512}}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250 }
+\DoxyCodeLine{252 \textcolor{keyword}{struct }XBDLLEXPORT xbNdxTag \{}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254    \textcolor{comment}{// NDX File Header Fields}}
+\DoxyCodeLine{255    xbUInt32 ulRootBlock;     \textcolor{comment}{// header node is 0}}
+\DoxyCodeLine{256    xbUInt32 ulTotalBlocks;   \textcolor{comment}{// includes header node}}
+\DoxyCodeLine{257    \textcolor{keywordtype}{char}     cKeyType;        \textcolor{comment}{// C = Char, F = Numeric, D = Date}}
+\DoxyCodeLine{258    xbInt16  iKeyLen;         \textcolor{comment}{// length of key data}}
+\DoxyCodeLine{259    xbInt16  iKeysPerBlock;   \textcolor{comment}{// max number keys per block  <=100}}
+\DoxyCodeLine{260    xbInt16  iKeyType;        \textcolor{comment}{// 00 = Char, 01 = Numeric}}
+\DoxyCodeLine{261    xbInt16  iKeyItemLen;     \textcolor{comment}{// KeyLen + 8 bytes}}
+\DoxyCodeLine{262    \textcolor{keywordtype}{char}     cSerNo;          \textcolor{comment}{// rolling incrementing serial number +1 on each index update}}
+\DoxyCodeLine{263    xbInt16  iUnique;         \textcolor{comment}{// True if unique}}
+\DoxyCodeLine{264    xbString sKeyExpression;  \textcolor{comment}{// index expression}}
+\DoxyCodeLine{265    \textcolor{comment}{// end of NDX Header field}}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267    xbExp     *exp;           \textcolor{comment}{// pointer to expression for expression keys}}
+\DoxyCodeLine{268    time\_t    tNodeChainTs;   \textcolor{comment}{// node chain time stamp}}
+\DoxyCodeLine{269    xbIxNode  *npNodeChain;}
+\DoxyCodeLine{270    xbIxNode  *npCurNode;}
+\DoxyCodeLine{271    \textcolor{keywordtype}{char}      *cpKeyBuf;     \textcolor{comment}{// key buffer, for searches and adds}}
+\DoxyCodeLine{272    \textcolor{keywordtype}{char}      *cpKeyBuf2;    \textcolor{comment}{// key buffer, for deletes}}
+\DoxyCodeLine{273    xbString  sTagName;      \textcolor{comment}{// tag name -\/ is the file name without the extension}}
+\DoxyCodeLine{274    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}    bFoundSts;     \textcolor{comment}{// key found?  used to determine if new key should be added in XB\_EMULATE\_DBASE mode in AddKey}}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277    xbInt16   iKeySts;       \textcolor{comment}{// key updated?  set in method CreateKey, checked in AddKey and DeleteKey routines}}
+\DoxyCodeLine{278                             \textcolor{comment}{//   old key filtered     new key filtered   iKeySts}}
+\DoxyCodeLine{279                             \textcolor{comment}{//       Y                      Y              XB\_UPD\_KEY  2 -\/ update key if changed (delete and add)}}
+\DoxyCodeLine{280                             \textcolor{comment}{//       Y                      N              XB\_DEL\_KEY  3 -\/ delete key}}
+\DoxyCodeLine{281                             \textcolor{comment}{//       N                      Y              XB\_ADD\_KEY  1 -\/ add key}}
+\DoxyCodeLine{282                             \textcolor{comment}{//       N                      N                          0 -\/ no update}}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284 \};}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{288 }
+\DoxyCodeLine{307 \textcolor{keyword}{class }XBDLLEXPORT xbIxNdx : \textcolor{keyword}{public} xbIx \{}
+\DoxyCodeLine{308  \textcolor{keyword}{public}:}
+\DoxyCodeLine{309    xbIxNdx( \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} * d );}
+\DoxyCodeLine{310    \string~xbIxNdx();}
+\DoxyCodeLine{311    xbInt16  CheckTagIntegrity( \textcolor{keywordtype}{void} *vpTag, xbInt16 iOpt );}
+\DoxyCodeLine{312    xbInt16  CreateTag( \textcolor{keyword}{const} xbString \&sName, \textcolor{keyword}{const} xbString \&sKey, \textcolor{keyword}{const} xbString \&sFilter, xbInt16 iDescending, xbInt16 iUnique, xbInt16 iOverlay, \textcolor{keywordtype}{void} **vpTag );}
+\DoxyCodeLine{313    xbInt16  FindKey( \textcolor{keywordtype}{void} *vpTag, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpKey, xbInt32 lKeyLen, xbInt16 iRetrieveSw );}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316    xbInt16  GetCurKeyVal( \textcolor{keywordtype}{void} *vpTag, xbString \&s );}
+\DoxyCodeLine{317    xbInt16  GetCurKeyVal( \textcolor{keywordtype}{void} *vpTag, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&d );}
+\DoxyCodeLine{318    xbInt16  GetCurKeyVal( \textcolor{keywordtype}{void} *vpTag, xbDate \&dt );}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320 }
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322    xbInt16  GetFirstKey( \textcolor{keywordtype}{void} *vpTag, xbInt16 iRetrieveSw );}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{324    xbInt16  GetLastKey( \textcolor{keywordtype}{void} *vpTag, xbInt16 iRetrieveSw = 1 );}
+\DoxyCodeLine{325    xbInt16  GetNextKey( \textcolor{keywordtype}{void} *vpTag, xbInt16 iRetrieveSw = 1 );}
+\DoxyCodeLine{326    xbInt16  GetPrevKey( \textcolor{keywordtype}{void} *vpTag, xbInt16 iRetrieveSw = 1 );}
+\DoxyCodeLine{327    xbInt32  GetKeyLen  ( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{328    \textcolor{keywordtype}{char}     GetKeyType ( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{329    xbString \&GetKeyExpression( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{330    xbString \&GetKeyFilter( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{331    \textcolor{keywordtype}{void}     *GetTag( xbInt16 iTagNo ) \textcolor{keyword}{const};}
+\DoxyCodeLine{332    \textcolor{keywordtype}{void}     *GetTag( xbString \&sTagName ) \textcolor{keyword}{const};}
+\DoxyCodeLine{333    xbString \&GetTagName( \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{334    \textcolor{keyword}{const} \textcolor{keywordtype}{char} * GetTagName( \textcolor{keywordtype}{void} *vpTag, xbInt16 iOpt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{335    xbInt16  GetTagCount() \textcolor{keyword}{const};}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   GetUnique( \textcolor{keywordtype}{void} *vpTag = NULL ) \textcolor{keyword}{const};}
+\DoxyCodeLine{338    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   GetSortOrder( \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{339    xbInt16  SetCurTag( xbInt16 iTagNo );}
+\DoxyCodeLine{340    xbInt16  SetCurTag( xbString \&sTagName );}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342 \textcolor{preprocessor}{   \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{343    xbInt16 DumpTagBlocks( xbInt16 iOpt = 1, \textcolor{keywordtype}{void} *vpTag = NULL  );}
+\DoxyCodeLine{344    xbInt16 DumpHeader( xbInt16 iOpt = 0, xbInt16 iFmt = 0 );}
+\DoxyCodeLine{345    xbInt16 DumpIxForTag( \textcolor{keywordtype}{void} *vpTag, xbInt16 iOutputOpt );}
+\DoxyCodeLine{346    \textcolor{keywordtype}{void}    DumpIxNodeChain( \textcolor{keywordtype}{void} *vpTag, xbInt16 iOutputOpt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{347    xbInt16 DumpNode( \textcolor{keywordtype}{void} * vpTag, xbIxNode * pNode, xbInt16 iOption ) \textcolor{keyword}{const};}
+\DoxyCodeLine{348 \textcolor{preprocessor}{   \#endif}}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350    \textcolor{comment}{// xbInt16  ReindexTag( void **vpTag );}}
+\DoxyCodeLine{351  }
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{354    \textcolor{keyword}{friend}   \textcolor{keyword}{class }\mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}};}
+\DoxyCodeLine{355    xbInt16  AddKey( \textcolor{keywordtype}{void} *vpTag, xbUInt32 ulRecNo );}
+\DoxyCodeLine{356    xbIxNode *AllocateIxNode( xbUInt32 ulBufSize = 0, xbInt16 iOption = 0 );}
+\DoxyCodeLine{357    xbInt16  CheckForDupKey( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{358    xbIxNode *CreateIxNode( xbUInt32 ulBufSize );}
+\DoxyCodeLine{359    xbInt16  CreateKey( \textcolor{keywordtype}{void} * vpTag, xbInt16 iOpt );}
+\DoxyCodeLine{360    xbInt16  DeleteFromNode( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npNode, xbInt16 iSlotNo );}
+\DoxyCodeLine{361    xbInt16  DeleteKey( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{362    xbInt16  DeleteTag( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{363    xbInt16  FindKeyForCurRec( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{364    xbInt16  GetKeyTypeN( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{365    xbInt16  GetKeySts( \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{366    xbInt16  GetLastKey( xbUInt32 ulNodeNo, \textcolor{keywordtype}{void} *vpTag, xbInt16 iRetrieveSw = 1 );}
+\DoxyCodeLine{367    xbInt16  InsertNodeI( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npNode, xbInt16 iSlotNo, xbUInt32 uiPtr );}
+\DoxyCodeLine{368    xbInt16  InsertNodeL( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npNode, xbInt16 iSlotNo, \textcolor{keywordtype}{char} * cpKeyBuf, xbUInt32 uiPtr );}
+\DoxyCodeLine{369    xbInt16  KeyExists( \textcolor{keywordtype}{void} *vpTag = NULL );}
+\DoxyCodeLine{370    xbInt16  ReadHeadBlock(xbInt16 iOpt);   \textcolor{comment}{// read the header node of the disk NDX file}}
+\DoxyCodeLine{371    xbInt16  ReindexTag( \textcolor{keywordtype}{void} **vpTag );}
+\DoxyCodeLine{372    xbInt16  SplitNodeI( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npLeft, xbIxNode *npRight, xbInt16 iSlotNo, xbUInt32 uiPtr );}
+\DoxyCodeLine{373    xbInt16  SplitNodeL( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npLeft, xbIxNode *npRight, xbInt16 iSlotNo, \textcolor{keywordtype}{char} *cpKeyBuf, xbUInt32 uiPtr );}
+\DoxyCodeLine{374    xbInt16  UpdateTagKey( \textcolor{keywordtype}{char} cAction, \textcolor{keywordtype}{void} *vpTag, xbUInt32 ulRecNo = 0 );}
+\DoxyCodeLine{375    xbInt16  WriteHeadBlock( xbInt16 iOption );}
+\DoxyCodeLine{376 }
+\DoxyCodeLine{377  \textcolor{keyword}{private}:}
+\DoxyCodeLine{378    xbInt16  AddKeyNewRoot( xbNdxTag *npTag, xbIxNode *npLeft, xbIxNode *npRight );}
+\DoxyCodeLine{379    \textcolor{keywordtype}{void}     AppendNodeChain( \textcolor{keywordtype}{void} *vpTag, xbIxNode *npNode );}
+\DoxyCodeLine{380    xbInt16  GetDbfPtr( \textcolor{keywordtype}{void} *vpTag, xbInt16 iKeyNo, xbIxNode *npNode, xbUInt32 \&ulDbfPtr ) \textcolor{keyword}{const};}
+\DoxyCodeLine{381    xbInt16  GetKeyPtr( \textcolor{keywordtype}{void} *vpTag, xbInt16 iKeyNo, xbIxNode *npNode, xbUInt32 \&ulKeyPtr ) \textcolor{keyword}{const};}
+\DoxyCodeLine{382    xbInt16  GetLastKeyForBlockNo( \textcolor{keywordtype}{void} *vpTag, xbUInt32 ulBlockNo, \textcolor{keywordtype}{char} *cpKeyBuf );}
+\DoxyCodeLine{383    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   IsLeaf( \textcolor{keywordtype}{void} *vpTag, xbIxNode *npNode ) \textcolor{keyword}{const};}
+\DoxyCodeLine{384    xbInt16  KeySetPosAdd( xbNdxTag *npTag, xbUInt32 ulAddKeyRecNo );}
+\DoxyCodeLine{385    xbInt16  KeySetPosDel( xbNdxTag *npTag );}
+\DoxyCodeLine{386    xbNdxTag *ndxTag;}
+\DoxyCodeLine{387 \};}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{389 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* XB\_NDX\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392 \textcolor{preprocessor}{\#ifdef XB\_MDX\_SUPPORT}}
+\DoxyCodeLine{393 \textcolor{comment}{//\#define XB\_MDX\_BLOCK\_SIZE 1024}}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{395 \textcolor{keyword}{struct }XBDLLEXPORT xbMdxTag \{}
+\DoxyCodeLine{396 }
+\DoxyCodeLine{397   \textcolor{comment}{// next 7 fields comprise the tag table entry}}
+\DoxyCodeLine{398   xbUInt32      ulTagHdrPageNo;   \textcolor{comment}{// 512 byte page number, NOT block number}}
+\DoxyCodeLine{399   \textcolor{keywordtype}{char}          cTagName[11];}
+\DoxyCodeLine{400   \textcolor{keywordtype}{char}          cKeyFmt;          \textcolor{comment}{// always 0x10 w/ DBase V7}}
+\DoxyCodeLine{401   \textcolor{keywordtype}{char}          cLeftChild;       \textcolor{comment}{// cFwdTagThread}}
+\DoxyCodeLine{402   \textcolor{keywordtype}{char}          cRightChild;      \textcolor{comment}{// cFwdTagThread2}}
+\DoxyCodeLine{403   \textcolor{keywordtype}{char}          cParent;          \textcolor{comment}{// cBwdTagThread}}
+\DoxyCodeLine{404   \textcolor{keywordtype}{char}          c2;}
+\DoxyCodeLine{405   \textcolor{keywordtype}{char}          cKeyType;         \textcolor{comment}{// C,D,N}}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{407   xbUInt32      ulRootPage;       \textcolor{comment}{// 512 byte page number, NOT block number}}
+\DoxyCodeLine{408   xbUInt32      ulTagSize;        \textcolor{comment}{// Number of 512 byte pages allocated to the tag.   Tag size of two is a single 1024 block}}
+\DoxyCodeLine{409 }
+\DoxyCodeLine{410   \textcolor{keywordtype}{char}          cKeyFmt2;         \textcolor{comment}{// 0x10 -\/ base}}
+\DoxyCodeLine{411                                   \textcolor{comment}{// 0x08 -\/ descending}}
+\DoxyCodeLine{412                                   \textcolor{comment}{// 0x40 -\/ unique}}
+\DoxyCodeLine{413   \textcolor{keywordtype}{char}          cKeyType2;}
+\DoxyCodeLine{414   \textcolor{comment}{// one unused byte fits here}}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{416   \textcolor{keywordtype}{char}          cTag11;          \textcolor{comment}{// dbase sets to 0x1B}}
+\DoxyCodeLine{417   xbInt16       iKeyLen;}
+\DoxyCodeLine{418   xbInt16       iKeysPerBlock;}
+\DoxyCodeLine{419   xbInt16       iSecKeyType;}
+\DoxyCodeLine{420   xbInt16       iKeyItemLen;    \textcolor{comment}{// iKeyLen + 4}}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{422   \textcolor{keywordtype}{char}          cSerialNo;      \textcolor{comment}{// Increments +1 for each tag update}}
+\DoxyCodeLine{423   \textcolor{keywordtype}{char}          cUnique;}
+\DoxyCodeLine{424   xbString      *sKeyExp;       \textcolor{comment}{// Key expression}}
+\DoxyCodeLine{425   \textcolor{keywordtype}{char}          cHasFilter;     \textcolor{comment}{// 0x00 or 0x01}}
+\DoxyCodeLine{426   \textcolor{keywordtype}{char}          cHasKeys;       \textcolor{comment}{// 0x00 or 0x01}}
+\DoxyCodeLine{427   xbUInt32      ulLeftChild;    \textcolor{comment}{// dbase 7 sets this to the root page on tag creation}}
+\DoxyCodeLine{428   xbUInt32      ulRightChild;   \textcolor{comment}{// dbase 7 sets this to the root page on tag creation}}
+\DoxyCodeLine{429 }
+\DoxyCodeLine{430   \textcolor{keywordtype}{char}          cTagYY;}
+\DoxyCodeLine{431   \textcolor{keywordtype}{char}          cTagMM;}
+\DoxyCodeLine{432   \textcolor{keywordtype}{char}          cTagDD;}
+\DoxyCodeLine{433 }
+\DoxyCodeLine{434   \textcolor{keywordtype}{char}          cKeyFmt3;      \textcolor{comment}{// dbase 7 sets this 0x01 if discreet field or 0x00 if calculated or combination field key expression on tag creation}}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{436   xbString      *sFiltExp;     \textcolor{comment}{// Filter expression}}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{438   time\_t        tNodeChainTs;}
+\DoxyCodeLine{439   xbIxNode      *npNodeChain;}
+\DoxyCodeLine{440   xbIxNode      *npCurNode;}
+\DoxyCodeLine{441   xbExp         *exp;          \textcolor{comment}{// pointer to expression for expression based tags}}
+\DoxyCodeLine{442   xbExp         *filter;       \textcolor{comment}{// pointer to expression for index filter}}
+\DoxyCodeLine{443 }
+\DoxyCodeLine{444   \textcolor{keywordtype}{char}          *cpKeyBuf;     \textcolor{comment}{// key buffer}}
+\DoxyCodeLine{445   \textcolor{keywordtype}{char}          *cpKeyBuf2;    \textcolor{comment}{// key buffer}}
+\DoxyCodeLine{446   xbString      *sTagName;     \textcolor{comment}{// string tag name}}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{448 }
+\DoxyCodeLine{449   xbMdxTag      *next;}
+\DoxyCodeLine{450   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}        bFoundSts;     \textcolor{comment}{// key found?  used to determine if new key should be added in XB\_EMULATE\_DBASE mode in AddKey}}
+\DoxyCodeLine{451 }
+\DoxyCodeLine{452 }
+\DoxyCodeLine{453   xbInt16       iKeySts;       \textcolor{comment}{// key updated?  set in method CreateKey, checked in AddKey and DeleteKey routines}}
+\DoxyCodeLine{454                                \textcolor{comment}{//   old key filtered     new key filtered   iKeySts}}
+\DoxyCodeLine{455                                \textcolor{comment}{//       Y                      Y              XB\_UPD\_KEY  2 -\/ update key if changed (delete and add)}}
+\DoxyCodeLine{456                                \textcolor{comment}{//       Y                      N              XB\_DEL\_KEY  3 -\/ delete key}}
+\DoxyCodeLine{457                                \textcolor{comment}{//       N                      Y              XB\_ADD\_KEY  1 -\/ add key}}
+\DoxyCodeLine{458                                \textcolor{comment}{//       N                      N                          0 -\/ no update}}
+\DoxyCodeLine{459 }
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461 \};}
+\DoxyCodeLine{462 }
+\DoxyCodeLine{463 }
+\DoxyCodeLine{464 \textcolor{keyword}{class }XBDLLEXPORT xbIxMdx : \textcolor{keyword}{public} xbIx \{}
+\DoxyCodeLine{465  \textcolor{keyword}{public}:}
+\DoxyCodeLine{466    xbIxMdx( \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} * d );}
+\DoxyCodeLine{467    \string~xbIxMdx();}
+\DoxyCodeLine{468    \textcolor{keyword}{virtual} xbInt16  CheckTagIntegrity( \textcolor{keywordtype}{void} *vpTag, xbInt16 iOpt );}
+\DoxyCodeLine{469    \textcolor{keyword}{virtual} xbInt16  CreateTag( \textcolor{keyword}{const} xbString \&sName, \textcolor{keyword}{const} xbString \&sKey, \textcolor{keyword}{const} xbString \&sFilter, xbInt16 iDescending, xbInt16 iUnique, xbInt16 iOverlay, \textcolor{keywordtype}{void} **vpTag );}
+\DoxyCodeLine{470    \textcolor{keyword}{virtual} xbInt16  FindKey( \textcolor{keywordtype}{void} *vpTag, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vKey, xbInt32 lKeyLen, xbInt16 iRetrieveSw );}
+\DoxyCodeLine{471    \textcolor{keyword}{virtual} xbInt16  FindKey( \textcolor{keywordtype}{void} *vpTag, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dKey, xbInt16 iRetrieveSw );}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{473    \textcolor{keyword}{virtual} xbInt16  GetCurKeyVal( \textcolor{keywordtype}{void} *vpTag, xbString \&s );}
+\DoxyCodeLine{474    \textcolor{keyword}{virtual} xbInt16  GetCurKeyVal( \textcolor{keywordtype}{void} *vpTag, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&d );}
+\DoxyCodeLine{475    \textcolor{keyword}{virtual} xbInt16  GetCurKeyVal( \textcolor{keywordtype}{void} *vpTag, xbDate \&dt );}
+\DoxyCodeLine{476 }
+\DoxyCodeLine{477    \textcolor{keyword}{virtual} xbInt16  GetFirstKey( \textcolor{keywordtype}{void} *vpTag, xbInt16 lRetrieveSw );}
+\DoxyCodeLine{478    \textcolor{keyword}{virtual} xbString \&GetKeyExpression( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{479    \textcolor{keyword}{virtual} xbString \&GetKeyFilter( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{480    \textcolor{keyword}{virtual} \textcolor{keywordtype}{char}     GetKeyType( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{481    \textcolor{keyword}{virtual} xbInt16  GetLastKey( \textcolor{keywordtype}{void} *vpTag, xbInt16 lRetrieveSw );}
+\DoxyCodeLine{482    \textcolor{keyword}{virtual} xbInt16  GetNextKey( \textcolor{keywordtype}{void} *vpTag, xbInt16 lRetrieveSw );}
+\DoxyCodeLine{483    \textcolor{keyword}{virtual} xbInt16  GetPrevKey( \textcolor{keywordtype}{void} *vpTag, xbInt16 lRetrieveSw );}
+\DoxyCodeLine{484    \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   GetReuseEmptyNodesSw() \textcolor{keyword}{const};}
+\DoxyCodeLine{485    \textcolor{keyword}{virtual} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   GetSortOrder( \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{486    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     *GetTag( xbInt16 iTagNo ) \textcolor{keyword}{const};}
+\DoxyCodeLine{487    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     *GetTag( xbString \&sTagName ) \textcolor{keyword}{const};}
+\DoxyCodeLine{488    \textcolor{keyword}{virtual} xbInt16  GetTagCount() \textcolor{keyword}{const};}
+\DoxyCodeLine{489 }
+\DoxyCodeLine{490    \textcolor{keyword}{virtual} xbString \&GetTagName( \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{491    \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{char} * GetTagName( \textcolor{keywordtype}{void} *vpTag, xbInt16 iOpt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{492    \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}     GetTagName( \textcolor{keywordtype}{void} *vpTag, xbString \&sTagName );}
+\DoxyCodeLine{493 }
+\DoxyCodeLine{494    \textcolor{keyword}{virtual} xbInt16  GetUnique( \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{495    \textcolor{keyword}{virtual} xbInt16  SetCurTag( xbInt16 iTagNo );}
+\DoxyCodeLine{496    \textcolor{keyword}{virtual} xbInt16  SetCurTag( xbString \&sTagName );}
+\DoxyCodeLine{497            \textcolor{keywordtype}{void}     SetReuseEmptyNodesSw( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bReuse );}
+\DoxyCodeLine{498 }
+\DoxyCodeLine{499            \textcolor{keywordtype}{void}     TestStub( \textcolor{keywordtype}{char} *s, \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{500 }
+\DoxyCodeLine{501 }
+\DoxyCodeLine{502    \textcolor{comment}{//virtual xbInt16  ReindexTag( void **vpTag );}}
+\DoxyCodeLine{503 }
+\DoxyCodeLine{504 }
+\DoxyCodeLine{505  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{506    \textcolor{keyword}{friend}   \textcolor{keyword}{class }\mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}};}
+\DoxyCodeLine{507 }
+\DoxyCodeLine{508    xbInt16  AddKey( \textcolor{keywordtype}{void} *vpTag, xbUInt32 ulRecNo );}
+\DoxyCodeLine{509    xbIxNode *AllocateIxNode( xbMdxTag * mpTag, xbUInt32 ulBufSize, xbUInt32 ulBlock2 );}
+\DoxyCodeLine{510    \textcolor{keywordtype}{void}     CalcBtreePointers();}
+\DoxyCodeLine{511    \textcolor{keywordtype}{char}     CalcTagKeyFmt( xbExp \&exp );}
+\DoxyCodeLine{512 }
+\DoxyCodeLine{513    xbInt16  CheckForDupKey( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{514    \textcolor{keyword}{virtual}  xbInt16  Close();}
+\DoxyCodeLine{515    xbInt16  CreateKey( \textcolor{keywordtype}{void} * vpTag, xbInt16 iOpt );}
+\DoxyCodeLine{516    xbInt16  DeleteFromNode( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npNode, xbInt16 iSlotNo );}
+\DoxyCodeLine{517    xbInt16  DeleteKey( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{519    \textcolor{keyword}{virtual}  xbInt16  DeleteTag( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{520 }
+\DoxyCodeLine{521    xbInt16  FindKeyForCurRec( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{522    xbInt16  GetKeySts( \textcolor{keywordtype}{void} *vpTag ) \textcolor{keyword}{const};}
+\DoxyCodeLine{523    xbInt16  GetLastKey( xbUInt32 ulBlockNo, \textcolor{keywordtype}{void} *vpTag, xbInt16 lRetrieveSw );}
+\DoxyCodeLine{524    \textcolor{keywordtype}{void}     *GetTagTblPtr() \textcolor{keyword}{const};}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{526    xbInt16  HarvestTagNodes( xbMdxTag *mpTag, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bRecycleRoot = \mbox{\hyperlink{xbtypes_8h_adc4b6ca5ad299f63675136d9e03938cc}{xbFalse}} );}
+\DoxyCodeLine{527    \textcolor{keywordtype}{void}     Init( xbInt16 iOpt = 0 );}
+\DoxyCodeLine{528    xbInt16  InsertNodeI( \textcolor{keywordtype}{void} *vpTag, xbIxNode *npNode, xbInt16 iSlotNo, xbUInt32 uiPtr );}
+\DoxyCodeLine{529    xbInt16  InsertNodeL( \textcolor{keywordtype}{void} *vpTag, xbIxNode *npNode, xbInt16 iSlotNo, \textcolor{keywordtype}{char} *cpKeyBuf, xbUInt32 uiPtr );}
+\DoxyCodeLine{530    xbInt16  KeyExists( \textcolor{keywordtype}{void} * );}
+\DoxyCodeLine{531    xbInt16  LoadTagTable();}
+\DoxyCodeLine{532    xbInt16  ReadHeadBlock(xbInt16 iOpt);   \textcolor{comment}{// read the header node of the disk file}}
+\DoxyCodeLine{533    \textcolor{keyword}{virtual}  xbInt16  ReindexTag( \textcolor{keywordtype}{void} **vpTag );}
+\DoxyCodeLine{534    xbInt16  SplitNodeI( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npLeft, xbIxNode *npRight, xbInt16 iSlotNo, xbUInt32 uiPtr );}
+\DoxyCodeLine{535    xbInt16  SplitNodeL( \textcolor{keywordtype}{void} *vpTag, xbIxNode * npLeft, xbIxNode *npRight, xbInt16 iSlotNo, \textcolor{keywordtype}{char} *cpKeyBuf, xbUInt32 uiPtr );}
+\DoxyCodeLine{536    xbInt16  UpdateTagKey( \textcolor{keywordtype}{char} cAction, \textcolor{keywordtype}{void} *vpTag, xbUInt32 ulRecNo = 0 );}
+\DoxyCodeLine{537    xbInt16  WriteHeadBlock( xbInt16 iOption );}
+\DoxyCodeLine{538 }
+\DoxyCodeLine{539 \textcolor{preprocessor}{   \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{540    xbInt16  DumpTagBlocks( xbInt16 iOpt = 1, \textcolor{keywordtype}{void} *vpTag = NULL  );}
+\DoxyCodeLine{541    xbInt16  DumpFreeBlocks( xbInt16 iOpt = 0 );}
+\DoxyCodeLine{542    xbInt16  DumpHeader( xbInt16 iOpt = 0, xbInt16 iFmtOpt = 0 );}
+\DoxyCodeLine{543    xbInt16  DumpIxForTag( \textcolor{keywordtype}{void} *vpTag, xbInt16 iOutputOpt );}
+\DoxyCodeLine{544    \textcolor{keywordtype}{void}     DumpIxNodeChain( \textcolor{keywordtype}{void} *vpTag, xbInt16 iOutputOpt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{545 \textcolor{preprocessor}{   \#endif}}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{547 }
+\DoxyCodeLine{548    xbMdxTag *mdxTagTbl;}
+\DoxyCodeLine{549 }
+\DoxyCodeLine{550 \textcolor{comment}{// MDX File Header Fields}}
+\DoxyCodeLine{551    \textcolor{keywordtype}{char}     cVersion;}
+\DoxyCodeLine{552    \textcolor{keywordtype}{char}     cCreateYY;}
+\DoxyCodeLine{553    \textcolor{keywordtype}{char}     cCreateMM;}
+\DoxyCodeLine{554    \textcolor{keywordtype}{char}     cCreateDD;}
+\DoxyCodeLine{555    xbString sFileName;}
+\DoxyCodeLine{556    xbInt16  iBlockFactor;          \textcolor{comment}{// 1-\/32 \#of 512 byte segments in a block}}
+\DoxyCodeLine{557 }
+\DoxyCodeLine{558    \textcolor{comment}{// use file version}}
+\DoxyCodeLine{559    \textcolor{comment}{// xbInt16  iBlockSize;         // Stored at the xbFile level}}
+\DoxyCodeLine{560 }
+\DoxyCodeLine{561    \textcolor{keywordtype}{char}     cProdIxFlag;}
+\DoxyCodeLine{562    \textcolor{keywordtype}{char}     cTagEntryCnt;}
+\DoxyCodeLine{563    xbInt16  iTagLen;}
+\DoxyCodeLine{564    xbInt16  iTagUseCnt;}
+\DoxyCodeLine{565    \textcolor{keywordtype}{char}     cNextTag;             \textcolor{comment}{// byte 28 +1}}
+\DoxyCodeLine{566    \textcolor{keywordtype}{char}     c1B;                  \textcolor{comment}{// always 0x1B}}
+\DoxyCodeLine{567    xbUInt32 ulPageCnt;            \textcolor{comment}{// number of 512 byte pages in the mdx file}}
+\DoxyCodeLine{568    xbUInt32 ulFirstFreePage;      \textcolor{comment}{// page number corresponding to the next free block}}
+\DoxyCodeLine{569    xbUInt32 ulNoOfBlockAvail;     \textcolor{comment}{// might be improperly named??  not sure how it is used}}
+\DoxyCodeLine{570    \textcolor{keywordtype}{char}     cUpdateYY;}
+\DoxyCodeLine{571    \textcolor{keywordtype}{char}     cUpdateMM;}
+\DoxyCodeLine{572    \textcolor{keywordtype}{char}     cUpdateDD;}
+\DoxyCodeLine{573    \textcolor{comment}{// end of MDX Header fields}}
+\DoxyCodeLine{574 }
+\DoxyCodeLine{575 }
+\DoxyCodeLine{576    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}    bReuseEmptyNodes;     \textcolor{comment}{// Reuese empty MDX nodes when all keys deleted?}}
+\DoxyCodeLine{577                                    \textcolor{comment}{// DBase 7.x and MS ODBC drivers do not reuse empty nodes, leaves them stranded in the file}}
+\DoxyCodeLine{578                                    \textcolor{comment}{// Codebase 6.x reuses empty nodes.}}
+\DoxyCodeLine{579                                    \textcolor{comment}{// Setting this to True will reuse empty nodes in the same manner Codebase 6.x reuses them.}}
+\DoxyCodeLine{580 }
+\DoxyCodeLine{581 }
+\DoxyCodeLine{582  \textcolor{keyword}{private}:}
+\DoxyCodeLine{583    xbInt16  AddKeyNewRoot( xbMdxTag *npTag, xbIxNode *npLeft, xbIxNode *npRight );}
+\DoxyCodeLine{584    \textcolor{keywordtype}{void}     AppendNodeChain( \textcolor{keywordtype}{void} *vpTag, xbIxNode *npNode );}
+\DoxyCodeLine{585    xbUInt32 BlockToPage( xbUInt32 ulBlockNo );}
+\DoxyCodeLine{586    xbMdxTag *ClearTagTable();}
+\DoxyCodeLine{587    xbInt16  DumpBlock( xbInt16 iOpt, xbUInt32 ulBlockNo, xbMdxTag * mpTag );}
+\DoxyCodeLine{588    xbInt16  GetDbfPtr( \textcolor{keywordtype}{void} *vpTag, xbInt16 iKeyNo, xbIxNode *npNode, xbUInt32 \&ulDbfPtr ) \textcolor{keyword}{const};}
+\DoxyCodeLine{589    xbInt16  GetKeyPtr( \textcolor{keywordtype}{void} *vpTag, xbInt16 iKeyNo, xbIxNode *npNode, xbUInt32 \&ulKeyPtr ) \textcolor{keyword}{const};}
+\DoxyCodeLine{590    xbInt16  GetLastKeyForBlockNo( \textcolor{keywordtype}{void} *vpTag, xbUInt32 ulBlockNo, \textcolor{keywordtype}{char} *cpKeyBuf );}
+\DoxyCodeLine{591    xbInt16  HarvestEmptyNode( xbMdxTag *mpTag, xbIxNode *npNode, xbInt16 iOpt, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bHarvestRoot = \mbox{\hyperlink{xbtypes_8h_adc4b6ca5ad299f63675136d9e03938cc}{xbFalse}} );}
+\DoxyCodeLine{592    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   IsLeaf( \textcolor{keywordtype}{void} *vpTag, xbIxNode *npNode ) \textcolor{keyword}{const};}
+\DoxyCodeLine{593    xbInt16  KeySetPosAdd( xbMdxTag *mpTag, xbUInt32 ulAddKeyRecNo );}
+\DoxyCodeLine{594    xbInt16  KeySetPosDel( xbMdxTag *mpTag );}
+\DoxyCodeLine{595    xbInt16  LoadTagDetail( xbInt16 iOption, xbMdxTag *tte );}
+\DoxyCodeLine{596    xbUInt32 PageToBlock( xbUInt32 ulPageNo );}
+\DoxyCodeLine{597    xbInt16  TagSerialNo( xbInt16 iOption, xbMdxTag *mpTag );}
+\DoxyCodeLine{598    xbInt16  UpdateTagSize( xbMdxTag *mpTag, xbUInt32 ulTagSz );}
+\DoxyCodeLine{599 }
+\DoxyCodeLine{600 \textcolor{preprocessor}{   \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{601    xbInt16  PrintKey( \textcolor{keywordtype}{void} *vpTag, xbIxNode *npNode, xbInt16 iKeyNo, xbInt16 iDepth, \textcolor{keywordtype}{char} cType, xbInt16 iOutputOpt );}
+\DoxyCodeLine{602 \textcolor{preprocessor}{   \#endif}}
+\DoxyCodeLine{603 }
+\DoxyCodeLine{604 }
+\DoxyCodeLine{605     \};}
+\DoxyCodeLine{606 \textcolor{preprocessor}{   \#endif   }\textcolor{comment}{/* XB\_MDX\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{607 }
+\DoxyCodeLine{608 }
+\DoxyCodeLine{609 \textcolor{preprocessor}{\#ifdef XB\_TDX\_SUPPORT}}
+\DoxyCodeLine{610 }
+\DoxyCodeLine{611 \textcolor{keyword}{class }XBDLLEXPORT xbIxTdx : \textcolor{keyword}{public} xbIxMdx \{}
+\DoxyCodeLine{612  \textcolor{keyword}{public}:}
+\DoxyCodeLine{613    xbIxTdx( \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} * d );}
+\DoxyCodeLine{614    \string~xbIxTdx();}
+\DoxyCodeLine{615 }
+\DoxyCodeLine{616    xbInt16  CreateTag( \textcolor{keyword}{const} xbString \&sName, \textcolor{keyword}{const} xbString \&sKey, \textcolor{keyword}{const} xbString \&sFilter, xbInt16 iDescending, xbInt16 iUnique, xbInt16 iOverlay, \textcolor{keywordtype}{void} **vpTag );}
+\DoxyCodeLine{617 }
+\DoxyCodeLine{618  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{619    \textcolor{keyword}{friend}   \textcolor{keyword}{class }\mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}};}
+\DoxyCodeLine{620    xbInt16  Close();}
+\DoxyCodeLine{621    xbInt16  DeleteTag( \textcolor{keywordtype}{void} *vpTag );}
+\DoxyCodeLine{622 }
+\DoxyCodeLine{623  \textcolor{keyword}{private}:}
+\DoxyCodeLine{624 \};}
+\DoxyCodeLine{625 }
+\DoxyCodeLine{626 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* XB\_TDX\_SUPPORT  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{627 }
+\DoxyCodeLine{628 }
+\DoxyCodeLine{629   \}         \textcolor{comment}{/* namespace xb     */}}
+\DoxyCodeLine{630 \textcolor{preprocessor}{ \#endif     }\textcolor{comment}{/* XB\_INDEX\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{631 \textcolor{preprocessor}{\#endif      }\textcolor{comment}{/* \_\_XB\_INDEX\_H\_\_   */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

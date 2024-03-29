@@ -1,0 +1,985 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Chapter 10</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">Class xbDbf, xbDbf3, xbDbf4</p></H2>
+<p align="center">Chapter Updated 11/21/23</p><hr>
+
+
+<h4>This chapter documents the following classes:</h4><br><br>
+<li>Class xbDbf  - Base class for handling DBF files.
+<li>Class xbDbf3 - Derived class for handling DBF version III files.
+<li>Class xbDbf4 - Derived class for handling DBF version IV files.
+
+
+<br><br><br>
+<h4>Highlights</h4>
+
+<li>The xbDbf3 and xbDbf4 classes are used for accessing DBF data files.
+
+<li>In line with relational theory, a each DBF file can be considered as a table.
+The documentation uses the terms DBF and table interchangeably.<br>
+
+<li>These classes contain methods for accessing and updating DBF files.
+
+<li>The class structure is designed to support additional database file layouts.
+To modify the library to support a new file type not currently supported,
+create a derived class using xbDbf as a base class and create/modify methods needed
+to support the new dbf file version.<br>
+
+<li>Each open DBF file would have an associated instance of the approprate class.
+Each instance maintains a record buffer, an original record buffer (if changes applied)
+current reccord number, selected tag, lock status, record updated flag and other
+misc info.
+
+<li>The record updated flag tells the software to commit any updates to the data base
+automatically if the auto commit option is turned on (default setting is on).  
+
+<li>To use a DBF data file, first open it or create it.  When done, close it.
+
+<li>The first byte of each record is a deletion flag.  Deleted records are marked for deletion
+and not physically removed from the DBF file. They and can be undeleted with xbDbf::UndeleteRecord().
+To physically remove deleted records from the DBF file, use xbDbf::Pack().
+
+
+<li>The library will automatically post any updates if Auto Commit is turned on (default setting).
+If Auto Commit is not on, the application program will need to issue xbDbf::Commit() or
+xbDbf::Abort() commands to post updates.
+
+<li>
+The library automatically updates any open indices.  MDX indices are opened automatically.
+For NDX style indices, early versions of DBase required the NDX files be explicitly opened in the
+application. More current versions of available DBase ODBC drivers automatically open NDX indices 
+with the addition of an <em>tablename.INF</em> file.  Xbase64 supports both scenarios.
+
+<li>Xbase64 handles all record and file locking automatically and is programmed to work the same as the
+original DBase products as far as locking goes.  If auto locking is be turned off, the application
+is responsible for all locking activities in multi user environments.
+
+<li>All field related methods operate on the current record.
+
+<li>When accessing fields on a given record, processing fields by field number offers slightly better 
+performance than processing by field name because the number has to be looked up if
+the name is used.  The field number can be retrieved with xbDbf::FieldNo() when the application program
+is initializing.
+
+<li>Unless otherwise specified, the methods return either XB_NO_ERROR or an error as defined here: <a href=xbae.html>Error Codes</a>
+
+
+<br><br><br><br>
+
+
+
+
+<center>
+<h2>Table Methods</h2>
+<table border=1>
+<tr><th width=35%>Method</th><th>Description</th><th>Parms</th></tr>
+<tr><td>virtual xbInt16  Abort()</td><td>Cancel any updates not already committed to the table.</td></tr>
+<tr><td>virtual xbInt16  AppendRecord()</td><td>Append the record buffer to the end of the table.</td></tr>
+<tr><td>virtual xbInt16  BlankRecord()</td><td>Blank the current record buffer.</td></tr>
+<tr><td>virtual xbInt16  Commit()</td><td>Commit any updates to the DBF file/table.</td></tr>
+<tr><td>virtual xbInt16  Close()</td><td>Close the DBF file/table.</td></tr>
+<tr><td>virtual xbInt16  CopyDbfStructure( xbDbf *dNewTable, const xbString &sTableName, const xbString &sTableAlias, xbInt16 iOverlay, xbInt16 iShareMode )</td><td>Copy structure to new DBF file.</td>
+  <td>
+    <em>dNewTable</em> - Pointer to new xbDbf class<br>
+    <em>sTableName</em> - New Table name<br>
+    <em>sTableAlias</em> - Alias for new table</br>
+    <em>iOverlay</em><br>
+      <li>xbTrue - Overlay if file exists<br>
+      <li>xbFalse - Don't overlay<br>
+    <em>iShareMode</em><br>
+      <li>XB_SINGLE_USER<br>
+      <li>XB_MULTI_USER
+  </td>
+</tr>
+
+<tr><td>virtual xbInt16  CreateTable( const xbString &sTableName, const xbString &sAlias, xbSchema *pSchema, xbInt16 iOverlay, xbInt16 iShareMode ) = 0</td><td>Create new table / DBF file.</td>
+  <td>
+   <em>sTableName</em> - New Table name<br>
+   <em>sAlias</em> - Alias for new table<br>
+   <em>pSchema</em> - Pointer to field definition structure<br>
+   <em>iOverlay</em><br>
+      <li>xbTrue - Overlay if file exists<br>
+      <li>xbFalse - Don't overlay<br>
+   <em>iShareMode</em><br>
+      <li>XB_SINGLE_USER<br>
+      <li>XB_MULTI_USER
+  </td>
+</tr>
+
+<tr><td>virtual xbInt16  DeleteTable()</td><td>Delete table / DBF file and all associated indices and memo files.</td></tr>
+
+<tr><td>virtual xbInt16  DeleteAll( xbInt16 iOption )</td><td>Set or remove delete flags for all records in the table.</td>
+  <td>
+   <em>iOption</em><br>
+     <li>0 - Set all delete flags<br>
+     <li>1 - Remove all delete flags
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16  DeleteAllRecords()</td><td>Set delete flags for all records in the table.</td></tr>
+<tr><td>virtual xbInt16  DeleteRecord()</td><td>Delete the current record.</td></tr>
+
+<tr><td>virtual xbInt16  DumpHeader( xbInt16 iOption ) const</td><td>Dump DBF header information to the console.</td>
+  <td>
+   <em>iOption</em><br>
+       <li>1 = Print header only<br>
+       <li>2 = Field data only<br>
+       <li>3 = Header and Field data<br>
+       <li>4 = Header, Field and Memo header data if applicable
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16  DumpRecord( xbUInt32 ulRecNo, xbInt16 iOutputDest = 0, xbInt16 iOutputFmt = 0 )</td>
+  <td>Dump the contents of the specified record.<br>
+      Requires XB_LOGGING_SUPPORT be compiled into library and logging must be enabled.
+  </td>
+  <td>
+   <em>ulRecNo</em> - Record number of record to be dumped
+   <em>iOutputDest</em><br>
+       <li>0 = stdout<br>
+       <li>1 = Syslog<br>
+       <li>2 = Both<br>
+   <em>iOutputFmt</em><br>
+       <li>0 = with field names<br>
+       <li>1 = 1 line per rec, no field names<br>
+       <li>2 = 1 line per rec, first line is a list of field names.
+  </td>
+ </tr>
+
+<tr><td>virtual xbInt16  GetAutoCommit() const</td><td>Get the Auto Commit status.</td></tr>
+<tr><td>virtual xbInt16  GetAutoCommit( xbInt16 iOption ) const</td><td>Get the Auto Commit status.</td><td><em>iOption:</em><br>0 = Table Status<br>1 = System Status.</td></tr>
+<tr><td>virtual xbBool   GetBof()</td><td>Returns true if beginning of file.</td></tr>
+<tr><td>virtual xbUInt32 GetCurRecNo() const</td><td>Returns the current record number.</td></tr>
+<tr><td>virtual xbInt16  GetDbfStatus() const</td><td>Returns Status<br>
+   <li>0 - Closed<br>
+   <li>1 - Open<br>
+   <li>2 - Updates Pending
+  </td>
+</tr>
+
+<tr><td>virtual xbBool   GetEof()</td><td>Returns true if end of file.</td></tr>
+<tr><td>virtual xbInt32  GetFieldCnt() const</td><td>Returns the number of fields in the table.</td></tr>
+<tr><td>virtual xbInt16  GetFirstRecord()</td><td>Retrieve the first active (not deleted) record in the table.</td></tr>
+<tr><td>virtual xbInt16  GetFirstRecord( xbInt16 iOption )</td><td>Retrieve the first record in the table.</td>
+ <td>
+  <em>iOption</em><br>
+   <li>XB_ALL_RECS<br>
+   <li>XB_ACTIVE_RECS<br>
+   <li>XB_DELETED_RECS
+ </td>
+</tr>
+<tr><td>virtual xbUInt16 GetHeaderLen() const</td><td>Returns the length of the header portion within the DBF file.</td></tr>
+<tr><td>virtual xbInt16  GetLastRecord()</td><td>Retrieve the last active (not deleted) record in the table.</td></tr>
+<tr><td>virtual xbInt16  GetLastRecord( xbInt16 iOption )</td><td>Retrieve the last record in the table.</td>
+ <td>
+  <em>iOption</em><br>
+    <li>XB_ALL_RECS<br>
+    <li>XB_ACTIVE_RECS<br>
+    <li>XB_DELETED_RECS
+ </td>
+</tr>
+
+
+<tr><td>virtual xbInt16  GetNextRecord()</td><td>Retrieve the next active (not deleted) record in the table.</td></tr>
+<tr><td>virtual xbInt16  GetNextRecord( xbInt16 iOption )</td><td>Retrieve the next record in the table.</td>
+ <td>
+  <em>iOption</em><br>
+   <li>XB_ALL_RECS<br>
+   <li>XB_ACTIVE_RECS<br>
+   <li>XB_DELETED_RECS
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16  GetNextRecord( xbInt16 iOption, xbUInt32 ulStartRec )</td><td>Retrieve the next record in the table.</td>
+ <td>
+  <em>iOption</em><br> 
+   <li>XB_ALL_RECS<br>
+   <li>XB_ACTIVE_RECS<br>
+   <li>XB_DELETED_RECS<br>
+  <em>ulStartRec</em> is the position to start from.
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16  GetPrevRecord()</td><td>Retrieve the previous active (not deleted) record in the table.</td></tr>
+<tr><td>virtual xbInt16  GetPrevRecord( xbInt16 iOption )</td><td>Retrieve the previous record in the table.</td>
+ <td>
+  <em>iOption</em><br>
+   <li>XB_ALL_RECS<br>
+   <li>XB_ACTIVE_RECS<br>
+   <li>XB_DELETED_RECS
+ </td>
+</tr>
+<tr><td>virtual xbInt16  GetRecord( xbUInt32 ulRecNo )</td><td>Retrieve record <em>ulRecNo</em>.</td><td><em>ulRecNo</em> - Record number to retrieve</td></tr>
+
+<tr><td>virtual xbInt16  GetRecordCnt( xbUInt32 & ulRecCnt )</td><td>Returns record count in <em>ulRecCnt</em>.</td>
+ <td>
+  <em>ulRecCnt</em> - Output number of records in table</tr>
+
+<tr><td>virtual char *   GetRecordBuf( xbInt16 iOpt = 0 ) const</td><td>Returns pointer to record buffer.</td>
+ <td>
+  <em>iOpt</em><br>
+   <li>0 for RecBuf (current contents)<br>
+   <li>1 for RecBuf2 (original contents)
+ </td>
+</tr>
+
+<tr><td>virtual xbUInt16 GetRecordLen() const</td><td>Returns the record length</td></tr>
+<tr><td>virtual const    xbString &GetTblAlias() const</td><td>Returns the table alias.  Aliases can be used to manage multiple instances of the same open table.</td></tr>
+<tr><td>virtual xbInt16  GetVersion() const = 0</td><td>Returns 3 for DBase III version files, returns 4 for DBase IV version files.</td></tr>
+<tr><td>virtual xbXBase  *GetXbasePtr() const</td><td>Returns the xbase pointer.</td></tr>
+<tr><td>virtual xbBool   MemoFieldsExist() const</td><td>Returns true if the table has any associated memo fields.</td></tr>
+
+<tr><td>virtual xbInt16  Open( const xbString &sTableName )</td><td>Open a table (DBF file).</td>
+ <td>
+  <em>sTableName</em> - Table name
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16  Open( const xbString &sTableName, const xbString &sAlias )</td><td>Open a table (DBF file).</td>
+<td>
+  <em>sTableName</em> - Table name<br>
+  <em>sAlias</em> - Alias name
+ </td>
+</tr>
+
+
+<tr><td>virtual xbInt16  Open( const xbString &sTableName, const xbString &sAlias, xbInt16 iOpenMode, xbInt16 iShareMode ) = 0</td><td>Open a table (DBF file).</td>
+ <td>
+  <em>sTableName</em> - Table name<br>
+  <em>sAlias</em> - Alias name<br>
+  <em>iOpenMode</em><br>
+   <li>XB_READ<br>
+   <li>XB_READ_WRITE<br>
+  <em>iShareMode</em><br>
+   <li>XB_SINGLE_USER<br>
+   <li>XB_MULTI_USER
+ </td>
+</tr>
+
+
+<tr><td>virtual xbInt16  Pack()</td><td>Pack the table, physically remove any records flagged for deletion.</td></tr>
+<tr><td>virtual xbInt16  Pack( xbUInt32 &ulDeletedRecCnt )</td><td>Pack the table, physically remove any records flagged for deletion.<br></td>
+ <td><em>ulDeletedRecordCnt</em> - Output - number of deleted records.</td></tr>
+
+<tr><td>virtual xbInt16  PutRecord()</td><td>Write record buffer to current location</td></tr>
+
+<tr><td>virtual xbInt16  PutRecord( xbUInt32 ulRecNo )</td><td>Write record buffer to record position <em>ulRecNo</em>.</td>
+ <td>
+  <em>ulRecNo</em> - Record number to write.
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16  RecordDeleted( xbInt16 iOpt = 0 ) const</td><td>Returns true if currect record is flagged for deletion, otherwise returns false.</td>
+ <td>
+  <em>iOpt</em><br>
+   <li>0 - check RecBuf (current contents)<br>
+   <li>1 - check RecBuf2 (original contents)
+ </td>
+</tr>
+
+
+<tr><td>virtual xbInt16  Rename( const xbString sNewName ) = 0</td><td>Rename the table.</td>
+ <td>
+  <em>sNewName</em> - New tablename.
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16  SetAutoCommit( xbInt16 iAutoCommit )</td><td>Set table specific auto commit setting.</td>
+ <td>
+  <em>iAutoCommit</em><br>
+   <li>0 - Auto Commit off<br>
+   <li>1 - Auto Commit on
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16  UndeleteAllRecords()</td><td>Undelete all records in table flagged for deletion.</td></tr>
+<tr><td>virtual xbInt16  UndeleteRecord()</td><td>Undelete the current record.</td></tr>
+<tr><td>virtual xbInt16  Zap()</td><td>Initialize the table.</td></tr>
+</table>
+
+<br><br><br>
+
+
+
+<h2>Field Methods</h2>
+
+<table border=1>
+<tr><th width=50%>Method</th><th>Description</th><th>Parms</th></tr>
+<tr><td>virtual xbInt16 GetField(xbInt16 iFieldNo, xbString &sFieldValue, xbInt16 iRecBufSw ) const</td><td>Get string field.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  <em>sFieldValue</em> Output string<br>
+  <em>iRecBufSw</em> Record buffer to pull data from.<br>
+   <li>0 - current buffer
+   <li>1 - original buffer
+</td></tr>
+
+<tr><td>virtual xbInt16 GetField(xbInt16 iFieldNo, xbString &sFieldValue) const</td><td>Get string field.</td>
+ <td>
+  <em>iFieldNo</em> Input -  Field number to retrieve<br>
+  <em>sFieldValue</em> Output string</td></tr>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetField(const xbString &sFieldName, xbString &sFieldValue) const</td><td>Get string field.</td>
+ <td>
+  <em>sFieldName</em> Input -  Field name to retrieve<br>
+  <em>sFieldValue</em> Output string</td></tr>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetFieldDecimal( xbInt16 iFieldNo, xbInt16 &iFieldDecimal ) const</td><td>Get decimal field.</td>
+ <td>
+  <em>iFieldNo</em> Input -  Field number to retrieve<br>
+  <em>iFieldDecimal</em> Output - Number of decimals defined for field
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetFieldDecimal( const xbString &sFieldName, xbInt16 &iFieldDecimal ) const</td><td>Get decimal field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+  <em>iFieldDecimal</em> Output - Number of decimals defined for field
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetFieldLen( xbInt16 iFieldNo, xbInt16 &iFieldLen ) const</td><td>Get field length.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  <em>iFieldLen</em> Output - Field length of field
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetFieldLen( const xbString &sFieldName, xbInt16 &iFieldLen ) const</td><td>Get field length.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+  <em>iFieldLen</em> Output - Field length of field
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetFieldName( xbInt16 iFieldNo, xbString &sFieldName ) const</td><td>Get field name.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  <em>sFieldName</em> Output - Field name<br>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetFieldNo( const xbString &sFieldName, xbInt16 &iFieldNo ) const</td><td>Get field number.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+  <em>iFieldNo</em> Output - Field number<br>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetFieldNo( const xbString &sFieldName ) const</td><td>Returns a field number for a given field name.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+ </td>
+</tr>
+
+
+<tr><td>virtual xbInt16 GetFieldType( xbInt16 iFieldNo, char &cFieldType ) const</td><td>Get field type.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  <em>cFieldType</em> Output - Field type
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetFieldType( const xbString &sFieldName, char &cFieldType ) const</td><td>Get field type.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+  <em>cFieldType</em> Output - Field type
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutField( const xbString &sFieldName, const xbString &sFieldData )</td><td>Put string field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to update<br>
+  <em>sFieldData</em> Input - Update value<br>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutField( xbInt16 iFieldNo, const xbString &sFieldData )</td><td>Put string field.</td>
+ <td>
+  <em>sFieldNo</em> Input - Field number to update<br>
+  <em>sFieldData</em> Input - Update value<br>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutLogicalField( xbInt16 iFieldNo, const xbString &sFieldData )</td><td>Put logicial field.</td>
+ <td>
+  <em>sFieldNo</em> Input - Field number to update<br>
+  <em>sFieldData</em> Input - Update value<br>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutLogicalField( const xbString &sFieldName, const  xbString &sFieldData )</td><td>Put logical field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to update<br>
+  <em>sFieldData</em> Input - Update value<br></td></tr>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetLogicalField( xbInt16 iFieldNo, xbString &sFieldData ) const</td><td>Get logical field.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  <em>sFieldData</em> Output - String name to put result<br>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetLogicalField( const xbString &sFieldName, xbString &sFieldData) const</td><td>Get logical field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+  <em>sFieldData</em> Output - String name to put result<br>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutLogicalField( xbInt16 iFieldNo, xbBool bFieldData )</td><td>Put logical field.</td>
+ <td>
+  <em>sFieldNo</em> Input - Field number to update<br>
+  <em>bFieldData</em> Output - Bool value<br>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutLogicalField( const xbString &sFieldName, xbBool bFieldData )</td><td>Put logical field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to update<br>
+  <em>bFieldData</em> Output - Bool value<br>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetLogicalField( xbInt16 iFieldNo, xbBool &bFieldData ) const</td><td>Get logical field.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  <em>bFieldData</em> Output - Bool value<br>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetLogicalField( xbInt16 iFieldNo, xbBool &bFieldData, xbInt16 iRecBufSw ) const</td><td>Get logical field.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  <em>bFieldData</em> Output - Bool value<br>
+  <em>iRecBufSw</em> Record buffer to pull data from.<br>
+   <li>0 - current buffer
+   <li>1 - original buffer, before any updates
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetLogicalField( const xbString &sFieldName, xbBool &bFieldData) const</td><td>Get logical field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+  <em>bFieldData</em> Output - Bool value<br>
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetLongField( xbInt16 iFieldNo, xbInt32 &lFieldValue ) const</td><td>Get long field.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  </em>lFieldValue<em> Output - xbInt32 field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetLongField( const xbString &sFieldName, xbInt32 &lFieldValue ) const</td><td>Get long field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+  </em>lFieldValue<em> Output - xbInt32 field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutLongField( xbInt16 iFieldNo, xbInt32 lFieldValue )</td><td>Put long field.</td>
+ <td>
+  <em>sFieldNo</em> Input - Field number to update<br>
+  <em>lFieldValue<em> Output - xbInt32 field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutLongField( const xbString &sFieldName, xbInt32 lFieldValue )</td><td>Put long field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+  <em>lFieldValue<em> Output - xbInt32 update value
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetULongField( xbInt16 iFieldNo, xbUInt32 &lFieldValue ) const</td><td>Get unsigned long field.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  <em>ulFieldValue<em> Output - xbUInt32 field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetULongField( const xbString &sFieldName, xbUInt32 &lFieldValue ) const</td><td>Get unsigned long field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+  <em>ylFieldValue<em> Output - xbUInt32 field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutULongField( xbInt16 iFieldNo, xbUInt32 lFieldValue )</td><td>Put unsigned long field.</td>
+ <td>
+  <em>sFieldNo</em> Input - Field number to update<br>
+  <em>lFieldValue<em> Output - xbInt32 update value
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutULongField( const xbString &sFieldNo, xbUInt32 lFieldValue )</td><td>Put unsigned long field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to update<br>
+  <em>lFieldValue<em> Output - xbUInt32 update value
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetDoubleField( xbInt16 FieldNo, xbDouble &dFieldValue ) const</td><td>Get double field.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  <em>dFieldValue<em> Output - xbDouble field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetDoubleField( xbInt16 FieldNo, xbDouble &dFieldValue, xbInt16 iRecBufSw ) const</td><td>Get double field.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  <em>dFieldValue<em> Output - xbDouble field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetDoubleField( const xbString &sFieldName, xbDouble &dFieldValue ) const</td><td>Get double field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+  <em>dFieldValue<em> Output - xbDouble field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutDoubleField( xbInt16 FieldNo, xbDouble dFieldValue )</td><td>Put double field.</td>
+ <td>
+  <em>sFieldNo</em> Input - Field number to update<br>
+  <em>dFieldValue<em> Output - xbDouble update value
+ </td>
+</tr>
+
+
+<tr><td>virtual xbInt16 PutDoubleField( const xbString &FieldName, xbDouble dFieldValue )</td><td>Put double field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to update<br>
+  <em>dFieldValue<em> Output - xbDouble update value
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetFloatField( xbInt16 iFieldNo, xbFloat &fFieldValue ) const</td><td>Get float field.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  <em>fFieldValue<em> Output - xbFloat field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetFloatField( const xbString &sFieldName, xbFloat &fFieldValue ) const</td><td>Get float field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+  <em>fFieldValue<em> Output - xbFloat field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutFloatField( xbInt16 iFieldNo, xbFloat fFieldValue )</td><td>Put float field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field number to update<br>
+  <em>fFieldValue<em> Output - xbFloat update value
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutFloatField( const xbString &sFieldName, xbFloat fFieldValue )</td><td>Put float field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to update<br>
+  <em>fFieldValue<em> Output - xbFloat update value
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetDateField( xbInt16 iFieldNo, xbDate &dt ) const</td><td>Get date field.</td>
+ <td>
+  <em>iFieldNo</em> Input - Field number to retrieve<br>
+  <em>dt<em> Output - xbDate field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetDateField( const xbString &sFieldName, xbDate &dt ) const</td><td>Get date field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to retrieve<br>
+  <em>dt<em> Output - xbDate field to put result
+ </td
+</tr>
+
+<tr><td>virtual xbInt16 PutDateField( xbInt16 iFieldNo, const xbDate &dt )</td><td>Put date field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field number to update<br>
+  <em>dt</em> Output - xbDate update value
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 PutDateField( const xbString &sFieldName, const xbDate &dt )</td><td>Put date field.</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to update<br>
+  <em>dt</em> Output - xbDate update value
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16  GetNullSts( xbInt16 iFieldNo, xbBool &bIsNull ) const<br>
+        virtual xbInt16  GetNullSts( const xbString &sFieldName, xbBool &bIsNull ) const<br>
+        virtual xbInt16  GetNullSts( xbInt16 iFieldNo, xbBool &bIsNull, xbInt16 iRecBufSw ) const</td>
+ <td>Get Field Null Status</td>
+ <td>
+  <em>sFieldName</em> Input - Field name to check<br>
+  <em>iFieldNo</em> Input - Field no to check<br>
+  <em>bIsNull</em> Output - True if the field is null (all spaces).<br>
+  <em>iRecBufSw</em> Record buffer to pull data from.<br>
+   <li>0 - current buffer
+   <li>1 - original buffer
+ </td>
+</tr>
+
+</table>
+
+
+
+<br><br><br>
+<h2>Memo File/Field Methods</h2>
+
+<table border=1>
+<tr><th>Method</th><th>Description</th><th>Parms</th></tr>
+<tr><td>virtual xbInt16 GetMemoFieldCnt() const</td><td>Returns number of memo fields in the table.</td></tr>
+<tr><td>virtual xbMemo *GetMemoPtr()</td><td>Returns a pointer to the associated memo file instance.</td></tr>
+<tr><td>virtual xbUInt32 GetCreateMemoBlockSize() const</td><td>Returns the block size a new memo file will be created with.  Block sizes are in 512 byte increments.</td></tr>
+<tr><td>virtual xbInt16 GetMemoField( xbInt16 iFldNo, xbString &sMemoData )</td><td>Get memo field data.</td>
+ <td>
+  <em>iFldNo</em> Input - Memo field number to retrieve<br>
+  <em>sMemoData</em> Output - xbString field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetMemoField( const xbString & sFldName, xbString &sMemoData )</td><td>Get memo field data.</td>
+ <td>
+  <em>iFldName</em> Input - Memo field name to retrieve<br>
+  <em>sMemoData</em> Output - xbString field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetMemoFieldLen( xbInt16 iFldNo, xbUInt32 &ulMemoFieldLen )</td><td>Get memo field length.</td>
+ <td>
+  <em>iFldNo</em> Input - Memo field number to retrieve<br>
+  <em>ulMemoFieldLen</em> Output - xbUInt32 field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 GetMemoFieldLen( const xbString & sFldName, xbUInt32 &ulMemoFieldLen )</td><td>Get memo field length.</td>
+ <td>
+  <em>iFldName</em> Input - Memo field name to retrieve<br>
+  <em>ulMemoFieldLen</em> Output - xbUInt32 field to put result
+ </td>
+</tr>
+
+<tr><td>virtual xbBool MemoFieldExists( xbInt16 iFieldNo ) const</td><td>Returns xbTrue if memo field exists, else returns xbFalse.</td>
+ <td>
+  <em>iFieldNo</em> Input - field number
+ </td>
+</tr>
+
+<tr><td>virtual xbBool MemoFieldExists( const xbString &sFieldName ) const</td><td>Returns xbTrue if memo field exists, else returns xbFalse.</td>
+ <td>
+  <em>sFieldName</em> Input - field name
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 SetCreateMemoBlockSize( xbUInt32 ulBlockSize ) = 0</td><td>Set the block size for the memo file.  Must be called before memo file is created.</td>
+ <td>
+  <em>ulBlockSize</em> Input - New block size in 512 byte increments
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 UpdateMemoField( xbInt16 iFldNo, const xbString &sMemoData )</td><td>Update memo field.</td>
+ <td>
+  <em>iFldNo</em> Input - Memo field number to update<br>
+  <em>sMemoData</em> Input - Memo data to update
+ </td>
+</tr>
+
+<tr><td>virtual xbInt16 UpdateMemoField( const xbString & sFldName, const xbString &sMemoData )</td><td>Update memo field.</td>
+ <td>
+  <em>iFldName</em> Input - Memo field name to update<br>
+  <em>sMemoData</em> Input - Memo data to update
+ </td>
+</tr>
+</table>
+
+
+
+
+<br><br><br>
+<h2>Lock Methods</h2>
+<table border=1>
+<tr><td colspan=3>
+
+If auto locking is turned on (default setting), xbase64 handles locking automatically.<br>
+If auto locking is turned off and application is running in a multi user environment, then 
+locking functions will need to be handled by the application program.
+</td></tr>
+
+<tr><th>Method</th><th>Description</th><th>Parms</th></tr>
+<tr><td>virtual xbInt16 LockTable( xbInt16 iLockFunction )</td><td>Lock the table.</td>
+ <td>
+  <em>LockFunction</em><br>
+   <li>XB_LOCK<br>
+   <li>XB_UNLOCK
+ </td>
+</tr>
+<tr><td>virtual xbInt16 LockRecord( xbInt16 iLockFunction, xbUInt32 ulRecNo )</td><td>Lock record.</td>
+ <td>
+  <em>iLockFunction</em><br>
+   <li>XB_LOCK <br>
+   <li>XB_UNLOCK<br>
+   <em>ulRecNo</em> - Record number to lock or unlock
+ </td>
+</tr>
+<tr><td>virtual xbInt16 LockAppend( xbInt16 iLockFunction )</td><td>Lock append bytes for adding new record.</td>
+ <td>
+  <em>iLockFunction</em><br>
+   <li>XB_LOCK<br>
+   <li>XB_UNLOCK
+ </td>
+</tr>
+<tr><td>virtual xbInt16 LockHeader( xbInt16 iLockFunction )</td><td>Lock table header bytes for updating table.</td>
+ <td>
+  <em>iLockFunction</em><br>
+   <li>XB_LOCK<br>
+   <li>XB_UNLOCK
+ </td>
+</tr>
+<tr><td>virtual xbInt16 LockMemo( xbInt16 iLockFunction )</td><td>Lock memo table for update.
+ <td>
+  <em>iLockFunction</em><br>
+   <li>XB_LOCK<br>
+   <li>XB_UNLOCK
+ </td>
+</tr>
+<tr><td>virtual xbBool  GetMemoLocked() const</td><td>Returns the memo lock status.</td></tr>
+
+<tr><td>virtual xbInt16 LockIndices( xbInt16 iLockFunction )</td><td>Lock indices for update.</td>
+ <td>
+  <em>iLockFunction</em><br>
+   <li>XB_LOCK<br>
+   <li>XB_UNLOCK
+ </td>
+</tr>
+<tr><td>xbInt16 GetAutoLock() const</td><td>Retrieve current auto lock status.</td></tr>
+
+<tr><td>void SetAutoLock( xbInt16 iAutoLock )</td><td>Set autolock status for table</td>
+ <td>
+  <em>iAutoLock</em><br>
+   <li>1 - Use auto lock for this table.<br>
+   <li>0 - Don't use auto lock for this table.<br>
+   <li>-1 - (minus one) Use system default.
+ </td>
+</tr>
+
+<tr><td>xbInt16 GetLockFlavor() const</td><td>Always returns 1.  Included for potential future alternative locking schemes.</td></tr>
+<tr><td>void SetLockFlavor( xbInt16 iLockFlavor )</td><td>For future use. Included for potential future alternative locking schemes.</td></tr>
+<tr><td>xbBool GetTableLocked() const</td><td>Returns Table Locked status.</td></tr>
+<tr><td>xbBool GetHeaderLocked() const</td><td>Returns Header Locked Status.</td></tr>
+<tr><td>xbUInt32 GetAppendLocked() const</td><td>Returns Append Bytes locked status.</td></tr>
+<tr><td>xbLinkListNode<xbUInt32> * GetFirstRecLock() const</td><td>Returns pointer to linked list of record locks.</td></tr>
+<tr><td>void DumpTableLockStatus() const</td><td>Dumps all lock information for debugging purposes.</td></tr>
+</table>
+
+
+
+<br><br><br>
+<h2>Index Methods</h2>
+<table border=1>
+<tr><th width=35%>Method</th><th width=35%>Description</th><th>Parms</th></tr>
+<tr><td> virtual xbInt16 CheckTagIntegrity( xbInt16 iTagOpt, xbInt16 iOutputOpt )</td><td>For debugging, check tag integrity.</td>
+ <td>
+  <em>iTagOpt</em><br>
+   <li>0 - Check current tag<br>
+   <li>1 - Check all tags<br>
+  <em>iOutputOpt</em><br>
+   <li>0 = stdout<br>
+   <li>1 = Syslog<br>
+   <li>2 = Both
+ </td>
+</tr>
+
+<tr><td> virtual xbInt16 CloseIndexFile( xbIx *pIx )</td><td>Close an index file.</td>
+ <td>
+  <em>pIx</em> Pointer to index file instance.
+</tr>
+
+<tr><td> virtual xbInt16 CreateTag( const xbString &sIxType, const xbString &sName, const xbString &sKey, const xbString &sFilter,
+               xbInt16 iDescending, xbInt16 iUnique, xbInt16 iOverLay, xbIx **xbIxOut, void **vpTagOut )</td>
+ <td>Create index tag</td>
+ <td>
+  <em>sIxType</em> Input - MDX or NDX<br>
+  <em>sName</em> Input - Tag Name<br>
+  <em>sKey</em> Input - Key Expression<br>
+  <em>sFilter</em> Input - Filter Expression (MDX only)<br>
+  <em>iDescending</em> Input - xbTrue for descending, xbFalse ascending<br>
+  <em>iUnique</em> Input - xbTrue for unique, xbFalse not unique<br>
+  <em>iOverlay</em> Input - xbTrue to overlay if existing file exists<br>
+  <em>**xbIxOut</em> Output - Pointer to ix instance<br>
+  <em>**vpTagOut</em> Output - Pointer to tag
+ </td>
+</tr>
+
+<tr><td> virtual xbInt16 DeleteTag( const xbString &sIxType, const xbString &sName )</td><td>Delete a tag.</td>
+ <td>
+  <em>sIxType</em> Input - MDX or NDX<br>
+  <em>sName</em> Input - Tag Name<br>
+  <em>sKey</em> Input - Key Expression
+ </td>
+</tr>
+
+<tr><td> virtual xbInt16 DeleteAllIndexFiles()</td><td>Delete all indices for table.</td></tr>
+
+<tr><td> virtual xbInt16 Find( xbString &sKey )</td><td>Find xbString key for current tag (assumes character index).</td>
+ <td>
+  <em>sKey</em> - String search key
+ </td>
+</tr>
+
+<tr><td> virtual xbInt16 Find( xbDate &dtKey )</td><td>Find xbDate key for current tag(assumes date index).</td>
+ <td>
+  <em>dtKey</em> - Date search key
+ </td>
+</tr>
+
+<tr><td> virtual xbInt16 Find( xbDouble &dKey )</td><td>Find numeric key for current tag (assumes numeric index).</td>
+ <td>
+  <em>dKey</em> - Nueric search key
+ </td>
+</tr>
+
+
+<tr><td> virtual xbInt16 Find(  xbIx *pIx, void *vpTag, xbString &sKey )</td><td>Find xbString key for tag (assumes character index).</td>
+ <td>
+  <em>pIx</em> - Pointer to index file object<br>
+  <em>vpTag</em> - Pointer to index tag<br>
+  <em>sKey</em> - String search key
+ </td>
+</tr>
+
+<tr><td> virtual xbInt16 Find(  xbIx *pIx, void *vpTag, xbDate &dtKey )</td><td>Find xbDate key for tag(assumes date index).</td>
+ <td>
+  <em>pIx</em> - Pointer to index file object<br>
+  <em>vpTag</em> - Pointer to index tag<br>
+  <em>dtKey</em> - Date search key
+ </td>
+</tr>
+
+<tr><td> virtual xbInt16 Find(  xbIx *pIx, void *vpTag, xbDouble &dKey )</td><td>Find numeric key for tag (assumes numeric index).</td>
+ <td>
+  <em>pIx</em> - Pointer to index file object<br>
+  <em>vpTag</em> - Pointer to index tag<br>
+  <em>dKey</em> - Nueric search key
+ </td>
+</tr>
+
+
+
+<tr><td> virtual xbIx *GetCurIx() const</td><td>Returns pointer to current index file.</td></tr>
+<tr><td> virtual void *GetCurTag() const</td><td>Returns pointer to current tag.</td></tr>
+
+<tr><td> virtual xInt16 GetTagPtrs( const xbString &sTagNameIn,  xbIx **pIxOut, void **pTagOut )</td>
+  <td>Return associated file pointer and tag pointer for a given tag name.</td>
+  <td>
+   <em>sTagNameIn</em> - Input parm, tag name</br>
+   <em>pIxOut</em> - Output pointer to tag file structure</br>
+   <em>pTagOut</em> - Output pointer to tag</br>
+   Returns one of XB_NO_ERROR or XB_INVALID_TAG
+  </td>
+</tr>
+
+
+<tr><td> virtual xbInt16 GetFirstKey()</td><td>Get the first key for the current tag, reposition current record.</td></tr>
+<tr><td> virtual xbInt16 GetNextKey()</td><td>Get the next key for the current tag, reposition current record.</td></tr>
+<tr><td> virtual xbInt16 GetPrevKey()</td><td>Get the previous key for the current tag, reposition current record.</td></tr>
+<tr><td> virtual xbInt16 GetLastKey()</td><td>Get the last key for the current tag, reposition current record.</td></tr>
+<tr><td> virtual xbInt16 GetFirstKey( xbIx *pIx, void *vpTag )</td><td>Get the first key for the given tag, reposition current record.</td></tr>
+<tr><td> virtual xbInt16 GetNextKey( xbIx *pIx, void *vpTag )</td><td>Get the next key for the given tag, reposition current record.</td></tr>
+<tr><td> virtual xbInt16 GetPrevKey( xbIx *pIx, void *vpTag )</td><td>Get the previous key for the given tag, reposition current record.</td></tr>
+<tr><td> virtual xbInt16 GetLastKey( xbIx *pIx, void *vpTag )</td><td>Get the last key for the given tag, reposition current record.</td></tr>
+
+<tr><td> virtual const xbString &GetCurIxType() const</td><td>Returns the current index type.</td></tr>
+<tr><td> virtual const xbString &GetCurTagName() const</td><td>Returns the current tag name.</td></tr>
+<tr><td> virtual xbIxList *GetIxList() const</td><td>Returns a pointer to list of open indices.</td></tr>
+<tr><td> virtual xbInt32 GetPhysicalIxCnt () const</td><td>Returns the count of open index files for the table.</td></tr>
+<tr><td> xbLinkListNode<xbTag *> *GetTagList   () const</td><td>Returns a pointer to a list of tags for the table.</td></tr>
+<tr><td> virtual xbInt16 OpenIndex( const xbString &sIxType, const xbString &sIndexName )</td>
+ <td>Open the index.<br>MDX index files are opened automatically.<br>NDX index files can be opened automatically.</td>
+ <td>
+  <em>sIxType</em><br>
+   <li>NDX<br>
+   <li>MDX<br>
+  <em>sIndexName</em> - index file name
+ </td>
+</tr>
+
+<tr><td> virtual xbInt16 Reindex( xbInt16 iTagOpt )</td><td>Reindex</td>
+ <td>
+  <em>iTagOpt</em><br>
+   <li>0 - Reindex current tag<br>
+   <li>1 - Reindex all tags
+ </td>
+</tr>
+
+<tr><td> virtual xbInt16 SetCurTag( const xbString &sTagName )</td><td>Set current tag.</td>
+ <td>
+  <em>sTagName</em> Tag name
+ </td>
+</tr>
+
+<tr><td> virtual void SetCurTag( const xbString &sIxType, xbIx *pIx, void *vpTag )</td><td>Set current tag.</td>
+ <td>
+  <em>sIxType</em><br>
+   <li>NDX<br>
+   <li>MDX<br>
+  <em>pIx</em> - Pointer to index object<br>
+  <em>vpTag</em> - Pointer to tag object
+ </td>
+</tr>
+
+<tr><td> virtual xbInt16 AssociateIndex( const xbString &sType, const xbString &sName, xbInt16 iOption )</td>
+ <td>Use this method to add an NDX index file name to an INF file.<br>
+     When a DBF file is opened, Xbase64 automatically opens NDX index files that are included in the appropriate INF file.
+     This is also used for ODBC compatibility with other xbase type tools.
+ </td>
+ <td>
+  <em>sIxType</em> Currently only NDX.<br> Future versions can support additional non prod index types.<br>
+  <em>sIxName</em> The index name.<br>
+  <em>iOpt</em><br>
+   <li>0 - Add index to .INF if not already there<br>
+   <li>1 - Remove index from .INF if it exists
+ </td>
+</tr>
+
+<tr><td> xbLinkListNode<xbString> *GetInfList() const</td><td>Returns list of INF file entries.</td></tr>
+</table>
+
+<br><br><br>
+<h2>Block Read Methods</h2>
+<table border=1>
+<tr><th>Method</th><th>Description</th></tr>
+<tr><td>xbInt16 DisableBlockReadProcessing()</td><td>Disable block read processing for table.
+<tr><td>xbInt16 EnableBlockReadProcessing()</td>
+ <td>Enable block read processing for table.<br>
+     This significantly speeds up processing speed if reading from the file sequentially.<br>
+     For random access, better performance will be achieved with block reading turned off.
+ </td>
+</tr>
+<tr><td>xbBool GetBlockReadStatus() const</td><td>Get block read status.</td></tr>
+</table>
+
+</center>
+
+
+
+<br><br>
+<hr>
+<p><img src="xbase.jpg"><br><hr>
+</BODY>
+</HTML>

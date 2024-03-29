@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['readblock_0',['ReadBlock',['../classxb_1_1xbFile.html#aef696b1c4c0ef5338e818599f695d485',1,'xb::xbFile::ReadBlock(xbUInt32 ulBlockNo, xbUInt32 ulBlockSize, size_t readSize, void *buf)'],['../classxb_1_1xbFile.html#aa1bb80340abc7a5c22f87f878e9dc825',1,'xb::xbFile::ReadBlock(xbUInt32 ulBlockNo, size_t readSize, void *buf)']]],
+  ['readheader_1',['ReadHeader',['../classxb_1_1xbDbf.html#a060541addb5bb1f0fe12959ed6f66fb9',1,'xb::xbDbf']]],
+  ['recbuf_2',['RecBuf',['../classxb_1_1xbDbf.html#a8a9b3bce0b741e73473d3ebbd6e6f1cd',1,'xb::xbDbf']]],
+  ['recbuf2_3',['RecBuf2',['../classxb_1_1xbDbf.html#a353ebfc8a2960ef827f429ec74025606',1,'xb::xbDbf']]],
+  ['recorddeleted_4',['RecordDeleted',['../classxb_1_1xbDbf.html#a94d7d626ba691fd4b740c034673e6fc6',1,'xb::xbDbf']]],
+  ['relkeysearch_5',['RelKeySearch',['../classxb_1_1xbRelate.html#a1511ee7484219c00998c3e592dcacb13',1,'xb::xbRelate']]],
+  ['remove_6',['Remove',['../classxb_1_1xbString.html#afaac65eaa6d9ef1596d6a0e7b91ed0f2',1,'xb::xbString']]],
+  ['removetblfromtbllist_7',['RemoveTblFromTblList',['../classxb_1_1xbTblMgr.html#ac8eaef41acf08911b90f900aac8e70af',1,'xb::xbTblMgr::RemoveTblFromTblList(const xbString &amp;sTblAlias)'],['../classxb_1_1xbTblMgr.html#a3d82b6e73d5c0bc8cac22b9a260389c1',1,'xb::xbTblMgr::RemoveTblFromTblList(xbDbf *d)']]],
+  ['rename_8',['Rename',['../classxb_1_1xbDbf.html#aeeeb2eb5fabcd0f91d457df07b0e0708',1,'xb::xbDbf']]],
+  ['replace_9',['Replace',['../classxb_1_1xbString.html#ac721d643c60b5c5acf60c2bce99596fa',1,'xb::xbString']]],
+  ['resize_10',['Resize',['../classxb_1_1xbString.html#aa6d346ab04e5bb8852f0bb996163a35e',1,'xb::xbString']]],
+  ['rl0schema_11',['RL0Schema',['../xb__test__relate1_8cpp.html#a219809fae250d03f699e6eb88a32a9e9',1,'xb_test_relate1.cpp']]],
+  ['rl1dupkeysschema_12',['RL1DupKeysSchema',['../xb__test__relate1_8cpp.html#ac6dd21119fcea591b02ff9925a4482b1',1,'xb_test_relate1.cpp']]],
+  ['rl1mfmlschema_13',['RL1MfmlSchema',['../xb__test__relate1_8cpp.html#ab5bea2d23c1c7277db665b892716c83f',1,'xb_test_relate1.cpp']]],
+  ['rl1mtchschema_14',['RL1MtchSchema',['../xb__test__relate1_8cpp.html#adf953c4d13fd8fbb250f021c51ee8eb3',1,'xb_test_relate1.cpp']]],
+  ['rl2mtchschema_15',['RL2MtchSchema',['../xb__test__relate1_8cpp.html#a89ebe66a733c98caa40b4d9f602e792d',1,'xb_test_relate1.cpp']]],
+  ['rlmaster_16',['RlMaster',['../xb__ex__relation_8cpp.html#a0d1bc4ab36c751801c6636f45fb6dca9',1,'xb_ex_relation.cpp']]],
+  ['rlslave1_17',['RlSlave1',['../xb__ex__relation_8cpp.html#abf53e88acb25b15805c9227277458de8',1,'xb_ex_relation.cpp']]],
+  ['rlslave2_18',['RlSlave2',['../xb__ex__relation_8cpp.html#aa3fcfbc11c108b9ff0eb0a6c8da601e2',1,'xb_ex_relation.cpp']]],
+  ['rlslave3_19',['RlSlave3',['../xb__ex__relation_8cpp.html#a0983830b5f2c53e44b359f14e607a13d',1,'xb_ex_relation.cpp']]],
+  ['rlxemptyschema_20',['RLxEmptySchema',['../xb__test__relate1_8cpp.html#a6430b4b09f845a4464f2b1d271d99c34',1,'xb_test_relate1.cpp']]],
+  ['rtrim_21',['Rtrim',['../classxb_1_1xbString.html#aaf330188d67c347ecae0d16f65b22077',1,'xb::xbString']]]
+];

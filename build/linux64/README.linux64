@@ -1,0 +1,22 @@
+
+3/26/23
+
+Install steps for Xbase64 on a linux 64 bit platform.
+
+1)  Verify cmake is installed with command:  cmake --version
+    If it is not installed, take necessary steps to install it.
+
+2)  Verify gcc is intalled with the command:  gcc --version
+    If it is not installed, take necessary steps to install it.
+
+3)  Build xbase64 library
+
+      cd build/linux64     (go to the appropriate build directory)
+      cmake .              (configure for your environment)
+      make                 (compile it)
+      make test            (test library build)
+      sudo make install    (install it)
+      xb_cfg_chk           (test install)
+
+
+

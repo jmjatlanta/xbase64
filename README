@@ -1,0 +1,56 @@
+                             Xbase64 Version 4.1.7
+                                  01/20/24
+
+
+WHAT IS IT?
+-----------
+
+Xbase64 is an xbase (i.e. dBase, FoxPro, etc.) compatible C++ class library 
+originally by Gary Kunkel and others (see the AUTHORS file).
+
+Xbase64 is useful for accessing data in legacy dBase 3 and 4 database files as
+well as a general light weight database engine.  It includes support for
+DBF (dBase version 3 and 4) data files, NDX and MDX indices and DBT (dBase version 3 and 4).
+It supports file and record locking under *nix and Windows.
+
+Xbase64 is designed from the ground up to compile and run on any platform with a C++ compiler.
+
+
+DIRECTORY LAYOUT
+----------------
+
+  /build/borland5.5	Build library for Borland 5.5 environment
+  /build/debian		Build library for Debian environment
+  /build/linux32	Build library for Linux 32 bit environment (tested on Slackware)
+  /build/linux64	Build library for Linux 64 bit environment (tested on Slackware)
+  /build/mac64		Build library for Mac 64 bit environment
+  /build/mingw		Build library for mingw bit environment
+  /build/win32vs	Build library for Windows 32 bit Visual Studio environment
+  /build/win64vs	Build library for Windows 64 bit Visual Studio environment
+
+  /data			Folder for database files
+  /docs			Library documentation
+  /logs			Log files
+  /sql			SQL files
+  /src			Library source code
+  /temp			Folder for temp files
+
+
+
+Starting point
+--------------
+
+1)	For Linux/Unix environment, download the latest gz file and execute the following
+	gunzip xbase64_x.y.z.tar.gz
+	tar -cvf xbase64_x.y.z
+	
+2)	For Windows environment, download the lates zip file and unzip it
+
+3)	Point your browser to - docs/html/index.html
+
+
+
+
+Please email comments, bug reports, and patches to xdb-dev@lists.sourceforge.net
+
+

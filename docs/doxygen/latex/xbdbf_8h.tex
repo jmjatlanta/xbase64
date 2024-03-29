@@ -1,0 +1,196 @@
+\hypertarget{xbdbf_8h}{}\doxysection{/mnt/1\+Tdata/xbase/xbase64-\/4.1.7/src/include/xbdbf.h File Reference}
+\label{xbdbf_8h}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbdbf.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbdbf.h}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structxb_1_1xbSchema}{xb\+::xb\+Schema}}
+\begin{DoxyCompactList}\small\item\em Schema used for defining tables with Create\+Table methods. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+::xb\+Dbf}}
+\begin{DoxyCompactList}\small\item\em Base class for handling dbf files/tables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacexb}{xb}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a20f739b9d9dc6a002a246a999e76aeaa}{XB\+\_\+\+CHAR\+\_\+\+FLD}}~\textquotesingle{}C\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a2f6d5073af761bc1a806a2c7b1c1d886}{XB\+\_\+\+LOGICAL\+\_\+\+FLD}}~\textquotesingle{}L\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_ae9fb6d69cc5edc94d36ae403c22ec1c6}{XB\+\_\+\+NUMERIC\+\_\+\+FLD}}~\textquotesingle{}N\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a7f685e6f5fe804b2174725a27ce73adc}{XB\+\_\+\+DATE\+\_\+\+FLD}}~\textquotesingle{}D\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a23fa19b19cb43bd6dcc59a5a3f6c30ad}{XB\+\_\+\+MEMO\+\_\+\+FLD}}~\textquotesingle{}M\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a96ab4218d70ab603b4866354ce8c18cd}{XB\+\_\+\+FLOAT\+\_\+\+FLD}}~\textquotesingle{}F\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a843ca4569326dbd1d0647899b0eb512f}{XB\+\_\+\+CLOSED}}~0
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a9a6dafbb07cac744eb14094efa739409}{XB\+\_\+\+OPEN}}~1
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a26e7eeda69f32bc88b08a208ca9e7991}{XB\+\_\+\+UPDATED}}~2
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a395a2e101a793bacabf6bc079d178e29}{XB\+\_\+\+LOCK}}~0
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a21389b73e7b4e7e185fa635b9e354c2e}{XB\+\_\+\+UNLOCK}}~1
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a4c08d01bd69e295b001bd00a228d8106}{LK\+\_\+\+DBASE}}~1
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a01d6d7910b0da2170eb904a97d864a41}{LK\+\_\+\+CLIPPER}}~2
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a65e29186276222f460a7171803e07adf}{LK\+\_\+\+FOX}}~3
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a42aea0ccd94f7422c8e0d7422dce85a4}{LK\+\_\+\+XBASE64}}~9
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a8bd17730da3ba5c55a6a07bc482dd0e4}{XB\+\_\+\+ALL\+\_\+\+RECS}}~0
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\+\_\+\+ACTIVE\+\_\+\+RECS}}~1
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_acc0a441854ed92b9d65d1181a97cad43}{XB\+\_\+\+DELETED\+\_\+\+RECS}}~2
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a6fe10b307878b4612b04c2c876a4a592}{XB\+\_\+\+OVERLAY}}~1
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a7b797840abdb3291373d15978103a778}{XB\+\_\+\+DONTOVERLAY}}~0
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_ada1115f596131888c04df61546b198c4}{XB\+\_\+\+CHAREOF}}~\textquotesingle{}\textbackslash{}x1A\textquotesingle{}         /$\ast$ end of DBF        $\ast$/
+\item 
+\#define \mbox{\hyperlink{xbdbf_8h_a35d56cac7959c1e5c761684ced3f1e17}{XB\+\_\+\+CHARHDR}}~\textquotesingle{}\textbackslash{}x0D\textquotesingle{}         /$\ast$ header terminator $\ast$/
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{xbdbf_8h_a01d6d7910b0da2170eb904a97d864a41}\label{xbdbf_8h_a01d6d7910b0da2170eb904a97d864a41}} 
+\index{xbdbf.h@{xbdbf.h}!LK\_CLIPPER@{LK\_CLIPPER}}
+\index{LK\_CLIPPER@{LK\_CLIPPER}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{LK\_CLIPPER}{LK\_CLIPPER}}
+{\footnotesize\ttfamily \#define LK\+\_\+\+CLIPPER~2}
+
+\mbox{\Hypertarget{xbdbf_8h_a4c08d01bd69e295b001bd00a228d8106}\label{xbdbf_8h_a4c08d01bd69e295b001bd00a228d8106}} 
+\index{xbdbf.h@{xbdbf.h}!LK\_DBASE@{LK\_DBASE}}
+\index{LK\_DBASE@{LK\_DBASE}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{LK\_DBASE}{LK\_DBASE}}
+{\footnotesize\ttfamily \#define LK\+\_\+\+DBASE~1}
+
+\mbox{\Hypertarget{xbdbf_8h_a65e29186276222f460a7171803e07adf}\label{xbdbf_8h_a65e29186276222f460a7171803e07adf}} 
+\index{xbdbf.h@{xbdbf.h}!LK\_FOX@{LK\_FOX}}
+\index{LK\_FOX@{LK\_FOX}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{LK\_FOX}{LK\_FOX}}
+{\footnotesize\ttfamily \#define LK\+\_\+\+FOX~3}
+
+\mbox{\Hypertarget{xbdbf_8h_a42aea0ccd94f7422c8e0d7422dce85a4}\label{xbdbf_8h_a42aea0ccd94f7422c8e0d7422dce85a4}} 
+\index{xbdbf.h@{xbdbf.h}!LK\_XBASE64@{LK\_XBASE64}}
+\index{LK\_XBASE64@{LK\_XBASE64}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{LK\_XBASE64}{LK\_XBASE64}}
+{\footnotesize\ttfamily \#define LK\+\_\+\+XBASE64~9}
+
+\mbox{\Hypertarget{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}\label{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_ACTIVE\_RECS@{XB\_ACTIVE\_RECS}}
+\index{XB\_ACTIVE\_RECS@{XB\_ACTIVE\_RECS}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_ACTIVE\_RECS}{XB\_ACTIVE\_RECS}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+ACTIVE\+\_\+\+RECS~1}
+
+\mbox{\Hypertarget{xbdbf_8h_a8bd17730da3ba5c55a6a07bc482dd0e4}\label{xbdbf_8h_a8bd17730da3ba5c55a6a07bc482dd0e4}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_ALL\_RECS@{XB\_ALL\_RECS}}
+\index{XB\_ALL\_RECS@{XB\_ALL\_RECS}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_ALL\_RECS}{XB\_ALL\_RECS}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+ALL\+\_\+\+RECS~0}
+
+\mbox{\Hypertarget{xbdbf_8h_a20f739b9d9dc6a002a246a999e76aeaa}\label{xbdbf_8h_a20f739b9d9dc6a002a246a999e76aeaa}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_CHAR\_FLD@{XB\_CHAR\_FLD}}
+\index{XB\_CHAR\_FLD@{XB\_CHAR\_FLD}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_CHAR\_FLD}{XB\_CHAR\_FLD}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+CHAR\+\_\+\+FLD~\textquotesingle{}C\textquotesingle{}}
+
+\mbox{\Hypertarget{xbdbf_8h_ada1115f596131888c04df61546b198c4}\label{xbdbf_8h_ada1115f596131888c04df61546b198c4}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_CHAREOF@{XB\_CHAREOF}}
+\index{XB\_CHAREOF@{XB\_CHAREOF}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_CHAREOF}{XB\_CHAREOF}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+CHAREOF~\textquotesingle{}\textbackslash{}x1A\textquotesingle{}         /$\ast$ end of DBF        $\ast$/}
+
+\mbox{\Hypertarget{xbdbf_8h_a35d56cac7959c1e5c761684ced3f1e17}\label{xbdbf_8h_a35d56cac7959c1e5c761684ced3f1e17}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_CHARHDR@{XB\_CHARHDR}}
+\index{XB\_CHARHDR@{XB\_CHARHDR}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_CHARHDR}{XB\_CHARHDR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+CHARHDR~\textquotesingle{}\textbackslash{}x0D\textquotesingle{}         /$\ast$ header terminator $\ast$/}
+
+\mbox{\Hypertarget{xbdbf_8h_a843ca4569326dbd1d0647899b0eb512f}\label{xbdbf_8h_a843ca4569326dbd1d0647899b0eb512f}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_CLOSED@{XB\_CLOSED}}
+\index{XB\_CLOSED@{XB\_CLOSED}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_CLOSED}{XB\_CLOSED}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+CLOSED~0}
+
+\mbox{\Hypertarget{xbdbf_8h_a7f685e6f5fe804b2174725a27ce73adc}\label{xbdbf_8h_a7f685e6f5fe804b2174725a27ce73adc}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_DATE\_FLD@{XB\_DATE\_FLD}}
+\index{XB\_DATE\_FLD@{XB\_DATE\_FLD}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_DATE\_FLD}{XB\_DATE\_FLD}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+DATE\+\_\+\+FLD~\textquotesingle{}D\textquotesingle{}}
+
+\mbox{\Hypertarget{xbdbf_8h_acc0a441854ed92b9d65d1181a97cad43}\label{xbdbf_8h_acc0a441854ed92b9d65d1181a97cad43}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_DELETED\_RECS@{XB\_DELETED\_RECS}}
+\index{XB\_DELETED\_RECS@{XB\_DELETED\_RECS}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_DELETED\_RECS}{XB\_DELETED\_RECS}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+DELETED\+\_\+\+RECS~2}
+
+\mbox{\Hypertarget{xbdbf_8h_a7b797840abdb3291373d15978103a778}\label{xbdbf_8h_a7b797840abdb3291373d15978103a778}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_DONTOVERLAY@{XB\_DONTOVERLAY}}
+\index{XB\_DONTOVERLAY@{XB\_DONTOVERLAY}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_DONTOVERLAY}{XB\_DONTOVERLAY}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+DONTOVERLAY~0}
+
+\mbox{\Hypertarget{xbdbf_8h_a96ab4218d70ab603b4866354ce8c18cd}\label{xbdbf_8h_a96ab4218d70ab603b4866354ce8c18cd}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_FLOAT\_FLD@{XB\_FLOAT\_FLD}}
+\index{XB\_FLOAT\_FLD@{XB\_FLOAT\_FLD}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_FLOAT\_FLD}{XB\_FLOAT\_FLD}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+FLOAT\+\_\+\+FLD~\textquotesingle{}F\textquotesingle{}}
+
+\mbox{\Hypertarget{xbdbf_8h_a395a2e101a793bacabf6bc079d178e29}\label{xbdbf_8h_a395a2e101a793bacabf6bc079d178e29}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_LOCK@{XB\_LOCK}}
+\index{XB\_LOCK@{XB\_LOCK}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_LOCK}{XB\_LOCK}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+LOCK~0}
+
+\mbox{\Hypertarget{xbdbf_8h_a2f6d5073af761bc1a806a2c7b1c1d886}\label{xbdbf_8h_a2f6d5073af761bc1a806a2c7b1c1d886}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_LOGICAL\_FLD@{XB\_LOGICAL\_FLD}}
+\index{XB\_LOGICAL\_FLD@{XB\_LOGICAL\_FLD}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_LOGICAL\_FLD}{XB\_LOGICAL\_FLD}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+LOGICAL\+\_\+\+FLD~\textquotesingle{}L\textquotesingle{}}
+
+\mbox{\Hypertarget{xbdbf_8h_a23fa19b19cb43bd6dcc59a5a3f6c30ad}\label{xbdbf_8h_a23fa19b19cb43bd6dcc59a5a3f6c30ad}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_MEMO\_FLD@{XB\_MEMO\_FLD}}
+\index{XB\_MEMO\_FLD@{XB\_MEMO\_FLD}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_MEMO\_FLD}{XB\_MEMO\_FLD}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+MEMO\+\_\+\+FLD~\textquotesingle{}M\textquotesingle{}}
+
+\mbox{\Hypertarget{xbdbf_8h_ae9fb6d69cc5edc94d36ae403c22ec1c6}\label{xbdbf_8h_ae9fb6d69cc5edc94d36ae403c22ec1c6}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_NUMERIC\_FLD@{XB\_NUMERIC\_FLD}}
+\index{XB\_NUMERIC\_FLD@{XB\_NUMERIC\_FLD}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_NUMERIC\_FLD}{XB\_NUMERIC\_FLD}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+NUMERIC\+\_\+\+FLD~\textquotesingle{}N\textquotesingle{}}
+
+\mbox{\Hypertarget{xbdbf_8h_a9a6dafbb07cac744eb14094efa739409}\label{xbdbf_8h_a9a6dafbb07cac744eb14094efa739409}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_OPEN@{XB\_OPEN}}
+\index{XB\_OPEN@{XB\_OPEN}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_OPEN}{XB\_OPEN}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+OPEN~1}
+
+\mbox{\Hypertarget{xbdbf_8h_a6fe10b307878b4612b04c2c876a4a592}\label{xbdbf_8h_a6fe10b307878b4612b04c2c876a4a592}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_OVERLAY@{XB\_OVERLAY}}
+\index{XB\_OVERLAY@{XB\_OVERLAY}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_OVERLAY}{XB\_OVERLAY}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+OVERLAY~1}
+
+\mbox{\Hypertarget{xbdbf_8h_a21389b73e7b4e7e185fa635b9e354c2e}\label{xbdbf_8h_a21389b73e7b4e7e185fa635b9e354c2e}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_UNLOCK@{XB\_UNLOCK}}
+\index{XB\_UNLOCK@{XB\_UNLOCK}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_UNLOCK}{XB\_UNLOCK}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+UNLOCK~1}
+
+\mbox{\Hypertarget{xbdbf_8h_a26e7eeda69f32bc88b08a208ca9e7991}\label{xbdbf_8h_a26e7eeda69f32bc88b08a208ca9e7991}} 
+\index{xbdbf.h@{xbdbf.h}!XB\_UPDATED@{XB\_UPDATED}}
+\index{XB\_UPDATED@{XB\_UPDATED}!xbdbf.h@{xbdbf.h}}
+\doxysubsubsection{\texorpdfstring{XB\_UPDATED}{XB\_UPDATED}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+UPDATED~2}
+

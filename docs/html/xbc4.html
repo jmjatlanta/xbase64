@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC>
+<html>
+<title>Xbase64 DBMS Chapter 4</title>
+<body bgcolor=#FFFFFF>
+<h1><p align="center">Expression Handling<br></h1>
+<p align="center">Chapter Updated 11/21/23</p><hr>
+
+<h3>Overview</h3>
+
+The main objective of this chapter is to provide information regarding the
+basic concepts of using the Xbase64 Expression module.<br><br>
+
+The Xbase64 library includes an expression parsing routine which assists 
+application programmers by providing a high level data manipulation tool and 
+also allows for building complex index keys.
+
+The functions included were derived from dBASE III Plus, dBASE IV and Clipper.
+<br><br>
+Expressions are primarily used for index key definitions and filter criteria, but
+can also be used for other tasks as well.
+<br><br>
+
+<h3>Internal fuctioning</h3>
+The expression module works in two phases.  Firstly, method 
+<em>ParseExpression</em> is called and builds an expression tree from 
+all the components of the expression. The tree is made up of individual 
+nodes. The expression is checked for valid field names, literals, 
+operands and functions.  Any field references are resolved.  If fields 
+are used in an expression and the database name for the field is not 
+included in the name with the -> operand, the routines assume the 
+associated database has been successfully opened. 
+<br><br>
+Secondly, method <em>ProcessExpression</em> is called to process the 
+expression tree created by ParseExpression().  The routine parses each 
+node in the expression tree, executing functions, processing operands 
+and manipulating data to produce the desired result.<br><br>
+
+If an expression will be processed repeatedly, it is best to pre-parse the
+tree using <em>ParseExpression</em>, then for each new call to the expression, 
+execute method <em>ProcessExpression</em> which processes the tree. 
+
+<h3>Expression Return Types</h3>
+Expressions will return a type of CHAR, NUMERIC, DATE or LOGICAL.<br><br> 
+
+An expression return type can be determined with method <em>
+GetExpressionResultType</em> after parsing it.<br><br>
+
+Expressions returning a return type of CHAR are limited to a 200 byte internal 
+buffer.  There is also a 100 byte limit for NDX and MDX index key support.  If 
+the 200 byte limit is not large enough for your application, adjust field
+<em>enum { WorkBufMaxLen = 200 };</em> in file <em>exp.h</em>.
+
+<br><br>
+<table border=1>
+<tr><th>Return Type</th><th>XBase Type</th></tr>
+<tr><td>CHAR</td><td>xbString</td></tr>
+<tr><td>NUMERIC</td><td>xbDouble</td></tr>
+<tr><td>DATE</td><td>xbDate</td></tr>
+<tr><td>LOGICAL</td><td>xbBool</td></tr>
+</table>
+
+<br><br>
+Date routines return an xbDate result. In addition, the date value can be 
+extracted using GetStringResult() which returns YYYYMMDD or GetDoubleResult() 
+which returns a julian value.
+
+<br><br>
+<h3>Expression Functions</h3>
+Each expression function also has a corresponding C++ function.  It is
+slightly more efficient to call the C++ functions directly, rather than 
+execute the expression parsing routines.<br><br>
+
+To add a new function, find a function that is similar to what you need, copy
+the code and modify xbxbase.h, xbfuncs.cpp, xbexp.cpp and xb_test_expression.cpp.<br><br>
+
+
+<table border=1>
+<tr><th>Function Name</th><th>Return Type</th><th>Description</th></tr>
+<tr><td>ABS</td><td>N</td><td>Calculate absolute value of numeric expression</td></tr>
+<tr><td>ALLTRIM</td><td>C</td><td>Trim leading andtrailing whitespace from a string</td></tr>
+<tr><td>ASC</td><td>N</td><td>Return ASCII code for first character in a string</td></tr>
+<tr><td>AT</td><td>N</td><td>Return starting position of a string within a string</td></tr>
+<tr><td>CDOW</td><td>C</td><td>Retun character weekday name for a date</td></tr>
+<tr><td>CHR</td><td>C</td><td>Convert numeric expression to a character</td></tr>
+<tr><td>CMONTH</td><td>C</td><td>Return month name for a date</td></tr>
+<tr><td>CTOD</td><td>D</td><td>Return date from a character date input</td></tr>
+<tr><td>DATE</td><td>D</td><td>Return system date</td></tr>
+<tr><td>DAY</td><td>N</td><td>Return the day of the month from a date</td></tr>
+<tr><td>DEL</td><td>C</td><td>Return record deletion status for a record</td></tr>
+<tr><td>DELETED</td><td>L</td><td>Return record deletion status for a record<</td></tr>
+<tr><td>DESCEND</td><td>1</td><td>Clipper DESCEND function</td></tr>
+<tr><td>DOW</td><td>N</td><td>Return number of day of week</td></tr>
+<tr><td>DTOC</td><td>C</td><td>Return character date from input date</td></tr>
+<tr><td>DTOS</td><td>C</td><td>Return character CCYYMMDD date from input date</td></tr>
+<tr><td>EXP</td><td>N</td><td>Return exponent value</td></tr>
+<tr><td>IIF</td><td>C</td><td>Immediate If</td></tr>
+<tr><td>INT</td><td>N</td><td>Convert number to integer, truncate any decimals</td></tr>
+<tr><td>ISALPHA</td><td>L</td><td>Check if string begins with alpha character</td></tr>
+<tr><td>ISLOWER</td><td>L</td><td>Check if string begins with lower case alpha character</td></tr>
+<tr><td>ISUPPER</td><td>L</td><td>Check if string begins with upper case character</td></tr>
+<tr><td>LEFT</td><td>C</td><td>Return left characters from a string</td></tr>
+<tr><td>LEN</td><td>N</td><td>Return lenght of string</td></tr>
+<tr><td>LOG</td><td>N</td><td>Calculate logarithm</td></tr>
+<tr><td>LOWER</td><td>C</td><td>Convert upper case to lower case</td></tr>
+<tr><td>LTRIM</td><td>C</td><td>Trim left side of a string</td></tr>
+<tr><td>MAX</td><td>N</td><td>Return higher of two values</td></tr>
+<tr><td>MIN</td><td>N</td><td>Return lesser of two values</td></tr>
+<tr><td>MONTH</td><td>N</td><td>Return number of month for a given date</td></tr>
+<tr><td>RECNO</td><td>N</td><td>Return current rec number for a given table</td></tr>
+<tr><td>RECCOUNT</td><td>N</td><td>Return number of records in a given table</td></tr>
+<tr><td>REPLICATE</td><td>C</td><td>Repeat character expression N times</td></tr>
+<tr><td>RIGHT</td><td>C</td><td>Return right characters from as tring</td></tr>
+<tr><td>RTRIM</td><td>C</td><td>Trim right side of string</td></tr>
+<tr><td>SPACE</td><td>C</td><td>Generate a string of N spaces</td></tr>
+<tr><td>SQRT</td><td>N</td><td>Calculate square root</td></tr>
+<tr><td>STOD</td><td>D</td><td>Convert 8 byte CCYYMMDD date to date</td></tr>
+<tr><td>STR</td><td>C</td><td>Convert number to character string</td></tr>
+<tr><td>STRZERO</td><td>C</td><td>Convert number to character string with leading zeroes. Clipper Function.</td></tr>
+<tr><td>SUBSTR</td><td>C</td><td>Extract portion oif one string from another string</td></tr>
+<tr><td>TRIM</td><td>C</td><td>Trim left and right sides of a string</td></tr>
+<tr><td>UPPER</td><td>C</td><td>Conver lower case to upper case</td></tr>
+<tr><td>VAL</td><td>N</td><td>Convert numeric characters to number</td></tr>
+<tr><td>YEAR</td><td>N</td><td>Return year for a given date</td></tr>
+</table>
+
+<br><br>
+<h3>Expression Components</h3>
+Expressions are made up of one or more tokens.  A token is one of literal, 
+database field, operand or function.  Literals are either numeric or character.
+Character literals are enclosed in 'single' or "double" quotes.  numeric 
+literals are a series of one or more contiguous numerals, ".", "+" or "-'".
+<br><br>
+A field is simply a field name in the default database, or is in the form
+of database->fieldname.  
+
+
+<br><br>
+<h3>Expression Literals</h3>
+
+<table border=1>
+<tr><th>Type</th><th>Example</th></tr>
+<tr><td>CHAR</td><td>"literal" or 'literal'</td></tr>
+<tr><td>NUMERIC</td><td>+99999.99</td></tr>
+<tr><td>DATE</td><td>{10/07/60} or {02/09/1989}</td></tr>
+</table>
+
+<br><br>
+<h3>Expression Operators</h3>
+<table border=1>
+<tr><th>Type</th><th>Operator</th><th>Precedence</th><th>Result</th><th>Notes</th></tr>
+<tr><td>Parens</td><td>()</td><td>12</td></tr>
+<tr><td>Numeric Operator</td><td>+ (unary)</td><td>11</td><td>N</td></tr>
+<tr><td>Numeric Operator</td><td>- (unary)</td><td>11</td><td>N</td></tr>
+<tr><td>Numeric Operator</td><td>--X</td><td>10</td><td>N</td></tr>
+<tr><td>Numeric Operator</td><td>++X</td><td>10</td><td>N</td></tr>
+<tr><td>Numeric Operator</td><td>**</td><td>9</td><td>N</td></tr>
+<tr><td>Numeric Operator</td><td>^</td><td>9</td><td>N</td></tr>
+<tr><td>Numeric Operator</td><td>%</td><td>8</td><td>N</td></tr>
+<tr><td>Numeric Operator</td><td>*</td><td>8</td><td>N</td></tr>
+<tr><td>Numeric Operator</td><td>/</td><td>8</td><td>N</td></tr>
+<tr><td>Numeric Operator</td><td>+ Addition</td><td>7</td><td>N</td></tr>
+<tr><td>Numeric Operator</td><td>- Subtraction</td><td>7</td><td>N</td></tr>
+<tr><td>Numeric Operator</td><td>X--</td><td>6</td><td>N</td></tr>
+<tr><td>Numeric Operator</td><td>X++</td><td>6</td><td>N</td></tr>
+<tr></tr>
+<tr><td>String Operator</td><td>+</td><td>5</td><td>C</td><td>Concatonate 1</td></tr>
+<tr><td>String Operator</td><td>-</td><td>5</td><td>C</td><td>Concatonate 2</td></tr>
+<tr></tr>
+<tr><td>Relational Operator</td><td>=</td><td>4</td><td>L</td><td>N,C,D</td></tr>
+<tr><td>Relational Operator</td><td>#, <>, !=</td><td>4</td><td?L</td><td>N,C,D</td></tr>
+<tr><td>Relational Operator</td><td><</td><td>4</td><td>L</td><td>N,C,D</td></tr>
+<tr><td>Relational Operator</td><td>></td><td>4</td><td>L</td><td>N,C,D</td></tr>
+<tr><td>Relational Operator</td><td><=</td><td>4</td><td>L</td><td>N,C,D</td></tr>
+<tr><td>Relational Operator</td><td>>=</td><td>4</td><td>L</td><td>N,C,D</td></tr>
+<tr><td>Relational Operator</td><td>$</td><td>4</td><td>L</td><td>N,C,D</td></tr>
+<tr><td>Relational Operator</td><td>==</td><td></td><td></td><td>Clipper operator, not implemented yet</td></tr>
+<tr></tr>
+<tr><td>Logical Operator</td><td>NOT</td><td>3</td><td>L</td><td>Evaluated after all math and relational operators</td></tr>
+<tr><td>Logical Operator</td><td>.NOT.</td><td>3</td><td>L</td><td>Evaluated after all math and relational operators</td></tr>
+<tr><td>Logical Operator</td><td>AND</td><td>2</td><td>L</td><td>Evaluated after all math and relational operators</td></tr>
+<tr><td>Logical Operator</td><td>.AND.</td><td>2</td><td>L</td><td>Evaluated after all math and relational operators</td></tr>
+<tr><td>Logical Operator</td><td>OR</td><td>1</td><td>L</td><td>Evaluated after all math and relational operators</td></tr>
+<tr><td>Logical Operator</td><td>.OR.</td><td>1</td><td>L</td><td>Evaluated after all math and relational operators</td></tr>
+</table>
+
+<br><br>
+<h3>Example Expressions</h3>
+<li>CUSTOMERS->LNAME + ", " + CUSTOMERS->FNAME
+<li>LNAME + ", " + FNAME
+<li>STARTDT + 90
+<li>DATE() - 7
+<li>YEAR( TODAY() )
+<li>IIF( "A" = "N", "true result", "false result" )
+<li>IIF( "A" = "N" .OR. 2 > 1 , "true result", "false result" )
+<li>IIF( .NOT. "A" = "N", "true result", "false result" )
+<li>.NOT. DELETED()
+<br><br>
+
+
+<h3>Example program</h3>
+For an example on how to use the expression logic, see program 
+<em>src/examples/xb_ex_expression.cpp</em>.
+<br><br>
+
+<hr>
+<p><img src="xbase.jpg"><br><hr>
+</BODY>
+</HTML>
