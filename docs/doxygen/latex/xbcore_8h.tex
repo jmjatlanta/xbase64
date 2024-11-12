@@ -1,0 +1,49 @@
+\hypertarget{xbcore_8h}{}\doxysection{/mnt/1\+Tdata/xbase/xbase64-\/4.1.11/src/include/xbcore.h File Reference}
+\label{xbcore_8h}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbcore.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbcore.h}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classxb_1_1xbCore}{xb\+::xb\+Core}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacexb}{xb}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{xbcore_8h_aa36b5d6bf6a868e143f04081c90b4ea7}{XB\+\_\+\+IX\+\_\+\+DBASE\+\_\+\+MODE}}~0
+\begin{DoxyCompactList}\small\item\em Class for handling shared system variables. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{xbcore_8h_a5af68d3aa747ae73e28bf1ccc6200a78}{XB\+\_\+\+IX\+\_\+\+XBASE\+\_\+\+MODE}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+class XBDLLEXPORT \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xb\+::xb\+XBase}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{xbcore_8h_aa36b5d6bf6a868e143f04081c90b4ea7}\label{xbcore_8h_aa36b5d6bf6a868e143f04081c90b4ea7}} 
+\index{xbcore.h@{xbcore.h}!XB\_IX\_DBASE\_MODE@{XB\_IX\_DBASE\_MODE}}
+\index{XB\_IX\_DBASE\_MODE@{XB\_IX\_DBASE\_MODE}!xbcore.h@{xbcore.h}}
+\doxysubsubsection{\texorpdfstring{XB\_IX\_DBASE\_MODE}{XB\_IX\_DBASE\_MODE}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+IX\+\_\+\+DBASE\+\_\+\+MODE~0}
+
+
+
+Class for handling shared system variables. 
+
+This class defines static variables which are referenced across class instances.
+
+This class is designed to have the variables set when the xb\+XBase class constructor is called (xb\+XBase is a derived class). The xb\+Xbase class is designed to be called first in an application programs, and it is only called once. The static values in this class are typically initialized at program startup and don\textquotesingle{}t require additional updates.
+
+In d\+BASE Compatibility mode -\/ XB\+\_\+\+IX\+\_\+\+DBASE\+\_\+\+MODE 1) d\+BASE allows mutliple records in a table all having the same key, but only one entry in a unique index 2) Deleted DBF records are not deleted from the associated tag file
+
+In Xbase mode -\/ XB\+\_\+\+IX\+\_\+\+XBASE\+\_\+\+MODE 1) Index tags defined as unique -\/ this option throws an error when ever an attempt is made to add/update a record with a duplicate key 2) Deleted DBF records are deleted from the associated tag file \mbox{\Hypertarget{xbcore_8h_a5af68d3aa747ae73e28bf1ccc6200a78}\label{xbcore_8h_a5af68d3aa747ae73e28bf1ccc6200a78}} 
+\index{xbcore.h@{xbcore.h}!XB\_IX\_XBASE\_MODE@{XB\_IX\_XBASE\_MODE}}
+\index{XB\_IX\_XBASE\_MODE@{XB\_IX\_XBASE\_MODE}!xbcore.h@{xbcore.h}}
+\doxysubsubsection{\texorpdfstring{XB\_IX\_XBASE\_MODE}{XB\_IX\_XBASE\_MODE}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+IX\+\_\+\+XBASE\+\_\+\+MODE~1}
+

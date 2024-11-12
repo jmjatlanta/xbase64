@@ -1,5 +1,5 @@
 \hypertarget{xbexp_8h_source}{}\doxysection{xbexp.\+h}
-\label{xbexp_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbexp.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbexp.h}}
+\label{xbexp_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbexp.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbexp.h}}
 \mbox{\hyperlink{xbexp_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*  xbexp.h}}
@@ -77,89 +77,177 @@
 \DoxyCodeLine{75 \textcolor{comment}{/************************************************************************/}}
 \DoxyCodeLine{76 }
 \DoxyCodeLine{78 }
-\DoxyCodeLine{133 \textcolor{keyword}{class }XBDLLEXPORT xbExp\{}
-\DoxyCodeLine{134 }
-\DoxyCodeLine{135   \textcolor{keyword}{public}:}
-\DoxyCodeLine{136     xbExp( \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}} * );}
-\DoxyCodeLine{137     xbExp( \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}} *, \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} * );}
-\DoxyCodeLine{138     \textcolor{keyword}{virtual} \string~xbExp();}
-\DoxyCodeLine{139     \textcolor{keywordtype}{void} ClearTreeHandle();}
+\DoxyCodeLine{135 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbExp}{xbExp}}\{}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137   \textcolor{keyword}{public}:}
+\DoxyCodeLine{138 }
 \DoxyCodeLine{140 }
-\DoxyCodeLine{141 }
-\DoxyCodeLine{142 \textcolor{preprocessor}{    \#ifdef XB\_DEBUG\_SUPPORT}}
-\DoxyCodeLine{143     \textcolor{keywordtype}{void}      DumpTree( xbInt16 iOption );}
-\DoxyCodeLine{144     \textcolor{keywordtype}{void}      DumpToken( xbExpToken \&t, xbInt16 iOption = 0 );}
-\DoxyCodeLine{145 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{143     \mbox{\hyperlink{classxb_1_1xbExp_a6ef8cba9f748d04cc8aefb782d6d61fc}{xbExp}}( \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}} * x );}
+\DoxyCodeLine{144 }
 \DoxyCodeLine{146 }
-\DoxyCodeLine{147     xbInt16   GetResultLen() \textcolor{keyword}{const};}
-\DoxyCodeLine{148     \textcolor{keywordtype}{char}      GetReturnType() \textcolor{keyword}{const};}
-\DoxyCodeLine{149     xbInt16   GetBoolResult( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bResult );}
-\DoxyCodeLine{150     xbInt16   GetDateResult( xbDate \&dtResult );}
-\DoxyCodeLine{151     xbInt16   GetNumericResult( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dResult );}
-\DoxyCodeLine{152     xbInt16   GetStringResult( xbString \&sResult );}
-\DoxyCodeLine{153     xbInt16   GetStringResult( \textcolor{keywordtype}{char} * vpResult, xbUInt32 ulLen );}
-\DoxyCodeLine{154     xbExpNode *GetTreeHandle();}
-\DoxyCodeLine{155     xbInt16   ParseExpression( \textcolor{keyword}{const} xbString \&sExpression );}
-\DoxyCodeLine{156     xbInt16   ParseExpression( \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} *dbf, \textcolor{keyword}{const} xbString \&sExpression );}
-\DoxyCodeLine{157     xbInt16   ProcessExpression();}
-\DoxyCodeLine{158     xbInt16   ProcessExpression( xbInt16 iRecBufSw );}
-\DoxyCodeLine{159 }
+\DoxyCodeLine{150     \mbox{\hyperlink{classxb_1_1xbExp_ab999b5b4a514c4efcacac6da50094bd9}{xbExp}}( \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}} * x, \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * dbf );}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{153     \textcolor{keyword}{virtual} \mbox{\hyperlink{classxb_1_1xbExp_a96aea1e2aba6773cc41c33a34105f761}{\string~xbExp}}();}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{156 }
+\DoxyCodeLine{159     \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbExp_a9eadcb64ca323615f4651024c9f706d5}{ClearTreeHandle}}();}
 \DoxyCodeLine{160 }
-\DoxyCodeLine{161   \textcolor{keyword}{protected}:}
-\DoxyCodeLine{162     xbInt16   GetNextToken( xbExpToken \&t );}
-\DoxyCodeLine{163     xbInt16   OperatorWeight( \textcolor{keyword}{const} xbString \&sOperator );}
-\DoxyCodeLine{164     xbExpNode *GetNextNode( xbExpNode * n ) \textcolor{keyword}{const};  \textcolor{comment}{// traverses the tree from bottom left node, right, then up}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{preprocessor}{    \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{163 }
 \DoxyCodeLine{165 }
-\DoxyCodeLine{166   \textcolor{keyword}{private}:    \textcolor{comment}{// methods}}
-\DoxyCodeLine{167 }
-\DoxyCodeLine{168     \textcolor{comment}{// xbInt16 CalcExpressionResultLen();}}
-\DoxyCodeLine{169     xbInt16 CalcFunctionResultLen( xbExpNode *n ) \textcolor{keyword}{const};}
-\DoxyCodeLine{170     xbInt16 CalcCharNodeLen( xbExpNode *n );}
-\DoxyCodeLine{171     xbInt16 CheckParensAndQuotes( \textcolor{keyword}{const} xbString \&sExpression );}
-\DoxyCodeLine{172     xbInt16 GetExpressionResultLen() \textcolor{keyword}{const};}
-\DoxyCodeLine{173 }
-\DoxyCodeLine{174     xbInt16 GetTokenCharConstant   ( xbExpToken \&t );}
-\DoxyCodeLine{175     xbInt16 GetTokenDatabaseField  ( xbExpToken \&t );}
-\DoxyCodeLine{176     xbInt16 GetTokenDateConstant   ( xbExpToken \&t );}
-\DoxyCodeLine{177     xbInt16 GetTokenFunction       ( xbExpToken \&t );}
-\DoxyCodeLine{178     xbInt16 GetTokenLogicalConstant( xbExpToken \&t );}
-\DoxyCodeLine{179     xbInt16 GetTokenNumericConstant( xbExpToken \&t );}
-\DoxyCodeLine{180     xbInt16 GetTokenOperator       ( xbExpToken \&t );}
-\DoxyCodeLine{181     xbInt16 GetTokenParen          ( xbExpToken \&t );}
-\DoxyCodeLine{182 }
-\DoxyCodeLine{183     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsFunction             ( \textcolor{keyword}{const} xbString \&sExp, \textcolor{keywordtype}{char} \&cReturnType );}
-\DoxyCodeLine{184     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsLogicalConstant      ( \textcolor{keyword}{const} xbString \&sExp );}
-\DoxyCodeLine{185     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsNumericConstant      ( \textcolor{keyword}{const} xbString \&sExp, \textcolor{keywordtype}{char} cPrevNodeType );}
-\DoxyCodeLine{186     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsOperator             ( \textcolor{keyword}{const} xbString \&sExp );}
-\DoxyCodeLine{187     \textcolor{keywordtype}{char}    IsTokenSeparator       ( \textcolor{keywordtype}{char} c );}
-\DoxyCodeLine{188     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsWhiteSpace           ( \textcolor{keywordtype}{char} c );}
-\DoxyCodeLine{189 }
-\DoxyCodeLine{190     xbInt16 ParseExpression        ( \textcolor{keyword}{const} xbString \&sExpression, xbInt16 iWeight );}
-\DoxyCodeLine{191     xbInt16 ParseExpressionConstant( xbExpToken \&t, xbExpNode *n );}
-\DoxyCodeLine{192     xbInt16 ParseExpressionFunction( xbExpToken \&t, xbExpNode *n, xbInt16 iWeight );}
-\DoxyCodeLine{193     xbInt16 ParseExpressionFunctionParms( \textcolor{keyword}{const} xbString \&sParms, xbLinkList<xbString> \&llParms );}
-\DoxyCodeLine{194     xbInt16 ParseExpressionField   ( xbExpToken \&t, xbExpNode *n );}
-\DoxyCodeLine{195     xbInt16 ParseExpressionOperator( xbExpToken \&t, xbExpNode *n, xbInt16 iWeight );}
-\DoxyCodeLine{196 }
-\DoxyCodeLine{197     xbInt16 ProcessExpressionFunction( xbExpNode *n, xbInt16 iRecBufSw = 0 );}
-\DoxyCodeLine{198     xbInt16 ProcessExpressionOperator( xbExpNode *n );}
+\DoxyCodeLine{175     \textcolor{keywordtype}{void}      \mbox{\hyperlink{classxb_1_1xbExp_a5a1024f1a205eb5ae4b8070587c7808d}{DumpTree}}( xbInt16 iOption );}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{188     \textcolor{keywordtype}{void}      \mbox{\hyperlink{classxb_1_1xbExp_a2b6b89aa680cb01a7c91999fcbbe870f}{DumpToken}}( xbExpToken \&pNode, xbInt16 iOption = 0 );}
+\DoxyCodeLine{189 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{192 }
+\DoxyCodeLine{196     xbInt16   \mbox{\hyperlink{classxb_1_1xbExp_a53419312242067007c1c02dda662e09d}{GetResultLen}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{197 }
 \DoxyCodeLine{199 }
-\DoxyCodeLine{200   \textcolor{keyword}{private}:   \textcolor{comment}{// fields}}
-\DoxyCodeLine{201     \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}}   *xbase;}
-\DoxyCodeLine{202     \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}}     *dbf;}
-\DoxyCodeLine{203     xbExpNode *nTree;        \textcolor{comment}{// pointer to tree of expNodes}}
-\DoxyCodeLine{204     \textcolor{comment}{// xbInt16   iExpLen;       // size of expression result}}
-\DoxyCodeLine{205 }
-\DoxyCodeLine{206 }
-\DoxyCodeLine{207 \};}
-\DoxyCodeLine{208 }
-\DoxyCodeLine{209 \textcolor{comment}{/* Expression handler */}}
-\DoxyCodeLine{210 }
-\DoxyCodeLine{211 }
-\DoxyCodeLine{212 \};}
-\DoxyCodeLine{213 \textcolor{preprocessor}{\#endif        }\textcolor{comment}{// XB\_EXPRESSION\_SUPPORT}}
-\DoxyCodeLine{214 \textcolor{preprocessor}{\#endif        }\textcolor{comment}{// \_\_XB\_EXP\_H\_\_}}
+\DoxyCodeLine{206     \textcolor{keywordtype}{char}      \mbox{\hyperlink{classxb_1_1xbExp_aae1e52a1368b529968e582cc87e8f715}{GetReturnType}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{209 }
+\DoxyCodeLine{214     xbInt16   \mbox{\hyperlink{classxb_1_1xbExp_a913e2bfb1f4badde48838c48ffd87ced}{GetBoolResult}}( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bResult );}
 \DoxyCodeLine{215 }
-\DoxyCodeLine{216 }
+\DoxyCodeLine{217 }
+\DoxyCodeLine{222     xbInt16   \mbox{\hyperlink{classxb_1_1xbExp_acef609f8163ceaeef6d145bb6d14d8c8}{GetDateResult}}( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dtResult );}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{225 }
+\DoxyCodeLine{230     xbInt16   \mbox{\hyperlink{classxb_1_1xbExp_a773ceb59708ade41922d47bf8dbbe3bc}{GetNumericResult}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dResult );}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{233 }
+\DoxyCodeLine{238     xbInt16   \mbox{\hyperlink{classxb_1_1xbExp_aaddf755bff825459e97a25531a48d8fa}{GetStringResult}}( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sResult );}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{241 }
+\DoxyCodeLine{247     xbInt16   \mbox{\hyperlink{classxb_1_1xbExp_a3c1a7b9337b77c4ea05d4c10376b4198}{GetStringResult}}( \textcolor{keywordtype}{char} * vpResult, xbUInt32 ulLen );}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{250 }
+\DoxyCodeLine{254     xbExpNode *GetTreeHandle();}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{257 }
+\DoxyCodeLine{261     xbInt16   \mbox{\hyperlink{classxb_1_1xbExp_a2c3212c64d9281f58200c63c05e93334}{ParseExpression}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExpression );}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{264 }
+\DoxyCodeLine{269     xbInt16   \mbox{\hyperlink{classxb_1_1xbExp_a9d0778e1f18c88b0c4b1e872c2d7bb00}{ParseExpression}}( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} *dbf, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExpression );}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{272 }
+\DoxyCodeLine{276     xbInt16   \mbox{\hyperlink{classxb_1_1xbExp_a784115a766e30a032e2b17f30b04dd3d}{ProcessExpression}}();}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{279 }
+\DoxyCodeLine{286     xbInt16   \mbox{\hyperlink{classxb_1_1xbExp_a226f9840af1c0b6bf900e2b3c63f97fa}{ProcessExpression}}( xbInt16 iRecBufSw );}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{290 }
+\DoxyCodeLine{292 }
+\DoxyCodeLine{298     xbInt16   GetNextToken( xbExpToken \&t );}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300 }
+\DoxyCodeLine{302 }
+\DoxyCodeLine{319     xbInt16   OperatorWeight( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOperator );}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{322 }
+\DoxyCodeLine{328     xbExpNode *GetNextNode( xbExpNode * n ) \textcolor{keyword}{const};  \textcolor{comment}{// traverses the tree from bottom left node, right, then up}}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330   \textcolor{keyword}{private}:    \textcolor{comment}{// methods}}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332     \textcolor{comment}{// xbInt16 CalcExpressionResultLen();}}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{335 }
+\DoxyCodeLine{344     xbInt16 CalcFunctionResultLen( xbExpNode *n ) \textcolor{keyword}{const};}
+\DoxyCodeLine{345     xbInt16 CalcCharNodeLen( xbExpNode *n );}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{348 }
+\DoxyCodeLine{355     xbInt16 CheckParensAndQuotes( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExpression );}
+\DoxyCodeLine{356     xbInt16 GetExpressionResultLen() \textcolor{keyword}{const};}
+\DoxyCodeLine{357 }
+\DoxyCodeLine{359 }
+\DoxyCodeLine{371 }
+\DoxyCodeLine{382     xbInt16 GetTokenCharConstant   ( xbExpToken \&t );}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{385 }
+\DoxyCodeLine{398     xbInt16 GetTokenDatabaseField  ( xbExpToken \&t );}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{401 }
+\DoxyCodeLine{409     xbInt16 GetTokenDateConstant   ( xbExpToken \&t );}
+\DoxyCodeLine{410 }
+\DoxyCodeLine{412 }
+\DoxyCodeLine{418     xbInt16 GetTokenFunction       ( xbExpToken \&t );}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{420     xbInt16 GetTokenLogicalConstant( xbExpToken \&t );}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{423 }
+\DoxyCodeLine{433     xbInt16 GetTokenNumericConstant( xbExpToken \&t );}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{436 }
+\DoxyCodeLine{443     xbInt16 GetTokenOperator       ( xbExpToken \&t );}
+\DoxyCodeLine{444 }
+\DoxyCodeLine{446 }
+\DoxyCodeLine{457     xbInt16 GetTokenParen          ( xbExpToken \&t );}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{460 }
+\DoxyCodeLine{469     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsFunction             ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExp, \textcolor{keywordtype}{char} \&cReturnType );}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{472 }
+\DoxyCodeLine{480     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsLogicalConstant      ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExp );}
+\DoxyCodeLine{481 }
+\DoxyCodeLine{483 }
+\DoxyCodeLine{492     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsNumericConstant      ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExp, \textcolor{keywordtype}{char} cPrevNodeType );}
+\DoxyCodeLine{493 }
+\DoxyCodeLine{495 }
+\DoxyCodeLine{503     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsOperator             ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExp );}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{506 }
+\DoxyCodeLine{514     \textcolor{keywordtype}{char}    IsTokenSeparator       ( \textcolor{keywordtype}{char} c );}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{516 }
+\DoxyCodeLine{518 }
+\DoxyCodeLine{526     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}  IsWhiteSpace           ( \textcolor{keywordtype}{char} c );}
+\DoxyCodeLine{527 }
+\DoxyCodeLine{529 }
+\DoxyCodeLine{535     xbInt16 ParseExpression        ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExpression, xbInt16 iWeight );}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{537 }
+\DoxyCodeLine{539 }
+\DoxyCodeLine{545     xbInt16 ParseExpressionConstant( xbExpToken \&t, xbExpNode *n );}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{548 }
+\DoxyCodeLine{555     xbInt16 ParseExpressionFunction( xbExpToken \&t, xbExpNode *n, xbInt16 iWeight );}
+\DoxyCodeLine{556 }
+\DoxyCodeLine{558 }
+\DoxyCodeLine{568     xbInt16 ParseExpressionFunctionParms( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sParms, \mbox{\hyperlink{classxb_1_1xbLinkList}{xbLinkList<xbString>}} \&llParms );}
+\DoxyCodeLine{569 }
+\DoxyCodeLine{570 }
+\DoxyCodeLine{572 }
+\DoxyCodeLine{578     xbInt16 ParseExpressionField   ( xbExpToken \&t, xbExpNode *n );}
+\DoxyCodeLine{579 }
+\DoxyCodeLine{581 }
+\DoxyCodeLine{588     xbInt16 ParseExpressionOperator( xbExpToken \&t, xbExpNode *n, xbInt16 iWeight );}
+\DoxyCodeLine{589 }
+\DoxyCodeLine{591 }
+\DoxyCodeLine{596     xbInt16 ProcessExpressionFunction( xbExpNode *n, xbInt16 iRecBufSw = 0 );}
+\DoxyCodeLine{597 }
+\DoxyCodeLine{598 }
+\DoxyCodeLine{600 }
+\DoxyCodeLine{605     xbInt16 ProcessExpressionOperator( xbExpNode *n );}
+\DoxyCodeLine{606 }
+\DoxyCodeLine{607   \textcolor{keyword}{private}:   \textcolor{comment}{// fields}}
+\DoxyCodeLine{608     \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}}   *xbase;}
+\DoxyCodeLine{609     \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}}     *dbf;}
+\DoxyCodeLine{610     xbExpNode *nTree;        \textcolor{comment}{// pointer to tree of expNodes}}
+\DoxyCodeLine{611     \textcolor{comment}{// xbInt16   iExpLen;       // size of expression result}}
+\DoxyCodeLine{612 }
+\DoxyCodeLine{613 }
+\DoxyCodeLine{614 \};}
+\DoxyCodeLine{615 }
+\DoxyCodeLine{616 \textcolor{comment}{/* Expression handler */}}
+\DoxyCodeLine{617 }
+\DoxyCodeLine{618 }
+\DoxyCodeLine{619 \};}
+\DoxyCodeLine{620 \textcolor{preprocessor}{\#endif        }\textcolor{comment}{// XB\_EXPRESSION\_SUPPORT}}
+\DoxyCodeLine{621 \textcolor{preprocessor}{\#endif        }\textcolor{comment}{// \_\_XB\_EXP\_H\_\_}}
+\DoxyCodeLine{622 }
+\DoxyCodeLine{623 }
 
 \end{DoxyCode}

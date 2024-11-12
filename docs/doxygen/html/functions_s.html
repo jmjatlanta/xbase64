@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -48,6 +52,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_s.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -68,38 +88,65 @@ $(function() {
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>sAlias&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a73f9c792d0a769e2e604c1855245a276">xb::xbDbf</a></li>
 <li>SchemaPtr&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ad8c8b5eb12063bb898da1b2cc02cfce7">xb::xbDbf</a></li>
-<li>Set()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a4b0cde152b5de0f7d26608d1445110b6">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#ab85753d2c39882e946a8468cbb587700">xb::xbString</a></li>
-<li>SetAutoCommit()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a4cf7f0d423164f3cf074ae41f96f4e90">xb::xbDbf</a></li>
-<li>SetBlockSize()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a991c5676a6f38fa752435390989f413e">xb::xbFile</a></li>
-<li>SetDataDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a57caaaadfbd089d9a58ecfcb50c88a6c">xb::xbSsv</a></li>
-<li>SetDefaultAutoCommit()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a25542afadaaf39b4fb5a1772a29cc0bd">xb::xbSsv</a></li>
-<li>SetDefaultDateFormat()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a5f74db23f8902846d581935c7db73f9c">xb::xbSsv</a></li>
+<li>sDataDirectory&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#ae8159129440110a6e3487801529272ef">xb::xbCore</a></li>
+<li>sDefaultDateFormat&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a227c789b55eaa2a89a6fee4d90b28c23">xb::xbCore</a></li>
+<li>sDefaultTimeFormat&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a7872526434ff6f6d0388ebff430742cc">xb::xbCore</a></li>
+<li>SearchFor()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkList.html#a9343428df01e10c932e148e9ab5c5216">xb::xbLinkList&lt; xbNodeType &gt;</a></li>
+<li>Set()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a7f08e372cef53cc984c473cbd8be6832">xb::xbDate</a>, <a class="el" href="classxb_1_1xbFilter.html#a969097f341bcba654df2e11b0b8151fc">xb::xbFilter</a>, <a class="el" href="classxb_1_1xbString.html#ac0d08bd688fd0e3707e32886d0dfeb09">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#a4f3d21693accfcf652e43213b8c81a43">xb::xbTime</a></li>
+<li>SetAutoCommit()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#abf3896ca100c198043b933a15b3e54dd">xb::xbDbf</a></li>
+<li>SetBlockSize()&#160;:&#160;<a class="el" href="classxb_1_1xbBlockRead.html#a0640fd39ae17ec795ad9516c1579fa22">xb::xbBlockRead</a>, <a class="el" href="classxb_1_1xbFile.html#a991c5676a6f38fa752435390989f413e">xb::xbFile</a></li>
+<li>SetCreateMdxBlockSize()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a7e859c19a788c617148dad8a189add06">xb::xbXBase</a></li>
+<li>SetCreateMemoBlockSize()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf3.html#a9170f9a62a52111cf82bd0420891c11d">xb::xbDbf3</a>, <a class="el" href="classxb_1_1xbDbf4.html#a2bb62a759ef1620d4337b3963810a399">xb::xbDbf4</a>, <a class="el" href="classxb_1_1xbDbf.html#a03bf13623de1c7aa21e7fc472c08701f">xb::xbDbf</a></li>
+<li>SetDataDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a8e9f1e16deaf96a89d3b8a29f012832e">xb::xbXBase</a></li>
+<li>SetDefaultAutoCommit()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a8213c1b7a6d500778f410a196190b565">xb::xbXBase</a></li>
+<li>SetDefaultAutoLock()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a30956a19a2051df707372dfc3a830ddd">xb::xbXBase</a></li>
+<li>SetDefaultBlockReadSize()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a2d800e8618595811d48946c34cc4e5bf">xb::xbXBase</a></li>
+<li>SetDefaultDateFormat()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a6dc692d8e0e302aa9c10801127368bbd">xb::xbDate</a>, <a class="el" href="classxb_1_1xbXBase.html#aa19de297f99ce4d51978f96c3da037f3">xb::xbXBase</a></li>
+<li>SetDefaultIxTagMode()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a5f4ca6af91e1815b1697a05fb2b52446">xb::xbXBase</a></li>
+<li>SetDefaultLockFlavor()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a2f28495d5e41d7dbaaae6bb5a62da498">xb::xbXBase</a></li>
+<li>SetDefaultLockRetries()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a39cf80d51175980ddb71dfa323578d34">xb::xbXBase</a></li>
+<li>SetDefaultLockWait()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a8fb92073b1d923c4d3d67fb38feac3e1">xb::xbXBase</a></li>
+<li>SetDefaultTimeFormat()&#160;:&#160;<a class="el" href="classxb_1_1xbTime.html#a44ad5b86616b3f68cb7b3033ac4713e6">xb::xbTime</a>, <a class="el" href="classxb_1_1xbXBase.html#a8e35972e54976ea550db09998c3a9900">xb::xbXBase</a></li>
 <li>SetDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#ae78a85255488bc78964c16946dbaead3">xb::xbFile</a></li>
-<li>SetEndianType()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a904ec348fd029d4a76e72b8fde636108">xb::xbSsv</a></li>
+<li>SetDupKeys()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkListOrd.html#ab1fe12f424534ab7253a797786f9cd89">xb::xbLinkListOrd&lt; xbNodeType &gt;</a></li>
 <li>SetFileName()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a5419eb27e56822f828b2b88a9502a636">xb::xbFile</a></li>
-<li>SetFqFileName()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#aee832fa11db2077a532f49e1329bd05a">xb::xbFile</a></li>
+<li>SetFqFileName()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a1fad9ef8643944ad1641810f4b1cd5b4">xb::xbFile</a></li>
 <li>SetHomeFolders()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a060acbfaa8d528f86cb59301814b414a">xb::xbFile</a></li>
-<li>SetLogDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a7b992ed97281bf25b5b66f5df686225e">xb::xbSsv</a></li>
-<li>SetLogFileName()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a7f05738e7dfd759e89990242ef503544">xb::xbSsv</a></li>
+<li>SetLimit()&#160;:&#160;<a class="el" href="classxb_1_1xbFilter.html#aefe0256e6499a3e5c93fa4c476ae9d29">xb::xbFilter</a></li>
+<li>SetLockFlavor()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a43b456ac4741ab332f24b2407c0f9076">xb::xbDbf</a></li>
+<li>SetLockRetryCount()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#aa39f69363bb55eb22f0a118547c5416d">xb::xbFile</a></li>
+<li>SetLogDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a0be4affb02f01ae1e965c3621edff16a">xb::xbXBase</a></li>
+<li>SetLogFileName()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a94010b88a309315ef980715eb581336c">xb::xbXBase</a></li>
 <li>SetLogSize()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a666a0cb5b76ec7a9a3677d339e0c6b42">xb::xbXBase</a></li>
-<li>SetMaster()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#af0e53210e6feef8657db5a79162c0093">xb::xbRelate</a></li>
-<li>SetMultiUser()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#aba6e59512f7172dd55dcf92059e5928c">xb::xbSsv</a></li>
+<li>SetMaster()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#a7cdeaea89342d09cef5d269e3db67c86">xb::xbRelate</a></li>
+<li>SetMultiUser()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a3aeb476162be900fd7ca797c34f0e692">xb::xbDbf</a>, <a class="el" href="classxb_1_1xbXBase.html#a30e8e1be96e5e57170af4c0668378e6e">xb::xbXBase</a></li>
 <li>SetNum()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a3af5b1f111f94b0667551fcbd1d97abd">xb::xbString</a></li>
-<li>SetTempDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a17c229a20ef9ab4034df8f9cd657adb2">xb::xbSsv</a></li>
-<li>SetVersion()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a7e63e852418f337eb7c44de5dcd50323">xb::xbDbf</a></li>
-<li>sFilter&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a2a5f9fe4adbd4a3885a4cede38334bd0">xb::xbRelation</a></li>
-<li>sNullString&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a9dec3164c3b264882df634915ecf21da">xb::xbSsv</a></li>
-<li>sParentExpression&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#afe3520692c36499fb1fe4a960578d00b">xb::xbRelation</a></li>
-<li>Sprintf()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a9e9bfa29d86377b915f1628aeb0e9195">xb::xbString</a></li>
-<li>Str()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#ab43a5d8d929767c0ffdd722972bb8cc0">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a6715f4c0010f3ab487c9d787838a29b3">xb::xbString</a></li>
+<li>SetTempDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a995ab1fc94ba21cd8b95481683a09a9d">xb::xbXBase</a></li>
+<li>SetTimeFormat()&#160;:&#160;<a class="el" href="classxb_1_1xbTime.html#a24da0fc6949e6b0bdbacc0e50b490cd1">xb::xbTime</a></li>
+<li>sLogDirectory&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a847b9285633d22a5b5e34ac1166e3512">xb::xbCore</a></li>
+<li>sLogFileName&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a02c13215a731ce0790f78f8e41714e65">xb::xbCore</a></li>
+<li>sNullString&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a034d596e86e6ab2151b6e1f8657f49d4">xb::xbCore</a></li>
+<li>SPACE()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#ae77654cfddde8db3d32d07c32de1d556">xb::xbXBase</a></li>
+<li>Sprintf()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#ac8eab6994cfeeec1f51003c5f3e7d2e4">xb::xbString</a></li>
+<li>SQRT()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#aaff30b6214c4766bc0dd3589a58bfc6b">xb::xbXBase</a></li>
+<li>sTempDirectory&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a45ae9a4fc81347cf9c9ebf02673d3f2a">xb::xbCore</a></li>
+<li>STOD()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a1673a57ba38538f10488f032fad8133b">xb::xbXBase</a></li>
+<li>Str()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#ab43a5d8d929767c0ffdd722972bb8cc0">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a6715f4c0010f3ab487c9d787838a29b3">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#af2baf81cd89d4e7a6476c76ae6f38f44">xb::xbTime</a></li>
+<li>STR()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#ad9d305aa26ac0fddf4bf738715e1d36f">xb::xbXBase</a></li>
 <li>strncpy()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a3bc9e856c34f0c240a6e36e5b6e3ea7b">xb::xbString</a></li>
-<li>SwapChars()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a054683872e1f05d11c2cf8683a63a6fe">xb::xbString</a></li>
-<li>Sysdate()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a40ba54a58d64cf56266f020f91584192">xb::xbDate</a></li>
+<li>STRZERO()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a6541340a14cfc0055fe1c81781d1e8e3">xb::xbXBase</a></li>
+<li>SUBSTR()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#ac79ae09e538b43533605e2228c9d385e">xb::xbXBase</a></li>
+<li>SwapChars()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a010ddb83773ee4e45c8324e82d6c8678">xb::xbString</a></li>
+<li>Sysdate()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a9aa6ce2da6fb4e39befe0ed6a6a07a45">xb::xbDate</a></li>
+<li>Systime()&#160;:&#160;<a class="el" href="classxb_1_1xbTime.html#abd7bb1a7396e46f0f37ff3bc8154c1dc">xb::xbTime</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

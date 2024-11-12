@@ -1,0 +1,347 @@
+\hypertarget{classxb_1_1xbLinkList}{}\doxysection{xb\+::xb\+Link\+List\texorpdfstring{$<$}{<} xb\+Node\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classxb_1_1xbLinkList}\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+
+
+\mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+Link\+List}} class.  
+
+
+
+
+{\ttfamily \#include $<$xblnklst.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classxb_1_1xbLinkList_ac2ba8e466216602b91dae5c5af2b6928}{xb\+Link\+List}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbLinkList_a1c9d3e53e04d0e74698be618ae73c32e}{$\sim$xb\+Link\+List}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkList_ad2190eae06f1e65119f21a5fea3893e6}{Get\+Head\+Node}} () const
+\begin{DoxyCompactList}\small\item\em Return head node from linked list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkList_a9a1aba3eb716286f2e95bea7cff151f4}{Get\+End\+Node}} () const
+\begin{DoxyCompactList}\small\item\em Return end node from linked list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkList_a0b64d7dfdd9fdd23656240d7308ac6a2}{Get\+Node\+For\+No}} (xb\+UInt32 ul\+Node\+No) const
+\begin{DoxyCompactList}\small\item\em Return node for specified node number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbLinkList_a9870180c2e251ec3464b4d76fccf01a4}{Clear}} ()
+\begin{DoxyCompactList}\small\item\em Clear the linked list. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbLinkList_a32bf120024a7f7ea25838e1bce6d23b7}{Get\+Node\+Cnt}} () const
+\begin{DoxyCompactList}\small\item\em Return the total number of nodes in the linked list. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList_a36527c0fe32ec48040dd64a5df10a2c2}{Insert\+At\+End}} (const xb\+Node\+Type \&xb\+LLN, \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$$\ast$np)
+\begin{DoxyCompactList}\small\item\em Insert a node at the end of the list2. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList_a955ceb87433c56afbda43b674981cb2b}{Insert\+At\+End}} (const xb\+Node\+Type \&xb\+LLN)
+\begin{DoxyCompactList}\small\item\em Insert a node at the end of the list. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList_a22a1b2d03c26028bc9381513025ea927}{Insert\+At\+Front}} (const xb\+Node\+Type \&xb\+LLN)
+\begin{DoxyCompactList}\small\item\em Insert a node at the beginning of the list. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList_a18479520f1096d51c6dca980e9f676bf}{Remove\+By\+Val}} (const xb\+Node\+Type \&nt\+Key, xb\+UInt32 \&ul\+Node\+Out)
+\begin{DoxyCompactList}\small\item\em Remove the first node found for specified value and return where it was found in the list. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList_aa822e96bcb7f3fcda06ebbc87756a107}{Remove\+By\+Val}} (const xb\+Node\+Type \&nt\+Key)
+\begin{DoxyCompactList}\small\item\em Remove the first node found for specified value. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList_a2095a98136eba2f19357a54a00a5da48}{Remove\+From\+End}} ()
+\begin{DoxyCompactList}\small\item\em Remove node from end of list. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList_a37989021aaacfd3e782e64c393cceb42}{Remove\+From\+End}} (xb\+Node\+Type \&xb\+LLN)
+\begin{DoxyCompactList}\small\item\em Remove node from end of list, returning node. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList_a46e22b33c80b6f38b4d8e3e07bda13ac}{Remove\+From\+Front}} (xb\+Node\+Type \&xb\+LLN)
+\begin{DoxyCompactList}\small\item\em Remove node from front f list, returning node. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList_a9343428df01e10c932e148e9ab5c5216}{Search\+For}} (const xb\+Node\+Type \&nt\+Key)
+\begin{DoxyCompactList}\small\item\em Search list for a given key value. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList_aff07234bda40f572170dcb6d174757b1}{Search\+For}} (const xb\+Node\+Type \&nt\+Key, xb\+UInt32 \&ul\+Node\+Out)
+\begin{DoxyCompactList}\small\item\em Search list for given key value and return placement in list if found. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class xb\+Node\+Type$>$\newline
+class xb\+::xb\+Link\+List$<$ xb\+Node\+Type $>$}
+\mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+Link\+List}} class. 
+
+
+\begin{DoxyItemize}
+\item Template based class, supports a list of any object type 
+\item Supports additions at the beginning or end of the list 
+\item Support deletions at the beginning or end of the list 
+\item Can be used to support a {\itshape stack data structure} by always adding to the end and removing from the end 
+\item xb\+LLN is a linked list node of type xb\+Node\+Type 
+\item Class is available if XB\+\_\+\+LINKLIST\+\_\+\+SUPPORT is compiled in library 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classxb_1_1xbLinkList_ac2ba8e466216602b91dae5c5af2b6928}\label{classxb_1_1xbLinkList_ac2ba8e466216602b91dae5c5af2b6928}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!xbLinkList@{xbLinkList}}
+\index{xbLinkList@{xbLinkList}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{xbLinkList()}{xbLinkList()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::xb\+Link\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a1c9d3e53e04d0e74698be618ae73c32e}\label{classxb_1_1xbLinkList_a1c9d3e53e04d0e74698be618ae73c32e}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!````~xbLinkList@{$\sim$xbLinkList}}
+\index{````~xbLinkList@{$\sim$xbLinkList}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$xbLinkList()}{~xbLinkList()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::$\sim$\mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+Link\+List}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a9870180c2e251ec3464b4d76fccf01a4}\label{classxb_1_1xbLinkList_a9870180c2e251ec3464b4d76fccf01a4}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!Clear@{Clear}}
+\index{Clear@{Clear}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+void \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear the linked list. 
+
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a9a1aba3eb716286f2e95bea7cff151f4}\label{classxb_1_1xbLinkList_a9a1aba3eb716286f2e95bea7cff151f4}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!GetEndNode@{GetEndNode}}
+\index{GetEndNode@{GetEndNode}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetEndNode()}{GetEndNode()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Get\+End\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return end node from linked list. 
+
+\mbox{\Hypertarget{classxb_1_1xbLinkList_ad2190eae06f1e65119f21a5fea3893e6}\label{classxb_1_1xbLinkList_ad2190eae06f1e65119f21a5fea3893e6}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!GetHeadNode@{GetHeadNode}}
+\index{GetHeadNode@{GetHeadNode}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetHeadNode()}{GetHeadNode()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Get\+Head\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return head node from linked list. 
+
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a32bf120024a7f7ea25838e1bce6d23b7}\label{classxb_1_1xbLinkList_a32bf120024a7f7ea25838e1bce6d23b7}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!GetNodeCnt@{GetNodeCnt}}
+\index{GetNodeCnt@{GetNodeCnt}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetNodeCnt()}{GetNodeCnt()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Get\+Node\+Cnt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return the total number of nodes in the linked list. 
+
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a0b64d7dfdd9fdd23656240d7308ac6a2}\label{classxb_1_1xbLinkList_a0b64d7dfdd9fdd23656240d7308ac6a2}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!GetNodeForNo@{GetNodeForNo}}
+\index{GetNodeForNo@{GetNodeForNo}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetNodeForNo()}{GetNodeForNo()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Get\+Node\+For\+No (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Node\+No }\end{DoxyParamCaption}) const}
+
+
+
+Return node for specified node number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Node\+No} & Number of requested node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Requested node or NULL 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a955ceb87433c56afbda43b674981cb2b}\label{classxb_1_1xbLinkList_a955ceb87433c56afbda43b674981cb2b}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!InsertAtEnd@{InsertAtEnd}}
+\index{InsertAtEnd@{InsertAtEnd}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{InsertAtEnd()}{InsertAtEnd()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Insert\+At\+End (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{xb\+LLN }\end{DoxyParamCaption})}
+
+
+
+Insert a node at the end of the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xb\+LLN} & Linked list node to append to end of list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+NO\+\_\+\+MEMORY 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a36527c0fe32ec48040dd64a5df10a2c2}\label{classxb_1_1xbLinkList_a36527c0fe32ec48040dd64a5df10a2c2}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!InsertAtEnd@{InsertAtEnd}}
+\index{InsertAtEnd@{InsertAtEnd}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{InsertAtEnd()}{InsertAtEnd()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Insert\+At\+End (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{xb\+LLN,  }\item[{\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$$\ast$}]{np }\end{DoxyParamCaption})}
+
+
+
+Insert a node at the end of the list2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xb\+LLN} & Linked list node to append to end of list \\
+\hline
+{\em $\ast$np} & Output -\/ pointer to pointer of added node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+NO\+\_\+\+MEMORY 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a22a1b2d03c26028bc9381513025ea927}\label{classxb_1_1xbLinkList_a22a1b2d03c26028bc9381513025ea927}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!InsertAtFront@{InsertAtFront}}
+\index{InsertAtFront@{InsertAtFront}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{InsertAtFront()}{InsertAtFront()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Insert\+At\+Front (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{xb\+LLN }\end{DoxyParamCaption})}
+
+
+
+Insert a node at the beginning of the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xb\+LLN} & Linked list node to insert at front of list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+NO\+\_\+\+MEMORY 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkList_aa822e96bcb7f3fcda06ebbc87756a107}\label{classxb_1_1xbLinkList_aa822e96bcb7f3fcda06ebbc87756a107}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!RemoveByVal@{RemoveByVal}}
+\index{RemoveByVal@{RemoveByVal}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveByVal()}{RemoveByVal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Remove\+By\+Val (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{nt\+Key }\end{DoxyParamCaption})}
+
+
+
+Remove the first node found for specified value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nt\+Key} & Key to find and remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NOT\+\_\+\+FOUND or XB\+\_\+\+NO\+\_\+\+ERROR if successful. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a18479520f1096d51c6dca980e9f676bf}\label{classxb_1_1xbLinkList_a18479520f1096d51c6dca980e9f676bf}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!RemoveByVal@{RemoveByVal}}
+\index{RemoveByVal@{RemoveByVal}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveByVal()}{RemoveByVal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Remove\+By\+Val (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{nt\+Key,  }\item[{xb\+UInt32 \&}]{ul\+Node\+Out }\end{DoxyParamCaption})}
+
+
+
+Remove the first node found for specified value and return where it was found in the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nt\+Key} & Key to find and remove. \\
+\hline
+{\em ul\+Node\+Out} & Output node number of where the node was found before removal (0 based). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NOT\+\_\+\+FOUND or XB\+\_\+\+NO\+\_\+\+ERROR if successful. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a2095a98136eba2f19357a54a00a5da48}\label{classxb_1_1xbLinkList_a2095a98136eba2f19357a54a00a5da48}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!RemoveFromEnd@{RemoveFromEnd}}
+\index{RemoveFromEnd@{RemoveFromEnd}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveFromEnd()}{RemoveFromEnd()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Remove\+From\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove node from end of list. 
+
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a37989021aaacfd3e782e64c393cceb42}\label{classxb_1_1xbLinkList_a37989021aaacfd3e782e64c393cceb42}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!RemoveFromEnd@{RemoveFromEnd}}
+\index{RemoveFromEnd@{RemoveFromEnd}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveFromEnd()}{RemoveFromEnd()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Remove\+From\+End (\begin{DoxyParamCaption}\item[{xb\+Node\+Type \&}]{xb\+LLN }\end{DoxyParamCaption})}
+
+
+
+Remove node from end of list, returning node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xb\+LLN} & Output -\/ removed node from end of list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+NODELINK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a46e22b33c80b6f38b4d8e3e07bda13ac}\label{classxb_1_1xbLinkList_a46e22b33c80b6f38b4d8e3e07bda13ac}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!RemoveFromFront@{RemoveFromFront}}
+\index{RemoveFromFront@{RemoveFromFront}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveFromFront()}{RemoveFromFront()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Remove\+From\+Front (\begin{DoxyParamCaption}\item[{xb\+Node\+Type \&}]{xb\+LLN }\end{DoxyParamCaption})}
+
+
+
+Remove node from front f list, returning node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xb\+LLN} & Output -\/ removed node from front of list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+NODELINK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkList_a9343428df01e10c932e148e9ab5c5216}\label{classxb_1_1xbLinkList_a9343428df01e10c932e148e9ab5c5216}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!SearchFor@{SearchFor}}
+\index{SearchFor@{SearchFor}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{SearchFor()}{SearchFor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Search\+For (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{nt\+Key }\end{DoxyParamCaption})}
+
+
+
+Search list for a given key value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nt\+Key} & Key value to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NOT\+\_\+\+FOUND or XB\+\_\+\+NO\+\_\+\+ERROR if found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkList_aff07234bda40f572170dcb6d174757b1}\label{classxb_1_1xbLinkList_aff07234bda40f572170dcb6d174757b1}} 
+\index{xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}!SearchFor@{SearchFor}}
+\index{SearchFor@{SearchFor}!xb::xbLinkList$<$ xbNodeType $>$@{xb::xbLinkList$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{SearchFor()}{SearchFor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+::xb\+Link\+List}}$<$ xb\+Node\+Type $>$\+::\+Search\+For (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{nt\+Key,  }\item[{xb\+UInt32 \&}]{ul\+Node\+Out }\end{DoxyParamCaption})}
+
+
+
+Search list for given key value and return placement in list if found. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nt\+Key} & Key value to search for. \\
+\hline
+{\em ul\+Node\+Out} & Output -\/ placement in the linked list where found (0 based). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NOT\+\_\+\+FOUND or XB\+\_\+\+NO\+\_\+\+ERROR if found. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+11/src/include/\mbox{\hyperlink{xblnklst_8h}{xblnklst.\+h}}\end{DoxyCompactItemize}

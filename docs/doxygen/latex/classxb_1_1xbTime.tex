@@ -1,0 +1,906 @@
+\hypertarget{classxb_1_1xbTime}{}\doxysection{xb\+::xb\+Time Class Reference}
+\label{classxb_1_1xbTime}\index{xb::xbTime@{xb::xbTime}}
+
+
+\mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} class.  
+
+
+
+
+{\ttfamily \#include $<$xbtime.\+h$>$}
+
+Inheritance diagram for xb\+::xb\+Time\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classxb_1_1xbTime}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int32 \mbox{\hyperlink{classxb_1_1xbTime_a326ee97c6b7e85650dd2227de6273dcc}{Add}} (char c\+Type, xb\+Int32 l\+Cnt)
+\begin{DoxyCompactList}\small\item\em Add method or subtract time. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_a397ea6335edfde72641d3bc1dee8141b}{From\+TimeT}} (time\+\_\+t t\+In)
+\begin{DoxyCompactList}\small\item\em From\+TimeT -\/ Set time value from a time\+\_\+t value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbTime_a17fc8f3a1d994612c1b868c1590fcf33}{Get\+Default\+Time\+Format}} () const
+\begin{DoxyCompactList}\small\item\em Get the current default time format. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_a4cbe46923c481de3c21f816eadb474ef}{Get\+Hour}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Hour. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_abd3811c2e2f4c209913c7be2ba7ee4e2}{Get\+Minute}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Minute. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_af4b84f034e07dee2f744909f73f5552b}{Get\+Second}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Second. \end{DoxyCompactList}\item 
+xb\+Int32 \mbox{\hyperlink{classxb_1_1xbTime_afc725152044d26bba64b1eee1f684ee3}{Get\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Time. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_a9efe37b3c48939e845e0419403bae803}{Get\+Time}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Time\+Out)
+\begin{DoxyCompactList}\small\item\em Get\+Time. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_aabf997f7f51093cb299470dab31aaaca}{Get\+Time}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Time\+Out, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Fmt\+In)
+\begin{DoxyCompactList}\small\item\em Get\+Time. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_a75eff479fcb71e29c17ff4efea0fdcff}{Get\+Time}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Time\+Out, const char $\ast$s\+Fmt\+In)
+\begin{DoxyCompactList}\small\item\em Get\+Time. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbTime_a8ecb221c4e25879f0283d68d4a3b6ea9}{Get\+Time\+Format}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Time\+Fmt returns the time format for the given time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbTime_a2e00b5b789af093161d319622dbfa7b9}{operator!=}} (const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&t\+Tm) const
+\begin{DoxyCompactList}\small\item\em operator != Not Equal \end{DoxyCompactList}\item 
+xb\+Int32 \mbox{\hyperlink{classxb_1_1xbTime_af52426cff980f16216013d388d085cf8}{operator+}} (xb\+Int32 l\+Secs) const
+\begin{DoxyCompactList}\small\item\em operator + Add l\+Secs seconds to time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \& \mbox{\hyperlink{classxb_1_1xbTime_a49e00e777907797616afed8be4823b69}{operator++}} (xb\+Int32)
+\begin{DoxyCompactList}\small\item\em operator ++ Increment one second. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \& \mbox{\hyperlink{classxb_1_1xbTime_a1103ac479fa86adc5295c67bcd8bb841}{operator+=}} (xb\+Int32 l\+Secs)
+\begin{DoxyCompactList}\small\item\em Addition operator += Add l\+Secs seconds. \end{DoxyCompactList}\item 
+xb\+Int32 \mbox{\hyperlink{classxb_1_1xbTime_ac473c54418dc0c331fae4bd30e488543}{operator-\/}} (xb\+Int32 l\+Secs) const
+\begin{DoxyCompactList}\small\item\em operator -\/ Subtract l\+Secs seconds from time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \& \mbox{\hyperlink{classxb_1_1xbTime_a155fa6ec93244abb7510f29399b51aa0}{operator-\/-\/}} (xb\+Int32 l\+Secs)
+\begin{DoxyCompactList}\small\item\em operator -- Decrement one second. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \& \mbox{\hyperlink{classxb_1_1xbTime_a672c4f3de40a4c9bb67cc1a9a42293bd}{operator-\/=}} (xb\+Int32 l\+Secs)
+\begin{DoxyCompactList}\small\item\em Subtraction operator -\/= Subtract l\+Secs seconds. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbTime_ac367c1f04afcc9393aa00de843a8cb4c}{operator$<$}} (const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&tm) const
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$<$}{<} This routine compares two times \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbTime_a93f96d9ed8fb5ed6a2eef070d4586018}{operator$<$=}} (const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&tm) const
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$<$}{<}= This routine compares two times \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbTime_a83c0a9463e04a5c81a0f96333a974f8f}{operator=}} (xb\+Int32 l\+Time)
+\begin{DoxyCompactList}\small\item\em Set operator= Assignment operator. Assign time value. Does not assign the optional format specifier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbTime_a45d625e1033655163815bba4e488ebe1}{operator=}} (const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&tm)
+\begin{DoxyCompactList}\small\item\em Set operator= Assignment operator. ~\newline
+ Assigns the time value and format specifier from time object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbTime_a64bc7f3b159d5b58d29c236ba08c060b}{operator==}} (const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&tm) const
+\begin{DoxyCompactList}\small\item\em operator == \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbTime_ac94f3e91767485f849b722f0964b7a3f}{operator$>$}} (const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&tm) const
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$>$}{>} This routine compares two times \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbTime_a0f9ec4e4337e34d656442d0d87878c45}{operator$>$=}} (const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&tm) const
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$>$}{>}= This routine compares two times \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_abd7bb1a7396e46f0f37ff3bc8154c1dc}{Systime}} ()
+\begin{DoxyCompactList}\small\item\em Set the time to the system time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbTime_af2baf81cd89d4e7a6476c76ae6f38f44}{Str}} ()
+\begin{DoxyCompactList}\small\item\em Return string representation of time. \end{DoxyCompactList}\item 
+time\+\_\+t \mbox{\hyperlink{classxb_1_1xbTime_a0d50d6dc78e4c9790280c5121474eb07}{To\+TimeT}} () const
+\begin{DoxyCompactList}\small\item\em To\+TimeT Calulate and return the time in a time\+\_\+t structure. Returns time in time\+\_\+t structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classxb_1_1xbTime_adccb3879a583cbfb6ce821770251e72d}{xb\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Constructor This constructor sets the time to null (-\/1). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbTime_aa6396548116704755490133bf4a706de}{xb\+Time}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Time)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbTime_ae19758290b210914a7371d85c9da06cc}{xb\+Time}} (char $\ast$s\+Time)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbTime_a65f5013a208800a9d82984e488bc2c96}{xb\+Time}} (xb\+Int32 l\+Time)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbTime_ad3fac71e05a997eecf76fcd860a161ca}{xb\+Time}} (xb\+Int16 i\+HH, xb\+Int16 i\+MM, xb\+Int16 i\+SS=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classxb_1_1xbTime_a2643ed78845d19a8d1237e6a9aec1045}{Dump}} ()
+\begin{DoxyCompactList}\small\item\em Dump time internals to stdout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbTime_a7532f5afa56e17a0f2c04c1705c88d1f}{Dump}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Header)
+\begin{DoxyCompactList}\small\item\em Dump time internals to stdout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbTime_ae1a20f2cc7c9739bebdbfe394736d18e}{Dump}} (const char $\ast$s\+Header)
+\begin{DoxyCompactList}\small\item\em Dump time internals to stdout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_a4f3d21693accfcf652e43213b8c81a43}{Set}} (xb\+Int16 i\+HH=0, xb\+Int16 i\+MM=0, xb\+Int16 i\+SS=0)
+\begin{DoxyCompactList}\small\item\em Set Set the time. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_a2189804065e67f2be48ad97eb27d6383}{Set}} (xb\+Int32 l\+Time)
+\begin{DoxyCompactList}\small\item\em Set Set the time. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_a9586d061ec1a1334c65c8eb169e6d92a}{Set}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Time)
+\begin{DoxyCompactList}\small\item\em Set. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_a57822661ec0638a9c3363bb71598e31b}{Set}} (const char $\ast$s\+Time)
+\begin{DoxyCompactList}\small\item\em Set. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTime_a432cba7ff09216b93f1d46f4beb13203}{Set}} (\mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&tm)
+\begin{DoxyCompactList}\small\item\em Set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classxb_1_1xbTime_a44ad5b86616b3f68cb7b3033ac4713e6}{Set\+Default\+Time\+Format}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&\mbox{\hyperlink{classxb_1_1xbCore_a7872526434ff6f6d0388ebff430742cc}{s\+Default\+Time\+Format}})
+\begin{DoxyCompactList}\small\item\em Set the default time format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbTime_a0808c4959d5840916f53badcf686f11d}{Set\+Default\+Time\+Format}} (const char $\ast$\mbox{\hyperlink{classxb_1_1xbCore_a7872526434ff6f6d0388ebff430742cc}{s\+Default\+Time\+Format}})
+\begin{DoxyCompactList}\small\item\em Set the default time format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classxb_1_1xbTime_a24da0fc6949e6b0bdbacc0e50b490cd1}{Set\+Time\+Format}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Fmt\+In)
+\begin{DoxyCompactList}\small\item\em Set the time format for this specific instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbTime_ab5031cdddb510d529ac4f1947bc9db38}{Set\+Time\+Format}} (const char $\ast$s\+Fmt\+In)
+\begin{DoxyCompactList}\small\item\em Set the time format for this specific instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} class. 
+
+The \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} class handles time values.
+
+Times are stored internally in a long integer field with the following formula\+: Hours $\ast$ 3600000L + Minutes $\ast$ 60000L + Seconds $\ast$ 1000L;
+
+Methods for setting the default time format at the system level\+: \begin{DoxyVerb}xbXBase::SetDefaultTimeFormat()
+xbXBase::GetDefaultTimeFormat()
+xbTime::SetDefaultTimeFormat()
+xbTime::GetDefaultTimeFormat()
+\end{DoxyVerb}
+ Methods for setting the time format at the instance level (over ride system level default). \begin{DoxyVerb}xbTime::SetTimeFmt()
+xbTime::GetTimeFmt()
+\end{DoxyVerb}
+ The system default time format is HH\+:\+MM\+:SS (\%H\+:\%M\+:\%S).
+
+Time format specifiers (for applicable class methods).~\newline
+~\newline
+ \%H -\/ is replaced by the hour (24 hour clock) as a decimal number (00-\/23)~\newline
+ \%I -\/ is replaced by the hour (12 hour clock) as a decimal number (01-\/12)~\newline
+ \%M -\/ is replaced by the minute as a decimal number (00-\/59)~\newline
+ \%S -\/ is replaced by the second as a decimla number (00-\/59)~\newline
+ \%p -\/ is replaced by the locale\textquotesingle{}s equivalent of AM/\+PM with 12 hour clock~\newline
+
+
+\begin{DoxyNote}{Note}
+The \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} class is available when the XB\+\_\+\+DBF5\+\_\+\+SUPPORT option is compiled into the library. 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classxb_1_1xbTime_adccb3879a583cbfb6ce821770251e72d}\label{classxb_1_1xbTime_adccb3879a583cbfb6ce821770251e72d}} 
+\index{xb::xbTime@{xb::xbTime}!xbTime@{xbTime}}
+\index{xbTime@{xbTime}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{xbTime()}{xbTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily xb\+::xb\+Time\+::xb\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor This constructor sets the time to null (-\/1). 
+
+\mbox{\Hypertarget{classxb_1_1xbTime_aa6396548116704755490133bf4a706de}\label{classxb_1_1xbTime_aa6396548116704755490133bf4a706de}} 
+\index{xb::xbTime@{xb::xbTime}!xbTime@{xbTime}}
+\index{xbTime@{xbTime}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{xbTime()}{xbTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily xb\+::xb\+Time\+::xb\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Time }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Time} & formated as HH\+:\+MM\+:SS or HH\+:MM \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_ae19758290b210914a7371d85c9da06cc}\label{classxb_1_1xbTime_ae19758290b210914a7371d85c9da06cc}} 
+\index{xb::xbTime@{xb::xbTime}!xbTime@{xbTime}}
+\index{xbTime@{xbTime}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{xbTime()}{xbTime()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily xb\+::xb\+Time\+::xb\+Time (\begin{DoxyParamCaption}\item[{char $\ast$}]{s\+Time }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Time} & formated as HH\+:\+MM\+:SS or HH\+:MM \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a65f5013a208800a9d82984e488bc2c96}\label{classxb_1_1xbTime_a65f5013a208800a9d82984e488bc2c96}} 
+\index{xb::xbTime@{xb::xbTime}!xbTime@{xbTime}}
+\index{xbTime@{xbTime}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{xbTime()}{xbTime()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily xb\+::xb\+Time\+::xb\+Time (\begin{DoxyParamCaption}\item[{xb\+Int32}]{l\+Time }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+Time} & 0 -\/ Set to system time~\newline
+ or a valid time value as (hours $\ast$ 3600000L) + (minutes $\ast$ 60000L) + (seconds $\ast$ 1000L) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_ad3fac71e05a997eecf76fcd860a161ca}\label{classxb_1_1xbTime_ad3fac71e05a997eecf76fcd860a161ca}} 
+\index{xb::xbTime@{xb::xbTime}!xbTime@{xbTime}}
+\index{xbTime@{xbTime}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{xbTime()}{xbTime()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily xb\+::xb\+Time\+::xb\+Time (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+HH,  }\item[{xb\+Int16}]{i\+MM,  }\item[{xb\+Int16}]{i\+SS = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+HH} & Hours~\newline
+ \\
+\hline
+{\em i\+MM} & Minutes~\newline
+ \\
+\hline
+{\em i\+SS} & Seconds \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classxb_1_1xbTime_a326ee97c6b7e85650dd2227de6273dcc}\label{classxb_1_1xbTime_a326ee97c6b7e85650dd2227de6273dcc}} 
+\index{xb::xbTime@{xb::xbTime}!Add@{Add}}
+\index{Add@{Add}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily xb\+Int32 xb\+::xb\+Time\+::\+Add (\begin{DoxyParamCaption}\item[{char}]{c\+Type,  }\item[{xb\+Int32}]{l\+Cnt }\end{DoxyParamCaption})}
+
+
+
+Add method or subtract time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+Type} & is one of H,h,M,m,S,s for hour minute or second~\newline
+ \\
+\hline
+{\em l\+Cnt} & Depending on c\+Type, l\+Cnt is number of hours, minutes or seconds to add to the time.~\newline
+ Use negative numbers to subtract from time. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a2643ed78845d19a8d1237e6a9aec1045}\label{classxb_1_1xbTime_a2643ed78845d19a8d1237e6a9aec1045}} 
+\index{xb::xbTime@{xb::xbTime}!Dump@{Dump}}
+\index{Dump@{Dump}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{Dump()}{Dump()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void xb\+::xb\+Time\+::\+Dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Dump time internals to stdout. 
+
+\mbox{\Hypertarget{classxb_1_1xbTime_ae1a20f2cc7c9739bebdbfe394736d18e}\label{classxb_1_1xbTime_ae1a20f2cc7c9739bebdbfe394736d18e}} 
+\index{xb::xbTime@{xb::xbTime}!Dump@{Dump}}
+\index{Dump@{Dump}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{Dump()}{Dump()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void xb\+::xb\+Time\+::\+Dump (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s\+Header }\end{DoxyParamCaption})}
+
+
+
+Dump time internals to stdout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Header} & -\/ Header message included with time internals. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a7532f5afa56e17a0f2c04c1705c88d1f}\label{classxb_1_1xbTime_a7532f5afa56e17a0f2c04c1705c88d1f}} 
+\index{xb::xbTime@{xb::xbTime}!Dump@{Dump}}
+\index{Dump@{Dump}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{Dump()}{Dump()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void xb\+::xb\+Time\+::\+Dump (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Header }\end{DoxyParamCaption})}
+
+
+
+Dump time internals to stdout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Header} & -\/ Header message included with time internals. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a397ea6335edfde72641d3bc1dee8141b}\label{classxb_1_1xbTime_a397ea6335edfde72641d3bc1dee8141b}} 
+\index{xb::xbTime@{xb::xbTime}!FromTimeT@{FromTimeT}}
+\index{FromTimeT@{FromTimeT}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{FromTimeT()}{FromTimeT()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+From\+TimeT (\begin{DoxyParamCaption}\item[{time\+\_\+t}]{t\+In }\end{DoxyParamCaption})}
+
+
+
+From\+TimeT -\/ Set time value from a time\+\_\+t value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+In} & -\/ time\+\_\+t value to set the time \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a17fc8f3a1d994612c1b868c1590fcf33}\label{classxb_1_1xbTime_a17fc8f3a1d994612c1b868c1590fcf33}} 
+\index{xb::xbTime@{xb::xbTime}!GetDefaultTimeFormat@{GetDefaultTimeFormat}}
+\index{GetDefaultTimeFormat@{GetDefaultTimeFormat}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{GetDefaultTimeFormat()}{GetDefaultTimeFormat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Time\+::\+Get\+Default\+Time\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the current default time format. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} containing the default time format. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Available if XB\+\_\+\+DBF5\+\_\+\+SUPPORT is on. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbTime_a4cbe46923c481de3c21f816eadb474ef}\label{classxb_1_1xbTime_a4cbe46923c481de3c21f816eadb474ef}} 
+\index{xb::xbTime@{xb::xbTime}!GetHour@{GetHour}}
+\index{GetHour@{GetHour}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{GetHour()}{GetHour()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+Get\+Hour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get\+Hour. 
+
+\begin{DoxyReturn}{Returns}
+Hour value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_abd3811c2e2f4c209913c7be2ba7ee4e2}\label{classxb_1_1xbTime_abd3811c2e2f4c209913c7be2ba7ee4e2}} 
+\index{xb::xbTime@{xb::xbTime}!GetMinute@{GetMinute}}
+\index{GetMinute@{GetMinute}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{GetMinute()}{GetMinute()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+Get\+Minute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get\+Minute. 
+
+\begin{DoxyReturn}{Returns}
+Minute value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_af4b84f034e07dee2f744909f73f5552b}\label{classxb_1_1xbTime_af4b84f034e07dee2f744909f73f5552b}} 
+\index{xb::xbTime@{xb::xbTime}!GetSecond@{GetSecond}}
+\index{GetSecond@{GetSecond}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{GetSecond()}{GetSecond()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+Get\+Second (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get\+Second. 
+
+\begin{DoxyReturn}{Returns}
+Second value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_afc725152044d26bba64b1eee1f684ee3}\label{classxb_1_1xbTime_afc725152044d26bba64b1eee1f684ee3}} 
+\index{xb::xbTime@{xb::xbTime}!GetTime@{GetTime}}
+\index{GetTime@{GetTime}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{GetTime()}{GetTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily xb\+Int32 xb\+::xb\+Time\+::\+Get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get\+Time. 
+
+\begin{DoxyReturn}{Returns}
+Long int time value.~\newline
+ Time is calculated as (hours $\ast$ 3600000L) + (minutes $\ast$ 60000L) + (seconds $\ast$ 1000L) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_a9efe37b3c48939e845e0419403bae803}\label{classxb_1_1xbTime_a9efe37b3c48939e845e0419403bae803}} 
+\index{xb::xbTime@{xb::xbTime}!GetTime@{GetTime}}
+\index{GetTime@{GetTime}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{GetTime()}{GetTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+Get\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Time\+Out }\end{DoxyParamCaption})}
+
+
+
+Get\+Time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Time\+Out} & -\/ Output string in HH\+:\+MM\+:SS format. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a75eff479fcb71e29c17ff4efea0fdcff}\label{classxb_1_1xbTime_a75eff479fcb71e29c17ff4efea0fdcff}} 
+\index{xb::xbTime@{xb::xbTime}!GetTime@{GetTime}}
+\index{GetTime@{GetTime}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{GetTime()}{GetTime()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+Get\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Time\+Out,  }\item[{const char $\ast$}]{s\+Fmt\+In }\end{DoxyParamCaption})}
+
+
+
+Get\+Time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Time\+Out} & -\/ Output string formatted based on specifers in s\+Fmt\+In \\
+\hline
+{\em s\+Fmt\+In} & -\/ Time format specifier~\newline
+ \%H -\/ is replaced by the hour (24 hour clock) as a decimal number (00-\/23)~\newline
+ \%I -\/ is replaced by the hour (12 hour clock) as a decimal number (01-\/12)~\newline
+ \%M -\/ is replaced by the minute as a decimal number (00-\/59)~\newline
+ \%S -\/ is replaced by the second as a decimla number (00-\/59)~\newline
+ \%p -\/ is replaced by the locale\textquotesingle{}s equivalent of AM/\+PM with 12 hour clock~\newline
+ Example \%H\+:\%M\+:\%S \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_aabf997f7f51093cb299470dab31aaaca}\label{classxb_1_1xbTime_aabf997f7f51093cb299470dab31aaaca}} 
+\index{xb::xbTime@{xb::xbTime}!GetTime@{GetTime}}
+\index{GetTime@{GetTime}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{GetTime()}{GetTime()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+Get\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Time\+Out,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Fmt\+In }\end{DoxyParamCaption})}
+
+
+
+Get\+Time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Time\+Out} & -\/ Output string formatted based on specifers in s\+Fmt\+In \\
+\hline
+{\em s\+Fmt\+In} & -\/ Time format specifier~\newline
+ \%H -\/ is replaced by the hour (24 hour clock) as a decimal number (00-\/23)~\newline
+ \%I -\/ is replaced by the hour (12 hour clock) as a decimal number (01-\/12)~\newline
+ \%M -\/ is replaced by the minute as a decimal number (00-\/59)~\newline
+ \%S -\/ is replaced by the second as a decimla number (00-\/59)~\newline
+ \%p -\/ is replaced by the locale\textquotesingle{}s equivalent of AM/\+PM with 12 hour clock~\newline
+ Example \%H\+:\%M\+:\%S \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a8ecb221c4e25879f0283d68d4a3b6ea9}\label{classxb_1_1xbTime_a8ecb221c4e25879f0283d68d4a3b6ea9}} 
+\index{xb::xbTime@{xb::xbTime}!GetTimeFormat@{GetTimeFormat}}
+\index{GetTimeFormat@{GetTimeFormat}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{GetTimeFormat()}{GetTimeFormat()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Time\+::\+Get\+Time\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get\+Time\+Fmt returns the time format for the given time. 
+
+Returns the time format if set, else returns the system default time format.
+
+\begin{DoxyReturn}{Returns}
+Time format used for string representation of time. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_a2e00b5b789af093161d319622dbfa7b9}\label{classxb_1_1xbTime_a2e00b5b789af093161d319622dbfa7b9}} 
+\index{xb::xbTime@{xb::xbTime}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Time\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&}]{t\+Tm }\end{DoxyParamCaption}) const}
+
+
+
+operator != Not Equal 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Tm} & Time to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Times match.~\newline
+ xb\+False -\/ Times don\textquotesingle{}t match.~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_af52426cff980f16216013d388d085cf8}\label{classxb_1_1xbTime_af52426cff980f16216013d388d085cf8}} 
+\index{xb::xbTime@{xb::xbTime}!operator+@{operator+}}
+\index{operator+@{operator+}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily xb\+Int32 xb\+::xb\+Time\+::operator+ (\begin{DoxyParamCaption}\item[{xb\+Int32}]{l\+Secs }\end{DoxyParamCaption}) const}
+
+
+
+operator + Add l\+Secs seconds to time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+Secs} & No of seconds to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a49e00e777907797616afed8be4823b69}\label{classxb_1_1xbTime_a49e00e777907797616afed8be4823b69}} 
+\index{xb::xbTime@{xb::xbTime}!operator++@{operator++}}
+\index{operator++@{operator++}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \& xb\+::xb\+Time\+::operator++ (\begin{DoxyParamCaption}\item[{xb\+Int32}]{ }\end{DoxyParamCaption})}
+
+
+
+operator ++ Increment one second. 
+
+\mbox{\Hypertarget{classxb_1_1xbTime_a1103ac479fa86adc5295c67bcd8bb841}\label{classxb_1_1xbTime_a1103ac479fa86adc5295c67bcd8bb841}} 
+\index{xb::xbTime@{xb::xbTime}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \& xb\+::xb\+Time\+::operator+= (\begin{DoxyParamCaption}\item[{xb\+Int32}]{l\+Secs }\end{DoxyParamCaption})}
+
+
+
+Addition operator += Add l\+Secs seconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+Secs} & -\/ Number of seconds to add to time. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_ac473c54418dc0c331fae4bd30e488543}\label{classxb_1_1xbTime_ac473c54418dc0c331fae4bd30e488543}} 
+\index{xb::xbTime@{xb::xbTime}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily xb\+Int32 xb\+::xb\+Time\+::operator-\/ (\begin{DoxyParamCaption}\item[{xb\+Int32}]{l\+Secs }\end{DoxyParamCaption}) const}
+
+
+
+operator -\/ Subtract l\+Secs seconds from time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+Secs} & No of seconds to subtract.. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a155fa6ec93244abb7510f29399b51aa0}\label{classxb_1_1xbTime_a155fa6ec93244abb7510f29399b51aa0}} 
+\index{xb::xbTime@{xb::xbTime}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \& xb\+::xb\+Time\+::operator-\/-\/ (\begin{DoxyParamCaption}\item[{xb\+Int32}]{l\+Secs }\end{DoxyParamCaption})}
+
+
+
+operator -- Decrement one second. 
+
+\mbox{\Hypertarget{classxb_1_1xbTime_a672c4f3de40a4c9bb67cc1a9a42293bd}\label{classxb_1_1xbTime_a672c4f3de40a4c9bb67cc1a9a42293bd}} 
+\index{xb::xbTime@{xb::xbTime}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \& xb\+::xb\+Time\+::operator-\/= (\begin{DoxyParamCaption}\item[{xb\+Int32}]{l\+Secs }\end{DoxyParamCaption})}
+
+
+
+Subtraction operator -\/= Subtract l\+Secs seconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+Secs} & -\/ Number of seconds to subtract from time. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_ac367c1f04afcc9393aa00de843a8cb4c}\label{classxb_1_1xbTime_ac367c1f04afcc9393aa00de843a8cb4c}} 
+\index{xb::xbTime@{xb::xbTime}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Time\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&}]{tm }\end{DoxyParamCaption}) const}
+
+
+
+operator \texorpdfstring{$<$}{<} This routine compares two times 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tm} & -\/ Time to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Left time is less than right date.~\newline
+ xb\+False -\/ Left time is not less than right date. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_a93f96d9ed8fb5ed6a2eef070d4586018}\label{classxb_1_1xbTime_a93f96d9ed8fb5ed6a2eef070d4586018}} 
+\index{xb::xbTime@{xb::xbTime}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Time\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&}]{tm }\end{DoxyParamCaption}) const}
+
+
+
+operator \texorpdfstring{$<$}{<}= This routine compares two times 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tm} & -\/ Time to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Left time is less than or equal to right date.~\newline
+ xb\+False -\/ Left time is not less than or equal to right date. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_a45d625e1033655163815bba4e488ebe1}\label{classxb_1_1xbTime_a45d625e1033655163815bba4e488ebe1}} 
+\index{xb::xbTime@{xb::xbTime}!operator=@{operator=}}
+\index{operator=@{operator=}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void xb\+::xb\+Time\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&}]{tm }\end{DoxyParamCaption})}
+
+
+
+Set operator= Assignment operator. ~\newline
+ Assigns the time value and format specifier from time object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tm} & -\/ Time value for assignment operation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a83c0a9463e04a5c81a0f96333a974f8f}\label{classxb_1_1xbTime_a83c0a9463e04a5c81a0f96333a974f8f}} 
+\index{xb::xbTime@{xb::xbTime}!operator=@{operator=}}
+\index{operator=@{operator=}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void xb\+::xb\+Time\+::operator= (\begin{DoxyParamCaption}\item[{xb\+Int32}]{l\+Time }\end{DoxyParamCaption})}
+
+
+
+Set operator= Assignment operator. Assign time value. Does not assign the optional format specifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+Time} & -\/ Time value for assignment operation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a64bc7f3b159d5b58d29c236ba08c060b}\label{classxb_1_1xbTime_a64bc7f3b159d5b58d29c236ba08c060b}} 
+\index{xb::xbTime@{xb::xbTime}!operator==@{operator==}}
+\index{operator==@{operator==}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Time\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&}]{tm }\end{DoxyParamCaption}) const}
+
+
+
+operator == 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tm} & Time to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Times match.~\newline
+ zb\+False -\/ Times don\textquotesingle{}t match. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_ac94f3e91767485f849b722f0964b7a3f}\label{classxb_1_1xbTime_ac94f3e91767485f849b722f0964b7a3f}} 
+\index{xb::xbTime@{xb::xbTime}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Time\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&}]{tm }\end{DoxyParamCaption}) const}
+
+
+
+operator \texorpdfstring{$>$}{>} This routine compares two times 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tm} & -\/ Time to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Left time is greater than right date.~\newline
+ xb\+False -\/ Left time is not greater than right date. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_a0f9ec4e4337e34d656442d0d87878c45}\label{classxb_1_1xbTime_a0f9ec4e4337e34d656442d0d87878c45}} 
+\index{xb::xbTime@{xb::xbTime}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Time\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&}]{tm }\end{DoxyParamCaption}) const}
+
+
+
+operator \texorpdfstring{$>$}{>}= This routine compares two times 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tm} & -\/ Time to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Left Time is greater than or equal to right date.~\newline
+ xb\+False -\/ Left Time is not greater than or equal to right date. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_a57822661ec0638a9c3363bb71598e31b}\label{classxb_1_1xbTime_a57822661ec0638a9c3363bb71598e31b}} 
+\index{xb::xbTime@{xb::xbTime}!Set@{Set}}
+\index{Set@{Set}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+Set (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s\+Time }\end{DoxyParamCaption})}
+
+
+
+Set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Time} & formated as HH\+:\+MM\+:SS or HH\+:MM \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+PARAMETER 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_a4f3d21693accfcf652e43213b8c81a43}\label{classxb_1_1xbTime_a4f3d21693accfcf652e43213b8c81a43}} 
+\index{xb::xbTime@{xb::xbTime}!Set@{Set}}
+\index{Set@{Set}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+Set (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+HH = {\ttfamily 0},  }\item[{xb\+Int16}]{i\+MM = {\ttfamily 0},  }\item[{xb\+Int16}]{i\+SS = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Set Set the time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+HH} & Hour \\
+\hline
+{\em i\+MM} & Minute \\
+\hline
+{\em i\+SS} & Second \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+PARAMETER 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_a2189804065e67f2be48ad97eb27d6383}\label{classxb_1_1xbTime_a2189804065e67f2be48ad97eb27d6383}} 
+\index{xb::xbTime@{xb::xbTime}!Set@{Set}}
+\index{Set@{Set}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+Set (\begin{DoxyParamCaption}\item[{xb\+Int32}]{l\+Time }\end{DoxyParamCaption})}
+
+
+
+Set Set the time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+Time} & Set time to l\+Time. l\+Time is (hours $\ast$ 3600000L) + (minutes $\ast$ 60000L) + (seconds $\ast$ 1000L) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+PARAMETER 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_a9586d061ec1a1334c65c8eb169e6d92a}\label{classxb_1_1xbTime_a9586d061ec1a1334c65c8eb169e6d92a}} 
+\index{xb::xbTime@{xb::xbTime}!Set@{Set}}
+\index{Set@{Set}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Time }\end{DoxyParamCaption})}
+
+
+
+Set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Time} & formated as HH\+:\+MM\+:SS or HH\+:MM \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+PARAMETER 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_a432cba7ff09216b93f1d46f4beb13203}\label{classxb_1_1xbTime_a432cba7ff09216b93f1d46f4beb13203}} 
+\index{xb::xbTime@{xb::xbTime}!Set@{Set}}
+\index{Set@{Set}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} \&}]{tm }\end{DoxyParamCaption})}
+
+
+
+Set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tm} & Set time and format from \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} object t\+Tm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+PARAMETER 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_a0808c4959d5840916f53badcf686f11d}\label{classxb_1_1xbTime_a0808c4959d5840916f53badcf686f11d}} 
+\index{xb::xbTime@{xb::xbTime}!SetDefaultTimeFormat@{SetDefaultTimeFormat}}
+\index{SetDefaultTimeFormat@{SetDefaultTimeFormat}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{SetDefaultTimeFormat()}{SetDefaultTimeFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void xb\+::xb\+Time\+::\+Set\+Default\+Time\+Format (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s\+Default\+Time\+Format }\end{DoxyParamCaption})}
+
+
+
+Set the default time format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Default\+Time\+Format} & Format specifier \%H -\/ is replaced by the hour (24 hour clock) as a decimal number (00-\/23)~\newline
+ \%I -\/ is replaced by the hour (12 hour clock) as a decimal number (01-\/12)~\newline
+ \%M -\/ is replaced by the minute as a decimal number (00-\/59)~\newline
+ \%S -\/ is replaced by the second as a decimla number (00-\/59)~\newline
+ \%p -\/ is replaced by the locale\textquotesingle{}s equivalent of AM/\+PM with 12 hour clock~\newline
+ Example \%H\+:\%M\+:\%S \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a44ad5b86616b3f68cb7b3033ac4713e6}\label{classxb_1_1xbTime_a44ad5b86616b3f68cb7b3033ac4713e6}} 
+\index{xb::xbTime@{xb::xbTime}!SetDefaultTimeFormat@{SetDefaultTimeFormat}}
+\index{SetDefaultTimeFormat@{SetDefaultTimeFormat}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{SetDefaultTimeFormat()}{SetDefaultTimeFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void xb\+::xb\+Time\+::\+Set\+Default\+Time\+Format (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Default\+Time\+Format }\end{DoxyParamCaption})}
+
+
+
+Set the default time format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Default\+Time\+Format} & Format specifier \%H -\/ is replaced by the hour (24 hour clock) as a decimal number (00-\/23)~\newline
+ \%I -\/ is replaced by the hour (12 hour clock) as a decimal number (01-\/12)~\newline
+ \%M -\/ is replaced by the minute as a decimal number (00-\/59)~\newline
+ \%S -\/ is replaced by the second as a decimla number (00-\/59)~\newline
+ \%p -\/ is replaced by the locale\textquotesingle{}s equivalent of AM/\+PM with 12 hour clock~\newline
+ Example \%H\+:\%M\+:\%S \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_ab5031cdddb510d529ac4f1947bc9db38}\label{classxb_1_1xbTime_ab5031cdddb510d529ac4f1947bc9db38}} 
+\index{xb::xbTime@{xb::xbTime}!SetTimeFormat@{SetTimeFormat}}
+\index{SetTimeFormat@{SetTimeFormat}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{SetTimeFormat()}{SetTimeFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void xb\+::xb\+Time\+::\+Set\+Time\+Format (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s\+Fmt\+In }\end{DoxyParamCaption})}
+
+
+
+Set the time format for this specific instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Fmt\+In} & -\/ Time format specifier~\newline
+ \%H -\/ is replaced by the hour (24 hour clock) as a decimal number (00-\/23)~\newline
+ \%I -\/ is replaced by the hour (12 hour clock) as a decimal number (01-\/12)~\newline
+ \%M -\/ is replaced by the minute as a decimal number (00-\/59)~\newline
+ \%S -\/ is replaced by the second as a decimla number (00-\/59)~\newline
+ \%p -\/ is replaced by the locale\textquotesingle{}s equivalent of AM/\+PM with 12 hour clock~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_a24da0fc6949e6b0bdbacc0e50b490cd1}\label{classxb_1_1xbTime_a24da0fc6949e6b0bdbacc0e50b490cd1}} 
+\index{xb::xbTime@{xb::xbTime}!SetTimeFormat@{SetTimeFormat}}
+\index{SetTimeFormat@{SetTimeFormat}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{SetTimeFormat()}{SetTimeFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void xb\+::xb\+Time\+::\+Set\+Time\+Format (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Fmt\+In }\end{DoxyParamCaption})}
+
+
+
+Set the time format for this specific instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Fmt\+In} & -\/ Time format specifier~\newline
+ \%H -\/ is replaced by the hour (24 hour clock) as a decimal number (00-\/23)~\newline
+ \%I -\/ is replaced by the hour (12 hour clock) as a decimal number (01-\/12)~\newline
+ \%M -\/ is replaced by the minute as a decimal number (00-\/59)~\newline
+ \%S -\/ is replaced by the second as a decimla number (00-\/59)~\newline
+ \%p -\/ is replaced by the locale\textquotesingle{}s equivalent of AM/\+PM with 12 hour clock~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbTime_af2baf81cd89d4e7a6476c76ae6f38f44}\label{classxb_1_1xbTime_af2baf81cd89d4e7a6476c76ae6f38f44}} 
+\index{xb::xbTime@{xb::xbTime}!Str@{Str}}
+\index{Str@{Str}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{Str()}{Str()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Time\+::\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return string representation of time. 
+
+Uses the currnt format to generate a string value and return it.
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbTime_abd7bb1a7396e46f0f37ff3bc8154c1dc}\label{classxb_1_1xbTime_abd7bb1a7396e46f0f37ff3bc8154c1dc}} 
+\index{xb::xbTime@{xb::xbTime}!Systime@{Systime}}
+\index{Systime@{Systime}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{Systime()}{Systime()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Time\+::\+Systime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Set the time to the system time. 
+
+\mbox{\Hypertarget{classxb_1_1xbTime_a0d50d6dc78e4c9790280c5121474eb07}\label{classxb_1_1xbTime_a0d50d6dc78e4c9790280c5121474eb07}} 
+\index{xb::xbTime@{xb::xbTime}!ToTimeT@{ToTimeT}}
+\index{ToTimeT@{ToTimeT}!xb::xbTime@{xb::xbTime}}
+\doxysubsubsection{\texorpdfstring{ToTimeT()}{ToTimeT()}}
+{\footnotesize\ttfamily time\+\_\+t xb\+::xb\+Time\+::\+To\+TimeT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+To\+TimeT Calulate and return the time in a time\+\_\+t structure. Returns time in time\+\_\+t structure. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+11/src/include/\mbox{\hyperlink{xbtime_8h}{xbtime.\+h}}\end{DoxyCompactItemize}

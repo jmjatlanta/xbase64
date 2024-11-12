@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -48,6 +52,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_p.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -66,35 +86,29 @@ $(function() {
 <div class="textblock">Here is a list of all struct and union fields with links to the structures/unions they belong to:</div>
 
 <h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
-<li>Pack()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a93bb14ad0451355bfa3379128120988a">xb::xbDbf</a></li>
-<li>PadLeft()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a6a09cfed22066b0c72432f26960f9e7b">xb::xbString</a></li>
-<li>PadRight()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#aba13f0c77eb6c4a22996039569fad284">xb::xbString</a></li>
-<li>pDbf&#160;:&#160;<a class="el" href="structxb_1_1xbTblList.html#a387d3f6bbf291a1fb96d276ed9bb96b6">xb::xbTblList</a></li>
-<li>pFilt&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a12e3962a535dd0b3e1679c2183db9971">xb::xbRelation</a></li>
-<li>pIx&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a491d66b6a37af9b6b60f7ea07242af15">xb::xbRelation</a></li>
-<li>pNext&#160;:&#160;<a class="el" href="structxb_1_1xbTblList.html#a3fd169fcf0fd4df927544e5342db583c">xb::xbTblList</a></li>
-<li>Pos()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a8705d7277b72f5aa98021e84438914da">xb::xbString</a></li>
-<li>pParent&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a78f8ce451f3951446eebb1d264af7cdd">xb::xbRelation</a></li>
-<li>pParentExp&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a9e2105b745a9323bffbe72f165782332">xb::xbRelation</a></li>
-<li>pParentNp&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a7734f16f09b6323522ee918f6fc7005c">xb::xbRelation</a></li>
-<li>psFqTblName&#160;:&#160;<a class="el" href="structxb_1_1xbTblList.html#aceec65f6f6b585788cf98e8dabd2737d">xb::xbTblList</a></li>
-<li>psTblAlias&#160;:&#160;<a class="el" href="structxb_1_1xbTblList.html#ac87742c8a6b1cf2e7e35218e96966a05">xb::xbTblList</a></li>
-<li>psTblName&#160;:&#160;<a class="el" href="structxb_1_1xbTblList.html#a02c3b0c47fd104ef9758b375ecdcfd0f">xb::xbTblList</a></li>
-<li>pTag&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a6fd8fac0fc95f54c3d522f48af84f5aa">xb::xbRelation</a></li>
+<li>Pack()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a0095dfb957b4a770d0f56e0f0c5a7b08">xb::xbDbf</a></li>
+<li>PadLeft()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a50b07e479b8f0fbe26f4f11a6e330ef6">xb::xbString</a></li>
+<li>PadRight()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a5ca98cefd599f922481de3e417604d80">xb::xbString</a></li>
+<li>ParseExpression()&#160;:&#160;<a class="el" href="classxb_1_1xbExp.html#a2c3212c64d9281f58200c63c05e93334">xb::xbExp</a></li>
+<li>Pos()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a3baf59d15099589ff631995f129e582b">xb::xbString</a></li>
+<li>ProcessExpression()&#160;:&#160;<a class="el" href="classxb_1_1xbExp.html#a784115a766e30a032e2b17f30b04dd3d">xb::xbExp</a></li>
 <li>PutAt()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a1bae6fa8f608261f6e889616482f6e39">xb::xbString</a></li>
-<li>PutDateField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a571b36b3a940b1a16d5e834f329b33b9">xb::xbDbf</a></li>
-<li>PutDoubleField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a4f34842d7e8ff1f16992c2ece2fc38a5">xb::xbDbf</a></li>
-<li>PutField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a7862215dd2f83a1c488e539cd1f9aec0">xb::xbDbf</a></li>
-<li>PutFloatField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a64161eb50d72e424b11bf3732657ebd8">xb::xbDbf</a></li>
-<li>PutLogicalField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a507e400ca6526a9e0391cf06dd6a014e">xb::xbDbf</a></li>
-<li>PutLongField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a56c8f924284bf88aabf90b7930b4eb47">xb::xbDbf</a></li>
-<li>PutRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a3c36a5ffbc7067a1abbcb526dd3b981d">xb::xbDbf</a></li>
-<li>PutULongField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#af5dec5c9ff903efffdb0490a44d296d2">xb::xbDbf</a></li>
+<li>PutDateField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#af8d033e924d42cfcb229a1a7a13e2e3a">xb::xbDbf</a></li>
+<li>PutDoubleField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a5ad8b3b451454a6b7fd1fda487648d5d">xb::xbDbf</a></li>
+<li>PutField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a5dabdc6a205044740c29040f8770cbd2">xb::xbDbf</a></li>
+<li>PutFloatField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a98f6947518661567c9555220235f7457">xb::xbDbf</a></li>
+<li>PutLogicalField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a9cdedbfebebbcd45ba94f05420337afa">xb::xbDbf</a></li>
+<li>PutLongField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a0624f14b6c68e3f9243a43ea33271373">xb::xbDbf</a></li>
+<li>PutRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a1e91bbac8d1a2502450b6a1521a33850">xb::xbDbf</a></li>
+<li>PutULongField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a090bc5037b0001cd06293a808dd189ee">xb::xbDbf</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

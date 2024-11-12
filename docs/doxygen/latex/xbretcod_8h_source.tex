@@ -1,12 +1,12 @@
 \hypertarget{xbretcod_8h_source}{}\doxysection{xbretcod.\+h}
-\label{xbretcod_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbretcod.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbretcod.h}}
+\label{xbretcod_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbretcod.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbretcod.h}}
 \mbox{\hyperlink{xbretcod_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*  xbretcod.h}}
 \DoxyCodeLine{2 \textcolor{comment}{}}
 \DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
 \DoxyCodeLine{4 \textcolor{comment}{}}
-\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel}}
 \DoxyCodeLine{6 \textcolor{comment}{}}
 \DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
 \DoxyCodeLine{8 \textcolor{comment}{}}
@@ -43,63 +43,131 @@
 \DoxyCodeLine{39 \textcolor{preprocessor}{  \#define XB\_RENAME\_ERROR              -\/205       }\textcolor{comment}{// file}}
 \DoxyCodeLine{40 \textcolor{preprocessor}{  \#define XB\_INVALID\_OBJECT            -\/206       }\textcolor{comment}{// file, general}}
 \DoxyCodeLine{41 \textcolor{preprocessor}{  \#define XB\_NOT\_OPEN                  -\/207       }\textcolor{comment}{// file}}
-\DoxyCodeLine{42 \textcolor{preprocessor}{  \#define XB\_NOT\_FOUND                 -\/208       }\textcolor{comment}{// file}}
-\DoxyCodeLine{43 \textcolor{preprocessor}{  \#define XB\_OPEN\_ERROR                -\/209       }\textcolor{comment}{// file}}
-\DoxyCodeLine{44 \textcolor{preprocessor}{  \#define XB\_CLOSE\_ERROR               -\/210       }\textcolor{comment}{// file}}
-\DoxyCodeLine{45 \textcolor{preprocessor}{  \#define XB\_SEEK\_ERROR                -\/211       }\textcolor{comment}{// file}}
-\DoxyCodeLine{46 \textcolor{preprocessor}{  \#define XB\_READ\_ERROR                -\/212       }\textcolor{comment}{// file}}
-\DoxyCodeLine{47 \textcolor{preprocessor}{  \#define XB\_WRITE\_ERROR               -\/213       }\textcolor{comment}{// file}}
-\DoxyCodeLine{48 \textcolor{preprocessor}{  \#define XB\_EOF                       -\/214       }\textcolor{comment}{// file}}
-\DoxyCodeLine{49 \textcolor{preprocessor}{  \#define XB\_BOF                       -\/215       }\textcolor{comment}{// file}}
-\DoxyCodeLine{50 \textcolor{preprocessor}{  \#define XB\_INVALID\_BLOCK\_SIZE        -\/216       }\textcolor{comment}{// file}}
-\DoxyCodeLine{51 \textcolor{preprocessor}{  \#define XB\_INVALID\_BLOCK\_NO          -\/217       }\textcolor{comment}{// file}}
-\DoxyCodeLine{52 \textcolor{preprocessor}{  \#define XB\_INVALID\_RECORD            -\/218       }\textcolor{comment}{// file}}
-\DoxyCodeLine{53 \textcolor{preprocessor}{  \#define XB\_DELETE\_FAILED             -\/219       }\textcolor{comment}{// file}}
-\DoxyCodeLine{54 \textcolor{preprocessor}{  \#define XB\_INVALID\_TABLE\_NAME        -\/220       }\textcolor{comment}{// file}}
-\DoxyCodeLine{55 \textcolor{preprocessor}{  \#define XB\_EMPTY                     -\/221       }\textcolor{comment}{// file}}
-\DoxyCodeLine{56 \textcolor{preprocessor}{  \#define XB\_LIMIT\_REACHED             -\/222       }\textcolor{comment}{// file}}
-\DoxyCodeLine{57 \textcolor{preprocessor}{  \#define XB\_BLOCKREAD\_NOT\_ENABLED     -\/223       }\textcolor{comment}{// file}}
-\DoxyCodeLine{58 \textcolor{preprocessor}{  \#define XB\_DIRECTORY\_ERROR           -\/224       }\textcolor{comment}{// file}}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{60 \textcolor{preprocessor}{  \#define XB\_INVALID\_FIELD\_TYPE        -\/300       }\textcolor{comment}{// field}}
-\DoxyCodeLine{61 \textcolor{preprocessor}{  \#define XB\_INVALID\_FIELD\_NO          -\/301       }\textcolor{comment}{// field}}
-\DoxyCodeLine{62 \textcolor{preprocessor}{  \#define XB\_INVALID\_DATA              -\/302       }\textcolor{comment}{// field}}
-\DoxyCodeLine{63 \textcolor{preprocessor}{  \#define XB\_INVALID\_FIELD\_NAME        -\/303       }\textcolor{comment}{// field}}
-\DoxyCodeLine{64 \textcolor{preprocessor}{  \#define XB\_INVALID\_MEMO\_FIELD        -\/304       }\textcolor{comment}{// field}}
-\DoxyCodeLine{65 \textcolor{preprocessor}{  \#define XB\_INVALID\_FIELD             -\/305       }\textcolor{comment}{// field}}
-\DoxyCodeLine{66 \textcolor{preprocessor}{  \#define XB\_INVALID\_FIELD\_LEN         -\/306       }\textcolor{comment}{// field}}
-\DoxyCodeLine{67 \textcolor{preprocessor}{  \#define XB\_INVALID\_DATE              -\/307       }\textcolor{comment}{// date field}}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{69 \textcolor{preprocessor}{  \#define XB\_INVALID\_LOCK\_OPTION       -\/400       }\textcolor{comment}{// lock}}
-\DoxyCodeLine{70 \textcolor{preprocessor}{  \#define XB\_LOCK\_FAILED               -\/401       }\textcolor{comment}{// lock}}
-\DoxyCodeLine{71 \textcolor{preprocessor}{  \#define XB\_TABLE\_NOT\_LOCKED          -\/402       }\textcolor{comment}{// lock -\/ need table locked for operation}}
-\DoxyCodeLine{72 }
-\DoxyCodeLine{73 \textcolor{preprocessor}{  \#define XB\_PARSE\_ERROR               -\/500       }\textcolor{comment}{// expression}}
-\DoxyCodeLine{74 \textcolor{preprocessor}{  \#define XB\_INVALID\_FUNCTION          -\/501       }\textcolor{comment}{// expression}}
-\DoxyCodeLine{75 \textcolor{preprocessor}{  \#define XB\_INVALID\_PARM              -\/502       }\textcolor{comment}{// expression}}
-\DoxyCodeLine{76 \textcolor{preprocessor}{  \#define XB\_INCONSISTENT\_PARM\_LENS    -\/503       }\textcolor{comment}{// expression}}
-\DoxyCodeLine{77 \textcolor{preprocessor}{  \#define XB\_INCOMPATIBLE\_OPERANDS     -\/504       }\textcolor{comment}{// expression}}
-\DoxyCodeLine{78 \textcolor{preprocessor}{  \#define XB\_UNBALANCED\_PARENS         -\/505       }\textcolor{comment}{// expression}}
-\DoxyCodeLine{79 \textcolor{preprocessor}{  \#define XB\_UNBALANCED\_QUOTES         -\/506       }\textcolor{comment}{// expression}}
-\DoxyCodeLine{80 \textcolor{preprocessor}{  \#define XB\_INVALID\_EXPRESSION        -\/507       }\textcolor{comment}{// expression}}
-\DoxyCodeLine{81 }
-\DoxyCodeLine{82 \textcolor{preprocessor}{  \#define XB\_INVALID\_KEYNO             -\/600       }\textcolor{comment}{// index}}
-\DoxyCodeLine{83 \textcolor{preprocessor}{  \#define XB\_INVALID\_INDEX             -\/601       }\textcolor{comment}{// index file error}}
-\DoxyCodeLine{84 \textcolor{preprocessor}{  \#define XB\_INVALID\_TAG               -\/602       }\textcolor{comment}{// invalid index tag or invalid tag name, must be <= 10 bytes}}
-\DoxyCodeLine{85 \textcolor{preprocessor}{  \#define XB\_INVALID\_PAGE              -\/603       }\textcolor{comment}{// invalid index page}}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{87 }
-\DoxyCodeLine{88 \textcolor{preprocessor}{  \#define XB\_SYNTAX\_ERROR              -\/700       }\textcolor{comment}{// sql syntax error}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{  \#define XB\_NOT\_CLOSED                -\/208       }\textcolor{comment}{// file}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{  \#define XB\_NOT\_FOUND                 -\/209       }\textcolor{comment}{// file, general}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{  \#define XB\_OPEN\_ERROR                -\/210       }\textcolor{comment}{// file}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{  \#define XB\_CLOSE\_ERROR               -\/211       }\textcolor{comment}{// file}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{  \#define XB\_SEEK\_ERROR                -\/212       }\textcolor{comment}{// file}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{  \#define XB\_READ\_ERROR                -\/213       }\textcolor{comment}{// file}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{  \#define XB\_WRITE\_ERROR               -\/214       }\textcolor{comment}{// file}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{  \#define XB\_EOF                       -\/215       }\textcolor{comment}{// file}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{  \#define XB\_BOF                       -\/216       }\textcolor{comment}{// file}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{  \#define XB\_INVALID\_BLOCK\_SIZE        -\/217       }\textcolor{comment}{// file}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{  \#define XB\_INVALID\_BLOCK\_NO          -\/218       }\textcolor{comment}{// file}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{  \#define XB\_INVALID\_RECORD            -\/219       }\textcolor{comment}{// file}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{  \#define XB\_DELETE\_FAILED             -\/220       }\textcolor{comment}{// file}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{  \#define XB\_INVALID\_TABLE\_NAME        -\/221       }\textcolor{comment}{// file}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{  \#define XB\_EMPTY                     -\/222       }\textcolor{comment}{// file}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{  \#define XB\_LIMIT\_REACHED             -\/223       }\textcolor{comment}{// file}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{  \#define XB\_BLOCKREAD\_NOT\_ENABLED     -\/224       }\textcolor{comment}{// file}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{  \#define XB\_DIRECTORY\_ERROR           -\/225       }\textcolor{comment}{// file}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{  \#define XB\_SETVBUF\_ERROR             -\/226       }\textcolor{comment}{// file}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{preprocessor}{  \#define XB\_INVALID\_FIELD\_TYPE        -\/300       }\textcolor{comment}{// field}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{  \#define XB\_INVALID\_FIELD\_NO          -\/301       }\textcolor{comment}{// field}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{  \#define XB\_INVALID\_DATA              -\/302       }\textcolor{comment}{// field}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{  \#define XB\_INVALID\_FIELD\_NAME        -\/303       }\textcolor{comment}{// field}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{  \#define XB\_INVALID\_MEMO\_FIELD        -\/304       }\textcolor{comment}{// field}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{  \#define XB\_INVALID\_FIELD             -\/305       }\textcolor{comment}{// field}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{  \#define XB\_INVALID\_FIELD\_LEN         -\/306       }\textcolor{comment}{// field}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{  \#define XB\_INVALID\_DATE              -\/307       }\textcolor{comment}{// date field}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{  \#define XB\_INVALID\_LOCK\_OPTION       -\/400       }\textcolor{comment}{// lock}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{  \#define XB\_LOCK\_FAILED               -\/401       }\textcolor{comment}{// lock}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{  \#define XB\_TABLE\_NOT\_LOCKED          -\/402       }\textcolor{comment}{// lock -\/ need table locked for operation}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{  \#define XB\_PARSE\_ERROR               -\/500       }\textcolor{comment}{// expression}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{  \#define XB\_INVALID\_FUNCTION          -\/501       }\textcolor{comment}{// expression}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{  \#define XB\_INVALID\_PARM              -\/502       }\textcolor{comment}{// expression}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{  \#define XB\_INCONSISTENT\_PARM\_LENS    -\/503       }\textcolor{comment}{// expression}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{  \#define XB\_INCOMPATIBLE\_OPERANDS     -\/504       }\textcolor{comment}{// expression}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{  \#define XB\_UNBALANCED\_PARENS         -\/505       }\textcolor{comment}{// expression}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{  \#define XB\_UNBALANCED\_QUOTES         -\/506       }\textcolor{comment}{// expression}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{  \#define XB\_INVALID\_EXPRESSION        -\/507       }\textcolor{comment}{// expression}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{  \#define XB\_INVALID\_KEYNO             -\/600       }\textcolor{comment}{// index}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{  \#define XB\_INVALID\_INDEX             -\/601       }\textcolor{comment}{// index file error}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{  \#define XB\_INVALID\_TAG               -\/602       }\textcolor{comment}{// invalid index tag or invalid tag name, must be <= 10 bytes}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{  \#define XB\_INVALID\_PAGE              -\/603       }\textcolor{comment}{// invalid index page}}
+\DoxyCodeLine{88 }
 \DoxyCodeLine{89 }
-\DoxyCodeLine{90 }
-\DoxyCodeLine{91 \textcolor{preprocessor}{  \#define XB\_MAX\_ERROR\_NO              -\/999}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{  \#define XB\_SYNTAX\_ERROR              -\/700       }\textcolor{comment}{// sql syntax error}}
+\DoxyCodeLine{91 }
 \DoxyCodeLine{92 }
-\DoxyCodeLine{93 }
-\DoxyCodeLine{94 \textcolor{comment}{/* when updating this table, also need to update messages in xbssv.cpp */}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{  \#define XB\_MAX\_ERROR\_NO              -\/999}}
+\DoxyCodeLine{94 }
 \DoxyCodeLine{95 }
-\DoxyCodeLine{96 }
-\DoxyCodeLine{97 \}        \textcolor{comment}{/* namespace */}}
-\DoxyCodeLine{98 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XB\_RETCODES\_H\_\_ */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{99 }
+\DoxyCodeLine{97 \textcolor{keyword}{struct }XBDLLEXPORT xbErrorMessage\{}
+\DoxyCodeLine{98   xbInt16    iErrorNo;}
+\DoxyCodeLine{99   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sErrorText;}
+\DoxyCodeLine{100 \};}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{keyword}{const} xbErrorMessage \mbox{\hyperlink{namespacexb_ac21481d2e6f709b3a9494b996eb07e69}{xbErrorMessages}}[] = \{}
+\DoxyCodeLine{104   \{ \mbox{\hyperlink{xbretcod_8h_ac720d5b4ec45bfd606f5865d40816e23}{XB\_NO\_ERROR}},                \textcolor{stringliteral}{"{}No Error"{}} \},}
+\DoxyCodeLine{105   \{ \mbox{\hyperlink{xbretcod_8h_ae687fc7d872ba0475a8477e4447f9b54}{XB\_NO\_MEMORY}},               \textcolor{stringliteral}{"{}No Memory"{}} \},}
+\DoxyCodeLine{106   \{ \mbox{\hyperlink{xbretcod_8h_af1cd0baf346cad686fa4dd11f700012a}{XB\_INVALID\_OPTION}},          \textcolor{stringliteral}{"{}Invalid Option"{}} \},}
+\DoxyCodeLine{107   \{ \mbox{\hyperlink{xbretcod_8h_a1b78533ada854b4185c51ad8a5ce9f02}{XB\_INVALID\_PARAMETER}},       \textcolor{stringliteral}{"{}Invalid Parameter"{}} \},}
+\DoxyCodeLine{108   \{ \mbox{\hyperlink{xbretcod_8h_ac18036408d10e5eee1bf76cf92352b95}{XB\_DUP\_TABLE\_OR\_ALIAS}},      \textcolor{stringliteral}{"{}Duplicate Alias/Table Name"{}} \},}
+\DoxyCodeLine{109   \{ \mbox{\hyperlink{xbretcod_8h_a13e6876470bd34c8c4e5533f115e04eb}{XB\_INVALID\_NODELINK}},        \textcolor{stringliteral}{"{}Invalid Node Link"{}} \},}
+\DoxyCodeLine{110   \{ \mbox{\hyperlink{xbretcod_8h_ad60dbb1862c0c1c2dc0464cfbfd93a34}{XB\_KEY\_NOT\_UNIQUE}},          \textcolor{stringliteral}{"{}Key Not Unique"{}} \},}
+\DoxyCodeLine{111   \{ \mbox{\hyperlink{xbretcod_8h_aa2925f035e3b186d7efa14648ea0e86d}{XB\_MEMCPY\_ERROR}},            \textcolor{stringliteral}{"{}Memory copy failure"{}} \},}
+\DoxyCodeLine{112   \{ \mbox{\hyperlink{xbretcod_8h_ae4a1ddd703ada1b148cdac5cac26a991}{XB\_ALREADY\_DEFINED}},         \textcolor{stringliteral}{"{}Object already defined"{}} \},}
+\DoxyCodeLine{113   \{ \mbox{\hyperlink{xbretcod_8h_a54303a9677dbd5342233f33dd08c64d0}{XB\_FILE\_EXISTS}},             \textcolor{stringliteral}{"{}File Already Exists"{}} \},}
+\DoxyCodeLine{114   \{ \mbox{\hyperlink{xbretcod_8h_aa2ff8301503f446c6a5f6510090e520f}{XB\_ALREADY\_OPEN}},            \textcolor{stringliteral}{"{}Database already open"{}} \},}
+\DoxyCodeLine{115   \{ \mbox{\hyperlink{xbretcod_8h_a8104510b347c87998eadd0b27201e3c2}{XB\_DBF\_FILE\_NOT\_OPEN}},       \textcolor{stringliteral}{"{}DBF File Not Open"{}} \},}
+\DoxyCodeLine{116   \{ \mbox{\hyperlink{xbretcod_8h_ad090af330c93111d12f6de35dbb065bc}{XB\_FILE\_NOT\_FOUND}},          \textcolor{stringliteral}{"{}File not found"{}} \},}
+\DoxyCodeLine{117   \{ \mbox{\hyperlink{xbretcod_8h_ab7b9130a5f1df9975cfeaf6241933596}{XB\_FILE\_TYPE\_NOT\_SUPPORTED}}, \textcolor{stringliteral}{"{}Not an Xbase type database"{}} \},}
+\DoxyCodeLine{118   \{ \mbox{\hyperlink{xbretcod_8h_a373f30b2efcbbab9f6d060fb3fe8cba3}{XB\_RENAME\_ERROR}},            \textcolor{stringliteral}{"{}Unable to rename file"{}} \},}
+\DoxyCodeLine{119   \{ \mbox{\hyperlink{xbretcod_8h_a418c047353bc683d0fd6ecbbdd5b7885}{XB\_INVALID\_OBJECT}},          \textcolor{stringliteral}{"{}Invalid Object"{}} \},}
+\DoxyCodeLine{120   \{ \mbox{\hyperlink{xbretcod_8h_a9474b400f647bdefbbb07e5177e8d7a1}{XB\_NOT\_OPEN}},                \textcolor{stringliteral}{"{}Database not open"{}} \},}
+\DoxyCodeLine{121   \{ \mbox{\hyperlink{xbretcod_8h_ac2606659a54111334f5b02861e533700}{XB\_NOT\_FOUND}},               \textcolor{stringliteral}{"{}Not Found"{}} \},}
+\DoxyCodeLine{122   \{ \mbox{\hyperlink{xbretcod_8h_aaab55236993a1d3acb29206252a904c8}{XB\_OPEN\_ERROR}},              \textcolor{stringliteral}{"{}Open Error"{}} \},}
+\DoxyCodeLine{123   \{ \mbox{\hyperlink{xbretcod_8h_a924a6c5471f92d102d9b3e89f60751c2}{XB\_NOT\_CLOSED}},              \textcolor{stringliteral}{"{}File(s) not closed"{}} \},}
+\DoxyCodeLine{124   \{ \mbox{\hyperlink{xbretcod_8h_a030684d5541cf6127a76d81b0684b235}{XB\_CLOSE\_ERROR}},             \textcolor{stringliteral}{"{}Close Error"{}} \},}
+\DoxyCodeLine{125   \{ \mbox{\hyperlink{xbretcod_8h_a0455ad8719e153b08ec68b10c81e9f41}{XB\_SEEK\_ERROR}},              \textcolor{stringliteral}{"{}Seek Error"{}} \},}
+\DoxyCodeLine{126   \{ \mbox{\hyperlink{xbretcod_8h_adbd40585db8bb748d191f94a33bac710}{XB\_READ\_ERROR}},              \textcolor{stringliteral}{"{}Read Error"{}} \},}
+\DoxyCodeLine{127   \{ \mbox{\hyperlink{xbretcod_8h_aef34ebe6726057f805d6063130280549}{XB\_WRITE\_ERROR}},             \textcolor{stringliteral}{"{}Error writing to disk drive"{}} \},}
+\DoxyCodeLine{128   \{ \mbox{\hyperlink{xbretcod_8h_a8b47031e90c3f86306c7058e4490d3b7}{XB\_EOF}},                     \textcolor{stringliteral}{"{}End Of File"{}} \},}
+\DoxyCodeLine{129   \{ \mbox{\hyperlink{xbretcod_8h_ade5f3a7cf1467d12761e4e21b5e4200f}{XB\_BOF}},                     \textcolor{stringliteral}{"{}Beginning Of File"{}} \},}
+\DoxyCodeLine{130   \{ \mbox{\hyperlink{xbretcod_8h_a1bd22921612389c37f6b2eac438c62c5}{XB\_INVALID\_BLOCK\_SIZE}},      \textcolor{stringliteral}{"{}Invalid Block Size"{}} \},}
+\DoxyCodeLine{131   \{ \mbox{\hyperlink{xbretcod_8h_a4e13b529b486c43ca600ce7d8ddbf3c2}{XB\_INVALID\_BLOCK\_NO}},        \textcolor{stringliteral}{"{}Invalid Block Number"{}} \},}
+\DoxyCodeLine{132   \{ \mbox{\hyperlink{xbretcod_8h_a0fd212f912b2e62700a66bae95bd73a1}{XB\_INVALID\_RECORD}},          \textcolor{stringliteral}{"{}Invalid Record Number"{}} \},}
+\DoxyCodeLine{133   \{ \mbox{\hyperlink{xbretcod_8h_ada15513935d5ede9216f07c0438f34d2}{XB\_DELETE\_FAILED}},           \textcolor{stringliteral}{"{}Delete Failed"{}} \},}
+\DoxyCodeLine{134   \{ \mbox{\hyperlink{xbretcod_8h_a53891c95a78483704d2a8e14c4499f92}{XB\_INVALID\_TABLE\_NAME}},      \textcolor{stringliteral}{"{}Invalid Table Name"{}} \},}
+\DoxyCodeLine{135   \{ \mbox{\hyperlink{xbretcod_8h_a18068d0cbe0c7a1b4dd3176220180c29}{XB\_EMPTY}},                   \textcolor{stringliteral}{"{}Empty Table or Index"{}} \},}
+\DoxyCodeLine{136   \{ \mbox{\hyperlink{xbretcod_8h_a59f1a8a6aca19595c2d1804349a24850}{XB\_LIMIT\_REACHED}},           \textcolor{stringliteral}{"{}Limit Reached"{}} \},}
+\DoxyCodeLine{137   \{ \mbox{\hyperlink{xbretcod_8h_aae9241d91cfb37f5d236128b3bce0a4a}{XB\_BLOCKREAD\_NOT\_ENABLED}},   \textcolor{stringliteral}{"{}Block Read Mode is not enabled"{}} \},}
+\DoxyCodeLine{138   \{ \mbox{\hyperlink{xbretcod_8h_af532df74147ce2d872f61abfee49c53e}{XB\_DIRECTORY\_ERROR}},         \textcolor{stringliteral}{"{}Directory Read/Write error"{}} \},}
+\DoxyCodeLine{139   \{ \mbox{\hyperlink{xbretcod_8h_a75f88f86d71e03f34c32bc7e70ed088f}{XB\_SETVBUF\_ERROR}},           \textcolor{stringliteral}{"{}Error configuring file buffer options"{}} \},}
+\DoxyCodeLine{140   \{ \mbox{\hyperlink{xbretcod_8h_a79e2588f067d6e236c0e5a2c0728ba9f}{XB\_INVALID\_FIELD\_TYPE}},      \textcolor{stringliteral}{"{}Unknown Field Type"{}} \},}
+\DoxyCodeLine{141   \{ \mbox{\hyperlink{xbretcod_8h_a09d6c08a44316f551108a74003efd381}{XB\_INVALID\_FIELD\_NO}},        \textcolor{stringliteral}{"{}Invalid Field Number"{}} \},}
+\DoxyCodeLine{142   \{ \mbox{\hyperlink{xbretcod_8h_afb40bbed323ecb369dd430a2e1242f9a}{XB\_INVALID\_DATA}},            \textcolor{stringliteral}{"{}Invalid Data"{}} \},}
+\DoxyCodeLine{143   \{ \mbox{\hyperlink{xbretcod_8h_a59403978784130834cf39434cb73f96e}{XB\_INVALID\_FIELD\_NAME}},      \textcolor{stringliteral}{"{}Invalid Field Name"{}} \},}
+\DoxyCodeLine{144   \{ \mbox{\hyperlink{xbretcod_8h_a187c50745f51bfe4aa6f70a92f16c59f}{XB\_INVALID\_MEMO\_FIELD}},      \textcolor{stringliteral}{"{}Not a Memo field"{}} \},}
+\DoxyCodeLine{145   \{ \mbox{\hyperlink{xbretcod_8h_a34180b2e2bd350ba2ebcdd1335e15d7e}{XB\_INVALID\_FIELD}},           \textcolor{stringliteral}{"{}Invalid Field"{}} \},}
+\DoxyCodeLine{146   \{ \mbox{\hyperlink{xbretcod_8h_a7bd322c0efbba17f68ccccd6cf624411}{XB\_INVALID\_FIELD\_LEN}},       \textcolor{stringliteral}{"{}Invalid Field Length"{}} \},}
+\DoxyCodeLine{147   \{ \mbox{\hyperlink{xbretcod_8h_a702475500357a27b8a34463be3e11925}{XB\_INVALID\_DATE}},            \textcolor{stringliteral}{"{}Invalid Date"{}} \},}
+\DoxyCodeLine{148   \{ \mbox{\hyperlink{xbretcod_8h_ab45735e63c208eb7e6d6df31fd527aec}{XB\_INVALID\_LOCK\_OPTION}},     \textcolor{stringliteral}{"{}Invalid Lock Option"{}} \},}
+\DoxyCodeLine{149   \{ \mbox{\hyperlink{xbretcod_8h_a001e24b39e0f155fb1e892f5b1b9cff1}{XB\_LOCK\_FAILED}},             \textcolor{stringliteral}{"{}Lock Failed"{}} \},}
+\DoxyCodeLine{150   \{ \mbox{\hyperlink{xbretcod_8h_af6aaf779fddecca521d785666f6dc56b}{XB\_TABLE\_NOT\_LOCKED}},        \textcolor{stringliteral}{"{}Table Not Locked"{}} \},}
+\DoxyCodeLine{151   \{ \mbox{\hyperlink{xbretcod_8h_aec713cac2b03a0d536a2d16336ae7c0b}{XB\_PARSE\_ERROR}},             \textcolor{stringliteral}{"{}Parse Error"{}} \},}
+\DoxyCodeLine{152   \{ \mbox{\hyperlink{xbretcod_8h_a2b7e5e440dbcf5e6dc885b24dbe28742}{XB\_INVALID\_FUNCTION}},        \textcolor{stringliteral}{"{}Invalid or Undefined Function"{}} \},}
+\DoxyCodeLine{153   \{ \mbox{\hyperlink{xbretcod_8h_a4cedf96581c9cbc9c14d07494143702d}{XB\_INVALID\_PARM}},            \textcolor{stringliteral}{"{}Invalid Parm"{}} \},}
+\DoxyCodeLine{154   \{ \mbox{\hyperlink{xbretcod_8h_adc4b24bfffa202f8df25409894e547b9}{XB\_INCONSISTENT\_PARM\_LENS}},  \textcolor{stringliteral}{"{}Inconsistent parm lengths"{}} \},}
+\DoxyCodeLine{155   \{ \mbox{\hyperlink{xbretcod_8h_af141ec58b7ca7360e0be6c61d015ea74}{XB\_INCOMPATIBLE\_OPERANDS}},   \textcolor{stringliteral}{"{}Incompatible operands"{}} \},}
+\DoxyCodeLine{156   \{ \mbox{\hyperlink{xbretcod_8h_aff5646a6b0884ff81004de6961473ea6}{XB\_UNBALANCED\_PARENS}},       \textcolor{stringliteral}{"{}Unbalanced Parens"{}} \},}
+\DoxyCodeLine{157   \{ \mbox{\hyperlink{xbretcod_8h_aedfa20a6c4eb9ba3063ba56be8280eac}{XB\_UNBALANCED\_QUOTES}},       \textcolor{stringliteral}{"{}Unbalanced Quotes"{}} \},}
+\DoxyCodeLine{158   \{ \mbox{\hyperlink{xbretcod_8h_a54db562c3cae97581812b4fccd52b71a}{XB\_INVALID\_EXPRESSION}},      \textcolor{stringliteral}{"{}Invalid expression"{}} \},}
+\DoxyCodeLine{159   \{ \mbox{\hyperlink{xbretcod_8h_aec2c0ac2bd62e0329ef130e4fbda39f8}{XB\_INVALID\_KEYNO}},           \textcolor{stringliteral}{"{}Invalid Key Number"{}} \},}
+\DoxyCodeLine{160   \{ \mbox{\hyperlink{xbretcod_8h_acd175ef0541e2cad424791bd87619dd4}{XB\_INVALID\_INDEX}},           \textcolor{stringliteral}{"{}Index File Error"{}} \},}
+\DoxyCodeLine{161   \{ \mbox{\hyperlink{xbretcod_8h_a176d917912d3433f065483f905a4c50a}{XB\_INVALID\_TAG}},             \textcolor{stringliteral}{"{}Invalid index tag"{}} \},}
+\DoxyCodeLine{162   \{ \mbox{\hyperlink{xbretcod_8h_a5db3a90f215534143bdde81253729c7f}{XB\_SYNTAX\_ERROR}},            \textcolor{stringliteral}{"{}Invalid SQL Syntax"{}} \},}
+\DoxyCodeLine{163   \{ \mbox{\hyperlink{xbretcod_8h_a299419a9c80e000b74bf97a2d24d6a3d}{XB\_MAX\_ERROR\_NO}},            \textcolor{stringliteral}{"{}End of Error List"{}} \}}
+\DoxyCodeLine{164 \};}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167 \}        \textcolor{comment}{/* namespace */}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XB\_RETCODES\_H\_\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{169 }
 
 \end{DoxyCode}

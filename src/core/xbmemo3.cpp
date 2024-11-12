@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -23,53 +23,30 @@ Email Contact:
 namespace xb{
 
 /***********************************************************************/
-//! @brief Class Constructor.
-/*!
-  \param dbf Pointer to dbf instance.
-  \param sFileName Memo file name.
-*/
 xbMemoDbt3::xbMemoDbt3( xbDbf * dbf, xbString const & sFileName ) : xbMemo( dbf, sFileName ){
  iMemoFileType = 3;
  SetBlockSize( 512 );
 }
-
 /***********************************************************************/
-//! @brief Class Deconstructor.
 xbMemoDbt3::~xbMemoDbt3(){}
-
 /***********************************************************************/
-//! @brief Abort.
-/*!
-  Abort any pending updates to the memo file.
-  \returns XB_NO_ERROR
-*/
 xbInt16 xbMemoDbt3::Abort(){
   return XB_NO_ERROR;
 }/***********************************************************************/
-//! @brief Commit changes to memo file.
-/*!
-  \returns XB_NO_ERROR.
-*/
 xbInt16 xbMemoDbt3::Commit(){
   return XB_NO_ERROR;
 }
 /***********************************************************************/
-//! @brief Create memo file.
-/*!
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt3::CreateMemoFile(){
-
-  xbInt16 rc = XB_NO_ERROR;
+  xbInt16 iRc = XB_NO_ERROR;
   char cBuf[4];
-  if(( rc = xbFopen( "w+b", dbf->GetShareMode())) != XB_NO_ERROR )
-    return rc;
+  if(( iRc = xbFopen( "w+b", dbf->GetShareMode())) != XB_NO_ERROR )
+    return iRc;
   ulHdrNextBlock = 1L;
   ePutUInt32( cBuf, ulHdrNextBlock );
-  if(( rc = xbFwrite( cBuf, 4, 1 ))!= XB_NO_ERROR ){
+  if(( iRc = xbFwrite( cBuf, 4, 1 ))!= XB_NO_ERROR ){
     xbFclose();
-    return rc;
+    return iRc;
   }
   for(int i = 0; i < 12; i++ )
     xbFputc( 0x00 );
@@ -84,31 +61,24 @@ xbInt16 xbMemoDbt3::CreateMemoFile(){
 }
 /***********************************************************************/
 #ifdef XB_DEBUG_SUPPORT
-//! @brief Dump memo file header.
-/*!
-  \returns XB_NO_ERROR
-*/
 xbInt16 xbMemoDbt3::DumpMemoFreeChain() {
   std::cout << "Xbase version 3 file - no free block chain" << std::endl;
   return XB_NO_ERROR;
 }
 #endif   // XB_DEBUG_SUPPORT
 
-//! @brief Dump memo file header.
-/*!
-  \returns XB_NO_ERROR
-*/
 xbInt16 xbMemoDbt3::DumpMemoHeader(){
-  xbInt16  rc = XB_NO_ERROR;
+  xbInt16  iRc = XB_NO_ERROR;
   xbUInt64 stFileSize;
-  if(( rc = ReadDbtHeader( 1 )) != XB_NO_ERROR )
-    return rc;
+  if(( iRc = ReadDbtHeader( 1 )) != XB_NO_ERROR )
+    return iRc;
   GetFileSize( stFileSize );
   std::cout << "Version 3 Memo Header Info" << std::endl;
   std::cout << "Memo File Name       = " << GetFqFileName()    << std::endl;
   std::cout << "Next Available Block = " << ulHdrNextBlock     << std::endl;
   std::cout << "Memo File Version    = " << (xbInt16) cVersion << " (";
-  BitDump( cVersion );
+  xbBit b;
+  b.BitDump( cVersion );
   std::cout << ")" << std::endl;
   std::cout << "Block Size           = " << GetBlockSize()     << std::endl;
   std::cout << "File Size            = " << stFileSize         << std::endl;
@@ -116,39 +86,29 @@ xbInt16 xbMemoDbt3::DumpMemoHeader(){
   return XB_NO_ERROR;
 }
 /***********************************************************************/
-//! @brief Get a memo field for a given field number.
-/*!
-  \param iFieldNo Field number to retrieve data for.
-  \param sMemoData Output - string containing memo field data.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt3::GetMemoField( xbInt16 iFieldNo, xbString & sMemoData ){
 
   xbInt16 iErrorStop = 0;
-  xbInt16 rc = XB_NO_ERROR;
+  xbInt16 iRc = XB_NO_ERROR;
   xbUInt32 ulScnt;
   char *sp, *spp;
   xbUInt32  ulBlockNo;
   xbBool  bDone = xbFalse;
   sMemoData = "";
   try{
-
-    if(( rc = dbf->GetULongField( iFieldNo, ulBlockNo )) < XB_NO_ERROR ){
+    if(( iRc = dbf->GetULongField( iFieldNo, ulBlockNo )) < XB_NO_ERROR ){
       iErrorStop = 100;
-      throw rc;
+      throw iRc;
     }
-
     if( ulBlockNo == 0L ){
       sMemoData = "";
       return XB_NO_ERROR;
     }
     spp = NULL;
-
     while( !bDone ){
-      if(( rc = ReadBlock( ulBlockNo++, GetBlockSize(), mbb )) != XB_NO_ERROR ){
+      if(( iRc = ReadBlock( ulBlockNo++, GetBlockSize(), mbb )) != XB_NO_ERROR ){
         iErrorStop = 120;
-        throw rc;
+        throw iRc;
       }
       ulScnt = 0;
       sp = (char *) mbb;
@@ -163,33 +123,27 @@ xbInt16 xbMemoDbt3::GetMemoField( xbInt16 iFieldNo, xbString & sMemoData ){
     }
     sMemoData.ZapTrailingChar( 0x1a );
   }
-  catch (xbInt16 rc ){
+  catch (xbInt16 iRc ){
     xbString sMsg;
-    sMsg.Sprintf( "xbMemoDbt3::GetMemoField() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
+    sMsg.Sprintf( "xbMemoDbt3::GetMemoField() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
-  return rc;
+  return iRc;
 }
 /***********************************************************************/
-//! @brief Get a memo field length for a given field number.
-/*!
-  \param iFieldNo Field number to retrieve data for.
-  \param ulFieldLen Output - length of memo field data.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbMemoDbt3::GetMemoFieldLen( xbInt16 iFieldNo, xbUInt32 & ulFieldLen ){
 
   xbInt16   iErrorStop = 0;
-  xbInt16   rc = XB_NO_ERROR;
+  xbInt16   iRc = XB_NO_ERROR;
   xbInt16   iScnt;
   char *sp, *spp;
   xbUInt32  ulBlockNo;
   xbInt16   iNotDone;
   try{
-    if(( rc = dbf->GetULongField( iFieldNo, ulBlockNo )) < XB_NO_ERROR ){
+    if(( iRc = dbf->GetULongField( iFieldNo, ulBlockNo )) < XB_NO_ERROR ){
       iErrorStop = 100;
-      throw rc;
+      throw iRc;
     }
     if( ulBlockNo == 0 ){
       ulFieldLen = 0;
@@ -199,9 +153,9 @@ xbInt16 xbMemoDbt3::GetMemoFieldLen( xbInt16 iFieldNo, xbUInt32 & ulFieldLen ){
     spp = NULL;
     iNotDone = 1;
     while( iNotDone ){
-      if(( rc = ReadBlock( ulBlockNo++, GetBlockSize(), mbb )) != XB_NO_ERROR ){
+      if(( iRc = ReadBlock( ulBlockNo++, GetBlockSize(), mbb )) != XB_NO_ERROR ){
         iErrorStop = 110;
-        throw rc;
+        throw iRc;
       }
       iScnt = 0;
       sp = (char *) mbb;
@@ -215,24 +169,19 @@ xbInt16 xbMemoDbt3::GetMemoFieldLen( xbInt16 iFieldNo, xbUInt32 & ulFieldLen ){
     }
     if( ulFieldLen > 0 ) ulFieldLen--;
   }
-  catch (xbInt16 rc ){
+  catch (xbInt16 iRc ){
     xbString sMsg;
-    sMsg.Sprintf( "xbMemoDbt3::GetMemoFieldLen() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
+    sMsg.Sprintf( "xbMemoDbt3::GetMemoFieldLen() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
-  return rc;
+  return iRc;
 }
 /***********************************************************************/
-//! @brief Open memo file.
-/*!
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt3::OpenMemoFile() {
-  xbInt16 rc = XB_NO_ERROR;
-  if(( rc = xbFopen( dbf->GetOpenMode(), dbf->GetShareMode())) != XB_NO_ERROR )
-    return rc;
+  xbInt16 iRc = XB_NO_ERROR;
+  if(( iRc = xbFopen( dbf->GetOpenMode(), dbf->GetShareMode())) != XB_NO_ERROR )
+    return iRc;
   if(( mbb = (void *) malloc( 512 )) == NULL ){
     xbFclose();
     return XB_NO_MEMORY;
@@ -240,28 +189,20 @@ xbInt16 xbMemoDbt3::OpenMemoFile() {
   return XB_NO_ERROR;
 }
 /***********************************************************************/
-//! @brief Pack memo file.
-/*!
-  This routine frees up any unused blocks in the file resulting from field updates.
-  Version 3 memo files do not reclaim unused space (Version 4 files do). 
-  This routine cleans up the unused space.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbMemoDbt3::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUInt32 ulNumItems ))
 {
   xbInt16 iRc = XB_NO_ERROR;
   xbInt16 iErrorStop = 0;
   char *  cBlock = NULL;
-
   #ifdef XB_LOCKING_SUPPORT
   xbBool  bTableLocked = xbFalse;
   xbBool  bMemoLocked = xbFalse;
   #endif
 
   try{
-
     #ifdef XB_LOCKING_SUPPORT
-    if( dbf->GetAutoLock() && !dbf->GetTableLocked() ){
+    //if( dbf->GetAutoLock() && !dbf->GetTableLocked() ){
+    if( dbf->GetMultiUser() && !dbf->GetTableLocked() ){
       if(( iRc = dbf->LockTable( XB_LOCK )) != XB_NO_ERROR ){
         iErrorStop = 100;
         throw iRc;
@@ -280,7 +221,7 @@ xbInt16 xbMemoDbt3::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUI
     // create temp file
     xbString sTempMemoName;
     //if(( iRc = CreateUniqueFileName( GetDirectory(), "dbt", sTempMemoName )) != XB_NO_ERROR ){
-    if(( iRc = CreateUniqueFileName( GetTempDirectory(), "DBT", sTempMemoName )) != XB_NO_ERROR ){
+    if(( iRc = CreateUniqueFileName( xbase->GetTempDirectory(), "DBT", sTempMemoName )) != XB_NO_ERROR ){
       iErrorStop = 120;
       throw iRc;
     }
@@ -290,7 +231,7 @@ xbInt16 xbMemoDbt3::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUI
       iErrorStop = 130;
       throw iRc;
     }
-    // for dbase III, block size is always 512, don't need to reset it
+    // for dBASE III, block size is always 512, don't need to reset it
     // for each record in dbf
     xbUInt32 ulRecCnt;
     if(( iRc = dbf->GetRecordCnt( ulRecCnt )) != XB_NO_ERROR ){
@@ -390,7 +331,7 @@ xbInt16 xbMemoDbt3::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUI
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt3::PackMemo() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
 
   #ifdef XB_LOCKING_SUPPORT
@@ -403,13 +344,6 @@ xbInt16 xbMemoDbt3::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUI
 }
 
 /***********************************************************************/
-//! @brief Read dbt header file.
-/*!
-  \param iOption 0  -->  read only first four bytes<br>
-                 1  -->  read the entire thing
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt3::ReadDbtHeader( xbInt16 iOption ){
   char *p;
   char MemoBlock[20];
@@ -466,93 +400,73 @@ xbInt16 xbMemoDbt3::ReadDbtHeader( xbInt16 iOption ){
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt3::ReadDbtHeader() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
 /***********************************************************************/
-//! @brief Update header name.
-/*!
-  \returns XB_NO_ERROR
-*/
 xbInt16 xbMemoDbt3::UpdateHeaderName(){
   return XB_NO_ERROR;
 }
 /***********************************************************************/
-//! @brief Update a memo field for a given field number.
-/*!
-  \param iFieldNo Field number to update data for.
-  \param sMemoData Data to update memo field data with.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt3::UpdateMemoField( xbInt16 iFieldNo, const xbString & sMemoData ) {
 
   xbInt16 iErrorStop = 0;
-  xbInt16 rc = XB_NO_ERROR;
+  xbInt16 iRc = XB_NO_ERROR;
   try{
     if( sMemoData == "" ){
-      if(( rc = dbf->PutField( iFieldNo, "" )) != XB_NO_ERROR ){
+      if(( iRc = dbf->PutField( iFieldNo, "" )) != XB_NO_ERROR ){
         iErrorStop = 100;
-        throw rc;
+        throw iRc;
       }
     } else {
       xbUInt32 ulDataLen      = sMemoData.Len() + 2;
       xbUInt32 ulBlocksNeeded = (ulDataLen / 512) + 1;
       xbUInt32 ulLastDataBlock;
-      if(( rc = CalcLastDataBlock( ulLastDataBlock )) != XB_NO_ERROR ){
+      if(( iRc = CalcLastDataBlock( ulLastDataBlock )) != XB_NO_ERROR ){
         iErrorStop = 110;
-        throw rc;
+        throw iRc;
       }
-      if(( rc = xbFseek( ((xbInt64) ulLastDataBlock * 512), SEEK_SET )) != XB_NO_ERROR ){
+      if(( iRc = xbFseek( ((xbInt64) ulLastDataBlock * 512), SEEK_SET )) != XB_NO_ERROR ){
         iErrorStop = 120;
-        throw rc;
+        throw iRc;
       }
-      if(( rc = xbFwrite( sMemoData.Str(), sMemoData.Len(), 1 )) != XB_NO_ERROR ){
+      if(( iRc = xbFwrite( sMemoData.Str(), sMemoData.Len(), 1 )) != XB_NO_ERROR ){
         iErrorStop = 130;
-        throw rc;
+        throw iRc;
       }
-      if(( rc = xbFputc( 0x1a, 2 )) != XB_NO_ERROR ){
+      if(( iRc = xbFputc( 0x1a, 2 )) != XB_NO_ERROR ){
         iErrorStop = 140;
-        throw rc;
+        throw iRc;
       }
-      if(( rc = xbFputc( 0x00, (xbInt32) ( ulBlocksNeeded * 512 ) - (xbInt32) ulDataLen )) != XB_NO_ERROR ){
+      if(( iRc = xbFputc( 0x00, (xbInt32) ( ulBlocksNeeded * 512 ) - (xbInt32) ulDataLen )) != XB_NO_ERROR ){
         iErrorStop = 150;
-        throw rc;
+        throw iRc;
       }
-      if(( rc = dbf->PutULongField( iFieldNo, ulLastDataBlock )) != XB_NO_ERROR ){
+      if(( iRc = dbf->PutULongField( iFieldNo, ulLastDataBlock )) != XB_NO_ERROR ){
         iErrorStop = 160;
-        throw rc;
+        throw iRc;
       }
       ulHdrNextBlock = ulLastDataBlock + ulBlocksNeeded;
-      if(( rc = UpdateHeadNextNode()) != XB_NO_ERROR ){
+      if(( iRc = UpdateHeadNextNode()) != XB_NO_ERROR ){
         iErrorStop = 170;
-        throw rc;
+        throw iRc;
       }
     }
   }
-  catch (xbInt16 rc ){
+  catch (xbInt16 iRc ){
     xbString sMsg;
-    sMsg.Sprintf( "xbMemoDbt3::UpdateMemoField() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
+    sMsg.Sprintf( "xbMemoDbt3::UpdateMemoField() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
-  return rc;
+  return iRc;
 }
-
 /***********************************************************************/
-//! @brief Empty the memo file.
-/*!
-  This routine clears everything out of the file. It does not address the
-  block pointers on the dbf file.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbMemoDbt3::Zap(){
-
   xbInt16 iRc = 0;
   xbInt16 iErrorStop = 0;
   char    cBuf[4];
-
   try{
     ulHdrNextBlock = 1L;
     ePutUInt32( cBuf, ulHdrNextBlock );
@@ -574,11 +488,10 @@ xbInt16 xbMemoDbt3::Zap(){
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt3::Zap() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
-
 /***********************************************************************/
 }              /* namespace        */
 #endif         /*  XB_DBF3_SUPPORT */

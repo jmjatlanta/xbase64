@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -22,19 +22,11 @@ Email Contact:
 namespace xb{
 
 /******************************************************************************/
-//! @brief Constructor.
 xbLog::xbLog() : xbFile( NULL ){
-
-
-  // std::cout << "xbLog::xbLog(1) Directory = [" << GetLogDirectory() << "]\n";
-  // std::cout << "xbLog::xbLog(1) Name = [" << GetLogFileName() << "]\n";
-
-  SetDirectory( GetLogDirectory());
-  SetFileName ( GetLogFileName());
-
+  SetDirectory( xbase->GetLogDirectory());
+  SetFileName ( xbase->GetLogFileName());
   bLoggingStatus = xbFalse;
   lLogSize       = 100000;
-
   #ifdef XB_LOCKING_SUPPORT
   iShareMode = XB_MULTI_USER;
   #else
@@ -42,10 +34,6 @@ xbLog::xbLog() : xbFile( NULL ){
   #endif
 }
 /******************************************************************************/
-//! @brief Constructor.
-/*!
-  \param sLogFileName - Log file name.
-*/
 xbLog::xbLog( const xbString & sLogFileName ) : xbFile( NULL ){
   if( sLogFileName.GetPathSeparator())
     SetFqFileName( sLogFileName );     // file name includes a path
@@ -60,84 +48,41 @@ xbLog::xbLog( const xbString & sLogFileName ) : xbFile( NULL ){
   #else
   iShareMode = XB_SINGLE_USER;
   #endif
-
 }
 /******************************************************************************/
-//! @brief Deconstructor.
 xbLog::~xbLog(){
   xbFclose();
 }
 /******************************************************************************/
-//! @brief Get the current log status
-/*!
-  \returns xbTrue - Logging turned on.<br>xbFalse - Logging turned off.
-*/
 xbBool xbLog::LogGetStatus(){
   return bLoggingStatus;
 }
 /******************************************************************************/
-//! @brief Close the logfile.
-/*!
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbLog::LogClose(){
   return xbFclose();
 }
 /******************************************************************************/
-//! @brief Set maximum log file size.
-/*!
-  \param lSize - New maximum log file size.
-  \returns void
-*/
 void xbLog::LogSetLogSize( size_t lSize ){
   lLogSize = lSize;
 }
 /******************************************************************************/
-//! @brief Set log status.
-/*!
-  \param bStatus xbTrue - Turn logging on.<br>xbFalse - Turn logging off.
-  \returns void
-*/
 void xbLog::LogSetStatus( xbBool bStatus ){
   if( bLoggingStatus && !bStatus )
     LogClose();
   bLoggingStatus = bStatus;
 }
 /******************************************************************************/
-//! @brief Open the logfile.
-/*!
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbLog::LogOpen(){
   xbInt16  rc;
-
-//  std::cout << "*****\nxbLog::LogOpen(1) GetLogDirectory = " << GetLogDirectory() << "\n";
-//  std::cout << "xbLog::LogOpen(1) GetLogFileName  = " << GetLogFileName() << "\n";
-//  std::cout << "xbLog::GetFqFileName(1) = " << GetFqFileName() << "\n\n";
-
   // 4.1.3 added next two lines for dynamic log file name changing
-  SetDirectory( GetLogDirectory());
-  SetFileName ( GetLogFileName());
-
-//  std::cout << "*****\nxbLog::LogOpen(2) GetLogDirectory = " << GetLogDirectory() << "\n";
-//  std::cout << "xbLog::LogOpen(2) GetLogFileName  = " << GetLogFileName() << "\n";
-//  std::cout << "xbLog::GetFqFileName(2) = " << GetFqFileName() << "\n\n";
-
+  SetDirectory( xbase->GetLogDirectory());
+  SetFileName ( xbase->GetLogFileName());
   if(( rc = xbFopen( "a", iShareMode )) != XB_NO_ERROR )
     return rc;
-  xbFTurnOffFileBuffering();
+  // xbFTurnOffFileBuffering();, handled in the open
   return XB_NO_ERROR;
 }
 /******************************************************************************/
-//! @brief Write a logfile message.
-/*!
-  \param sLogEntryData - Message to write to the logfile.
-  \param iOutputOption 0 - Write to logfile.<br>
-                       1 - Write to stdout.<br>
-                       2 - Write to both logfile and stdout.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbLog::LogWrite( const xbString &sLogEntryData, xbInt16 iOutputOption ){
 
   if( bLoggingStatus == xbFalse ){    // logging turned off
@@ -165,7 +110,7 @@ xbInt16 xbLog::LogWrite( const xbString &sLogEntryData, xbInt16 iOutputOption ){
   xbString sFled;     // formatted log entry data
 
   if( iOutputOption != 1 ){
-    #ifdef HAVE__LOCALTIME64_S_F
+    #if defined(HAVE__LOCALTIME64_S_F)
       __time64_t timer;
       struct tm tb;
       _time64( &timer );
@@ -184,7 +129,6 @@ xbInt16 xbLog::LogWrite( const xbString &sLogEntryData, xbInt16 iOutputOption ){
     #endif
     sFled.Sprintf( "%s - %s\n", sTimeStamp.Str(), sLogEntryData.Str() );
   }
-
   switch( iOutputOption ){
     case 0:
       xbFputs( sFled );
@@ -200,15 +144,7 @@ xbInt16 xbLog::LogWrite( const xbString &sLogEntryData, xbInt16 iOutputOption ){
   return XB_NO_ERROR;
 }
 /******************************************************************************/
-//! @brief Write bytes to logfile.
-/*!
-  \param ulByteCnt - Number of bytes to write to logfile.
-  \param p - Pointer to data to write to logfile.
-  \returns XB_NO_ERROR
-*/
-
 xbInt16 xbLog::LogWriteBytes( xbUInt32 ulByteCnt, const char *p ){
-
   if( bLoggingStatus == xbFalse )    // logging turned off
     return XB_NO_ERROR;
   const char *p2 = p;
@@ -219,6 +155,11 @@ xbInt16 xbLog::LogWriteBytes( xbUInt32 ulByteCnt, const char *p ){
   return XB_NO_ERROR;
 }
 /******************************************************************************/
+size_t xbLog::LogGetLogSize() const { 
+  return lLogSize; 
+}
+/******************************************************************************/
+
 }         // namespace
 #endif    // XB_LOGGING_ON
 

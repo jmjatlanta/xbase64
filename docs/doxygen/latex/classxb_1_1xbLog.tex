@@ -1,0 +1,2065 @@
+\hypertarget{classxb_1_1xbLog}{}\doxysection{xb\+::xb\+Log Class Reference}
+\label{classxb_1_1xbLog}\index{xb::xbLog@{xb::xbLog}}
+
+
+\mbox{\hyperlink{classxb_1_1xbLog}{xb\+Log}} class.  
+
+
+
+
+{\ttfamily \#include $<$xblog.\+h$>$}
+
+Inheritance diagram for xb\+::xb\+Log\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classxb_1_1xbLog}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classxb_1_1xbLog_a81b74da8f7ea861684b3b65084324514}{xb\+Log}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbLog_ad0cc2567950ab57a0e49ccd670d120d0}{xb\+Log}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&\mbox{\hyperlink{classxb_1_1xbCore_a02c13215a731ce0790f78f8e41714e65}{s\+Log\+File\+Name}})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbLog_af6a28c8c9f32536a8432f41ce2718532}{$\sim$xb\+Log}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLog_a30688f1f27334d1cdfc9b9d434b536cb}{Log\+Close}} ()
+\begin{DoxyCompactList}\small\item\em Close the logfile. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLog_af2871addbe4e3f0cc714a4916d3b8b64}{Log\+Get\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Get the current logging status. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLog_a295f9dfc2ea5f17c17609cf29f59b33c}{Log\+Open}} ()
+\begin{DoxyCompactList}\small\item\em Open the logfile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbLog_adb2673208f57da1ed6f7fc78dfc77763}{Log\+Set\+Status}} (\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} b\+Log\+Status)
+\begin{DoxyCompactList}\small\item\em Set log status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbLog_af4e510ba62ffcb717cf768b3a6217a47}{Log\+Set\+Log\+Size}} (size\+\_\+t l\+Size)
+\begin{DoxyCompactList}\small\item\em Set maximum log file size. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLog_a2fa1acf20c36ddebb4434abea23e609c}{Log\+Write}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Log\+Entry, xb\+Int16 i\+Output\+Option=0)
+\begin{DoxyCompactList}\small\item\em Write a logfile message. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLog_a033a7b4ed672b426a08414735a727ad9}{Log\+Write\+Bytes}} (xb\+UInt32 ul\+Byte\+Cnt, const char $\ast$p)
+\begin{DoxyCompactList}\small\item\em Write bytes to logfile. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classxb_1_1xbLog_ada8ceae008ecabf71e263306f8ff41ec}{Log\+Get\+Log\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Get log file size setting. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ad39797624a752b9d62533d00fad9feff}{Create\+Unique\+File\+Name}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Dir\+In, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Ext\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Fqn\+Out, xb\+Int16 i\+Option=0)
+\begin{DoxyCompactList}\small\item\em Given a directory and file extension as inputs, create a unique file name. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a5a740033664c9ad2611c90e2a6d0c2d3}{Determine\+Xbase\+Memo\+Version}} (unsigned char c\+File\+Type\+Byte) const
+\begin{DoxyCompactList}\small\item\em Determine which version the memo (dbt) file is. This routine uses the first byte in the dbf file to determine which memo file version is in use. The main difference between version 3 and 4 is that version 4 reuses blocks if they become available. Version 3 does not. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ae2b6ac26018dc28f77afbb3f008c3f66}{Determine\+Xbase\+Table\+Version}} (unsigned char c\+File\+Type\+Byte) const
+\begin{DoxyCompactList}\small\item\em Determine xbase dbf version. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \mbox{\hyperlink{classxb_1_1xbFile_ab14e4a11427f5efb81cba1dd32bd1aa1}{e\+Get\+Double}} (const char $\ast$p) const
+\begin{DoxyCompactList}\small\item\em Get a portable double value. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ac40c991110ddc6fb30a72d90f4652762}{e\+Get\+Int16}} (const char $\ast$p) const
+\begin{DoxyCompactList}\small\item\em Get a portable short int value. \end{DoxyCompactList}\item 
+xb\+Int32 \mbox{\hyperlink{classxb_1_1xbFile_a60b24a5afc984c586bf384c7e915ba0d}{e\+Get\+Int32}} (const char $\ast$p) const
+\begin{DoxyCompactList}\small\item\em Get a portable long value. \end{DoxyCompactList}\item 
+xb\+UInt16 \mbox{\hyperlink{classxb_1_1xbFile_a936ade458e6d5e6d29f9b5031888d189}{e\+Get\+UInt16}} (const char $\ast$p) const
+\begin{DoxyCompactList}\small\item\em Get a portable unsigned short value. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbFile_a78f052529d39a18deaface5a0d47d0b0}{e\+Get\+UInt32}} (const char $\ast$p) const
+\begin{DoxyCompactList}\small\item\em Get a portable unsigned long value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFile_a98b6ff533ae93f90c977a2ba23eeb105}{e\+Put\+Double}} (char $\ast$p, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d)
+\begin{DoxyCompactList}\small\item\em Converts a double (64 bit floating point) to a portable format accounting for endian type and stores the converted value in eight bytes of memory referenced by pointer p. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFile_a9a97e72c49f34bef768b6b1aa3909a8a}{e\+Put\+Int16}} (char $\ast$p, xb\+Int16 i)
+\begin{DoxyCompactList}\small\item\em Converts a short (16 bit integer) value to a portable format accounting for endian type and stores the converted value in two bytes of memory referenced by pointer p. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFile_a19c37f76a2ccbb45019cb0fc373d3f46}{e\+Put\+Int32}} (char $\ast$p, xb\+Int32 l)
+\begin{DoxyCompactList}\small\item\em Converts a long (32 bit integer) value to a portable format accounting for endian type and stores the converted value in four bytes of memory referenced by pointer p. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFile_a343ee664c589885c4788b0850dde7bf4}{e\+Put\+UInt16}} (char $\ast$p, xb\+UInt16 ui)
+\begin{DoxyCompactList}\small\item\em Converts an unsigned short (16 bit integer) value to a portable format accounting for endian type and stores the converted value in two bytes of memory referenced by pointer p. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFile_aa3f6ceae4b96f24875d86848bf13a173}{e\+Put\+UInt32}} (char $\ast$p, xb\+UInt32 ul)
+\begin{DoxyCompactList}\small\item\em Converts an unsigned long (32 bit integer) value to a portable format accounting for endian type and stores the converted value in four bytes of memory referenced by pointer p. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbFile_a7fa837938a32dc9ca3fbc81cbaf50f59}{File\+Is\+Open}} () const
+\begin{DoxyCompactList}\small\item\em Determines if file is open. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbFile_a638e14262410a1627819f016a16cdce2}{Get\+Block\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Get the block size. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbFile_acd0fb2166b2bff7e8a1cf65a7bc8be1e}{Get\+Directory}} () const
+\begin{DoxyCompactList}\small\item\em Get the directory portion of the file name. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ace71244e630af277f774e96f602a197c}{Get\+File\+Mtime}} (time\+\_\+t \&m\+Time)
+\begin{DoxyCompactList}\small\item\em Get the time of last file modification timestamp as reported by the OS. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbFile_ac95cb882ccbcdedc9a233c6ad9fed07a}{Get\+File\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the file name. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a50b63c39e49d44e52078038027b24cc5}{Get\+File\+Size}} (xb\+UInt64 \&ull\+File\+Size)
+\begin{DoxyCompactList}\small\item\em Get the size of the file as reported by the OS. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a5548236d38d43b89ae29b9a015b1f678}{Get\+File\+Type}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Type) const
+\begin{DoxyCompactList}\small\item\em Get the file type (Capitalized file extension) \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbFile_a31b4e641f93206ba23e2a5a27491dcd4}{Get\+Fq\+File\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the fully qualified file name. \end{DoxyCompactList}\item 
+FILE $\ast$ \mbox{\hyperlink{classxb_1_1xbFile_a12f1d9b4010720023177ae7b2e6d98e6}{Get\+Fp}} ()
+\begin{DoxyCompactList}\small\item\em Return the file pointer. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a3c500dc9dac22c49496e4b29386b2dd3}{Get\+Open\+Mode}} () const
+\begin{DoxyCompactList}\small\item\em Get the open mode of the file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a9b63e05b77f477ff6109ff7b9432c1b6}{Get\+Share\+Mode}} () const
+\begin{DoxyCompactList}\small\item\em Get the share mode of the file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a361e3cc318bbf1c4d10f069e0800a24e}{Name\+Suffix\+Missing}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Name, xb\+Int16 i\+Option) const
+\begin{DoxyCompactList}\small\item\em Determines status of file extension. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a991c5676a6f38fa752435390989f413e}{Set\+Block\+Size}} (xb\+UInt32 ul\+Block\+Size)
+\begin{DoxyCompactList}\small\item\em Set the block size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFile_ae78a85255488bc78964c16946dbaead3}{Set\+Directory}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Directory)
+\begin{DoxyCompactList}\small\item\em Set the directory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFile_a5419eb27e56822f828b2b88a9502a636}{Set\+File\+Name}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Name)
+\begin{DoxyCompactList}\small\item\em Set the filename. This routine builds out two internal variables from the input file name~\newline
+ s\+File\+Name -\/ the file name part~\newline
+ s\+Fq\+File\+Name -\/ the fully qualified file name~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFile_a1fad9ef8643944ad1641810f4b1cd5b4}{Set\+Fq\+File\+Name}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Fq\+File\+Name)
+\begin{DoxyCompactList}\small\item\em Set the fully qualifed filename. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a060acbfaa8d528f86cb59301814b414a}{Set\+Home\+Folders}} ()
+\begin{DoxyCompactList}\small\item\em Create xbase64 log, data and temp folders in the home directory for the current user. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a85a245b07f8eb3108d124a39038eaa3f}{Write\+Block}} (xb\+UInt32 ul\+Block\+No, size\+\_\+t l\+Write\+Size, void $\ast$buf)
+\begin{DoxyCompactList}\small\item\em Write a block of data to file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a18830b5755d74818f60d9c7ce38ddf2d}{xb\+Fclose}} ()
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fclose. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_af5b6356832d2a67212070a1aa605f170}{xb\+Feof}} ()
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary feof. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ad205184d43409f04216540ae22f15009}{xb\+Fflush}} ()
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fflush. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ad245955ace26e5dde85fd4373b30d026}{xb\+Fgets}} (size\+\_\+t l\+Size, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Line)
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fgets. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a698f3b40216778562e639e6ca1a47573}{xb\+Fputs}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s)
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fputs. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a0346f58f95429ac4784f87585e644892}{xb\+Fread}} (void $\ast$p, size\+\_\+t size, size\+\_\+t nmemb)
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fread. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a21c91b5d0b249b63acf6e921e4c95130}{xb\+Fseek}} (xb\+Int64 ll\+Offset, xb\+Int32 i\+Whence)
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fseek. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classxb_1_1xbFile_a0e1c06aedfa7fbcb92e117f891edd13b}{xb\+Ftell}} ()
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary ftell. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ad5795d422730921a6e94892816d65f1a}{xb\+Fwrite}} (const void $\ast$p, size\+\_\+t l\+Size, size\+\_\+t l\+Nmemb)
+\begin{DoxyCompactList}\small\item\em Turn off file buffering. File buffering can not be used while in multi user mode. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a08463f506f425c2385acbe1a561506e9}{xb\+Read\+Until}} (const char c\+Delim, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Read file until a particular character is encountered on input stream. This routine will read until c\+Delim is encountered or eof, which ever occurs first. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_afc8ce113aa72611a278233f9bb170012}{xb\+Rename}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Old\+Name, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+New\+Name)
+\begin{DoxyCompactList}\small\item\em Rename file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFile_a7996b6e084665c37c3892faea64b3505}{xb\+Rewind}} ()
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for rewind. Set file pointer at beginning of file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a518bfcbfa3699d883cf89affee383296}{xb\+Truncate}} (xb\+Int64 ll\+Size)
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard library ftruncate. Set file size to ll\+Size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFile_a94c6179a83f212bcd276ec7337a7e5d5}{Dump}} (const char $\ast$s\+Title=\char`\"{}\char`\"{}, xb\+Int16 i\+Output\+Option=0)
+\begin{DoxyCompactList}\small\item\em Debugging routine -\/ dump file internals to log file, stdout or both. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a5ea348a9b696559d0c600017cd363470}{Dump\+Block\+To\+Disk}} (xb\+UInt32 ul\+Block\+No, size\+\_\+t l\+Block\+Size)
+\begin{DoxyCompactList}\small\item\em Debugging routine -\/ dump a block to a log file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ada631a5d3c72f7b29901e4fa922dd641}{Dump\+Mem\+To\+Disk}} (char $\ast$p, size\+\_\+t l\+Size)
+\begin{DoxyCompactList}\small\item\em Debugging routine -\/ dump memory to a log file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a5a67588bc8e5a5c99d83432cea0dd976}{Get\+Lock\+Retry\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Return the locking retry setting. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFile_aa39f69363bb55eb22f0a118547c5416d}{Set\+Lock\+Retry\+Count}} (xb\+Int16 i\+Lock\+Retries)
+\begin{DoxyCompactList}\small\item\em Set the lock retry count for this specific file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_af5952e44954d18cbe949440433747dff}{xb\+Lock}} (xb\+Int16 i\+Function, xb\+Int64 ll\+Offset, size\+\_\+t st\+Len)
+\begin{DoxyCompactList}\small\item\em Lock / unlock file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbFile_a78bd8a11dce102647095baf3aff2b006}{File\+Exists}} () const
+\begin{DoxyCompactList}\small\item\em Determines if file specified for this instance exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbFile_a61130b4fbf4cf9d5972dcb4993de2f94}{File\+Exists}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Name) const
+\begin{DoxyCompactList}\small\item\em Determines if a file exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbFile_a0592168f39a10f2a401a88ef781f6148}{File\+Exists}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Name, xb\+Int16 i\+Option) const
+\begin{DoxyCompactList}\small\item\em Determines if a file exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbFile_a174d8a6aabc9cfcd32fedbd1e5b13ddd}{File\+Exists}} (xb\+Int16 i\+Option) const
+\begin{DoxyCompactList}\small\item\em Determines if file specified for this instance exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_af5127c92892816e9bbc5c19653c4147a}{Get\+File\+Dir\+Part}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Complete\+File\+Name\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Dir\+Part\+Out) const
+\begin{DoxyCompactList}\small\item\em Get the directory portion of the file name referenced in s\+Complete\+File\+Name\+In. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a60c53998e3d1b694134b20a87bc9bf5a}{Get\+File\+Dir\+Part}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Dir\+Part\+Out) const
+\begin{DoxyCompactList}\small\item\em Get the directory portion of the file name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ab289b6ffe955321160c1f90220c22e25}{Get\+File\+Ext\+Part}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Complete\+File\+Name\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Ext\+Part\+Out) const
+\begin{DoxyCompactList}\small\item\em Get the extension portion of the file name. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a57a9222e5cbb51019d4eeb2c3ac89fa2}{Get\+File\+Ext\+Part}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Ext\+Part\+Out) const
+\begin{DoxyCompactList}\small\item\em Get the extension part of the file name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a6110763c5ae996b72c7a62c15bdecc73}{Get\+File\+Name\+Part}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Complete\+File\+Name\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Name\+Part\+Out) const
+\begin{DoxyCompactList}\small\item\em Get the name part of the file name. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a81422b3dd52763d2cc6c77237ec9af0a}{Get\+File\+Name\+Part}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Name\+Part\+Out) const
+\begin{DoxyCompactList}\small\item\em Get the name part of the file name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a7af337808919680b90710ad5e8a99232}{Get\+Xbase\+File\+Type\+Byte}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Name, unsigned char \&c\+File\+Type\+Byte)
+\begin{DoxyCompactList}\small\item\em Get the file type byte and version of the dbf file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a78aebdd21d3de46a450d5f835e3027f6}{Get\+Xbase\+File\+Type\+Byte}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Name, unsigned char \&c\+File\+Type\+Byte, xb\+Int16 \&i\+Version)
+\begin{DoxyCompactList}\small\item\em Get the file type byte and version of the dbf file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_aaf2e697751a0beff41432a66bb83fb5e}{Get\+Xbase\+File\+Type\+Byte}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Name, xb\+Int16 \&i\+Version)
+\begin{DoxyCompactList}\small\item\em Get the file type byte and version of the dbf file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a425b5d873f41fcc66536bb10257436ff}{Read\+Block}} (xb\+UInt32 ul\+Block\+No, size\+\_\+t l\+Read\+Size, void $\ast$buf)
+\begin{DoxyCompactList}\small\item\em Read a block of data from file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_aae1bc91bacbe138a25b1d5cc3bcdee6b}{Read\+Block}} (xb\+UInt32 ul\+Block\+No, xb\+UInt32 ul\+Block\+Size, size\+\_\+t l\+Read\+Size, void $\ast$buf)
+\begin{DoxyCompactList}\small\item\em Read a block of data from file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a5ee229bda4d7d6695e122200e581e7a6}{xb\+Fgetc}} (char \&c)
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fgetc. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_afb1c584d2895ffb7834df80aea7eb1e4}{xb\+Fgetc}} (xb\+Int32 \&c)
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fgetc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ab0fa19686ca8953ff4b556fb5b249135}{xb\+Fopen}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Mode, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Name, xb\+Int16 i\+Share\+Mode)
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fopen. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ac724873d8a55de7d9d13506e09ab89f1}{xb\+Fopen}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Mode, xb\+Int16 i\+Share\+Mode)
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fopen. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ae4ceddb8ffe24ad740937c6ef76ba960}{xb\+Fopen}} (xb\+Int16 i\+Mode, xb\+Int16 i\+Share\+Mode)
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fopen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_af2e940c78956e5cb6824f9a1bc404896}{xb\+Fputc}} (xb\+Int32 c)
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fputc. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a17f79c009923a5142a26141536016127}{xb\+Fputc}} (xb\+Int32 c, xb\+Int32 i\+No\+Of\+Times)
+\begin{DoxyCompactList}\small\item\em Xbase wrapper for standard libary fputc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_ab3c668a8570433188382d31d7c60bd48}{xb\+Remove}} ()
+\begin{DoxyCompactList}\small\item\em Delete file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a58f6a6751fdf7e9549c273bb75d93eb5}{xb\+Remove}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Name)
+\begin{DoxyCompactList}\small\item\em Delete file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a6d919366c2ec95e529906bf8842cbf07}{xb\+Remove}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+File\+Name, xb\+Int16 i\+Option)
+\begin{DoxyCompactList}\small\item\em Delete file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ \mbox{\hyperlink{classxb_1_1xbCore_ad2f79db40c113c70830787a67047a07d}{Error\+Code\+Text}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFile_a10a5813fc6bea80f8cd5a0555b8cbc24}{xb\+Set\+Vbuf}} (xb\+Int16 i\+Opt)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} $\ast$ \mbox{\hyperlink{classxb_1_1xbFile_ae39a67ea391b46055d4ca299cb222004}{xbase}}
+\begin{DoxyCompactList}\small\item\em Pointer to the main xb\+Xbase class instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbCore_a17974342108b35e89e62be960b70d087}{b\+Multi\+User}}
+\item 
+static \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbCore_a5f6bf5e7a9ace06c68efb72dc376e445}{b\+Default\+Auto\+Commit}}
+\item 
+static xb\+Int16 \mbox{\hyperlink{classxb_1_1xbCore_a82b17abc5f1ef87373da819688ed7bad}{i\+Default\+File\+Version}}
+\item 
+static xb\+Int16 \mbox{\hyperlink{classxb_1_1xbCore_acc0303a96900bff413c8c463987a9149}{i\+Endian\+Type}}
+\item 
+static \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbCore_ae8159129440110a6e3487801529272ef}{s\+Data\+Directory}}
+\item 
+static \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbCore_a034d596e86e6ab2151b6e1f8657f49d4}{s\+Null\+String}}
+\item 
+static \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbCore_a45ae9a4fc81347cf9c9ebf02673d3f2a}{s\+Temp\+Directory}}
+\item 
+static \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbCore_a227c789b55eaa2a89a6fee4d90b28c23}{s\+Default\+Date\+Format}}
+\item 
+static xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbCore_aeb6ba41685ea760777a114c422c07a19}{ul\+Default\+Block\+Read\+Size}}
+\item 
+static \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbCore_a7872526434ff6f6d0388ebff430742cc}{s\+Default\+Time\+Format}}
+\item 
+static xb\+Int16 \mbox{\hyperlink{classxb_1_1xbCore_a86b726cb25fd081442b44795f1b046dc}{i\+Default\+Lock\+Flavor}}
+\item 
+static xb\+Int16 \mbox{\hyperlink{classxb_1_1xbCore_ac376593264672ab595ea4081063f104e}{i\+Default\+Lock\+Retries}}
+\item 
+static xb\+Int32 \mbox{\hyperlink{classxb_1_1xbCore_ad569c53a46fa1e7f413e61c3131bcd3c}{l\+Default\+Lock\+Wait}}
+\item 
+static xb\+Int16 \mbox{\hyperlink{classxb_1_1xbCore_ab62c163d32416266b7053bf6832d3811}{i\+Create\+Mdx\+Block\+Size}}
+\item 
+static xb\+Int16 \mbox{\hyperlink{classxb_1_1xbCore_a35d44a54668f998b3f3008631118c053}{i\+Default\+Ix\+Tag\+Mode}}
+\item 
+static \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbCore_a847b9285633d22a5b5e34ac1166e3512}{s\+Log\+Directory}}
+\item 
+static \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbCore_a02c13215a731ce0790f78f8e41714e65}{s\+Log\+File\+Name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classxb_1_1xbLog}{xb\+Log}} class. 
+
+The \mbox{\hyperlink{classxb_1_1xbLog}{xb\+Log}} class handles message logging functions.
+
+If logging is enabled in an application, error messages are printed in the log file.
+
+Once a logfile reaches a predefined size, the logfile is closed, renamed and opened.
+
+The logging functions can be accessed through the \mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} class. Each application has one of those.
+
+
+\begin{DoxyItemize}
+\item Error and message logging. 
+\item Rolling log files. When log file fills, full file is closed and new file is opened. 
+\item Configurable size. 
+\item Configurable name. 
+\item Configurable location. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classxb_1_1xbLog_a81b74da8f7ea861684b3b65084324514}\label{classxb_1_1xbLog_a81b74da8f7ea861684b3b65084324514}} 
+\index{xb::xbLog@{xb::xbLog}!xbLog@{xbLog}}
+\index{xbLog@{xbLog}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbLog()}{xbLog()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+::xb\+Log\+::xb\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+\mbox{\Hypertarget{classxb_1_1xbLog_ad0cc2567950ab57a0e49ccd670d120d0}\label{classxb_1_1xbLog_ad0cc2567950ab57a0e49ccd670d120d0}} 
+\index{xb::xbLog@{xb::xbLog}!xbLog@{xbLog}}
+\index{xbLog@{xbLog}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbLog()}{xbLog()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+::xb\+Log\+::xb\+Log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Log\+File\+Name }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Log\+File\+Name} & -\/ Log file name. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbLog_af6a28c8c9f32536a8432f41ce2718532}\label{classxb_1_1xbLog_af6a28c8c9f32536a8432f41ce2718532}} 
+\index{xb::xbLog@{xb::xbLog}!````~xbLog@{$\sim$xbLog}}
+\index{````~xbLog@{$\sim$xbLog}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{$\sim$xbLog()}{~xbLog()}}
+{\footnotesize\ttfamily xb\+::xb\+Log\+::$\sim$xb\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classxb_1_1xbFile_ad39797624a752b9d62533d00fad9feff}\label{classxb_1_1xbFile_ad39797624a752b9d62533d00fad9feff}} 
+\index{xb::xbLog@{xb::xbLog}!CreateUniqueFileName@{CreateUniqueFileName}}
+\index{CreateUniqueFileName@{CreateUniqueFileName}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{CreateUniqueFileName()}{CreateUniqueFileName()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Create\+Unique\+File\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Dir\+In,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Ext\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Fqn\+Out,  }\item[{xb\+Int16}]{i\+Option = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Given a directory and file extension as inputs, create a unique file name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Dir\+In} & Input Directory \\
+\hline
+{\em s\+Ext\+In} & Input File Extension \\
+\hline
+{\em s\+Fqn\+Out} & Output fully qualifed unique file name \\
+\hline
+{\em i\+Option} & 0 -\/ look only for one file for a given directory and extension~\newline
+ 1 -\/ if file name extension is \char`\"{}dbf\char`\"{} or \char`\"{}\+DBF\char`\"{}, verify unique dbt or DBT (memo) file is also available.~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+FILE\+\_\+\+EXISTS if unable to create a unique file name in 999 attempts. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a5a740033664c9ad2611c90e2a6d0c2d3}\label{classxb_1_1xbFile_a5a740033664c9ad2611c90e2a6d0c2d3}} 
+\index{xb::xbLog@{xb::xbLog}!DetermineXbaseMemoVersion@{DetermineXbaseMemoVersion}}
+\index{DetermineXbaseMemoVersion@{DetermineXbaseMemoVersion}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{DetermineXbaseMemoVersion()}{DetermineXbaseMemoVersion()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Determine\+Xbase\+Memo\+Version (\begin{DoxyParamCaption}\item[{unsigned char}]{c\+File\+Type\+Byte }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Determine which version the memo (dbt) file is. This routine uses the first byte in the dbf file to determine which memo file version is in use. The main difference between version 3 and 4 is that version 4 reuses blocks if they become available. Version 3 does not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+File\+Type\+Byte} & Input one byte field containing file type info. This byte is the first byte in the DBF file.~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 -\/ none~\newline
+ 3 -\/ d\+BASE III+~\newline
+ 4 -\/ d\+BASE IV~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ae2b6ac26018dc28f77afbb3f008c3f66}\label{classxb_1_1xbFile_ae2b6ac26018dc28f77afbb3f008c3f66}} 
+\index{xb::xbLog@{xb::xbLog}!DetermineXbaseTableVersion@{DetermineXbaseTableVersion}}
+\index{DetermineXbaseTableVersion@{DetermineXbaseTableVersion}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{DetermineXbaseTableVersion()}{DetermineXbaseTableVersion()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Determine\+Xbase\+Table\+Version (\begin{DoxyParamCaption}\item[{unsigned char}]{c\+File\+Type\+Byte }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Determine xbase dbf version. 
+
+This routine is used to determine which version of the Xbase classes can be used for a given DBF file.~\newline
+
+
+The library attempts to use the highest version compiled into the library.~\newline
+
+
+References\+:~\newline
+ Per d\+BASE documentation\+:~\newline
+ Valid d\+BASE for Windows table file, bits 0-\/2 indicate version number\+: 3 for d\+BASE Level 5, 4 for d\+BASE Level 7.~\newline
+ Bit 3 and bit 7 indicate presence of a d\+BASE IV or d\+BASE for Windows memo file;~\newline
+ Bits 4-\/6 indicate the presence of a d\+BASE IV SQL table;~\newline
+ Bit 7 indicates the presence of any .DBT memo file (either a d\+BASE III PLUS type or a d\+BASE IV or d\+BASE for Windows memo file).~\newline
+~\newline
+ Bachmann spec (used extensively in library build), page 7 -\/ does not match d\+BASE documentation$<$br$>$~\newline
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+File\+Type\+Byte} & Input one byte field containing file type info. This byte is the first byte in the DBF file.~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 -\/ unknown~\newline
+ 3 -\/ d\+BASE level 3~\newline
+ 4 -\/ d\+BASE level 4~\newline
+ 5 -\/ d\+BASE Level 5 (reserved / future)~\newline
+ 7 -\/ d\+BASE Level 7 (reserved / future)~\newline
+ 1x -\/ Clipper files (reserveed / future)~\newline
+ 2x -\/ Foxbase files (reserved / future)~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a94c6179a83f212bcd276ec7337a7e5d5}\label{classxb_1_1xbFile_a94c6179a83f212bcd276ec7337a7e5d5}} 
+\index{xb::xbLog@{xb::xbLog}!Dump@{Dump}}
+\index{Dump@{Dump}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{Dump()}{Dump()}}
+{\footnotesize\ttfamily void xb\+::xb\+File\+::\+Dump (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s\+Title = {\ttfamily \char`\"{}\char`\"{}},  }\item[{xb\+Int16}]{i\+Output\+Option = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Debugging routine -\/ dump file internals to log file, stdout or both. 
+
+This routine dumps \mbox{\hyperlink{classxb_1_1xbFile}{xb\+File}} internals to log file, stdout or both. 
+\begin{DoxyParams}{Parameters}
+{\em s\+Title} & Title to print in the output. \\
+\hline
+{\em i\+Output\+Option} & 0 -\/ Write to Logfile. 1 -\/ Write to stdout. 2 -\/ Write to both Logfile and stdout. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Available if XB\+\_\+\+DEBUG\+\_\+\+SUPPORT compiled into the library. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbFile_a5ea348a9b696559d0c600017cd363470}\label{classxb_1_1xbFile_a5ea348a9b696559d0c600017cd363470}} 
+\index{xb::xbLog@{xb::xbLog}!DumpBlockToDisk@{DumpBlockToDisk}}
+\index{DumpBlockToDisk@{DumpBlockToDisk}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{DumpBlockToDisk()}{DumpBlockToDisk()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Dump\+Block\+To\+Disk (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Block\+No,  }\item[{size\+\_\+t}]{l\+Block\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Debugging routine -\/ dump a block to a log file. 
+
+This routine dumps a block to a log file named Block\+Dump.\+Bnnn where nnn is the block number.~\newline
+ This is primarily used for debugging and analysis purposes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Block\+No} & Block number to write \\
+\hline
+{\em l\+Block\+Size} & Size of block \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+OPEN\+\_\+\+ERROR, XB\+\_\+\+WRITE\+\_\+\+ERROR or XB\+\_\+\+SEEK\+\_\+\+ERROR
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Available if XB\+\_\+\+DEBUG\+\_\+\+SUPPORT compiled into the library. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbFile_ada631a5d3c72f7b29901e4fa922dd641}\label{classxb_1_1xbFile_ada631a5d3c72f7b29901e4fa922dd641}} 
+\index{xb::xbLog@{xb::xbLog}!DumpMemToDisk@{DumpMemToDisk}}
+\index{DumpMemToDisk@{DumpMemToDisk}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{DumpMemToDisk()}{DumpMemToDisk()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Dump\+Mem\+To\+Disk (\begin{DoxyParamCaption}\item[{char $\ast$}]{p,  }\item[{size\+\_\+t}]{l\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Debugging routine -\/ dump memory to a log file. 
+
+This routine dumps data from memory to a log file called Mem\+Dump.\+txt.~\newline
+ This is primarily used for debugging and analysis purposes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to data to write \\
+\hline
+{\em l\+Size} & Length of data to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+OPEN\+\_\+\+ERROR or XB\+\_\+\+WRITE\+\_\+\+ERROR
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Available if XB\+\_\+\+DEBUG\+\_\+\+SUPPORT compiled into the library. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbFile_ab14e4a11427f5efb81cba1dd32bd1aa1}\label{classxb_1_1xbFile_ab14e4a11427f5efb81cba1dd32bd1aa1}} 
+\index{xb::xbLog@{xb::xbLog}!eGetDouble@{eGetDouble}}
+\index{eGetDouble@{eGetDouble}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{eGetDouble()}{eGetDouble()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} xb\+::xb\+File\+::e\+Get\+Double (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get a portable double value. 
+
+This routine returns a double value from an 8 byte character stream, accounting for endian type.
+
+Converts a double (64 bit floating point) value stored at p from a portable format to the machine format.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & -\/ pointer to memory containing the portable double value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ac40c991110ddc6fb30a72d90f4652762}\label{classxb_1_1xbFile_ac40c991110ddc6fb30a72d90f4652762}} 
+\index{xb::xbLog@{xb::xbLog}!eGetInt16@{eGetInt16}}
+\index{eGetInt16@{eGetInt16}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{eGetInt16()}{eGetInt16()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::e\+Get\+Int16 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get a portable short int value. 
+
+This routine returns a short int value from a 2 byte character stream, accounting for endian type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & -\/ pointer to memory containing the portable long value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+short value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a60b24a5afc984c586bf384c7e915ba0d}\label{classxb_1_1xbFile_a60b24a5afc984c586bf384c7e915ba0d}} 
+\index{xb::xbLog@{xb::xbLog}!eGetInt32@{eGetInt32}}
+\index{eGetInt32@{eGetInt32}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{eGetInt32()}{eGetInt32()}}
+{\footnotesize\ttfamily xb\+Int32 xb\+::xb\+File\+::e\+Get\+Int32 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get a portable long value. 
+
+This routine returns a long int value from a 4 byte character stream, accounting for endian type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & -\/ pointer to memory containing the portable long value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long int value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a936ade458e6d5e6d29f9b5031888d189}\label{classxb_1_1xbFile_a936ade458e6d5e6d29f9b5031888d189}} 
+\index{xb::xbLog@{xb::xbLog}!eGetUInt16@{eGetUInt16}}
+\index{eGetUInt16@{eGetUInt16}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{eGetUInt16()}{eGetUInt16()}}
+{\footnotesize\ttfamily xb\+UInt16 xb\+::xb\+File\+::e\+Get\+UInt16 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get a portable unsigned short value. 
+
+This routine returns a short unsigned int value from a 2 byte character stream, accounting for endian type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & -\/ pointer to memory containing the portable long value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+short value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a78f052529d39a18deaface5a0d47d0b0}\label{classxb_1_1xbFile_a78f052529d39a18deaface5a0d47d0b0}} 
+\index{xb::xbLog@{xb::xbLog}!eGetUInt32@{eGetUInt32}}
+\index{eGetUInt32@{eGetUInt32}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{eGetUInt32()}{eGetUInt32()}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+File\+::e\+Get\+UInt32 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get a portable unsigned long value. 
+
+This routine returns an unsigned long int value from a 4 byte character stream, accounting for endian type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & -\/ pointer to memory containing the portable long value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned long int value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a98b6ff533ae93f90c977a2ba23eeb105}\label{classxb_1_1xbFile_a98b6ff533ae93f90c977a2ba23eeb105}} 
+\index{xb::xbLog@{xb::xbLog}!ePutDouble@{ePutDouble}}
+\index{ePutDouble@{ePutDouble}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{ePutDouble()}{ePutDouble()}}
+{\footnotesize\ttfamily void xb\+::xb\+File\+::e\+Put\+Double (\begin{DoxyParamCaption}\item[{char $\ast$}]{p,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Converts a double (64 bit floating point) to a portable format accounting for endian type and stores the converted value in eight bytes of memory referenced by pointer p. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & -\/ Pointer to memory to hold ouput value \\
+\hline
+{\em d} & -\/ Input value to be converted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbFile_a9a97e72c49f34bef768b6b1aa3909a8a}\label{classxb_1_1xbFile_a9a97e72c49f34bef768b6b1aa3909a8a}} 
+\index{xb::xbLog@{xb::xbLog}!ePutInt16@{ePutInt16}}
+\index{ePutInt16@{ePutInt16}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{ePutInt16()}{ePutInt16()}}
+{\footnotesize\ttfamily void xb\+::xb\+File\+::e\+Put\+Int16 (\begin{DoxyParamCaption}\item[{char $\ast$}]{p,  }\item[{xb\+Int16}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Converts a short (16 bit integer) value to a portable format accounting for endian type and stores the converted value in two bytes of memory referenced by pointer p. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & -\/ Pointer to memory to hold output value \\
+\hline
+{\em i} & -\/ Input value to be converted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbFile_a19c37f76a2ccbb45019cb0fc373d3f46}\label{classxb_1_1xbFile_a19c37f76a2ccbb45019cb0fc373d3f46}} 
+\index{xb::xbLog@{xb::xbLog}!ePutInt32@{ePutInt32}}
+\index{ePutInt32@{ePutInt32}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{ePutInt32()}{ePutInt32()}}
+{\footnotesize\ttfamily void xb\+::xb\+File\+::e\+Put\+Int32 (\begin{DoxyParamCaption}\item[{char $\ast$}]{p,  }\item[{xb\+Int32}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Converts a long (32 bit integer) value to a portable format accounting for endian type and stores the converted value in four bytes of memory referenced by pointer p. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & -\/ Pointer to memory to hold output value \\
+\hline
+{\em l} & -\/ Input value to be converted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbFile_a343ee664c589885c4788b0850dde7bf4}\label{classxb_1_1xbFile_a343ee664c589885c4788b0850dde7bf4}} 
+\index{xb::xbLog@{xb::xbLog}!ePutUInt16@{ePutUInt16}}
+\index{ePutUInt16@{ePutUInt16}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{ePutUInt16()}{ePutUInt16()}}
+{\footnotesize\ttfamily void xb\+::xb\+File\+::e\+Put\+UInt16 (\begin{DoxyParamCaption}\item[{char $\ast$}]{p,  }\item[{xb\+UInt16}]{ui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Converts an unsigned short (16 bit integer) value to a portable format accounting for endian type and stores the converted value in two bytes of memory referenced by pointer p. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & -\/ Pointer to memory to hold output value \\
+\hline
+{\em ui} & -\/ Input value to be converted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbFile_aa3f6ceae4b96f24875d86848bf13a173}\label{classxb_1_1xbFile_aa3f6ceae4b96f24875d86848bf13a173}} 
+\index{xb::xbLog@{xb::xbLog}!ePutUInt32@{ePutUInt32}}
+\index{ePutUInt32@{ePutUInt32}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{ePutUInt32()}{ePutUInt32()}}
+{\footnotesize\ttfamily void xb\+::xb\+File\+::e\+Put\+UInt32 (\begin{DoxyParamCaption}\item[{char $\ast$}]{p,  }\item[{xb\+UInt32}]{ul }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Converts an unsigned long (32 bit integer) value to a portable format accounting for endian type and stores the converted value in four bytes of memory referenced by pointer p. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & -\/ Pointer to memory to hold output value \\
+\hline
+{\em ul} & -\/ Input value to be converted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbFile_a78bd8a11dce102647095baf3aff2b006}\label{classxb_1_1xbFile_a78bd8a11dce102647095baf3aff2b006}} 
+\index{xb::xbLog@{xb::xbLog}!FileExists@{FileExists}}
+\index{FileExists@{FileExists}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{FileExists()}{FileExists()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+File\+::\+File\+Exists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Determines if file specified for this instance exists. 
+
+\begin{DoxyReturn}{Returns}
+xb\+True file exists~\newline
+ xb\+False file does not exist 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a61130b4fbf4cf9d5972dcb4993de2f94}\label{classxb_1_1xbFile_a61130b4fbf4cf9d5972dcb4993de2f94}} 
+\index{xb::xbLog@{xb::xbLog}!FileExists@{FileExists}}
+\index{FileExists@{FileExists}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{FileExists()}{FileExists()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+File\+::\+File\+Exists (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Determines if a file exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Name} & -\/ file name to check for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True file exists~\newline
+ xb\+False file does not exist 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a0592168f39a10f2a401a88ef781f6148}\label{classxb_1_1xbFile_a0592168f39a10f2a401a88ef781f6148}} 
+\index{xb::xbLog@{xb::xbLog}!FileExists@{FileExists}}
+\index{FileExists@{FileExists}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{FileExists()}{FileExists()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+File\+::\+File\+Exists (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Name,  }\item[{xb\+Int16}]{i\+Option }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Determines if a file exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Name} & -\/ file name to check for \\
+\hline
+{\em i\+Option} & 1 -\/ additionally check for presence of a DBT memo file.~\newline
+ 0 -\/ don\textquotesingle{}t check for DBT memo file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True if i\+Option 1 and both files exist or i\+Option 0 and file name exists~\newline
+ xb\+False file does not exist 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a174d8a6aabc9cfcd32fedbd1e5b13ddd}\label{classxb_1_1xbFile_a174d8a6aabc9cfcd32fedbd1e5b13ddd}} 
+\index{xb::xbLog@{xb::xbLog}!FileExists@{FileExists}}
+\index{FileExists@{FileExists}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{FileExists()}{FileExists()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+File\+::\+File\+Exists (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Option }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Determines if file specified for this instance exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Option} & 1 -\/ additionally check for presence of a DBT memo file.~\newline
+ 0 -\/ don\textquotesingle{}t check for DBT memo file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xb\+True if i\+Option 1 and both files exist or i\+Option 0 and file name exists~\newline
+ xb\+False file does not exist 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a7fa837938a32dc9ca3fbc81cbaf50f59}\label{classxb_1_1xbFile_a7fa837938a32dc9ca3fbc81cbaf50f59}} 
+\index{xb::xbLog@{xb::xbLog}!FileIsOpen@{FileIsOpen}}
+\index{FileIsOpen@{FileIsOpen}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{FileIsOpen()}{FileIsOpen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+File\+::\+File\+Is\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Determines if file is open. 
+
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ file is open~\newline
+ xb\+False -\/ file is not open 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a638e14262410a1627819f016a16cdce2}\label{classxb_1_1xbFile_a638e14262410a1627819f016a16cdce2}} 
+\index{xb::xbLog@{xb::xbLog}!GetBlockSize@{GetBlockSize}}
+\index{GetBlockSize@{GetBlockSize}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetBlockSize()}{GetBlockSize()}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+File\+::\+Get\+Block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the block size. 
+
+File level -\/ returns the block size in use for a given file, if blocking is used.
+
+\begin{DoxyReturn}{Returns}
+Block Size 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_acd0fb2166b2bff7e8a1cf65a7bc8be1e}\label{classxb_1_1xbFile_acd0fb2166b2bff7e8a1cf65a7bc8be1e}} 
+\index{xb::xbLog@{xb::xbLog}!GetDirectory@{GetDirectory}}
+\index{GetDirectory@{GetDirectory}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetDirectory()}{GetDirectory()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+File\+::\+Get\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the directory portion of the file name. 
+
+\begin{DoxyReturn}{Returns}
+The directory portion of the fully qualified file name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_af5127c92892816e9bbc5c19653c4147a}\label{classxb_1_1xbFile_af5127c92892816e9bbc5c19653c4147a}} 
+\index{xb::xbLog@{xb::xbLog}!GetFileDirPart@{GetFileDirPart}}
+\index{GetFileDirPart@{GetFileDirPart}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetFileDirPart()}{GetFileDirPart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+File\+Dir\+Part (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Complete\+File\+Name\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Dir\+Part\+Out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the directory portion of the file name referenced in s\+Complete\+File\+Name\+In. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Complete\+File\+Name\+In} & -\/ a fully qualfied input file name \\
+\hline
+{\em s\+File\+Dir\+Part\+Out} & -\/ output -\/ directory portion of s\+Complete\+File\+Name\+In \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+DATA 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a60c53998e3d1b694134b20a87bc9bf5a}\label{classxb_1_1xbFile_a60c53998e3d1b694134b20a87bc9bf5a}} 
+\index{xb::xbLog@{xb::xbLog}!GetFileDirPart@{GetFileDirPart}}
+\index{GetFileDirPart@{GetFileDirPart}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetFileDirPart()}{GetFileDirPart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+File\+Dir\+Part (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Dir\+Part\+Out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the directory portion of the file name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Dir\+Part\+Out} & -\/ output -\/ directory portion of the file name. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+DATA 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ab289b6ffe955321160c1f90220c22e25}\label{classxb_1_1xbFile_ab289b6ffe955321160c1f90220c22e25}} 
+\index{xb::xbLog@{xb::xbLog}!GetFileExtPart@{GetFileExtPart}}
+\index{GetFileExtPart@{GetFileExtPart}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetFileExtPart()}{GetFileExtPart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+File\+Ext\+Part (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Complete\+File\+Name\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Ext\+Part\+Out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the extension portion of the file name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Complete\+File\+Name\+In} & -\/ a fully qualfied input file name \\
+\hline
+{\em s\+File\+Ext\+Part\+Out} & -\/ output -\/ the extention portion of s\+Complete\+File\+Name\+In \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+DATA 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a57a9222e5cbb51019d4eeb2c3ac89fa2}\label{classxb_1_1xbFile_a57a9222e5cbb51019d4eeb2c3ac89fa2}} 
+\index{xb::xbLog@{xb::xbLog}!GetFileExtPart@{GetFileExtPart}}
+\index{GetFileExtPart@{GetFileExtPart}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetFileExtPart()}{GetFileExtPart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+File\+Ext\+Part (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Ext\+Part\+Out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the extension part of the file name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Ext\+Part\+Out} & -\/ output -\/ the extension portion of fully qualified file name. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+DATA 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ace71244e630af277f774e96f602a197c}\label{classxb_1_1xbFile_ace71244e630af277f774e96f602a197c}} 
+\index{xb::xbLog@{xb::xbLog}!GetFileMtime@{GetFileMtime}}
+\index{GetFileMtime@{GetFileMtime}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetFileMtime()}{GetFileMtime()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+File\+Mtime (\begin{DoxyParamCaption}\item[{time\+\_\+t \&}]{m\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the time of last file modification timestamp as reported by the OS. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m\+Time} & -\/ output -\/ returned time of last file modification \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+FILE\+\_\+\+NOT\+\_\+\+FOUND 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ac95cb882ccbcdedc9a233c6ad9fed07a}\label{classxb_1_1xbFile_ac95cb882ccbcdedc9a233c6ad9fed07a}} 
+\index{xb::xbLog@{xb::xbLog}!GetFileName@{GetFileName}}
+\index{GetFileName@{GetFileName}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetFileName()}{GetFileName()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+File\+::\+Get\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the file name. 
+
+\begin{DoxyReturn}{Returns}
+The file name portion of the fully qualified file name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a6110763c5ae996b72c7a62c15bdecc73}\label{classxb_1_1xbFile_a6110763c5ae996b72c7a62c15bdecc73}} 
+\index{xb::xbLog@{xb::xbLog}!GetFileNamePart@{GetFileNamePart}}
+\index{GetFileNamePart@{GetFileNamePart}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetFileNamePart()}{GetFileNamePart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+File\+Name\+Part (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Complete\+File\+Name\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Name\+Part\+Out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the name part of the file name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Complete\+File\+Name\+In} & -\/ a fully qualified input file name \\
+\hline
+{\em s\+File\+Name\+Part\+Out} & -\/ output -\/ file name portion out of s\+Complete\+File\+Name\+In \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a81422b3dd52763d2cc6c77237ec9af0a}\label{classxb_1_1xbFile_a81422b3dd52763d2cc6c77237ec9af0a}} 
+\index{xb::xbLog@{xb::xbLog}!GetFileNamePart@{GetFileNamePart}}
+\index{GetFileNamePart@{GetFileNamePart}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetFileNamePart()}{GetFileNamePart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+File\+Name\+Part (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Name\+Part\+Out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the name part of the file name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Name\+Part\+Out} & -\/ output -\/ file name portion of the current fully qualified file name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a50b63c39e49d44e52078038027b24cc5}\label{classxb_1_1xbFile_a50b63c39e49d44e52078038027b24cc5}} 
+\index{xb::xbLog@{xb::xbLog}!GetFileSize@{GetFileSize}}
+\index{GetFileSize@{GetFileSize}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetFileSize()}{GetFileSize()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+File\+Size (\begin{DoxyParamCaption}\item[{xb\+UInt64 \&}]{ull\+File\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the size of the file as reported by the OS. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ull\+File\+Size} & -\/ output -\/ unsigned long long file size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+SEEK\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a5548236d38d43b89ae29b9a015b1f678}\label{classxb_1_1xbFile_a5548236d38d43b89ae29b9a015b1f678}} 
+\index{xb::xbLog@{xb::xbLog}!GetFileType@{GetFileType}}
+\index{GetFileType@{GetFileType}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetFileType()}{GetFileType()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+File\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Type }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the file type (Capitalized file extension) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Type} & -\/ output -\/ the returned extension part out of s\+Complete\+File\+Name\+In \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+DATA 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a12f1d9b4010720023177ae7b2e6d98e6}\label{classxb_1_1xbFile_a12f1d9b4010720023177ae7b2e6d98e6}} 
+\index{xb::xbLog@{xb::xbLog}!GetFp@{GetFp}}
+\index{GetFp@{GetFp}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetFp()}{GetFp()}}
+{\footnotesize\ttfamily FILE $\ast$ xb\+::xb\+File\+::\+Get\+Fp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Return the file pointer. 
+
+\begin{DoxyReturn}{Returns}
+FILE$\ast$ file pointer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a31b4e641f93206ba23e2a5a27491dcd4}\label{classxb_1_1xbFile_a31b4e641f93206ba23e2a5a27491dcd4}} 
+\index{xb::xbLog@{xb::xbLog}!GetFqFileName@{GetFqFileName}}
+\index{GetFqFileName@{GetFqFileName}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetFqFileName()}{GetFqFileName()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+File\+::\+Get\+Fq\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the fully qualified file name. 
+
+\begin{DoxyReturn}{Returns}
+The fully qualfied name of the file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a5a67588bc8e5a5c99d83432cea0dd976}\label{classxb_1_1xbFile_a5a67588bc8e5a5c99d83432cea0dd976}} 
+\index{xb::xbLog@{xb::xbLog}!GetLockRetryCount@{GetLockRetryCount}}
+\index{GetLockRetryCount@{GetLockRetryCount}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetLockRetryCount()}{GetLockRetryCount()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+Lock\+Retry\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Return the locking retry setting. 
+
+\begin{DoxyReturn}{Returns}
+The lock retry setting for this file or the system default setting if the lock retry for the file has not been set. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Availble if XB\+\_\+\+LOCKING\+\_\+\+SUPPORT compiled into library 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbFile_a3c500dc9dac22c49496e4b29386b2dd3}\label{classxb_1_1xbFile_a3c500dc9dac22c49496e4b29386b2dd3}} 
+\index{xb::xbLog@{xb::xbLog}!GetOpenMode@{GetOpenMode}}
+\index{GetOpenMode@{GetOpenMode}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetOpenMode()}{GetOpenMode()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+Open\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the open mode of the file. 
+
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+READ -\/ Read Only Mode~\newline
+ XB\+\_\+\+READ\+\_\+\+WRITE -\/ Read Write Mode~\newline
+ XB\+\_\+\+WRITE -\/ Write Only Mode 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a9b63e05b77f477ff6109ff7b9432c1b6}\label{classxb_1_1xbFile_a9b63e05b77f477ff6109ff7b9432c1b6}} 
+\index{xb::xbLog@{xb::xbLog}!GetShareMode@{GetShareMode}}
+\index{GetShareMode@{GetShareMode}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetShareMode()}{GetShareMode()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+Share\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the share mode of the file. 
+
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+SINGLE\+\_\+\+USER -\/ File buffering on, file locking not required, better performance.~\newline
+ XB\+\_\+\+MULTI\+\_\+\+USER -\/ File buffering off, file locking required. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a7af337808919680b90710ad5e8a99232}\label{classxb_1_1xbFile_a7af337808919680b90710ad5e8a99232}} 
+\index{xb::xbLog@{xb::xbLog}!GetXbaseFileTypeByte@{GetXbaseFileTypeByte}}
+\index{GetXbaseFileTypeByte@{GetXbaseFileTypeByte}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetXbaseFileTypeByte()}{GetXbaseFileTypeByte()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+Xbase\+File\+Type\+Byte (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Name,  }\item[{unsigned char \&}]{c\+File\+Type\+Byte }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the file type byte and version of the dbf file. 
+
+The first byte of a DBF file has various bit settings which determine the file format. This routine pulls the first byte off the DBF file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Name} & -\/ Name of file to examine \\
+\hline
+{\em c\+File\+Type\+Byte} & -\/ Output -\/ first byte of dbf file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+OPEN\+\_\+\+ERROR, XB\+\_\+\+SEEK\+\_\+\+ERROR or XB\+\_\+\+READ\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a78aebdd21d3de46a450d5f835e3027f6}\label{classxb_1_1xbFile_a78aebdd21d3de46a450d5f835e3027f6}} 
+\index{xb::xbLog@{xb::xbLog}!GetXbaseFileTypeByte@{GetXbaseFileTypeByte}}
+\index{GetXbaseFileTypeByte@{GetXbaseFileTypeByte}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetXbaseFileTypeByte()}{GetXbaseFileTypeByte()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+Xbase\+File\+Type\+Byte (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Name,  }\item[{unsigned char \&}]{c\+File\+Type\+Byte,  }\item[{xb\+Int16 \&}]{i\+Version }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the file type byte and version of the dbf file. 
+
+The first byte of a DBF file has various bit settings which determine the file format. This routine pulls the first byte off the DBF file and returns version information in i\+Version.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Name} & -\/ Name of file to examine \\
+\hline
+{\em c\+File\+Type\+Byte} & -\/ Output -\/ first byte of dbf file \\
+\hline
+{\em i\+Version} & -\/ Output -\/ file version, 0, 3 or 4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+OPEN\+\_\+\+ERROR, XB\+\_\+\+SEEK\+\_\+\+ERROR or XB\+\_\+\+READ\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_aaf2e697751a0beff41432a66bb83fb5e}\label{classxb_1_1xbFile_aaf2e697751a0beff41432a66bb83fb5e}} 
+\index{xb::xbLog@{xb::xbLog}!GetXbaseFileTypeByte@{GetXbaseFileTypeByte}}
+\index{GetXbaseFileTypeByte@{GetXbaseFileTypeByte}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{GetXbaseFileTypeByte()}{GetXbaseFileTypeByte()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Get\+Xbase\+File\+Type\+Byte (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Name,  }\item[{xb\+Int16 \&}]{i\+Version }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Get the file type byte and version of the dbf file. 
+
+The first byte of a DBF file has various bit settings which determine the file format. This routine pulls the first byte off the DBF file and returns version information in i\+Version..
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Name} & -\/ Name of file to examine \\
+\hline
+{\em i\+Version} & -\/ Output -\/ file version, 0, 3 or 4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+OPEN\+\_\+\+ERROR, XB\+\_\+\+SEEK\+\_\+\+ERROR or XB\+\_\+\+READ\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLog_a30688f1f27334d1cdfc9b9d434b536cb}\label{classxb_1_1xbLog_a30688f1f27334d1cdfc9b9d434b536cb}} 
+\index{xb::xbLog@{xb::xbLog}!LogClose@{LogClose}}
+\index{LogClose@{LogClose}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{LogClose()}{LogClose()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Log\+::\+Log\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Close the logfile. 
+
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLog_ada8ceae008ecabf71e263306f8ff41ec}\label{classxb_1_1xbLog_ada8ceae008ecabf71e263306f8ff41ec}} 
+\index{xb::xbLog@{xb::xbLog}!LogGetLogSize@{LogGetLogSize}}
+\index{LogGetLogSize@{LogGetLogSize}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{LogGetLogSize()}{LogGetLogSize()}}
+{\footnotesize\ttfamily size\+\_\+t xb\+::xb\+Log\+::\+Log\+Get\+Log\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get log file size setting. 
+
+\begin{DoxyReturn}{Returns}
+Log size. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLog_af2871addbe4e3f0cc714a4916d3b8b64}\label{classxb_1_1xbLog_af2871addbe4e3f0cc714a4916d3b8b64}} 
+\index{xb::xbLog@{xb::xbLog}!LogGetStatus@{LogGetStatus}}
+\index{LogGetStatus@{LogGetStatus}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{LogGetStatus()}{LogGetStatus()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Log\+::\+Log\+Get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the current logging status. 
+
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Logging turned on.~\newline
+xb\+False -\/ Logging turned off. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLog_a295f9dfc2ea5f17c17609cf29f59b33c}\label{classxb_1_1xbLog_a295f9dfc2ea5f17c17609cf29f59b33c}} 
+\index{xb::xbLog@{xb::xbLog}!LogOpen@{LogOpen}}
+\index{LogOpen@{LogOpen}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{LogOpen()}{LogOpen()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Log\+::\+Log\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Open the logfile. 
+
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLog_af4e510ba62ffcb717cf768b3a6217a47}\label{classxb_1_1xbLog_af4e510ba62ffcb717cf768b3a6217a47}} 
+\index{xb::xbLog@{xb::xbLog}!LogSetLogSize@{LogSetLogSize}}
+\index{LogSetLogSize@{LogSetLogSize}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{LogSetLogSize()}{LogSetLogSize()}}
+{\footnotesize\ttfamily void xb\+::xb\+Log\+::\+Log\+Set\+Log\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{l\+Size }\end{DoxyParamCaption})}
+
+
+
+Set maximum log file size. 
+
+When file size is reached, current logfile is closed and new file is opened. 
+\begin{DoxyParams}{Parameters}
+{\em l\+Size} & -\/ New maximum log file size. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbLog_adb2673208f57da1ed6f7fc78dfc77763}\label{classxb_1_1xbLog_adb2673208f57da1ed6f7fc78dfc77763}} 
+\index{xb::xbLog@{xb::xbLog}!LogSetStatus@{LogSetStatus}}
+\index{LogSetStatus@{LogSetStatus}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{LogSetStatus()}{LogSetStatus()}}
+{\footnotesize\ttfamily void xb\+::xb\+Log\+::\+Log\+Set\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}}}]{b\+Log\+Status }\end{DoxyParamCaption})}
+
+
+
+Set log status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b\+Log\+Status} & xb\+True -\/ Turn logging on.~\newline
+xb\+False -\/ Turn logging off. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbLog_a2fa1acf20c36ddebb4434abea23e609c}\label{classxb_1_1xbLog_a2fa1acf20c36ddebb4434abea23e609c}} 
+\index{xb::xbLog@{xb::xbLog}!LogWrite@{LogWrite}}
+\index{LogWrite@{LogWrite}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{LogWrite()}{LogWrite()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Log\+::\+Log\+Write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Log\+Entry,  }\item[{xb\+Int16}]{i\+Output\+Option = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Write a logfile message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Log\+Entry} & Message to write to the logfile. \\
+\hline
+{\em i\+Output\+Option} & 0 -\/ Write to logfile.~\newline
+ 1 -\/ Write to stdout.~\newline
+ 2 -\/ Write to both logfile and stdout. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLog_a033a7b4ed672b426a08414735a727ad9}\label{classxb_1_1xbLog_a033a7b4ed672b426a08414735a727ad9}} 
+\index{xb::xbLog@{xb::xbLog}!LogWriteBytes@{LogWriteBytes}}
+\index{LogWriteBytes@{LogWriteBytes}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{LogWriteBytes()}{LogWriteBytes()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Log\+::\+Log\+Write\+Bytes (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Byte\+Cnt,  }\item[{const char $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Write bytes to logfile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Byte\+Cnt} & -\/ Number of bytes to write to logfile. \\
+\hline
+{\em p} & -\/ Pointer to data to write to logfile. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a361e3cc318bbf1c4d10f069e0800a24e}\label{classxb_1_1xbFile_a361e3cc318bbf1c4d10f069e0800a24e}} 
+\index{xb::xbLog@{xb::xbLog}!NameSuffixMissing@{NameSuffixMissing}}
+\index{NameSuffixMissing@{NameSuffixMissing}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{NameSuffixMissing()}{NameSuffixMissing()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Name\+Suffix\+Missing (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Name,  }\item[{xb\+Int16}]{i\+Option }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Determines status of file extension. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Name} & -\/ Name of file to examine \\
+\hline
+{\em i\+Option} & -\/ Inspection type~\newline
+ 1 check for dbf or DBF extension~\newline
+ 2 check for ndx or NDX extension~\newline
+ 3 check for mdx or MDX extension~\newline
+ 4 check for ntx or NTX extension \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+NOT\+\_\+\+FOUND 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a425b5d873f41fcc66536bb10257436ff}\label{classxb_1_1xbFile_a425b5d873f41fcc66536bb10257436ff}} 
+\index{xb::xbLog@{xb::xbLog}!ReadBlock@{ReadBlock}}
+\index{ReadBlock@{ReadBlock}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{ReadBlock()}{ReadBlock()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Read\+Block (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Block\+No,  }\item[{size\+\_\+t}]{l\+Read\+Size,  }\item[{void $\ast$}]{buf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Read a block of data from file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Block\+No} & -\/ block number to read \\
+\hline
+{\em l\+Read\+Size} & -\/ size of data to read at block location, set to 0 to read blocksize \\
+\hline
+{\em $\ast$buf} & -\/ pointer to buffer to write output data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+SIZE, XB\+\_\+\+READ\+\_\+\+ERROR or XB\+\_\+\+SEEK\+\_\+\+ERROR 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+buf is assumed to be previosuly allocated and large enough to contain data 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbFile_aae1bc91bacbe138a25b1d5cc3bcdee6b}\label{classxb_1_1xbFile_aae1bc91bacbe138a25b1d5cc3bcdee6b}} 
+\index{xb::xbLog@{xb::xbLog}!ReadBlock@{ReadBlock}}
+\index{ReadBlock@{ReadBlock}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{ReadBlock()}{ReadBlock()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Read\+Block (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Block\+No,  }\item[{xb\+UInt32}]{ul\+Block\+Size,  }\item[{size\+\_\+t}]{l\+Read\+Size,  }\item[{void $\ast$}]{buf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Read a block of data from file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Block\+No} & -\/ block number to read \\
+\hline
+{\em ul\+Block\+Size} & -\/ block size \\
+\hline
+{\em l\+Read\+Size} & -\/ size of data to read at block location, set to 0 to read blocksize \\
+\hline
+{\em buf} & -\/ pointer to buffer to write output data\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+SIZE, XB\+\_\+\+READ\+\_\+\+ERROR or XB\+\_\+\+SEEK\+\_\+\+ERROR 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+buf is assumed to be previosuly allocated and large enough to contain data 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbFile_a991c5676a6f38fa752435390989f413e}\label{classxb_1_1xbFile_a991c5676a6f38fa752435390989f413e}} 
+\index{xb::xbLog@{xb::xbLog}!SetBlockSize@{SetBlockSize}}
+\index{SetBlockSize@{SetBlockSize}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{SetBlockSize()}{SetBlockSize()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Set\+Block\+Size (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Block\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Set the block size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Block\+Size} & -\/ unsigned long block size, divisible by 512 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+SIZE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ae78a85255488bc78964c16946dbaead3}\label{classxb_1_1xbFile_ae78a85255488bc78964c16946dbaead3}} 
+\index{xb::xbLog@{xb::xbLog}!SetDirectory@{SetDirectory}}
+\index{SetDirectory@{SetDirectory}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{SetDirectory()}{SetDirectory()}}
+{\footnotesize\ttfamily void xb\+::xb\+File\+::\+Set\+Directory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Directory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Set the directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Directory} & -\/ Valid directory name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbFile_a5419eb27e56822f828b2b88a9502a636}\label{classxb_1_1xbFile_a5419eb27e56822f828b2b88a9502a636}} 
+\index{xb::xbLog@{xb::xbLog}!SetFileName@{SetFileName}}
+\index{SetFileName@{SetFileName}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{SetFileName()}{SetFileName()}}
+{\footnotesize\ttfamily void xb\+::xb\+File\+::\+Set\+File\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Set the filename. This routine builds out two internal variables from the input file name~\newline
+ s\+File\+Name -\/ the file name part~\newline
+ s\+Fq\+File\+Name -\/ the fully qualified file name~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Name} & -\/ Input file name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbFile_a1fad9ef8643944ad1641810f4b1cd5b4}\label{classxb_1_1xbFile_a1fad9ef8643944ad1641810f4b1cd5b4}} 
+\index{xb::xbLog@{xb::xbLog}!SetFqFileName@{SetFqFileName}}
+\index{SetFqFileName@{SetFqFileName}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{SetFqFileName()}{SetFqFileName()}}
+{\footnotesize\ttfamily void xb\+::xb\+File\+::\+Set\+Fq\+File\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Fq\+File\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Set the fully qualifed filename. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Fq\+File\+Name} & -\/ Fully qualifed input file name. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbFile_a060acbfaa8d528f86cb59301814b414a}\label{classxb_1_1xbFile_a060acbfaa8d528f86cb59301814b414a}} 
+\index{xb::xbLog@{xb::xbLog}!SetHomeFolders@{SetHomeFolders}}
+\index{SetHomeFolders@{SetHomeFolders}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{SetHomeFolders()}{SetHomeFolders()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Set\+Home\+Folders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Create xbase64 log, data and temp folders in the home directory for the current user. 
+
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+DIRECTORY\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_aa39f69363bb55eb22f0a118547c5416d}\label{classxb_1_1xbFile_aa39f69363bb55eb22f0a118547c5416d}} 
+\index{xb::xbLog@{xb::xbLog}!SetLockRetryCount@{SetLockRetryCount}}
+\index{SetLockRetryCount@{SetLockRetryCount}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{SetLockRetryCount()}{SetLockRetryCount()}}
+{\footnotesize\ttfamily void xb\+::xb\+File\+::\+Set\+Lock\+Retry\+Count (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Lock\+Retries }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Set the lock retry count for this specific file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Lock\+Retries} & The number of retries to attempt before returning failure for this file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Availble if XB\+\_\+\+LOCKING\+\_\+\+SUPPORT compiled into library 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbFile_a85a245b07f8eb3108d124a39038eaa3f}\label{classxb_1_1xbFile_a85a245b07f8eb3108d124a39038eaa3f}} 
+\index{xb::xbLog@{xb::xbLog}!WriteBlock@{WriteBlock}}
+\index{WriteBlock@{WriteBlock}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{WriteBlock()}{WriteBlock()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::\+Write\+Block (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Block\+No,  }\item[{size\+\_\+t}]{l\+Write\+Size,  }\item[{void $\ast$}]{buf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Write a block of data to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Block\+No} & -\/ block number to write \\
+\hline
+{\em l\+Write\+Size} & -\/ size of data to write, set to 0 to write blocksize \\
+\hline
+{\em $\ast$buf} & -\/ pointer to buffer of data to be written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+SIZE, XB\+\_\+\+SEEK\+\_\+\+ERROR or XB\+\_\+\+WRITE\+\_\+\+ERROR 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Not intended to be used by typical application program 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbFile_a18830b5755d74818f60d9c7ce38ddf2d}\label{classxb_1_1xbFile_a18830b5755d74818f60d9c7ce38ddf2d}} 
+\index{xb::xbLog@{xb::xbLog}!xbFclose@{xbFclose}}
+\index{xbFclose@{xbFclose}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFclose()}{xbFclose()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fclose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fclose. 
+
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+CLOSE\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_af5b6356832d2a67212070a1aa605f170}\label{classxb_1_1xbFile_af5b6356832d2a67212070a1aa605f170}} 
+\index{xb::xbLog@{xb::xbLog}!xbFeof@{xbFeof}}
+\index{xbFeof@{xbFeof}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFeof()}{xbFeof()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Feof (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary feof. 
+
+\begin{DoxyReturn}{Returns}
+non zero if end-\/of-\/file is set for the stream. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ad205184d43409f04216540ae22f15009}\label{classxb_1_1xbFile_ad205184d43409f04216540ae22f15009}} 
+\index{xb::xbLog@{xb::xbLog}!xbFflush@{xbFflush}}
+\index{xbFflush@{xbFflush}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFflush()}{xbFflush()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fflush (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fflush. 
+
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+WRITE\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a5ee229bda4d7d6695e122200e581e7a6}\label{classxb_1_1xbFile_a5ee229bda4d7d6695e122200e581e7a6}} 
+\index{xb::xbLog@{xb::xbLog}!xbFgetc@{xbFgetc}}
+\index{xbFgetc@{xbFgetc}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFgetc()}{xbFgetc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fgetc (\begin{DoxyParamCaption}\item[{char \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fgetc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & -\/ output integer returned by fgetc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+EOF 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_afb1c584d2895ffb7834df80aea7eb1e4}\label{classxb_1_1xbFile_afb1c584d2895ffb7834df80aea7eb1e4}} 
+\index{xb::xbLog@{xb::xbLog}!xbFgetc@{xbFgetc}}
+\index{xbFgetc@{xbFgetc}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFgetc()}{xbFgetc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fgetc (\begin{DoxyParamCaption}\item[{xb\+Int32 \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fgetc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & -\/ output character returned by fgetc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+EOF 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ad245955ace26e5dde85fd4373b30d026}\label{classxb_1_1xbFile_ad245955ace26e5dde85fd4373b30d026}} 
+\index{xb::xbLog@{xb::xbLog}!xbFgets@{xbFgets}}
+\index{xbFgets@{xbFgets}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFgets()}{xbFgets()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fgets (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{l\+Size,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fgets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+Size} & -\/ reads in at most, one character less than l\+Size \\
+\hline
+{\em s\+Line} & -\/ output -\/ an \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} containing data returned by fseek \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+EOF 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ab0fa19686ca8953ff4b556fb5b249135}\label{classxb_1_1xbFile_ab0fa19686ca8953ff4b556fb5b249135}} 
+\index{xb::xbLog@{xb::xbLog}!xbFopen@{xbFopen}}
+\index{xbFopen@{xbFopen}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFopen()}{xbFopen()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fopen (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Mode,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Name,  }\item[{xb\+Int16}]{i\+Share\+Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fopen. 
+
+This routine supports all the standard C library open modes. The Xbase routines only use \char`\"{}r\char`\"{} and \char`\"{}r+b\char`\"{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Mode} & {\begin{tabularx}{\linewidth}{|*{2}{>{\raggedright\arraybackslash}X|}}\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Mode}&\cellcolor{\tableheadbgcolor}\textbf{ Description }\\\cline{1-2}
+r&Reading \\\cline{1-2}
+r+&Reading and Writing \\\cline{1-2}
+w&Open for writing. Truncate to zero bytes if it exists \\\cline{1-2}
+w+&Open for reading and writing, truncate to zero bytes if it exists \\\cline{1-2}
+a&Open for append \\\cline{1-2}
+a+&Open for reading and writing (at end). \\\cline{1-2}
+\end{tabularx}}
+The mode can also include the letter \char`\"{}b\char`\"{} for binary ie; \char`\"{}r+b\char`\"{}. The \char`\"{}b\char`\"{} is ignored on POSIX compliant systems, but is included for cross platform compatibility. \\
+\hline
+{\em s\+File\+Name} & File name to open \\
+\hline
+{\em i\+Share\+Mode} & XB\+\_\+\+SINGLE\+\_\+\+USER~\newline
+ XB\+\_\+\+MULTI\+\_\+\+USER~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+OPEN\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ac724873d8a55de7d9d13506e09ab89f1}\label{classxb_1_1xbFile_ac724873d8a55de7d9d13506e09ab89f1}} 
+\index{xb::xbLog@{xb::xbLog}!xbFopen@{xbFopen}}
+\index{xbFopen@{xbFopen}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFopen()}{xbFopen()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fopen (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Mode,  }\item[{xb\+Int16}]{i\+Share\+Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fopen. 
+
+This routine supports all the standard C library open modes. The Xbase routines only use \char`\"{}r\char`\"{} and \char`\"{}r+b\char`\"{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Mode} & {\begin{tabularx}{\linewidth}{|*{2}{>{\raggedright\arraybackslash}X|}}\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Mode}&\cellcolor{\tableheadbgcolor}\textbf{ Description }\\\cline{1-2}
+r&Reading \\\cline{1-2}
+r+&Reading and Writing \\\cline{1-2}
+w&Open for writing. Truncate to zero bytes if it exists \\\cline{1-2}
+w+&Open for reading and writing, truncate to zero bytes if it exists \\\cline{1-2}
+a&Open for append \\\cline{1-2}
+a+&Open for reading and writing (at end). \\\cline{1-2}
+\end{tabularx}}
+The mode can also include the letter \char`\"{}b\char`\"{} for binary ie; \char`\"{}r+b\char`\"{}. The \char`\"{}b\char`\"{} is ignored on POSIX compliant systems, but is included for cross platform compatibility. \\
+\hline
+{\em i\+Share\+Mode} & XB\+\_\+\+SINGLE\+\_\+\+USER~\newline
+ XB\+\_\+\+MULTI\+\_\+\+USER~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+OPEN\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ae4ceddb8ffe24ad740937c6ef76ba960}\label{classxb_1_1xbFile_ae4ceddb8ffe24ad740937c6ef76ba960}} 
+\index{xb::xbLog@{xb::xbLog}!xbFopen@{xbFopen}}
+\index{xbFopen@{xbFopen}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFopen()}{xbFopen()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fopen (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Mode,  }\item[{xb\+Int16}]{i\+Share\+Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fopen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Mode} & {\begin{tabularx}{\linewidth}{|*{2}{>{\raggedright\arraybackslash}X|}}\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Mode}&\cellcolor{\tableheadbgcolor}\textbf{ Description }\\\cline{1-2}
+XB\+\_\+\+READ&Reading \\\cline{1-2}
+XB\+\_\+\+READ\+\_\+\+WRITE&Reading and Writing \\\cline{1-2}
+XB\+\_\+\+WRITE&Open for writing. Truncate to zero bytes if it exists \\\cline{1-2}
+\end{tabularx}}
+\\
+\hline
+{\em i\+Share\+Mode} & XB\+\_\+\+SINGLE\+\_\+\+USER~\newline
+ XB\+\_\+\+MULTI\+\_\+\+USER~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+OPEN\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_af2e940c78956e5cb6824f9a1bc404896}\label{classxb_1_1xbFile_af2e940c78956e5cb6824f9a1bc404896}} 
+\index{xb::xbLog@{xb::xbLog}!xbFputc@{xbFputc}}
+\index{xbFputc@{xbFputc}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFputc()}{xbFputc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fputc (\begin{DoxyParamCaption}\item[{xb\+Int32}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fputc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Character to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+WRITE\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a17f79c009923a5142a26141536016127}\label{classxb_1_1xbFile_a17f79c009923a5142a26141536016127}} 
+\index{xb::xbLog@{xb::xbLog}!xbFputc@{xbFputc}}
+\index{xbFputc@{xbFputc}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFputc()}{xbFputc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fputc (\begin{DoxyParamCaption}\item[{xb\+Int32}]{c,  }\item[{xb\+Int32}]{i\+No\+Of\+Times }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fputc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Character to write \\
+\hline
+{\em i\+No\+Of\+Times} & Number of times to write the character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+WRITE\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a698f3b40216778562e639e6ca1a47573}\label{classxb_1_1xbFile_a698f3b40216778562e639e6ca1a47573}} 
+\index{xb::xbLog@{xb::xbLog}!xbFputs@{xbFputs}}
+\index{xbFputs@{xbFputs}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFputs()}{xbFputs()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fputs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fputs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+WRITE\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a0346f58f95429ac4784f87585e644892}\label{classxb_1_1xbFile_a0346f58f95429ac4784f87585e644892}} 
+\index{xb::xbLog@{xb::xbLog}!xbFread@{xbFread}}
+\index{xbFread@{xbFread}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFread()}{xbFread()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fread (\begin{DoxyParamCaption}\item[{void $\ast$}]{p,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{nmemb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fread. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to data to read \\
+\hline
+{\em size} & size of write \\
+\hline
+{\em nmemb} & Number of times to read it \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+READ\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a21c91b5d0b249b63acf6e921e4c95130}\label{classxb_1_1xbFile_a21c91b5d0b249b63acf6e921e4c95130}} 
+\index{xb::xbLog@{xb::xbLog}!xbFseek@{xbFseek}}
+\index{xbFseek@{xbFseek}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFseek()}{xbFseek()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fseek (\begin{DoxyParamCaption}\item[{xb\+Int64}]{ll\+Offset,  }\item[{xb\+Int32}]{i\+Whence }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary fseek. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ll\+Offset} & Position in file to seek to \\
+\hline
+{\em i\+Whence} & SEEK\+\_\+\+SET -\/ from beginning of file~\newline
+ SEEK\+\_\+\+CUR -\/ from current position~\newline
+ SEEK\+\_\+\+END -\/ from end of file~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+SEEK\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a0e1c06aedfa7fbcb92e117f891edd13b}\label{classxb_1_1xbFile_a0e1c06aedfa7fbcb92e117f891edd13b}} 
+\index{xb::xbLog@{xb::xbLog}!xbFtell@{xbFtell}}
+\index{xbFtell@{xbFtell}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFtell()}{xbFtell()}}
+{\footnotesize\ttfamily size\+\_\+t xb\+::xb\+File\+::xb\+Ftell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard libary ftell. 
+
+\begin{DoxyReturn}{Returns}
+Current file position. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ad5795d422730921a6e94892816d65f1a}\label{classxb_1_1xbFile_ad5795d422730921a6e94892816d65f1a}} 
+\index{xb::xbLog@{xb::xbLog}!xbFwrite@{xbFwrite}}
+\index{xbFwrite@{xbFwrite}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbFwrite()}{xbFwrite()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Fwrite (\begin{DoxyParamCaption}\item[{const void $\ast$}]{p,  }\item[{size\+\_\+t}]{l\+Size,  }\item[{size\+\_\+t}]{l\+Nmemb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Turn off file buffering. File buffering can not be used while in multi user mode. 
+
+This routine makes a call to routine setvbuf and turns off file buffering in multi user mode.
+
+Xbase wrapper for standard libary fwrite. 
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to data buffer to write \\
+\hline
+{\em l\+Size} & Size of data to write \\
+\hline
+{\em l\+Nmemb} & Number of times to write data buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+WRITE\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_af5952e44954d18cbe949440433747dff}\label{classxb_1_1xbFile_af5952e44954d18cbe949440433747dff}} 
+\index{xb::xbLog@{xb::xbLog}!xbLock@{xbLock}}
+\index{xbLock@{xbLock}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbLock()}{xbLock()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Lock (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Function,  }\item[{xb\+Int64}]{ll\+Offset,  }\item[{size\+\_\+t}]{st\+Len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Lock / unlock file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Function} & XB\+\_\+\+LOCK~\newline
+ XB\+\_\+\+UNLOCK~\newline
+ \\
+\hline
+{\em ll\+Offset} & Position in file to lock \\
+\hline
+{\em st\+Len} & Length to lock \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+INVALID\+\_\+\+LOCK\+\_\+\+OPTION, XB\+\_\+\+LOCK\+\_\+\+FAILED or XB\+\_\+\+SEEK\+\_\+\+ERROR 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Availble if XB\+\_\+\+LOCKING\+\_\+\+SUPPORT compiled into library 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbFile_a08463f506f425c2385acbe1a561506e9}\label{classxb_1_1xbFile_a08463f506f425c2385acbe1a561506e9}} 
+\index{xb::xbLog@{xb::xbLog}!xbReadUntil@{xbReadUntil}}
+\index{xbReadUntil@{xbReadUntil}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbReadUntil()}{xbReadUntil()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Read\+Until (\begin{DoxyParamCaption}\item[{const char}]{c\+Delim,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Read file until a particular character is encountered on input stream. This routine will read until c\+Delim is encountered or eof, which ever occurs first. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+Delim} & Delimiter to stop reading at. \\
+\hline
+{\em s\+Out} & Output \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} containing data read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+EOF 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_ab3c668a8570433188382d31d7c60bd48}\label{classxb_1_1xbFile_ab3c668a8570433188382d31d7c60bd48}} 
+\index{xb::xbLog@{xb::xbLog}!xbRemove@{xbRemove}}
+\index{xbRemove@{xbRemove}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbRemove()}{xbRemove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Delete file. 
+
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+DELETE\+\_\+\+FAILED 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a58f6a6751fdf7e9549c273bb75d93eb5}\label{classxb_1_1xbFile_a58f6a6751fdf7e9549c273bb75d93eb5}} 
+\index{xb::xbLog@{xb::xbLog}!xbRemove@{xbRemove}}
+\index{xbRemove@{xbRemove}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbRemove()}{xbRemove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Remove (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Delete file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Name} & Name of file to delete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+DELETE\+\_\+\+FAILED 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a6d919366c2ec95e529906bf8842cbf07}\label{classxb_1_1xbFile_a6d919366c2ec95e529906bf8842cbf07}} 
+\index{xb::xbLog@{xb::xbLog}!xbRemove@{xbRemove}}
+\index{xbRemove@{xbRemove}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbRemove()}{xbRemove()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Remove (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+File\+Name,  }\item[{xb\+Int16}]{i\+Option }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Delete file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+File\+Name} & Name of file to delete \\
+\hline
+{\em i\+Option} & If Set to 1, assume this is a delete request for a dbf file, and should remove the dbt file also \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+DELETE\+\_\+\+FAILED 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_afc8ce113aa72611a278233f9bb170012}\label{classxb_1_1xbFile_afc8ce113aa72611a278233f9bb170012}} 
+\index{xb::xbLog@{xb::xbLog}!xbRename@{xbRename}}
+\index{xbRename@{xbRename}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbRename()}{xbRename()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Rename (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Old\+Name,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+New\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Rename file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Old\+Name} & Original file name \\
+\hline
+{\em s\+New\+Name} & New file name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+RENAME\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFile_a7996b6e084665c37c3892faea64b3505}\label{classxb_1_1xbFile_a7996b6e084665c37c3892faea64b3505}} 
+\index{xb::xbLog@{xb::xbLog}!xbRewind@{xbRewind}}
+\index{xbRewind@{xbRewind}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbRewind()}{xbRewind()}}
+{\footnotesize\ttfamily void xb\+::xb\+File\+::xb\+Rewind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for rewind. Set file pointer at beginning of file. 
+
+\mbox{\Hypertarget{classxb_1_1xbFile_a10a5813fc6bea80f8cd5a0555b8cbc24}\label{classxb_1_1xbFile_a10a5813fc6bea80f8cd5a0555b8cbc24}} 
+\index{xb::xbLog@{xb::xbLog}!xbSetVbuf@{xbSetVbuf}}
+\index{xbSetVbuf@{xbSetVbuf}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbSetVbuf()}{xbSetVbuf()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Set\+Vbuf (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Opt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbFile_a518bfcbfa3699d883cf89affee383296}\label{classxb_1_1xbFile_a518bfcbfa3699d883cf89affee383296}} 
+\index{xb::xbLog@{xb::xbLog}!xbTruncate@{xbTruncate}}
+\index{xbTruncate@{xbTruncate}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbTruncate()}{xbTruncate()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+File\+::xb\+Truncate (\begin{DoxyParamCaption}\item[{xb\+Int64}]{ll\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Xbase wrapper for standard library ftruncate. Set file size to ll\+Size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ll\+Size} & New file size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+WRITE\+\_\+\+ERROR 
+\end{DoxyReturn}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classxb_1_1xbCore_a5f6bf5e7a9ace06c68efb72dc376e445}\label{classxb_1_1xbCore_a5f6bf5e7a9ace06c68efb72dc376e445}} 
+\index{xb::xbLog@{xb::xbLog}!bDefaultAutoCommit@{bDefaultAutoCommit}}
+\index{bDefaultAutoCommit@{bDefaultAutoCommit}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{bDefaultAutoCommit}{bDefaultAutoCommit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Core\+::b\+Default\+Auto\+Commit\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_a17974342108b35e89e62be960b70d087}\label{classxb_1_1xbCore_a17974342108b35e89e62be960b70d087}} 
+\index{xb::xbLog@{xb::xbLog}!bMultiUser@{bMultiUser}}
+\index{bMultiUser@{bMultiUser}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{bMultiUser}{bMultiUser}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Core\+::b\+Multi\+User\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_ad2f79db40c113c70830787a67047a07d}\label{classxb_1_1xbCore_ad2f79db40c113c70830787a67047a07d}} 
+\index{xb::xbLog@{xb::xbLog}!ErrorCodeText@{ErrorCodeText}}
+\index{ErrorCodeText@{ErrorCodeText}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{ErrorCodeText}{ErrorCodeText}}
+{\footnotesize\ttfamily const char$\ast$ xb\+::xb\+Core\+::\+Error\+Code\+Text\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_ab62c163d32416266b7053bf6832d3811}\label{classxb_1_1xbCore_ab62c163d32416266b7053bf6832d3811}} 
+\index{xb::xbLog@{xb::xbLog}!iCreateMdxBlockSize@{iCreateMdxBlockSize}}
+\index{iCreateMdxBlockSize@{iCreateMdxBlockSize}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{iCreateMdxBlockSize}{iCreateMdxBlockSize}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Core\+::i\+Create\+Mdx\+Block\+Size\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_a82b17abc5f1ef87373da819688ed7bad}\label{classxb_1_1xbCore_a82b17abc5f1ef87373da819688ed7bad}} 
+\index{xb::xbLog@{xb::xbLog}!iDefaultFileVersion@{iDefaultFileVersion}}
+\index{iDefaultFileVersion@{iDefaultFileVersion}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{iDefaultFileVersion}{iDefaultFileVersion}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Core\+::i\+Default\+File\+Version\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_a35d44a54668f998b3f3008631118c053}\label{classxb_1_1xbCore_a35d44a54668f998b3f3008631118c053}} 
+\index{xb::xbLog@{xb::xbLog}!iDefaultIxTagMode@{iDefaultIxTagMode}}
+\index{iDefaultIxTagMode@{iDefaultIxTagMode}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{iDefaultIxTagMode}{iDefaultIxTagMode}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Core\+::i\+Default\+Ix\+Tag\+Mode\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_a86b726cb25fd081442b44795f1b046dc}\label{classxb_1_1xbCore_a86b726cb25fd081442b44795f1b046dc}} 
+\index{xb::xbLog@{xb::xbLog}!iDefaultLockFlavor@{iDefaultLockFlavor}}
+\index{iDefaultLockFlavor@{iDefaultLockFlavor}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{iDefaultLockFlavor}{iDefaultLockFlavor}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Core\+::i\+Default\+Lock\+Flavor\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_ac376593264672ab595ea4081063f104e}\label{classxb_1_1xbCore_ac376593264672ab595ea4081063f104e}} 
+\index{xb::xbLog@{xb::xbLog}!iDefaultLockRetries@{iDefaultLockRetries}}
+\index{iDefaultLockRetries@{iDefaultLockRetries}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{iDefaultLockRetries}{iDefaultLockRetries}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Core\+::i\+Default\+Lock\+Retries\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_acc0303a96900bff413c8c463987a9149}\label{classxb_1_1xbCore_acc0303a96900bff413c8c463987a9149}} 
+\index{xb::xbLog@{xb::xbLog}!iEndianType@{iEndianType}}
+\index{iEndianType@{iEndianType}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{iEndianType}{iEndianType}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Core\+::i\+Endian\+Type\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_ad569c53a46fa1e7f413e61c3131bcd3c}\label{classxb_1_1xbCore_ad569c53a46fa1e7f413e61c3131bcd3c}} 
+\index{xb::xbLog@{xb::xbLog}!lDefaultLockWait@{lDefaultLockWait}}
+\index{lDefaultLockWait@{lDefaultLockWait}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{lDefaultLockWait}{lDefaultLockWait}}
+{\footnotesize\ttfamily xb\+Int32 xb\+::xb\+Core\+::l\+Default\+Lock\+Wait\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_ae8159129440110a6e3487801529272ef}\label{classxb_1_1xbCore_ae8159129440110a6e3487801529272ef}} 
+\index{xb::xbLog@{xb::xbLog}!sDataDirectory@{sDataDirectory}}
+\index{sDataDirectory@{sDataDirectory}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{sDataDirectory}{sDataDirectory}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+Core\+::s\+Data\+Directory\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_a227c789b55eaa2a89a6fee4d90b28c23}\label{classxb_1_1xbCore_a227c789b55eaa2a89a6fee4d90b28c23}} 
+\index{xb::xbLog@{xb::xbLog}!sDefaultDateFormat@{sDefaultDateFormat}}
+\index{sDefaultDateFormat@{sDefaultDateFormat}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{sDefaultDateFormat}{sDefaultDateFormat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+Core\+::s\+Default\+Date\+Format\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_a7872526434ff6f6d0388ebff430742cc}\label{classxb_1_1xbCore_a7872526434ff6f6d0388ebff430742cc}} 
+\index{xb::xbLog@{xb::xbLog}!sDefaultTimeFormat@{sDefaultTimeFormat}}
+\index{sDefaultTimeFormat@{sDefaultTimeFormat}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{sDefaultTimeFormat}{sDefaultTimeFormat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+Core\+::s\+Default\+Time\+Format\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_a847b9285633d22a5b5e34ac1166e3512}\label{classxb_1_1xbCore_a847b9285633d22a5b5e34ac1166e3512}} 
+\index{xb::xbLog@{xb::xbLog}!sLogDirectory@{sLogDirectory}}
+\index{sLogDirectory@{sLogDirectory}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{sLogDirectory}{sLogDirectory}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+Core\+::s\+Log\+Directory\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_a02c13215a731ce0790f78f8e41714e65}\label{classxb_1_1xbCore_a02c13215a731ce0790f78f8e41714e65}} 
+\index{xb::xbLog@{xb::xbLog}!sLogFileName@{sLogFileName}}
+\index{sLogFileName@{sLogFileName}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{sLogFileName}{sLogFileName}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+Core\+::s\+Log\+File\+Name\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_a034d596e86e6ab2151b6e1f8657f49d4}\label{classxb_1_1xbCore_a034d596e86e6ab2151b6e1f8657f49d4}} 
+\index{xb::xbLog@{xb::xbLog}!sNullString@{sNullString}}
+\index{sNullString@{sNullString}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{sNullString}{sNullString}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+Core\+::s\+Null\+String\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_a45ae9a4fc81347cf9c9ebf02673d3f2a}\label{classxb_1_1xbCore_a45ae9a4fc81347cf9c9ebf02673d3f2a}} 
+\index{xb::xbLog@{xb::xbLog}!sTempDirectory@{sTempDirectory}}
+\index{sTempDirectory@{sTempDirectory}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{sTempDirectory}{sTempDirectory}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+Core\+::s\+Temp\+Directory\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbCore_aeb6ba41685ea760777a114c422c07a19}\label{classxb_1_1xbCore_aeb6ba41685ea760777a114c422c07a19}} 
+\index{xb::xbLog@{xb::xbLog}!ulDefaultBlockReadSize@{ulDefaultBlockReadSize}}
+\index{ulDefaultBlockReadSize@{ulDefaultBlockReadSize}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{ulDefaultBlockReadSize}{ulDefaultBlockReadSize}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+Core\+::ul\+Default\+Block\+Read\+Size\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{classxb_1_1xbFile_ae39a67ea391b46055d4ca299cb222004}\label{classxb_1_1xbFile_ae39a67ea391b46055d4ca299cb222004}} 
+\index{xb::xbLog@{xb::xbLog}!xbase@{xbase}}
+\index{xbase@{xbase}!xb::xbLog@{xb::xbLog}}
+\doxysubsubsection{\texorpdfstring{xbase}{xbase}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}}$\ast$ xb\+::xb\+File\+::xbase\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+Pointer to the main xb\+Xbase class instance. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+11/src/include/\mbox{\hyperlink{xblog_8h}{xblog.\+h}}\end{DoxyCompactItemize}

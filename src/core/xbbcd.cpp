@@ -21,20 +21,6 @@ Email Contact:
 ///@cond DOXYOFF
 namespace xb{
 
-
-
-xbBool bcdBitSet( unsigned char c, xbInt16 iBitNo ){
-  return c & 1 << iBitNo;
-}
-void bcdBitDump( unsigned char c ){
-  for( int i = 7; i >= 0; i-- )
-    std::cout << (bcdBitSet( c, i ) ? 1 : 0);
-}
-void bcdBitDump( char c ){
-  bcdBitDump( (unsigned char) c );
-}
-
-
 /***********************************************************************/
 void xbBcd::ctor(){
   memset( &bcd, 0x00, sizeof( xbBcdStruct ));
@@ -69,7 +55,6 @@ void xbBcd::Set( const void *vBcdIn ) {
 /***********************************************************************/
 void xbBcd::StringToBcd( const xbString &sIn )
 {
-
   unsigned char cEdc = 0;         // encoded digit count
   xbUInt32 iPos;                  // current position in source string
   xbBool   bDecHit = xbFalse;     // decimal position hit?
@@ -77,7 +62,6 @@ void xbBcd::StringToBcd( const xbString &sIn )
   xbInt16  iBytePos = 0;          // next load position in xbs structure
   xbInt16  iBcdDataPos = 0;       // current position in output structure
   xbByteSplit xbs;                // combiner
-
 
   ctor();
   xbString sNum( sIn );
@@ -98,7 +82,6 @@ void xbBcd::StringToBcd( const xbString &sIn )
     cEdc = (unsigned char) (sNum.Len());
   }
   if( cEdc > 31 ) cEdc = 31;  // max 5 bit number
-
 
   if( sNum[1] == '.' ){
     iPos = 2;
@@ -163,7 +146,6 @@ void xbBcd::ToString( xbString &sStringOut ){
 
 // this routine converts a bcd numeric key value to a base 10 number in a string
 
-
   xbBool bHasDot = false;
   xbInt16 iSig = bcd.cSigDigits - 52;
   xbByteSplit xbs;
@@ -216,7 +198,6 @@ void xbBcd::ToString( xbString &sStringOut ){
     sStringOut = "0";
 
 }
-
 /***********************************************************************/
 xbInt16 xbBcd::Compare( xbDouble d ){
   xbBcd bcdIn( d );
@@ -225,13 +206,11 @@ xbInt16 xbBcd::Compare( xbDouble d ){
   bcdIn.ToString( s );
   return Compare( bcdIn );
 }
-
 /***********************************************************************/
 xbInt16 xbBcd::Compare( const xbBcd &bcdIn ){
   // if this == bcdIn return 0
   // if this  < bcdIn return -1
   // if this  > bcdIn return  1
-
 
   xbInt16 iRc = 0;
 //  if( bcd.Sign != bcdIn.GetSign() ){

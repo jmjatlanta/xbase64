@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -47,8 +47,9 @@ int main( int, char **av )
   sMsg.Sprintf( "Program [%s] initializing...", av[0] );
   x.WriteLogMessage( sMsg );
 
-  std::cout << "New Logfile Name is: [" << x.GetLogFqFileName().Str()
-            << "]  Rollover size = [" << x.GetLogSize() 
+  std::cout << "Logfile Name is: [" << x.GetLogFileName().Str()
+            << "]\nFully Qualified Logfile Name is: [" <<  x.GetLogFqFileName().Str()
+            << "]\nRollover size = [" << x.GetLogSize() 
             << "]" << std::endl;
 
   if( x.GetLogStatus() )

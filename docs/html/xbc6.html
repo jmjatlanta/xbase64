@@ -3,7 +3,7 @@
 <TITLE>Xbase64 DBMS Chapter 6</TITLE>
 <BODY BGCOLOR=#FFFFFF>
 <H2><p align="center">SQL Support</p></H2>
-<p align="center">Chapter Updated 11/21/23</p><hr>
+<p align="center">Chapter Updated 08/26/24</p><hr>
 
 <h3>SQL Command Status</h3>
 
@@ -20,11 +20,11 @@ ALTER TABLE tablename.DBF RENAME TO newtablename.DBF
 <br><br>
 <hr>
 <h3>CREATE INDEX</h3>
-Expected format to create an Dbase 3, NDX index:<br>
+Expected format to create an dBASE 3, NDX index:<br>
 CREATE INDEX ixname.NDX ON tablename.dbf ( EXPRESSION ) [ASSOCIATE]
 
 <br><br>
-Expected format to create an Dbase 4, tag on an MDX index:<br>
+Expected format to create an dBASE 4, tag on an MDX index:<br>
 CREATE [UNIQUE] INDEX tagname ON tablename.DBF ( EXPRESSION ) [DESC] [FILTER  .NOT. DELETED()]
 
 <br><br>
@@ -43,7 +43,7 @@ different than other SQL implementations where specific fields can be descending
 The optional FILTER parameter is specific to the XBASE64 library, is it used to assign a filter to a tag in an 
 MDX style index.  Everything to the right of the keyword FILTER is considered part of the filter.
 <br><br>
-The original DBASE indices used to '+' to create an index on more than one field 
+The original dBASE indices used to '+' to create an index on more than one field 
 <br>ie:  FIELD1+FIELD2+FIELD3
 <br><brSQL uses commas: ie:   FIELD1, FIELD2, FIELD3
 <br>

@@ -3,7 +3,7 @@
 <TITLE>Xbase64 DBMS Chapter 2</TITLE>
 <BODY BGCOLOR=#FFFFFF>
 <H2><p align="center">System Overview</p></H2>
-<p align="center">Chapter Updated 11/21/23</p><hr>
+<p align="center">Chapter Updated 10/16/24</p><hr>
 
 <br><br>
 The <em>XBase64</em> library is a cross platform object oriented C++ set of classes for
@@ -296,17 +296,17 @@ accessing the same data and corrupting it. Without record and file locking
 in a multi-user environment, simultaneous access to the data and index files
 can cause the files to become inaccurate and unusable.<br><br>
 
-Automatic record locking is on by default in the Xbase64 library. To disable it,
-use method xbXBase::DisableDefaultAutoLock() and to enable it, use method xbXBase::EnableDefaultAutoLock().
+Automatic record locking is on by default in the Xbase64 library. To turn it on or off
+use method xbXBase::SetMultiUser().
 <br><br>
-Locking can also be enabled / disabled at the table level with with xbDbf::SetAutoLock().<br><br>
+Locking can also be enabled / disabled at the table level with with xbDbf::SetMultiUSer().<br><br>
 If autolocking is disabled and the code base is being used in a multi user environment, it is 
 up to the application program to verify the needed locks are set as there is no checking or
 setting any locks if autolocking is turned off.  It is only safe to turn off the autolocking functionality
 if the library is being used in a single user environment.
 
 <br><br>
-The current Xbase64 record locking logic is modeled after DBase (tm) V7 locking.
+The current Xbase64 record locking logic is modeled after dBASE V7 locking.
 <br><br>
 
 The locking methods return either XB_LOCK_FAILED or XB_NO_ERROR.  If they return
@@ -333,14 +333,14 @@ successful.<br><br>
 
 There is a compatibility locking issue to be aware of.   Windows environments allow for the exclusive 
 opening of file handles and Linux/Unix platforms do not.  If you are writing an application that will be
-using a tool like Dbase on a Windows machine, accessing a file on a Linux/Samba configure machine,
-be aware that the file could be opened in exclusive mode by DBase on the Windows system, and the same file could 
+using a tool like dBASE on a Windows machine, accessing a file on a Linux/Samba configure machine,
+be aware that the file could be opened in exclusive mode by dBASE on the Windows system, and the same file could 
 be simultaneously opened with a program on the Unix box.  That could cause some issues.
 
 <br><br>
 In Unix, a program can not lock a file so another process can not access it.<br>
 In Windows, a program can lock a file so another process can not access it.<br>
-DBase(tm) supports routines to open files exclusively, preventing other users from opening a file.<br>
+dBASE supports routines to open files exclusively, preventing other users from opening a file.<br>
 Locking on the Mac/Apple platform only works on NFS shares.  It does not work with SMB shares.
 
 <br><h3>Samba settings</h3>
@@ -360,7 +360,7 @@ connecting to a Samba Server.  If you know how to resolve this, please send an e
 <br><h3>iLockFlavor</h3>
 
 The library was constructed in a manner so that it could be updated to support alternate lock "flavors".
-The 4.x.x library is built to mirror the DBase locking, but the structure is in place to expand to other locking 
+The 4.x.x library is built to mirror the dBASE locking, but the structure is in place to expand to other locking 
 types if needed.
 
 

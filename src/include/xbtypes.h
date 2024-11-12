@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -25,8 +25,12 @@ typedef short int   xbBool;
 typedef xbUInt64    xbOffT;
 
 
-#define xbTrue  1
-#define xbFalse 0
+#define xbTrue     1
+#define xbFalse    0
+
+#define xbOn       1
+#define xbOff      0
+#define xbSysDflt -1
 
 
 #ifdef HAVE__FILENO_F

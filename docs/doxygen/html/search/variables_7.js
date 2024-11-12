@@ -1,14 +1,12 @@
 var searchData=
 [
-  ['pdbf_0',['pDbf',['../structxb_1_1xbTblList.html#a387d3f6bbf291a1fb96d276ed9bb96b6',1,'xb::xbTblList']]],
-  ['pfilt_1',['pFilt',['../structxb_1_1xbRelation.html#a12e3962a535dd0b3e1679c2183db9971',1,'xb::xbRelation']]],
-  ['pix_2',['pIx',['../structxb_1_1xbRelation.html#a491d66b6a37af9b6b60f7ea07242af15',1,'xb::xbRelation']]],
-  ['pnext_3',['pNext',['../structxb_1_1xbTblList.html#a3fd169fcf0fd4df927544e5342db583c',1,'xb::xbTblList']]],
-  ['pparent_4',['pParent',['../structxb_1_1xbRelation.html#a78f8ce451f3951446eebb1d264af7cdd',1,'xb::xbRelation']]],
-  ['pparentexp_5',['pParentExp',['../structxb_1_1xbRelation.html#a9e2105b745a9323bffbe72f165782332',1,'xb::xbRelation']]],
-  ['pparentnp_6',['pParentNp',['../structxb_1_1xbRelation.html#a7734f16f09b6323522ee918f6fc7005c',1,'xb::xbRelation']]],
-  ['psfqtblname_7',['psFqTblName',['../structxb_1_1xbTblList.html#aceec65f6f6b585788cf98e8dabd2737d',1,'xb::xbTblList']]],
-  ['pstblalias_8',['psTblAlias',['../structxb_1_1xbTblList.html#ac87742c8a6b1cf2e7e35218e96966a05',1,'xb::xbTblList']]],
-  ['pstblname_9',['psTblName',['../structxb_1_1xbTblList.html#a02c3b0c47fd104ef9758b375ecdcfd0f',1,'xb::xbTblList']]],
-  ['ptag_10',['pTag',['../structxb_1_1xbRelation.html#a6fd8fac0fc95f54c3d522f48af84f5aa',1,'xb::xbRelation']]]
+  ['salias_0',['sAlias',['../classxb_1_1xbDbf.html#a73f9c792d0a769e2e604c1855245a276',1,'xb::xbDbf']]],
+  ['schemaptr_1',['SchemaPtr',['../classxb_1_1xbDbf.html#ad8c8b5eb12063bb898da1b2cc02cfce7',1,'xb::xbDbf']]],
+  ['sdatadirectory_2',['sDataDirectory',['../classxb_1_1xbCore.html#ae8159129440110a6e3487801529272ef',1,'xb::xbCore']]],
+  ['sdefaultdateformat_3',['sDefaultDateFormat',['../classxb_1_1xbCore.html#a227c789b55eaa2a89a6fee4d90b28c23',1,'xb::xbCore']]],
+  ['sdefaulttimeformat_4',['sDefaultTimeFormat',['../classxb_1_1xbCore.html#a7872526434ff6f6d0388ebff430742cc',1,'xb::xbCore']]],
+  ['slogdirectory_5',['sLogDirectory',['../classxb_1_1xbCore.html#a847b9285633d22a5b5e34ac1166e3512',1,'xb::xbCore']]],
+  ['slogfilename_6',['sLogFileName',['../classxb_1_1xbCore.html#a02c13215a731ce0790f78f8e41714e65',1,'xb::xbCore']]],
+  ['snullstring_7',['sNullString',['../classxb_1_1xbCore.html#a034d596e86e6ab2151b6e1f8657f49d4',1,'xb::xbCore']]],
+  ['stempdirectory_8',['sTempDirectory',['../classxb_1_1xbCore.html#a45ae9a4fc81347cf9c9ebf02673d3f2a',1,'xb::xbCore']]]
 ];

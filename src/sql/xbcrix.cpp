@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -26,10 +26,10 @@ xbInt16 xbSql::SqlCreateIndex( const xbString &sCmdLine ){
 
   //  std::cout << "CREATE INDEX " << sCmdLine << std::endl;
 
-  // expected format to create an Dbase 3, NDX index:
+  // expected format to create an dBASE 3, NDX index:
   //  CREATE INDEX ixname.ndx ON tablename.dbf ( EXPRESSION ) [ASSOCIATE]
 
-  // expected format to create an Dbase 4, tag on an MDX index:
+  // expected format to create an dBASE 4, tag on an MDX index:
   //  CREATE [UNIQUE] INDEX tagname ON tablename.dbf ( EXPRESSION ) [DESC] [FILTER  .NOT. DELETED()]
 
   // The ASSOCIATE parameter is specific to Xbase64 library, it is used to associate
@@ -51,7 +51,7 @@ xbInt16 xbSql::SqlCreateIndex( const xbString &sCmdLine ){
   //  assign a filter to a tag in an MDX style index.  Everything to the right of 
   //  the keyword FILTER is considered part of the filter.
 
-  // The original DBASE indices used to '+' to create an index on more than one field 
+  // The original dBASE indices used to '+' to create an index on more than one field 
   //   ie:  FIELD1+FIELD2+FIELD3
   //  SQL uses commas: ie:   FIELD1, FIELD2, FIELD3
   //  The Xbase library supports either '+' or ',' when creating mutli field indices.
@@ -144,7 +144,9 @@ xbInt16 xbSql::SqlCreateIndex( const xbString &sCmdLine ){
     dbf = xbase->GetDbfPtr( fDbf.GetFqFileName());
 
     if( !dbf ){
-      if(( iRc = xbase->OpenHighestVersion( sTableName, "", &dbf )) != XB_NO_ERROR ){
+      //if(( iRc = xbase->OpenHighestVersion( sTableName, "", &dbf )) != XB_NO_ERROR ){
+
+      if(( iRc = xbase->Open( sTableName, "", &dbf )) != XB_NO_ERROR ){
         iErrorStop = 120;
         throw iRc;
       }
@@ -285,7 +287,7 @@ xbInt16 xbSql::SqlCreateIndex( const xbString &sCmdLine ){
     xbString sMsg;
     sMsg.Sprintf( "xbSql::SqlCreateIndex() Exception Caught. Error Stop = [%d] rc = [%d] table = [%s]", iErrorStop, iRc, sTableName.Str() );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   #ifdef XB_LOCKING_SUPPORT
   if( bTableLocked && dbf )

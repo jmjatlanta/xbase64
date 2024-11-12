@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -22,250 +22,59 @@ int xbDate::iDaysInMonths[2][13];
 int xbDate::iAggregatedDaysInMonths[2][13];
 
 /*************************************************************************/
-//! @brief Constructor.
-
 xbDate::xbDate() {
   sDate8.Set( "" );
-  SetDateTables();
-}
-
-/*************************************************************************/
-//! @brief Constructor.
-
-xbDate::xbDate( xbUInt16 ) {
-
-  SetDateTables();
-  Sysdate();
 }
 /*************************************************************************/
-//! @brief Constructor.
-/*!
-  \param sDate8In - Input date.
-*/
-
-xbDate::xbDate( const xbString & sDate8In ) {
-
-  if( DateIsValid( sDate8In ))
-    sDate8.Set( sDate8In );
-  else
-    sDate8.Set( "" );
-
-  // SetDateTables();
-}
-
-/*************************************************************************/
-//! @brief Constructor.
-/*!
-  \param sDate8In - Input date.
-*/
 xbDate::xbDate( const char * sDate8In ) {
-
   if( DateIsValid( sDate8In ))
     sDate8.Set( sDate8In );
   else
     sDate8.Set( "" );
-
-  // SetDateTables();
 }
 /*************************************************************************/
-//! @brief Constructor.
-/*!
-  \param dtDateIn - Input date.
-*/
 xbDate::xbDate( const xbDate &dtDateIn ) {
-
   sDate8.Set( dtDateIn.Str());
 }
-
 /*************************************************************************/
-//! @brief Constructor.
-/*!
-  \param lJulDate - Input julian date.
-*/
-xbDate::xbDate( xbInt32 lJulDate ) {
-  // SetDateTables();
-  JulToDate8( lJulDate );
+xbDate::xbDate( const xbString & sDate8In ) {
+  if( DateIsValid( sDate8In ))
+    sDate8.Set( sDate8In );
+  else
+    sDate8.Set( "" );
 }
-
 /*************************************************************************/
-//! @brief Destructor.
+xbDate::xbDate( xbInt32 lDateOpt ) {
+  if( lDateOpt == 0 )
+    Sysdate();
+  else if( lDateOpt == -1 )
+    sDate8.Set( "" );
+  else if( lDateOpt == -2 ){
+    SetDateTables();
+    sDate8.Set( "" );
+  }
+  else
+    JulToDate8( lDateOpt );
+}
+/*************************************************************************/
+xbDate::xbDate( xbInt16 iMonth, xbInt16 iDay, xbInt16 iYear ) {
+  Set( iMonth, iDay, iYear );
+}
+/*************************************************************************/
+/*
+xbDate::xbDate( xbUInt16 iOption ) {
+  if( iOption > 0 ){
+    Sysdate();
+    if( iOption > 1 ){    // set the date variables and tables, performed
+      SetDateTables();   // during library initialization
+    }
+  }
+}
+*/
+/*************************************************************************/
 xbDate::~xbDate(){}
 /*************************************************************************/
-//! @brief Set operator=
-/*!
-  \param dt - Date value for set operation.
-*/
-void xbDate::operator=( const xbDate & dt ){
-  sDate8.Set( dt.Str());
-}
-/*************************************************************************/
-//! @brief operator +=
-/*!
-  This routine adds lDays to the date if the date is not null.
-  \param lDays - Number of days to add to the date.
-*/
-void xbDate::operator+=( xbInt32 lDays ){
-  if( !IsNull() )
-    JulToDate8( JulianDays() + lDays );
-}
-/*************************************************************************/
-//! @brief operator -= 
-/*!
-  This routine subtracts lDays from the date if the date is not null.
-  \param  lDays - Number of days to subtract from the date.
-*/
-void xbDate::operator-=( xbInt32 lDays ){
-  if( !IsNull() )
-    JulToDate8( JulianDays() - lDays );
-}
-/*************************************************************************/
-//! @brief operator ++
-/*!
-  This routine adds one day to the date field if the date is not null.
-*/
-void xbDate::operator++(xbInt32){
-  if( !IsNull() )
-    *this+=1;
-}
-/*************************************************************************/
-//! @brief operator --
-/*!
-  This routine subtracts one day from the date field if the date is not null.
-*/
-void xbDate::operator--(xbInt32){
-  if( !IsNull())
-    *this-=1;
-}
-/*************************************************************************/
-//! @brief operator -
-/*!
-  This routine subtracts one date from another date returning the difference.
-  \param dt - Date to subtract
-  \returns Number of days difference or zero if one of the dates is null.
-*/
-xbInt32 xbDate::operator-( const xbDate &dt ) const{
-  if( !IsNull() && !dt.IsNull() )
-    return JulianDays() - dt.JulianDays();
-  else
-    return 0;
-}
-/*************************************************************************/
-//! @brief operator +
-/*!
-  This routine adds additional days to a valid date field.
-  \param  lCount - Number of days to add.
-  \returns New date in CCYYMMDD format.
-*/
-const char *xbDate::operator+( xbInt32 lCount ){
-  if( !IsNull() )
-    JulToDate8( JulianDays() + lCount );
-  return sDate8.Str();
-}
-/*************************************************************************/
-//! @brief operator -
-/*!
-  This routine subtracts days from a valid date field.
-  \param  lCount - Number of days to subtract.
-  \returns New date in CCYYMMDD format.
-*/
-const char *xbDate::operator-( xbInt32 lCount ){
-  if( !IsNull() )
-    JulToDate8( JulianDays() - lCount );
-  return sDate8;
-}
-/*************************************************************************/
-//! @brief operator ==
-/*!
-  This routine compares two dates for equality.
-  \param dt - Date to compare.
-  \returns xbTrue - Dates match.<br>xbFalse - Dates don't match.
-*/
-xbBool xbDate::operator==( const xbDate &dt ) const{
-  if( JulianDays() == dt.JulianDays() )
-    return xbTrue;
-  else
-    return xbFalse;
-}
-/*************************************************************************/
-//! @brief operator != 
-/*!
-  This routine compares two dates for inequality.
-  \param dt - Date to compare.
-  \returns  xbTrue - Dates don't match.<br>xbFalse - Dates match.
-*/
-xbBool xbDate::operator!=( const xbDate &dt ) const{
-  if( JulianDays() != dt.JulianDays() )
-    return xbTrue;
-  else
-    return xbFalse;
-}
-/*************************************************************************/
-//! @brief operator <
-/*!
-  This routine compares two dates 
-  \param dt - Date to compare.
-  \returns  xbTrue - Left date is less than right date.<br>
-            xbFalse - Left date is not less than right date.
-*/
-xbBool xbDate::operator<( const xbDate &dt ) const {
-  if( JulianDays() < dt.JulianDays() )
-    return xbTrue;
-  else
-    return xbFalse;
-}
-/*************************************************************************/
-//! @brief >
-/*!
-  This routine compares two dates 
-  \param dt - Date to compare.
-  \returns  xbTrue - Left date is greater than right date.<br>
-            xbFalse - Left date is not greater than right date.
-*/
-xbBool xbDate::operator>( const xbDate &dt ) const {
-  if( JulianDays() > dt.JulianDays() )
-    return xbTrue;
-  else 
-    return xbFalse;
-}
-/*************************************************************************/
-//! @brief operator <=
-/*!
-  This routine compares two dates 
-  \param dt - Date to compare.
-  \returns  xbTrue - Left date is less than or equal to right date.<br>
-            xbFalse - Left date is not less than or equal to right date.
-*/
-xbBool xbDate::operator<=( const xbDate &dt ) const {
-  if( JulianDays() <= dt.JulianDays() )
-    return xbTrue;
-  else
-    return xbFalse;
-}
-/*************************************************************************/
-//! @brief operator >=
-/*!
-  This routine compares two dates 
-  \param dt - Date to compare.
-  \returns  xbTrue - Left date is greater than or equal to right date.<br>
-            xbFalse - Left date is not greater than or equal to right date.
-*/
-xbBool xbDate::operator>=( const xbDate &dt ) const {
-  if( JulianDays() >= dt.JulianDays() )
-    return xbTrue;
-  else
-    return xbFalse;
-}
-/*************************************************************************/
-//! @brief Calculate century for a given year. 
-/*!
-  This routine calculates a century for a given year.  It uses an 80/20 
-  rolling date window to calculate the century.
-
-  \param iCalcYear - Two digit year to calculate a century for.
-  \returns Century calculated for the two digit year.
-*/
 xbInt16 xbDate::CalcRollingCenturyForYear( xbInt16 iCalcYear ) const {
-
   xbDate d;
   d.Sysdate();
   xbInt16 iThisYear    = d.YearOf();
@@ -281,10 +90,6 @@ xbInt16 xbDate::CalcRollingCenturyForYear( xbInt16 iCalcYear ) const {
     return iThisCentury - 1;
 }
 /*************************************************************************/
-//! @brief Get century for date. 
-/*!
-  \returns the century from the valid date.\ or 0 for a null date.
-*/
 xbInt16 xbDate::CenturyOf() const {
   if( !IsNull() ){
     char Century[3];
@@ -297,17 +102,10 @@ xbInt16 xbDate::CenturyOf() const {
   }
 }
 /*************************************************************************/
-//! @brief Get the day of the week.
-/*!
-  \param sOutCharDay - Output character day of week (Sun-Sat).
-  \returns XB_INVALID_DATE<br>XB_NO_ERROR
-*/
 xbInt16 xbDate::CharDayOf( xbString &sOutCharDay ) {
-
   if( !IsNull()){
     struct tm tblock;
     char buf[25];
-
     tblock.tm_year  = YearOf() - 1900;
     tblock.tm_mon   = MonthOf() - 1;
     tblock.tm_mday  = DayOf( XB_FMT_MONTH );
@@ -326,11 +124,6 @@ xbInt16 xbDate::CharDayOf( xbString &sOutCharDay ) {
   return XB_NO_ERROR;;
 }
 /*************************************************************************/
-//! @brief Get the month from the date.
-/*!
-  \param sOutCharMonth - Output character month.
-  \returns XB_INVALID_DATE<br>XB_NO_ERROR
-*/
 xbInt16 xbDate::CharMonthOf( xbString &sOutCharMonth ) {
 
   if( !IsNull()){
@@ -354,18 +147,28 @@ xbInt16 xbDate::CharMonthOf( xbString &sOutCharMonth ) {
   return XB_NO_ERROR;
 }
 /*************************************************************************/
-//! @brief Check a date for valid data. 
-/*!
-  \param sDateIn - Date to check for valid formaat of CCYYMMDD.
-  \returns xbTrue - Valid date.<br>xbFalse - Not a valid date.
-*/
+xbInt16 xbDate::CTOD( const xbString &sCtodInDate ){
+
+  if( sCtodInDate[1] != ' ' && ( sCtodInDate[3] == '\\' || sCtodInDate[3] == '/') ){
+    char yy[3];
+    yy[0] = sCtodInDate[7];
+    yy[1] = sCtodInDate[8];
+    yy[2] = 0x00;
+    sDate8.Sprintf( "%02d%c%c%c%c%c%c", CalcRollingCenturyForYear( atoi( yy )),
+         sCtodInDate[7], sCtodInDate[8], sCtodInDate[1], sCtodInDate[2], sCtodInDate[4], sCtodInDate[5] );
+    return XB_NO_ERROR;
+  }
+  else{
+    return XB_INVALID_DATE;
+  }
+}
+/*************************************************************************/
 xbBool  xbDate::DateIsValid( const xbString &sDateIn ) const {
 
    xbInt16 iYear, iMonth, iDay;
    char sYear[5];
    char sMonth[3];
    char sDay[3];
-
    if( sDateIn.Len() != 8 )
      return xbFalse;
 
@@ -374,16 +177,14 @@ xbBool  xbDate::DateIsValid( const xbString &sDateIn ) const {
       !isdigit( sDateIn[7] ) || !isdigit( sDateIn[8] ) )
         return xbFalse;
 
-   sDay[0] = sDateIn[7];
-   sDay[1] = sDateIn[8];
-   sDay[2] = 0x00;
-   iDay    = atoi( sDay );
-
+   sDay[0]   = sDateIn[7];
+   sDay[1]   = sDateIn[8];
+   sDay[2]   = 0x00;
+   iDay      = atoi( sDay );
    sMonth[0] = sDateIn[5];
    sMonth[1] = sDateIn[6];
    sMonth[2] = 0x00;
    iMonth    = atoi( sMonth );
-
    sYear[0]  = sDateIn[1];
    sYear[1]  = sDateIn[2];
    sYear[2]  = sDateIn[3];
@@ -411,18 +212,7 @@ xbBool  xbDate::DateIsValid( const xbString &sDateIn ) const {
    }
    return xbTrue;
 }
-
 /*************************************************************************/
-//! @brief 
-/*!
-  This routine returns the numeric day.
-  \param iFormat
-     XB_FMT_WEEK   Number of day in WEEK  0-6 ( Sat - Fri )<br>
-     XB_FMT_MONTH  Number of day in MONTH 1-31<br>
-     XB_FMT_YEAR   Number of day in YEAR  1-366
-  \returns XB_INVALID_OPTION<br>XB_NO_ERROR
-*/
-
 xbInt16 xbDate::DayOf( xbInt16 iFormat ) const {
 
   if( !IsNull()){
@@ -469,22 +259,10 @@ xbInt16 xbDate::DayOf( xbInt16 iFormat ) const {
 }
 /*************************************************************************/
 #ifdef XB_DEBUG_SUPPORT
-//! @brief Dump date information to stdout.
-/*!
-  \param sTitle - Title for output.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 void xbDate::Dump( const char *sTitle ){
   fprintf( stdout, "%s\n  sDate = [%s]\n", sTitle, sDate8.Str() );
 }
-
 /*************************************************************************/
-//! @brief Dump the date tables.
-/*!
-  This dumps the internal date structures to stdout.
-  \returns void
-*/
-
 void xbDate::DumpDateTables(){
   fprintf( stdout, "Date Tables\n" );
   fprintf( stdout, "Month   *-Aggragated Days-*  *--Days In Month--*\n" );
@@ -495,61 +273,7 @@ void xbDate::DumpDateTables(){
     iDaysInMonths[0][i], iDaysInMonths[1][i]);
 }
 #endif
-
 /*************************************************************************/
-//! @brief Format MM/DD/YY date 
-/*!
-  This routine takes an MM/DD/YY format date as input and populates a
-  date class with the appropriate YYYYMMDD data.
-
-  \param sCtodInDate - MM/DD/YY formatted date as input.
-  \returns XB_INVALID_OPTION<br>XB_NO_ERROR
-*/
-xbInt16 xbDate::CTOD( const xbString &sCtodInDate ){
-
-  if( sCtodInDate[1] != ' ' && ( sCtodInDate[3] == '\\' || sCtodInDate[3] == '/') ){
-    char yy[3];
-    yy[0] = sCtodInDate[7];
-    yy[1] = sCtodInDate[8];
-    yy[2] = 0x00;
-    sDate8.Sprintf( "%02d%c%c%c%c%c%c", CalcRollingCenturyForYear( atoi( yy )),
-         sCtodInDate[7], sCtodInDate[8], sCtodInDate[1], sCtodInDate[2], sCtodInDate[4], sCtodInDate[5] );
-    return XB_NO_ERROR;
-  }
-  else{
-    return XB_INVALID_DATE;
-  }
-}
-/*************************************************************************/
-//! @brief
-/*!
-  This routine will reformat a date based on the format specifiers entered
-  in sFmtIn.  If no input format is specified, the routine will use the 
-  system default date format.
-
-  \param  sFmtIn - A format specifier with the following paramaters:<br>
-
-        1) YYDDD    -  A julian date format
-        2) YY or YYYY will print a 2 or 4 digit year
-        3) M,MM,MMM or MMMM
-           M    - one digit month if no leading zero
-           MM   - two digit month, contains leading zero
-           MMM  - Jan through Dec
-           MMMM - January through December
-        4) D,DD,DDD or DDDD
-           D    - one digit dayif no leading zero
-           DD   - two digit day, contains leading zero
-           DDD  - Sun through Sat (or julian if YYDDD)
-           DDDD - Sunday through Saturday
-
-  \param sOutFmtDate - Reformatted output date.
-  \returns XB_NO_ERROR
-  <br><br>
-   Format Examples:<br>
-   MM/DD/YY<br>
-   YYYY-MM-DD<br>
-   DDDDDDDDDDD MMMMMMMMMMM DD,YYYY
-*/
 xbInt16 xbDate::FormatDate( const xbString &sFmtIn, xbString &sOutFmtDate ){
   xbUInt32 FmtCtr;
   char type;
@@ -559,13 +283,14 @@ xbInt16 xbDate::FormatDate( const xbString &sFmtIn, xbString &sOutFmtDate ){
   sOutFmtDate = "";
 
   if( IsNull())
-    return XB_NO_ERROR;
+    return XB_INVALID_DATE;
 
   /* use format for this specific string if available, else use default format */
   if( strlen( sFmtIn ) > 0 )
     sWrkFmt = sFmtIn;
   else
-    sWrkFmt = GetDefaultDateFormat();
+    sWrkFmt = sDefaultDateFormat;
+    //sWrkFmt = GetDefaultDateFormat();
 
   if( strstr( sWrkFmt.Str(), "YYDDD" )){
     sOutFmtDate.Sprintf( "%c%c%03d", sDate8[3], sDate8[4], DayOf( XB_FMT_YEAR ));
@@ -630,18 +355,10 @@ xbInt16 xbDate::FormatDate( const xbString &sFmtIn, xbString &sOutFmtDate ){
   return XB_NO_ERROR;
 }
 /*************************************************************************/
-//! @brief Return the date value.
-/*!
-  \returns char ptr to date value.
-*/
-const char * xbDate::Str() const{
-   return sDate8.Str();
-};
+xbString & xbDate::GetDefaultDateFormat() const {
+  return sDefaultDateFormat;
+}
 /*************************************************************************/
-//! @brief Determine if date is a leap year. 
-/*!
-  \returns xbTrue - Is leapyear.<br> xbFalse - Not a leap year.
-*/
 xbBool xbDate::IsLeapYear() const {
    if( IsNull() )
      return xbFalse;
@@ -652,11 +369,6 @@ xbBool xbDate::IsLeapYear() const {
      return xbFalse;
 }
 /*************************************************************************/
-//! @brief Determine if date is a leap year. 
-/*!
-  \param iYear - Year to check for leap year status. 
-  \returns xbTrue - Is leapyear.<br> xbFalse - Not a leap year.
-*/
 xbBool xbDate::IsLeapYear( xbInt16 iYear ) const {
    if(( iYear % 4 == 0 && iYear % 100 != 0 ) || iYear % 400 == 0 )
      return xbTrue;
@@ -664,10 +376,6 @@ xbBool xbDate::IsLeapYear( xbInt16 iYear ) const {
      return xbFalse;
 }
 /*************************************************************************/
-//! @brief Determine if date is null date
-/*!
-  \returns xbTrue - If null date.<br> xbFalse - Not a null date.
-*/
 xbBool xbDate::IsNull() const {
    if( sDate8.Len() < 8 )
      return xbTrue;
@@ -675,10 +383,6 @@ xbBool xbDate::IsNull() const {
      return xbFalse;
 }
 /*************************************************************************/
-//! @brief Calculate julian days for a given date. 
-/*!
-  \returns The number of days since 01/01/0001 + JUL_OFFSET. 
-*/
 xbInt32 xbDate::JulianDays() const{
    if( !IsNull()){
      xbInt32 ly = YearOf() - 1;
@@ -690,13 +394,7 @@ xbInt32 xbDate::JulianDays() const{
    }
 }
 /*************************************************************************/
-//! @brief Convert the number of julian days to gregorian date.
-/*!
-  \param lJulDays - Julian days.
-  \returns XB_NO_ERROR
-*/
-xbInt16 xbDate::JulToDate8( xbInt32 lJulDays )
-{
+void xbDate::JulToDate8( xbInt32 lJulDays ){
   lJulDays -= JUL_OFFSET;
   // calculate the year
   xbInt16 iYear = (xbInt16)(lJulDays / 365.24 );
@@ -713,24 +411,18 @@ xbInt16 xbDate::JulToDate8( xbInt32 lJulDays )
     iMonth++;
   lJulDays -= iAggregatedDaysInMonths[iIsLeap][iMonth-1];
   sDate8.Sprintf( "%04d%02d%02ld", iYear, iMonth, lJulDays );
-  return XB_NO_ERROR;
+//  return XB_NO_ERROR;
 }
 /*************************************************************************/
-//! @brief Set the date to the last day of month for a given date.
-/*!
-  This routine sets the last date of the month.
-  \returns XB_NO_ERROR
-*/
 xbInt16 xbDate::LastDayOfMonth(){
-  if( !IsNull())
+  if( !IsNull()){
     sDate8.Sprintf( "%4.4d%2.2d%2.2d", YearOf(), MonthOf(), iDaysInMonths[IsLeapYear()][MonthOf()]);
-  return XB_NO_ERROR;
-};
+    return XB_NO_ERROR;
+  } else {
+    return XB_INVALID_DATE;
+  }
+}
 /*************************************************************************/
-//! @brief Return the month for the date. 
-/*!
-  \returns The month of the date.
-*/
 xbInt16 xbDate::MonthOf() const {
    if( !IsNull()){
      xbInt16 iOutMonth;
@@ -744,21 +436,116 @@ xbInt16 xbDate::MonthOf() const {
      return 0;
    }
 }
-
 /*************************************************************************/
-//! @brief Set the date.
-/*!
-  \param sDateIn - Input date.
-  \returns XB_NO_ERROR
-*/
+xbBool xbDate::operator!=( const xbDate &dt ) const{
+  if( JulianDays() != dt.JulianDays() )
+    return xbTrue;
+  else
+    return xbFalse;
+}
+/*************************************************************************/
+const char *xbDate::operator+( xbInt32 lCount ){
+  if( !IsNull() )
+    JulToDate8( JulianDays() + lCount );
+  return sDate8.Str();
+}
+/*************************************************************************/
+void xbDate::operator++(xbInt32){
+  if( !IsNull() )
+    *this+=1;
+}
+/*************************************************************************/
+void xbDate::operator+=( xbInt32 lDays ){
+  if( !IsNull() )
+    JulToDate8( JulianDays() + lDays );
+}
+/*************************************************************************/
+xbInt32 xbDate::operator-( const xbDate &dt ) const{
+  if( !IsNull() && !dt.IsNull() )
+    return JulianDays() - dt.JulianDays();
+  else
+    return 0;
+}
+/*************************************************************************/
+const char *xbDate::operator-( xbInt32 lCount ){
+  if( !IsNull() )
+    JulToDate8( JulianDays() - lCount );
+  return sDate8;
+}
+/*************************************************************************/
+void xbDate::operator--(xbInt32){
+  if( !IsNull())
+    *this-=1;
+}
+/*************************************************************************/
+void xbDate::operator-=( xbInt32 lDays ){
+  if( !IsNull() )
+    JulToDate8( JulianDays() - lDays );
+}
+/*************************************************************************/
+xbBool xbDate::operator<( const xbDate &dt ) const {
+  if( JulianDays() < dt.JulianDays() )
+    return xbTrue;
+  else
+    return xbFalse;
+}
+/*************************************************************************/
+xbBool xbDate::operator<=( const xbDate &dt ) const {
+  if( JulianDays() <= dt.JulianDays() )
+    return xbTrue;
+  else
+    return xbFalse;
+}
+/*************************************************************************/
+void xbDate::operator=( const xbDate &dt ){
+  sDate8.Set( dt.Str());
+}
+/*************************************************************************/
+xbBool xbDate::operator==( const xbDate &dt ) const{
+  if( JulianDays() == dt.JulianDays() )
+    return xbTrue;
+  else
+    return xbFalse;
+}
+/*************************************************************************/
+xbBool xbDate::operator>( const xbDate &dt ) const {
+  if( JulianDays() > dt.JulianDays() )
+    return xbTrue;
+  else 
+    return xbFalse;
+}
+/*************************************************************************/
+xbBool xbDate::operator>=( const xbDate &dt ) const {
+  if( JulianDays() >= dt.JulianDays() )
+    return xbTrue;
+  else
+    return xbFalse;
+}
+/*************************************************************************/
+xbInt16 xbDate::Set( xbInt16 iMonth, xbInt16 iDay, xbInt16 iYear ){
+  xbString s;
+  s.Sprintf( "%04d%02d%02d", iYear, iMonth, iDay );
+  if( DateIsValid( s )){
+    sDate8 = s;
+    return XB_NO_ERROR;
+  } else {
+    return XB_INVALID_DATE;
+  }
+}
+/*************************************************************************/
 xbInt16 xbDate::Set( const xbString & sDateIn ){
 
   if( DateIsValid( sDateIn )){
     sDate8 = sDateIn;
   } else {
     sDate8 = "";   // set to null date if invalid date
+    return XB_INVALID_DATE;
   }
   return XB_NO_ERROR;
+}
+/*************************************************************************/
+void xbDate::SetDefaultDateFormat( const xbString &sDefaultDateFormat ) {
+  this->sDefaultDateFormat = sDefaultDateFormat;
 }
 /*************************************************************************/
 //! @brief This routine sets up static data tables on startup.
@@ -824,37 +611,30 @@ void xbDate::SetDateTables() {
  }
 }
 /*************************************************************************/
-//! @brief Set the date equal to the system date.
-/*!
-  \returns XB_NO_ERROR
-*/
-xbInt16 xbDate::Sysdate(){
-
- #ifdef HAVE__LOCALTIME64_S_F
-   __time64_t timer;
-   _time64( &timer );
-   struct tm tblock;
-   _localtime64_s( &tblock, &timer );
-   tblock.tm_year += 1900;
-   tblock.tm_mon++;
-   sDate8.Sprintf( "%4d%02d%02d", tblock.tm_year, tblock.tm_mon, tblock.tm_mday );
- #else
-   time_t timer;
-   timer = time( &timer );
-   struct tm *tblock;
-   tblock = localtime( &timer );
-   tblock->tm_year += 1900;
-   tblock->tm_mon++;
-   sDate8.Sprintf( "%4d%02d%02d",tblock->tm_year,tblock->tm_mon,tblock->tm_mday );
- #endif
-
-   return XB_NO_ERROR;
+const char * xbDate::Str() const{
+   return sDate8.Str();
+};
+/*************************************************************************/
+void xbDate::Sysdate(){
+  #if defined(HAVE__LOCALTIME64_S_F)
+    __time64_t timer;
+    _time64( &timer );
+    struct tm tblock;
+    _localtime64_s( &tblock, &timer );
+    tblock.tm_year += 1900;
+    tblock.tm_mon++;
+    sDate8.Sprintf( "%4d%02d%02d", tblock.tm_year, tblock.tm_mon, tblock.tm_mday );
+  #else
+    time_t timer;
+    timer = time( &timer );
+    struct tm *tblock;
+    tblock = localtime( &timer );
+    tblock->tm_year += 1900;
+    tblock->tm_mon++;
+    sDate8.Sprintf( "%4d%02d%02d",tblock->tm_year,tblock->tm_mon,tblock->tm_mday );
+  #endif
 }
 /*************************************************************************/
-//! @brief Returns the year of the date.
-/*!
-  \returns The year of the date.
-*/
 xbInt16  xbDate::YearOf() const {
   if( !IsNull()){
     char year[5];

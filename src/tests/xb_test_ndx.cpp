@@ -80,8 +80,8 @@ int main( int argCnt, char **av )
   if( iPo > 0 )
     std::cout << "Default Data Directory is [" << x.GetDataDirectory().Str() << "]" << std::endl;
 
-  x.SetUniqueKeyOpt( XB_HALT_ON_DUPKEY );
-  iRc += TestMethod( iPo, "SetUniqueKeyOpt(100)", x.GetUniqueKeyOpt(), XB_HALT_ON_DUPKEY );
+  x.SetDefaultIxTagMode( XB_IX_DBASE_MODE );
+  iRc += TestMethod( iPo, "GetDefaultIxTagMode()", x.GetDefaultIxTagMode(), XB_IX_DBASE_MODE );
 
 
   xbDbf *V3Dbf = new xbDbf3( &x );
@@ -90,38 +90,38 @@ int main( int argCnt, char **av )
   void *ndx;
 
   iRc2 = V3Dbf->CreateTable( "TestNdx.DBF", "TestNdx", MyV3Record, XB_OVERLAY, XB_MULTI_USER );
-  iRc += TestMethod( iPo, "CreateTable(101)", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( iPo, "CreateTable(102)", (xbInt32) iRc2, XB_NO_ERROR );
 
   if( iRc2 )
     x.DisplayError( iRc2 );
 
 
   iRc2 = V3Dbf->CreateTag( "NDX", "TestNdxC.NDX", "CFLD", "", 0, 0, XB_OVERLAY, &ixPtr, &ndx );
-  iRc += TestMethod( iPo, "CreateTag(102)", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( iPo, "CreateTag(103)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
   iRc2 = V3Dbf->AssociateIndex( "NDX", "TestNdxC.NDX", 0 );
-  iRc += TestMethod( iPo, "Associate(103)", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Associate(104)", (xbInt32) iRc2, XB_NO_ERROR );
 
   iRc2 = V3Dbf->CreateTag( "NDX", "TestNdxD.NDX", "DFLD", "", 0, 1, XB_OVERLAY, &ixPtr, &ndx );
-  iRc += TestMethod( iPo, "CreateTag(104)", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( iPo, "CreateTag(105)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
   iRc2 = V3Dbf->AssociateIndex( "NDX", "TestNdxD.NDX", 0 );
-  iRc += TestMethod( iPo, "Associate(105)", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Associate(106)", (xbInt32) iRc2, XB_NO_ERROR );
 
   iRc2 = V3Dbf->CreateTag( "NDX", "TestNdxN.NDX", "NFLD", "", 0, 0, XB_OVERLAY, &ixPtr, &ndx );
-  iRc += TestMethod( iPo, "CreateTag(106)", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( iPo, "CreateTag(107)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
   iRc2 = V3Dbf->AssociateIndex( "NDX", "TestNdxN.NDX", 0 );
-  iRc += TestMethod( iPo, "Associate(107)", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Associate(108)", (xbInt32) iRc2, XB_NO_ERROR );
 
   xbInt16 iTagCnt = ixPtr->GetTagCount();
-  iRc += TestMethod( iPo, "GetTagCount(108)", (xbInt32) iTagCnt, 1 );
+  iRc += TestMethod( iPo, "GetTagCount(109)", (xbInt32) iTagCnt, 1 );
 
   xbString sTagName;
   sTagName = ixPtr->GetTagName( &ndx );
@@ -321,7 +321,6 @@ int main( int argCnt, char **av )
   while( ixl ){
     if( *ixl->sFmt == "NDX" ){
       ix = (xbIxNdx *) ixl->ix;
-      //ix->GetTagName( 0, sTagName );
       sMsg.Sprintf( "CheckTagIntegrity(220) - [%s]", ix->GetTagName(ix->GetCurTag()).Str());
       iRc += TestMethod( iPo, sMsg, ix->CheckTagIntegrity( ix->GetCurTag(), 0 ), XB_NO_ERROR );
       ixl = ixl->next;
@@ -343,14 +342,9 @@ int main( int argCnt, char **av )
   V3Dbf->xbRemove( sInfName );
 
   iRc += TestMethod( iPo, "Rename(300)",  V3Dbf->Rename( "TestNdxR.DBF" ), XB_NO_ERROR );
-
   iRc += TestMethod( iPo, "DeleteTable()", V3Dbf->DeleteTable(), XB_NO_ERROR );
-  //  iRc += TestMethod( iPo, "Close()", V3Dbf->Close(), XB_NO_ERROR );  // did a delete instead of close
 
   delete V3Dbf;
-
-  x.SetUniqueKeyOpt( XB_EMULATE_DBASE );
-  iRc += TestMethod( iPo, "SetUniqueKeyOpt(301)", x.GetUniqueKeyOpt(), XB_EMULATE_DBASE );
 
 
   V3Dbf = new xbDbf3( &x );
@@ -393,38 +387,17 @@ int main( int argCnt, char **av )
   while( ixl ){
     if( *ixl->sFmt == "NDX" ){
       ix = (xbIxNdx *) ixl->ix;
-      //ix->GetTagName( 0, sTagName );
       sMsg.Sprintf( "CheckTagIntegrity(340) - [%s]", ix->GetTagName(ix->GetCurTag()).Str());
       iRc += TestMethod( iPo, sMsg, ix->CheckTagIntegrity( ix->GetCurTag(), 0 ), 1 );
     }
     ixl = ixl->next;
   }
 
-  x.SetUniqueKeyOpt( XB_HALT_ON_DUPKEY );
-  iRc += TestMethod( iPo, "SetUniqueKeyOpt(341)", x.GetUniqueKeyOpt(), XB_HALT_ON_DUPKEY );
-
-  ixl = V3Dbf->GetIxList();
-  while( ixl ){
-    if( *ixl->sFmt == "NDX" ){
-      ix = (xbIxNdx *) ixl->ix;
-      //ix->GetTagName( 0, sTagName );
-      sMsg.Sprintf( "CheckTagIntegrity(342) - [%s]", ix->GetTagName(ix->GetCurTag()).Str());
-      iRc += TestMethod( iPo, sMsg, ix->CheckTagIntegrity( ix->GetCurTag(), 0 ), XB_INVALID_INDEX );
-    }
-    ixl = ixl->next;
-  }
-
-  x.SetUniqueKeyOpt( XB_EMULATE_DBASE );
-  iRc += TestMethod( iPo, "SetUniqueKeyOpt(343)", x.GetUniqueKeyOpt(), XB_EMULATE_DBASE );
-
   iRc2 = V3Dbf->Reindex( 1 );  // reindex all tags
   iRc += TestMethod( iPo, "Reindex(350)", (xbInt32) iRc2, XB_NO_ERROR );
 
-
-
   iRc += TestMethod( iPo, "DeleteTable(352)", V3Dbf->DeleteTable(), XB_NO_ERROR );
 
-  // test tag delete on unsuccessful reindex
 
   iRc2 = V3Dbf->CreateTable( "TestNdx.DBF", "TestNdx", MyV3Record, XB_OVERLAY, XB_MULTI_USER );
   iRc += TestMethod( iPo, "CreateTable(360)", (xbInt32) iRc2, XB_NO_ERROR );
@@ -451,14 +424,92 @@ int main( int argCnt, char **av )
   iRc += TestMethod( iPo, "Reindex(400)", (xbInt32) iRc2, XB_NO_ERROR );
 
 
-  x.SetUniqueKeyOpt( XB_HALT_ON_DUPKEY );
   iRc2 = V3Dbf->CreateTag( "NDX", "TestNdxX.NDX", "CFLD", "", 0, 1, XB_OVERLAY, &ixPtr, &ndx );
   iRc += TestMethod( iPo, "CreateTag(401)", (xbInt32) iRc2, XB_NO_ERROR );
 
-  iRc2 = V3Dbf->Reindex( 1 );  // verify reindex fails with dup key
-  iRc += TestMethod( iPo, "Reindex(402)", (xbInt32) iRc2, XB_KEY_NOT_UNIQUE );
+
+  iRc2 = V3Dbf->Reindex( 1 );  // reindex all tags
+  iRc += TestMethod( iPo, "Reindex(402)", (xbInt32) iRc2, XB_NO_ERROR );
+
+
+  ixl = V3Dbf->GetIxList();
+  while( ixl ){
+    if( *ixl->sFmt == "NDX" ){
+      ix = (xbIxNdx *) ixl->ix;
+      sMsg.Sprintf( "CheckTagIntegrity(403) - [%s]", ix->GetTagName(ix->GetCurTag()).Str());
+      iRc += TestMethod( iPo, sMsg, ix->CheckTagIntegrity( ix->GetCurTag(), 0 ), 1 );
+    }
+    ixl = ixl->next;
+  }
+
+
+  iRc += TestMethod( iPo, "DeleteTable(500)", V3Dbf->DeleteTable(), XB_NO_ERROR );
+
+
+  // test XB_IX_XBASE_MODE functionality
+
+  x.SetDefaultIxTagMode( XB_IX_XBASE_MODE );
+  iRc += TestMethod( iPo, "GetDefaultIxTagMode(501)", x.GetDefaultIxTagMode(), XB_IX_XBASE_MODE );
+
+  iRc2 = V3Dbf->CreateTable( "TestNdx.DBF", "TestNdx", MyV3Record, XB_OVERLAY, XB_MULTI_USER );
+  iRc += TestMethod( iPo, "CreateTable(502)", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc2 = V3Dbf->CreateTag( "NDX", "TestNdxX.NDX", "CFLD", "", 0, 1, XB_OVERLAY, &ixPtr, &ndx );
+  iRc += TestMethod( iPo, "CreateTag(503)", (xbInt32) iRc2, XB_NO_ERROR );
+
+  iRc2 = V3Dbf->AssociateIndex( "NDX", "TestNdxX.NDX", 0 );
+  iRc += TestMethod( iPo, "Associate(504)", (xbInt32) iRc2, XB_NO_ERROR );
+
+  iRc += TestMethod( iPo, "BlankRecord(510)",    V3Dbf->BlankRecord(),                     XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Putfield(511)",       V3Dbf->PutField( "CFLD", "AAA" ),         XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Putfield(512)",       V3Dbf->PutField( "DFLD", "19611109" ),    XB_NO_ERROR );
+  iRc += TestMethod( iPo, "PutfieldDouble(513)", V3Dbf->PutDoubleField( "NFLD", 50 ), XB_NO_ERROR );
+  iRc += TestMethod( iPo, "AppendRecord(514)",   V3Dbf->AppendRecord(),                    XB_NO_ERROR );
+
+  iRc += TestMethod( iPo, "BlankRecord(520)",    V3Dbf->BlankRecord(),                     XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Putfield(521)",       V3Dbf->PutField( "CFLD", "BBB" ),         XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Putfield(222)",       V3Dbf->PutField( "DFLD", "19611109" ),    XB_NO_ERROR );
+  iRc += TestMethod( iPo, "PutfieldDouble(523)", V3Dbf->PutDoubleField( "NFLD", 50 ), XB_NO_ERROR );
+  iRc += TestMethod( iPo, "AppendRecord(524)",   V3Dbf->AppendRecord(),                    XB_NO_ERROR );
+
+  iRc += TestMethod( iPo, "BlankRecord(530)",    V3Dbf->BlankRecord(),                     XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Putfield(531)",       V3Dbf->PutField( "CFLD", "BBB" ),         XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Putfield(532)",       V3Dbf->PutField( "DFLD", "19611109" ),    XB_NO_ERROR );
+  iRc += TestMethod( iPo, "PutfieldDouble(533)", V3Dbf->PutDoubleField( "NFLD", 50 ), XB_NO_ERROR );
+  iRc += TestMethod( iPo, "AppendRecord(534)",   V3Dbf->AppendRecord(),                    XB_KEY_NOT_UNIQUE );
+
+  V3Dbf->Abort();
+
+  iRc += TestMethod( iPo, "BlankRecord(540)",    V3Dbf->BlankRecord(),                     XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Putfield(541)",       V3Dbf->PutField( "CFLD", "CCC" ),         XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Putfield(542)",       V3Dbf->PutField( "DFLD", "19611109" ),    XB_NO_ERROR );
+  iRc += TestMethod( iPo, "PutfieldDouble(543)", V3Dbf->PutDoubleField( "NFLD", 50 ), XB_NO_ERROR );
+  iRc += TestMethod( iPo, "AppendRecord(544)",   V3Dbf->AppendRecord(),                    XB_NO_ERROR );
+
+  iRc += TestMethod( iPo, "BlankRecord(550)",    V3Dbf->BlankRecord(),                     XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Putfield(551)",       V3Dbf->PutField( "CFLD", "DDD" ),         XB_NO_ERROR );
+  iRc += TestMethod( iPo, "Putfield(552)",       V3Dbf->PutField( "DFLD", "19611109" ),    XB_NO_ERROR );
+  iRc += TestMethod( iPo, "PutfieldDouble(553)", V3Dbf->PutDoubleField( "NFLD", 50 ), XB_NO_ERROR );
+  iRc += TestMethod( iPo, "AppendRecord(554)",   V3Dbf->AppendRecord(),                    XB_NO_ERROR );
+
+
+  iRc += TestMethod( iPo, "GetRecord(560)",      V3Dbf->GetRecord( 3 ),                    XB_NO_ERROR );
+  iRc += TestMethod( iPo, "DeleteRecord(561)",   V3Dbf->DeleteRecord(),                    XB_NO_ERROR );
+
+
+  ixl = V3Dbf->GetIxList();
+  while( ixl ){
+    if( *ixl->sFmt == "NDX" ){
+      ix = (xbIxNdx *) ixl->ix;
+      sMsg.Sprintf( "CheckTagIntegrity(570) - [%s]", ix->GetTagName(ix->GetCurTag()).Str());
+      iRc += TestMethod( iPo, sMsg, ix->CheckTagIntegrity( ix->GetCurTag(), 0 ), XB_NO_ERROR );
+    }
+    ixl = ixl->next;
+  }
+
+
 
   x.CloseAllTables();
+  
 //  delete V3Dbf;
 
   if( iPo > 0 || iRc < 0 )

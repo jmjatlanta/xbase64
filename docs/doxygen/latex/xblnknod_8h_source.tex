@@ -1,12 +1,12 @@
 \hypertarget{xblnknod_8h_source}{}\doxysection{xblnknod.\+h}
-\label{xblnknod_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xblnknod.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xblnknod.h}}
+\label{xblnknod_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xblnknod.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xblnknod.h}}
 \mbox{\hyperlink{xblnknod_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*  xblnknod.h}}
 \DoxyCodeLine{2 \textcolor{comment}{}}
 \DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
 \DoxyCodeLine{4 \textcolor{comment}{}}
-\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,20222,2024 Gary A Kunkel}}
 \DoxyCodeLine{6 \textcolor{comment}{}}
 \DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
 \DoxyCodeLine{8 \textcolor{comment}{}}
@@ -17,84 +17,90 @@
 \DoxyCodeLine{13 \textcolor{comment}{}}
 \DoxyCodeLine{14 \textcolor{comment}{*/}}
 \DoxyCodeLine{15 }
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef \_\_XB\_XBLNKNOD\_H\_\_}}
-\DoxyCodeLine{18 \textcolor{preprocessor}{\#define \_\_XB\_XBLNKNOD\_H\_\_}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef \_\_XB\_XBLNKNOD\_H\_\_}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define \_\_XB\_XBLNKNOD\_H\_\_}}
+\DoxyCodeLine{18 }
 \DoxyCodeLine{19 }
-\DoxyCodeLine{20 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifdef XB\_LINKLIST\_SUPPORT}}
 \DoxyCodeLine{21 }
-\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifdef XB\_LINKLIST\_SUPPORT}}
+\DoxyCodeLine{22 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
 \DoxyCodeLine{23 }
-\DoxyCodeLine{24 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
 \DoxyCodeLine{25 }
-\DoxyCodeLine{26 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
-\DoxyCodeLine{27 \textcolor{keyword}{class }XBDLLEXPORT xbLinkListNode \{}
-\DoxyCodeLine{28   \textcolor{keyword}{public}:}
-\DoxyCodeLine{29    xbLinkListNode( \textcolor{keyword}{const} xbNodeType \& );}
-\DoxyCodeLine{30    xbLinkListNode( \textcolor{keyword}{const} xbNodeType \&, \textcolor{keyword}{const} xbString \& );}
-\DoxyCodeLine{31    xbNodeType GetKey() \textcolor{keyword}{const};}
-\DoxyCodeLine{32    xbString   \&GetData();}
-\DoxyCodeLine{33    xbLinkListNode<xbNodeType> *GetNextNode() \textcolor{keyword}{const};}
-\DoxyCodeLine{34    xbLinkListNode<xbNodeType> *GetPrevNode() \textcolor{keyword}{const};}
-\DoxyCodeLine{35    \textcolor{keywordtype}{void}       SetNextNode( xbLinkListNode<xbNodeType> *llNext );}
-\DoxyCodeLine{36    \textcolor{keywordtype}{void}       SetPrevNode( xbLinkListNode<xbNodeType> *llPrev );}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38   \textcolor{keyword}{private}:}
-\DoxyCodeLine{39    xbNodeType     ntKey;}
-\DoxyCodeLine{40    xbString       sData;}
-\DoxyCodeLine{41    xbLinkListNode *llNext;}
-\DoxyCodeLine{42    xbLinkListNode *llPrev;}
-\DoxyCodeLine{43 \};}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
-\DoxyCodeLine{46  xbLinkListNode<xbNodeType>::xbLinkListNode( \textcolor{keyword}{const} xbNodeType \&key )\{}
-\DoxyCodeLine{47    ntKey  = key;}
-\DoxyCodeLine{48    llNext = NULL;}
-\DoxyCodeLine{49    llPrev = NULL;}
-\DoxyCodeLine{50  \}}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
-\DoxyCodeLine{53  xbLinkListNode<xbNodeType>::xbLinkListNode( \textcolor{keyword}{const} xbNodeType \&key, \textcolor{keyword}{const} xbString \&s )\{}
-\DoxyCodeLine{54    ntKey  = key;}
-\DoxyCodeLine{55    sData  = s;}
-\DoxyCodeLine{56    llNext = NULL;}
-\DoxyCodeLine{57    llPrev = NULL;}
-\DoxyCodeLine{58  \}}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{60  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
-\DoxyCodeLine{61  xbNodeType xbLinkListNode<xbNodeType>::GetKey()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{62    \textcolor{keywordflow}{return} ntKey;}
-\DoxyCodeLine{63  \}}
-\DoxyCodeLine{64 }
-\DoxyCodeLine{65  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
-\DoxyCodeLine{66  xbString \&xbLinkListNode<xbNodeType>::GetData()\{}
-\DoxyCodeLine{67    \textcolor{keywordflow}{return} sData;}
-\DoxyCodeLine{68  \}}
-\DoxyCodeLine{69 }
-\DoxyCodeLine{70  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
-\DoxyCodeLine{71  xbLinkListNode<xbNodeType> *xbLinkListNode<xbNodeType>::GetNextNode()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{72    \textcolor{keywordflow}{return} llNext;}
-\DoxyCodeLine{73  \}}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{75  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
-\DoxyCodeLine{76  xbLinkListNode<xbNodeType> *xbLinkListNode<xbNodeType>::GetPrevNode()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{77    \textcolor{keywordflow}{return} llPrev;}
-\DoxyCodeLine{78  \}}
+\DoxyCodeLine{35 \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{36 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xbLinkListNode}} \{}
+\DoxyCodeLine{37   \textcolor{keyword}{public}:}
+\DoxyCodeLine{42    \mbox{\hyperlink{classxb_1_1xbLinkListNode_ab9f2cb7471fe4505528bd6015413d520}{xbLinkListNode}}( \textcolor{keyword}{const} xbNodeType \& nVal );}
+\DoxyCodeLine{43  }
+\DoxyCodeLine{49    \mbox{\hyperlink{classxb_1_1xbLinkListNode_a22525d5018e401b24f2a58b03a21e1cb}{xbLinkListNode}}( \textcolor{keyword}{const} xbNodeType \& nVal, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \& sVal );}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{54    xbNodeType \mbox{\hyperlink{classxb_1_1xbLinkListNode_a593a4719640bd36407d41b735b19e0b1}{GetKey}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{60    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbLinkListNode_a5c4488df6ee744d9011ae40ac3eee152}{GetData}}();}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{66    \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xbLinkListNode<xbNodeType>}} *\mbox{\hyperlink{classxb_1_1xbLinkListNode_a600f3607f51a46366103190bcebb65be}{GetNextNode}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{72    \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xbLinkListNode<xbNodeType>}} *\mbox{\hyperlink{classxb_1_1xbLinkListNode_a3532b44ddaeb3a77aa84a50a95758616}{GetPrevNode}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{78    \textcolor{keywordtype}{void} SetNextNode( \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xbLinkListNode<xbNodeType>}} *llNext );}
 \DoxyCodeLine{79 }
-\DoxyCodeLine{80  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
-\DoxyCodeLine{81  \textcolor{keywordtype}{void} xbLinkListNode<xbNodeType>::SetNextNode( xbLinkListNode<xbNodeType> *lln )\{}
-\DoxyCodeLine{82    llNext = lln;}
-\DoxyCodeLine{83  \}}
-\DoxyCodeLine{84 }
-\DoxyCodeLine{85  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
-\DoxyCodeLine{86  \textcolor{keywordtype}{void} xbLinkListNode<xbNodeType>::SetPrevNode( xbLinkListNode<xbNodeType> *llp )\{}
-\DoxyCodeLine{87    llPrev = llp;}
-\DoxyCodeLine{88  \}}
-\DoxyCodeLine{89 }
-\DoxyCodeLine{90 \}               \textcolor{comment}{// namespace}}
-\DoxyCodeLine{91 \textcolor{preprocessor}{\#endif          }\textcolor{comment}{// XB\_LINKLIST\_SUPPORT}}
-\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif          }\textcolor{comment}{// XB\_XBLNKNOD\_H\_\_}}
-\DoxyCodeLine{93 }
+\DoxyCodeLine{84    \textcolor{keywordtype}{void} SetPrevNode( \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xbLinkListNode<xbNodeType>}} *llPrev );}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86   \textcolor{keyword}{private}:}
+\DoxyCodeLine{87    xbNodeType     ntKey;}
+\DoxyCodeLine{88    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}       sData;}
+\DoxyCodeLine{89    \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xbLinkListNode}} *llNext;}
+\DoxyCodeLine{90    \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xbLinkListNode}} *llPrev;}
+\DoxyCodeLine{91 \};}
+\DoxyCodeLine{92 }
 \DoxyCodeLine{94 }
+\DoxyCodeLine{95  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{96  \mbox{\hyperlink{classxb_1_1xbLinkListNode_ab9f2cb7471fe4505528bd6015413d520}{xbLinkListNode<xbNodeType>::xbLinkListNode}}( \textcolor{keyword}{const} xbNodeType \&key )\{}
+\DoxyCodeLine{97    ntKey  = key;}
+\DoxyCodeLine{98    llNext = NULL;}
+\DoxyCodeLine{99    llPrev = NULL;}
+\DoxyCodeLine{100  \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{103  \mbox{\hyperlink{classxb_1_1xbLinkListNode_ab9f2cb7471fe4505528bd6015413d520}{xbLinkListNode<xbNodeType>::xbLinkListNode}}( \textcolor{keyword}{const} xbNodeType \&key, \textcolor{keyword}{const} xbString \&s )\{}
+\DoxyCodeLine{104    ntKey  = key;}
+\DoxyCodeLine{105    sData  = s;}
+\DoxyCodeLine{106    llNext = NULL;}
+\DoxyCodeLine{107    llPrev = NULL;}
+\DoxyCodeLine{108  \}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{111  xbNodeType \mbox{\hyperlink{classxb_1_1xbLinkListNode_a593a4719640bd36407d41b735b19e0b1}{xbLinkListNode<xbNodeType>::GetKey}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{112    \textcolor{keywordflow}{return} ntKey;}
+\DoxyCodeLine{113  \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{116  xbString \&\mbox{\hyperlink{classxb_1_1xbLinkListNode_a5c4488df6ee744d9011ae40ac3eee152}{xbLinkListNode<xbNodeType>::GetData}}()\{}
+\DoxyCodeLine{117    \textcolor{keywordflow}{return} sData;}
+\DoxyCodeLine{118  \}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{121  xbLinkListNode<xbNodeType> *\mbox{\hyperlink{classxb_1_1xbLinkListNode_a600f3607f51a46366103190bcebb65be}{xbLinkListNode<xbNodeType>::GetNextNode}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{122    \textcolor{keywordflow}{return} llNext;}
+\DoxyCodeLine{123  \}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{126  xbLinkListNode<xbNodeType> *\mbox{\hyperlink{classxb_1_1xbLinkListNode_a3532b44ddaeb3a77aa84a50a95758616}{xbLinkListNode<xbNodeType>::GetPrevNode}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{127    \textcolor{keywordflow}{return} llPrev;}
+\DoxyCodeLine{128  \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{131  \textcolor{keywordtype}{void} xbLinkListNode<xbNodeType>::SetNextNode( xbLinkListNode<xbNodeType> *lln )\{}
+\DoxyCodeLine{132    llNext = lln;}
+\DoxyCodeLine{133  \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135  \textcolor{keyword}{template}<\textcolor{keyword}{class} xbNodeType>}
+\DoxyCodeLine{136  \textcolor{keywordtype}{void} xbLinkListNode<xbNodeType>::SetPrevNode( xbLinkListNode<xbNodeType> *llp )\{}
+\DoxyCodeLine{137    llPrev = llp;}
+\DoxyCodeLine{138  \}}
+\DoxyCodeLine{140 \}               \textcolor{comment}{// namespace}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#endif          }\textcolor{comment}{// XB\_LINKLIST\_SUPPORT}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#endif          }\textcolor{comment}{// XB\_XBLNKNOD\_H\_\_}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 }
 
 \end{DoxyCode}

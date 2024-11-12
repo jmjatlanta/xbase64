@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -10,17 +10,13 @@ Email Contact:
 
     XDB-devel@lists.sourceforge.net
     XDB-users@lists.sourceforge.net
-
 */
 
 #include "xbase.h"
 
-
 #ifdef XB_DBF3_SUPPORT
 
 namespace xb{
-
-
 /************************************************************************/
 //! @brief Constructor.
 
@@ -30,29 +26,14 @@ xbDbf3::xbDbf3(xbXBase * x) : xbDbf( x ) {
   #endif
   iFileVersion = 3;
 };
-
 /************************************************************************/
 //! @brief Destructor.
-
 xbDbf3::~xbDbf3() {};
-
 /************************************************************************/
-//! @brief Create Version 3 table.
-/*!
-    This routine creates a Dbase III Plus (tm) DBF file.
-
-  \param sTableName DBF table name.
-  \param sAlias Table alias
-  \param pSchema Pointer to schema structure with field definitions.
-  \param iOverlay xbTrue - Overlay.<br> xbFalse - Don't overlay.
-  \param iShareMode XB_SINGLE_USER<br>XB_MULTI_USER
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-
-*/
 xbInt16 xbDbf3::CreateTable( const xbString & sTableName, const xbString & sAlias, xbSchema *pSchema, xbInt16 iOverlay, xbInt16 iShareMode ){
 
   xbInt16 i, k, k2;
-  xbInt16 rc = 0;
+  xbInt16 iRc = 0;
   xbInt16 iErrorStop = 0;
   iDbfStatus = XB_CLOSED;
 
@@ -61,8 +42,8 @@ xbInt16 xbDbf3::CreateTable( const xbString & sTableName, const xbString & sAlia
     sNfn = sTableName;
     xbase->GetLogStatus();
 
-    rc = NameSuffixMissing( sNfn, 1 );
-    if( rc > 0 )
+    iRc = NameSuffixMissing( sNfn, 1 );
+    if( iRc == XB_NOT_FOUND )
       sNfn += ".DBF";
 
     SetFileName( sNfn );
@@ -72,8 +53,8 @@ xbInt16 xbDbf3::CreateTable( const xbString & sTableName, const xbString & sAlia
     if( FileExists( 0 )){
       if( !iOverlay ){
         iErrorStop = 100;
-        rc = XB_FILE_EXISTS;
-        throw rc;
+        iRc = XB_FILE_EXISTS;
+        throw iRc;
       }
 
       // remove other files if they exist
@@ -103,17 +84,17 @@ xbInt16 xbDbf3::CreateTable( const xbString & sTableName, const xbString & sAlia
     }
 
     /* check if we already have a file with this alias  */
-    if(( rc = xbase->AddTblToTblList( this, GetFqFileName(), sAlias )) != XB_NO_ERROR ){
+    if(( iRc = xbase->AddTblToTblList( this, GetFqFileName(), sAlias )) != XB_NO_ERROR ){
       iErrorStop = 110;
-      throw rc;
+      throw iRc;
     }
 
-    rc = ValidateSchema( pSchema );
-    if( rc < 0 ){
+    iRc = ValidateSchema( pSchema );
+    if( iRc < 0 ){
       iErrorStop = 120;
-      throw rc;
+      throw iRc;
     } else
-      iNoOfFields = rc;
+      iNoOfFields = iRc;
 
     #ifdef XB_MEMO_SUPPORT
     // if we have memo fields
@@ -135,21 +116,21 @@ xbInt16 xbDbf3::CreateTable( const xbString & sTableName, const xbString & sAlia
       fTemp.SetFileName( sMfn );
       if( fTemp.FileExists() && !iOverlay ){
         iErrorStop = 130;
-        rc = XB_FILE_EXISTS;
-        throw rc;
+        iRc = XB_FILE_EXISTS;
+        throw iRc;
       }
 
       Memo = new xbMemoDbt3( this, fTemp.GetFqFileName());
 
-      if(( rc = Memo->CreateMemoFile()) != XB_NO_ERROR ){
+      if(( iRc = Memo->CreateMemoFile()) != XB_NO_ERROR ){
          iErrorStop = 140;
-         throw rc;
+         throw iRc;
       }
     }
     #endif
 
-    /* this is the dBase III version of the class */
-    cVersion = 0x03;     // 0x03 for Dbase level 5
+    /* this is the dBASE III version of the class */
+    cVersion = 0x03;     // 0x03 for dBASE level 5
     #ifdef XB_MEMO_SUPPORT
     if( iMemoFieldCnt > 0 ){
 //    cVersion = cVersion |= 0x80;   // Version III memo, compiler complaints
@@ -157,21 +138,21 @@ xbInt16 xbDbf3::CreateTable( const xbString & sTableName, const xbString & sAlia
     }
     #endif
 
-    if(( rc = xbFopen( "w+b", iShareMode )) != XB_NO_ERROR ){
+    if(( iRc = xbFopen( "w+b", iShareMode )) != XB_NO_ERROR ){
       iErrorStop = 150;
-      throw rc;
+      throw iRc;
     }
     uiRecordLen++;                  /* add one byte for 0x0D    */
 
     if(( RecBuf = (char *) malloc( uiRecordLen )) == NULL ){
       iErrorStop = 160;
-      throw rc;
+      throw iRc;
     }
 
     if(( RecBuf2 = (char *) malloc( uiRecordLen )) == NULL ){
       iErrorStop = 170;
-      rc = XB_NO_MEMORY;
-      throw rc;
+      iRc = XB_NO_MEMORY;
+      throw iRc;
     }
 
     /* BlankRecord(); */
@@ -186,15 +167,15 @@ xbInt16 xbDbf3::CreateTable( const xbString & sTableName, const xbString & sAlia
     cUpdateDD = (char) d.DayOf( XB_FMT_MONTH );
 
     /* write the header prolog */
-    if(( rc = WriteHeader( 0, 0 )) != XB_NO_ERROR ){
+    if(( iRc = WriteHeader( 0, 0 )) != XB_NO_ERROR ){
       iErrorStop = 180;
-      rc = XB_WRITE_ERROR;
-      throw rc;
+      iRc = XB_WRITE_ERROR;
+      throw iRc;
     }
     if((SchemaPtr = (xbSchemaRec *) malloc( (size_t) iNoOfFields * sizeof( xbSchemaRec ))) == NULL){
       iErrorStop = 190;
-      rc = XB_NO_MEMORY;
-      throw rc;
+      iRc = XB_NO_MEMORY;
+      throw iRc;
     }
 
     /* write the field information into the header */
@@ -210,8 +191,8 @@ xbInt16 xbDbf3::CreateTable( const xbString & sTableName, const xbString & sAlia
 
       if( SchemaPtr[i].cNoOfDecs > SchemaPtr[i].cFieldLen ){
         iErrorStop = 200;
-        rc = XB_WRITE_ERROR;
-        throw rc;
+        iRc = XB_WRITE_ERROR;
+        throw iRc;
       }
 
       k2 = k;
@@ -219,14 +200,14 @@ xbInt16 xbDbf3::CreateTable( const xbString & sTableName, const xbString & sAlia
 
       if(( xbFwrite( &SchemaPtr[i].cFieldName, 1, 11 )) != XB_NO_ERROR ) {
         iErrorStop = 210;
-        rc = XB_WRITE_ERROR;
-        throw rc;
+        iRc = XB_WRITE_ERROR;
+        throw iRc;
       }
 
       if(( xbFwrite( &SchemaPtr[i].cType, 1, 1 )) != XB_NO_ERROR ) {
         iErrorStop = 220;
-        rc = XB_WRITE_ERROR;
-        throw rc;
+        iRc = XB_WRITE_ERROR;
+        throw iRc;
       }
 
       for( int j = 0; j < 4; j++ )
@@ -234,14 +215,14 @@ xbInt16 xbDbf3::CreateTable( const xbString & sTableName, const xbString & sAlia
 
       if(( xbFwrite( &SchemaPtr[i].cFieldLen, 1, 1 )) != XB_NO_ERROR ) {
         iErrorStop = 230;
-        rc = XB_WRITE_ERROR;
-        throw rc;
+        iRc = XB_WRITE_ERROR;
+        throw iRc;
       }
 
       if(( xbFwrite( &SchemaPtr[i].cNoOfDecs, 1, 1 )) != XB_NO_ERROR ) {
         iErrorStop = 240;
-        rc = XB_WRITE_ERROR;
-        throw rc;
+        iRc = XB_WRITE_ERROR;
+        throw iRc;
       }
 
       /* 14 bytes reserved */
@@ -255,16 +236,16 @@ xbInt16 xbDbf3::CreateTable( const xbString & sTableName, const xbString & sAlia
     /* write the header terminator */
     if(( xbFputc( XB_CHARHDR )) != XB_NO_ERROR ){
       iErrorStop = 250;
-      rc = XB_WRITE_ERROR;
-      throw rc;
+      iRc = XB_WRITE_ERROR;
+      throw iRc;
     }
   }
-  catch( xbInt16 rc )
+  catch( xbInt16 iRc )
   {
     xbString sMsg;
-    sMsg.Sprintf( "xbdbf3::CreateTable() Exception Caught Error Stop = [%d] rc = [%d]", iErrorStop, rc );
+    sMsg.Sprintf( "xbdbf3::CreateTable() Exception Caught Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
 
     sMsg.Sprintf( "Table Name = [%s]", GetFqFileName().Str());
     xbase->WriteLogMessage( sMsg );   
@@ -286,40 +267,21 @@ xbInt16 xbDbf3::CreateTable( const xbString & sTableName, const xbString & sAlia
     }
 
     InitVars();
-    if( rc != XB_FILE_EXISTS )
+    if( iRc != XB_FILE_EXISTS )
       xbase->RemoveTblFromTblList( sAlias );
   }
 
-  if( rc == XB_NO_ERROR )
+  if( iRc == XB_NO_ERROR )
     iDbfStatus = XB_OPEN;
 
-  return rc;
+  return iRc;
 }
 
 /************************************************************************/
-//! @brief Get version.
-/*!
-   The version info can be retrieved to determine
-   which class is being used for a given dbf instance.
-   \returns 3
-*/
-
 xbInt16 xbDbf3::GetVersion() const {
   return 3;
 }
-
-
-
 /************************************************************************/
-//! @brief Open dbf file/table.
-/*!
-  \param sTableName DBF table name.
-  \param sAlias Table alias
-  \param iOpenMode XB_READ<br>XB_READ_WRITE
-  \param iShareMode XB_SINGLE_USER<br>XB_MULTI_USER
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbDbf3::Open( const xbString & sTableName, const xbString & sAlias, 
                          xbInt16 iOpenMode, xbInt16 iShareMode ){
   xbInt16 i, j, iRc = XB_NO_ERROR;
@@ -332,7 +294,6 @@ xbInt16 xbDbf3::Open( const xbString & sTableName, const xbString & sAlias,
   #endif
 
   try{
-
     /* verify the file is not already open */
     if( iDbfStatus != XB_CLOSED ){
       iErrorStop = 100;
@@ -456,7 +417,7 @@ xbInt16 xbDbf3::Open( const xbString & sTableName, const xbString & sAlias,
     xbString sMsg;
     sMsg.Sprintf( "xbdbf3::Open() Exception Caught Error Stop = [%d] iRc = [%d] ShareMode = [%d] OpenMode = [%d]", iErrorStop, iRc, iShareMode, iOpenMode );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
     xbFclose();
     if( RecBuf ){
       free( RecBuf );
@@ -487,12 +448,6 @@ xbInt16 xbDbf3::Open( const xbString & sTableName, const xbString & sAlias,
   return iRc;
 }
 /************************************************************************/
-//! @brief Rename table.
-/*!
-   This routine renames a give table, associated memo and inf files
-  \param sNewName - New file name.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbDbf3::Rename( const xbString sNewName ){
 
   xbInt16 iRc = XB_NO_ERROR;
@@ -549,7 +504,8 @@ xbInt16 xbDbf3::Rename( const xbString sNewName ){
     #endif // XB_INF_SUPPORT
 
     #ifdef XB_LOCKING_SUPPORT
-    if( GetAutoLock() && GetTableLocked() ){
+    //if( GetAutoLock() && GetTableLocked() ){
+    if( GetMultiUser() && GetTableLocked() ){
       if(( iRc = LockTable( XB_LOCK )) != XB_NO_ERROR ){
         iErrorStop = 100;
         throw iRc;
@@ -633,7 +589,7 @@ xbInt16 xbDbf3::Rename( const xbString sNewName ){
     xbString sMsg;
     sMsg.Sprintf( "xbdbf3::Rename() Exception Caught Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
 
     // attempt to reverse things out if unsuccessful
     if( bDbfRenamed ){
@@ -659,21 +615,8 @@ xbInt16 xbDbf3::Rename( const xbString sNewName ){
   return iRc;
 }
 
-
 /************************************************************************/
 #ifdef XB_MEMO_SUPPORT
-//! @brief Create memo block size.
-/*!
-   This routine sets the memo file block size. This value is used when 
-   the memo file is created so you if you want to change it, this must be 
-   called before creating the table.
-
-   DBF III Plus uses a block size of 512.
-
-  \param ulBlockSize - Block size, must be evenly divisible by 512.
-  \returns XB_INVALID_BLOCK_SIZE<br>XB_NO_ERROR
-*/
-
 xbInt16 xbDbf3::SetCreateMemoBlockSize( xbUInt32 ulBlockSize ){
 
   if( ulBlockSize != 512 )
@@ -686,35 +629,12 @@ xbInt16 xbDbf3::SetCreateMemoBlockSize( xbUInt32 ulBlockSize ){
 #endif
 
 /************************************************************************/
-//! @brief Set version.
-/*!
-   Sets the version to 3.  The version info can be retrieved to determine
-   which class is being used for a given dbf instance.
-   \returns 3
-*/
-
 xbInt16 xbDbf3::SetVersion() {
    iFileVersion = 3;
    return iFileVersion;
 }
-
-
 /************************************************************************/
-//! @brief Validate schema
-/*!
-  This routine verifies the field types are valid for Dbase III Plus (tm).
-
-  \param s Pointer to schema structure with field definitions.
-
-  \returns Number of fields or XB_INVALID_FIELD_TYPE.
-*/
-
 xbInt16 xbDbf3::ValidateSchema( xbSchema * s ){
-
-// This routine validates an input schema
-//  Negative return value is an error
-//  Positive return value is the number of fields
-//   On success, the class variable uiRecordLen will be updated with the record length of the combined total of the fields
 
   xbInt16 iFieldCnt = 0;
   uiRecordLen = 0;

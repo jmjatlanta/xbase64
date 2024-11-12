@@ -206,6 +206,28 @@ xbInt16 TestMethod( xbInt16 PrintOption, const char * title, xbInt32 result, xbI
   return rc;
 }
 
+xbInt16 TestMethod( xbInt16 PrintOption, const char * title, xbUInt64 result, xbUInt64 expectedResult ){
+  xbInt16 rc = 0;
+  if( result == expectedResult ){
+    if( PrintOption == 2 ){
+      xbString sMsg;
+      //sMsg.Sprintf( "[PASS][%3.4f] %s Expected matches actual Data=[%d]\n", ChronTime(), title,  expectedResult );
+
+      sMsg.Sprintf( "[PASS] %s Expected matches actual Data=[%d]\n", title,  expectedResult );
+      std::cout << sMsg.Str();
+      //  std::cout << "[PASS][" << ChronTime() << "] "  << title << " Expected matches actual Data=[" << expectedResult << "]" << std::endl;
+    } else if( PrintOption == 1 )
+      std::cout << "[PASS] " << title << std::endl;
+    rc = 0;
+  } else {
+    std::cout << std::endl << "[FAIL 4] " << title << std::endl;
+    std::cout << "  Expected Data = [" <<  expectedResult << "]" << std::endl;
+    std::cout << "  Actual Data   = [" << result << "]" << std::endl;
+    rc = -1;
+  }
+  return rc;
+}
+
 
 /*
 xbInt16 TestMethod( xbInt16 PrintOption, const char * title, xbUInt32 result, xbUInt32 expectedResult ){
@@ -226,25 +248,6 @@ xbInt16 TestMethod( xbInt16 PrintOption, const char * title, xbUInt32 result, xb
 }
 */
 
-xbInt16 TestMethod( xbInt16 PrintOption, const char * title, xbUInt64 result, xbUInt64 expectedResult ){
-  xbInt16 rc = 0;
-  if( result == expectedResult ){
-    if( PrintOption == 2 ){
-      xbString sMsg;
-      sMsg.Sprintf( "[PASS][%f] %3.4s Expected matches actual Data=[%ld]\n", ChronTime(), title, expectedResult );
-      std::cout << sMsg.Str();
-      //  std::cout << "[PASS][" << ChronTime() << "] "  << title << " Expected matches actual Data=[" << expectedResult << "]" << std::endl;
-    } else if( PrintOption == 1 )
-      std::cout << "[PASS] " << title << std::endl;
-    rc = 0;
-  } else {
-    std::cout << std::endl << "[FAIL 4] " << title << std::endl;
-    std::cout << "  Expected Data = [" <<  expectedResult << "]" << std::endl;
-    std::cout << "  Actual Data   = [" << result << "]" << std::endl;
-    rc = -1;
-  }
-  return rc;
-}
 
 xbInt16 TestMethod( xbInt16 PrintOption, const char * title, xbFloat result, xbFloat expectedResult ){
   xbInt16 rc = 0;

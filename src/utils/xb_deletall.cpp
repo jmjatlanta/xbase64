@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2017,2019,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2017,2019,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under 
 the terms of the GPL Version 3, 2007 license.
@@ -12,19 +12,13 @@ Email Contact:
     xb64-devel@lists.sourceforge.net
     xb64-users@lists.sourceforge.net
 
-
-
 This program sets the delete flag on all records in a dbf file
 
 */
 
 
 #include <xbase.h>
-
-
 using namespace xb;
-
-
 
 void PrintHelp();
 void PrintHelp(){
@@ -36,7 +30,6 @@ void PrintVersion();
 void PrintVersion(){
   std::cout << "Xbase64 Version: " << xbase_VERSION_MAJOR << "." << xbase_VERSION_MINOR << "." << xbase_VERSION_PATCH << std::endl;
 }
-
 
 int main(int argc, char *argv[])
 {
@@ -66,7 +59,8 @@ int main(int argc, char *argv[])
     return 1;
   }
 
-  if(( iRc = x.OpenHighestVersion( sParm.Str(), "", &MyFile )) != XB_NO_ERROR ){
+  // if(( iRc = x.OpenHighestVersion( sParm.Str(), "", &MyFile )) != XB_NO_ERROR ){
+  if(( iRc = x.Open( sParm.Str(), "", &MyFile )) != XB_NO_ERROR ){
     std::cout << "Could not open file RC = " << iRc  << " file = "  << sParm.Str() << std::endl;
     x.DisplayError( iRc );
     return 1;

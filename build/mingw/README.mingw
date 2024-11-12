@@ -1,4 +1,5 @@
 
+
 Mingw build steps for Xbase64 running on Windows - 3/7/23
 
 1)  Verify cmake is installed with command:  cmake --version

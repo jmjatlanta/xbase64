@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -33,28 +33,33 @@ xbIxMdx::xbIxMdx( xbDbf *dbf ) : xbIx( dbf ){
 /***********************************************************************/
 void xbIxMdx::Init( xbInt16 ){
 
-   cVersion          = 0;
-   cCreateYY         = 0;
-   cCreateMM         = 0;
-   cCreateDD         = 0;
-   sFileName         = "";
-   iBlockFactor      = 0;
-   cProdIxFlag       = 0;
-   cTagEntryCnt      = 0;
-   iTagLen           = 0;
-   iTagUseCnt        = 0;
-   cNextTag          = 0;
-   c1B               = 0x0b;
-   ulPageCnt         = 0;
-   ulFirstFreePage   = 0;
-   ulNoOfBlockAvail  = 0;
-   cUpdateYY         = 0;
-   cUpdateMM         = 0;
-   cUpdateDD         = 0;
-   mdxTagTbl         = NULL;
-   cNodeBuf          = NULL;
-   bReuseEmptyNodes  = xbTrue;
-   sIxType           = "MDX";
+   cVersion           = 0;
+   cCreateYY          = 0;
+   cCreateMM          = 0;
+   cCreateDD          = 0;
+   sFileName          = "";
+   iBlockFactor       = 0;
+   cProdIxFlag        = 0;
+   cTagEntryCnt       = 0;
+   iTagLen            = 0;
+   iTagUseCnt         = 0;
+   cNextTag           = 0;
+   c1B                = 0x0b;
+   ulPageCnt          = 0;
+   ulFirstFreePage    = 0;
+   ulNoOfBlockAvail   = 0;
+   cUpdateYY          = 0;
+   cUpdateMM          = 0;
+   cUpdateDD          = 0;
+   mdxTagTbl          = NULL;
+   cNodeBuf           = NULL;
+   sIxType            = "MDX";
+
+   if( xbase->GetDefaultIxTagMode() == XB_IX_XBASE_MODE )
+     bReuseEmptyNodes = xbTrue;
+   else
+     bReuseEmptyNodes = xbFalse;
+
 }
 /***********************************************************************/
 xbIxMdx::~xbIxMdx(){
@@ -72,15 +77,17 @@ xbIxMdx::~xbIxMdx(){
   Add key. If this is a unique index, this logic assumes the duplicate 
   check logic was already done.
 
-  \param vpTag Tag to update.
-  \param ulRecNo Record number to add key for.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param vpTag Tag to update.
+  @param ulRecNo Record number to add key for.
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 xbInt16 xbIxMdx::AddKey( void * vpTag, xbUInt32 ulRecNo ){
 
   xbMdxTag * npTag = (xbMdxTag *) vpTag;
-  if( GetUniqueKeyOpt() == XB_EMULATE_DBASE && npTag->bFoundSts )
+
+//  if( GetUniqueKeyOpt() == XB_EMULATE_DBASE && npTag->bFoundSts )
+  if( npTag->iIxTagMode == XB_IX_DBASE_MODE && npTag->bFoundSts )
     return XB_NO_ERROR;
 
   xbInt16 iRc = XB_NO_ERROR;
@@ -210,7 +217,7 @@ xbInt16 xbIxMdx::AddKey( void * vpTag, xbUInt32 ulRecNo ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::AddKey() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -232,10 +239,10 @@ void xbIxMdx::AppendNodeChain( void *vpTag, xbIxNode * npNode ){
 /***********************************************************************/
 //! @brief Add new root node.
 /*!
-  \param mpTag Tag to update.
-  \param npLeft Left node.
-  \param npRight Right node.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param mpTag Tag to update.
+  @param npLeft Left node.
+  @param npRight Right node.
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 xbInt16 xbIxMdx::AddKeyNewRoot(  xbMdxTag *npTag, xbIxNode *npLeft, xbIxNode *npRight ){
 
@@ -305,7 +312,7 @@ xbInt16 xbIxMdx::AddKeyNewRoot(  xbMdxTag *npTag, xbIxNode *npLeft, xbIxNode *np
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::AddKeyNewRoot() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
     if( pLastKey ) 
       free( pLastKey );
   }
@@ -317,10 +324,10 @@ xbInt16 xbIxMdx::AddKeyNewRoot(  xbMdxTag *npTag, xbIxNode *npLeft, xbIxNode *np
 /***********************************************************************/
 //! @brief Allocate a node.
 /*!
-  \param mpTag Pointer to mdx tag
-  \param ulBufSize Buffer size.
-  \param ulBlock2 Value to load in ulBlock2 field, bytes 4-7 in the first page of the block
-  \returns Pointer to new node.
+  @param mpTag Pointer to mdx tag
+  @param ulBufSize Buffer size.
+  @param ulBlock2 Value to load in ulBlock2 field, bytes 4-7 in the first page of the block
+  @returns Pointer to new node.
 */
 xbIxNode * xbIxMdx::AllocateIxNode( xbMdxTag * mpTag, xbUInt32 ulBufSize, xbUInt32 ulBlock2 ){
 
@@ -371,7 +378,7 @@ xbIxNode * xbIxMdx::AllocateIxNode( xbMdxTag * mpTag, xbUInt32 ulBufSize, xbUInt
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::AllocateIxNode() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
     if( n ) 
       n = FreeNodeChain( n );
   }
@@ -382,7 +389,7 @@ xbIxNode * xbIxMdx::AllocateIxNode( xbMdxTag * mpTag, xbUInt32 ulBufSize, xbUInt
 /*!
   Set binary tree pointer value.  The MDX tags are stored with binary 
   tree positions.  This routine calculates the value in memory.
-  \returns void
+  @returns void
 */
 
 void xbIxMdx::CalcBtreePointers(){
@@ -454,8 +461,8 @@ void xbIxMdx::CalcBtreePointers(){
 
   Assumes valid data input
 
-  \param ulBlockNo  Block Number
-  \returns Calculated page number.
+  @param ulBlockNo  Block Number
+  @returns Calculated page number.
 */
 
 inline xbUInt32 xbIxMdx::BlockToPage( xbUInt32 ulBlockNo ){
@@ -473,8 +480,8 @@ char xbIxMdx::CalcTagKeyFmt( xbExp &exp ){
 /***********************************************************************/
 //! @brief Check for duplicate key.
 /*!
-  \param vpTag Tag to check.
-  \returns XB_KEY_NOT_UNIQUE<br>XB_NO_ERROR
+  @param vpTag Tag to check.
+  @returns XB_KEY_NOT_UNIQUE<br>XB_NO_ERROR
 */
 
 xbInt16 xbIxMdx::CheckForDupKey( void *vpTag )
@@ -487,7 +494,8 @@ xbInt16 xbIxMdx::CheckForDupKey( void *vpTag )
     if( GetUnique( mpTag )){
       if( mpTag->iKeySts == XB_ADD_KEY || mpTag->iKeySts == XB_UPD_KEY )
         if( KeyExists( mpTag )){
-          if( GetUniqueKeyOpt() == XB_EMULATE_DBASE ){
+          //if( GetUniqueKeyOpt() == XB_EMULATE_DBASE ){
+          if( mpTag->iIxTagMode == XB_IX_DBASE_MODE ){
             mpTag->bFoundSts = xbTrue;
             return 0;
           } else {
@@ -501,7 +509,7 @@ xbInt16 xbIxMdx::CheckForDupKey( void *vpTag )
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::CheckForDupKey() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -510,12 +518,12 @@ xbInt16 xbIxMdx::CheckForDupKey( void *vpTag )
 /*!
   Check a tag for accuracy.
 
-  \param vpTag Tag to create key for.
-  \param iOpt Output message destination<br>
+  @param vpTag Tag to create key for.
+  @param iOpt Output message destination<br>
               0 = stdout<br>
               1 = Syslog<br>
               2 = Both<br>
-  \returns 1 - Unique Index - DBF records exist without corresponding index entries.<br>
+  @returns 1 - Unique Index - DBF records exist without corresponding index entries.<br>
            <a href="xbretcod_8h.html">Return Codes</a>
 */
 xbInt16 xbIxMdx::CheckTagIntegrity( void *vpTag, xbInt16 iOpt ){
@@ -525,7 +533,7 @@ xbInt16 xbIxMdx::CheckTagIntegrity( void *vpTag, xbInt16 iOpt ){
   xbInt16 iRc3;
   xbInt16 iErrorStop   = 0;
   xbInt16 iOutOfSync   = 0;
-  xbUInt32 ulIxCnt     = 0;
+  xbUInt32 ulIxKeyCnt  = 0;
   xbUInt32 ulThisRecNo = 0;
   xbUInt32 ulPrevRecNo = 0;
   xbBool bDone = false;
@@ -535,20 +543,53 @@ xbInt16 xbIxMdx::CheckTagIntegrity( void *vpTag, xbInt16 iOpt ){
   xbMdxTag *npTag = (xbMdxTag *) vpTag;
   xbBool bDescending = npTag->cKeyFmt2 & 0x08;
 
+  #ifdef XB_BLOCKREAD_SUPPORT
+  xbBool bOriginalBlockReadStatus = dbf->GetBlockReadStatus();
+  #endif
+
+
   #ifdef XB_LOCKING_SUPPORT
   xbBool bLocked = xbFalse;
   #endif
 
   try{
 
+    cKeyType = GetKeyType( vpTag );
+
+    sMsg = "*** Check MDX Tag Integrity ***";
+    xbase->WriteLogMessage( sMsg, iOpt );
+    sMsg.Sprintf( "TagName             = [%s]", GetTagName( vpTag ).Str());
+    xbase->WriteLogMessage( sMsg, iOpt );
+    sMsg.Sprintf( "KeyType             = [%c]", cKeyType );
+
+    if( GetUnique( vpTag ))
+      sMsg = "Unique Index        = [ON]";
+    else
+      sMsg = "Unique Index        = [OFF]";
+    xbase->WriteLogMessage( sMsg, iOpt );
+
+    if( npTag->iIxTagMode == XB_IX_DBASE_MODE )
+      sMsg = "Tag Processing Mode = [XB_IX_DBASE_MODE]";
+    else if( npTag->iIxTagMode == XB_IX_XBASE_MODE )
+      sMsg = "Tag Processing Mode = [XB_IX_XBASE_MODE]";
+    else
+      sMsg = "Unknown tag procesing option set";
+    xbase->WriteLogMessage( sMsg, iOpt );
+
     #ifdef XB_LOCKING_SUPPORT
-    if( dbf->GetAutoLock() && !dbf->GetTableLocked() ){
+    //if( dbf->GetAutoLock() && !dbf->GetTableLocked() ){
+    if( dbf->GetMultiUser() && !dbf->GetTableLocked() ){
       if(( iRc = dbf->LockTable( XB_LOCK )) != XB_NO_ERROR ){
         iErrorStop = 100;
         throw iRc;
       }
       bLocked = xbTrue;
     }
+    #endif
+
+    #ifdef XB_BLOCKREAD_SUPPORT
+    if( !bOriginalBlockReadStatus )
+      dbf->EnableBlockReadProcessing();
     #endif
 
     memset( npTag->cpKeyBuf2, 0x00, (size_t) npTag->iKeyLen );
@@ -561,7 +602,7 @@ xbInt16 xbIxMdx::CheckTagIntegrity( void *vpTag, xbInt16 iOpt ){
 
     // for each key in the index, make sure it is trending in the right direction
     while( iRc == XB_NO_ERROR && !bDone ){
-      ulIxCnt++;
+      ulIxKeyCnt++;
 
       iRc = GetNextKey( vpTag, 0 );
       if( iRc == XB_NO_ERROR ){
@@ -571,23 +612,31 @@ xbInt16 xbIxMdx::CheckTagIntegrity( void *vpTag, xbInt16 iOpt ){
                           pPrevKeyBuf, (size_t) npTag->iKeyLen );
 
         if(( iRc2 < 0 && !bDescending ) || ( iRc2 > 0 && bDescending )){
-          sMsg.Sprintf( "Key sequence error at key number [%ld].", ulIxCnt );
+          sMsg.Sprintf( "Key sequence error at key number [%ld].", ulIxKeyCnt );
           xbase->WriteLogMessage( sMsg, iOpt );
           iErrorStop = 110;
           iRc = XB_INVALID_INDEX;
           throw iRc;
         }
 
+        if( iRc2 == 0 && GetUnique( vpTag )){
+          sMsg.Sprintf( "Duplicate key at key number [%ld].", ulIxKeyCnt );
+          xbase->WriteLogMessage( sMsg, iOpt );
+          iErrorStop = 120;
+          iRc = XB_INVALID_INDEX;
+          throw iRc;
+        }
+
         ulThisRecNo = 0;
         if(( iRc3 = GetDbfPtr( vpTag, npTag->npCurNode->iCurKeyNo, npTag->npCurNode, ulThisRecNo )) != XB_NO_ERROR ){
-          iErrorStop = 120;
+          iErrorStop = 130;
           throw iRc3;
         }
 
         if( iRc2 == 0 && (ulThisRecNo <= ulPrevRecNo )){
           sMsg.Sprintf( "Dbf record number sequence error at key number [%ld].", iOpt );
           xbase->WriteLogMessage( sMsg, iOpt );
-          iErrorStop = 130;
+          iErrorStop = 140;
           iRc = XB_INVALID_INDEX;
           throw iRc;
         }
@@ -599,7 +648,7 @@ xbInt16 xbIxMdx::CheckTagIntegrity( void *vpTag, xbInt16 iOpt ){
 
     xbUInt32 ulDbfCnt = 0;
     if(( iRc = dbf->GetRecordCnt( ulDbfCnt )) != XB_NO_ERROR ){
-      iErrorStop = 140;
+      iErrorStop = 150;
       throw iRc;
     }
 
@@ -607,102 +656,140 @@ xbInt16 xbIxMdx::CheckTagIntegrity( void *vpTag, xbInt16 iOpt ){
     xbBool bFiltered = xbTrue;
     // verify each record in the dbf file has a corresponding index entry
     xbUInt32 j = 0;
+
     while( j < ulDbfCnt ){
 
       if(( iRc = dbf->GetRecord( ++j )) != XB_NO_ERROR ){
-        iErrorStop = 150;
+        iErrorStop = 160;
         throw iRc;
       }
       if( npTag->cHasFilter ){
         if(( iRc = npTag->filter->ProcessExpression( 0 )) != XB_NO_ERROR ){
-          iErrorStop = 160;
-          throw iRc;
-        }
-        if(( iRc = npTag->filter->GetBoolResult( bFiltered )) != XB_NO_ERROR ){
           iErrorStop = 170;
           throw iRc;
         }
+        if(( iRc = npTag->filter->GetBoolResult( bFiltered )) != XB_NO_ERROR ){
+          iErrorStop = 180;
+          throw iRc;
+        }
       }
 
-      if( bFiltered ){
+      iRc = FindKeyForCurRec( vpTag );
+      if( iRc != XB_NO_ERROR && iRc != XB_NOT_FOUND ){
+        iErrorStop = 190;
+        throw iRc;
+      }
 
-        if( GetUniqueKeyOpt() == XB_EMULATE_DBASE && GetUnique( vpTag )) {
-          if(( iRc = KeyExists( vpTag )) != 1 ){
+      // if found && should not be found, throw an error
+      if( iRc == XB_NO_ERROR && (!bFiltered || (npTag->iIxTagMode == XB_IX_XBASE_MODE && dbf->RecordDeleted() ))){
+        iErrorStop = 200;
+        iRc = XB_INVALID_INDEX;
+        throw iRc;
+      }
+
+      // if not found and should be found, throw an error 
+      if( iRc != XB_NO_ERROR ){
+        // dBASE mode unique indices can have multiple records with one index entry
+        if( npTag->iIxTagMode == XB_IX_DBASE_MODE && GetUnique( vpTag )){
+          if(( iRc2 = KeyExists( vpTag )) != 1 ){
             ulThisRecNo = j;
-            iErrorStop = 180;
-            throw iRc;
-          }
-        } else {
-          if(( iRc = FindKeyForCurRec( vpTag )) != XB_NO_ERROR ){
-            ulThisRecNo = j;
-            iErrorStop = 190;
-            throw iRc;
+            iErrorStop = 210;
+            iRc = XB_INVALID_INDEX;
+            throw iRc2;
           }
         }
-        ulFiltCnt++;
       }
+      ulFiltCnt++;
     }
 
 
-    if( ulIxCnt > ulFiltCnt ){
-      // should not be more records in index file than valid record count
-      sMsg.Sprintf( "CheckTagIntegrity()  Index tag entry count [%ld] greater than record count [%ld]", ulIxCnt, ulFiltCnt );
-      iErrorStop = 200;
+    if( npTag->iIxTagMode == XB_IX_XBASE_MODE && ulIxKeyCnt != ulFiltCnt ){
+      // index rec count should match dbf rec cnt
+      sMsg.Sprintf( "CheckTagIntegrity()  Index tag entry count [%ld] greater than record count [%ld]", ulIxKeyCnt, ulFiltCnt );
+      iErrorStop = 220;
       throw iRc;
     }
 
 
-    if((GetUniqueKeyOpt() == XB_EMULATE_DBASE) && (GetUnique( vpTag ))){
+    if( npTag->iIxTagMode == XB_IX_DBASE_MODE && GetUnique(vpTag)){
+      // can't compare counts if using XB_IX_DBASE_MODE with unique index flag set
+      // dBASE handles unique keys by only indicing the first record for a given index key
+      // dBASE  might have more than one record in a DBF file with the same key, only the first one is in a unique index
+      if( ulIxKeyCnt != ulFiltCnt ){
+        sMsg.Sprintf( "CheckTagIntegrity()  Warning - Index entry count [%ld] does not match dbf record count [%ld]", ulIxKeyCnt, ulDbfCnt );
+        xbase->WriteLogMessage( sMsg, iOpt );
+        sMsg.Sprintf( "Unique Index with multiple data records per key. Not an unexpected result in XB_IX_DBASE_MODE mode.");
+        xbase->WriteLogMessage( sMsg, iOpt );
+        iOutOfSync = 1;
+      }
+    }
+
+
+/*
+    //if((GetUniqueKeyOpt() == XB_EMULATE_DBASE) && (GetUnique( vpTag ))){
+    if( npTag->iIxTagMode == XB_IX_DBASE_MODE && (GetUnique( vpTag ))){
       // can't compare counts if using XB_EMULATE_DBASE and it's a unique index
-      if( ulIxCnt != ulFiltCnt ){
-        // DBase handles unique keys by only indicing the first record for a given index key
-        // DBase  might have more than one record in a DBF file with the same key, only the first one is in a unique index
-        sMsg.Sprintf( "CheckTagIntegrity()  Warning - Index entry count [%ld] does not match dbf record count [%ld]", ulIxCnt, ulDbfCnt );
+      if( ulIxKeyCnt != ulFiltCnt ){
+        // dBASE handles unique keys by only indicing the first record for a given index key
+        // dBASE might have more than one record in a DBF file with the same key, only the first one is in a unique index
+        sMsg.Sprintf( "CheckTagIntegrity()  Warning - Index entry count [%ld] does not match dbf record count [%ld]", ulIxKeyCnt, ulDbfCnt );
         xbase->WriteLogMessage( sMsg, iOpt );
         sMsg.Sprintf( "Unique Index with multiple data records per key. Not an unexpected result in XB_EMULATE_DBASE mode.");
         xbase->WriteLogMessage( sMsg, iOpt );
         iOutOfSync = 1;
       }
     } else {
-      if( ulIxCnt != ulFiltCnt && GetUniqueKeyOpt() == XB_HALT_ON_DUPKEY ){
+      //if( ulIxCnt != ulFiltCnt && GetUniqueKeyOpt() == XB_HALT_ON_DUPKEY ){
+      if( ulIxKeyCnt != ulFiltCnt && npTag->iIxTagMode == XB_IX_XBASE_MODE ){
         if( npTag->cHasFilter )
-          sMsg.Sprintf( "xbIxMdx::CheckTagIntegrity()  Filtered index entry count [%ld] does not match dbf record count [%ld] for tag [%s]", ulIxCnt, ulFiltCnt, npTag->cTagName );
+          sMsg.Sprintf( "xbIxMdx::CheckTagIntegrity()  Filtered index entry count [%ld] does not match dbf record count [%ld] for tag [%s]", ulIxKeyCnt, ulFiltCnt, npTag->cTagName );
         else
-          sMsg.Sprintf( "xbIxMdx::CheckTagIntegrity()  Index entry count [%ld] does not match dbf record count [%ld] for tag [%s]", ulIxCnt, ulFiltCnt, npTag->cTagName );
+          sMsg.Sprintf( "xbIxMdx::CheckTagIntegrity()  Index entry count [%ld] does not match dbf record count [%ld] for tag [%s]", ulIxKeyCnt, ulFiltCnt, npTag->cTagName );
 
         xbase->WriteLogMessage( sMsg, iOpt );
-        iErrorStop = 210;
+        iErrorStop = 220;
         iRc = XB_INVALID_INDEX;
         throw iRc;
       }
       if( npTag->cHasFilter )
-        sMsg.Sprintf( "xbIxMdx::CheckTagIntegrity()  Filtered index entry count [%ld]  matches dbf record count [%ld] for tag [%s]", ulIxCnt, ulFiltCnt, npTag->cTagName );
+        sMsg.Sprintf( "xbIxMdx::CheckTagIntegrity()  Filtered index entry count [%ld]  matches dbf record count [%ld] for tag [%s]", ulIxKeyCnt, ulFiltCnt, npTag->cTagName );
       else
-        sMsg.Sprintf( "xbIxMdx::CheckTagIntegrity()  Index entry count [%ld]  matches dbf record count [%ld] for tag [%s]", ulIxCnt, ulFiltCnt, npTag->cTagName );
+        sMsg.Sprintf( "xbIxMdx::CheckTagIntegrity()  Index entry count [%ld]  matches dbf record count [%ld] for tag [%s]", ulIxKeyCnt, ulFiltCnt, npTag->cTagName );
       xbase->WriteLogMessage( sMsg, iOpt );
     }
+*/
 
-    if( pPrevKeyBuf )
-      free( pPrevKeyBuf );
   }
   catch (xbInt16 iRc ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::CheckTagIntegrity() Exception Caught. Error Stop = [%d] iRc = [%d] Tag = [%s]", iErrorStop, iRc, npTag->cTagName );
     xbase->WriteLogMessage( sMsg, iOpt );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ), iOpt );
-    if( pPrevKeyBuf )
-      free( pPrevKeyBuf );
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ), iOpt );
 
     if( iErrorStop == 160 ){
       sMsg.Sprintf( "xbIxMdx::CheckTagIntegrity() Missing index entry for record [%d]", ulThisRecNo );
       xbase->WriteLogMessage( sMsg, iOpt );
     }
   }
+
   #ifdef XB_LOCKING_SUPPORT
   if( bLocked ){
     dbf->LockTable( XB_UNLOCK );
   }
   #endif
+
+  #ifdef XB_BLOCKREAD_SUPPORT
+  if( !bOriginalBlockReadStatus )
+    dbf->DisableBlockReadProcessing();
+  #endif
+
+  if( pPrevKeyBuf )
+    free( pPrevKeyBuf );
+
+  if( iRc == XB_NO_ERROR ){
+    sMsg.Sprintf( "Tag [%s] OK.", GetTagName( vpTag ).Str());
+    xbase->WriteLogMessage( sMsg, iOpt );
+  }
 
   if( iRc )              // if hard error, return error code
     return iRc;
@@ -756,7 +843,7 @@ xbInt16 xbIxMdx::Close(){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::Close() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -765,9 +852,9 @@ xbInt16 xbIxMdx::Close(){
 //! @brief Create key.
 /*!
 
-  \param vpTag Tag
-  \param iOpt 1 = Append, 2 = Update
-  \returns XB_KEY_NOT_UNIQUE<br>XB_NO_ERROR
+  @param vpTag Tag
+  @param iOpt 1 = Append, 2 = Update
+  @returns XB_KEY_NOT_UNIQUE<br>XB_NO_ERROR
 
   iKeySts     0 - No Updates
               1 - Add Key        XB_ADD_KEY
@@ -831,10 +918,15 @@ xbInt16 xbIxMdx::CreateKey( void *vpTag, xbInt16 iOpt ){
        memcpy( npTag->cpKeyBuf, &d, 8 );
     }
 
-    if( iOpt == 1 )                 // Append
-      npTag->iKeySts = XB_ADD_KEY;
+    if( iOpt == 1 ){                 // Append
+      //if(!( GetDropDeletedKeyOpt() && dbf->RecordDeleted())){    // don't add deleted record to index
+      if(!( npTag->iIxTagMode == XB_IX_XBASE_MODE && dbf->RecordDeleted())){    // don't add deleted record to index
+        npTag->iKeySts = XB_ADD_KEY;
+      }
+    }
 
     else if( iOpt == 2 ){           // Update
+
       if( npTag->cHasFilter ){
         if(( iRc = npTag->filter->ProcessExpression( 1 )) != XB_NO_ERROR ){
           iErrorStop = 130;
@@ -848,8 +940,27 @@ xbInt16 xbIxMdx::CreateKey( void *vpTag, xbInt16 iOpt ){
         bFilter1 = xbTrue;
       }
 
+      // if DeletedKeyOpt and filter1 is set, verify the original key physically exists
+      // if( GetDropDeletedKeyOpt() && bFilter1 ){
+      if( npTag->iIxTagMode == XB_IX_XBASE_MODE && bFilter1 ){
+        xbIxNode * npSaveNodeChain = npTag->npNodeChain;
+        xbIxNode * npSaveCurNode = npTag->npCurNode;
+        npTag->npNodeChain = NULL;
+        iRc = FindKeyForCurRec( vpTag );
+        FreeNodeChain( npTag->npNodeChain );
+        npTag->npNodeChain = npSaveNodeChain;
+        npTag->npCurNode = npSaveCurNode;
+
+        if( iRc == XB_NOT_FOUND || iRc == XB_EMPTY || iRc == XB_EOF )
+          bFilter1 = xbFalse;
+        else if( iRc != XB_NO_ERROR ){
+          iErrorStop = 150;
+          throw iRc;
+        }
+      }
+
       if(( iRc = npTag->exp->ProcessExpression( 1 )) != XB_NO_ERROR ){
-        iErrorStop = 150;
+        iErrorStop = 160;
         throw iRc;
       }
 
@@ -870,6 +981,20 @@ xbInt16 xbIxMdx::CreateKey( void *vpTag, xbInt16 iOpt ){
       }
 
       if( bFilter1 ){     // original key was indexed
+        // if( !bFilter0 || ( GetDropDeletedKeyOpt() && dbf->RecordDeleted()) ){   // new key s/b not indexed or rec deleted
+        if( !bFilter0 || ( npTag->iIxTagMode == XB_IX_XBASE_MODE && dbf->RecordDeleted()) ){   // new key s/b not indexed or rec deleted
+          npTag->iKeySts = XB_DEL_KEY;
+        } else if( bFilter0 && memcmp( npTag->cpKeyBuf, npTag->cpKeyBuf2, (size_t) npTag->iKeyLen )){ // new key s/b updated and it changed
+          npTag->iKeySts = XB_UPD_KEY;
+        }
+      } else {            // original key not indexed
+        //if( bFilter0 && !( GetDropDeletedKeyOpt() && dbf->RecordDeleted()))
+        if( bFilter0 && !( npTag->iIxTagMode == XB_IX_XBASE_MODE && dbf->RecordDeleted()))
+          npTag->iKeySts = XB_ADD_KEY;
+      }
+
+      /* pre 4.1.18
+      if( bFilter1 ){     // original key was indexed
         if( bFilter0 ){   // new key s/b indexed, update it if changed
           if( memcmp( npTag->cpKeyBuf, npTag->cpKeyBuf2, (size_t) npTag->iKeyLen )){
             npTag->iKeySts = XB_UPD_KEY;
@@ -881,13 +1006,15 @@ xbInt16 xbIxMdx::CreateKey( void *vpTag, xbInt16 iOpt ){
         if( bFilter0 )
           npTag->iKeySts = XB_ADD_KEY;
       }
+      */
+
     }
   }
   catch (xbInt16 iRc ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::CreateKey() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -898,14 +1025,14 @@ xbInt16 xbIxMdx::CreateKey( void *vpTag, xbInt16 iOpt ){
   the newly created tag.
 
 
-  \param sName Tag Name, including .MDX suffix
-  \param sKey Key Expression
-  \param sFilter Filter expression.
-  \param iDescending 
-  \param iUnique xbtrue - Unique.<br>xbFalse - Not unique.
-  \param iOverLay xbTrue - Overlay if file already exists.<br>xbFalse - Don't overlay.
-  \param vpTag Output from method Pointer to vptag pointer.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param sName Tag Name, including .MDX suffix
+  @param sKey Key Expression
+  @param sFilter Filter expression.
+  @param iDescending 
+  @param iUnique xbtrue - Unique.<br>xbFalse - Not unique.
+  @param iOverLay xbTrue - Overlay if file already exists.<br>xbFalse - Don't overlay.
+  @param vpTag Output from method Pointer to vptag pointer.
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 
@@ -1022,7 +1149,9 @@ xbInt16  xbIxMdx::CreateTag( const xbString &sName, const xbString &sKey, const 
       GetFileNamePart( sFileName );
       sFileName.ToUpperCase();
 
-      SetBlockSize( (xbUInt32) dbf->GetCreateMdxBlockSize());
+      // SetBlockSize( (xbUInt32) dbf->GetCreateMdxBlockSize());
+      SetBlockSize( (xbUInt32) xbase->GetCreateMdxBlockSize());
+
       iBlockFactor     = GetBlockSize() / 512;
 
       cProdIxFlag      = 1;
@@ -1042,6 +1171,9 @@ xbInt16  xbIxMdx::CreateTag( const xbString &sName, const xbString &sKey, const 
         throw iRc;
       }
     }
+
+    // set the tag mode
+    tte->iIxTagMode    = xbase->GetDefaultIxTagMode();
 
     // populate the tag table entry structure
     tte->ulTagHdrPageNo = ulPageCnt;
@@ -1221,7 +1353,7 @@ xbInt16  xbIxMdx::CreateTag( const xbString &sName, const xbString &sKey, const 
     }
 
     // update the dbf file if needed - discreet field, has no filter
-    // 10/15/22 - dbase 7 does not update this field on index creation
+    // 10/15/22 - dBASE 7 does not update this field on index creation
     if( tte->cKeyFmt3 == 0x01 && !tte->cHasFilter ){
       // printf( "cKeyFmt3 = [%x]\n", tte->cKeyFmt3 );
       xbInt16 iFldNo;
@@ -1307,7 +1439,7 @@ xbInt16  xbIxMdx::CreateTag( const xbString &sName, const xbString &sKey, const 
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::CreateTag() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
 
   return iRc;
@@ -1317,10 +1449,10 @@ xbInt16  xbIxMdx::CreateTag( const xbString &sName, const xbString &sKey, const 
 //! @brief Delete a key from a node.
 /*!
   This routine deletes a key from a supplied node.
-  \param vpTag Tag to delete key on.
-  \param npNode Node to delete key on.
-  \param iSlotNo Slot number of key to delete.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param vpTag Tag to delete key on.
+  @param npNode Node to delete key on.
+  @param iSlotNo Slot number of key to delete.
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 xbInt16 xbIxMdx::DeleteFromNode( void *vpTag, xbIxNode * npNode, xbInt16 iSlotNo )
 {
@@ -1383,7 +1515,7 @@ xbInt16 xbIxMdx::DeleteFromNode( void *vpTag, xbIxNode * npNode, xbInt16 iSlotNo
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::DeleteFromNode() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return XB_NO_ERROR;
 }
@@ -1394,9 +1526,9 @@ xbInt16 xbIxMdx::DeleteFromNode( void *vpTag, xbIxNode * npNode, xbInt16 iSlotNo
   This routine deletes a key. It assumes the key to delete
   is the current key in the node chain.
 
-  \param vpTag Tag to delete key on.
+  @param vpTag Tag to delete key on.
 
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 xbInt16 xbIxMdx::DeleteKey( void *vpTag ){
@@ -1501,7 +1633,7 @@ xbInt16 xbIxMdx::DeleteKey( void *vpTag ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::DeleteKey() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
     if( npSaveNodeChain ){
       npTag->npNodeChain = npSaveNodeChain;
       npSaveNodeChain = FreeNodeChain( npSaveNodeChain );
@@ -1514,8 +1646,8 @@ xbInt16 xbIxMdx::DeleteKey( void *vpTag ){
 /***********************************************************************/
 //! @brief Delete a given tag
 /*!
-  \param vpTag Input tag ptr for tag to be deleted<br>
-  \returns <a href="xbretcod_8h.html">Return Codes</a><br>
+  @param vpTag Input tag ptr for tag to be deleted<br>
+  @returns <a href="xbretcod_8h.html">Return Codes</a><br>
             1 = Deleted entire MDX file, only had one tag
 
 */
@@ -1694,7 +1826,7 @@ xbInt16 xbIxMdx::DeleteTag( void *vpTag ){
   catch (xbInt16 iRc ){
     sMsg.Sprintf( "xbIxMdx::DeleteTag() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
     if( n )
       free( n );
   }
@@ -1710,15 +1842,15 @@ xbInt16 xbIxMdx::DeleteTag( void *vpTag ){
 
 //! @brief Dump a given block for a tag
 /*!
-  \param iOpt Output message destination<br>
+  @param iOpt Output message destination<br>
               0 = stdout<br>
 
 
               1 = Syslog<br>
               2 = Both<br>
-  \param ulBlockNo Block number to dump
-  \param mpTag Index tag pointer
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param ulBlockNo Block number to dump
+  @param mpTag Index tag pointer
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 
 */
 
@@ -1795,7 +1927,7 @@ xbInt16 xbIxMdx::DumpBlock( xbInt16 iOpt, xbUInt32 ulBlockNo, xbMdxTag *mpTag ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::DumpBlock() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -1805,11 +1937,11 @@ xbInt16 xbIxMdx::DumpBlock( xbInt16 iOpt, xbUInt32 ulBlockNo, xbMdxTag *mpTag ){
 /*!
   Dump free blocks for index debugging purposes.
 
-  \param iOpt Output message destination<br>
+  @param iOpt Output message destination<br>
               0 = stdout<br>
               1 = Syslog<br>
               2 = Both<br>
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 
 */
 xbInt16 xbIxMdx::DumpFreeBlocks( xbInt16 iOpt ){
@@ -1895,7 +2027,7 @@ xbInt16 xbIxMdx::DumpFreeBlocks( xbInt16 iOpt ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::DumpFreeBlocks() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
     if( pBuf ) free( pBuf );
   }
   return iRc;
@@ -1911,12 +2043,12 @@ xbInt16 xbIxMdx::DumpFreeBlocks( xbInt16 iOpt ){
   The default mdx block size is 2 pages, or 1024 bytes<br>
   The first four pages or header pages<br>
 
-  \param iOpt Output message destination<br>
+  @param iOpt Output message destination<br>
               0 = stdout<br>
               1 = Syslog<br>
               2 = Both<br>
-  \param vpTag Index tag pointer, defaults to all tags if null.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param vpTag Index tag pointer, defaults to all tags if null.
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 
 */
 
@@ -2003,7 +2135,7 @@ xbInt16 xbIxMdx::DumpTagBlocks( xbInt16 iOpt, void * vpTag ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::DumpTagBlocks() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -2011,15 +2143,15 @@ xbInt16 xbIxMdx::DumpTagBlocks( xbInt16 iOpt, void * vpTag ){
 //! @brief Dump index file header.
 /*!
   Dump a index file header for debugging purposes.
-  \param iOpt Output message destination<br>
+  @param iOpt Output message destination<br>
               0 = stdout<br>
               1 = Syslog<br>
               2 = Both<br>
-  \param iFmtOpt Output Format<br>
+  @param iFmtOpt Output Format<br>
               0, 1 = Header info only<br>
               2 = Tag info<br>
               3 = Header && Tag info<br>
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 xbInt16 xbIxMdx::DumpHeader( xbInt16 iOpt, xbInt16 iFmtOpt )
 {
@@ -2277,7 +2409,7 @@ xbInt16 xbIxMdx::DumpIxForTag( void *vpTag, xbInt16 iOutputOpt )
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::DumpIxForTag() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -2521,30 +2653,85 @@ xbInt16 xbIxMdx::FindKey( void *vpTag, const void * vpKey,
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::FindKey() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
 
 /***********************************************************************/
-xbInt16 xbIxMdx::FindKeyForCurRec( void * vpTag )
+xbInt16 xbIxMdx::FindKeyForCurRec( void * vpTag, xbInt16 iRetrieveSw )
 {
 
-  xbInt16 iRc = XB_NO_ERROR;
-  xbInt16 iErrorStop = 0;
-  xbInt16 i = 0;
+  xbInt16  iRc = XB_NO_ERROR;
+  xbInt16  iErrorStop = 0;
+  xbInt16  i = 0;
+  xbMdxTag *mpTag = (xbMdxTag *) vpTag;
 
   try{
     if(( iRc = CreateKey( vpTag, 0 )) < XB_NO_ERROR ){
       iErrorStop = 100;
       throw iRc;
     }
+
+    // find key
+    iRc = FindKey( vpTag, mpTag->cpKeyBuf, mpTag->iKeyLen, iRetrieveSw );
+    if( iRc == XB_NOT_FOUND || iRc == XB_EMPTY || iRc == XB_EOF )
+       return iRc;
+
+    if( iRc != XB_NO_ERROR ){
+      iErrorStop = 110;
+      throw iRc;
+    }
+
+    // if keys are unique, and the record number matches, then we are good
+    if( GetUnique( mpTag ))
+      return XB_NO_ERROR;
+
+    // get here if key found and not unique, need to move forward looking for correct rec no
+    xbUInt32 ulDbfRecNo = dbf->GetCurRecNo();
+    xbBool bKeysMatch  = true;     // keys match?
+    xbBool bCurRecsMatch = false;  // cur recod number matches?
+    xbUInt32 ulIxRecNo = 0;
+    char cKeyType = GetKeyType( vpTag );
+
+    if(( iRc = GetDbfPtr( vpTag, mpTag->npCurNode->iCurKeyNo, mpTag->npCurNode, ulIxRecNo )) != XB_NO_ERROR ){
+      iErrorStop = 120;
+      throw iRc;
+    }
+    if( ulIxRecNo == ulDbfRecNo )
+      bCurRecsMatch = true;
+
+    xbInt16 iCompRc;
+    while( !bCurRecsMatch && bKeysMatch ){
+
+      if(( iRc = GetNextKey( vpTag, 0 )) != XB_NO_ERROR ){
+        iErrorStop = 130;
+        throw iRc;
+      }
+
+      // do compare key here
+      iCompRc = CompareKey( cKeyType, mpTag->cpKeyBuf, GetKeyData( mpTag->npCurNode, mpTag->npCurNode->iCurKeyNo, mpTag->iKeyItemLen ), (size_t) mpTag->iKeyLen );
+      if( iCompRc != 0 )
+        bKeysMatch = false;
+      else{
+        if(( iRc = GetDbfPtr( vpTag, mpTag->npCurNode->iCurKeyNo, mpTag->npCurNode, ulIxRecNo )) != XB_NO_ERROR ){
+          iErrorStop = 140;
+          throw iRc;
+        }
+        if( ulIxRecNo == ulDbfRecNo )
+          bCurRecsMatch = true;
+      }
+    }
+
+    if( ulIxRecNo != ulDbfRecNo )
+      return XB_NOT_FOUND;
+
   }
   catch (xbInt16 iRc ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::FindKeyForCurRec() Exception Caught. Error Stop = [%d] iRc = [%d] Tag=[%d]", iErrorStop, iRc, i );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return XB_NO_ERROR;
 }
@@ -2582,11 +2769,11 @@ xbInt16 xbIxMdx::GetCurKeyVal( void *vpTag, xbDate &dt ){
 /***********************************************************************/
 //! @brief Get dbf record number for given key number.
 /*!
-  \param vpTag Tag to retrieve dbf rec number on.
-  \param iKeyNo Key number for retrieval
-  \param np Pointer to node
-  \param ulDbfPtr- Output dbf record number
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param vpTag Tag to retrieve dbf rec number on.
+  @param iKeyNo Key number for retrieval
+  @param np Pointer to node
+  @param ulDbfPtr- Output dbf record number
+  @returns  XB_NO_ERROR<br>XB_INVALID_KEYNO
 */
 xbInt16 xbIxMdx::GetDbfPtr( void *vpTag, xbInt16 iKeyNo, xbIxNode *np, xbUInt32 &ulDbfPtr ) const {
 
@@ -2613,17 +2800,17 @@ xbInt16 xbIxMdx::GetDbfPtr( void *vpTag, xbInt16 iKeyNo, xbIxNode *np, xbUInt32 
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::GetDbfPtr() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
 
 /***********************************************************************/
 /*!
-  \param vpTag Tag to retrieve first key on.
-  \param iRetrieveSw xbTrue - Retrieve the record on success.<br>
+  @param vpTag Tag to retrieve first key on.
+  @param iRetrieveSw xbTrue - Retrieve the record on success.<br>
                      xbFalse - Don't retrieve record.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 xbInt16 xbIxMdx::GetFirstKey( void *vpTag, xbInt16 iRetrieveSw = 0 ){
@@ -2725,7 +2912,7 @@ xbInt16 xbIxMdx::GetFirstKey( void *vpTag, xbInt16 iRetrieveSw = 0 ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::GetFirstKey() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -2737,10 +2924,22 @@ xbInt16 xbIxMdx::GetFirstKey( void *vpTag, xbInt16 iRetrieveSw = 0 ){
 //}
 
 /***********************************************************************/
+//! @brief Get the mode for the given tag.
+/*!
+  @param vpTag Tag to retrieve mode from.
+  @returns One of XB_IX_DBASE_MODE or XB_IX_XBASE_MODE
+*/
+
+xbInt16 xbIxMdx::GetIxTagMode( const void *vpTag ) const {
+  xbMdxTag * mpTag = (xbMdxTag *) vpTag;
+  return mpTag->iIxTagMode;
+}
+
+/***********************************************************************/
 //! @brief Get the key expression for the given tag.
 /*!
-  \param vpTag Tag to retrieve key expression from tag.
-  \returns Key expression.
+  @param vpTag Tag to retrieve key expression from tag.
+  @returns Key expression.
 */
 
 xbString &xbIxMdx::GetKeyExpression( const void * vpTag ) const{
@@ -2751,8 +2950,8 @@ xbString &xbIxMdx::GetKeyExpression( const void * vpTag ) const{
 /***********************************************************************/
 //! @brief Get the key expression for the given tag.
 /*!
-  \param vpTag Tag to retrieve filter expression from tag (if it exists).
-  \returns Key filter.
+  @param vpTag Tag to retrieve filter expression from tag (if it exists).
+  @returns Key filter.
 */
 
 xbString &xbIxMdx::GetKeyFilter( const void * vpTag ) const{
@@ -2789,15 +2988,15 @@ xbInt16 xbIxMdx::GetKeyPtr( void *vpTag, xbInt16 iKeyNo, xbIxNode *np, xbUInt32 
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::GetKeyPtr() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
 /***********************************************************************/
 //! @brief Returns key update status.
 /*!
-  \param vpTag Tag to check status on.
-  \returns XB_UPD_KEY  Key updated.<br>
+  @param vpTag Tag to check status on.
+  @returns XB_UPD_KEY  Key updated.<br>
            XB_DEL_KEY  Key deleted.<br>
            XB_ADD_KEY  Key added.<br>
            0           No key updates
@@ -2818,10 +3017,10 @@ char xbIxMdx::GetKeyType( const void *vpTag ) const {
 /***********************************************************************/
 //! @brief Get the last key for the given tag.
 /*!
-  \param vpTag Tag to retrieve last key on.
-  \param iRetrieveSw xbTrue - Retrieve the record on success.<br>
+  @param vpTag Tag to retrieve last key on.
+  @param iRetrieveSw xbTrue - Retrieve the record on success.<br>
                      xbFalse - Don't retrieve record.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 xbInt16 xbIxMdx::GetLastKey( void *vpTag, xbInt16 iRetrieveSw ){
@@ -2831,11 +3030,11 @@ xbInt16 xbIxMdx::GetLastKey( void *vpTag, xbInt16 iRetrieveSw ){
 /***********************************************************************/
 //! @brief Get the last key for the given tag and starting node.
 /*!
-  \param ulBlockNo Starting node
-  \param vpTag Tag to retrieve last key on.
-  \param iRetrieveSw xbTrue - Retrieve the record if key found.<br>
+  @param ulBlockNo Starting node
+  @param vpTag Tag to retrieve last key on.
+  @param iRetrieveSw xbTrue - Retrieve the record if key found.<br>
                      xbFalse - Don't retrieve record.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 xbInt16 xbIxMdx::GetLastKey( xbUInt32 ulBlockNo, void *vpTag, xbInt16 iRetrieveSw ){
@@ -2860,7 +3059,6 @@ xbInt16 xbIxMdx::GetLastKey( xbUInt32 ulBlockNo, void *vpTag, xbInt16 iRetrieveS
         iErrorStop = 100;
         throw iRc;
       }
-      //if(( iRc = GetBlock( vpTag, (mpTag->ulRootPage / (xbUInt32) iBlockFactor), 1 )) != XB_NO_ERROR ){
       if(( iRc = GetBlock( vpTag, PageToBlock( mpTag->ulRootPage ), 1 )) != XB_NO_ERROR ){
         iErrorStop = 110;
         throw iRc;
@@ -2918,7 +3116,7 @@ xbInt16 xbIxMdx::GetLastKey( xbUInt32 ulBlockNo, void *vpTag, xbInt16 iRetrieveS
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::GetLastKey() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -2926,10 +3124,10 @@ xbInt16 xbIxMdx::GetLastKey( xbUInt32 ulBlockNo, void *vpTag, xbInt16 iRetrieveS
 /***********************************************************************/
 //! @brief Get the last key for a block number.
 /*!
-  \param vpTag Tag to retrieve first key on.
-  \param ulBlockNo Block number for key retrieval.
-  \param cpBuf output buffer for key placement
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param vpTag Tag to retrieve first key on.
+  @param ulBlockNo Block number for key retrieval.
+  @param cpBuf output buffer for key placement
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 xbInt16 xbIxMdx::GetLastKeyForBlockNo( void *vpTag, xbUInt32 ulBlockNo, char *cpBuf ){
@@ -2961,17 +3159,17 @@ xbInt16 xbIxMdx::GetLastKeyForBlockNo( void *vpTag, xbUInt32 ulBlockNo, char *cp
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::GetLastKeyForBlockNo() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ) );
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ) );
   }
   return iRc;
 }
 /***********************************************************************/
 //! @brief Get the next key for the given tag.
 /*!
-  \param vpTag Tag to retrieve next key on.
-  \param iRetrieveSw xbTrue - Retrieve the record on success.<br>
+  @param vpTag Tag to retrieve next key on.
+  @param iRetrieveSw xbTrue - Retrieve the record on success.<br>
                      xbFalse - Don't retrieve record.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 xbInt16 xbIxMdx::GetNextKey( void * vpTag, xbInt16 iRetrieveSw ){
@@ -3080,7 +3278,7 @@ xbInt16 xbIxMdx::GetNextKey( void * vpTag, xbInt16 iRetrieveSw ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::GetNextKey() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -3088,10 +3286,10 @@ xbInt16 xbIxMdx::GetNextKey( void * vpTag, xbInt16 iRetrieveSw ){
 /***********************************************************************/
 //! @brief Get the previous key for the given tag.
 /*!
-  \param vpTag Tag to retrieve previous key on.
-  \param iRetrieveSw xbTrue - Retrieve the record on success.<br>
+  @param vpTag Tag to retrieve previous key on.
+  @param iRetrieveSw xbTrue - Retrieve the record on success.<br>
                      xbFalse - Don't retrieve record.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 xbInt16 xbIxMdx::GetPrevKey( void * vpTag, xbInt16 iRetrieveSw ){
@@ -3204,7 +3402,7 @@ xbInt16 xbIxMdx::GetPrevKey( void * vpTag, xbInt16 iRetrieveSw ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::GetPrevKey() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -3212,7 +3410,7 @@ xbInt16 xbIxMdx::GetPrevKey( void * vpTag, xbInt16 iRetrieveSw ){
 /***********************************************************************/
 //! @brief GetReuseEmptyNode swuitch setting.
 /*!
-  \returns xbFalse - Do not reuse empty MDX index nodes (Dbase 6. behavior).
+  @returns xbFalse - Do not reuse empty MDX index nodes (dBASE 6. behavior).
            xbTrue  - Reuse empty MDX index nodes.
 */
 
@@ -3233,8 +3431,8 @@ xbBool xbIxMdx::GetSortOrder( void *vpTag ) const {
 /***********************************************************************/
 //! @brief Get tag for tag number.
 /*!
-  \param iTagNo - Zero based, which tag to retrieve.
-  \returns Pointer to mdx tag for a given tag number.
+  @param iTagNo - Zero based, which tag to retrieve.
+  @returns Pointer to mdx tag for a given tag number.
 */
 
 void * xbIxMdx::GetTag( xbInt16 iTagNo ) const {
@@ -3256,7 +3454,7 @@ void * xbIxMdx::GetTag( xbInt16 iTagNo ) const {
 //! @brief Get tag for tag name.
 /*!
   \sTagName - Tag name to retrieve.
-  \returns Pointer to mdx tag for a given tag number.
+  @returns Pointer to mdx tag for a given tag number.
 */
 
 void * xbIxMdx::GetTag( xbString &sTagName ) const {
@@ -3309,8 +3507,8 @@ void *xbIxMdx::GetTagTblPtr() const {
 xbBool xbIxMdx::GetUnique( void *vpTag ) const {
 //! @brief Determine unique setting for given tag.
 /*!
-  \param vpTag Tag to retrieve expression from.
-  \returns xbTrue if unique key.
+  @param vpTag Tag to retrieve expression from.
+  @returns xbTrue if unique key.
 */
   xbMdxTag *mTag = (xbMdxTag *) vpTag;
   return mTag->cUnique;
@@ -3321,10 +3519,10 @@ xbBool xbIxMdx::GetUnique( void *vpTag ) const {
 /*!
   Harvest empty MDX node and add it to the chain of link nodes
 
-  \param mpTag Tag to harvest.
-  \param iOpt - 0 Don't write the node info to disk, handled elsewhere (don't write it twice)
+  @param mpTag Tag to harvest.
+  @param iOpt - 0 Don't write the node info to disk, handled elsewhere (don't write it twice)
                 1 Write the update into to disk
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 xbInt16 xbIxMdx::HarvestEmptyNode( xbMdxTag *mpTag, xbIxNode *npNode, xbInt16 iOpt, xbBool bHarvestRoot ){
 
@@ -3400,7 +3598,7 @@ xbInt16 xbIxMdx::HarvestEmptyNode( xbMdxTag *mpTag, xbIxNode *npNode, xbInt16 iO
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::HarvestEmptyNodeI() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -3411,9 +3609,9 @@ xbInt16 xbIxMdx::HarvestEmptyNode( xbMdxTag *mpTag, xbIxNode *npNode, xbInt16 iO
   Save all nodes for a given tag into the free node chain.
   Used for reindexing or deleting a given tag.
 
-  \param mpTag Tag for harvesting nodes
-  \param bHarvestRoot Set to True when deleting tag
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param mpTag Tag for harvesting nodes
+  @param bHarvestRoot Set to True when deleting tag
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 xbInt16 xbIxMdx::HarvestTagNodes( xbMdxTag *mpTag, xbBool bHarvestRoot ){
@@ -3492,7 +3690,7 @@ xbInt16 xbIxMdx::HarvestTagNodes( xbMdxTag *mpTag, xbBool bHarvestRoot ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::HarvestTagNodes() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
 
 
@@ -3508,11 +3706,11 @@ xbInt16 xbIxMdx::HarvestTagNodes( xbMdxTag *mpTag, xbBool bHarvestRoot ){
   Insert key into non-full interior node.<br>
   Assumes valid inputs
 
-  \param vpTag Tag in play.
-  \param npNode Node for insertion.
-  \param iSlotNo Slot number to insert key.
-  \param ulPtr Page number to insert.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param vpTag Tag in play.
+  @param npNode Node for insertion.
+  @param iSlotNo Slot number to insert key.
+  @param ulPtr Page number to insert.
+  @returns XB_NO_ERROR<br>XB_NO_MEMORY + other stuff
 */
 
 xbInt16 xbIxMdx::InsertNodeI( void *vpTag, xbIxNode *npNode, xbInt16 iSlotNo, xbUInt32 ulPtr ){
@@ -3597,7 +3795,7 @@ xbInt16 xbIxMdx::InsertNodeI( void *vpTag, xbIxNode *npNode, xbInt16 iSlotNo, xb
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::InsertNodeI() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
     if( pLastKey )
       free( pLastKey );
   }
@@ -3610,11 +3808,12 @@ xbInt16 xbIxMdx::InsertNodeI( void *vpTag, xbIxNode *npNode, xbInt16 iSlotNo, xb
   Insert key into non-full leaf node.<br>
   Assumes valid inputs
 
-  \param vpTag Tag in play.
-  \param npNode Node for insertion.
-  \param iSlotNo Slot number to insert key.
-  \param ulPtr Pointer number to insert.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param vpTag Tag in play.
+  @param npNode Node for insertion.
+  @param iSlotNo Slot number to insert key.
+  @param ulPtr Pointer number to insert.
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
+    XB_NO_MEMORY
 */
 xbInt16 xbIxMdx::InsertNodeL( void *vpTag, xbIxNode *npNode, xbInt16 iSlotNo, char * cpKeyBuf, xbUInt32 ulPtr ){
 
@@ -3714,7 +3913,7 @@ xbInt16 xbIxMdx::InsertNodeL( void *vpTag, xbIxNode *npNode, xbInt16 iSlotNo, ch
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::InsertNodeL() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -3762,9 +3961,9 @@ xbInt16 xbIxMdx::KeyExists( void * vpTag )
   This routine is called by the AddKey() method and is used to position 
   the node chain to the position the new key should be added to the index.
 
-  \param npTag Pointer to npTag.
-  \param ulAddRecNo Record number to add.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param npTag Pointer to npTag.
+  @param ulAddRecNo Record number to add.
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 xbInt16 xbIxMdx::KeySetPosAdd( xbMdxTag *mpTag, xbUInt32 ulAddRecNo ){
 
@@ -3815,7 +4014,7 @@ xbInt16 xbIxMdx::KeySetPosAdd( xbMdxTag *mpTag, xbUInt32 ulAddRecNo ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::KeySetPosAdd() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -3826,8 +4025,8 @@ xbInt16 xbIxMdx::KeySetPosAdd( xbMdxTag *mpTag, xbUInt32 ulAddRecNo ){
   This routine is called by the DeleteKey() method and is used to position 
   the node chain to the position the old key should be deleted from the index.
 
-  \param npTag Pointer to npTag.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param npTag Pointer to npTag.
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 xbInt16 xbIxMdx::KeySetPosDel( xbMdxTag *npTag ){
@@ -3840,7 +4039,8 @@ xbInt16 xbIxMdx::KeySetPosDel( xbMdxTag *npTag ){
 
      iRc = FindKey( npTag, npTag->cpKeyBuf2, npTag->iKeyLen, 0 );
      if( iRc == XB_NOT_FOUND || iRc == XB_EMPTY )
-       return XB_NO_ERROR;  // good pos ition
+       //return XB_NO_ERROR;  // good position
+       return XB_NOT_FOUND;
      else if( iRc != XB_NO_ERROR ){
        iErrorStop = 100;
        throw iRc;
@@ -3890,7 +4090,7 @@ xbInt16 xbIxMdx::KeySetPosDel( xbMdxTag *npTag ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::KeySetPosDel() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -3898,8 +4098,8 @@ xbInt16 xbIxMdx::KeySetPosDel( xbMdxTag *npTag ){
 /***********************************************************************/
 //! @brief Returns key update status.
 /*!
-  \param vpTag Tag to check status on.
-  \returns xbtrue - Key was updated.<br>xbFalse - Key not updated.
+  @param vpTag Tag to check status on.
+  @returns xbtrue - Key was updated.<br>xbFalse - Key not updated.
 */
 /*
 inline xbBool xbIxMdx::KeyFiltered( void *vpTag ) const{
@@ -4005,6 +4205,8 @@ xbInt16 xbIxMdx::LoadTagDetail( xbInt16 iOption, xbMdxTag *tte ){
           throw iRc;
         }
       }
+      tte->iIxTagMode  = xbase->GetDefaultIxTagMode();
+
       tte->npNodeChain = NULL;
       tte->npCurNode   = NULL;
       tte->cpKeyBuf    = (char *) malloc( (size_t) tte->iKeyLen + 1 );
@@ -4045,7 +4247,7 @@ xbInt16 xbIxMdx::LoadTagDetail( xbInt16 iOption, xbMdxTag *tte ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::LoadTagDetail() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -4056,8 +4258,6 @@ xbInt16 xbIxMdx::LoadTagTable()
   xbInt16 iRc = XB_NO_ERROR;
   xbInt16 iErrorStop = 0;
   char * buf = NULL;
-
-  //std::cout << "xbIxMdx::LoadTagTable() tag use cnt = " << iTagUseCnt << "\n";
 
   try{
 
@@ -4117,7 +4317,7 @@ xbInt16 xbIxMdx::LoadTagTable()
       for( xbUInt32 i = 0; i < 11; i ++ )
         tte->cTagName[i] = *p++;
 
-      tte->cTagName[11] = 0x00;
+      tte->cTagName[10]   = 0x00;
       tte->cKeyFmt        = *p++;
       tte->cLeftChild     = *p++;
       tte->cRightChild    = *p++;
@@ -4146,7 +4346,7 @@ xbInt16 xbIxMdx::LoadTagTable()
       sMsg.Sprintf( "xbIxMdx::LoadTagTable() Invalid Tag Count: %d", iTagUseCnt );
       xbase->WriteLogMessage( sMsg.Str());
     }
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -4160,8 +4360,8 @@ xbInt16 xbIxMdx::LoadTagTable()
 
   Assumes valid data input
 
-  \param ulPageNo Page Number
-  \returns Calculated block number.
+  @param ulPageNo Page Number
+  @returns Calculated block number.
 */
 
 inline xbUInt32 xbIxMdx::PageToBlock( xbUInt32 ulPageNo ){
@@ -4232,9 +4432,9 @@ xbInt16 xbIxMdx::PrintKey( void *vpTag, xbIxNode *npNode, xbInt16 iKeyNo, xbInt1
 //! @brief ReadHeadBlock.
 /*!
   Read values off head block in MDX file
-  \param iOpt 0 - Read entire block, initialize as needed.<br>
+  @param iOpt 0 - Read entire block, initialize as needed.<br>
               1 - Read in only dynamic section of block<br>
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 
 */
 
@@ -4340,7 +4540,7 @@ xbInt16 xbIxMdx::ReadHeadBlock( xbInt16 iOpt )
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::ReadHeadBlock() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
     if( cNodeBuf )
       free( cNodeBuf );
   }
@@ -4351,9 +4551,9 @@ xbInt16 xbIxMdx::ReadHeadBlock( xbInt16 iOpt )
 //! @brief Reindex
 /*!
   Reindex specifed tag or all tags 
-  \param **vpTag &tag - Tag to reindex.<br>
+  @param **vpTag &tag - Tag to reindex.<br>
                  NULL - Reindex all tags<br>
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 
   If this method fails, the index is left in an undefined state
 
@@ -4509,7 +4709,7 @@ xbInt16 xbIxMdx::Reindex( void **vpTag ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::Reindex() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
 
 
@@ -4576,9 +4776,11 @@ xbInt16 xbIxMdx::ReindexTag( void **vpTag ){
         if( mpTag->cUnique ){
 
           iRc = CheckForDupKey( mpTag );
-          if( GetUniqueKeyOpt() == XB_EMULATE_DBASE && mpTag->bFoundSts == xbTrue ){
+          //if( GetUniqueKeyOpt() == XB_EMULATE_DBASE && mpTag->bFoundSts == xbTrue ){
+          if( mpTag->iIxTagMode == XB_IX_DBASE_MODE && mpTag->bFoundSts == xbTrue ){
             bAddKey = xbFalse;
-          } else if( GetUniqueKeyOpt() == XB_HALT_ON_DUPKEY && iRc == XB_KEY_NOT_UNIQUE ){
+          //} else if( GetUniqueKeyOpt() == XB_HALT_ON_DUPKEY && iRc == XB_KEY_NOT_UNIQUE ){
+          } else if( mpTag->iIxTagMode == XB_IX_XBASE_MODE && iRc == XB_KEY_NOT_UNIQUE ){
             iErrorStop = 140;
             throw iRc;
           }
@@ -4597,7 +4799,7 @@ xbInt16 xbIxMdx::ReindexTag( void **vpTag ){
     sMsg.Sprintf( "xbIxMdx::ReindexTag() Exception Caught. Error Stop = [%d] iRc = [%d] Tag: [%s]  Key Expression: [%s] Rec No: [%ld]", 
       iErrorStop, iRc, mpTag->cTagName, mpTag->sKeyExp->Str(), dbf->GetCurRecNo());
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -4624,9 +4826,25 @@ xbInt16 xbIxMdx::SetCurTag( xbInt16 iTagNo ) {
 }
 
 /***********************************************************************/
+//! @brief Set the mode for the given tag.
+/*!
+  @param vpTag Tag to retrieve mode from.
+  @param iMode One of XB_IX_DBASE_MODE or XB_IX_XBASE_MODE
+  @returns XB_INVALID_OPTION or XB_NO_ERROR
+*/
+
+xbInt16 xbIxMdx::SetIxTagMode( void *vpTag, xbInt16 iMode ){
+  if( iMode != XB_IX_DBASE_MODE && iMode != XB_IX_XBASE_MODE )
+    return XB_INVALID_OPTION;
+  xbMdxTag * mpTag = (xbMdxTag *) vpTag;
+  mpTag->iIxTagMode = iMode;
+  return XB_NO_ERROR;
+}
+
+/***********************************************************************/
 //! @brief SetReuseEmptyNode switch setting.
 /*!
-  \param  bEmptyNodeSw  xbFalse - Do not reuse empty MDX index nodes (Dbase 6. behavior).
+  @param  bEmptyNodeSw  xbFalse - Do not reuse empty MDX index nodes (dBASE 6. behavior).
                         xbTrue  - Reuse empty MDX index nodes.
 */
 
@@ -4639,7 +4857,7 @@ void xbIxMdx::SetReuseEmptyNodesSw( xbBool bEmptyNodesSw ) {
 /*!
 
   This routine splits an interior node into two nodes, divided by dSplitFactor.<br>
-  This behaves differently than V7 Dbase. V7 does not balance the nodes.<br>
+  This behaves differently than V7 dBASE. V7 does not balance the nodes.<br>
   For V7, if adding a key to the end of a node, it will create a right node 
   with only one key, and the left node is still full.<br><br>
 
@@ -4652,12 +4870,12 @@ void xbIxMdx::SetReuseEmptyNodesSw( xbBool bEmptyNodesSw ) {
   This routine first inserts the key into the left node in the appropriate location
   then splits the node based on the split factor setting.
 
-  \param vpTag Tag in play.
-  \param npLeft Left node to split.
-  \param npRight Right node to split.
-  \param iSlotNo Slot number for split.
-  \param ulPtr Pointer number to insert.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>  
+  @param vpTag Tag in play.
+  @param npLeft Left node to split.
+  @param npRight Right node to split.
+  @param iSlotNo Slot number for split.
+  @param ulPtr Pointer number to insert.
+  @returns <a href="xbretcod_8h.html">Return Codes</a>  
 */
 
 xbInt16 xbIxMdx::SplitNodeI( void *vpTag, xbIxNode * npLeft, xbIxNode *npRight, xbInt16 iSlotNo, xbUInt32 ulPtr ){
@@ -4714,7 +4932,7 @@ xbInt16 xbIxMdx::SplitNodeI( void *vpTag, xbIxNode * npLeft, xbIxNode *npRight, 
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::SplitNodeI() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -4733,12 +4951,12 @@ xbInt16 xbIxMdx::SplitNodeI( void *vpTag, xbIxNode * npLeft, xbIxNode *npRight, 
   This routine first inserts the key into the left node in the appropriate location
   then splits the node based on the split factor setting.
 
-  \param vpTag Tag in play.
-  \param npLeft Left node to split.
-  \param npRight Right node to split.
-  \param iSlotNo Slot number for split.
-  \param ulPtr Pointer number to insert.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>  
+  @param vpTag Tag in play.
+  @param npLeft Left node to split.
+  @param npRight Right node to split.
+  @param iSlotNo Slot number for split.
+  @param ulPtr Pointer number to insert.
+  @returns <a href="xbretcod_8h.html">Return Codes</a>  
 */
 
 xbInt16 xbIxMdx::SplitNodeL( void *vpTag, xbIxNode * npLeft, xbIxNode *npRight,
@@ -4801,7 +5019,7 @@ xbInt16 xbIxMdx::SplitNodeL( void *vpTag, xbIxNode * npLeft, xbIxNode *npRight,
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::SplitNodeL() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -4810,11 +5028,11 @@ xbInt16 xbIxMdx::SplitNodeL( void *vpTag, xbIxNode * npLeft, xbIxNode *npRight,
 /*!
   This routine is used internally for reading or updating the serial number on a given tag when the tag.
 
-  \param iOption 1 - Read tag serial number off disk, save in structure<br>
+  @param iOption 1 - Read tag serial number off disk, save in structure<br>
                  2 - Write serial number from memory to disk<br>
                  3 - Read serial number off disk, increment, write updated number to disk<br>
          mpTag - Pointer to tag for serial number update
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 xbInt16 xbIxMdx::TagSerialNo( xbInt16 iOption, xbMdxTag * mpTag ){
@@ -4854,7 +5072,7 @@ xbInt16 xbIxMdx::TagSerialNo( xbInt16 iOption, xbMdxTag * mpTag ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::UpdateSerialNo() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -4865,12 +5083,12 @@ xbInt16 xbIxMdx::TagSerialNo( xbInt16 iOption, xbMdxTag * mpTag ){
   This routine updates a key or a given tag.
   The file header is considered to be the first 2048 bytes in the file.
 
-  \param cAction A - Add a key.<br>
+  @param cAction A - Add a key.<br>
                  D - Delete a key.<br>
                  R - Revise a key.<br>
-  \param vpTg - Pointer to tag.<br>
-  \param ulRecNo - Record number association with the action.<br>
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param vpTg - Pointer to tag.<br>
+  @param ulRecNo - Record number association with the action.<br>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 xbInt16  xbIxMdx::UpdateTagKey( char cAction, void *vpTag, xbUInt32 ulRecNo ){
@@ -4915,7 +5133,7 @@ xbInt16  xbIxMdx::UpdateTagKey( char cAction, void *vpTag, xbUInt32 ulRecNo ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::UpdateTagKey() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -4926,10 +5144,10 @@ xbInt16  xbIxMdx::UpdateTagKey( char cAction, void *vpTag, xbUInt32 ulRecNo ){
   This routine updates the MDX file header and commits changes to disk.
   The file header is considered to be the first 2048 bytes in the file.
 
-  \param iOption 0 - Entire 2048 byte header, used for creating a new mdx file.<br>
+  @param iOption 0 - Entire 2048 byte header, used for creating a new mdx file.<br>
                  1 - Bytes 28 through 46, used when adding or deleting a tag.<br>
                  2 - Bytes 32 through 46, used after updating keys in the file.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 
@@ -5031,7 +5249,7 @@ xbInt16 xbIxMdx::WriteHeadBlock( xbInt16 iOption ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::WriteHeadBlock() Exception Caught. Error Stop = [%d] iRc = [%d] option = [%d]", iErrorStop, iRc, iOption );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -5056,7 +5274,7 @@ xbInt16 xbIxMdx::UpdateTagSize( xbMdxTag *mpTag, xbUInt32 ulTagSz ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxMdx::UpdateTagSize() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }

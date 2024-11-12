@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -47,6 +51,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('namespacexb.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,12 +82,10 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">xb Namespace Reference</div></div>
 </div><!--header-->
@@ -74,31 +93,60 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbBit.html">xbBit</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for handling trivial bit operations.  <a href="classxb_1_1xbBit.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbBlockRead.html">xbBlockRead</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classxb_1_1xbBlockRead.html" title="xbBlockRead class.">xbBlockRead</a> class.  <a href="classxb_1_1xbBlockRead.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html">xbCore</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html">xbDate</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classxb_1_1xbDate.html" title="xbDate class.">xbDate</a> class.  <a href="classxb_1_1xbDate.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDbf.html">xbDbf</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for handling dbf files/tables.  <a href="classxb_1_1xbDbf.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classxb_1_1xbDbf.html" title="xbDbf is a base class for accessing and updating dbf files/tables. Classes xbDbf3 and xbDbf4 are deri...">xbDbf</a> is a base class for accessing and updating dbf files/tables. Classes <a class="el" href="classxb_1_1xbDbf3.html" title="Derived class for handling dbf version III files/tables.">xbDbf3</a> and <a class="el" href="classxb_1_1xbDbf4.html" title="Derived class for handling dbf version IV files/tables.">xbDbf4</a> are derived from <a class="el" href="classxb_1_1xbDbf.html" title="xbDbf is a base class for accessing and updating dbf files/tables. Classes xbDbf3 and xbDbf4 are deri...">xbDbf</a>.  <a href="classxb_1_1xbDbf.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDbf3.html">xbDbf3</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derived class for handling dbf version III files/tables.  <a href="classxb_1_1xbDbf3.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDbf4.html">xbDbf4</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derived class for handling dbf version IV files/tables.  <a href="classxb_1_1xbDbf4.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbExp.html">xbExp</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for handling expressions.  <a href="classxb_1_1xbExp.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbFile.html">xbFile</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for handling low level file I/O.  <a href="classxb_1_1xbFile.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html">xbRelate</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbFilter.html">xbFilter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classxb_1_1xbFilter.html" title="xbFilter class.">xbFilter</a> class.  <a href="classxb_1_1xbFilter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxb_1_1xbRelation.html">xbRelation</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbLinkList.html">xbLinkList</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classxb_1_1xbLinkList.html" title="xbLinkList class.">xbLinkList</a> class.  <a href="classxb_1_1xbLinkList.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbLinkListNode.html">xbLinkListNode</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">xbLinkNode class.  <a href="classxb_1_1xbLinkListNode.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbLinkListOrd.html">xbLinkListOrd</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classxb_1_1xbLinkListOrd.html" title="xbLinkListOrd class.">xbLinkListOrd</a> class.  <a href="classxb_1_1xbLinkListOrd.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbLog.html">xbLog</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classxb_1_1xbLog.html" title="xbLog class.">xbLog</a> class.  <a href="classxb_1_1xbLog.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html">xbRelate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for handling table relation logic.  <a href="classxb_1_1xbRelate.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxb_1_1xbSchema.html">xbSchema</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schema used for defining tables with CreateTable methods.  <a href="structxb_1_1xbSchema.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html">xbSsv</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for handling shared system variables.  <a href="classxb_1_1xbSsv.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSql.html">xbSql</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classxb_1_1xbSql.html" title="xbSql class.">xbSql</a> class.  <a href="classxb_1_1xbSql.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html">xbString</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for handling string data.  <a href="classxb_1_1xbString.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxb_1_1xbTblList.html">xbTblList</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbTblMgr.html">xbTblMgr</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbTime.html">xbTime</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classxb_1_1xbTime.html" title="xbTime class.">xbTime</a> class.  <a href="classxb_1_1xbTime.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbXBase.html">xbXBase</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">xbXbase class.  <a href="classxb_1_1xbXBase.html#details">More...</a><br /></td></tr>
@@ -115,20 +163,12 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ac963d9fde6debb416303cfbed35fb793"><td class="memItemLeft" align="right" valign="top">typedef xbUInt64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacexb.html#ac963d9fde6debb416303cfbed35fb793">xbOffT</a></td></tr>
 <tr class="separator:ac963d9fde6debb416303cfbed35fb793"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ad27f348219e895c44f74addba8e1889a"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacexb.html#ad27f348219e895c44f74addba8e1889a">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
-<tr class="memdesc:ad27f348219e895c44f74addba8e1889a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream insertion operator &lt;&lt;.  <a href="namespacexb.html#ad27f348219e895c44f74addba8e1889a">More...</a><br /></td></tr>
-<tr class="separator:ad27f348219e895c44f74addba8e1889a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a04be228a037d220dd5564f5ef618adcc"><td class="memItemLeft" align="right" valign="top">const xbErrorMessage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacexb.html#a04be228a037d220dd5564f5ef618adcc">xbErrorMessages</a> []</td></tr>
-<tr class="separator:a04be228a037d220dd5564f5ef618adcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97858ddeb1c4b0100f3edc1a46d3a8b0"><td class="memItemLeft" align="right" valign="top">class XBDLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacexb.html#a97858ddeb1c4b0100f3edc1a46d3a8b0">xbXBase</a></td></tr>
 <tr class="separator:a97858ddeb1c4b0100f3edc1a46d3a8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2eae4b4732466698a7fdd89d77ba53b"><td class="memItemLeft" align="right" valign="top">class XBDLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacexb.html#ab2eae4b4732466698a7fdd89d77ba53b">xbDbf</a></td></tr>
-<tr class="separator:ab2eae4b4732466698a7fdd89d77ba53b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac21481d2e6f709b3a9494b996eb07e69"><td class="memItemLeft" align="right" valign="top">DOXYOFF const xbErrorMessage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacexb.html#ac21481d2e6f709b3a9494b996eb07e69">xbErrorMessages</a> []</td></tr>
+<tr class="separator:ac21481d2e6f709b3a9494b996eb07e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a31fbe9110c9e55495ce71e642d785c"><td class="memItemLeft" align="right" valign="top">class XBDLLEXPORT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacexb.html#a4a31fbe9110c9e55495ce71e642d785c">xbLog</a></td></tr>
 <tr class="separator:a4a31fbe9110c9e55495ce71e642d785c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -189,68 +229,15 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ad27f348219e895c44f74addba8e1889a" name="ad27f348219e895c44f74addba8e1889a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad27f348219e895c44f74addba8e1889a">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream &amp; xb::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>s</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Stream insertion operator &lt;&lt;. </p>
-<p >std::cout &lt;&lt; MyString &lt;&lt; std::endl;</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">os</td><td>Output stream </td></tr>
-    <tr><td class="paramname">s</td><td>String to send to output stream </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="ab2eae4b4732466698a7fdd89d77ba53b" name="ab2eae4b4732466698a7fdd89d77ba53b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2eae4b4732466698a7fdd89d77ba53b">&#9670;&nbsp;</a></span>xbDbf</h2>
+<a id="ac21481d2e6f709b3a9494b996eb07e69" name="ac21481d2e6f709b3a9494b996eb07e69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac21481d2e6f709b3a9494b996eb07e69">&#9670;&nbsp;</a></span>xbErrorMessages</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">class XBDLLEXPORT <a class="el" href="classxb_1_1xbDbf.html">xb::xbDbf</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a04be228a037d220dd5564f5ef618adcc" name="a04be228a037d220dd5564f5ef618adcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04be228a037d220dd5564f5ef618adcc">&#9670;&nbsp;</a></span>xbErrorMessages</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const xbErrorMessage xb::xbErrorMessages[]</td>
+          <td class="memname">DOXYOFF const xbErrorMessage xb::xbErrorMessages[]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -264,7 +251,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">class XBDLLEXPORT xb::xbLog</td>
+          <td class="memname">class XBDLLEXPORT <a class="el" href="classxb_1_1xbLog.html">xb::xbLog</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -286,9 +273,13 @@ Variables</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacexb.html">xb</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

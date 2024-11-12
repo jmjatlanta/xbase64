@@ -3,26 +3,44 @@
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
+class \mbox{\hyperlink{classxb_1_1xbBit}{xb\+Bit}}
+\begin{DoxyCompactList}\small\item\em Class for handling trivial bit operations. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classxb_1_1xbBlockRead}{xb\+Block\+Read}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classxb_1_1xbBlockRead}{xb\+Block\+Read}} class. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classxb_1_1xbCore}{xb\+Core}}
+\item 
 class \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} class. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}}
-\begin{DoxyCompactList}\small\item\em Base class for handling dbf files/tables. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} is a base class for accessing and updating dbf files/tables. Classes \mbox{\hyperlink{classxb_1_1xbDbf3}{xb\+Dbf3}} and \mbox{\hyperlink{classxb_1_1xbDbf4}{xb\+Dbf4}} are derived from \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classxb_1_1xbDbf3}{xb\+Dbf3}}
+\begin{DoxyCompactList}\small\item\em Derived class for handling dbf version III files/tables. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classxb_1_1xbDbf4}{xb\+Dbf4}}
+\begin{DoxyCompactList}\small\item\em Derived class for handling dbf version IV files/tables. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classxb_1_1xbExp}{xb\+Exp}}
+\begin{DoxyCompactList}\small\item\em Class for handling expressions. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classxb_1_1xbFile}{xb\+File}}
 \begin{DoxyCompactList}\small\item\em Class for handling low level file I/O. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classxb_1_1xbFilter}{xb\+Filter}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classxb_1_1xbFilter}{xb\+Filter}} class. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+Link\+List}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+Link\+List}} class. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}
+\begin{DoxyCompactList}\small\item\em xb\+Link\+Node class. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+Link\+List\+Ord}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+Link\+List\+Ord}} class. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classxb_1_1xbLog}{xb\+Log}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classxb_1_1xbLog}{xb\+Log}} class. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classxb_1_1xbRelate}{xb\+Relate}}
-\item 
-struct \mbox{\hyperlink{structxb_1_1xbRelation}{xb\+Relation}}
-\item 
+\begin{DoxyCompactList}\small\item\em Class for handling table relation logic. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structxb_1_1xbSchema}{xb\+Schema}}
 \begin{DoxyCompactList}\small\item\em Schema used for defining tables with Create\+Table methods. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classxb_1_1xbSsv}{xb\+Ssv}}
-\begin{DoxyCompactList}\small\item\em Class for handling shared system variables. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classxb_1_1xbSql}{xb\+Sql}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classxb_1_1xbSql}{xb\+Sql}} class. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}}
-\begin{DoxyCompactList}\small\item\em Class for handling string data. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structxb_1_1xbTblList}{xb\+Tbl\+List}}
 \item 
-class \mbox{\hyperlink{classxb_1_1xbTblMgr}{xb\+Tbl\+Mgr}}
-\item 
+class \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classxb_1_1xbTime}{xb\+Time}} class. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}}
 \begin{DoxyCompactList}\small\item\em xb\+Xbase class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
@@ -36,19 +54,12 @@ typedef short int \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f
 \item 
 typedef xb\+UInt64 \mbox{\hyperlink{namespacexb_ac963d9fde6debb416303cfbed35fb793}{xb\+OffT}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Functions}
-\begin{DoxyCompactItemize}
-\item 
-std\+::ostream \& \mbox{\hyperlink{namespacexb_ad27f348219e895c44f74addba8e1889a}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s)
-\begin{DoxyCompactList}\small\item\em Stream insertion operator \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const xb\+Error\+Message \mbox{\hyperlink{namespacexb_a04be228a037d220dd5564f5ef618adcc}{xb\+Error\+Messages}} \mbox{[}$\,$\mbox{]}
-\item 
 class XBDLLEXPORT \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xb\+XBase}}
 \item 
-class XBDLLEXPORT \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xb\+Dbf}}
+DOXYOFF const xb\+Error\+Message \mbox{\hyperlink{namespacexb_ac21481d2e6f709b3a9494b996eb07e69}{xb\+Error\+Messages}} \mbox{[}$\,$\mbox{]}
 \item 
 class XBDLLEXPORT \mbox{\hyperlink{namespacexb_a4a31fbe9110c9e55495ce71e642d785c}{xb\+Log}}
 \end{DoxyCompactItemize}
@@ -81,46 +92,18 @@ class XBDLLEXPORT \mbox{\hyperlink{namespacexb_a4a31fbe9110c9e55495ce71e642d785c
 
 
 
-\doxysubsection{Function Documentation}
-\mbox{\Hypertarget{namespacexb_ad27f348219e895c44f74addba8e1889a}\label{namespacexb_ad27f348219e895c44f74addba8e1889a}} 
-\index{xb@{xb}!operator$<$$<$@{operator$<$$<$}}
-\index{operator$<$$<$@{operator$<$$<$}!xb@{xb}}
-\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
-{\footnotesize\ttfamily std\+::ostream \& xb\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s }\end{DoxyParamCaption})}
-
-
-
-Stream insertion operator \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}. 
-
-std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} My\+String \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl;
-
-
-\begin{DoxyParams}{Parameters}
-{\em os} & Output stream \\
-\hline
-{\em s} & String to send to output stream \\
-\hline
-\end{DoxyParams}
-
-
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}\label{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}} 
-\index{xb@{xb}!xbDbf@{xbDbf}}
-\index{xbDbf@{xbDbf}!xb@{xb}}
-\doxysubsubsection{\texorpdfstring{xbDbf}{xbDbf}}
-{\footnotesize\ttfamily class XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+::xb\+Dbf}}}
-
-\mbox{\Hypertarget{namespacexb_a04be228a037d220dd5564f5ef618adcc}\label{namespacexb_a04be228a037d220dd5564f5ef618adcc}} 
+\mbox{\Hypertarget{namespacexb_ac21481d2e6f709b3a9494b996eb07e69}\label{namespacexb_ac21481d2e6f709b3a9494b996eb07e69}} 
 \index{xb@{xb}!xbErrorMessages@{xbErrorMessages}}
 \index{xbErrorMessages@{xbErrorMessages}!xb@{xb}}
 \doxysubsubsection{\texorpdfstring{xbErrorMessages}{xbErrorMessages}}
-{\footnotesize\ttfamily const xb\+Error\+Message xb\+::xb\+Error\+Messages\mbox{[}$\,$\mbox{]}}
+{\footnotesize\ttfamily DOXYOFF const xb\+Error\+Message xb\+::xb\+Error\+Messages\mbox{[}$\,$\mbox{]}}
 
 \mbox{\Hypertarget{namespacexb_a4a31fbe9110c9e55495ce71e642d785c}\label{namespacexb_a4a31fbe9110c9e55495ce71e642d785c}} 
 \index{xb@{xb}!xbLog@{xbLog}}
 \index{xbLog@{xbLog}!xb@{xb}}
 \doxysubsubsection{\texorpdfstring{xbLog}{xbLog}}
-{\footnotesize\ttfamily class XBDLLEXPORT xb\+::xb\+Log}
+{\footnotesize\ttfamily class XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbLog}{xb\+::xb\+Log}}}
 
 \mbox{\Hypertarget{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}\label{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}} 
 \index{xb@{xb}!xbXBase@{xbXBase}}

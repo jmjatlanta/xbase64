@@ -1,13 +1,127 @@
-\hypertarget{xbexp_8h}{}\doxysection{/mnt/1\+Tdata/xbase/xbase64-\/4.1.7/src/include/xbexp.h File Reference}
-\label{xbexp_8h}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbexp.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbexp.h}}
+\hypertarget{xbexp_8h}{}\doxysection{/mnt/1\+Tdata/xbase/xbase64-\/4.1.11/src/include/xbexp.h File Reference}
+\label{xbexp_8h}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbexp.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbexp.h}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classxb_1_1xbExp}{xb\+::xb\+Exp}}
+\begin{DoxyCompactList}\small\item\em Class for handling expressions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacexb}{xb}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{xbexp_8h_a6e9d2ccba2b3ac6e44ab411ffda488c2}{XB\+\_\+\+NULL\+\_\+\+DATE}}~21474835648
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_ac77bde7b380d8bc1cf40ac2af1c9716c}{XB\+\_\+\+EXP\+\_\+\+CHAR}}~\textquotesingle{}C\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_a727a6acf614d931d78c290431211d119}{XB\+\_\+\+EXP\+\_\+\+DATE}}~\textquotesingle{}D\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_a35b6583bb06116fad5222f5685478151}{XB\+\_\+\+EXP\+\_\+\+LOGICAL}}~\textquotesingle{}L\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_a54124c5dcb5557b39880fcade5230965}{XB\+\_\+\+EXP\+\_\+\+NUMERIC}}~\textquotesingle{}N\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_aebaa4c59013cebdcbf365759d601b227}{XB\+\_\+\+EXP\+\_\+\+UNKNOWN}}~\textquotesingle{}U\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_a67216e7284740f454a8f83dd721b12a8}{XB\+\_\+\+EXP\+\_\+\+CONSTANT}}~\textquotesingle{}C\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_a2e53bebb82cfe7803b8f0b71d55cef1c}{XB\+\_\+\+EXP\+\_\+\+FUNCTION}}~\textquotesingle{}F\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_a93a81882c892eb9d6491b5a5a4151cb4}{XB\+\_\+\+EXP\+\_\+\+FIELD}}~\textquotesingle{}D\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_aa6d815f4a873ae42791708c77d97dccb}{XB\+\_\+\+EXP\+\_\+\+OPERATOR}}~\textquotesingle{}O\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_a540361b864df69f13ec81941fda1bbf6}{XB\+\_\+\+EXP\+\_\+\+NOTROOT}}~\textquotesingle{}N\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_a36add8db9b27bc1ddae173cafd9ecdb8}{XB\+\_\+\+EXP\+\_\+\+PRE\+\_\+\+OPERATOR}}~\textquotesingle{}B\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_ad2ff5dc18c105d5818fd8f28cf8cfe35}{XB\+\_\+\+EXP\+\_\+\+POST\+\_\+\+OPERATOR}}~\textquotesingle{}A\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{xbexp_8h_a2fb38fb232e593931149efacd5e60bf3}{XB\+\_\+\+END\+\_\+\+OF\+\_\+\+EXPRESSION}}~-\/100
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{xbexp_8h_a2fb38fb232e593931149efacd5e60bf3}\label{xbexp_8h_a2fb38fb232e593931149efacd5e60bf3}} 
+\index{xbexp.h@{xbexp.h}!XB\_END\_OF\_EXPRESSION@{XB\_END\_OF\_EXPRESSION}}
+\index{XB\_END\_OF\_EXPRESSION@{XB\_END\_OF\_EXPRESSION}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_END\_OF\_EXPRESSION}{XB\_END\_OF\_EXPRESSION}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+END\+\_\+\+OF\+\_\+\+EXPRESSION~-\/100}
+
+\mbox{\Hypertarget{xbexp_8h_ac77bde7b380d8bc1cf40ac2af1c9716c}\label{xbexp_8h_ac77bde7b380d8bc1cf40ac2af1c9716c}} 
+\index{xbexp.h@{xbexp.h}!XB\_EXP\_CHAR@{XB\_EXP\_CHAR}}
+\index{XB\_EXP\_CHAR@{XB\_EXP\_CHAR}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EXP\_CHAR}{XB\_EXP\_CHAR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EXP\+\_\+\+CHAR~\textquotesingle{}C\textquotesingle{}}
+
+\mbox{\Hypertarget{xbexp_8h_a67216e7284740f454a8f83dd721b12a8}\label{xbexp_8h_a67216e7284740f454a8f83dd721b12a8}} 
+\index{xbexp.h@{xbexp.h}!XB\_EXP\_CONSTANT@{XB\_EXP\_CONSTANT}}
+\index{XB\_EXP\_CONSTANT@{XB\_EXP\_CONSTANT}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EXP\_CONSTANT}{XB\_EXP\_CONSTANT}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EXP\+\_\+\+CONSTANT~\textquotesingle{}C\textquotesingle{}}
+
+\mbox{\Hypertarget{xbexp_8h_a727a6acf614d931d78c290431211d119}\label{xbexp_8h_a727a6acf614d931d78c290431211d119}} 
+\index{xbexp.h@{xbexp.h}!XB\_EXP\_DATE@{XB\_EXP\_DATE}}
+\index{XB\_EXP\_DATE@{XB\_EXP\_DATE}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EXP\_DATE}{XB\_EXP\_DATE}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EXP\+\_\+\+DATE~\textquotesingle{}D\textquotesingle{}}
+
+\mbox{\Hypertarget{xbexp_8h_a93a81882c892eb9d6491b5a5a4151cb4}\label{xbexp_8h_a93a81882c892eb9d6491b5a5a4151cb4}} 
+\index{xbexp.h@{xbexp.h}!XB\_EXP\_FIELD@{XB\_EXP\_FIELD}}
+\index{XB\_EXP\_FIELD@{XB\_EXP\_FIELD}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EXP\_FIELD}{XB\_EXP\_FIELD}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EXP\+\_\+\+FIELD~\textquotesingle{}D\textquotesingle{}}
+
+\mbox{\Hypertarget{xbexp_8h_a2e53bebb82cfe7803b8f0b71d55cef1c}\label{xbexp_8h_a2e53bebb82cfe7803b8f0b71d55cef1c}} 
+\index{xbexp.h@{xbexp.h}!XB\_EXP\_FUNCTION@{XB\_EXP\_FUNCTION}}
+\index{XB\_EXP\_FUNCTION@{XB\_EXP\_FUNCTION}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EXP\_FUNCTION}{XB\_EXP\_FUNCTION}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EXP\+\_\+\+FUNCTION~\textquotesingle{}F\textquotesingle{}}
+
+\mbox{\Hypertarget{xbexp_8h_a35b6583bb06116fad5222f5685478151}\label{xbexp_8h_a35b6583bb06116fad5222f5685478151}} 
+\index{xbexp.h@{xbexp.h}!XB\_EXP\_LOGICAL@{XB\_EXP\_LOGICAL}}
+\index{XB\_EXP\_LOGICAL@{XB\_EXP\_LOGICAL}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EXP\_LOGICAL}{XB\_EXP\_LOGICAL}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EXP\+\_\+\+LOGICAL~\textquotesingle{}L\textquotesingle{}}
+
+\mbox{\Hypertarget{xbexp_8h_a540361b864df69f13ec81941fda1bbf6}\label{xbexp_8h_a540361b864df69f13ec81941fda1bbf6}} 
+\index{xbexp.h@{xbexp.h}!XB\_EXP\_NOTROOT@{XB\_EXP\_NOTROOT}}
+\index{XB\_EXP\_NOTROOT@{XB\_EXP\_NOTROOT}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EXP\_NOTROOT}{XB\_EXP\_NOTROOT}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EXP\+\_\+\+NOTROOT~\textquotesingle{}N\textquotesingle{}}
+
+\mbox{\Hypertarget{xbexp_8h_a54124c5dcb5557b39880fcade5230965}\label{xbexp_8h_a54124c5dcb5557b39880fcade5230965}} 
+\index{xbexp.h@{xbexp.h}!XB\_EXP\_NUMERIC@{XB\_EXP\_NUMERIC}}
+\index{XB\_EXP\_NUMERIC@{XB\_EXP\_NUMERIC}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EXP\_NUMERIC}{XB\_EXP\_NUMERIC}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EXP\+\_\+\+NUMERIC~\textquotesingle{}N\textquotesingle{}}
+
+\mbox{\Hypertarget{xbexp_8h_aa6d815f4a873ae42791708c77d97dccb}\label{xbexp_8h_aa6d815f4a873ae42791708c77d97dccb}} 
+\index{xbexp.h@{xbexp.h}!XB\_EXP\_OPERATOR@{XB\_EXP\_OPERATOR}}
+\index{XB\_EXP\_OPERATOR@{XB\_EXP\_OPERATOR}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EXP\_OPERATOR}{XB\_EXP\_OPERATOR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EXP\+\_\+\+OPERATOR~\textquotesingle{}O\textquotesingle{}}
+
+\mbox{\Hypertarget{xbexp_8h_ad2ff5dc18c105d5818fd8f28cf8cfe35}\label{xbexp_8h_ad2ff5dc18c105d5818fd8f28cf8cfe35}} 
+\index{xbexp.h@{xbexp.h}!XB\_EXP\_POST\_OPERATOR@{XB\_EXP\_POST\_OPERATOR}}
+\index{XB\_EXP\_POST\_OPERATOR@{XB\_EXP\_POST\_OPERATOR}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EXP\_POST\_OPERATOR}{XB\_EXP\_POST\_OPERATOR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EXP\+\_\+\+POST\+\_\+\+OPERATOR~\textquotesingle{}A\textquotesingle{}}
+
+\mbox{\Hypertarget{xbexp_8h_a36add8db9b27bc1ddae173cafd9ecdb8}\label{xbexp_8h_a36add8db9b27bc1ddae173cafd9ecdb8}} 
+\index{xbexp.h@{xbexp.h}!XB\_EXP\_PRE\_OPERATOR@{XB\_EXP\_PRE\_OPERATOR}}
+\index{XB\_EXP\_PRE\_OPERATOR@{XB\_EXP\_PRE\_OPERATOR}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EXP\_PRE\_OPERATOR}{XB\_EXP\_PRE\_OPERATOR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EXP\+\_\+\+PRE\+\_\+\+OPERATOR~\textquotesingle{}B\textquotesingle{}}
+
+\mbox{\Hypertarget{xbexp_8h_aebaa4c59013cebdcbf365759d601b227}\label{xbexp_8h_aebaa4c59013cebdcbf365759d601b227}} 
+\index{xbexp.h@{xbexp.h}!XB\_EXP\_UNKNOWN@{XB\_EXP\_UNKNOWN}}
+\index{XB\_EXP\_UNKNOWN@{XB\_EXP\_UNKNOWN}!xbexp.h@{xbexp.h}}
+\doxysubsubsection{\texorpdfstring{XB\_EXP\_UNKNOWN}{XB\_EXP\_UNKNOWN}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EXP\+\_\+\+UNKNOWN~\textquotesingle{}U\textquotesingle{}}
+
 \mbox{\Hypertarget{xbexp_8h_a6e9d2ccba2b3ac6e44ab411ffda488c2}\label{xbexp_8h_a6e9d2ccba2b3ac6e44ab411ffda488c2}} 
 \index{xbexp.h@{xbexp.h}!XB\_NULL\_DATE@{XB\_NULL\_DATE}}
 \index{XB\_NULL\_DATE@{XB\_NULL\_DATE}!xbexp.h@{xbexp.h}}

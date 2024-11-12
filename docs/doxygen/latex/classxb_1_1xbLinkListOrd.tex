@@ -1,0 +1,404 @@
+\hypertarget{classxb_1_1xbLinkListOrd}{}\doxysection{xb\+::xb\+Link\+List\+Ord\texorpdfstring{$<$}{<} xb\+Node\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classxb_1_1xbLinkListOrd}\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+
+
+\mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+Link\+List\+Ord}} class.  
+
+
+
+
+{\ttfamily \#include $<$xblnklstord.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classxb_1_1xbLinkListOrd_a1925b822bbdd54ea04fceb1ffc163f6c}{xb\+Link\+List\+Ord}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbLinkListOrd_a48a288be904fc509309b7e0aabee2b0a}{$\sim$xb\+Link\+List\+Ord}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbLinkListOrd_a1cde93e667729969b2b955d997ca774f}{Clear}} ()
+\begin{DoxyCompactList}\small\item\em Clear the linked list and free memory. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd_a7dc6efb273eafad477a6e3346f9dea6f}{Get\+Data\+For\+Key}} (const xb\+Node\+Type \&nt\+Key, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Data)
+\begin{DoxyCompactList}\small\item\em Return the user string for a given key value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbLinkListOrd_aa962b0ffefec5f4a8cc5591cb023ae16}{Get\+Dup\+Keys}} ()
+\begin{DoxyCompactList}\small\item\em Return dup keys setting. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkListOrd_acadcdcdae8569b23a4539105399a20ec}{Get\+End\+Node}} () const
+\begin{DoxyCompactList}\small\item\em Return the end node of the list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkListOrd_a56a67bf8e14b460968752ee261e470e3}{Get\+Head\+Node}} () const
+\begin{DoxyCompactList}\small\item\em Return the head node of the list. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbLinkListOrd_ab1cbf52e78cd095db6eaa5e8be0de674}{Get\+Node\+Cnt}} () const
+\begin{DoxyCompactList}\small\item\em Get the total node count in the linked list. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbLinkListOrd_adbd15d35e9e16e92e1ba03491b4daa4a}{Get\+Node\+Cnt}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Node\+Key) const
+\begin{DoxyCompactList}\small\item\em Get the total node count in the linked list for a given key. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd_a71806fcdc12561a0e2b202b831ff9a57}{Insert\+Key}} (const xb\+Node\+Type \&nt\+Key)
+\begin{DoxyCompactList}\small\item\em Insert a node into the list. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd_a434fa87b8afba3843256560ac8a8b4bf}{Insert\+Key}} (const xb\+Node\+Type \&nt\+Key, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Data)
+\begin{DoxyCompactList}\small\item\em Insert a node into the list with user string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd_a87bd129a37f10e62a8e8bca70e7aa36d}{Insert\+Key}} (const xb\+Node\+Type \&nt\+Key, xb\+UInt32 ul\+Data)
+\begin{DoxyCompactList}\small\item\em Insert a node into the list with user numeric data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbLinkListOrd_ae35493343e3dd94933aca0a9de798f13}{Key\+Exists}} (const xb\+Node\+Type \&nt\+Key) const
+\begin{DoxyCompactList}\small\item\em Check list for existence of given key. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd_a871d93f109d05002932dc7779a406984}{Remove\+Key}} (const xb\+Node\+Type \&nt\+Key)
+\begin{DoxyCompactList}\small\item\em Remove node for a given key. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd_a1fea42d189662360cd0cf1016f55ad22}{Remove\+From\+End}} (xb\+Node\+Type \&nt\+Key)
+\begin{DoxyCompactList}\small\item\em Remove node from end of linked list. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd_ad79f1994b7e2265c427f921bd9a27ab3}{Remove\+From\+Front}} (xb\+Node\+Type \&nt\+Key)
+\begin{DoxyCompactList}\small\item\em Remove node from front of linked list. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd_a134d1fdbeb7119cca4a7e511a93dde2d}{Remove\+From\+Front}} ()
+\begin{DoxyCompactList}\small\item\em Remove node from front of linked list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbLinkListOrd_ab1fe12f424534ab7253a797786f9cd89}{Set\+Dup\+Keys}} (\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} b\+Allow\+Dup\+Keys)
+\begin{DoxyCompactList}\small\item\em Set duplicate key switch. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd_a6e0fefb002a0f307e9856082a69749c9}{Update\+For\+Key}} (const xb\+Node\+Type \&nt\+Key, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Data)
+\begin{DoxyCompactList}\small\item\em Update user string value for a given key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class xb\+Node\+Type$>$\newline
+class xb\+::xb\+Link\+List\+Ord$<$ xb\+Node\+Type $>$}
+\mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+Link\+List\+Ord}} class. 
+
+
+\begin{DoxyItemize}
+\item Template based class, supports an ordered list of any object type 
+\item Items are placed in the list based on key value 
+\item xb\+LLN is a linked list node of type xb\+Node\+Type 
+\item Class is available if XB\+\_\+\+LINKLIST\+\_\+\+SUPPORT is compiled in library 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_a1925b822bbdd54ea04fceb1ffc163f6c}\label{classxb_1_1xbLinkListOrd_a1925b822bbdd54ea04fceb1ffc163f6c}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!xbLinkListOrd@{xbLinkListOrd}}
+\index{xbLinkListOrd@{xbLinkListOrd}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{xbLinkListOrd()}{xbLinkListOrd()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::xb\+Link\+List\+Ord (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_a48a288be904fc509309b7e0aabee2b0a}\label{classxb_1_1xbLinkListOrd_a48a288be904fc509309b7e0aabee2b0a}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!````~xbLinkListOrd@{$\sim$xbLinkListOrd}}
+\index{````~xbLinkListOrd@{$\sim$xbLinkListOrd}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$xbLinkListOrd()}{~xbLinkListOrd()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::$\sim$\mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+Link\+List\+Ord}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_a1cde93e667729969b2b955d997ca774f}\label{classxb_1_1xbLinkListOrd_a1cde93e667729969b2b955d997ca774f}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!Clear@{Clear}}
+\index{Clear@{Clear}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+void \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear the linked list and free memory. 
+
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_a7dc6efb273eafad477a6e3346f9dea6f}\label{classxb_1_1xbLinkListOrd_a7dc6efb273eafad477a6e3346f9dea6f}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!GetDataForKey@{GetDataForKey}}
+\index{GetDataForKey@{GetDataForKey}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetDataForKey()}{GetDataForKey()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Get\+Data\+For\+Key (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{nt\+Key,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Data }\end{DoxyParamCaption})}
+
+
+
+Return the user string for a given key value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nt\+Key} & Key value to search on \\
+\hline
+{\em s\+Data} & Output -\/ \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} for found node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+NOT\+\_\+\+FOUND 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_aa962b0ffefec5f4a8cc5591cb023ae16}\label{classxb_1_1xbLinkListOrd_aa962b0ffefec5f4a8cc5591cb023ae16}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!GetDupKeys@{GetDupKeys}}
+\index{GetDupKeys@{GetDupKeys}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetDupKeys()}{GetDupKeys()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Get\+Dup\+Keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return dup keys setting. 
+
+\begin{DoxyReturn}{Returns}
+xb\+True Duplicate keys allowed~\newline
+ xb\+False Duplicate keys not allowed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_acadcdcdae8569b23a4539105399a20ec}\label{classxb_1_1xbLinkListOrd_acadcdcdae8569b23a4539105399a20ec}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!GetEndNode@{GetEndNode}}
+\index{GetEndNode@{GetEndNode}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetEndNode()}{GetEndNode()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Get\+End\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return the end node of the list. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the end node 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_a56a67bf8e14b460968752ee261e470e3}\label{classxb_1_1xbLinkListOrd_a56a67bf8e14b460968752ee261e470e3}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!GetHeadNode@{GetHeadNode}}
+\index{GetHeadNode@{GetHeadNode}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetHeadNode()}{GetHeadNode()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Get\+Head\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return the head node of the list. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the head node 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_ab1cbf52e78cd095db6eaa5e8be0de674}\label{classxb_1_1xbLinkListOrd_ab1cbf52e78cd095db6eaa5e8be0de674}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!GetNodeCnt@{GetNodeCnt}}
+\index{GetNodeCnt@{GetNodeCnt}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetNodeCnt()}{GetNodeCnt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Get\+Node\+Cnt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the total node count in the linked list. 
+
+\begin{DoxyReturn}{Returns}
+Node count 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_adbd15d35e9e16e92e1ba03491b4daa4a}\label{classxb_1_1xbLinkListOrd_adbd15d35e9e16e92e1ba03491b4daa4a}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!GetNodeCnt@{GetNodeCnt}}
+\index{GetNodeCnt@{GetNodeCnt}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetNodeCnt()}{GetNodeCnt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Get\+Node\+Cnt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Node\+Key }\end{DoxyParamCaption}) const}
+
+
+
+Get the total node count in the linked list for a given key. 
+
+\begin{DoxyReturn}{Returns}
+Node count 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Current version only works if for node type of strings. Feel free to expand this and send in your updates for inclusion in the library 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_a71806fcdc12561a0e2b202b831ff9a57}\label{classxb_1_1xbLinkListOrd_a71806fcdc12561a0e2b202b831ff9a57}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!InsertKey@{InsertKey}}
+\index{InsertKey@{InsertKey}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{InsertKey()}{InsertKey()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Insert\+Key (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{nt\+Key }\end{DoxyParamCaption})}
+
+
+
+Insert a node into the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nt\+Key} & Node with data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+NO\+\_\+\+MEMORY or XB\+\_\+\+KEY\+\_\+\+NOT\+\_\+\+UNIQUE 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Library inserts key into correct location 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_a434fa87b8afba3843256560ac8a8b4bf}\label{classxb_1_1xbLinkListOrd_a434fa87b8afba3843256560ac8a8b4bf}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!InsertKey@{InsertKey}}
+\index{InsertKey@{InsertKey}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{InsertKey()}{InsertKey()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Insert\+Key (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{nt\+Key,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Data }\end{DoxyParamCaption})}
+
+
+
+Insert a node into the list with user string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nt\+Key} & Node with data \\
+\hline
+{\em s\+Data} & User defined string data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+NO\+\_\+\+MEMORY or XB\+\_\+\+KEY\+\_\+\+NOT\+\_\+\+UNIQUE 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Library inserts key into correct location 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_a87bd129a37f10e62a8e8bca70e7aa36d}\label{classxb_1_1xbLinkListOrd_a87bd129a37f10e62a8e8bca70e7aa36d}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!InsertKey@{InsertKey}}
+\index{InsertKey@{InsertKey}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{InsertKey()}{InsertKey()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Insert\+Key (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{nt\+Key,  }\item[{xb\+UInt32}]{ul\+Data }\end{DoxyParamCaption})}
+
+
+
+Insert a node into the list with user numeric data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nt\+Key} & Node with data \\
+\hline
+{\em ul\+Data} & User defined numeric data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+NO\+\_\+\+MEMORY or XB\+\_\+\+KEY\+\_\+\+NOT\+\_\+\+UNIQUE 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Library inserts key into correct location 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_ae35493343e3dd94933aca0a9de798f13}\label{classxb_1_1xbLinkListOrd_ae35493343e3dd94933aca0a9de798f13}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!KeyExists@{KeyExists}}
+\index{KeyExists@{KeyExists}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{KeyExists()}{KeyExists()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Key\+Exists (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{nt\+Key }\end{DoxyParamCaption}) const}
+
+
+
+Check list for existence of given key. 
+
+\begin{DoxyReturn}{Returns}
+xb\+True Key found~\newline
+ xb\+False Key not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_a1fea42d189662360cd0cf1016f55ad22}\label{classxb_1_1xbLinkListOrd_a1fea42d189662360cd0cf1016f55ad22}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!RemoveFromEnd@{RemoveFromEnd}}
+\index{RemoveFromEnd@{RemoveFromEnd}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveFromEnd()}{RemoveFromEnd()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Remove\+From\+End (\begin{DoxyParamCaption}\item[{xb\+Node\+Type \&}]{nt\+Key }\end{DoxyParamCaption})}
+
+
+
+Remove node from end of linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nt\+Key} & Output key value in end node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+NODELINK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_a134d1fdbeb7119cca4a7e511a93dde2d}\label{classxb_1_1xbLinkListOrd_a134d1fdbeb7119cca4a7e511a93dde2d}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!RemoveFromFront@{RemoveFromFront}}
+\index{RemoveFromFront@{RemoveFromFront}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveFromFront()}{RemoveFromFront()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Remove\+From\+Front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove node from front of linked list. 
+
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+NODELINK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_ad79f1994b7e2265c427f921bd9a27ab3}\label{classxb_1_1xbLinkListOrd_ad79f1994b7e2265c427f921bd9a27ab3}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!RemoveFromFront@{RemoveFromFront}}
+\index{RemoveFromFront@{RemoveFromFront}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveFromFront()}{RemoveFromFront()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Remove\+From\+Front (\begin{DoxyParamCaption}\item[{xb\+Node\+Type \&}]{nt\+Key }\end{DoxyParamCaption})}
+
+
+
+Remove node from front of linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nt\+Key} & Output key value in first node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+INVALID\+\_\+\+NODELINK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_a871d93f109d05002932dc7779a406984}\label{classxb_1_1xbLinkListOrd_a871d93f109d05002932dc7779a406984}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!RemoveKey@{RemoveKey}}
+\index{RemoveKey@{RemoveKey}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveKey()}{RemoveKey()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Remove\+Key (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{nt\+Key }\end{DoxyParamCaption})}
+
+
+
+Remove node for a given key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nt\+Key} & Key value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+NOT\+\_\+\+FOUND 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If multiple nodes with same key, this routine removes the first one 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_ab1fe12f424534ab7253a797786f9cd89}\label{classxb_1_1xbLinkListOrd_ab1fe12f424534ab7253a797786f9cd89}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!SetDupKeys@{SetDupKeys}}
+\index{SetDupKeys@{SetDupKeys}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{SetDupKeys()}{SetDupKeys()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+void \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Set\+Dup\+Keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}}}]{b\+Allow\+Dup\+Keys }\end{DoxyParamCaption})}
+
+
+
+Set duplicate key switch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b\+Allow\+Dup\+Keys} & xb\+True Allow duplicate keys in linked list~\newline
+ xb\+False Don\textquotesingle{}t allow duplicate keys in linked list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbLinkListOrd_a6e0fefb002a0f307e9856082a69749c9}\label{classxb_1_1xbLinkListOrd_a6e0fefb002a0f307e9856082a69749c9}} 
+\index{xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}!UpdateForKey@{UpdateForKey}}
+\index{UpdateForKey@{UpdateForKey}!xb::xbLinkListOrd$<$ xbNodeType $>$@{xb::xbLinkListOrd$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{UpdateForKey()}{UpdateForKey()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+::xb\+Link\+List\+Ord}}$<$ xb\+Node\+Type $>$\+::\+Update\+For\+Key (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{nt\+Key,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Data }\end{DoxyParamCaption})}
+
+
+
+Update user string value for a given key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nt\+Key} & Key value to retrieve for update \\
+\hline
+{\em s\+Data} & New data value to be associated with key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+NO\+\_\+\+MEMORY 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If key is not found, new node is added to the list 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+11/src/include/\mbox{\hyperlink{xblnklstord_8h}{xblnklstord.\+h}}\end{DoxyCompactItemize}

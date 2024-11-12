@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014, 2018, 2022 Gary A Kunkel
+Copyright (c) 1997,2003,2014, 2018, 2022, 2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -101,18 +101,18 @@ are performed.
 <br>
 Duplicate Keys
 <br>
-With the original DBase unique indexing option, if a table has multiple records with the
-same key value, DBase would allow multiple records in the table, but only the first
+With the original dBASE unique indexing option, if a table has multiple records with the
+same key value, dBASE would allow multiple records in the table, but only the first
 record would be found in the index.
 <br>
-XBase64 can be configured to support the original DBase duplicate key implementation,
+XBase64 can be configured to support the original dBASE duplicate key implementation,
 or can be configured to halt with a DUPLICATE_KEY error on the insertion of a record
 with a duplicate key.
 <br>
 <table>
 <tr><th>Option<th>Description</tr>
 <tr><td>XB_HALT_ON_DUPKEY</td><td>Return error XB_KEY_NOT_UNIQUE when attempting to append record with duplicate key</td></tr>
-<tr><td>XB_EMULATE_DBASE</td><td>Emulate DBase, allow duplicate records with the same key, only the first record is indexed</td></tr>
+<tr><td>XB_EMULATE_DBASE</td><td>Emulate dBASE, allow duplicate records with the same key, only the first record is indexed</td></tr>
 </table>
 */
 
@@ -138,6 +138,8 @@ class XBDLLEXPORT xbIx : public xbFile {
    virtual xbInt16  GetCurKeyVal( void *vpTag, xbDate &dt ) = 0;
 
    virtual xbDbf    *GetDbf() const;
+
+   virtual xbInt16  GetIxTagMode( const void *vpTag ) const = 0;
 
    virtual xbString &GetKeyExpression( const void *vpTag ) const = 0;
    virtual xbString &GetKeyFilter( const void *vpTag ) const = 0;
@@ -178,12 +180,11 @@ class XBDLLEXPORT xbIx : public xbFile {
    virtual void     SetCurTag( void * vpCurTag );
    virtual void     SetLocked( xbBool bLocked );
 
-   virtual void     TestStub( char *s, void *vpTag ) {};
-
-   // virtual xbInt16  ReindexTag( void **vpTag ) = 0;
-
 
    #ifdef XB_DEBUG_SUPPORT
+   virtual void     TestStub( char *s, void *vpTag ) {};
+
+
    virtual xbInt16 DumpFreeBlocks( xbInt16 iOpt = 0 ) { return XB_NO_ERROR; }
    virtual xbInt16 DumpHeader( xbInt16 iDestOpt = 0, xbInt16 iFmtOpt = 0 ) = 0;
    virtual xbInt16 DumpIxForTag( void *vpTag, xbInt16 iOutputOpt ) = 0;
@@ -209,7 +210,7 @@ class XBDLLEXPORT xbIx : public xbFile {
    virtual xbInt16  DeleteKey( void *vpTag ) = 0;
    virtual xbInt16  DeleteTag( void *vpTag ) = 0;
 
-   virtual xbInt16  FindKeyForCurRec( void *vpTag ) = 0;
+   virtual xbInt16  FindKeyForCurRec( void *vpTag, xbInt16 iRetrieveSw = 0 ) = 0;
    virtual xbIxNode *FreeNodeChain( xbIxNode *np );
    virtual xbInt16  GetBlock( void *vpTag, xbUInt32 ulBlockNo, xbInt16 iOpt, xbUInt32 ulAddlBuf = 0 );
    virtual xbInt32  GetKeyCount( xbIxNode *npNode ) const;
@@ -223,6 +224,7 @@ class XBDLLEXPORT xbIx : public xbFile {
    virtual xbInt16  ReadHeadBlock( xbInt16 iOpt = 0 ) = 0;
    virtual xbInt16  ReindexTag( void **vpTag ) = 0;
    virtual void     SetDbf( xbDbf *dbf );
+   virtual xbInt16  SetIxTagMode( void *vpTag, xbInt16 iMode ) = 0;
    virtual xbInt16  SplitNodeL( void *vpTag, xbIxNode * npLeft, xbIxNode *npRight, xbInt16 iSlotNo, char *cpKeyBuf, xbUInt32 uiPtr ) = 0;
    virtual xbInt16  SplitNodeI( void *vpTag, xbIxNode * npLeft, xbIxNode *npRight, xbInt16 iSlotNo, xbUInt32 uiPtr ) = 0;
    virtual xbInt16  UpdateTagKey( char cAction, void *vpTag, xbUInt32 ulRecNo = 0 ) = 0;
@@ -281,6 +283,8 @@ struct XBDLLEXPORT xbNdxTag {
                             //       N                      Y              XB_ADD_KEY  1 - add key
                             //       N                      N                          0 - no update
 
+   xbInt16   iIxTagMode;    //  XB_IX_DBASE_MODE or XB_IX_XBASE_MODE
+
 };
 ///@endcond DOXYOFF
 
@@ -312,14 +316,13 @@ class XBDLLEXPORT xbIxNdx : public xbIx {
    xbInt16  CreateTag( const xbString &sName, const xbString &sKey, const xbString &sFilter, xbInt16 iDescending, xbInt16 iUnique, xbInt16 iOverlay, void **vpTag );
    xbInt16  FindKey( void *vpTag, const void *vpKey, xbInt32 lKeyLen, xbInt16 iRetrieveSw );
 
-
    xbInt16  GetCurKeyVal( void *vpTag, xbString &s );
    xbInt16  GetCurKeyVal( void *vpTag, xbDouble &d );
    xbInt16  GetCurKeyVal( void *vpTag, xbDate &dt );
 
-
-
    xbInt16  GetFirstKey( void *vpTag, xbInt16 iRetrieveSw );
+
+   xbInt16  GetIxTagMode( const void *vpTag ) const;
 
    xbInt16  GetLastKey( void *vpTag, xbInt16 iRetrieveSw = 1 );
    xbInt16  GetNextKey( void *vpTag, xbInt16 iRetrieveSw = 1 );
@@ -336,6 +339,9 @@ class XBDLLEXPORT xbIxNdx : public xbIx {
 
    xbBool   GetUnique( void *vpTag = NULL ) const;
    xbBool   GetSortOrder( void *vpTag ) const;
+
+   xbInt16  SetIxTagMode( void *vpTag, xbInt16 iMode );
+
    xbInt16  SetCurTag( xbInt16 iTagNo );
    xbInt16  SetCurTag( xbString &sTagName );
 
@@ -347,8 +353,6 @@ class XBDLLEXPORT xbIxNdx : public xbIx {
    xbInt16 DumpNode( void * vpTag, xbIxNode * pNode, xbInt16 iOption ) const;
    #endif
 
-   // xbInt16  ReindexTag( void **vpTag );
- 
 
  protected:
    friend   class xbDbf;
@@ -360,7 +364,7 @@ class XBDLLEXPORT xbIxNdx : public xbIx {
    xbInt16  DeleteFromNode( void *vpTag, xbIxNode * npNode, xbInt16 iSlotNo );
    xbInt16  DeleteKey( void *vpTag );
    xbInt16  DeleteTag( void *vpTag );
-   xbInt16  FindKeyForCurRec( void *vpTag );
+   xbInt16  FindKeyForCurRec( void *vpTag, xbInt16 iRetrieveSw = 0 );
    xbInt16  GetKeyTypeN( const void *vpTag ) const;
    xbInt16  GetKeySts( void *vpTag ) const;
    xbInt16  GetLastKey( xbUInt32 ulNodeNo, void *vpTag, xbInt16 iRetrieveSw = 1 );
@@ -397,7 +401,7 @@ struct XBDLLEXPORT xbMdxTag {
   // next 7 fields comprise the tag table entry
   xbUInt32      ulTagHdrPageNo;   // 512 byte page number, NOT block number
   char          cTagName[11];
-  char          cKeyFmt;          // always 0x10 w/ DBase V7
+  char          cKeyFmt;          // always 0x10 w/ dBASE V7
   char          cLeftChild;       // cFwdTagThread
   char          cRightChild;      // cFwdTagThread2
   char          cParent;          // cBwdTagThread
@@ -413,7 +417,7 @@ struct XBDLLEXPORT xbMdxTag {
   char          cKeyType2;
   // one unused byte fits here
 
-  char          cTag11;          // dbase sets to 0x1B
+  char          cTag11;          // dBASE sets to 0x1B
   xbInt16       iKeyLen;
   xbInt16       iKeysPerBlock;
   xbInt16       iSecKeyType;
@@ -424,14 +428,14 @@ struct XBDLLEXPORT xbMdxTag {
   xbString      *sKeyExp;       // Key expression
   char          cHasFilter;     // 0x00 or 0x01
   char          cHasKeys;       // 0x00 or 0x01
-  xbUInt32      ulLeftChild;    // dbase 7 sets this to the root page on tag creation
-  xbUInt32      ulRightChild;   // dbase 7 sets this to the root page on tag creation
+  xbUInt32      ulLeftChild;    // dBASE 7 sets this to the root page on tag creation
+  xbUInt32      ulRightChild;   // dBASE 7 sets this to the root page on tag creation
 
   char          cTagYY;
   char          cTagMM;
   char          cTagDD;
 
-  char          cKeyFmt3;      // dbase 7 sets this 0x01 if discreet field or 0x00 if calculated or combination field key expression on tag creation
+  char          cKeyFmt3;      // dBASE 7 sets this 0x01 if discreet field or 0x00 if calculated or combination field key expression on tag creation
 
   xbString      *sFiltExp;     // Filter expression
 
@@ -458,6 +462,9 @@ struct XBDLLEXPORT xbMdxTag {
                                //       N                      N                          0 - no update
 
 
+  xbInt16       iIxTagMode;    //  XB_IX_DBASE_MODE or XB_IX_XBASE_MODE
+
+
 };
 
 
@@ -475,6 +482,8 @@ class XBDLLEXPORT xbIxMdx : public xbIx {
    virtual xbInt16  GetCurKeyVal( void *vpTag, xbDate &dt );
 
    virtual xbInt16  GetFirstKey( void *vpTag, xbInt16 lRetrieveSw );
+   virtual xbInt16  GetIxTagMode( const void *vpTag ) const;
+
    virtual xbString &GetKeyExpression( const void *vpTag ) const;
    virtual xbString &GetKeyFilter( const void *vpTag ) const;
    virtual char     GetKeyType( const void *vpTag ) const;
@@ -496,11 +505,8 @@ class XBDLLEXPORT xbIxMdx : public xbIx {
    virtual xbInt16  SetCurTag( xbString &sTagName );
            void     SetReuseEmptyNodesSw( xbBool bReuse );
 
+   virtual xbInt16  SetIxTagMode( void *vpTag, xbInt16 iMode );
            void     TestStub( char *s, void *vpTag );
-
-
-   //virtual xbInt16  ReindexTag( void **vpTag );
-
 
  protected:
    friend   class xbDbf;
@@ -518,7 +524,7 @@ class XBDLLEXPORT xbIxMdx : public xbIx {
 
    virtual  xbInt16  DeleteTag( void *vpTag );
 
-   xbInt16  FindKeyForCurRec( void *vpTag );
+   xbInt16  FindKeyForCurRec( void *vpTag, xbInt16 iRetrieveSw = 0 );
    xbInt16  GetKeySts( void *vpTag ) const;
    xbInt16  GetLastKey( xbUInt32 ulBlockNo, void *vpTag, xbInt16 lRetrieveSw );
    void     *GetTagTblPtr() const;
@@ -574,7 +580,7 @@ class XBDLLEXPORT xbIxMdx : public xbIx {
 
 
    xbBool    bReuseEmptyNodes;     // Reuese empty MDX nodes when all keys deleted?
-                                   // DBase 7.x and MS ODBC drivers do not reuse empty nodes, leaves them stranded in the file
+                                   // dBASE 7.x and MS ODBC drivers do not reuse empty nodes, leaves them stranded in the file
                                    // Codebase 6.x reuses empty nodes.
                                    // Setting this to True will reuse empty nodes in the same manner Codebase 6.x reuses them.
 

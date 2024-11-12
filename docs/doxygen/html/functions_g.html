@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -48,6 +52,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_g.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -66,91 +86,128 @@ $(function() {
 <div class="textblock">Here is a list of all struct and union fields with links to the structures/unions they belong to:</div>
 
 <h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
-<li>GetAutoCommit()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ae0c00226fd2ea7a67f101e795467ed68">xb::xbDbf</a></li>
-<li>GetBlockSize()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a638e14262410a1627819f016a16cdce2">xb::xbFile</a></li>
-<li>GetBof()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ad0827a43c025c1184ffebab74cc9e779">xb::xbDbf</a></li>
+<li>GetAppendLocked()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a5e7dfcb8f3c1db959180037044d296c0">xb::xbDbf</a></li>
+<li>GetAutoCommit()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#acbc6621c66075380d396a7e011aea5a8">xb::xbDbf</a></li>
+<li>GetBlockFirstRecNo()&#160;:&#160;<a class="el" href="classxb_1_1xbBlockRead.html#aa2aaed3a7ae1f8d47f796411eb0a6d9f">xb::xbBlockRead</a></li>
+<li>GetBlockReadStatus()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a6ad4ee8a6aa76dba27c000d3de0d42a4">xb::xbDbf</a></li>
+<li>GetBlockRecCnt()&#160;:&#160;<a class="el" href="classxb_1_1xbBlockRead.html#a33e8dc016559867308474a560eff32ad">xb::xbBlockRead</a></li>
+<li>GetBlockSize()&#160;:&#160;<a class="el" href="classxb_1_1xbBlockRead.html#ae9e391c63e5c62e255e288d609a6d2ba">xb::xbBlockRead</a>, <a class="el" href="classxb_1_1xbFile.html#a638e14262410a1627819f016a16cdce2">xb::xbFile</a></li>
+<li>GetBof()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a62d6799cc9a030dff5cebf16cc84aa16">xb::xbDbf</a></li>
+<li>GetBoolResult()&#160;:&#160;<a class="el" href="classxb_1_1xbExp.html#a913e2bfb1f4badde48838c48ffd87ced">xb::xbExp</a></li>
 <li>GetCharacter()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a72de24c43d4085813ec7720f8a970095">xb::xbString</a></li>
-<li>GetChildRelKeys()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#a32bfabcc6399727df5fe84cbcd44eaf4">xb::xbRelate</a></li>
-<li>GetCmdLineOpt()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#aadecb3ac460d8e94b88b2e809e22f48e">xb::xbXBase</a></li>
-<li>GetCurRecNo()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a643a80a3792a52760c8e09ba18719503">xb::xbDbf</a></li>
-<li>GetDataDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a1d803a4bfc8ba0561267a0bf9e51f7d9">xb::xbSsv</a></li>
-<li>GetDateField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#af78ef1fba949463ff7f829d3cffc4555">xb::xbDbf</a></li>
-<li>GetDbfPtr()&#160;:&#160;<a class="el" href="classxb_1_1xbTblMgr.html#ad8a5d28a2ee6720a9aa74bcb45662cf5">xb::xbTblMgr</a></li>
-<li>GetDbfStatus()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ac1110d867ba297a52c8b0e83e88f05e6">xb::xbDbf</a></li>
-<li>GetDefaultAutoCommit()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a6982f973e81587b04916f4509746aaf5">xb::xbSsv</a></li>
-<li>GetDefaultDateFormat()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a6fbb9c3a550ab0b3378f9586a57791d2">xb::xbSsv</a></li>
+<li>GetCmdLineOpt()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#afcace09f410988cd94403ef29178534b">xb::xbXBase</a></li>
+<li>GetCreateMdxBlockSize()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#add74b7865b040ffa62da5eb4ab6cb623">xb::xbXBase</a></li>
+<li>GetCreateMemoBlockSize()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ae34258fb411d7ad47f70257b2373fa3a">xb::xbDbf</a></li>
+<li>GetCurRecNo()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a7fe96042a493e0588480265112727fbf">xb::xbDbf</a></li>
+<li>GetData()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkListNode.html#a5c4488df6ee744d9011ae40ac3eee152">xb::xbLinkListNode&lt; xbNodeType &gt;</a></li>
+<li>GetDataDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a6d8158594f949c66bacfc282b795c66a">xb::xbXBase</a></li>
+<li>GetDataForKey()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkListOrd.html#a7dc6efb273eafad477a6e3346f9dea6f">xb::xbLinkListOrd&lt; xbNodeType &gt;</a></li>
+<li>GetDateField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#aa63aa734eb8e77af47cb5914cd43cdf2">xb::xbDbf</a></li>
+<li>GetDateResult()&#160;:&#160;<a class="el" href="classxb_1_1xbExp.html#acef609f8163ceaeef6d145bb6d14d8c8">xb::xbExp</a></li>
+<li>GetDbfStatus()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#aa30b7242e4e2f37dbd0d6e252b1054d8">xb::xbDbf</a></li>
+<li>GetDefaultAutoCommit()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a49da8cb55a1e51645148581629832352">xb::xbXBase</a></li>
+<li>GetDefaultAutoLock()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#ab41e1f58db3d38b9d983fa2ddff1cd97">xb::xbXBase</a></li>
+<li>GetDefaultBlockReadSize()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#af3f76909846cac248b20805bd9f6e616">xb::xbXBase</a></li>
+<li>GetDefaultDateFormat()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a8dfb00ade511d5b86f3ae5cca9cca187">xb::xbDate</a>, <a class="el" href="classxb_1_1xbXBase.html#a4776de817dd8e4f96f76979108485e18">xb::xbXBase</a></li>
+<li>GetDefaultIxTagMode()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a9f2860151e7b9f1038bffc95e091103e">xb::xbXBase</a></li>
+<li>GetDefaultLockFlavor()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#aae076facfd25c56191fd89458b77471c">xb::xbXBase</a></li>
+<li>GetDefaultLockRetries()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a3327771df27f0788cd16d540c51e295f">xb::xbXBase</a></li>
+<li>GetDefaultLockWait()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#aeb3a08a3a06457063b9e298e1f4a6e3f">xb::xbXBase</a></li>
+<li>GetDefaultTimeFormat()&#160;:&#160;<a class="el" href="classxb_1_1xbTime.html#a17fc8f3a1d994612c1b868c1590fcf33">xb::xbTime</a>, <a class="el" href="classxb_1_1xbXBase.html#a1c29351f05d2ae04996d9ed88e953301">xb::xbXBase</a></li>
 <li>GetDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#acd0fb2166b2bff7e8a1cf65a7bc8be1e">xb::xbFile</a></li>
-<li>GetDoubleField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a4556041a7ff2f6b6f986729901c11f08">xb::xbDbf</a></li>
-<li>GetEndianType()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a49cd162f066eef2b829ba7c9f6620243">xb::xbSsv</a></li>
-<li>GetEof()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a256dc1f98626fa77da24e91a38ab5b4d">xb::xbDbf</a></li>
-<li>GetErrorMessage()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a56961d2a67b8e7470098626ac4dac7e4">xb::xbSsv</a></li>
-<li>GetField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ad245a26eb8b79610c9ae7bab19e05513">xb::xbDbf</a></li>
-<li>GetFieldCnt()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#add27d8ef555a13b336b8c804165dc15e">xb::xbDbf</a></li>
-<li>GetFieldDecimal()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a607f774fcd6dc0b9913d7a7801b60db2">xb::xbDbf</a></li>
-<li>GetFieldLen()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#adda4302b58cc6109b048f19d9b68bbd4">xb::xbDbf</a></li>
-<li>GetFieldName()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a5e3e4368bfba1724c016b8859023e34c">xb::xbDbf</a></li>
-<li>GetFieldNo()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#aed9113b5095c6df1b9c854cbd0d8047b">xb::xbDbf</a></li>
-<li>GetFieldType()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a5143973e4f165651152aa13c8fd45f84">xb::xbDbf</a></li>
-<li>GetFileDirPart()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a60c53998e3d1b694134b20a87bc9bf5a">xb::xbFile</a></li>
-<li>GetFileExtPart()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a57a9222e5cbb51019d4eeb2c3ac89fa2">xb::xbFile</a></li>
-<li>GetFileMtime()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a02df78f4c90313243f508fc56b95aba8">xb::xbFile</a></li>
+<li>GetDoubleField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#adac3eff78e13847cd410303542b7e45b">xb::xbDbf</a></li>
+<li>GetDupKeys()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkListOrd.html#aa962b0ffefec5f4a8cc5591cb023ae16">xb::xbLinkListOrd&lt; xbNodeType &gt;</a></li>
+<li>GetEndianType()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a12fd4761bd613bc55452fd963e47c0b5">xb::xbXBase</a></li>
+<li>GetEndNode()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkList.html#a9a1aba3eb716286f2e95bea7cff151f4">xb::xbLinkList&lt; xbNodeType &gt;</a>, <a class="el" href="classxb_1_1xbLinkListOrd.html#acadcdcdae8569b23a4539105399a20ec">xb::xbLinkListOrd&lt; xbNodeType &gt;</a></li>
+<li>GetEof()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a53c064ac5f5c000f8b0b515520729a8b">xb::xbDbf</a></li>
+<li>GetErrorMessage()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a6252d4ff713dfab5db058d1378a2d1fe">xb::xbXBase</a></li>
+<li>GetField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a725cc5e6675853874b044e3f25e6c45a">xb::xbDbf</a></li>
+<li>GetFieldCnt()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a09dabb3c8c0dd9320add950acf895c9b">xb::xbDbf</a></li>
+<li>GetFieldDecimal()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a29ab365d063a5ee3edfb21de91251c10">xb::xbDbf</a></li>
+<li>GetFieldLen()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#acb99b3b96cd06fc290773f9245c7d070">xb::xbDbf</a></li>
+<li>GetFieldName()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a33baa9b8ce4aac4820384172fb7b2d58">xb::xbDbf</a></li>
+<li>GetFieldNo()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a16a0aa94e68ecd728beae3319468b1c2">xb::xbDbf</a></li>
+<li>GetFieldType()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ab25be52f558d426b284acc8578b04251">xb::xbDbf</a></li>
+<li>GetFileDirPart()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#af5127c92892816e9bbc5c19653c4147a">xb::xbFile</a></li>
+<li>GetFileExtPart()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#ab289b6ffe955321160c1f90220c22e25">xb::xbFile</a></li>
+<li>GetFileMtime()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#ace71244e630af277f774e96f602a197c">xb::xbFile</a></li>
 <li>GetFileName()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#ac95cb882ccbcdedc9a233c6ad9fed07a">xb::xbFile</a></li>
 <li>GetFileNamePart()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a81422b3dd52763d2cc6c77237ec9af0a">xb::xbFile</a></li>
 <li>GetFileSize()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a50b63c39e49d44e52078038027b24cc5">xb::xbFile</a></li>
 <li>GetFileType()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a5548236d38d43b89ae29b9a015b1f678">xb::xbFile</a></li>
-<li>GetFirstRecForNode()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#aa407c78b8c191397bd09a53e3f2ffd59">xb::xbRelate</a></li>
-<li>GetFirstRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a6fc5b8a3e2f177d5ceaf9d975cbb5226">xb::xbDbf</a></li>
+<li>GetFirstRecLock()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a3aac9cc7b43cf60f00515146dee05489">xb::xbDbf</a></li>
+<li>GetFirstRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a7daaf050b88742ebf6c4d19d7c167473">xb::xbDbf</a>, <a class="el" href="classxb_1_1xbFilter.html#a5c3ec394980ee45c55569824e875b0df">xb::xbFilter</a></li>
 <li>GetFirstRelRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#a370eec53e54530ee7a569c3bd92bd95c">xb::xbRelate</a></li>
-<li>GetFloatField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a3443f646038ced14425f067a59c0f2da">xb::xbDbf</a></li>
+<li>GetFloatField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a4141e24bdb912b58bf205af8b107f2c7">xb::xbDbf</a></li>
+<li>GetFp()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a12f1d9b4010720023177ae7b2e6d98e6">xb::xbFile</a></li>
 <li>GetFqFileName()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a31b4e641f93206ba23e2a5a27491dcd4">xb::xbFile</a></li>
-<li>GetFunctionInfo()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#ae52e53340593b4253936c1372ec15ee1">xb::xbXBase</a></li>
 <li>GetHeaderLen()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ad56be2756b7a9f8318d9ba5cf215dafb">xb::xbDbf</a></li>
-<li>GetHomeDir()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#abc9c06c95d71fbad8294e1ae8862cea9">xb::xbSsv</a></li>
+<li>GetHeaderLocked()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ad0a07b90abad915c2108d49defb2d413">xb::xbDbf</a></li>
+<li>GetHeadNode()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkList.html#ad2190eae06f1e65119f21a5fea3893e6">xb::xbLinkList&lt; xbNodeType &gt;</a>, <a class="el" href="classxb_1_1xbLinkListOrd.html#a56a67bf8e14b460968752ee261e470e3">xb::xbLinkListOrd&lt; xbNodeType &gt;</a></li>
+<li>GetHomeDir()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#afd2457de6faec56bd8969a03e0fe2ece">xb::xbXBase</a></li>
+<li>GetHour()&#160;:&#160;<a class="el" href="classxb_1_1xbTime.html#a4cbe46923c481de3c21f816eadb474ef">xb::xbTime</a></li>
+<li>GetInfList()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ab7e148e8ebb0b88994e727de604be2f8">xb::xbDbf</a></li>
+<li>GetKey()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkListNode.html#a593a4719640bd36407d41b735b19e0b1">xb::xbLinkListNode&lt; xbNodeType &gt;</a></li>
 <li>GetLastPos()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a1c55587904fe7e534290559d0ecb8646">xb::xbString</a></li>
-<li>GetLastRecForNode()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#a3526427ac6b4b6decf1217cd6dfaf27c">xb::xbRelate</a></li>
-<li>GetLastRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a49e667f9c8ee55c36444702663fc5964">xb::xbDbf</a></li>
+<li>GetLastRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a5f4d3ced6440ea1b507e31cf0d14268a">xb::xbDbf</a>, <a class="el" href="classxb_1_1xbFilter.html#a61f5c924a8f2c59a568474e1ccc6ead7">xb::xbFilter</a></li>
 <li>GetLastRelRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#a78f3c4d7aa47405512848c8f729bc380">xb::xbRelate</a></li>
-<li>GetLastTreeNode()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#a8177b0d84e6392d754e79601cf9a0225">xb::xbRelate</a></li>
-<li>GetLogDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a4822315bded3969b59aeeb683c373051">xb::xbSsv</a></li>
-<li>GetLogFileName()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#afaef09435be73b3111f5edbd7091d861">xb::xbSsv</a></li>
+<li>GetLimit()&#160;:&#160;<a class="el" href="classxb_1_1xbFilter.html#a182fcfc538cc31ec4aaa39fcc8c52b01">xb::xbFilter</a></li>
+<li>GetLockFlavor()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#aabd6688795410e7f64c68aed1d4fc6a7">xb::xbDbf</a></li>
+<li>GetLockRetryCount()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a5a67588bc8e5a5c99d83432cea0dd976">xb::xbFile</a></li>
+<li>GetLogDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#ac7dc2c6154f100e5fd94379c7cf69b3c">xb::xbXBase</a></li>
+<li>GetLogFileName()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a9b52e742134c4f8d94aba417394a95af">xb::xbXBase</a></li>
 <li>GetLogFqFileName()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#ab5d63cd7d9137eba8a1d4d9c3df522b7">xb::xbXBase</a></li>
-<li>GetLogicalField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a943cea7fde1b06c1a05184193eff8d2d">xb::xbDbf</a></li>
+<li>GetLogicalField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a718d2b21382f7f87b3aa2fab09e6d5e6">xb::xbDbf</a></li>
 <li>GetLogSize()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#aedb4c2aa2c90e4529915198a2305b355">xb::xbXBase</a></li>
 <li>GetLogStatus()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#ade34cd72c2a7e70fb55429a8a6f6c028">xb::xbXBase</a></li>
-<li>GetLongField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#abe525c0820640e0a9e169d0b7913cfa1">xb::xbDbf</a></li>
-<li>GetMultiUser()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#abd58031c5f1c3766c24d47a82e6fd9c5">xb::xbSsv</a></li>
-<li>GetNextRecForNode()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#aedc262d61fddad093b92045c77d40c05">xb::xbRelate</a></li>
-<li>GetNextRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ab896fe3b734f556de578d30f92b18fe2">xb::xbDbf</a></li>
+<li>GetLongField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#af2480ae377c4b3d4fb74e3d2c6dc3b7b">xb::xbDbf</a></li>
+<li>GetMemoField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a0a873a9b8a38d5f8a83027308b6a6c6d">xb::xbDbf</a></li>
+<li>GetMemoFieldCnt()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ad9691c10bb938e5c2a05bb2cb64fc316">xb::xbDbf</a></li>
+<li>GetMemoFieldLen()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a08b8da73b15dc1d8a1b80c1a5419ecb4">xb::xbDbf</a></li>
+<li>GetMemoLocked()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a055276c63d3820d48c857f685f705211">xb::xbDbf</a></li>
+<li>GetMemoPtr()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a35e2eb65f0dc47e826e90d917b1281af">xb::xbDbf</a></li>
+<li>GetMinute()&#160;:&#160;<a class="el" href="classxb_1_1xbTime.html#abd3811c2e2f4c209913c7be2ba7ee4e2">xb::xbTime</a></li>
+<li>GetMultiUser()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a0362bb9d109f220603cb4f891456940d">xb::xbDbf</a>, <a class="el" href="classxb_1_1xbXBase.html#af583513ad57bc8e492dcea192c17f8ab">xb::xbXBase</a></li>
+<li>GetNextNode()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkListNode.html#a600f3607f51a46366103190bcebb65be">xb::xbLinkListNode&lt; xbNodeType &gt;</a></li>
+<li>GetNextRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a821788993826cd6ccfbb72854c3fdfe1">xb::xbDbf</a>, <a class="el" href="classxb_1_1xbFilter.html#aa3740d7761ca906566d269e1a78b7144">xb::xbFilter</a></li>
 <li>GetNextRelRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#af06ce562407cc49d6c58df202974f09e">xb::xbRelate</a></li>
-<li>GetNextTreeNode()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#a12127519f9ed7de58cd2e931a4c6b3c0">xb::xbRelate</a></li>
-<li>GetNullSts()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a7930fe8b930c6d646b7b0d3df576fe9e">xb::xbDbf</a></li>
+<li>GetNodeCnt()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkList.html#a32bf120024a7f7ea25838e1bce6d23b7">xb::xbLinkList&lt; xbNodeType &gt;</a>, <a class="el" href="classxb_1_1xbLinkListOrd.html#ab1cbf52e78cd095db6eaa5e8be0de674">xb::xbLinkListOrd&lt; xbNodeType &gt;</a></li>
+<li>GetNodeForNo()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkList.html#a0b64d7dfdd9fdd23656240d7308ac6a2">xb::xbLinkList&lt; xbNodeType &gt;</a></li>
+<li>GetNullSts()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#aa7260d5a71d82227073ac0aa64fe961d">xb::xbDbf</a></li>
+<li>GetNumericResult()&#160;:&#160;<a class="el" href="classxb_1_1xbExp.html#a773ceb59708ade41922d47bf8dbbe3bc">xb::xbExp</a></li>
 <li>GetOpenMode()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a3c500dc9dac22c49496e4b29386b2dd3">xb::xbFile</a></li>
-<li>GetOpenTableCount()&#160;:&#160;<a class="el" href="classxb_1_1xbTblMgr.html#ad0d2d4adabc0dc0e761cfdee63c84069">xb::xbTblMgr</a></li>
-<li>GetParentRelKeys()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#afaab067e4736ecfeaaf2340faa24c5c1">xb::xbRelate</a></li>
-<li>GetPathSeparator()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a63cee13b473ee13970e93b11837b9e35">xb::xbSsv</a>, <a class="el" href="classxb_1_1xbString.html#af8b8b808cf43cd352321b43f500142db">xb::xbString</a></li>
-<li>GetPrevRecForNode()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#a932e6c9195a4891df899d655aece3788">xb::xbRelate</a></li>
-<li>GetPrevRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ab3d248e5221b4f0809897cd43af17a1e">xb::xbDbf</a></li>
+<li>GetPathSeparator()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#af8b8b808cf43cd352321b43f500142db">xb::xbString</a>, <a class="el" href="classxb_1_1xbXBase.html#aa8c42d4ea81fea26a5809e5d5b0c87ba">xb::xbXBase</a></li>
+<li>GetPrevNode()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkListNode.html#a3532b44ddaeb3a77aa84a50a95758616">xb::xbLinkListNode&lt; xbNodeType &gt;</a></li>
+<li>GetPrevRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ab0a84231eaa4aacd311447544a928b01">xb::xbDbf</a>, <a class="el" href="classxb_1_1xbFilter.html#a7e44b7321c7ef5fec56ec6dd1e78e8c9">xb::xbFilter</a></li>
 <li>GetPrevRelRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#af2d4a35dd35ba35294a427ea2b695157">xb::xbRelate</a></li>
-<li>GetRawField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#aabd146c0e1054ab905ec96aedd84b02e">xb::xbDbf</a></li>
-<li>GetRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a26fba086b07caeab95066bf1c8d25161">xb::xbDbf</a></li>
-<li>GetRecordBuf()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#aa3e38c4057d726a28a27d07a1610d124">xb::xbDbf</a></li>
-<li>GetRecordCnt()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ac196ad55335e1f4789d698748434dc89">xb::xbDbf</a></li>
-<li>GetRecordLen()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ab50d76c6e29e81e347a6feb04c2f62bb">xb::xbDbf</a></li>
-<li>GetRelRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#aaabe25c833ebd2d28d959e16be83a50d">xb::xbRelate</a></li>
+<li>GetQryCnt()&#160;:&#160;<a class="el" href="classxb_1_1xbFilter.html#a03a95bdbd92847bdb64287bf12f960d5">xb::xbFilter</a></li>
+<li>GetRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbBlockRead.html#a5c752df4096be6c0de83673ee87fc833">xb::xbBlockRead</a>, <a class="el" href="classxb_1_1xbDbf.html#aadedd8886b320bd4613e78c6edf1248b">xb::xbDbf</a></li>
+<li>GetRecordBuf()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#af491683bbe8e1c5d12b907736041eafa">xb::xbDbf</a></li>
+<li>GetRecordCnt()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a78075617658c0cb6f034d23c9ab7aae8">xb::xbDbf</a></li>
+<li>GetRecordLen()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a4054278ebe212e23b45f0e1c068a4b82">xb::xbDbf</a></li>
+<li>GetResultLen()&#160;:&#160;<a class="el" href="classxb_1_1xbExp.html#a53419312242067007c1c02dda662e09d">xb::xbExp</a></li>
+<li>GetReturnType()&#160;:&#160;<a class="el" href="classxb_1_1xbExp.html#aae1e52a1368b529968e582cc87e8f715">xb::xbExp</a></li>
+<li>GetSecond()&#160;:&#160;<a class="el" href="classxb_1_1xbTime.html#af4b84f034e07dee2f744909f73f5552b">xb::xbTime</a></li>
 <li>GetShareMode()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a9b63e05b77f477ff6109ff7b9432c1b6">xb::xbFile</a></li>
 <li>GetSize()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a6c33e73659f8e98819289d2661c7271c">xb::xbString</a></li>
-<li>GetTblAlias()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a27758a325c097f204247908b65ba7fbd">xb::xbDbf</a></li>
-<li>GetTblListEntry()&#160;:&#160;<a class="el" href="classxb_1_1xbTblMgr.html#acbf148ddba4297021cfb980a161ebef9">xb::xbTblMgr</a></li>
-<li>GetTempDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#abfaeef85935331073d213465bb362a61">xb::xbSsv</a></li>
-<li>GetULongField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a67e3a050f9090edf69eee75aef7f5d83">xb::xbDbf</a></li>
-<li>GetVersion()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a49212a9eb17f7fa9f303e08d5fc50fc6">xb::xbDbf</a></li>
-<li>GetXbaseFileTypeByte()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#aaf2e697751a0beff41432a66bb83fb5e">xb::xbFile</a></li>
-<li>GetXbasePtr()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ab21ec23c076b0c9affdc0f6672bd133f">xb::xbDbf</a></li>
+<li>GetStringResult()&#160;:&#160;<a class="el" href="classxb_1_1xbExp.html#a3c1a7b9337b77c4ea05d4c10376b4198">xb::xbExp</a></li>
+<li>GetTableLocked()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a2f3cfb7e83b3e6fb1df8854cc2a838a6">xb::xbDbf</a></li>
+<li>GetTblAlias()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a34c48a20d67e95dac6a6265254c6ee0b">xb::xbDbf</a></li>
+<li>GetTempDirectory()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a7ec2f105c6f4e313a92e5714db4db678">xb::xbXBase</a></li>
+<li>GetTime()&#160;:&#160;<a class="el" href="classxb_1_1xbTime.html#afc725152044d26bba64b1eee1f684ee3">xb::xbTime</a></li>
+<li>GetTimeFormat()&#160;:&#160;<a class="el" href="classxb_1_1xbTime.html#a8ecb221c4e25879f0283d68d4a3b6ea9">xb::xbTime</a></li>
+<li>GetULongField()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a26a738d8b2ea077ee761dc49813dbaff">xb::xbDbf</a></li>
+<li>GetVersion()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf3.html#a97aadfda990d3622526ffe3e35b4246b">xb::xbDbf3</a>, <a class="el" href="classxb_1_1xbDbf4.html#aff582786a416d878e1023806a67ff997">xb::xbDbf4</a>, <a class="el" href="classxb_1_1xbDbf.html#a49212a9eb17f7fa9f303e08d5fc50fc6">xb::xbDbf</a></li>
+<li>GetXbaseFileTypeByte()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#a7af337808919680b90710ad5e8a99232">xb::xbFile</a></li>
+<li>GetXbasePtr()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a1f7f96f31db6317c7665b043aabb7a6b">xb::xbDbf</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

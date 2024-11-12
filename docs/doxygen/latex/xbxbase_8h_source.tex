@@ -1,12 +1,12 @@
 \hypertarget{xbxbase_8h_source}{}\doxysection{xbxbase.\+h}
-\label{xbxbase_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbxbase.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbxbase.h}}
+\label{xbxbase_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbxbase.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbxbase.h}}
 \mbox{\hyperlink{xbxbase_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*  xbxbase.h}}
 \DoxyCodeLine{2 \textcolor{comment}{}}
 \DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
 \DoxyCodeLine{4 \textcolor{comment}{}}
-\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel}}
 \DoxyCodeLine{6 \textcolor{comment}{}}
 \DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
 \DoxyCodeLine{8 \textcolor{comment}{}}
@@ -27,7 +27,7 @@
 \DoxyCodeLine{23 }
 \DoxyCodeLine{24 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
 \DoxyCodeLine{25 }
-\DoxyCodeLine{26 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{namespacexb_a4a31fbe9110c9e55495ce71e642d785c}{xbLog}};}
+\DoxyCodeLine{26 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbLog}{xbLog}};}
 \DoxyCodeLine{27 }
 \DoxyCodeLine{28 \textcolor{comment}{/************************************************************************/}}
 \DoxyCodeLine{29 \textcolor{comment}{/* }}
@@ -120,118 +120,377 @@
 \DoxyCodeLine{116 }
 \DoxyCodeLine{117 }
 \DoxyCodeLine{119 }
-\DoxyCodeLine{123 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}} : \textcolor{keyword}{public} \mbox{\hyperlink{classxb_1_1xbTblMgr}{xbTblMgr}}\{}
+\DoxyCodeLine{123 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}} : \textcolor{keyword}{public} xbTblMgr\{}
 \DoxyCodeLine{124  \textcolor{keyword}{public}:}
-\DoxyCodeLine{125   \mbox{\hyperlink{namespacexb_a97858ddeb1c4b0100f3edc1a46d3a8b0}{xbXBase}}();}
-\DoxyCodeLine{126   \mbox{\hyperlink{classxb_1_1xbXBase}{\string~xbXBase}}();}
-\DoxyCodeLine{127 }
-\DoxyCodeLine{128   xbInt16  CloseAllTables();}
-\DoxyCodeLine{129   xbInt16  CreateFqn( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDirIn, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sNameIn, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExtIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFqfnOut );}
-\DoxyCodeLine{130   \textcolor{keywordtype}{void}     DisableMsgLogging();}
-\DoxyCodeLine{131   \textcolor{keywordtype}{void}     EnableMsgLogging ();}
-\DoxyCodeLine{132   xbInt16  FlushLog();}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{127   \mbox{\hyperlink{classxb_1_1xbXBase_a6c68588e33946fb5416af3f86fe83224}{xbXBase}}();}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{130   \mbox{\hyperlink{classxb_1_1xbXBase_a204f8634894ac2066d3209117803306d}{\string~xbXBase}}();}
+\DoxyCodeLine{131 }
 \DoxyCodeLine{133 }
-\DoxyCodeLine{134   \textcolor{comment}{//const    xbString \&GetLogDirectory () const;}}
-\DoxyCodeLine{135   \textcolor{comment}{//const    xbString \&GetLogFileName  () const;}}
-\DoxyCodeLine{136   \textcolor{keyword}{const}    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&GetLogFqFileName() \textcolor{keyword}{const};}
-\DoxyCodeLine{137   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   GetLogStatus   () \textcolor{keyword}{const};}
+\DoxyCodeLine{137   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_afccb552ca0daff779c0500ff20d22c2b}{CloseAllTables}}();}
 \DoxyCodeLine{138 }
-\DoxyCodeLine{139   xbInt16  \mbox{\hyperlink{classxb_1_1xbXBase_aa957eb502ecd076e5df89e7415cb094b}{OpenHighestVersion}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sAlias, \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} \&dbf, \textcolor{keywordtype}{int} dummy );}
-\DoxyCodeLine{140   xbInt16  OpenHighestVersion( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sAlias, \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} **dbf );}
-\DoxyCodeLine{141 }
-\DoxyCodeLine{142   \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} *  Open( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, xbInt16 \&iRc );}
-\DoxyCodeLine{143   \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} *  Open( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sAlias, xbInt16 iOpenMode, xbInt16 iShareMode, xbInt16 iVersion, xbInt16 \&iRc );}
-\DoxyCodeLine{144 }
-\DoxyCodeLine{145   \textcolor{comment}{// next three methods moved to xbssv for consistency}}
-\DoxyCodeLine{146   \textcolor{comment}{// void     SetLogDirectory( const xbString \&sLogFileDirectory );}}
-\DoxyCodeLine{147   \textcolor{comment}{// void     SetLogFileName ( const xbString \&sLogFileName );}}
-\DoxyCodeLine{148   \textcolor{keywordtype}{void}     SetLogSize     ( \textcolor{keywordtype}{size\_t} lSize );}
-\DoxyCodeLine{149   \textcolor{keywordtype}{size\_t}   \mbox{\hyperlink{classxb_1_1xbXBase_aedb4c2aa2c90e4529915198a2305b355}{GetLogSize}}     () \textcolor{keyword}{const};}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{149   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_aa41240d920b604dcbd91dce7eecb78e1}{CreateFqn}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDirIn, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sNameIn, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExtIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFqfnOut );}
 \DoxyCodeLine{150 }
-\DoxyCodeLine{151   xbInt16  WriteLogMessage( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sLogMessage, xbInt16 iOutputOpt = 0 );}
-\DoxyCodeLine{152   xbInt16  WriteLogBytes  ( xbUInt32 lCnt, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p );}
-\DoxyCodeLine{153 }
-\DoxyCodeLine{154   \textcolor{keywordtype}{void}     xbSleep        ( xbInt32 lMillisecs );}
-\DoxyCodeLine{155 }
-\DoxyCodeLine{156   xbInt16  GetCmdLineOpt  ( xbInt32 lArgc, \textcolor{keywordtype}{char} **argv, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sOptRqst, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sParmOut );}
-\DoxyCodeLine{157   xbInt16  GetCmdLineOpt  ( xbInt32 lArgc, \textcolor{keywordtype}{char} **argv, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOptRqst, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sParmOut );}
-\DoxyCodeLine{158 }
+\DoxyCodeLine{152 }
+\DoxyCodeLine{155   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_a56a258229c31f423c6293c791d3fa8ef}{DisplayError}}( xbInt16 iErrorCode ) \textcolor{keyword}{const};}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{158   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_ae357fac4fdebdf49e46563cf611caf65}{DisableMsgLogging}}();}
 \DoxyCodeLine{159 }
-\DoxyCodeLine{160   \textcolor{comment}{/* xbase functions */}}
-\DoxyCodeLine{161 \textcolor{preprocessor}{  \#ifdef XB\_FUNCTION\_SUPPORT}}
-\DoxyCodeLine{162   xbInt16 ABS( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
-\DoxyCodeLine{163   xbInt16 ALLTRIM( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{164   xbInt16 ASC( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dAscOut );}
-\DoxyCodeLine{165   xbInt16 AT( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sSrchFor, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sBase, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dPos );}
-\DoxyCodeLine{166   xbInt16 CDOW( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dInDate, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutDow );}
-\DoxyCodeLine{167   xbInt16 CHR( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dAsciCd, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{168   xbInt16 CMONTH( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dInDate, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutMonth );}
-\DoxyCodeLine{169   xbInt16 CTOD( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sInDate, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dOutDate );}
-\DoxyCodeLine{170   xbInt16 DATE( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dOutDate );}
-\DoxyCodeLine{171   xbInt16 DAY( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dInDate, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOutDay );}
-\DoxyCodeLine{172   xbInt16 DEL( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * d, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut, xbInt16 iRecBufSw = 0 );}
-\DoxyCodeLine{173   xbInt16 DELETED( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * d, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bOut, xbInt16 iRecBufSw = 0 );}
-\DoxyCodeLine{174   xbInt16 DESCEND( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn,  \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{175   xbInt16 DESCEND( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}}   \&dInDate, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dOutDate );}
-\DoxyCodeLine{176   xbInt16 DESCEND( \textcolor{keyword}{const} \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn,   \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dsOut );}
-\DoxyCodeLine{177   xbInt16 DOW( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&sInDate, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dDowOut );}
-\DoxyCodeLine{178   xbInt16 DTOC( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dInDate, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutFmtDate );}
-\DoxyCodeLine{179   xbInt16 DTOS( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dInDate, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutFmtDate );}
-\DoxyCodeLine{180   xbInt16 EXP( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
-\DoxyCodeLine{181   xbInt16 IIF( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bResult, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTrueResult, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFalseResult, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sResult );}
-\DoxyCodeLine{182   xbInt16 INT( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
-\DoxyCodeLine{183   xbInt16 ISALPHA( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bResult );}
-\DoxyCodeLine{184   xbInt16 ISLOWER( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bResult );}
-\DoxyCodeLine{185   xbInt16 ISUPPER( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bResult );}
-\DoxyCodeLine{186   xbInt16 LEFT( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, xbUInt32 lCharCnt, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{187   xbInt16 LEN( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dLen );}
-\DoxyCodeLine{188   xbInt16 LOG( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
-\DoxyCodeLine{189   xbInt16 LOWER( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{190   xbInt16 LTRIM( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \& sOut );}
-\DoxyCodeLine{191   xbInt16 MAX( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn1, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn2, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
-\DoxyCodeLine{192   xbInt16 MIN( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn1, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn2, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
-\DoxyCodeLine{193   xbInt16 MONTH( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dInDate, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dMonthOut );}
-\DoxyCodeLine{194   xbInt16 RECCOUNT( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * d, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dRecOut );}
-\DoxyCodeLine{195   xbInt16 RECNO( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * d, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dRecOut );}
-\DoxyCodeLine{196   xbInt16 REPLICATE( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, xbUInt32 ulRepCnt, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{197   xbInt16 RIGHT( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, xbUInt32 iCharCnt, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{198   xbInt16 RTRIM( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{199   xbInt16 SPACE( xbInt32 lCnt, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{200   xbInt16 SQRT( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dBase, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dSqrRt );}
-\DoxyCodeLine{201   xbInt16 STOD( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&sDateOut );}
-\DoxyCodeLine{202   xbInt16 STR( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{203   xbInt16 STR( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, xbUInt32 ulLen, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{204   xbInt16 STR( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, xbUInt32 ulLen, xbUInt32 ulDec, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{205   xbInt16 STR( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, xbUInt32 ulLen, xbUInt32 ulDec, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sPadChar, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{206   xbInt16 STRZERO( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, xbUInt32 ulLen, xbUInt32 ulDec, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{207   xbInt16 SUBSTR( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, xbUInt32 ulStartPos, xbUInt32 ulLen, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{208   xbInt16 TRIM( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{209   xbInt16 UPPER( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{210   xbInt16 VAL( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
-\DoxyCodeLine{211   xbInt16 YEAR( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dInDate, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOutYear );}
-\DoxyCodeLine{212 \textcolor{preprocessor}{  \#endif}}
-\DoxyCodeLine{213 }
-\DoxyCodeLine{214  \textcolor{keyword}{protected}:}
-\DoxyCodeLine{215   \textcolor{keyword}{friend} \textcolor{keyword}{class }xbBcd;}
-\DoxyCodeLine{216   \textcolor{keyword}{friend} \textcolor{keyword}{class }xbExp;}
-\DoxyCodeLine{217 }
-\DoxyCodeLine{218 \textcolor{preprocessor}{  \#ifdef XB\_BLOCKREAD\_SUPPORT}}
-\DoxyCodeLine{219   \textcolor{keyword}{friend} \textcolor{keyword}{class }xbBlockRead;}
-\DoxyCodeLine{220 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_BLOCKREAD\_SUPPORT}}
-\DoxyCodeLine{221 }
-\DoxyCodeLine{222 }
-\DoxyCodeLine{223   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_ae52e53340593b4253936c1372ec15ee1}{GetFunctionInfo}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExpLine, \textcolor{keywordtype}{char} \&cReturnType, xbInt16 \&iReturnLenCalc, xbInt32 \&lReturnLenVal ) \textcolor{keyword}{const};}
-\DoxyCodeLine{224   \textcolor{keyword}{static} xbInt16 xbMemcmp( \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *s2, \textcolor{keywordtype}{size\_t} n );}
+\DoxyCodeLine{161   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_a470e6eb0ed0be60338f9b40976d3ad48}{EnableMsgLogging}} ();}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{164   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a5a5ecaed9777978344902446c9ae3b8e}{FlushLog}}();}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{167 }
+\DoxyCodeLine{170   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& \mbox{\hyperlink{classxb_1_1xbXBase_a4776de817dd8e4f96f76979108485e18}{GetDefaultDateFormat}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{173 }
+\DoxyCodeLine{184   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a12fd4761bd613bc55452fd963e47c0b5}{GetEndianType}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{187 }
+\DoxyCodeLine{191   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classxb_1_1xbXBase_a6252d4ff713dfab5db058d1378a2d1fe}{GetErrorMessage}}( xbInt16 iErrorCode ) \textcolor{keyword}{const};}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{194 }
+\DoxyCodeLine{197   \textcolor{keywordtype}{char} \mbox{\hyperlink{classxb_1_1xbXBase_aa8c42d4ea81fea26a5809e5d5b0c87ba}{GetPathSeparator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{200 }
+\DoxyCodeLine{203   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_a8e9f1e16deaf96a89d3b8a29f012832e}{SetDataDirectory}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDataDirectory );}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{206 }
+\DoxyCodeLine{209   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_aa19de297f99ce4d51978f96c3da037f3}{SetDefaultDateFormat}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDefaultDateFormat );}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{212 }
+\DoxyCodeLine{215   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_a995ab1fc94ba21cd8b95481683a09a9d}{SetTempDirectory}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTempDirectory );}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{218 }
+\DoxyCodeLine{222   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& \mbox{\hyperlink{classxb_1_1xbXBase_a6d8158594f949c66bacfc282b795c66a}{GetDataDirectory}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{223 }
 \DoxyCodeLine{225 }
-\DoxyCodeLine{226  \textcolor{keyword}{private}:}
-\DoxyCodeLine{227 }
-\DoxyCodeLine{228 \textcolor{preprocessor}{  \#ifdef XB\_LOGGING\_SUPPORT}}
-\DoxyCodeLine{229   \mbox{\hyperlink{namespacexb_a4a31fbe9110c9e55495ce71e642d785c}{xbLog}} *xLog;}
-\DoxyCodeLine{230 \textcolor{preprocessor}{  \#endif}}
-\DoxyCodeLine{231 }
-\DoxyCodeLine{232 \};}
-\DoxyCodeLine{233 }
-\DoxyCodeLine{234 \}        \textcolor{comment}{/* namespace xb    */}}
-\DoxyCodeLine{235 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XB\_DBLIST\_H\_\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{229   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& \mbox{\hyperlink{classxb_1_1xbXBase_a7ec2f105c6f4e313a92e5714db4db678}{GetTempDirectory}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{232 }
+\DoxyCodeLine{235   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_afd2457de6faec56bd8969a03e0fe2ece}{GetHomeDir}}( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sHomeDirOut );}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{238 }
+\DoxyCodeLine{247   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbXBase_a49da8cb55a1e51645148581629832352}{GetDefaultAutoCommit}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249 }
+\DoxyCodeLine{251 }
+\DoxyCodeLine{262   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_a8213c1b7a6d500778f410a196190b565}{SetDefaultAutoCommit}}( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bDefaultAutoCommit );}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264 }
+\DoxyCodeLine{266 }
+\DoxyCodeLine{269   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& \mbox{\hyperlink{classxb_1_1xbXBase_ac7dc2c6154f100e5fd94379c7cf69b3c}{GetLogDirectory}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{272 }
+\DoxyCodeLine{275   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& \mbox{\hyperlink{classxb_1_1xbXBase_a9b52e742134c4f8d94aba417394a95af}{GetLogFileName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277 }
+\DoxyCodeLine{279 }
+\DoxyCodeLine{282   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_a0be4affb02f01ae1e965c3621edff16a}{SetLogDirectory}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sLogDirectory );}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{285 }
+\DoxyCodeLine{288   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_a94010b88a309315ef980715eb581336c}{SetLogFileName}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sLogFileName );}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{291 }
+\DoxyCodeLine{299   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbXBase_af583513ad57bc8e492dcea192c17f8ab}{GetMultiUser}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{302 }
+\DoxyCodeLine{317   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a30e8e1be96e5e57170af4c0668378e6e}{SetMultiUser}}( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bMultiUser );}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{320 }
+\DoxyCodeLine{323   \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbXBase_ab5d63cd7d9137eba8a1d4d9c3df522b7}{GetLogFqFileName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{326 }
+\DoxyCodeLine{329   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbXBase_ade34cd72c2a7e70fb55429a8a6f6c028}{GetLogStatus}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332 }
+\DoxyCodeLine{334 }
+\DoxyCodeLine{342   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_abdf560ff45173ece0baab3640c908fc8}{Open}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sAlias, \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} **dbf );}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{345 }
+\DoxyCodeLine{358   \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * \mbox{\hyperlink{classxb_1_1xbXBase_ab35cec5ac8f0fa95f10653ca7ac817f6}{Open}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sAlias, xbInt16 iOpenMode, xbInt16 iShareMode, xbInt16 iVersion, xbInt16 \&iRc );}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360 }
+\DoxyCodeLine{362 }
+\DoxyCodeLine{369   \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * \mbox{\hyperlink{classxb_1_1xbXBase_aafb1abd6b6124cddf635adaf9f615a4a}{Open}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTableName, xbInt16 \&iRc );}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371 }
+\DoxyCodeLine{373 }
+\DoxyCodeLine{379   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_a666a0cb5b76ec7a9a3677d339e0c6b42}{SetLogSize}}( \textcolor{keywordtype}{size\_t} lSize );}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{382 }
+\DoxyCodeLine{387   \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classxb_1_1xbXBase_aedb4c2aa2c90e4529915198a2305b355}{GetLogSize}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{390 }
+\DoxyCodeLine{397   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a9ca5be73abffd0fdd18bdc799877272a}{WriteLogMessage}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sLogMessage, xbInt16 iOutputOpt = 0 );}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{400 }
+\DoxyCodeLine{405   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a0dff00b9ee3c288841e137ca01168116}{WriteLogBytes}}( xbUInt32 lCnt, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p );}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{408 }
+\DoxyCodeLine{411   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_a0915aff7be4b2dd3e881f3c5d0da4baf}{xbSleep}}( xbInt32 lMillisecs );}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{414 }
+\DoxyCodeLine{421   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_afcace09f410988cd94403ef29178534b}{GetCmdLineOpt}}( xbInt32 lArgc, \textcolor{keywordtype}{char} **sArgv, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sOptRqst, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sParmOut );}
+\DoxyCodeLine{422 }
+\DoxyCodeLine{424 }
+\DoxyCodeLine{431   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_aa676593eb34a1a2c2b8ec1eb7727363c}{GetCmdLineOpt}}( xbInt32 lArgc, \textcolor{keywordtype}{char} **sArgv, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOptRqst, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sParmOut );}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{433 \textcolor{preprocessor}{  \#ifdef XB\_MDX\_SUPPORT}}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{438   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_add74b7865b040ffa62da5eb4ab6cb623}{GetCreateMdxBlockSize}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{441 }
+\DoxyCodeLine{449   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a7e859c19a788c617148dad8a189add06}{SetCreateMdxBlockSize}}( xbInt16 ulBlockSize );}
+\DoxyCodeLine{450 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_MDX\_SUPPORT}}
+\DoxyCodeLine{451 }
+\DoxyCodeLine{452 }
+\DoxyCodeLine{453 \textcolor{preprocessor}{  \#if defined (XB\_NDX\_SUPPORT) || defined (XB\_MDX\_SUPPORT)}}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{471   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a9f2860151e7b9f1038bffc95e091103e}{GetDefaultIxTagMode}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{489   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a5f4ca6af91e1815b1697a05fb2b52446}{SetDefaultIxTagMode}}( xbInt16 iIndexMode = \mbox{\hyperlink{xbcore_8h_aa36b5d6bf6a868e143f04081c90b4ea7}{XB\_IX\_DBASE\_MODE}} );}
+\DoxyCodeLine{490 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// (XB\_NDX\_SUPPORT) || defined (XB\_MDX\_SUPPORT)}}
+\DoxyCodeLine{491 }
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493 \textcolor{preprocessor}{  \#ifdef XB\_DBF5\_SUPPORT}}
+\DoxyCodeLine{495 }
+\DoxyCodeLine{498   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& \mbox{\hyperlink{classxb_1_1xbXBase_a1c29351f05d2ae04996d9ed88e953301}{GetDefaultTimeFormat}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{499 }
+\DoxyCodeLine{501 }
+\DoxyCodeLine{504   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_a8e35972e54976ea550db09998c3a9900}{SetDefaultTimeFormat}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDefaultTimeFormat );}
+\DoxyCodeLine{505 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_DBF5\_SUPPORT}}
+\DoxyCodeLine{506 }
+\DoxyCodeLine{507 }
+\DoxyCodeLine{508 \textcolor{preprocessor}{  \#ifdef XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{510 }
+\DoxyCodeLine{514   xbUInt32 \mbox{\hyperlink{classxb_1_1xbXBase_af3f76909846cac248b20805bd9f6e616}{GetDefaultBlockReadSize}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{517 }
+\DoxyCodeLine{521   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbXBase_a2d800e8618595811d48946c34cc4e5bf}{SetDefaultBlockReadSize}}( xbUInt32 ulDfltBlockReadSize );}
+\DoxyCodeLine{522 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{523 }
+\DoxyCodeLine{524 }
+\DoxyCodeLine{525 \textcolor{preprocessor}{  \#ifdef XB\_LOCKING\_SUPPORT}}
+\DoxyCodeLine{526 }
+\DoxyCodeLine{527 }
+\DoxyCodeLine{529 }
+\DoxyCodeLine{536   \textcolor{keywordtype}{void}       \mbox{\hyperlink{classxb_1_1xbXBase_ad4134df4b304a6e93a3d8ebbc1949538}{DisableDefaultAutoLock}}    ();}
+\DoxyCodeLine{537 }
+\DoxyCodeLine{539 }
+\DoxyCodeLine{543   \textcolor{keywordtype}{void}       \mbox{\hyperlink{classxb_1_1xbXBase_a9f1b8e43e9e42bce08f7638ddf2f13b8}{EnableDefaultAutoLock}}     ();}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{546 }
+\DoxyCodeLine{551   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}     \mbox{\hyperlink{classxb_1_1xbXBase_ab41e1f58db3d38b9d983fa2ddff1cd97}{GetDefaultAutoLock}}        () \textcolor{keyword}{const};}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{554 }
+\DoxyCodeLine{559   xbInt16    \mbox{\hyperlink{classxb_1_1xbXBase_aae076facfd25c56191fd89458b77471c}{GetDefaultLockFlavor}}      () \textcolor{keyword}{const};}
+\DoxyCodeLine{560 }
+\DoxyCodeLine{562 }
+\DoxyCodeLine{567   xbInt16    \mbox{\hyperlink{classxb_1_1xbXBase_a3327771df27f0788cd16d540c51e295f}{GetDefaultLockRetries}}     () \textcolor{keyword}{const};}
+\DoxyCodeLine{568 }
+\DoxyCodeLine{570 }
+\DoxyCodeLine{574   xbInt32    \mbox{\hyperlink{classxb_1_1xbXBase_aeb3a08a3a06457063b9e298e1f4a6e3f}{GetDefaultLockWait}}        () \textcolor{keyword}{const};}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{577 }
+\DoxyCodeLine{585   \textcolor{keywordtype}{void}       \mbox{\hyperlink{classxb_1_1xbXBase_a30956a19a2051df707372dfc3a830ddd}{SetDefaultAutoLock}}        ( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bAutoLock );}
+\DoxyCodeLine{586 }
+\DoxyCodeLine{588 }
+\DoxyCodeLine{592   \textcolor{keywordtype}{void}       \mbox{\hyperlink{classxb_1_1xbXBase_a2f28495d5e41d7dbaaae6bb5a62da498}{SetDefaultLockFlavor}}      ( xbInt16 iLockFlavor );}
+\DoxyCodeLine{593 }
+\DoxyCodeLine{595 }
+\DoxyCodeLine{598   \textcolor{keywordtype}{void}       \mbox{\hyperlink{classxb_1_1xbXBase_a39cf80d51175980ddb71dfa323578d34}{SetDefaultLockRetries}}     ( xbInt16 iRetryCount );}
+\DoxyCodeLine{599 }
+\DoxyCodeLine{601 }
+\DoxyCodeLine{604   \textcolor{keywordtype}{void}       \mbox{\hyperlink{classxb_1_1xbXBase_a8fb92073b1d923c4d3d67fb38feac3e1}{SetDefaultLockWait}}        ( xbInt32 lRetryWait );}
+\DoxyCodeLine{605 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{606 }
+\DoxyCodeLine{607   \textcolor{comment}{/* xbase functions */}}
+\DoxyCodeLine{608 \textcolor{preprocessor}{  \#ifdef XB\_FUNCTION\_SUPPORT}}
+\DoxyCodeLine{610 }
+\DoxyCodeLine{616   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a25d3734654ae93de29637dce33342948}{ABS}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
+\DoxyCodeLine{617 }
+\DoxyCodeLine{619 }
+\DoxyCodeLine{625   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a18d210949fb02302ad0f88ccd7f9cf6f}{ALLTRIM}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{626 }
+\DoxyCodeLine{628 }
+\DoxyCodeLine{634   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a54776e118c5a95492969fc49734e4324}{ASC}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dAscOut );}
+\DoxyCodeLine{635 }
+\DoxyCodeLine{637 }
+\DoxyCodeLine{644   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_ac4ef9b49e2eab0e1b428953cd3966f15}{AT}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sSrchFor, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sBase, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dPos );}
+\DoxyCodeLine{645 }
+\DoxyCodeLine{646 }
+\DoxyCodeLine{648 }
+\DoxyCodeLine{654   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a424e02d403bfa0633d08ed4c7a654e15}{CDOW}}( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dInDate, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutDow );}
+\DoxyCodeLine{655 }
+\DoxyCodeLine{657 }
+\DoxyCodeLine{663   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a219a21119bd7c012fbc5ee99d9d6fa17}{CHR}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dAsciCd, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{664 }
+\DoxyCodeLine{666 }
+\DoxyCodeLine{672   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a7ff64ac104423bdcd66ad5bf49f0a678}{CMONTH}}( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dInDate, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutMonth );}
+\DoxyCodeLine{673 }
+\DoxyCodeLine{675 }
+\DoxyCodeLine{681   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a6f79e02b502e62e3eaca9db19d7d432c}{CTOD}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sInDate, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dOutDate );}
+\DoxyCodeLine{682 }
+\DoxyCodeLine{684 }
+\DoxyCodeLine{689   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a0fad88645d15f4c4a6616141a1adef47}{DATE}}( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dOutDate );}
+\DoxyCodeLine{690 }
+\DoxyCodeLine{692 }
+\DoxyCodeLine{698   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a7f5c4387011f5df64a0269007e19a9ad}{DAY}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dInDate, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOutDay );}
+\DoxyCodeLine{699 }
+\DoxyCodeLine{701 }
+\DoxyCodeLine{710   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_aa1aaa32b7c5f9d4ecbe5f9eab8ea9104}{DEL}}( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * dbf, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut, xbInt16 iRecBufSw = 0 );}
+\DoxyCodeLine{711 }
+\DoxyCodeLine{713 }
+\DoxyCodeLine{723   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a3c369a57da8570f4f5da9bd5a8d1b616}{DELETED}}( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * dbf, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bOut, xbInt16 iRecBufSw = 0 );}
+\DoxyCodeLine{724 }
+\DoxyCodeLine{726 }
+\DoxyCodeLine{732   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a6c593d78fdb1cca70b9c212e550e4130}{DESCEND}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dtInDate, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dtOutDate );}
+\DoxyCodeLine{733 }
+\DoxyCodeLine{735 }
+\DoxyCodeLine{741   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a41a823026457d40f89c31421331f529f}{DESCEND}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{742 }
+\DoxyCodeLine{744 }
+\DoxyCodeLine{750   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_af8b27ae246c4b3dac0f61a4316891961}{DESCEND}}( \textcolor{keyword}{const} \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
+\DoxyCodeLine{751 }
+\DoxyCodeLine{753 }
+\DoxyCodeLine{759   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a7192e221428cdf7d92f0f3da0a2070d7}{DOW}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dtInDate, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dDowOut );}
+\DoxyCodeLine{760 }
+\DoxyCodeLine{761 }
+\DoxyCodeLine{763 }
+\DoxyCodeLine{769   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_ad71ba5db9a58a54973032d09f3a98cb5}{DTOC}}( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dInDate, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutFmtDate );}
+\DoxyCodeLine{770 }
+\DoxyCodeLine{772 }
+\DoxyCodeLine{778   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_ae052c2842a13e57dd4c7202011a12407}{DTOS}}( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dtInDate, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutFmtDate );}
+\DoxyCodeLine{779 }
+\DoxyCodeLine{781 }
+\DoxyCodeLine{789   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a4e9529bf02e8c7c0d037afcd7e3f8cea}{EXP}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
+\DoxyCodeLine{790 }
+\DoxyCodeLine{792 }
+\DoxyCodeLine{800   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a3a2494c7ca60e77f93f204242620bef6}{IIF}}( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bResult, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTrueResult, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFalseResult, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sResult );}
+\DoxyCodeLine{801 }
+\DoxyCodeLine{803 }
+\DoxyCodeLine{809   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a8c5e2b0af9675b758d4b95257c11bb9e}{INT}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
+\DoxyCodeLine{810 }
+\DoxyCodeLine{812 }
+\DoxyCodeLine{818   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a91bb7ca631625646a9206e40e8a64512}{ISALPHA}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bResult );}
+\DoxyCodeLine{819 }
+\DoxyCodeLine{821 }
+\DoxyCodeLine{828   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_acd9cd0874ba039b13d6aba9aeb8fd055}{ISLOWER}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bResult );}
+\DoxyCodeLine{829 }
+\DoxyCodeLine{831 }
+\DoxyCodeLine{838   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a78da4a049e79beda14a67542e31a4272}{ISUPPER}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \&bResult );}
+\DoxyCodeLine{839 }
+\DoxyCodeLine{841 }
+\DoxyCodeLine{848   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_ad8f52953a282c8ceca9aa449a613b204}{LEFT}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, xbUInt32 ulCharCnt, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{849 }
+\DoxyCodeLine{851 }
+\DoxyCodeLine{857   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a0d9c0e0740722eb9daaaae74da256579}{LEN}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dLen );}
+\DoxyCodeLine{858 }
+\DoxyCodeLine{860 }
+\DoxyCodeLine{866   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a140240aead572ebbd9de5c491e4f6ae2}{LOG}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
+\DoxyCodeLine{867 }
+\DoxyCodeLine{869 }
+\DoxyCodeLine{875   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_abc75aef8665888b6e526266997627419}{LOWER}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{876 }
+\DoxyCodeLine{878 }
+\DoxyCodeLine{884   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_ab2271775d29fe2ae086f7bd1e4b9080b}{LTRIM}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \& sOut );}
+\DoxyCodeLine{885 }
+\DoxyCodeLine{887 }
+\DoxyCodeLine{894   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a3a2881bf3dd6a316f23ca67e05b41cd2}{MAX}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn1, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn2, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
+\DoxyCodeLine{895 }
+\DoxyCodeLine{897 }
+\DoxyCodeLine{904   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a30f192c9e0622d6d697964c1ee8c36cf}{MIN}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn1, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn2, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
+\DoxyCodeLine{905 }
+\DoxyCodeLine{907 }
+\DoxyCodeLine{913   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a6f313e95ea040ae84db3055ce7a6e97b}{MONTH}}( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dtInDate, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOutMonth );}
+\DoxyCodeLine{914 }
+\DoxyCodeLine{916 }
+\DoxyCodeLine{922   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a3e6d17057699dc7ac2920a3743782d81}{RECCOUNT}}( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * dbf, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dRecOut );}
+\DoxyCodeLine{923 }
+\DoxyCodeLine{925 }
+\DoxyCodeLine{931   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_afc448c2504ff3bdb47ceef3e2f15fbea}{RECNO}}( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * dbf, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dRecOut );}
+\DoxyCodeLine{932 }
+\DoxyCodeLine{934 }
+\DoxyCodeLine{941   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_aefebf2696c58a7de6ae5b21f45d83318}{REPLICATE}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, xbUInt32 ulRepCnt, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{942 }
+\DoxyCodeLine{944 }
+\DoxyCodeLine{951   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a54ce45eec216200b51b8afbf775d2e11}{RIGHT}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, xbUInt32 ulCharCnt, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{952 }
+\DoxyCodeLine{954 }
+\DoxyCodeLine{960   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_aba16279def6a7307a286ab3a16a424ac}{RTRIM}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{961 }
+\DoxyCodeLine{963 }
+\DoxyCodeLine{969   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_ae77654cfddde8db3d32d07c32de1d556}{SPACE}}( xbInt32 lCnt, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{970 }
+\DoxyCodeLine{972 }
+\DoxyCodeLine{978   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_aaff30b6214c4766bc0dd3589a58bfc6b}{SQRT}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dBase, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dSqrRoot );}
+\DoxyCodeLine{979 }
+\DoxyCodeLine{981 }
+\DoxyCodeLine{987   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a1673a57ba38538f10488f032fad8133b}{STOD}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sInDate, \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dtOutDate );}
+\DoxyCodeLine{988 }
+\DoxyCodeLine{990 }
+\DoxyCodeLine{996   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_ab05f5ecd843d7f37ee56b71fc65dab78}{STR}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{997 }
+\DoxyCodeLine{999 }
+\DoxyCodeLine{1006   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_ad9d305aa26ac0fddf4bf738715e1d36f}{STR}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, xbUInt32 ulLen, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{1007 }
+\DoxyCodeLine{1009 }
+\DoxyCodeLine{1017   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a3de59b82a85d5bed3320013a83203a18}{STR}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, xbUInt32 ulLen, xbUInt32 ulDec, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{1018 }
+\DoxyCodeLine{1020 }
+\DoxyCodeLine{1029   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a4b98b62038b5c953098e908c7d0f45a4}{STR}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, xbUInt32 ulLen, xbUInt32 ulDec, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sPadChar, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{1030 }
+\DoxyCodeLine{1032 }
+\DoxyCodeLine{1040   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a6541340a14cfc0055fe1c81781d1e8e3}{STRZERO}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dIn, xbUInt32 ulLen, xbUInt32 ulDec, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{1041 }
+\DoxyCodeLine{1043 }
+\DoxyCodeLine{1051   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_ac79ae09e538b43533605e2228c9d385e}{SUBSTR}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, xbUInt32 ulStartPos, xbUInt32 ulLen, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{1052 }
+\DoxyCodeLine{1054 }
+\DoxyCodeLine{1060   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a4fe642f63e95df8fcf7a8bdef07aa1a4}{TRIM}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{1061 }
+\DoxyCodeLine{1063 }
+\DoxyCodeLine{1069   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_ac0052f456658e7a78f5b9676136945ba}{UPPER}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{1070 }
+\DoxyCodeLine{1072 }
+\DoxyCodeLine{1078   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_ac8c1d2c5f116ddf28ad601ef13b8e886}{VAL}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOut );}
+\DoxyCodeLine{1079 }
+\DoxyCodeLine{1081 }
+\DoxyCodeLine{1087   xbInt16 \mbox{\hyperlink{classxb_1_1xbXBase_a2fb4849f65c409add5e01538f580fc1d}{YEAR}}( \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dInDate, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \&dOutYear );}
+\DoxyCodeLine{1088 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{1089 }
+\DoxyCodeLine{1090  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{1091 }
+\DoxyCodeLine{1093   \textcolor{keyword}{friend} \textcolor{keyword}{class }xbBcd;}
+\DoxyCodeLine{1094   \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classxb_1_1xbExp}{xbExp}};}
+\DoxyCodeLine{1095 }
+\DoxyCodeLine{1096 \textcolor{preprocessor}{  \#ifdef XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{1097   \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classxb_1_1xbBlockRead}{xbBlockRead}};}
+\DoxyCodeLine{1098 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{1099 }
+\DoxyCodeLine{1101 }
+\DoxyCodeLine{1114   xbInt16 GetFunctionInfo( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExpLine, \textcolor{keywordtype}{char} \&cReturnType, xbInt16 \&iReturnLenCalc, xbInt32 \&lReturnLenVal ) \textcolor{keyword}{const};}
+\DoxyCodeLine{1115 }
+\DoxyCodeLine{1117 }
+\DoxyCodeLine{1123   \textcolor{keywordtype}{void}    SetEndianType             ();}
+\DoxyCodeLine{1124 }
+\DoxyCodeLine{1126 }
+\DoxyCodeLine{1134   \textcolor{keyword}{static}  xbInt16 xbMemcmp( \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *s2, \textcolor{keywordtype}{size\_t} n );}
+\DoxyCodeLine{1135 }
+\DoxyCodeLine{1137 }
+\DoxyCodeLine{1138  \textcolor{keyword}{private}:}
+\DoxyCodeLine{1139 }
+\DoxyCodeLine{1140 \textcolor{preprocessor}{  \#ifdef XB\_LOGGING\_SUPPORT}}
+\DoxyCodeLine{1141   \mbox{\hyperlink{classxb_1_1xbLog}{xbLog}} *xLog;}
+\DoxyCodeLine{1142 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{1143 }
+\DoxyCodeLine{1144 \};}
+\DoxyCodeLine{1145 }
+\DoxyCodeLine{1146 \}        \textcolor{comment}{/* namespace xb    */}}
+\DoxyCodeLine{1147 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XB\_DBLIST\_H\_\_ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

@@ -1,0 +1,398 @@
+\hypertarget{classxb_1_1xbExp}{}\doxysection{xb\+::xb\+Exp Class Reference}
+\label{classxb_1_1xbExp}\index{xb::xbExp@{xb::xbExp}}
+
+
+Class for handling expressions.  
+
+
+
+
+{\ttfamily \#include $<$xbexp.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classxb_1_1xbExp_a6ef8cba9f748d04cc8aefb782d6d61fc}{xb\+Exp}} (\mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} $\ast$x)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbExp_ab999b5b4a514c4efcacac6da50094bd9}{xb\+Exp}} (\mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} $\ast$x, \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$dbf)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classxb_1_1xbExp_a96aea1e2aba6773cc41c33a34105f761}{$\sim$xb\+Exp}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbExp_a9eadcb64ca323615f4651024c9f706d5}{Clear\+Tree\+Handle}} ()
+\begin{DoxyCompactList}\small\item\em Clear tree handle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbExp_a5a1024f1a205eb5ae4b8070587c7808d}{Dump\+Tree}} (xb\+Int16 i\+Option)
+\begin{DoxyCompactList}\small\item\em Dump the tree of nodes and their contents. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbExp_a2b6b89aa680cb01a7c91999fcbbe870f}{Dump\+Token}} (xb\+Exp\+Token \&p\+Node, xb\+Int16 i\+Option=0)
+\begin{DoxyCompactList}\small\item\em Dump token contents. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbExp_a53419312242067007c1c02dda662e09d}{Get\+Result\+Len}} () const
+\begin{DoxyCompactList}\small\item\em Get result length. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classxb_1_1xbExp_aae1e52a1368b529968e582cc87e8f715}{Get\+Return\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Get return type. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbExp_a913e2bfb1f4badde48838c48ffd87ced}{Get\+Bool\+Result}} (\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \&b\+Result)
+\begin{DoxyCompactList}\small\item\em Get bool result. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbExp_acef609f8163ceaeef6d145bb6d14d8c8}{Get\+Date\+Result}} (\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&dt\+Result)
+\begin{DoxyCompactList}\small\item\em Get date result. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbExp_a773ceb59708ade41922d47bf8dbbe3bc}{Get\+Numeric\+Result}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Result)
+\begin{DoxyCompactList}\small\item\em Get numeric result. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbExp_aaddf755bff825459e97a25531a48d8fa}{Get\+String\+Result}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Result)
+\begin{DoxyCompactList}\small\item\em Get string result. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbExp_a3c1a7b9337b77c4ea05d4c10376b4198}{Get\+String\+Result}} (char $\ast$vp\+Result, xb\+UInt32 ul\+Len)
+\begin{DoxyCompactList}\small\item\em Get string result. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbExp_a2c3212c64d9281f58200c63c05e93334}{Parse\+Expression}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Expression)
+\begin{DoxyCompactList}\small\item\em Parse expression. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbExp_a9d0778e1f18c88b0c4b1e872c2d7bb00}{Parse\+Expression}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$dbf, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Expression)
+\begin{DoxyCompactList}\small\item\em Parse expression. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbExp_a784115a766e30a032e2b17f30b04dd3d}{Process\+Expression}} ()
+\begin{DoxyCompactList}\small\item\em Process\+Expression. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbExp_a226f9840af1c0b6bf900e2b3c63f97fa}{Process\+Expression}} (xb\+Int16 i\+Rec\+Buf\+Sw)
+\begin{DoxyCompactList}\small\item\em Process\+Expression. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for handling expressions. 
+
+The \mbox{\hyperlink{classxb_1_1xbExp}{xb\+Exp}} class is used for parsing and evaluating expression.
+
+The Xbase64 library includes an expression parsing module which assists application programmers by providing a high level data manipulation tool and also allows for building complex index keys.
+
+The functions included were derived from d\+BASE III Plus, Dbase IV and Clipper.~\newline
+~\newline
+
+
+\doxyparagraph*{Internal fuctioning}
+
+The expression module works in two phases. Firstly, method {\itshape Parse\+Expression} is called and builds an expression tree from all the components of the expression. The tree is made up of individual nodes. The expression is checked for valid field names, literals, operands and functions. Any field references are resolved. If fields are used in an expression and the database name for the field is not included in the name with the -\/\texorpdfstring{$>$}{>} operand, the routines assume the associated database has been successfully opened. ~\newline
+ Secondly, method {\itshape Process\+Expression} is called to process the expression tree created by \mbox{\hyperlink{classxb_1_1xbExp_a2c3212c64d9281f58200c63c05e93334}{Parse\+Expression()}}. The routine parses each node in the expression tree, executing functions, processing operands and manipulating data to produce the desired result.~\newline
+
+
+If an expression will be processed repeatedly, it is best to pre-\/parse the tree using {\itshape Parse\+Expression}, then for each new call to the expression, execute method {\itshape Process\+Expression} which processes the tree.~\newline
+~\newline
+
+
+\doxyparagraph*{Expression Return Types}
+
+Expressions will return a type of CHAR, NUMERIC, DATE or LOGICAL.~\newline
+
+
+An expression return type can be determined with method {\itshape  Get\+Expression\+Result\+Type} after parsing it.~\newline
+
+
+Expressions returning a return type of CHAR are limited to a 200 byte internal buffer. There is also a 100 byte limit for NDX index key support. If the 200 byte limit is not large enough for your application, adjust field {\itshape enum \{ Work\+Buf\+Max\+Len = 200 \};} in file {\itshape exp.\+h}.~\newline
+~\newline
+
+
+\doxyparagraph*{Expression Functions}
+
+Each expression function also has a corresponding C++ function. It is slightly more efficient to call the C++ functions directly, rather than execute the expression parsing routines.~\newline
+~\newline
+
+
+\doxyparagraph*{Expression Components}
+
+Expressions are made up of one or more tokens. A token is one of literal, database field, operand or function. Literals are either numeric or character. Character literals are enclosed in \textquotesingle{}single\textquotesingle{} or \char`\"{}double\char`\"{} quotes. numeric literals are a series of one or more contiguous numerals, \char`\"{}.\char`\"{}, \char`\"{}+\char`\"{} or \char`\"{}-\/\textquotesingle{}\char`\"{}. ~\newline
+~\newline
+ A field is simply a field name in the default database, or is in the form of database-\/\texorpdfstring{$>$}{>}fieldname.
+
+See program /source/examples/xb\+\_\+ex\+\_\+expression.cpp for examples of how to use this functionality. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classxb_1_1xbExp_a6ef8cba9f748d04cc8aefb782d6d61fc}\label{classxb_1_1xbExp_a6ef8cba9f748d04cc8aefb782d6d61fc}} 
+\index{xb::xbExp@{xb::xbExp}!xbExp@{xbExp}}
+\index{xbExp@{xbExp}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{xbExp()}{xbExp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+::xb\+Exp\+::xb\+Exp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} $\ast$}]{x }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Pointer to \mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} instance. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbExp_ab999b5b4a514c4efcacac6da50094bd9}\label{classxb_1_1xbExp_ab999b5b4a514c4efcacac6da50094bd9}} 
+\index{xb::xbExp@{xb::xbExp}!xbExp@{xbExp}}
+\index{xbExp@{xbExp}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{xbExp()}{xbExp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+::xb\+Exp\+::xb\+Exp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} $\ast$}]{x,  }\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{dbf }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Pointer to \mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} instance. \\
+\hline
+{\em dbf} & Pointer to \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} instance. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbExp_a96aea1e2aba6773cc41c33a34105f761}\label{classxb_1_1xbExp_a96aea1e2aba6773cc41c33a34105f761}} 
+\index{xb::xbExp@{xb::xbExp}!````~xbExp@{$\sim$xbExp}}
+\index{````~xbExp@{$\sim$xbExp}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{$\sim$xbExp()}{~xbExp()}}
+{\footnotesize\ttfamily virtual xb\+::xb\+Exp\+::$\sim$xb\+Exp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classxb_1_1xbExp_a9eadcb64ca323615f4651024c9f706d5}\label{classxb_1_1xbExp_a9eadcb64ca323615f4651024c9f706d5}} 
+\index{xb::xbExp@{xb::xbExp}!ClearTreeHandle@{ClearTreeHandle}}
+\index{ClearTreeHandle@{ClearTreeHandle}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{ClearTreeHandle()}{ClearTreeHandle()}}
+{\footnotesize\ttfamily void xb\+::xb\+Exp\+::\+Clear\+Tree\+Handle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear tree handle. 
+
+This routine clears the expression tree of nodes and frees any associated memory. \mbox{\Hypertarget{classxb_1_1xbExp_a2b6b89aa680cb01a7c91999fcbbe870f}\label{classxb_1_1xbExp_a2b6b89aa680cb01a7c91999fcbbe870f}} 
+\index{xb::xbExp@{xb::xbExp}!DumpToken@{DumpToken}}
+\index{DumpToken@{DumpToken}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{DumpToken()}{DumpToken()}}
+{\footnotesize\ttfamily void xb\+::xb\+Exp\+::\+Dump\+Token (\begin{DoxyParamCaption}\item[{xb\+Exp\+Token \&}]{p\+Node,  }\item[{xb\+Int16}]{i\+Option = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Dump token contents. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Node} & -\/ Pointer to head node of the tree \\
+\hline
+{\em i\+Option} & -\/ Output option. {\begin{tabularx}{\linewidth}{|*{2}{>{\raggedright\arraybackslash}X|}}\hline
+1&Write to logfile \\\cline{1-2}
+2&Write to stdout \\\cline{1-2}
+3&Write to logfile and stdout \\\cline{1-2}
+\end{tabularx}}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Available if XB\+\_\+\+DEBUG\+\_\+\+SUPPORT option compiled into the library. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbExp_a5a1024f1a205eb5ae4b8070587c7808d}\label{classxb_1_1xbExp_a5a1024f1a205eb5ae4b8070587c7808d}} 
+\index{xb::xbExp@{xb::xbExp}!DumpTree@{DumpTree}}
+\index{DumpTree@{DumpTree}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{DumpTree()}{DumpTree()}}
+{\footnotesize\ttfamily void xb\+::xb\+Exp\+::\+Dump\+Tree (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Option }\end{DoxyParamCaption})}
+
+
+
+Dump the tree of nodes and their contents. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Option} & -\/ Output option. {\begin{tabularx}{\linewidth}{|*{2}{>{\raggedright\arraybackslash}X|}}\hline
+1&Write to logfile \\\cline{1-2}
+2&Write to stdout \\\cline{1-2}
+3&Write to logfile and stdout \\\cline{1-2}
+\end{tabularx}}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Available if XB\+\_\+\+DEBUG\+\_\+\+SUPPORT option compiled into the library. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbExp_a913e2bfb1f4badde48838c48ffd87ced}\label{classxb_1_1xbExp_a913e2bfb1f4badde48838c48ffd87ced}} 
+\index{xb::xbExp@{xb::xbExp}!GetBoolResult@{GetBoolResult}}
+\index{GetBoolResult@{GetBoolResult}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{GetBoolResult()}{GetBoolResult()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Exp\+::\+Get\+Bool\+Result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \&}]{b\+Result }\end{DoxyParamCaption})}
+
+
+
+Get bool result. 
+
+If the expression generates a boolean return type, this method retrieves the boolean value. 
+\begin{DoxyParams}{Parameters}
+{\em b\+Result} & -\/ Output boolean value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbExp_acef609f8163ceaeef6d145bb6d14d8c8}\label{classxb_1_1xbExp_acef609f8163ceaeef6d145bb6d14d8c8}} 
+\index{xb::xbExp@{xb::xbExp}!GetDateResult@{GetDateResult}}
+\index{GetDateResult@{GetDateResult}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{GetDateResult()}{GetDateResult()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Exp\+::\+Get\+Date\+Result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{dt\+Result }\end{DoxyParamCaption})}
+
+
+
+Get date result. 
+
+If the expression generates a date return type, this method retrieves the date value. 
+\begin{DoxyParams}{Parameters}
+{\em dt\+Result} & -\/ Output date value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbExp_a773ceb59708ade41922d47bf8dbbe3bc}\label{classxb_1_1xbExp_a773ceb59708ade41922d47bf8dbbe3bc}} 
+\index{xb::xbExp@{xb::xbExp}!GetNumericResult@{GetNumericResult}}
+\index{GetNumericResult@{GetNumericResult}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{GetNumericResult()}{GetNumericResult()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Exp\+::\+Get\+Numeric\+Result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Result }\end{DoxyParamCaption})}
+
+
+
+Get numeric result. 
+
+If the expression generates a numeric return type, this method retrieves the numeric value. 
+\begin{DoxyParams}{Parameters}
+{\em d\+Result} & -\/ Output numeric value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbExp_a53419312242067007c1c02dda662e09d}\label{classxb_1_1xbExp_a53419312242067007c1c02dda662e09d}} 
+\index{xb::xbExp@{xb::xbExp}!GetResultLen@{GetResultLen}}
+\index{GetResultLen@{GetResultLen}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{GetResultLen()}{GetResultLen()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Exp\+::\+Get\+Result\+Len (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get result length. 
+
+This routine returns the result length. \begin{DoxyReturn}{Returns}
+Result length. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbExp_aae1e52a1368b529968e582cc87e8f715}\label{classxb_1_1xbExp_aae1e52a1368b529968e582cc87e8f715}} 
+\index{xb::xbExp@{xb::xbExp}!GetReturnType@{GetReturnType}}
+\index{GetReturnType@{GetReturnType}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{GetReturnType()}{GetReturnType()}}
+{\footnotesize\ttfamily char xb\+::xb\+Exp\+::\+Get\+Return\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get return type. 
+
+\begin{DoxyReturn}{Returns}
+One of\+:~\newline
+ XB\+\_\+\+EXP\+\_\+\+CHAR~\newline
+ XB\+\_\+\+EXP\+\_\+\+DATE~\newline
+ XB\+\_\+\+EXP\+\_\+\+LOGICAL~\newline
+ XB\+\_\+\+EXP\+\_\+\+NUMERIC 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbExp_a3c1a7b9337b77c4ea05d4c10376b4198}\label{classxb_1_1xbExp_a3c1a7b9337b77c4ea05d4c10376b4198}} 
+\index{xb::xbExp@{xb::xbExp}!GetStringResult@{GetStringResult}}
+\index{GetStringResult@{GetStringResult}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{GetStringResult()}{GetStringResult()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Exp\+::\+Get\+String\+Result (\begin{DoxyParamCaption}\item[{char $\ast$}]{vp\+Result,  }\item[{xb\+UInt32}]{ul\+Len }\end{DoxyParamCaption})}
+
+
+
+Get string result. 
+
+If the expression generates a string return type, this method retrieves the string value. 
+\begin{DoxyParams}{Parameters}
+{\em vp\+Result} & -\/ Pointer to user supplied buffer for result. \\
+\hline
+{\em ul\+Len} & -\/ Max size of buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbExp_aaddf755bff825459e97a25531a48d8fa}\label{classxb_1_1xbExp_aaddf755bff825459e97a25531a48d8fa}} 
+\index{xb::xbExp@{xb::xbExp}!GetStringResult@{GetStringResult}}
+\index{GetStringResult@{GetStringResult}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{GetStringResult()}{GetStringResult()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Exp\+::\+Get\+String\+Result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Result }\end{DoxyParamCaption})}
+
+
+
+Get string result. 
+
+If the expression generates a string return type, this method retrieves the string value. 
+\begin{DoxyParams}{Parameters}
+{\em s\+Result} & -\/ Output string value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbExp_a2c3212c64d9281f58200c63c05e93334}\label{classxb_1_1xbExp_a2c3212c64d9281f58200c63c05e93334}} 
+\index{xb::xbExp@{xb::xbExp}!ParseExpression@{ParseExpression}}
+\index{ParseExpression@{ParseExpression}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{ParseExpression()}{ParseExpression()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Exp\+::\+Parse\+Expression (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Expression }\end{DoxyParamCaption})}
+
+
+
+Parse expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Expression} & -\/ Expression to parse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbExp_a9d0778e1f18c88b0c4b1e872c2d7bb00}\label{classxb_1_1xbExp_a9d0778e1f18c88b0c4b1e872c2d7bb00}} 
+\index{xb::xbExp@{xb::xbExp}!ParseExpression@{ParseExpression}}
+\index{ParseExpression@{ParseExpression}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{ParseExpression()}{ParseExpression()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Exp\+::\+Parse\+Expression (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{dbf,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Expression }\end{DoxyParamCaption})}
+
+
+
+Parse expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dbf} & -\/ Pointer to \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} instance. \\
+\hline
+{\em s\+Expression} & -\/ Expression to parse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbExp_a784115a766e30a032e2b17f30b04dd3d}\label{classxb_1_1xbExp_a784115a766e30a032e2b17f30b04dd3d}} 
+\index{xb::xbExp@{xb::xbExp}!ProcessExpression@{ProcessExpression}}
+\index{ProcessExpression@{ProcessExpression}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{ProcessExpression()}{ProcessExpression()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Exp\+::\+Process\+Expression (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Process\+Expression. 
+
+This method processes an expression tree leaving the result in the root node of the tree \begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbExp_a226f9840af1c0b6bf900e2b3c63f97fa}\label{classxb_1_1xbExp_a226f9840af1c0b6bf900e2b3c63f97fa}} 
+\index{xb::xbExp@{xb::xbExp}!ProcessExpression@{ProcessExpression}}
+\index{ProcessExpression@{ProcessExpression}!xb::xbExp@{xb::xbExp}}
+\doxysubsubsection{\texorpdfstring{ProcessExpression()}{ProcessExpression()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Exp\+::\+Process\+Expression (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Rec\+Buf\+Sw }\end{DoxyParamCaption})}
+
+
+
+Process\+Expression. 
+
+This method processes a parsed expression tree leaving the result in the root node of the tree
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Rec\+Buf\+Sw} & Record buffer to use when evaluating expression.~\newline
+ 0 -\/ Current record buffer.~\newline
+ 1 -\/ Original record buffer. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+11/src/include/\mbox{\hyperlink{xbexp_8h}{xbexp.\+h}}\end{DoxyCompactItemize}

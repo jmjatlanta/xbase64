@@ -1,12 +1,12 @@
 \hypertarget{xbdate_8h_source}{}\doxysection{xbdate.\+h}
-\label{xbdate_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbdate.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbdate.h}}
+\label{xbdate_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbdate.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbdate.h}}
 \mbox{\hyperlink{xbdate_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*  xbdate.h}}
 \DoxyCodeLine{2 \textcolor{comment}{}}
 \DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
 \DoxyCodeLine{4 \textcolor{comment}{}}
-\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2024 Gary A Kunkel}}
 \DoxyCodeLine{6 \textcolor{comment}{}}
 \DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
 \DoxyCodeLine{8 \textcolor{comment}{}}
@@ -32,76 +32,135 @@
 \DoxyCodeLine{28 \textcolor{preprocessor}{\#define XB\_FMT\_MONTH  2}}
 \DoxyCodeLine{29 \textcolor{preprocessor}{\#define XB\_FMT\_YEAR   3}}
 \DoxyCodeLine{30 }
-\DoxyCodeLine{31 \textcolor{comment}{// next value is added to the date calculation to match dbase calculation}}
-\DoxyCodeLine{32 \textcolor{comment}{// first valid dbase date is 01/01/0001}}
+\DoxyCodeLine{31 \textcolor{comment}{// next value is added to the date calculation to match dBASE calculation}}
+\DoxyCodeLine{32 \textcolor{comment}{// first valid dBASE date is 01/01/0001}}
 \DoxyCodeLine{33 \textcolor{preprocessor}{\#define JUL\_OFFSET  1721425L}}
 \DoxyCodeLine{34 }
 \DoxyCodeLine{35 }
 \DoxyCodeLine{37 }
-\DoxyCodeLine{62 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} : \textcolor{keyword}{public} \mbox{\hyperlink{classxb_1_1xbSsv}{xbSsv}} \{}
-\DoxyCodeLine{63   \textcolor{keyword}{public}:}
+\DoxyCodeLine{62 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} : \textcolor{keyword}{public} \mbox{\hyperlink{classxb_1_1xbCore}{xbCore}} \{}
+\DoxyCodeLine{63  \textcolor{keyword}{public}:}
 \DoxyCodeLine{64 }
-\DoxyCodeLine{65   \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}}();}
-\DoxyCodeLine{66   \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * Date8 );}
-\DoxyCodeLine{67   \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&Date8 );}
-\DoxyCodeLine{68   \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}}( xbInt32 lJulDate );}
-\DoxyCodeLine{69   \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}}( xbUInt16 iInit );           \textcolor{comment}{// Constructor used to set the static variables, also defaults to sysdate}}
-\DoxyCodeLine{70   \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dtDate );}
-\DoxyCodeLine{71   \mbox{\hyperlink{classxb_1_1xbDate}{\string~xbDate}}();}
-\DoxyCodeLine{72 }
-\DoxyCodeLine{73   \textcolor{keywordtype}{void} operator=( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&d );}
-\DoxyCodeLine{74   \textcolor{keywordtype}{void} operator+=( xbInt32 i );}
-\DoxyCodeLine{75   \textcolor{keywordtype}{void} operator-\/=( xbInt32 i );}
-\DoxyCodeLine{76   \textcolor{keywordtype}{void} operator++( xbInt32 i );}
-\DoxyCodeLine{77   \textcolor{keywordtype}{void} operator-\/-\/( xbInt32 i );}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{79   xbInt32 operator-\/( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \& ) \textcolor{keyword}{const};}
-\DoxyCodeLine{80   \textcolor{keyword}{const} \textcolor{keywordtype}{char} * operator-\/( xbInt32 i );}
-\DoxyCodeLine{81   \textcolor{keyword}{const} \textcolor{keywordtype}{char} * operator+( xbInt32 i );}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{69    \mbox{\hyperlink{classxb_1_1xbDate_ab3150e7db0ab5db10a07d748b55465eb}{xbDate}}();}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{75    \mbox{\hyperlink{classxb_1_1xbDate_a359167dbd6707777b29c5ff024b84878}{xbDate}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sDate8 );}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{81    \mbox{\hyperlink{classxb_1_1xbDate_acc0aaf136fd655a2aded243bd0ba88a7}{xbDate}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dtDate );}
 \DoxyCodeLine{82 }
-\DoxyCodeLine{83   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator==( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \& ) \textcolor{keyword}{const};}
-\DoxyCodeLine{84   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator!=( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \& ) \textcolor{keyword}{const};}
-\DoxyCodeLine{85   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator< ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \& ) \textcolor{keyword}{const};}
-\DoxyCodeLine{86   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator> ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \& ) \textcolor{keyword}{const};}
-\DoxyCodeLine{87   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator<=( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \& ) \textcolor{keyword}{const};}
-\DoxyCodeLine{88   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator>=( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \& ) \textcolor{keyword}{const};}
-\DoxyCodeLine{89 }
-\DoxyCodeLine{90   xbInt16     CalcRollingCenturyForYear( xbInt16 year ) \textcolor{keyword}{const};}
-\DoxyCodeLine{91   xbInt16     CenturyOf() \textcolor{keyword}{const};}
-\DoxyCodeLine{92   xbInt16     CharDayOf( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutCharDay );}
-\DoxyCodeLine{93   xbInt16     CharMonthOf( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutCharMonth );}
-\DoxyCodeLine{94   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}      DateIsValid ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDate8 ) \textcolor{keyword}{const};}
-\DoxyCodeLine{95   xbInt16     DayOf( xbInt16 iFormat = \mbox{\hyperlink{xbdate_8h_aeacf2f7cc897ab5bd64781c0fb52b75d}{XB\_FMT\_MONTH}} ) \textcolor{keyword}{const};}
-\DoxyCodeLine{96   xbInt16     CTOD( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sCtodInDate );}
-\DoxyCodeLine{97   xbInt16     FormatDate( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFmtIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFmtOut );}
-\DoxyCodeLine{98   \textcolor{keyword}{const} \textcolor{keywordtype}{char}  *Str() \textcolor{keyword}{const};}
-\DoxyCodeLine{99   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}      IsLeapYear( xbInt16 iYear ) \textcolor{keyword}{const};}
-\DoxyCodeLine{100   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}      IsLeapYear() \textcolor{keyword}{const};}
-\DoxyCodeLine{101   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}      IsNull() \textcolor{keyword}{const};}
-\DoxyCodeLine{102   xbInt32     JulianDays() \textcolor{keyword}{const};}
-\DoxyCodeLine{103   xbInt16     JulToDate8( xbInt32 lJulDate );}
-\DoxyCodeLine{104   xbInt16     LastDayOfMonth();}
-\DoxyCodeLine{105   xbInt16     MonthOf() \textcolor{keyword}{const};}
-\DoxyCodeLine{106   xbInt16     Set( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&Date8 );}
-\DoxyCodeLine{107   xbInt16     Sysdate();}
-\DoxyCodeLine{108   xbInt16     YearOf() \textcolor{keyword}{const};}
-\DoxyCodeLine{109 }
-\DoxyCodeLine{110 \textcolor{preprocessor}{\#ifdef XB\_DEBUG\_SUPPORT}}
-\DoxyCodeLine{111   \textcolor{keywordtype}{void}        Dump( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * title );}
-\DoxyCodeLine{112   \textcolor{keywordtype}{void}        DumpDateTables();}
-\DoxyCodeLine{113 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{114 }
-\DoxyCodeLine{115  \textcolor{keyword}{private}:}
-\DoxyCodeLine{116   \textcolor{keywordtype}{void} SetDateTables();}
-\DoxyCodeLine{117   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sDate8;              \textcolor{comment}{// CCYYMMDD date format  ie; 20140718}}
-\DoxyCodeLine{118                                 \textcolor{comment}{// Null date is identified by sDate.Len() < 8}}
-\DoxyCodeLine{119 }
-\DoxyCodeLine{120   \textcolor{keyword}{static} \textcolor{keywordtype}{int} iAggregatedDaysInMonths[2][13];}
-\DoxyCodeLine{121   \textcolor{keyword}{static} \textcolor{keywordtype}{int} iDaysInMonths[2][13];}
-\DoxyCodeLine{122 \};}
-\DoxyCodeLine{123 }
-\DoxyCodeLine{124 \}         \textcolor{comment}{/* namespace */}}
-\DoxyCodeLine{125 \textcolor{preprocessor}{\#endif    }\textcolor{comment}{/*\_\_XB\_XBDATE\_H\_\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{87    \mbox{\hyperlink{classxb_1_1xbDate_a30530eb9571dc13ecc1e9d82d5a45e18}{xbDate}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDate8 );}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{95    \mbox{\hyperlink{classxb_1_1xbDate_ae72538343019d5bf97ee7507a34e6cfd}{xbDate}}( xbInt32 lDateOpt );}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{103    \mbox{\hyperlink{classxb_1_1xbDate_a8424e74e0047b393f1509a45ef1f022f}{xbDate}}( xbInt16 iMonth, xbInt16 iDay, xbInt16 iYear );}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 }
+\DoxyCodeLine{110   \mbox{\hyperlink{classxb_1_1xbDate_a05c9680c6eb9fe07ecf13a189b596c37}{\string~xbDate}}();}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{120   xbInt16 \mbox{\hyperlink{classxb_1_1xbDate_a8ff19085558544b61b5cb5aac4d94319}{CalcRollingCenturyForYear}}( xbInt16 iYear ) \textcolor{keyword}{const};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{125   xbInt16 \mbox{\hyperlink{classxb_1_1xbDate_a38b2c5285c69ed65e94ece6c22dafde0}{CenturyOf}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{126 }
+\DoxyCodeLine{132   xbInt16 \mbox{\hyperlink{classxb_1_1xbDate_a9fc29730b66cddfbb58c69992a99cc7c}{CharDayOf}}( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutCharDay );}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{138   xbInt16 \mbox{\hyperlink{classxb_1_1xbDate_afffc84f02bd421335ff8ebe9fb3db0ac}{CharMonthOf}}( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutCharMonth );}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{147   xbInt16     \mbox{\hyperlink{classxb_1_1xbDate_abb1eb4b0394e4a67aadab15779b1b8c5}{CTOD}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sCtodInDate );}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 }
+\DoxyCodeLine{154   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}      \mbox{\hyperlink{classxb_1_1xbDate_afd52f9967bce3b5d159b3b4c5c2bd670}{DateIsValid}} ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDate8In ) \textcolor{keyword}{const};}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{164   xbInt16     \mbox{\hyperlink{classxb_1_1xbDate_a46e5e2ade84867cea89afd9eef3fb6c9}{DayOf}}( xbInt16 iFormat = \mbox{\hyperlink{xbdate_8h_aeacf2f7cc897ab5bd64781c0fb52b75d}{XB\_FMT\_MONTH}} ) \textcolor{keyword}{const};}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{preprocessor}{  \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{171   \textcolor{keywordtype}{void}        \mbox{\hyperlink{classxb_1_1xbDate_acecb46afdb072c6b8a1f79286bdfb6ac}{Dump}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * sTitle );}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{177   \textcolor{keywordtype}{void}        \mbox{\hyperlink{classxb_1_1xbDate_ad58c7963abc6f0da693cca0fc9e89f2a}{DumpDateTables}}();}
+\DoxyCodeLine{178 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{209   xbInt16     \mbox{\hyperlink{classxb_1_1xbDate_afb2b1a268f3e028c44c09d2541deb52a}{FormatDate}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFormatIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOutFormattedDate );}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{214   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\&  \mbox{\hyperlink{classxb_1_1xbDate_a8dfb00ade511d5b86f3ae5cca9cca187}{GetDefaultDateFormat}}      () \textcolor{keyword}{const};}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{217 }
+\DoxyCodeLine{221    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbDate_a5f8051c31b29244265e8f26ac3547b9b}{IsLeapYear}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{227    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbDate_af2bd33a72448e2c5ee00d8b711dc5d95}{IsLeapYear}}( xbInt16 iYear ) \textcolor{keyword}{const};}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230 }
+\DoxyCodeLine{234   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}      \mbox{\hyperlink{classxb_1_1xbDate_a611a64b14ff89ad3c20b34081ea1e658}{IsNull}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236 }
+\DoxyCodeLine{240   xbInt32     \mbox{\hyperlink{classxb_1_1xbDate_a1ee3377d4ead9d31099eee539d9b13a7}{JulianDays}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 }
+\DoxyCodeLine{246   \textcolor{keywordtype}{void}     \mbox{\hyperlink{classxb_1_1xbDate_a0303609026dfff4b8308926a38a2921c}{JulToDate8}}( xbInt32 lJulDate );}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 }
+\DoxyCodeLine{252   xbInt16     \mbox{\hyperlink{classxb_1_1xbDate_a15847866bb7642aa42bc254e0cf2038a}{LastDayOfMonth}}();}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254 }
+\DoxyCodeLine{258   xbInt16     \mbox{\hyperlink{classxb_1_1xbDate_a08bd84c67e1119d8c5c1748cd89d092e}{MonthOf}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{265   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbDate_a445e9c574013ba58c96e78b196be8451}{operator!=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{272   \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{classxb_1_1xbDate_a08c0e807e6e2746eef96730f46725366}{operator+}}( xbInt32 lCount );}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{277   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbDate_a363989a4f9cf8f3e38d1ff61b1f1e7c0}{operator++}}( xbInt32 );}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{283   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbDate_a90d725c45e2335fc5bf0d5e5ef6ea697}{operator+=}}( xbInt32 lDays );}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{286 }
+\DoxyCodeLine{291    xbInt32 \mbox{\hyperlink{classxb_1_1xbDate_aefc91f2a7e125a02a4fd2d88356f9397}{operator-\/}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{298    \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{classxb_1_1xbDate_aadf98ccf39a72e88c945d88916ed1bac}{operator-\/}}( xbInt32 lCount );}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{304   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbDate_a7b81cc74da25b2b36d7705eacb6ee20d}{operator-\/-\/}}( xbInt32 lDays );}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306 }
+\DoxyCodeLine{311   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbDate_ab5ae306941bc30329c59f10df95b9bc0}{operator-\/=}}( xbInt32 lDays );}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{319   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator< ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{327   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbDate_a7ed92ad3c5e76923af73ffa7d92ff064}{operator<=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329 }
+\DoxyCodeLine{333   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbDate_afefdf9de78590e8a43371a0556cae8bb}{operator=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt );}
+\DoxyCodeLine{334 }
+\DoxyCodeLine{340   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbDate_af1e416f728ef07354c2f5dbe7c83c2b2}{operator==}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{348   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator> ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350 }
+\DoxyCodeLine{357   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbDate_a7549d4851b784e939394cadd26f83197}{operator>=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbDate}{xbDate}} \&dt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{358 }
+\DoxyCodeLine{359 }
+\DoxyCodeLine{364   xbInt16 \mbox{\hyperlink{classxb_1_1xbDate_a7f08e372cef53cc984c473cbd8be6832}{Set}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDateIn );}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{372   xbInt16 \mbox{\hyperlink{classxb_1_1xbDate_a96500db703bb52080586f5ff257420c7}{Set}}( xbInt16 iMonth, xbInt16 iDay, xbInt16 iYear );}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374 }
+\DoxyCodeLine{396   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbDate_a6dc692d8e0e302aa9c10801127368bbd}{SetDefaultDateFormat}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDefaultDateFormat );}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398 }
+\DoxyCodeLine{402   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classxb_1_1xbDate_ab43a5d8d929767c0ffdd722972bb8cc0}{Str}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{406   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbDate_a9aa6ce2da6fb4e39befe0ed6a6a07a45}{Sysdate}}();}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{411   xbInt16 \mbox{\hyperlink{classxb_1_1xbDate_a31057dfaa36389a16e40e3db82c46262}{YearOf}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413  \textcolor{keyword}{private}:}
+\DoxyCodeLine{414   \textcolor{keywordtype}{void} SetDateTables();}
+\DoxyCodeLine{415   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sDate8;              \textcolor{comment}{// CCYYMMDD date format  ie; 20140718}}
+\DoxyCodeLine{416                                 \textcolor{comment}{// Null date is identified by sDate.Len() < 8}}
+\DoxyCodeLine{417 }
+\DoxyCodeLine{418   \textcolor{keyword}{static} \textcolor{keywordtype}{int} iAggregatedDaysInMonths[2][13];}
+\DoxyCodeLine{419   \textcolor{keyword}{static} \textcolor{keywordtype}{int} iDaysInMonths[2][13];}
+\DoxyCodeLine{420 \};}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{422 \}         \textcolor{comment}{/* namespace */}}
+\DoxyCodeLine{423 \textcolor{preprocessor}{\#endif    }\textcolor{comment}{/*\_\_XB\_XBDATE\_H\_\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{424 }
 
 \end{DoxyCode}

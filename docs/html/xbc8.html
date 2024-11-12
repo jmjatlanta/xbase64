@@ -2,14 +2,14 @@
 <HTML>
 <TITLE>Xbase64 DBMS Chapter 8</TITLE>
 <BODY BGCOLOR=#FFFFFF>
-<H2><p align="center">Class xbSsv</p></H2>
-<p align="center">Chapter Updated 11/21/28</p><hr>
+<H2><p align="center">Class xbCore</p></H2>
+<p align="center">Chapter Updated 10/16/24</p><hr>
 
-<h3>Class xbSsv - Shared System Values.</h3>
+<h3>Class xbCore - Shared System Values.</h3>
 
-Base class xbSsv is used for maintaining static variables used system
+Base class xbCore is used for maintaining static variables used system
 wide by the XBase library routines and is a base class that is used by the xbXBase class.
-See the diagram in chapter 15 to gain an understanding of where the xbSsv class sits in relation to the
+See the diagram in chapter 15 to gain an understanding of where the xbCore class sits in relation to the
 other classes.  Accessing the methods in this class are done via the xbXBase class instance.<br><br>
 Additionally, there are a few other misc routines contained in this class that are available to all
 subordinate classes/objects.
@@ -19,8 +19,6 @@ subordinate classes/objects.
 <table border=1>
 <tr><th width=40%>Method</th><th>Description</th></tr>
 
-<tr><td>void BitDump( unsigned char c ) const<br>void BitDump( char c ) const</td><td>These routines dump the bits for a specified char field to stdout.</td></tr>
-<tr><td>xbBool BitSet( unsigned char c, xbInt16 iBitNo ) const</td><td>This routine will set a specified bit in a char field.</td></tr>
 <tr><td>void DisplayError( xbInt16 ErrorCode ) const</td><td>This routine prints a description for a specifed error to stdout.</td></tr>
 
 <tr><td>xbString& GetDataDirectory() const<br>void SetDataDirectory( const xbString &sDataDirectory )</td>
@@ -51,9 +49,11 @@ subordinate classes/objects.
 <tr><td>xbString& GetTempDirectory() const<br>void SetTempDirectory( const xbString &sTempDirectory )</td><td>Get and set the temp folder.</td></tr>
 
 
-<tr><td>xbInt16 GetUniqueKeyOpt() const<br>xbInt16 SetUniqueKeyOpt( xbInt16 iUniqueKeyOpt )</td>
-   <td>Determines library behavior for unique key processing. The original Dbase (tm) product allowed duplicate recrds in the .DBF file when the unique option was specified for a given index tag.
-       The Xbase library supports either the original DBase behavior (XB_EMULATE_DBASE), or the prevention of duplicate records for duplicate keys (XB_HALT_ON_DUPKEY).</td></tr>
+<tr><td><i>Sunset with version 4.1.8</i><br>xbInt16 GetUniqueKeyOpt() const<br>xbInt16 SetUniqueKeyOpt( xbInt16 iUniqueKeyOpt )</td>
+   <td>Determines library behavior for unique key processing. The original dBASE product allowed duplicate recrds in the .DBF file when the unique option was specified for a given index tag.
+       The Xbase library supports either the original dBASE behavior (XB_EMULATE_DBASE), or the prevention of duplicate records for duplicate keys (XB_HALT_ON_DUPKEY).<br>
+       V4.1.8 replaced with GetDefaultIxTagMode() and SetDefaultIxTagMode()
+       </td></tr>
 
 
 <tr><td>xbInt16 GetDefaultLockRetries() const<br>void SetDefaultLockRetries( xbInt16 iRetryCount )</td>
@@ -63,28 +63,33 @@ subordinate classes/objects.
    </td><td>Get and Set the wait time between lock attempts.</td></tr>
 
 <tr><td>xbInt16 GetDefaultLockFlavor() const<br>void SetDefaultLockFlavor( xbInt16 iLockFlavor )
-   </td><td>For future use.  With current versions, only DBase (TM) locking offsets are supported.</td></tr>
+   </td><td>For future use.  With current versions, only dBASE locking offsets are supported.</td></tr>
 
-<tr><td>xbBool GetDefaultAutoLock() const<br>void SetDefaultAutoLock( xbBool bAutoLock )<br>void EnableDefaultAutoLock()<br>void DisableDefaultAutoLock()
+<tr><td><i>Sunset with version 4.1.11</i>xbBool GetDefaultAutoLock() const<br>void SetDefaultAutoLock( xbBool bAutoLock )<br>void EnableDefaultAutoLock()<br>void DisableDefaultAutoLock()
    </td><td>Set, Get or update Auto Lock Status</td></tr>
-
 
 <tr><td>xbInt16 GetCreateMdxBlockSize() const<br>xbInt16 SetCreateMdxBlockSize( xbInt16 ulBlockSize )
    </td><td>Set or get MDX Index block size.  Must be a multiple of 512.</td></tr>
 
 <tr><td>xbUInt32 GetDefaultBlockReadSize() const<br>void SetDefaultBlockReadSize( xbUInt32 ulDfltBlockReadSize )
    </td><td>Set or Get the default block size for Block Read functionality.  Block reading is used to improve sequentential access performance.</td></tr>
+
+
+<tr><td>xbUInt32 GetDefaultIxTagMode() const<br>xbInt16 SetDefaultIxTagMode( XB_IX_DBASE_MODE || XB_IX_XBASE_MODE )
+   </td><td>Set or Get the default index tag mode.  XB_IX_DBASE_MODE is used for max compatibility.</td></tr>
 </table>
 
 <br><br>
 
-<h3>Example program using xbSsv methods</h3>
+<h3>Example program using xbCore</h3>
 </center>
 <xmp>
-/*  xb_ex_ssv.cpp
+
+/*  xb_ex_corev.cpp
+
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2021,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2021,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -93,7 +98,7 @@ Email Contact:
     XDB-devel@lists.sourceforge.net
     XDB-users@lists.sourceforge.net
 
-This program demonstrates using functionality of the xbSsv class  (Shared system values)
+This program demonstrates using functionality of the xbCore class  (Shared system values)
 
 */
 
@@ -101,7 +106,9 @@ This program demonstrates using functionality of the xbSsv class  (Shared system
 
 using namespace xb;
 
-int main( int ac, char ** av ){
+//int main( int ac, char ** av ){
+
+int main( int, char ** av ){
 
   xbXBase  x;              // set up xbase for business
   xbString sMsg;           // a message string
@@ -109,8 +116,9 @@ int main( int ac, char ** av ){
   sMsg.Sprintf( "Program [%s] initializing...", av[0] );
   std::cout << sMsg.Str() << std::endl;
 
+
   // example code to set up log file usage
- #ifdef XB_LOGGING_SUPPORT
+  #ifdef XB_LOGGING_SUPPORT
     char     cSeperator;                      // is this a unix (/) or windows (\) file system
     xbString sLog;                            // general string for log file activities
     sLog = x.GetLogFqFileName().Str();        // get the system default log file name
@@ -127,7 +135,7 @@ int main( int ac, char ** av ){
     std::cout << "New logfile is [" << sLog.Str() << "]" << std::endl;
 
     // turn on logging after file name set
-    x.EnableMsgLogging(); 
+    x.EnableMsgLogging();
   #endif  // XB_LOGGING_SUPPORT
 
   // const char *GetErrorMessage( xbInt16 ErrorCode ) const;
@@ -136,14 +144,14 @@ int main( int ac, char ** av ){
   x.DisplayError( -100 );
   //  << "]" << std::endl;
 
-
   // void      SetDefaultDateFormat( const xbString &sDefaultDateFormat );
   // xbString& GetDefaultDateFormat() const;
-  std::cout << "GetDefaultDateFormat() - " << x.GetDefaultDateFormat() << std::endl;
+  std::cout << "GetDefaultDateFormat() - " << x.GetDefaultDateFormat().Str() << std::endl;
+
 
   //  void       SetDataDirectory          ( const xbString &sDataDirectory );
   // xbString& GetDataDirectory() const;
-  std::cout << "GetDataDirectory() - " << x.GetDataDirectory() << std::endl;
+  std::cout << "GetDataDirectory() - " << x.GetDataDirectory().Str() << std::endl;
 
   // xbInt16 GetEndianType() const;
   if( x.GetEndianType() == 'L' )
@@ -166,14 +174,11 @@ int main( int ac, char ** av ){
     std::cout << "Multi user (locking) not enabled." << std::endl;
 
   #if defined (XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
-  // xbInt16    GetUniqueKeyOpt           () const;
-  // xbInt16    SetUniqueKeyOpt           ( xbInt16 iUniqueKeyOpt );
-  //   XB_HALT_ON_DUPKEY
-  //   XB_EMULATE_DBASE
-  if( x.GetUniqueKeyOpt() == XB_HALT_ON_DUPKEY )
-    std::cout << "UniqueKey option - XB_HALT_ON_DUPKEY" << std::endl;
-  else if( x.GetUniqueKeyOpt() == XB_EMULATE_DBASE )
-    std::cout << "UniqueKey option - XB_EMULATE_DBASE" << std::endl;
+  // Get / SetDefaultIxTagMode
+  if( x.GetDefaultIxTagMode() == XB_IX_DBASE_MODE )
+    std::cout << "DefaultTagMode option - XB_IX_DBASE_MODE" << std::endl;
+  else if( x.GetDefaultIxTagMode() == XB_IX_XBASE_MODE )
+    std::cout << "DefaultTagMode - XB_IX_XBASE_MODE" << std::endl;
   #endif  // (XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
 
   #ifdef XB_LOCKING_SUPPORT
@@ -187,7 +192,7 @@ int main( int ac, char ** av ){
   //void       SetDefaultAutoLock        ( xbBool bAutoLock );
   //void       EnableDefaultAutoLock     ();
   //void       DisableDefaultAutoLock    ();
-  
+
   std::cout << "GetDefaultLockRetries() - " << x.GetDefaultLockRetries() << std::endl;
   std::cout << "GetDefaultLockWait() - " << x.GetDefaultLockWait() << std::endl;
   std::cout << "GetDefaultAutoLock() - " << x.GetDefaultAutoLock() << std::endl;
@@ -205,15 +210,9 @@ int main( int ac, char ** av ){
   std::cout << "GetDefaultBlockReadSize() - " << x.GetDefaultBlockReadSize() << std::endl;  
   #endif  // XB_BLOCKREAD_SUPPORT
 
-  //xbBool     BitSet                    ( unsigned char c, xbInt16 iBitNo ) const;
-  //void       BitDump                   ( unsigned char c ) const;
-  //void       BitDump                   ( char c ) const;
-  std::cout << "BitDump( 'A' ) - ";
-  x.BitDump( 'A' );
-
+  std::cout << std::endl;
   return 0;
 }
-
 
 </xmp>
 

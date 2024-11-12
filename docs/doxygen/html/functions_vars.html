@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -48,6 +52,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_vars.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -65,14 +85,19 @@ $(function() {
 <div class="contents">
 &#160;
 
+<h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
+<li>bDefaultAutoCommit&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a5f6bf5e7a9ace06c68efb72dc376e445">xb::xbCore</a></li>
+<li>bMultiUser&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a17974342108b35e89e62be960b70d087">xb::xbCore</a></li>
+</ul>
+
+
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
 <li>cEncryptionFlag&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a8734e799707582f022fc341d515650f4">xb::xbDbf</a></li>
 <li>cFieldName&#160;:&#160;<a class="el" href="structxb_1_1xbSchema.html#a514183856094123fd37df67885b4681e">xb::xbSchema</a></li>
-<li>cFldType&#160;:&#160;<a class="el" href="structsFldMap.html#af89b26b2d4bc6e26c597f8c48b97b1a3">sFldMap</a></li>
 <li>cIndexFlag&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ad59074633641e03647e54d2b66c9102b">xb::xbDbf</a></li>
 <li>cLangDriver&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#aea1dfe5cbd1f9cdbcfc8eb04b2c3d5f1">xb::xbDbf</a></li>
 <li>cTransactionFlag&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ac3c89fc3bc6a6abf385478a8adbed970">xb::xbDbf</a></li>
-<li>cType&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a63b486bdcf162c523f2224b80afe2d60">xb::xbRelation</a>, <a class="el" href="structxb_1_1xbSchema.html#a1d612b2ed5dc0b0289c9e91b3cda3a25">xb::xbSchema</a></li>
+<li>cType&#160;:&#160;<a class="el" href="structxb_1_1xbSchema.html#a1d612b2ed5dc0b0289c9e91b3cda3a25">xb::xbSchema</a></li>
 <li>cUpdateDD&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a6021789d314cd41488991e708fcd0df2">xb::xbDbf</a></li>
 <li>cUpdateMM&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a9340a5e8ee53eb0f3b6601eec2d71e1b">xb::xbDbf</a></li>
 <li>cUpdateYY&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a4fcd6a86ddd32d4a9d76a4074573440a">xb::xbDbf</a></li>
@@ -80,52 +105,35 @@ $(function() {
 </ul>
 
 
-<h3><a id="index_d" name="index_d"></a>- d -</h3><ul>
-<li>dDbf&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a36c11499c6aab859ce0528f3fac4c811">xb::xbRelation</a></li>
-</ul>
-
-
 <h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
-<li>ErrorCodeText&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a6219f1b5e24ea12fe158cd5aea56988e">xb::xbSsv</a></li>
+<li>ErrorCodeText&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#ad2f79db40c113c70830787a67047a07d">xb::xbCore</a></li>
 </ul>
 
 
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
 <li>iAutoCommit&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ab506450954bc86e7bf1d7c4efe681f43">xb::xbDbf</a></li>
+<li>iCreateMdxBlockSize&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#ab62c163d32416266b7053bf6832d3811">xb::xbCore</a></li>
 <li>iDbfStatus&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a6d8e193da3ca414eef1e8866ec5ca81b">xb::xbDbf</a></li>
-<li>iEndianType&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a5849e813f5e8e1cd180f0366637adbf3">xb::xbSsv</a></li>
+<li>iDefaultFileVersion&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a82b17abc5f1ef87373da819688ed7bad">xb::xbCore</a></li>
+<li>iDefaultIxTagMode&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a35d44a54668f998b3f3008631118c053">xb::xbCore</a></li>
+<li>iDefaultLockFlavor&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a86b726cb25fd081442b44795f1b046dc">xb::xbCore</a></li>
+<li>iDefaultLockRetries&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#ac376593264672ab595ea4081063f104e">xb::xbCore</a></li>
+<li>iEndianType&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#acc0303a96900bff413c8c463987a9149">xb::xbCore</a></li>
 <li>iFieldLen&#160;:&#160;<a class="el" href="structxb_1_1xbSchema.html#a2da554af25ef628acf59bb52996056ac">xb::xbSchema</a></li>
 <li>iFileVersion&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a15f495446f0d75bcf2fa89e3b699d388">xb::xbDbf</a></li>
-<li>iFldNo&#160;:&#160;<a class="el" href="structsFldMap.html#a42eb801a85d8b60f06c4fe1be13ca723">sFldMap</a></li>
+<li>iMemoFieldCnt&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a944653d448155241311b0efc1d4493e8">xb::xbDbf</a></li>
 <li>iNoOfDecs&#160;:&#160;<a class="el" href="structxb_1_1xbSchema.html#a55bab3bb69dee3508d168c93e182d4b9">xb::xbSchema</a></li>
 <li>iNoOfFields&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a5056757614c39f725cc775332494966a">xb::xbDbf</a></li>
-<li>iRecPos&#160;:&#160;<a class="el" href="structsFldMap.html#a02facce45c24ebecc13975c17fd52b8f">sFldMap</a></li>
-<li>iStatus&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a051dcbde04215942920ba2e7052e7995">xb::xbRelation</a></li>
 </ul>
 
 
 <h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
-<li>llChildren&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a7f1f3d2be9f73045cf17a57638deac9d">xb::xbRelation</a></li>
+<li>lDefaultLockWait&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#ad569c53a46fa1e7f413e61c3131bcd3c">xb::xbCore</a></li>
 </ul>
 
 
-<h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
-<li>next&#160;:&#160;<a class="el" href="structsFldMap.html#a16eaff8fc09adc3faf453bfaa0d3baaa">sFldMap</a></li>
-</ul>
-
-
-<h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
-<li>pDbf&#160;:&#160;<a class="el" href="structxb_1_1xbTblList.html#a387d3f6bbf291a1fb96d276ed9bb96b6">xb::xbTblList</a></li>
-<li>pFilt&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a12e3962a535dd0b3e1679c2183db9971">xb::xbRelation</a></li>
-<li>pIx&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a491d66b6a37af9b6b60f7ea07242af15">xb::xbRelation</a></li>
-<li>pNext&#160;:&#160;<a class="el" href="structxb_1_1xbTblList.html#a3fd169fcf0fd4df927544e5342db583c">xb::xbTblList</a></li>
-<li>pParent&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a78f8ce451f3951446eebb1d264af7cdd">xb::xbRelation</a></li>
-<li>pParentExp&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a9e2105b745a9323bffbe72f165782332">xb::xbRelation</a></li>
-<li>pParentNp&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a7734f16f09b6323522ee918f6fc7005c">xb::xbRelation</a></li>
-<li>psFqTblName&#160;:&#160;<a class="el" href="structxb_1_1xbTblList.html#aceec65f6f6b585788cf98e8dabd2737d">xb::xbTblList</a></li>
-<li>psTblAlias&#160;:&#160;<a class="el" href="structxb_1_1xbTblList.html#ac87742c8a6b1cf2e7e35218e96966a05">xb::xbTblList</a></li>
-<li>psTblName&#160;:&#160;<a class="el" href="structxb_1_1xbTblList.html#a02c3b0c47fd104ef9758b375ecdcfd0f">xb::xbTblList</a></li>
-<li>pTag&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a6fd8fac0fc95f54c3d522f48af84f5aa">xb::xbRelation</a></li>
+<h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>Memo&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ac5fb12391c07613e68d54a2ac85522c5">xb::xbDbf</a></li>
 </ul>
 
 
@@ -138,19 +146,23 @@ $(function() {
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>sAlias&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a73f9c792d0a769e2e604c1855245a276">xb::xbDbf</a></li>
 <li>SchemaPtr&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ad8c8b5eb12063bb898da1b2cc02cfce7">xb::xbDbf</a></li>
-<li>sFilter&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a2a5f9fe4adbd4a3885a4cede38334bd0">xb::xbRelation</a></li>
-<li>sNullString&#160;:&#160;<a class="el" href="classxb_1_1xbSsv.html#a9dec3164c3b264882df634915ecf21da">xb::xbSsv</a></li>
-<li>sParentExpression&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#afe3520692c36499fb1fe4a960578d00b">xb::xbRelation</a></li>
+<li>sDataDirectory&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#ae8159129440110a6e3487801529272ef">xb::xbCore</a></li>
+<li>sDefaultDateFormat&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a227c789b55eaa2a89a6fee4d90b28c23">xb::xbCore</a></li>
+<li>sDefaultTimeFormat&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a7872526434ff6f6d0388ebff430742cc">xb::xbCore</a></li>
+<li>sLogDirectory&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a847b9285633d22a5b5e34ac1166e3512">xb::xbCore</a></li>
+<li>sLogFileName&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a02c13215a731ce0790f78f8e41714e65">xb::xbCore</a></li>
+<li>sNullString&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a034d596e86e6ab2151b6e1f8657f49d4">xb::xbCore</a></li>
+<li>sTempDirectory&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#a45ae9a4fc81347cf9c9ebf02673d3f2a">xb::xbCore</a></li>
 </ul>
 
 
 <h3><a id="index_u" name="index_u"></a>- u -</h3><ul>
 <li>uiHeaderLen&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a62f5fa9149ae0f6dc75642823de66918">xb::xbDbf</a></li>
 <li>uiRecordLen&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a1760e222567e2c849f9c799b9d896e91">xb::xbDbf</a></li>
+<li>ulCreateMemoBlockSize&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#af827e05906b097f5a554ae410c502812">xb::xbDbf</a></li>
 <li>ulCurRec&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#afcd99924606be0a9e1e25180bcd1abf8">xb::xbDbf</a></li>
+<li>ulDefaultBlockReadSize&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#aeb6ba41685ea760777a114c422c07a19">xb::xbCore</a></li>
 <li>ulNoOfRecs&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#acb594ab61dd35b17bdf28394083f8e87">xb::xbDbf</a></li>
-<li>ulRecPos&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#ae6e3bd84ea5ae30cf66e90d3e3b8e4cf">xb::xbRelation</a></li>
-<li>ulSaveParRecNo&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#aca82e4f3ff6c82a37fee957b40b9c27f">xb::xbRelation</a></li>
 </ul>
 
 
@@ -158,9 +170,12 @@ $(function() {
 <li>xbase&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#ae39a67ea391b46055d4ca299cb222004">xb::xbFile</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

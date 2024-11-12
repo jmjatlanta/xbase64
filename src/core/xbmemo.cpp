@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -21,12 +21,6 @@ Email Contact:
 namespace xb{
 
 /***********************************************************************/
-//! @brief Class Constructor.
-/*!
-  \param dbf Pointer to dbf construct.
-  \param sFileName Memo file name.
-*/
-
 xbMemo::xbMemo( xbDbf * dbf, xbString const &sFileName ) : xbFile( dbf->GetXbasePtr() ) {
   this->dbf = dbf;              /* pointer to the associated dbf class instance */
   // xbase = dbf->GetXbasePtr();   /* pointer to the engine */
@@ -38,17 +32,11 @@ xbMemo::xbMemo( xbDbf * dbf, xbString const &sFileName ) : xbFile( dbf->GetXbase
   #endif
 }
 /***********************************************************************/
-//! @brief Class Destructor.
 xbMemo::~xbMemo(){
  if( mbb )
     free( mbb );
 }
 /***********************************************************************/
-//! @brief Calculate the last data block number.
-/*!
-  \param ulLastDataBlock Output - Last used block number in the file.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbMemo::CalcLastDataBlock( xbUInt32 & ulLastDataBlock ){
 
   xbInt16 iRc = XB_NO_ERROR;
@@ -59,10 +47,6 @@ xbInt16 xbMemo::CalcLastDataBlock( xbUInt32 & ulLastDataBlock ){
   return XB_NO_ERROR;
 }
 /***********************************************************************/
-//! @brief Close the memo file.
-/*!
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbMemo::CloseMemoFile(){
 
   if( mbb ){
@@ -71,24 +55,11 @@ xbInt16 xbMemo::CloseMemoFile(){
   }
   return xbFclose();
 }
-
-
 /***********************************************************************/
-//! @brief Get memo file type.
-/*!
-  \returns 3 - Version 3 memo file.<br>
-           4 - Version 4 memo file.
-*/
 xbInt16 xbMemo::GetMemoFileType(){
   return iMemoFileType;
 }
-
 /***********************************************************************/
-//! @brief Get next block available from file header.
-/*!
-  \param ulBlockNo Output - Next block number for appending data to memo file.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbMemo::GetHdrNextBlock( xbUInt32 & ulBlockNo ){
   xbInt16 iRc = XB_NO_ERROR;
   xbInt16 iErrorStop = 0;
@@ -103,24 +74,16 @@ xbInt16 xbMemo::GetHdrNextBlock( xbUInt32 & ulBlockNo ){
     xbString sMsg;
     sMsg.Sprintf( "xbmemo::GetNextAvailableBlock() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
 /***********************************************************************/
 #ifdef XB_LOCKING_SUPPORT
-//! @brief Lock memo file
-/*!
-
-  \param iLockFunction XB_LOCK<br>XB_UNLOCK
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemo::LockMemo( xbInt16 iLockFunction ){
 
   xbInt16 iRc = XB_NO_ERROR;
   xbInt16 iErrorStop = 0;
-
   try{
     if( iLockFunction == XB_LOCK ){
 
@@ -160,7 +123,7 @@ xbInt16 xbMemo::LockMemo( xbInt16 iLockFunction ){
       }
     } else {
       iErrorStop = 120;
-      iRc = XB_INVALID_OPTION;
+      iRc = XB_INVALID_LOCK_OPTION;
       throw iRc;
     }
   }
@@ -168,29 +131,17 @@ xbInt16 xbMemo::LockMemo( xbInt16 iLockFunction ){
     xbString sMsg;
     sMsg.Sprintf( "xbmemo::LockMemoFile() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
-
 /***********************************************************************/
-//! @brief Get memo file lock status.
-/*!
-  \returns xbTrue - Memo file is locked.<br>
-           xbFalse - Memo file is not locked.
-*/
 xbBool xbMemo::GetMemoLocked() const {
   return bFileLocked;
 }
 #endif
-
 /***********************************************************************/
-//! @brief Update Next Node number in file header
-/*!
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbMemo::UpdateHeadNextNode(){
-
   xbInt16 iRc = XB_NO_ERROR;
   xbInt16 iErrorStop = 0;
   try{
@@ -209,7 +160,7 @@ xbInt16 xbMemo::UpdateHeadNextNode(){
     xbString sMsg;
     sMsg.Sprintf( "xbmemo::UpdateHeadeNextNode() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }

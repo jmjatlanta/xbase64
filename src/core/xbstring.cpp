@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2021,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2021,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -23,33 +23,14 @@ Email Contact:
 namespace xb{
 
 XBDLLEXPORT const char * xbString::NullString = "";
-XBDLLEXPORT       char   xbString::cJunkBuf;
+XBDLLEXPORT       char   xbString::cNullByte  = 0x00;
 
 /************************************************************************/
-//! @brief Destructor
-
-xbString::~xbString(){
-  if (data != NULL)
-    free(data);
-
-}
-
-/************************************************************************/
-//! @brief Constructor
-/*!
-    \param ulSize - Allocation size. The allocation size is normally handled internally
-    by the class, but it can be set in this constructor.
-*/
 xbString::xbString(xbUInt32 ulSize) {
   data = (char *)calloc(1, ulSize);
   this->size = ulSize;
-//  memset( data, 0x00, ulSize ); - redundant, initialized by calloc
 }
 /************************************************************************/
-//! @brief Constructor
-/*!
-    \param c - Initialize string to c.
-*/
 xbString::xbString(char c) {  
   data = (char *)calloc(1, 2);
   data[0] = c;
@@ -57,10 +38,6 @@ xbString::xbString(char c) {
   size = 2;
 }
 /************************************************************************/
-//! @brief Constructor
-/*!
-    \param s - Initialize string to s.
-*/
 xbString::xbString( const char *s ) {
 
   if( s == NULL ){
@@ -71,24 +48,14 @@ xbString::xbString( const char *s ) {
     data = (char *) calloc( 1, size );
     xb_strcpy( data, s );
   }
-  // ctor(s);
 }
 /************************************************************************/
-//! @brief Constructor
-/*!
-    \param d - Initiailize string to d.
-*/
 xbString::xbString( xbDouble d ) {
   data = NULL;
   size = 0;
   Sprintf("%f", d);
 }
 /************************************************************************/
-//! @brief Constructor
-/*!
-    \param s Initialize string to s.
-    \param ulMaxLen Maximum length of string.  Truncate any characters greater than ulMaxLen.
-*/
 xbString::xbString( const char *s, xbUInt32 ulMaxLen ) {
   xbUInt32 sSize = (xbUInt32) strlen( s );
   if( sSize < ulMaxLen )
@@ -103,427 +70,15 @@ xbString::xbString( const char *s, xbUInt32 ulMaxLen ) {
   return;
 }
 /************************************************************************/
-//! @brief Constructor
-/*!
-    \param s Initialize string to s.
-*/
 xbString::xbString( const xbString &s ) {
   ctor(s.Str());
 }
-
 /************************************************************************/
-//! @brief Operator const char *
-/*!
-    \returns Pointer to string data.
-*/
-xbString::operator const char *() const {
-  return data ? data : NullString;
-}
-
-/************************************************************************/
-//! @brief Set operator =
-/*!
-    \param s - Set the string to the string on the right of the equal sign.
-*/
-xbString &xbString::operator=( const xbString &s ) {
-  return Set(s);
+xbString::~xbString(){
+  if (data != NULL)
+    free(data);
 }
 /************************************************************************/
-//! @brief Set operator =
-/*!
-    \param s - Set the string to the string on the right of the equal sign.
-*/
-xbString &xbString::operator=( const char *s ) {
-  return Set(s);
-}
-
-/************************************************************************/
-//! @brief Stream insertion operator <<
-/*!
-    std::cout << MyString << std::endl;
-
-    \param os Output stream
-    \param s String to send to output stream
-*/
-std::ostream& operator<< ( std::ostream& os, const xbString & s ) {
-  return os << s.Str();
-}
-/************************************************************************/
-//! @brief Append operator +=
-/*!
-    \param s - Append s to the string.
-*/
-xbString &xbString::operator+=( const xbString &s ) {
-
-  if (s.IsNull())
-    return (*this);
-
-  xbUInt32 Len = s.Len();
-  xbUInt32 oldLen = this->Len();
-  xbUInt32 newLen = Len + oldLen;
-
-  data = (char *)realloc(data, newLen+1);
-  if( !data )
-    return (*this);
-
-  if(oldLen == 0)
-    data[0] = 0;
-
-  char *t = data;
-  t+= oldLen;
-  for( xbUInt32 i = 0; i < Len; i++ )
-    *t++ = s.GetCharacter(i+1);
-
-  data[newLen] = '\0';
-  size == 0 ? size += (Len + 1) : size += Len;
-
-  return (*this);
-}
-/************************************************************************/
-//! @brief Append operator +=
-/*!
-    \param s - Append s to the string.
-*/
-xbString &xbString::operator+=( const char *s ) {
-
-  if (s == NULL)
-    return (*this);
-  xbUInt32 Len = (xbUInt32) strlen(s);
-  xbUInt32 oldLen = this->Len();
-  xbUInt32 newLen = Len + oldLen;
-  data = (char *)realloc(data, newLen+1);
-  if(oldLen == 0)
-    data[0] = 0;
-  for( xbUInt32 i = 0; i < Len; i++ )
-    data[i+oldLen] = s[i];
-  data[newLen] = '\0';
-  // size += Len;
-  size == 0 ? size+= (Len + 1) : size += Len;
-  return (*this);
-}
-/************************************************************************/
-//! @brief Append operator +=
-/*!
-    \param c - Append c to the string.
-*/
-xbString &xbString::operator+=( char c ) {
-  xbUInt32 Len = 1;
-  xbUInt32 oldLen = this->Len();
-  data = (char *)realloc(data, oldLen+Len+1);
-  data[oldLen] = c;
-  data[oldLen+1] = 0;
-  // size++;
-  size == 0 ? size += 2 : size++;
-  return (*this);
-}
-/************************************************************************/
-//! @brief Append operator -=
-/*!
-    Append s to the right of this string, right trimming both strings.
-    \param s - Append s to the right of the string value.
-*/
-xbString &xbString::operator-=( const xbString &s ) {
-
-  Rtrim();
-  if (s.IsNull())
-    return (*this);
-  xbUInt32 Len = s.Len();
-  xbUInt32 oldLen = this->Len();
-  xbUInt32 newLen = Len + oldLen;
-
-  data = (char *)realloc(data, newLen+1);
-  if(oldLen == 0)
-    data[0] = 0;
-
-  for( xbUInt32 i = 0; i < Len; i++ )
-    data[i+oldLen] = s.GetCharacter(i+1);
-
-  data[newLen] = '\0';
-  //size += Len;
-  size == 0 ? size += (Len+1) : size += Len;
-  Rtrim();
-  return (*this);
-}
-/************************************************************************/
-//! @brief Append  operator -=
-/*!
-    Append s to the right of this string, right trimming both strings.
-    \param s - Append s to the right of the string value.
-*/
-xbString &xbString::operator-=(const char *s) {
-
-  Rtrim();
-  if (s == NULL)
-    return (*this);
-  xbUInt32 Len = (xbUInt32) strlen(s);
-  xbUInt32 oldLen = this->Len();
-  xbUInt32 newLen = Len + oldLen;
-
-  data = (char *)realloc(data, newLen+1);
-
-  if(oldLen == 0)
-    data[0] = 0;
-
-  for( xbUInt32 i = 0; i < Len; i++ )
-    data[i+oldLen] = s[i];
-  data[newLen] = '\0';
-
-  //size += Len;
-  size == 0 ? size += (Len+1) : size += Len;
-
-  Rtrim(); 
-  return (*this);
-}
-/************************************************************************/
-//! @brief Append operator -=
-/*!
-    Append c to the right of this string, trimming right space on this string first.
-    \param c - Append s to the right of the string value.
-*/
-xbString &xbString::operator-=(const char c) {
-  Rtrim();
-  xbUInt32 oldSize = size;
-
-  //  size += 1;
-  size == 0 ? size += 2 : size += 1;
-
-  data = (char *)realloc( data, size );
-  if( oldSize == 0 ) data[0] = 0;
-  data[size-2] = c;
-  data[size-1] = 0;
-  Trim(); 
-  return (*this);
-}
-/************************************************************************/
-//! @brief Concatonate operator -
-/*!
-    Concatonate left string with right string returning reference to new string.
-    Both strings are trimmed.
-
-    \param s1 Right string operator.
-*/
-xbString xbString::operator-(const xbString &s1) {
-  xbString tmp( data );
-  tmp -= s1;
-  return tmp;
-}
-/************************************************************************/
-//! @brief Concatonate operator +
-/*!
-    Concatonate left string with right string returning reference to new string.
-
-    \param s1 Right string operator.
-*/
-xbString xbString::operator+( const char *s1) {
-  xbString tmp( data );
-  tmp += s1;
-  return tmp;
-}
-/************************************************************************/
-//! @brief Concatonate operator +
-/*!
-    Concatonate left string with right string returning reference to new string.
-
-    \param s1 Right string operator.
-*/
-xbString xbString::operator+( const xbString &s1) {
-  xbString tmp( data );
-  tmp += s1;
-  return tmp;
-}
-/************************************************************************/
-//! @brief Concatonate operator +
-/*!
-    Concatonate left string with right string returning reference to new string.
-
-    \param c Right string operator.
-*/
-
-xbString xbString::operator+( const char c) {
-  xbString tmp( data );
-  tmp += c;
-  return tmp;
-}
-/************************************************************************/
-//! @brief operator []
-/*!
-    \param n - Offset into the string of the byte to retrieve.
-    \returns c - The character to return from the offset within the [] brackets.
-*/
-char &xbString::operator[]( xbUInt32 n ) const {
-  if( n > 0 && n <= size )
-    return data[n-1];
-  else
-    return cJunkBuf;
-}
-/************************************************************************/
-//! @brief operator []
-/*!
-    \param n - Offset into the string of the byte to retrieve.
-    \returns c - The character to return from the offset within the [] brackets.
-*/
-char &xbString::operator[]( xbInt32 n ) const {
-  if( n > 0 && n <= (xbInt32) size )
-    return data[n-1];
-  else
-    return cJunkBuf;
-}
-/************************************************************************/
-//! @brief operator ==
-/*!
-    \param s String to compare 
-    \returns xbTrue - Strings match.<br>
-     zbFalse - Strings don't match.<br>
- 
-*/
-xbBool xbString::operator==( const xbString &s ) const {
-
-  if( data == NULL || data[0] == 0 ) {
-    if( s.data == NULL || s.data[0] == 0 )
-      return true;
-    return false;
-  } else {
-    if( s.data == NULL || s.data[0] == 0 )
-      return false;
-    return( strcmp(data,s.data) == 0 ? xbTrue : xbFalse );
-  }
-}
-/************************************************************************/
-//! @brief operator ==
-/*!
-    \param s String to compare 
-    \returns xbTrue - Strings match.<br>
-     zbFalse - Strings don't match.<br>
-*/
-xbBool xbString::operator==( const char *s ) const {
-
-  if (s == NULL) {
-    if ( data == NULL)
-      return true;
-    return false;
-  }
-  if ((s[0] == 0) && data == NULL)
-      return true;
-  if ( data == NULL)
-    return false;
-  return( strcmp( data, s) == 0 ? xbTrue : xbFalse );
-}
-/************************************************************************/
-//! @brief operator !=
-/*!
-    \param s String to compare 
-    \returns xbTrue - Strings don't match.<br>
-             xbFalse - Strings match.<br>
-*/
-xbBool xbString::operator!=( const xbString &s ) const {
-  if( data == NULL || data[0] == 0 ) {
-    if( s.data == NULL || s.data[0] == 0 )
-      return xbFalse;                                           // NULL != NULL
-    return xbTrue;                                              // NULL != !NULL
-  } else {
-    if( s.data == NULL || s.data[0] == 0 )
-      return xbTrue;                                            // !NULL != NULL
-    return( strcmp( data, s.data ) != 0 ? xbTrue : xbFalse );   // !NULL != !NULL
-  }
-}
-/************************************************************************/
-//! @brief operator !=
-/*!
-    \param s String to compare 
-    \returns xbTrue - Strings don't match.<br>
-         zbFalse - Strings match.<br>
-*/
-xbBool xbString::operator!=( const char *s ) const {
-  if( s == NULL || s[0] == 0 ) {
-    if( data == NULL || data[0] == 0 )
-      return xbFalse;                                      // NULL != NULL
-    return xbTrue;                                         // NULL != !NULL
-  } else {
-    if( s == NULL || s[0] == 0 )
-      return xbTrue;                                       // !NULL != NULL
-    return( strcmp( data, s ) != 0 ? xbTrue : xbFalse );   // !NULL != !NULL
-  }
-}
-/************************************************************************/
-//! @brief operator <
-/*!
-    \param s String to compare 
-    \returns xbTrue - Left string is less than the right string.<br>
-         zbFalse - Left string is not less than the right string.<br>
-*/
-xbBool xbString::operator< ( const xbString &s ) const {
-
-  if( data == NULL || data[0] == 0 ) {
-    if( s.data == NULL || s.data[0] == 0 )
-      return false;
-    return true;
-  } else {
-    if( s.data == NULL || s.data[0] == 0 )
-      return false;
-    return ( strcmp(data, s.data) < 0 ? xbTrue : xbFalse );
-  }
-}
-/************************************************************************/
-//! @brief operator >
-/*!
-    \param s String to compare 
-    \returns xbTrue - Left string is greater than the right string.<br>
-         zbFalse - Left string is not greater than the right string.<br>
-*/
-xbBool xbString::operator> ( const xbString &s ) const {
-  if( data == NULL || data[0] == 0 ) {
-    if( s.data == NULL || s.data[0] == 0 )
-      return false;
-    return false;
-  } else {
-    if( s.data == NULL || s.data[0] == 0 )
-      return true;
-    return( strcmp(data,s.data) > 0 ? xbTrue : xbFalse );
-  }
-}
-/************************************************************************/
-//! @brief operator <=
-/*!
-    \param s String to compare 
-    \returns xbTrue - Left string is less than or equal to the right string.<br>
-         zbFalse - Left string is not less than or equal to the right string.<br>
-*/
-xbBool xbString::operator<=( const xbString &s ) const {
-  if( data == NULL || data[0] == 0 ) {
-    if( s.data == NULL || s.data[0] == 0 )
-      return true;
-    return true;
-  } else {
-    if( s.data == NULL || s.data[0] == 0 )
-      return false;
-    return( strcmp(data,s.data) <= 0 ? xbTrue : xbFalse );
-  }
-}
-/************************************************************************/
-//! @brief operator >=
-/*!
-    \param s String to compare 
-    \returns xbTrue - Left string is greater than or equal to the right string.<br>
-             zbFalse - Left string is not greater than or equal to the right string.<br>
-*/
-xbBool xbString::operator>=( const xbString &s ) const {
-  if( data == NULL || data[0] == 0 ) {
-    if( s.data == NULL || s.data[0] == 0 )
-      return true;
-    return false;
-  } else {
-    if( s.data == NULL || s.data[0] == 0 )
-      return true;
-    return( strcmp(data, s.data) >= 0 ? xbTrue : xbFalse );
-  }
-}
-
-/************************************************************************/
-//! @brief Add a prefixing back slash to specified characters in the string.
-/*!
-    \param c Character to prefix with a backslash.
-    \returns Reference to this string.
-*/
 xbString &xbString::AddBackSlash( char c ) {
 
   xbUInt32 lCnt = CountChar( c );
@@ -549,43 +104,21 @@ xbString &xbString::AddBackSlash( char c ) {
   return *this;
 }
 /************************************************************************/
-//! @brief Append data to string.
-/*!
-    \param s String data to append.
-    \returns Reference to this string.
-*/
 xbString &xbString::Append( const xbString &s ) {
  *this += s;
   return *this;
 }
-
 /************************************************************************/
-//! @brief Append data to string.
-/*!
-    \param s String data to append.
-    \returns Reference to this string.
-*/
 xbString &xbString::Append( const char *s ) {
   *this += s;
   return *this;
 }
 /************************************************************************/
-//! @brief Append data to string.
-/*!
-    \param c String data to append.
-    \returns Reference to this string.
-*/
 xbString &xbString::Append( char c ) {
   *this += c;
   return *this;
 }
 /************************************************************************/
-//! @brief Append data to string.
-/*!
-    \param s String data to append.  
-    \param ulByteCount Maximum number of bytes to append.
-    \returns Reference to this string.
-*/
 xbString &xbString::Append( const char *s, xbUInt32 ulByteCount ) {
 
   if ( s == NULL || !*s || ulByteCount == 0)
@@ -617,13 +150,6 @@ xbString &xbString::Append( const char *s, xbUInt32 ulByteCount ) {
 }
 
 /************************************************************************/
-//! @brief Assign portion of string.
-/*!
-    \param sStr - Source string for copy operation.  sStr needs to be a Null terminated string.
-    \param ulStartPos - Starting position within source string.
-    \param ulCopyLen - Length of data to copy.
-    \returns Reference to this string.
-*/
 xbString &xbString::Assign(const char * sStr, xbUInt32 ulStartPos, xbUInt32 ulCopyLen){
   if(data){
     free(data);
@@ -648,12 +174,6 @@ xbString &xbString::Assign(const char * sStr, xbUInt32 ulStartPos, xbUInt32 ulCo
   return (*this);
 }
 /************************************************************************/
-//! @brief Assign portion of string.
-/*!
-    \param sStr - Source string for copy operation.  sStr needs to be a Null terminated string.
-    \param ulStartPos - Starting position within source string.
-    \returns Reference to this string.
-*/
 xbString &xbString::Assign(const char * sStr, xbUInt32 ulStartPos){
   if(data){
     free(data);
@@ -678,13 +198,6 @@ xbString &xbString::Assign(const char * sStr, xbUInt32 ulStartPos){
 }
 
 /************************************************************************/
-//! @brief Assign portion of string.
-/*!
-    \param sStr - Source string for copy operation.  sStr needs to be a Null terminated string.
-    \param ulStartPos - Starting position within source string.
-    \param ulCopyLen - Length of data to copy.
-    \returns Reference to this string.
-*/
 xbString &xbString::Assign(const xbString& sStr, xbUInt32 ulStartPos, xbUInt32 ulCopyLen){
  if(data){
     free(data);
@@ -706,12 +219,6 @@ xbString &xbString::Assign(const xbString& sStr, xbUInt32 ulStartPos, xbUInt32 u
   return (*this);
 }
 /************************************************************************/
-//! @brief Assign portion of string.
-/*!
-    \param sStr - Source string for copy operation.  sStr needs to be a Null terminated string.
-    \param ulStartPos - Starting position within source string.
-    \returns Reference to this string.
-*/
 xbString &xbString::Assign(const xbString& sStr, xbUInt32 ulStartPos){
   if(data){
     free(data);
@@ -733,22 +240,13 @@ xbString &xbString::Assign(const xbString& sStr, xbUInt32 ulStartPos){
   size++;
   return (*this);
 }
+
+
 /************************************************************************/
-//! @brief Copy a string
-/*!
-    \returns xbString.
-*/
 xbString xbString::Copy() const {
   return( *this );
 }
 /************************************************************************/
-//! @brief Count the number of characters in the string.
-/*!
-    \param c Character to count.
-    \param iOpt 0 - Count the number of characters.<br>
-                1 - Count the number of characters not between single or double quotes.
-    \returns The number of characters.
-*/
 xbUInt32 xbString::CountChar( char c, xbInt16 iOpt ) const {
   if( iOpt == 0 )
     return CountChar( c );
@@ -779,11 +277,6 @@ xbUInt32 xbString::CountChar( char c, xbInt16 iOpt ) const {
   }
 }
 /************************************************************************/
-//! @brief Count the number of characters in the string.
-/*!
-    \param c Character to count.
-    \returns The number of characters.
-*/
 xbUInt32 xbString::CountChar( char c ) const {
   xbUInt32 i,j;
   for( i = 0,j = 0; i < size; i++ )
@@ -795,7 +288,6 @@ xbUInt32 xbString::CountChar( char c ) const {
 void xbString::ctor( const char *s ) {
 
   // this routine assumes it was called by one of the constructors.
-
   if (s == NULL) {
     data = NULL;
     size = 0;
@@ -808,16 +300,6 @@ void xbString::ctor( const char *s ) {
   xb_strcpy(data, s);
 }
 /************************************************************************/
-//! @brief Convert hex character to string. 
-/*!
-    This routine converts a four byte string in the format of 0x00 to a one byte char value.
-    The first four bytes of the string must be in the format 0x00.
-    Anything past the first four bytes is disregarded.
-
-    \param cOut Output character.
-    \returns  XB_INVALID_PARM on error<br>
-              XB_NO_ERROR on success.
-*/
 xbInt16 xbString::CvtHexChar( char &cOut ){
 
   int  j, k;
@@ -836,15 +318,6 @@ xbInt16 xbString::CvtHexChar( char &cOut ){
   return XB_NO_ERROR;
 }
 /************************************************************************/
-//! @brief Convert string of hex characters to string. 
-/*!
-
-   This routine converts a string of one or more four byte sequences 0x00 to a string of one byte chars.
-
-    \param sOut Output string of converted characters.
-    \returns  XB_INVALID_PARM on error<br>
-              XB_NO_ERROR on success.
-*/
 xbInt16 xbString::CvtHexString( xbString &sOut ){
   char c;
   xbString ws;
@@ -860,11 +333,6 @@ xbInt16 xbString::CvtHexString( xbString &sOut ){
   return XB_NO_ERROR;
 }
 /************************************************************************/
-//! @brief Convert string to xbUInt64 number
-/*!
-    \param ullOut - output unsigned long long.
-    \returns XB_NO_ERROR
-*/
 xbInt16 xbString::CvtULongLong( xbUInt64 &ullOut ){
 
   // version 1 - fast, but no data checking
@@ -880,11 +348,6 @@ xbInt16 xbString::CvtULongLong( xbUInt64 &ullOut ){
   return XB_NO_ERROR;
 }
 /************************************************************************/
-//! @brief Convert string to xbInt64 number
-/*!
-    \param llOut - output long long.
-    \returns XB_NO_ERROR
-*/
 xbInt16 xbString::CvtLongLong( xbInt64 &llOut ){
 
   // version 1 - fast, but no data checking
@@ -899,53 +362,42 @@ xbInt16 xbString::CvtLongLong( xbInt64 &llOut ){
   }
   return XB_NO_ERROR;
 }
-
 /************************************************************************/
 #ifdef XB_DEBUG_SUPPORT
-void xbString::Dump( const char * title, xbInt16 iHexOption ) const {
-  fprintf(stdout, "%s StringSize[%d] DataLen=[%d] data=[%s]\n", title, size, Len(), data );
-  if( iHexOption ){
+void xbString::Dump( const char * sTitle ) const {
+  Dump( sTitle, 0 );
+}
+void xbString::Dump( const char * sTitle, xbBool bHexOption ) const {
+  fprintf(stdout, "%s StringSize[%d] DataLen=[%d] data=[%s]\n", sTitle, size, Len(), data );
+  if( bHexOption ){
     std::cout << "Hex values" << std::endl;
     for( xbUInt32 i = 0; i < strlen( data ); i++ )
       printf( " %x", data[i] );
     std::cout << std::endl;
   }
 }
-void xbString::Dump( const char * title ) const {
-  Dump( title, 0 );
+void xbString::Dump( const xbString &sTitle ) const {
+  Dump( sTitle.Str(), 0 );
 }
-
-void xbString::DumpHex( const char * title ) const {
-  Dump( title, 1 );
+void xbString::Dump( const xbString &sTitle, xbInt16 bHexOption ) const {
+  Dump( sTitle.Str(), bHexOption );
+}
+void xbString::DumpHex( const xbString &sTitle ) const {
+  Dump( sTitle.Str(), 1 );
+}
+void xbString::DumpHex( const char * sTitle ) const {
+  Dump( sTitle, 1 );
 }
 #endif
 
 /************************************************************************/
-//! @brief Extract an element out of a delimited string.
-/*!
-    \param sSrc Source string.
-    \param cDelim Delimiter.
-    \param lSkipCnt Number of delimiters to skip.
-    \param iOpt 0 - ignore single and double quotes.<br>
-                1 - ignore delimiters between single or double quotes.
-    \returns Reference to string extracted from element.
-*/
 xbString &xbString::ExtractElement( xbString &sSrc, char cDelim, xbUInt32 lSkipCnt, xbInt16 iOpt )
 {
   return ExtractElement( sSrc.Str(), cDelim, lSkipCnt, iOpt );
 }
 
 /************************************************************************/
-//! @brief Extract an element out of a delimited string.
-/*!
-    \param pSrc Source string.
-    \param cDelim Delimiter.
-    \param lSkipCnt Number of delimiters to skip.
-    \param iOpt 0 - ignore single and double quotes.<br>
-                1 - ignore delimiters between single or double quotes.
-    \returns Reference to string extracted from element.
-*/
-xbString &xbString::ExtractElement( const char *pSrc, char cDelim, xbUInt32 lSkipCnt, xbInt16 iOpt )
+xbString &xbString::ExtractElement( const char *sSrc, char cDelim, xbUInt32 lSkipCnt, xbInt16 iOpt )
 {
   /* opt values
      0 - ignore single and double quotes
@@ -957,7 +409,7 @@ xbString &xbString::ExtractElement( const char *pSrc, char cDelim, xbUInt32 lSki
   xbBool bInSingleQuotes = xbFalse;
   xbBool bInDoubleQuotes = xbFalse;
   char cPrevChar = 0x00;
-  const char *s = pSrc;
+  const char *s = sSrc;
   const char *pAnchor;
 
   /* skip past skipcnt delimiters */
@@ -1022,13 +474,7 @@ xbString &xbString::ExtractElement( const char *pSrc, char cDelim, xbUInt32 lSki
   this->size = lLen+1;
   return *this;
 }
-
 /************************************************************************/
-//! @brief Get a character by position 
-/*!
-    \param n - Position in string to extract. First position is 1 (not 0).
-    \returns Character from position n, or null.
-*/
 char xbString::GetCharacter( xbUInt32 n ) const {
   if( n > 0 && n <= size )
     return data[n-1];
@@ -1036,11 +482,6 @@ char xbString::GetCharacter( xbUInt32 n ) const {
     return 0x00;
 }
 /************************************************************************/
-//! @brief Get the position of the last occurrence of a given character. 
-/*!
-    \param c - Character to search for.
-    \returns Last position of character in the string.
-*/
 xbUInt32 xbString::GetLastPos(char c) const {
 
   if (data == NULL)
@@ -1060,11 +501,6 @@ xbUInt32 xbString::GetLastPos(char c) const {
     return 0;
 }
 /************************************************************************/
-//! @brief Get the position of the last occurrence of a given string. 
-/*!
-    \param s - String to search for.
-    \returns Last position of character in the string.
-*/
 xbUInt32 xbString::GetLastPos(const char* s) const{
 
   if (data == NULL)
@@ -1084,12 +520,6 @@ xbUInt32 xbString::GetLastPos(const char* s) const{
   return (xbUInt32)(saveP - data) + 1;
 }
 /************************************************************************/
-//! @brief Get the path separator out of the string.
-/*!
-    This method assumes the string is a valid path name.
-    If it is, it returns either / or \.
-    \returns Char value containing either / or \ depending on OS.
-*/
 char xbString::GetPathSeparator() const {
 
   if (data == NULL)
@@ -1103,36 +533,18 @@ char xbString::GetPathSeparator() const {
   }
   return 0x00;
 }
-
 /************************************************************************/
-//! @brief Retrieve the size of the string buffer.
-/*!
-    \returns Size of string buffer including the null terminating byte.
-*/
 xbUInt32 xbString::GetSize() const {
   return size;
 }
-
 /************************************************************************/
-//! @brief Determine if the string has any alpha characters
-/*!
-    \returns xbTrue - String contains one or more alpha characters.<br>
-             xbFalse - String contains no alpha characters.
-*/
 xbBool xbString::HasAlphaChars() const {
   for( xbUInt32 i = 0; i < size; i++ )
     if( isalpha( data[i] ))
       return xbTrue;
   return xbFalse;
 }
-
-
 /************************************************************************/
-//! @brief Determine if string is empty
-/*!
-    \returns xbTrue if string is empty.<br>
-             xbFalse if string is not empty.
-*/
 xbBool xbString::IsEmpty() const {
   if( data == NULL )
     return true;
@@ -1140,75 +552,42 @@ xbBool xbString::IsEmpty() const {
     return xbTrue;
   return xbFalse;
 }
-
 /************************************************************************/
-//! @brief Determine if string is NULL
-/*!
-    \returns xbTrue if string is NULL.<br>
-             xbFalse if string is not NULL.
-*/
 xbBool xbString::IsNull() const {
   return( data == NULL );
 }
-
-
 /************************************************************************/
-//! @brief Retain left part of string, drop rightmost characters.
-/*!
-    \param ulLen New string length, truncate rightmost excess.
-    \returns Reference to string.
-*/
 xbString &xbString::Left( xbUInt32 ulLen ) {
-  return Mid( 1, ulLen );
+  if( ulLen == 0 )
+    return Set( "" );
+  else
+    return Mid( 1, ulLen );
 }
-
 /************************************************************************/
-//! @brief Retrieve length of current string.
-/*!
-    \returns String length, excluding the terminating null byte.
-*/
-// return length of string
 xbUInt32 xbString::Len() const {
   return( data ? (xbUInt32) strlen(data) : 0 );
 }
-
 /************************************************************************/
-//! @brief Left trim white space from string. 
-/*!
-    \returns Reference to this string.
-*/
 xbString &xbString::Ltrim(){
-
   if( !data )
     return *this;
-
   char *p = data;
   if( !*p || (*p && *p != ' ') )
     return *this;   /* nothing to do */
-
   xbUInt32 s = 0;
   while( *p && *p == ' ' ){
     p++;
     s++;
     size--;
   }
-
   xbUInt32 i;
   for( i = 0; i < size; i++ )
     data[i] = data[i+s];
   data[i] = 0x00;
   data = (char *) realloc( data, size );
-
   return *this;
-
 }
-
 /************************************************************************/
-//! @brief Left truncate string 
-/*!
-    \param ulCnt Number of bytes to remove from the left.
-    \returns Reference to this string.
-*/
 xbString &xbString::Ltrunc( xbUInt32 ulCnt ){
   if( ulCnt >= size ){
     if( size > 0 ){
@@ -1218,7 +597,6 @@ xbString &xbString::Ltrunc( xbUInt32 ulCnt ){
     }
     return *this;
   }
-
   char * ndata;
   char * p;
   ndata = (char *) calloc( 1, size - ulCnt );
@@ -1230,36 +608,18 @@ xbString &xbString::Ltrunc( xbUInt32 ulCnt ){
   size = size - ulCnt;
   return *this;
 }
-
 /************************************************************************/
-//! @brief Extract portion of data from string
-/*!
-    \param ulStartPos Starting position
-    \param ulTargLen Length 
-    \returns Reference to string
-*/
 xbString &xbString::Mid( xbUInt32 ulStartPos, xbUInt32 ulTargLen ){
-
-  // this is a 1 based routine
   if( ulStartPos == 0 )
     return *this;
-
   if( data == NULL )
     return( *this );
   if( data[0] == 0 )
     return( *this );
   if( ulStartPos > Len() )
     return( *this );
-/*
-  // Resize( ulTargLen + 1 );
-  char *pTarg = data;
-  char *pSrc = data + ulStartPos - 1;
-  for( xbUInt32 l = 0; l < ulTargLen; l++ )
-    *pTarg++ = *pSrc++;
-  *pTarg = 0x00;
-  // Resize( ulTargLen + 1 );
-  */
-
+  if( ulTargLen == 0 || ((ulTargLen + ulStartPos) > Len()) )
+    ulTargLen = Len() - ulStartPos + 1;
   char * newData = (char *) calloc( 1, ulTargLen + 1 );
   char *pTarg = newData;
   char *pSrc = data + ulStartPos - 1;
@@ -1270,17 +630,268 @@ xbString &xbString::Mid( xbUInt32 ulStartPos, xbUInt32 ulTargLen ){
   free( data );
   data = newData;
   size = ulTargLen + 1;
-
   return *this;
+}
+/************************************************************************/
+xbString::operator const char *() const {
+  return data ? data : NullString;
+}
+/************************************************************************/
+//! @brief operator !=
+/*!
+    @param s String to compare 
+    @returns xbTrue - Strings don't match.<br>
+             xbFalse - Strings match.<br>
+*/
+xbBool xbString::operator!=( const xbString &s ) const {
+  if( data == NULL || data[0] == 0 ) {
+    if( s.data == NULL || s.data[0] == 0 )
+      return xbFalse;                                           // NULL != NULL
+    return xbTrue;                                              // NULL != !NULL
+  } else {
+    if( s.data == NULL || s.data[0] == 0 )
+      return xbTrue;                                            // !NULL != NULL
+    return( strcmp( data, s.data ) != 0 ? xbTrue : xbFalse );   // !NULL != !NULL
+  }
+}
+/************************************************************************/
+//! @brief operator !=
+/*!
+    @param s String to compare 
+    @returns xbTrue - Strings don't match.<br>
+         zbFalse - Strings match.<br>
+*/
+xbBool xbString::operator!=( const char *s ) const {
+  if( s == NULL || s[0] == 0 ) {
+    if( data == NULL || data[0] == 0 )
+      return xbFalse;                                      // NULL != NULL
+    return xbTrue;                                         // NULL != !NULL
+  } else {
+    if( s == NULL || s[0] == 0 )
+      return xbTrue;                                       // !NULL != NULL
+    return( strcmp( data, s ) != 0 ? xbTrue : xbFalse );   // !NULL != !NULL
+  }
+}
+/************************************************************************/
+xbString xbString::operator+( const char *s1) {
+  xbString tmp( data );
+  tmp += s1;
+  return tmp;
+}
+/************************************************************************/
+xbString xbString::operator+( const char c) {
+  xbString tmp( data );
+  tmp += c;
+  return tmp;
+}
+/************************************************************************/
+xbString xbString::operator+( const xbString &s1) {
+  xbString tmp( data );
+  tmp += s1;
+  return tmp;
 }
 
 /************************************************************************/
-//! @brief Left pad string 
-/*!
-    \param c Padding character.
-    \param ulNewLen New string length.
-    \returns Reference to this string.
-*/
+xbString &xbString::operator+=( char c ) {
+  xbUInt32 Len = 1;
+  xbUInt32 oldLen = this->Len();
+  data = (char *)realloc(data, oldLen+Len+1);
+  data[oldLen] = c;
+  data[oldLen+1] = 0;
+  // size++;
+  size == 0 ? size += 2 : size++;
+  return (*this);
+}
+/************************************************************************/
+xbString &xbString::operator+=( const char *s ) {
+  if (s == NULL)
+    return (*this);
+  xbUInt32 Len = (xbUInt32) strlen(s);
+  xbUInt32 oldLen = this->Len();
+  xbUInt32 newLen = Len + oldLen;
+  data = (char *)realloc(data, newLen+1);
+  if(oldLen == 0)
+    data[0] = 0;
+  for( xbUInt32 i = 0; i < Len; i++ )
+    data[i+oldLen] = s[i];
+  data[newLen] = '\0';
+  // size += Len;
+  size == 0 ? size+= (Len + 1) : size += Len;
+  return (*this);
+}
+/************************************************************************/
+xbString &xbString::operator+=( const xbString &s ) {
+  if (s.IsNull())
+    return (*this);
+  xbUInt32 Len = s.Len();
+  xbUInt32 oldLen = this->Len();
+  xbUInt32 newLen = Len + oldLen;
+  data = (char *)realloc(data, newLen+1);
+  if( !data )
+    return (*this);
+  if(oldLen == 0)
+    data[0] = 0;
+  char *t = data;
+  t+= oldLen;
+  for( xbUInt32 i = 0; i < Len; i++ )
+    *t++ = s.GetCharacter(i+1);
+  data[newLen] = '\0';
+  size == 0 ? size += (Len + 1) : size += Len;
+  return (*this);
+}
+/************************************************************************/
+xbString xbString::operator-(const xbString &s1) {
+  xbString tmp( data );
+  tmp -= s1;
+  return tmp;
+}
+/************************************************************************/
+xbString &xbString::operator-=(const char c) {
+  Rtrim();
+  xbUInt32 oldSize = size;
+  size == 0 ? size += 2 : size += 1;
+  data = (char *)realloc( data, size );
+  if( oldSize == 0 ) data[0] = 0;
+  data[size-2] = c;
+  data[size-1] = 0;
+  Trim(); 
+  return (*this);
+}
+/************************************************************************/
+xbString &xbString::operator-=(const char *s) {
+  Rtrim();
+  if (s == NULL)
+    return (*this);
+  xbUInt32 Len = (xbUInt32) strlen(s);
+  xbUInt32 oldLen = this->Len();
+  xbUInt32 newLen = Len + oldLen;
+  data = (char *)realloc(data, newLen+1);
+  if(oldLen == 0)
+    data[0] = 0;
+  for( xbUInt32 i = 0; i < Len; i++ )
+    data[i+oldLen] = s[i];
+  data[newLen] = '\0';
+  size == 0 ? size += (Len+1) : size += Len;
+  Rtrim(); 
+  return (*this);
+}
+/************************************************************************/
+xbString &xbString::operator-=( const xbString &s ) {
+  Rtrim();
+  if (s.IsNull())
+    return (*this);
+  xbUInt32 Len = s.Len();
+  xbUInt32 oldLen = this->Len();
+  xbUInt32 newLen = Len + oldLen;
+  data = (char *)realloc(data, newLen+1);
+  if(oldLen == 0)
+    data[0] = 0;
+  for( xbUInt32 i = 0; i < Len; i++ )
+    data[i+oldLen] = s.GetCharacter(i+1);
+  data[newLen] = '\0';
+  size == 0 ? size += (Len+1) : size += Len;
+  Rtrim();
+  return (*this);
+}
+/************************************************************************/
+xbBool xbString::operator< ( const xbString &s ) const {
+  if( data == NULL || data[0] == 0 ) {
+    if( s.data == NULL || s.data[0] == 0 )
+      return false;
+    return true;
+  } else {
+    if( s.data == NULL || s.data[0] == 0 )
+      return false;
+    return ( strcmp(data, s.data) < 0 ? xbTrue : xbFalse );
+  }
+}
+/************************************************************************/
+xbBool xbString::operator<=( const xbString &s ) const {
+  if( data == NULL || data[0] == 0 ) {
+    if( s.data == NULL || s.data[0] == 0 )
+      return true;
+    return true;
+  } else {
+    if( s.data == NULL || s.data[0] == 0 )
+      return false;
+    return( strcmp(data,s.data) <= 0 ? xbTrue : xbFalse );
+  }
+}
+/************************************************************************/
+xbString &xbString::operator=( const char *s ) {
+  return Set(s);
+}
+/************************************************************************/
+xbString &xbString::operator=( const xbString &s ) {
+  return Set(s);
+}
+/************************************************************************/
+xbBool xbString::operator==( const char *s ) const {
+
+  if (s == NULL) {
+    if ( data == NULL)
+      return true;
+    return false;
+  }
+  if ((s[0] == 0) && data == NULL)
+      return true;
+  if ( data == NULL)
+    return false;
+  return( strcmp( data, s) == 0 ? xbTrue : xbFalse );
+}
+/************************************************************************/
+xbBool xbString::operator==( const xbString &s ) const {
+
+  if( data == NULL || data[0] == 0 ) {
+    if( s.data == NULL || s.data[0] == 0 )
+      return true;
+    return false;
+  } else {
+    if( s.data == NULL || s.data[0] == 0 )
+      return false;
+    return( strcmp(data,s.data) == 0 ? xbTrue : xbFalse );
+  }
+}
+/************************************************************************/
+xbBool xbString::operator> ( const xbString &s ) const {
+  if( data == NULL || data[0] == 0 ) {
+    if( s.data == NULL || s.data[0] == 0 )
+      return false;
+    return false;
+  } else {
+    if( s.data == NULL || s.data[0] == 0 )
+      return true;
+    return( strcmp(data,s.data) > 0 ? xbTrue : xbFalse );
+  }
+}
+/************************************************************************/
+xbBool xbString::operator>=( const xbString &s ) const {
+  if( data == NULL || data[0] == 0 ) {
+    if( s.data == NULL || s.data[0] == 0 )
+      return true;
+    return false;
+  } else {
+    if( s.data == NULL || s.data[0] == 0 )
+      return true;
+    return( strcmp(data, s.data) >= 0 ? xbTrue : xbFalse );
+  }
+}
+/************************************************************************/
+char &xbString::operator[]( xbUInt32 n ) const {
+//char xbString::operator[]( xbUInt32 n ) const {
+  if( n > 0 && n <= size )
+    return data[n-1];
+  else
+    return cNullByte;
+}
+/************************************************************************/
+char &xbString::operator[]( xbInt32 n ) const {
+  if( n > 0 && n <= (xbInt32) size )
+    return data[n-1];
+  else
+    return cNullByte;
+}
+/************************************************************************/
 xbString &xbString::PadLeft( char c, xbUInt32 ulNewLen ){
 
   xbUInt32 srcLen;
@@ -1288,15 +899,12 @@ xbString &xbString::PadLeft( char c, xbUInt32 ulNewLen ){
     srcLen = (xbUInt32) strlen( data );
   else
     srcLen = 0;
-
   if( srcLen >= ulNewLen )
     return *this;
-
   char * newData = (char *) calloc( 1, ulNewLen + 1 );
   xbUInt32 i;
   for( i = 0; i < ulNewLen - srcLen; i++ )
     newData[i] = c;
-
   char *targ = &newData[i];
   xb_strcpy( targ, data );
   free( data );
@@ -1304,14 +912,7 @@ xbString &xbString::PadLeft( char c, xbUInt32 ulNewLen ){
   size = ulNewLen + 1;
   return *this;
 }
-
 /************************************************************************/
-//! @brief Right pad string
-/*!
-    \param c Padding character.
-    \param ulNewLen New string length.
-    \returns Reference to this string.
-*/
 xbString &xbString::PadRight( char c, xbUInt32 ulNewLen ){
   xbUInt32 srcLen = (xbUInt32) strlen( data );
   if( srcLen >= ulNewLen )
@@ -1324,50 +925,7 @@ xbString &xbString::PadRight( char c, xbUInt32 ulNewLen ){
   size = ulNewLen + 1;
   return *this;
 }
-
 /************************************************************************/
-//! @brief Determine position of a given character 
-/*!
-    \param c Seek character 
-    \param ulStartPos starting position for search, first position is 1
-    \returns Position within string. Returns 0 if not found.
-*/
-xbUInt32 xbString::Pos(char c, xbUInt32 ulStartPos ) const {
-
-  if (data == NULL)
-    return 0;
-  char *p = data;
-
-  if( ulStartPos >= size )
-    return 0;
-
-  xbUInt32 iPos = 0;
-  while( (iPos+1) < ulStartPos ){
-    p++;
-    iPos++;
-  }
-  xbBool bFound = 0;
-  while( *p && !bFound && iPos < ( size - 1 )){
-    if( *p == c )
-      bFound = 1;
-    else {
-      iPos++;
-      p++;
-    }
-  }
-
-  if( bFound )
-    return iPos + 1;
-  else
-    return 0;
-}
-
-/************************************************************************/
-//! @brief Determine position of a given character 
-/*!
-    \param c Seek character 
-    \returns Position within string. Returns 0 if not found.
-*/
 xbUInt32 xbString::Pos(char c) const {
 
   if (data == NULL)
@@ -1388,13 +946,33 @@ xbUInt32 xbString::Pos(char c) const {
   else
     return 0;
 }
-
 /************************************************************************/
-//! @brief Determine position of a given substring
-/*!
-    \param s Substring
-    \returns Position within string. Returns 0 if not found.
-*/
+xbUInt32 xbString::Pos(char c, xbUInt32 ulStartPos ) const {
+  if (data == NULL)
+    return 0;
+  char *p = data;
+  if( ulStartPos >= size )
+    return 0;
+  xbUInt32 iPos = 0;
+  while( (iPos+1) < ulStartPos ){
+    p++;
+    iPos++;
+  }
+  xbBool bFound = 0;
+  while( *p && !bFound && iPos < ( size - 1 )){
+    if( *p == c )
+      bFound = 1;
+    else {
+      iPos++;
+      p++;
+    }
+  }
+  if( bFound )
+    return iPos + 1;
+  else
+    return 0;
+}
+/************************************************************************/
 xbUInt32 xbString::Pos(const char* s) const{
 
   if (data == NULL)
@@ -1406,44 +984,27 @@ xbUInt32 xbString::Pos(const char* s) const{
 
   return (xbUInt32)(p - data + 1);
 }
-
 /************************************************************************/
-//! @brief Insert character into string
-/*!
-    \param ulPos Insertion position.
-    \param c Character to insert.
-    \returns Reference to this string.
-*/
 xbString &xbString::PutAt(xbUInt32 ulPos, char c){
    if((ulPos-1) > Len() )
       return *this;
    data[ulPos-1] = c;
    return *this;
 }
-
 /************************************************************************/
-//! @brief Remove portion of string.
-/*!
-    \param ulStartPos Starting position for removal operation.
-    \param ulDelSize Size of deletion.
-    \returns Reference to string.
-*/
 xbString &xbString::Remove(xbUInt32 ulStartPos, xbUInt32 ulDelSize ) {
   if( data == NULL )
     return( *this );
   if( data[0] == 0 )
     return( *this );
   xbUInt32 srcLen = Len();
-
   if( ulStartPos > srcLen || ulStartPos < 1 || ulDelSize < 1 )
     return( *this );
-
   if(( ulStartPos + ulDelSize - 1) >= size ){
     data[ulStartPos-1] = 0x00;
     size = ulStartPos;
     return( *this );
   }
-
   char *t;
   char *s;
   t = data + (ulStartPos - 1);
@@ -1454,17 +1015,7 @@ xbString &xbString::Remove(xbUInt32 ulStartPos, xbUInt32 ulDelSize ) {
   *t = 0x00;
   return( *this );
 }
-
 /************************************************************************/
-//! @brief Replace a value within a string with another value
-/*!
-    \param sReplace - Character string to replace.
-    \param sReplaceWith - Character string to replace with
-    \param iOption - 0 = All occurrences, 1 = first occurrence
-    \returns Reference to this string.
-*/
-
-//the new size includes the null termination byte
 xbString &xbString::Replace( const char *sReplace, const char *sReplaceWith, xbInt16 iOption ){
 
   xbBool bDone = xbFalse;
@@ -1518,13 +1069,18 @@ xbString &xbString::Replace( const char *sReplace, const char *sReplaceWith, xbI
   return *this;
 }
 
+xbString  &xbString::Replace( const char *sReplace, const xbString &sReplaceWith, xbInt16 iOption ){
+  return Replace( sReplace, sReplaceWith.Str(), iOption );
+}
+
+xbString  &xbString::Replace( const xbString &sReplace, const char *sReplaceWith, xbInt16 iOption ){
+  return Replace( sReplace.Str(), sReplaceWith, iOption );
+}
+
+xbString  &xbString::Replace( const xbString &sReplace, const xbString &sReplaceWith, xbInt16 iOption ){
+  return Replace( sReplace.Str(), sReplaceWith.Str(), iOption );
+}
 /************************************************************************/
-//! @brief Resize a string
-/*!
-    \param ulSize - New string size, including null termination byte.
-    \returns Reference to this string.
-*/
-//the new size includes the null termination byte
 xbString &xbString::Resize(xbUInt32 ulSize) {
 
   data = (char *) realloc( data, ulSize );
@@ -1535,21 +1091,12 @@ xbString &xbString::Resize(xbUInt32 ulSize) {
   return *this;
 }
 /************************************************************************/
-//! @brief Right trim the string.
-/*!
-    This routine removes any trailing white space on the string.
-
-    \returns Reference to string.
-*/
 xbString &xbString::Rtrim(){
-
   xbUInt32 l = Len();
   if( l == 0 )
     return *this;
-
   xbUInt32 ulOrigSize = size;
   l--;
-
   for(;;) {
     if( data[l] != ' ' )
       break;
@@ -1559,24 +1106,12 @@ xbString &xbString::Rtrim(){
       break;
     l--;
   }
-
   if( ulOrigSize != size )
     data = (char * ) realloc( data, size );
   return *this;
 }
-
 /************************************************************************/
-//! @brief Set the value of the string.
-/*!
-
-   Note:  This routine fails if you try to set the string to itself or some part of itself.
-
-    \param s Value to set the string.
-    \returns Reference to string.
-
-*/
 xbString &xbString::Set( const char *s ) {
-
   if(data != NULL){
     free(data);
     data = NULL;
@@ -1595,15 +1130,7 @@ xbString &xbString::Set( const char *s ) {
   return (*this);
 }
 /************************************************************************/
-//! @brief Set the value of the string.
-/*!
-    \param s Value to set the string.
-    \returns Reference to string.
-*/
 xbString &xbString::Set( const xbString &s ) {
-
-//  if( s.Str() == NULL || s.Len() == 0 ){
-
   if( s.Str() == NULL ){
     if( data ) free( data );
     data = NULL;
@@ -1618,29 +1145,15 @@ xbString &xbString::Set( const xbString &s ) {
   }
   return (*this );
 }
-
 /************************************************************************/
-//! @brief Set the value of the string.
-/*!
-
-   Note:  This routine fails if you try to set the string to itself or some part of itself.
-
-    \param s Value to set the string.
-    \param ulSize Maximum size of resultant string.
-    \returns Reference to string.
-*/
-
 xbString &xbString::Set(const char *s, xbUInt32 ulSize) {
-
   if( data != NULL )
     free( data );
-
   if(s == NULL) {
     data = NULL;
     size = 0;
     return (*this);
   }
-
   data = (char *) calloc( 1, ulSize+1 );
   char *pTarget = data;
   for( xbUInt32 i = 0; i < ulSize; i++ ){
@@ -1651,36 +1164,19 @@ xbString &xbString::Set(const char *s, xbUInt32 ulSize) {
   this->size = ulSize + 1;
   return *this;
 }
-
-
 /************************************************************************/
-//! @brief Set the string to long integer numeric value. 
-/*!
-    \param lNum Value to set the string
-    \returns Reference to this string.
-*/
 xbString &xbString::SetNum(xbInt32 lNum) {
   Sprintf("%ld", lNum);
   return *this;
 }
 
 /************************************************************************/
-//! @brief Printf routine for formatting a string.
-/*!
-    See documentation on the standard C printf function for how to use this.
-
-    MyString.Sprintf( "a number %d  some text %s", 100, "test text data" );
-
-    \param sFormat A format specifier
-    \returns Reference to a formatted string
-*/
 xbString &xbString::Sprintf( const char *sFormat, ...) {
-
   xbInt32 iRc;
   va_list ap;
   char *t;
 
-#ifdef HAVE__VSNPRINTF_S_F
+  #if defined(HAVE__VSNPRINTF_S_F)
 
   va_start( ap, sFormat );
   size = (xbUInt32) _vsnprintf_s( NULL, 0, sFormat, ap ) + 1;
@@ -1696,8 +1192,8 @@ xbString &xbString::Sprintf( const char *sFormat, ...) {
   iRc  = _vsnprintf_s( t, size, sFormat, ap );
   va_end( ap );
 
-#else
-#ifdef HAVE_VSPRINTF_S_F
+  #else
+  #ifdef HAVE_VSPRINTF_S_F
 
   va_start( ap, sFormat );
   // size = (xbUInt32) vsprintf_s( NULL, 0, sFormat, ap ) + 1;
@@ -1714,8 +1210,8 @@ xbString &xbString::Sprintf( const char *sFormat, ...) {
   iRc  = vsprintf_s( t, size, sFormat, ap );
   va_end( ap );
 
-#else
-#ifdef HAVE_VSNPRINTF_F
+  #else
+  #ifdef HAVE_VSNPRINTF_F
 
   va_start( ap, sFormat );
   size = (xbUInt32) vsnprintf( NULL, 0, sFormat, ap) + 1;
@@ -1730,11 +1226,11 @@ xbString &xbString::Sprintf( const char *sFormat, ...) {
   iRc  = vsnprintf( t, size, sFormat, ap );
   va_end( ap );
 
-#  else
-#      error "Fatal error building [xbstring.cpp] - You have neither _vsnprintf_s nor vsnprintf_s."
-#  endif
-#endif
-#endif
+  #  else
+  #      error "Fatal error building [xbstring.cpp] - You have neither _vsnprintf_s nor vsnprintf_s."
+  #  endif
+  #endif
+  #endif
 
   if( iRc < 0 ){
     if( data )
@@ -1748,25 +1244,11 @@ xbString &xbString::Sprintf( const char *sFormat, ...) {
   }
   return( *this );
 }
-
 /************************************************************************/
-//! @brief Return string data
-/*!
-    \returns char * to string data or NULL if string is empty
-*/
 const char *xbString::Str() const {
   return data ? data : NullString;
 }
-
 /************************************************************************/
-//! @brief Copy all or part of string to character array
-/*!
-    \param cDest pointer to destination buffer.
-    \param n Number of bytes to copy.   It is the responsibility of the application
-      to verify the buffer is large enough to hold the string contents.
-    \returns char * to result
-
-*/
 char *xbString::strncpy( char * cDest, xbUInt32 n ) const {
   xbUInt32 i;
   xbUInt32 ulLen;
@@ -1774,16 +1256,9 @@ char *xbString::strncpy( char * cDest, xbUInt32 n ) const {
   memset( cDest, 0x00, ulLen );
   for( i = 0; i < ulLen; i++ )
     cDest[i] = data[i];
-//  cDest[i] = 0x00;
   return cDest;
 }
 /************************************************************************/
-//! @brief Swap characters
-/*!
-    \param cFrom character to replace.
-    \param cTo character to replace with.
-    \returns Reference to this string.
-*/
 xbString &xbString::SwapChars( char cFrom, char cTo ){
   xbUInt32 i;
   for( i = 0; i < size; i++ )
@@ -1791,25 +1266,14 @@ xbString &xbString::SwapChars( char cFrom, char cTo ){
        data[i] = cTo;
   return *this;
 }
-
-
 /************************************************************************/
-//! @brief Replace all upper case charaters with lower case characters
-/*!
-    \returns Reference to this string.
-*/
 xbString &xbString::ToLowerCase(){
   xbUInt32 Len = this->Len();
   for (xbUInt32 i=0; i<Len; i++)
     data[i] = (char)tolower(data[i]);
   return *this;
 }
-
 /************************************************************************/
-//! @brief Replace all lower case charaters with lower case characters
-/*!
-    \returns Reference to this string.
-*/
 xbString &xbString::ToUpperCase(){
   xbUInt32 Len = this->Len();
   for (xbUInt32 i=0;i<Len;i++)
@@ -1817,73 +1281,12 @@ xbString &xbString::ToUpperCase(){
   return *this;
 }
 /************************************************************************/
-//! @brief Trim all leading and trailing white space from string.
-/*!
-    \returns Reference to string.
-*/
 xbString &xbString::Trim(){
   Rtrim();
   Ltrim();
   return *this;
 }
-
 /************************************************************************/
-//! @brief Private function used for reallocateing memory
-/*!
-    This function is designed to be a drop in replacement for the realloc 
-    function call.
-*/
-/*
-char * xbString::xb_realloc( char * pIn, xbUInt32 iLen ){
-
-  if( iLen == 0 ){
-    if( pIn ){
-      free( pIn );
-      return NULL;
-    }
-  }
-
-  char *pNew = (char *) calloc( 1, (size_t) iLen );
-  if( !pNew ) return NULL;
-  char *s = pIn;
-  char *t = pNew;
-  xbUInt32 iCnt = 0;
-  while( *s && iCnt++ < iLen )
-    *t++ = *s++;
-  return pNew;
-}
-*/
-/************************************************************************/
-//! @brief Private function used for copying a string
-/*!
-    For performance reasons, this is an internal function that does no 
-    memory checking and assumes a valid buffer area is available to be copied.
-
-    This function is marked as private because of the above reason and
-    is used by "stronger" calling functions.
-
-    \param sTarget Target destination of copied string
-    \param sSource Source string to copy
-    \returns Reference to string.
-*/
-
-char * xbString::xb_strcpy( char *sTarget, const char *sSource ){
-
-  char *temp = sTarget;
-  while( *sSource != '\0')
-    *sTarget++ = *sSource++;
-  *sTarget= '\0';
-  return temp;
-}
-
-/************************************************************************/
-//! @brief Check for valid logical field data
-/*!
-    Valid logical data is one 'T', 'F', 'N' or 'Y'.<br>
-
-    \returns xbTrue if the data is valid logical data.<br>
-             xbFalse if not valid logical data.
-*/
 
 xbBool xbString::ValidLogicalValue() const {
   if( Len() == 1 )
@@ -1892,12 +1295,6 @@ xbBool xbString::ValidLogicalValue() const {
   return xbFalse;
 }
 /************************************************************************/
-//!  @brief This function returns true if the data is valid numeric data
-/*!
-    \returns xbTrue if valid numeric data.<br>
-            xbFalse if not valid numeric daata.
-*/
-
 xbBool xbString::ValidNumericValue() const {
   const char *p;
   p = data;
@@ -1911,25 +1308,34 @@ xbBool xbString::ValidNumericValue() const {
   }
   return xbTrue;
 }
-
-
 /************************************************************************/
-//!  @brief Remove every instance of a character from a string.
+//! @brief Private function used for copying a string
 /*!
-    \param c character to remove from string.
-    \returns Reference to this stirng.void
-*/
+    For performance reasons, this is an internal function that does no 
+    memory checking and assumes a valid buffer area is available to be copied.
 
+    This function is marked as private because of the above reason and
+    is used by "stronger" calling functions.
+
+    @param sTarget Target destination of copied string
+    @param sSource Source string to copy
+    @returns Reference to string.
+*/
+char * xbString::xb_strcpy( char *sTarget, const char *sSource ){
+  char *temp = sTarget;
+  while( *sSource != '\0')
+    *sTarget++ = *sSource++;
+  *sTarget= '\0';
+  return temp;
+}
+/************************************************************************/
 xbString &xbString::ZapChar( char c ){
- 
   if( data == NULL )
     return *this;
   if( data[0] == 0 )
     return *this;
-
   char *s;
   char *t;
-
   s = data;
   t = data;
   while( *s ){
@@ -1941,17 +1347,10 @@ xbString &xbString::ZapChar( char c ){
     }
  }
  *t = 0x00; 
-
  data = (char *) realloc( data, size );
  return *this;
 }
-
 /************************************************************************/
-//!  @brief Remove leading character from a string.
-/*!
-    \param c character to remove from beginning of string.
-    \returns Reference to this string.
-*/
 xbString &xbString::ZapLeadingChar( char c ){
   /* left truncate all of character c */
   xbUInt32 iLen = 0;
@@ -1965,13 +1364,7 @@ xbString &xbString::ZapLeadingChar( char c ){
     Ltrunc( iLen );
   return *this;
 }
-
 /************************************************************************/
-//!  @brief Remove trailing character from a string.
-/*!
-    \param c character to remove from ending of string.
-    \returns Reference to this string.
-*/
 xbString &xbString::ZapTrailingChar( char c ){
 
   xbUInt32 l = Len();
@@ -1992,5 +1385,18 @@ xbString &xbString::ZapTrailingChar( char c ){
     data = (char *) realloc( data, size );
   return *this;
 }
+/************************************************************************/
+//! @brief Stream insertion operator <<
+/*!
+    std::cout << MyString << std::endl;
+
+    @param os Output stream
+    @param s String to send to output stream
+*/
+std::ostream& operator<< ( std::ostream& os, const xbString & s ) {
+  return os << s.Str();
+}
+
+
 
 }   /* namespace */

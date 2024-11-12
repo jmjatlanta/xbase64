@@ -3,7 +3,7 @@
 <title>Xbase64 DBMS Chapter 5</title>
 <body BGCOLOR=#FFFFFF>
 <H1><p align="center">Index Overview</p></H1>
-<p align="center">Chapter Updated 1/20/24</p><hr>
+<p align="center">Chapter Updated 09/01/24</p><hr>
 
 The objective of this chapter is to provide information regarding 
 the basic concepts of index processing for the Xbase library.<br><br>
@@ -12,7 +12,7 @@ the basic concepts of index processing for the Xbase library.<br><br>
 <h3>Overview</h3>
 
 The Xbase64 library is designed to support multiple index types simultaneously.
-Dbase, Clipper and Foxbase each had their own index formats and ultimately the
+dBASE, Clipper and Foxbase each had their own index formats and ultimately the
 goal is to provide support for all the legacy index file formats.
 
 <br><br>
@@ -34,7 +34,67 @@ are treated as a multi tag file, but there is only one tag.  This allows for max
 additional index types.
 
 
+<br><br>
+Version 4.1.8 of the library introduced enhanced index processing to support either legacy dBASE compatibility or 
+enhanced logic for deleted records, unique keys and tag page recycling.
 
+<br><br>
+<center>
+
+<table border=1>
+<tr><th>Mode</th>
+    <th>Description</th>
+    <th>Deleted Records</th>
+    <th>Index Tags defined as Unique</th>
+    <th>Node Recycling</th>
+</tr>
+
+<tr><td>XB_IX_DBASE_MODE</td>
+    <td>DBase compatibility mode</td>
+    <td>Deleted records kept in the index</td>
+    <td>Records with duplicate keys allowed in the DBF table, only one record is indexed.</td>
+    <td>None</td>
+</tr>
+
+
+<tr><td>XB_IX_XBASE_MODE</td>
+    <td>Enhanced index processing.</td>
+    <td>Deleted records removed from the index</td>
+    <td>Attempts to add record with a duplcate key generates an error.</td>
+    <td>MDX Index files only, empty pages recycled.</td>
+</tr>
+
+</table>
+</center>
+
+<br><br>
+<li>XB_IX_DBASE_MODE is the default setting.<br>
+<li>XB_IX_XBASE_MODE is not compatible with other XBase or dBASE related tools.  It is specific to the XBase64 library only.
+<li>The two modes are not compatible.<br>
+<li>When switching modes on a preexisting index, you will need to reindex.
+<li>If switching to XB_IX_XBASE_MODE, you will need to reindex with the Xbase64 library version.
+If the tag is defined as unique and multiple records with the same key exist, the reindex routine will 
+throw a XB_KEY_NOT_UNIQUE error.
+<li>If switching to XB_IX_DBASE_MODE, you are not limited to the XBase64 library version for reindexing.
+<li>The mode setting is not stored in the physical index file.  It needs to be handled by your program 
+in some other manner.
+<li>This is a tag specific setting meaning different tags can be set to operate in different modes.
+<li>The mode is designed to be set one way or the other for the entire lifespan of the tag.  It's not designed
+to be switched back and forth.
+
+<br><br>
+<center>
+<h4>Methods for getting/setting the mode</h4>
+<table border=1>
+<tr><th>Method</th><th>Description</th></tr>
+<tr><td>xbCore::GetDefaultIxTagMode()</td><td>Get the default mode</td></tr>
+<tr><td>xbCore::SetDefaultIxTagMode( XB_IX_DBASE_MODE ||<br> XB_IX_XBASE_MODE )</td><td>Set the default mode. Call during program initialization.</td></tr>
+<tr><td>xbIx::GetIxTagMode( void *vpTag )<td>Get the mode for the specified tag</td></tr>
+<tr><td>xbIx::SetIxTagMode( void *vpTag, XB_IX_DBASE_MODE ||<br> XB_IX_XBASE_MODE )</td><td>Set the mode for the specified tag</td></tr>
+</table>
+</center>
+
+<br><br>
 <h3>Index updates</h3>
 
 The library automatically updates all tags in all open index files.
@@ -42,30 +102,24 @@ The library automatically updates all tags in all open index files.
 
 <h3>Unique Indices / Unique Keys</h3>
 
-With the original DBase (TM) software, if the database (DBF) file contains more than one record with the same
+With the original dBASE software, if the database (DBF) file contains more than one record with the same
 resultant key value and a given index was defined as unique, the DBF database file is updated with the
 record containing the duplicate key, but the index (tag) only contains a reference to the first record in the file
 for the given key.
 <br><br>
 
-The Xbase64 library is designed to accomodate the original DBase (TM) methododology for handling unique keys
+The Xbase64 library is designed to support the legacy dBASE methododology for handling unique keys
 in addition to being able to throw an error and not update the DBF database file if attempting to add a unique key.
-
-<br><br>
-<table border=1>
-<tr><td>xbase::GetUniqueKeyOpt()</td><td>Returns one of XB_HALT_ON_DUPKEY or XB_EMULATED_DBASE</td></tr>
-<tr><td>xbase::SetUniqueKeyOpt( XB_HALT_ON_DUPKEY )</td><td>Set the library to throw an error is duplicate key encountered</td></tr>
-<tr><td>xbase::SetUniqueKeyOpt( XB_EMULATE_DBASE )</td><td>Set the library to emulate the original DBase method for handling duplicate key values</td></tr>
-</table>
+if the XB_IX_XBASE_MODE is set.
 
 
 <br><br>
 <h3>Deleted Records</h3>
 
-With the original DBase (TM) software, deleting a record did not actually delete a record from the DBF database file.
+With the original dBASE software, deleting a record did not actually delete a record from the DBF database file.
 Instead of physically removing the record from the file, the record is flagged with an "*" in the first byte of the record 
 and the record is available to be "undeleted" at a later point.
-Additionally, the orginal DBase (TM) Software does not delete the index values from a given tag if the 
+Additionally, the orginal dBASE Software does not delete the index values from a given tag if the 
 record is flagged for deletion.
 <br><br>
 To physically remove records flagged for deletion from the DBF file, execute the <em>xbDbf::Pack()</em> method.
@@ -80,7 +134,7 @@ filter out deleted records using the actual key value.  For example, you could h
 <em>DELETED()+MYFIELD</em>,  or alternatively  <em>MYFIELD+DELETED()</em>.
 <br><br>
 
-
+Setting the mode to XB_IX_XBASE_MODE will remove index entries when the corresponding dbf record is deleted.
 
 
 
@@ -91,7 +145,7 @@ filter out deleted records using the actual key value.  For example, you could h
 <tr><th>File<br>Type</th><th>Source</th><th>Max Tags<br>Per File</th><th>Auto Opened</th><th>Sort Order</th><th>Unique Keys</th>
      <th>Reclaimed Nodes</th><th>Filter Support</th><th>Status</th></tr>
 <tr>
-  <td>NDX</td><td>dBase</td>
+  <td>NDX</td><td>dBASE</td>
   <td><center>1</center></td>
   <td><center>Optional</center></td>
   <td>ASC only</td>
@@ -101,7 +155,7 @@ filter out deleted records using the actual key value.  For example, you could h
   <td><center>Available in 4.0.1</center></td>
 </tr>
 <tr>
-  <td>MDX</td><td>dBase</td>
+  <td>MDX</td><td>dBASE</td>
   <td><center>47</center></td>
   <td><center>Yes</center></td>
   <td><center>ASC or DESC</center></td>
@@ -140,7 +194,7 @@ filter out deleted records using the actual key value.  For example, you could h
   <td></td>
   <td></td>
   <td></td>
-  <td>Pending development</td>
+  <td><center>Pending development</center></td>
 <tr>
 
 </table>
@@ -195,6 +249,12 @@ filter out deleted records using the actual key value.  For example, you could h
   <td>xbIxList * xbDbf::GetIxList() const
   </td><td>Returns a pointer to the list of active indices.
 </tr>
+
+<tr>
+  <td>xbInt16 xbIx::GetIxTagMode( void *vpTag )</td>
+  <td>Returns one of XB_IX_DBASE_MODE or XB_IX_XBASE_MODE</td>
+</tr>
+
 <tr>
   <td>xbInt16 xbDbf::GetLastKey()
   </td><td>Retrieve the last key for the active tag.</td>
@@ -220,7 +280,6 @@ filter out deleted records using the actual key value.  For example, you could h
   </td><td>Returns one of <em>NDX</em>, <em>MDX</em> or <em>TDX</em>.</td>
 </tr>
 
-
 <tr>
   <td>xbInt16 xbDbf::OpenIndex( const xbString &sIxType, const xbString &sIndexName )
   </td><td>Open an index file.  Only used for index files that aren't automatically opened.</td>
@@ -234,6 +293,13 @@ filter out deleted records using the actual key value.  For example, you could h
       void xbDbf::SetCurTag( const xbString &sIxType, xbIx *pIx, void *vpTag )
   </td><td>Set current tag.</td>
 </tr>
+
+<tr>
+   <td>xbIx::SetIxTagMode( void *vpTag, XB_IX_DBASE_MODE ||<br> XB_IX_XBASE_MODE )</td>
+   <td>Set the processing mode for the specified tag.</td></tr>
+</tr>
+
+
 </table>
 <br><br>
 

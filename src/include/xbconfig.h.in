@@ -95,6 +95,7 @@
 #cmakedefine XB_LOGGING_SUPPORT
 #cmakedefine XB_DBF3_SUPPORT
 #cmakedefine XB_DBF4_SUPPORT
+#cmakedefine XB_DBF5_SUPPORT
 #cmakedefine XB_LOCKING_SUPPORT
 #cmakedefine XB_FUNCTION_SUPPORT
 #cmakedefine XB_EXPRESSION_SUPPORT

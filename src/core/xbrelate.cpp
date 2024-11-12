@@ -11,15 +11,6 @@ Email Contact:
     XDB-devel@lists.sourceforge.net
     XDB-users@lists.sourceforge.net
 
-This module handles the table relation logic
-
-
-The relation structure is a tree of linked lists.
-The highest level linked list only has one entry, the main parent node which can have one or more child nodes.
-Each child can have one or more child nodes or siblings.
-
-The tree is processed using a depth first algorithm for traversing the tree.
-
 */
 
 #include "xbase.h"
@@ -32,10 +23,8 @@ namespace xb{
 xbRelate::xbRelate( xbXBase *x ) {
   this->xbase = x;
 }
-
 /************************************************************************/
 xbRelate::~xbRelate() {
-
 
   xbase->RemoveRelFromRelList( this );
 
@@ -77,31 +66,12 @@ xbRelate::~xbRelate() {
     llQryList.RemoveFromFront( pRel );
   }
 }
-
-
 /************************************************************************/
-//! @brief Add a relationship to an xbRelation.
-/*!
-
-  Add a specified relation to a an xbRelation.  This routine is called after the
-  SetMaster() method is called.
-
-  \param dParent - Pointer to parent/master table.
-  \param sParentExpression - Parent table expression that links to the child table.
-  \param dChild - Pointer to child/slave table.
-  \param sChildTagName - Name of Child tag to use.
-  \param cType - O = Optional<br>R = Required
-  \param sFilter = Optional child tag filter (place holder for future version of software).
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-
-*/
-
 xbInt16 xbRelate::AddRelation( xbDbf *dParent, const xbString &sParentExpression,
       xbDbf *dChild,  const xbString &sChildTagName, char cType,  const xbString &sFilter ){
 
   xbInt16    iRc              = XB_NO_ERROR;
   xbInt16    iErrorStop       = 0;
-
   try{
     xbIx * pIx;
     void * pTag;
@@ -115,7 +85,6 @@ xbInt16 xbRelate::AddRelation( xbDbf *dParent, const xbString &sParentExpression
       throw iRc;
     }
   }
-
   catch (xbInt16 iRc ){
     xbString sMsg;
     sMsg.Sprintf( "xbRelate::AddRelation(1) Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
@@ -124,30 +93,12 @@ xbInt16 xbRelate::AddRelation( xbDbf *dParent, const xbString &sParentExpression
   }
   return iRc;
 }
-
 /************************************************************************/
-//! @brief Add a relationship to an xbRelation.
-/*!
-
-  Add a specified relation to a an xbRelation.  This routine is called after the
-  SetMaster() method is called.
-
-  \param dParent - Pointer to parent/master table.
-  \param sParentExpression - Parent table expression that links to the child table.
-  \param dChild - Pointer to child/slave table.
-  \param pChildIx - Pointer to the child index file that is used to link the child to the parent table.
-  \param pChildTag - Pointer to the tag in the index file that is used to link the dhild to the parent table.
-  \param cType - O = Optional<br>R = Required
-  \param sFilter = Optional child tag filter (place holder for future version of software).
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbRelate::AddRelation( xbDbf *dParent, const xbString &sParentExpression,
   xbDbf *dChild, xbIx * pChildIx, void *pChildTag, char cType, const xbString &sFilter ){
 
   xbInt16    iRc              = XB_NO_ERROR;
   xbInt16    iErrorStop       = 0;
-
   xbRelation *pChildRelation  = NULL;
   xbRelation *pParentRelation = NULL;
 
@@ -158,25 +109,21 @@ xbInt16 xbRelate::AddRelation( xbDbf *dParent, const xbString &sParentExpression
       iRc = XB_INVALID_OPTION;
       throw iRc;
     }
-
     if( !dParent || !dChild ){
       iRc = XB_NOT_OPEN;
       iErrorStop = 110;
       throw iRc;
     }
-
     if( dParent->GetDbfStatus() != XB_OPEN || dChild->GetDbfStatus() != XB_OPEN ){
       iRc = XB_NOT_OPEN;
       iErrorStop = 120;
       throw iRc;
     }
-
     if( sParentExpression.Len() == 0 ){
       iRc = XB_INVALID_OPTION;
       iErrorStop = 130;
       throw iRc;
     }
-
     if( !pChildIx ){
       iRc = XB_INVALID_INDEX;
       iErrorStop = 140;
@@ -187,14 +134,12 @@ xbInt16 xbRelate::AddRelation( xbDbf *dParent, const xbString &sParentExpression
       iErrorStop = 150;
       throw iRc;
     }
-
     //if( ChkTblSts( dChild )){
     if( xbase->CheckRelListForTblUse( dChild ) != XB_NO_ERROR ){
       iRc = XB_ALREADY_DEFINED;
       iErrorStop = 160;
       throw iRc;
     }
-
     // find the parent node to add it to
     xbLinkListNode<xbRelation *> *pNode = FindNodeForDbf( dParent );
     if( !pNode ){
@@ -202,17 +147,14 @@ xbInt16 xbRelate::AddRelation( xbDbf *dParent, const xbString &sParentExpression
       throw iRc;
     }
     pParentRelation = pNode->GetKey();
-
     // allocate an xbRelation structure
     if(( pChildRelation = (xbRelation *) calloc( 1, (size_t) sizeof( xbRelation ))) == NULL ){
       iRc = XB_NO_MEMORY;
       iErrorStop = 180;
       throw iRc;
     }
-
     // allocate / parse Parent Expression
     pChildRelation->pParentExp = new xbExp( xbase );
-
     if(( iRc = pChildRelation->pParentExp->ParseExpression( dParent, sParentExpression )) != XB_NO_ERROR ){
       iErrorStop = 190;
       throw iRc;
@@ -226,7 +168,6 @@ xbInt16 xbRelate::AddRelation( xbDbf *dParent, const xbString &sParentExpression
     pChildRelation->pParentNp         = pNode;
     pChildRelation->sParentExpression = new xbString( sParentExpression );
 
-
     if( strlen( sFilter ) > 0 ){
       pChildRelation->sFilter = new xbString( sFilter );
       pChildRelation->pFilt = new xbFilter( dChild );
@@ -235,11 +176,8 @@ xbInt16 xbRelate::AddRelation( xbDbf *dParent, const xbString &sParentExpression
         throw iRc;
       }
     }
-
     pParentRelation->llChildren.InsertAtEnd( pChildRelation );
-
   }
-
   catch (xbInt16 iRc ){
     xbString sMsg;
     sMsg.Sprintf( "xbRelate::AddRelation(2) Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
@@ -259,17 +197,6 @@ xbInt16 xbRelate::AddRelation( xbDbf *dParent, const xbString &sParentExpression
 }
 
 /************************************************************************/
-//! @brief Check Table Status.
-/*!
-
-  Used to determine if a give table pointer is already included elsewhere in an expression.
-
-  \param d - Pointer to table to check on.
-  \returns XB_NO_ERROR - Table not already defined<br>
-          XB_ALREADY_DEFINED - Table is already defiend in another relation
-*/
-
-
 xbInt16 xbRelate::CheckTblSts( xbDbf *d ){
   // returns XB_ALREADY_DEFINED if the table has already been assigned to a relation in list
 
@@ -279,18 +206,13 @@ xbInt16 xbRelate::CheckTblSts( xbDbf *d ){
   xbLinkListNode<xbRelation *> *pNode = llQryList.GetHeadNode();
   xbRelation *pRel = NULL;
   xbInt16 iRc = XB_NO_ERROR;
-
-
   while( pNode && iRc == XB_NO_ERROR  ){
-
     pRel = pNode->GetKey();
     if( pRel->dDbf == d ){ 
       iRc = XB_ALREADY_DEFINED;
     }
     pNode = pNode->GetNextNode();
   }
-
-
   return iRc;
 }
 /************************************************************************/
@@ -298,7 +220,6 @@ xbInt16 xbRelate::CompareKeys( xbRelation *pRel, xbString &s1, xbString &s2, xbD
 
   xbInt16 iRc = 0;
   xbInt16 iErrorStop = 0;
-
   try{
     char cParType = pRel->pParentExp->GetReturnType();
     if( cParType == XB_EXP_CHAR ){
@@ -317,19 +238,15 @@ xbInt16 xbRelate::CompareKeys( xbRelation *pRel, xbString &s1, xbString &s2, xbD
     }
   }
   catch (xbInt16 iRc ){
-
     xbString sMsg;
     sMsg.Sprintf( "xbRelate::CompareKeys( xbString ) Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
     xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
-
 }
-
 /************************************************************************/
 #ifdef XB_DEBUG_SUPPORT
-
 
 xbInt16 xbRelate::CheckRecNo( xbInt16 iPo, xbInt32 lRec0, xbInt32 lRec1,
                     xbInt32 lRec2, xbInt32 lRec3, xbInt32 lRec4,
@@ -371,7 +288,6 @@ xbInt16 xbRelate::CheckRecNo( xbInt16 iPo, xbInt32 lRec0, xbInt32 lRec1,
 
     } else {
 
-
       pRel = pNode->GetKey();
       xbString sTblName;
       xbString sMsg;
@@ -393,8 +309,6 @@ xbInt16 xbRelate::CheckRecNo( xbInt16 iPo, xbInt32 lRec0, xbInt32 lRec1,
   }
   return iErrorCtr;
 }
-
-
 
 void xbRelate::DumpRelationList(){
 
@@ -431,9 +345,7 @@ void xbRelate::DumpRelationList(){
     } else {
       pRelation->pParent->dDbf->GetFileNamePart( sParentFileName );
       sTagName = pRelation->pIx->GetTagName( pRelation->pTag );
-
     }
-
     sTagName.PadRight( ' ', 10 );
     sMsg.Sprintf( "%d\t%c\t%d\t%d\t%d\t%d\t%-8s\t%-12s \t%-8s \t%s \n",
         iCtr++, pRelation->cType,
@@ -449,7 +361,6 @@ void xbRelate::DumpRelationList(){
       sMsg.Sprintf( "\tFilter: [%s]\n", pRelation->sFilter->Str() );
       std::cout << sMsg.Str();
     }
-
     pNode = pNode->GetNextNode();
   }
 }
@@ -469,8 +380,6 @@ void xbRelate::DumpRelationNode( const xbString &sTitle, xbRelation *pRel ){
     pRel->pIx->GetFileNamePart( sMdxFileName );
   else
     sMdxFileName = "No Mdx";
-
-
 
   if( pRel ){
     pRel->dDbf->GetFileNamePart( sDbfFileName );
@@ -622,19 +531,6 @@ xbInt16 xbRelate::GetFirstRecForNode( xbLinkListNode<xbRelation *> *lln ){
   return iRc;
 }
 /************************************************************************/
-//! @brief Get First Rel Record.
-/*!
-
-  Used to position to the first composite record defined for the relation.
-  After execution, all tables are positioned to the appropriate record.
-  If the linkage is defined as optional and there is no associated record
-  for a given table, the table will be positioned to blank record 0.
-
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-
-*/
-
-
 xbInt16 xbRelate::GetFirstRelRecord(){
 
   xbInt16    iRc        = XB_NO_ERROR;
@@ -662,7 +558,6 @@ xbInt16 xbRelate::GetFirstRelRecord(){
       pRel->ulRecPos = 0;
       lln = lln->GetNextNode();
     }
-
 
     lln = llQryList.GetHeadNode();
     while( lln && !bDone ){
@@ -713,7 +608,6 @@ xbInt16 xbRelate::GetFirstRelRecord(){
   }
   return iRc;
 }
-
 
 /************************************************************************/
 xbInt16 xbRelate::GetLastRecForNode( xbLinkListNode<xbRelation *> *lln ){
@@ -784,32 +678,17 @@ xbInt16 xbRelate::GetLastRecForNode( xbLinkListNode<xbRelation *> *lln ){
   return iRc;
 }
 /************************************************************************/
-//! @brief Get Next Rel Record.
-/*!
-
-  Used to position to the next composite record defined for the relation.
-  After execution, all tables are positioned to the appropriate record.
-  If the linkage is defined as optional and there is no associated record
-  for a given table, the table will be positioned to blank record 0.
-
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-
-*/
-
 xbInt16 xbRelate::GetNextRecForNode( xbLinkListNode<xbRelation *> *lln ){
 
   xbInt16    iRc        = XB_NO_ERROR;
   xbInt16    iErrorStop = 0;
   xbRelation *pRel      = NULL;
-
   xbString   sParentKey;
   xbDouble   dParentKey;
   xbDate     dtParentKey;
-
   xbString   sChildKey;
   xbDouble   dChildKey;
   xbDate     dtChildKey;
-
 
   // save the key
   // execute next record
@@ -825,7 +704,6 @@ xbInt16 xbRelate::GetNextRecForNode( xbLinkListNode<xbRelation *> *lln ){
   //   0               0
   //   0             XB_NOT_FOUND, XB_BOF, XB_EOF, XB_EMPTY
   //  fatal error    XB_NOT_FOUND
-
 
   try{
     if( !lln ){
@@ -1151,9 +1029,6 @@ xbInt16 xbRelate::GetChildRelKeys( xbRelation *pRel, xbString &s, xbDouble &d, x
   }
   return iRc;
 }
-
-
-
 /************************************************************************/
 xbInt16 xbRelate::GetParentRelKeys( xbRelation *pRel, xbString &s, xbDouble &d, xbDate &dt ){
 
@@ -1194,9 +1069,6 @@ xbInt16 xbRelate::GetParentRelKeys( xbRelation *pRel, xbString &s, xbDouble &d, 
       iRc = XB_INVALID_OBJECT;
       throw iRc;
     }
-
-    //std::cout << "gprk retrieved [" << s.Str() << "]\n";
-
   }
   catch (xbInt16 iRc ){
     xbString sMsg;
@@ -1206,7 +1078,6 @@ xbInt16 xbRelate::GetParentRelKeys( xbRelation *pRel, xbString &s, xbDouble &d, 
   }
   return iRc;
 }
-
 /************************************************************************/
 xbInt16 xbRelate::InitQuery(){
 
@@ -1224,7 +1095,6 @@ xbInt16 xbRelate::InitQuery(){
         throw iRc;
       }
     }
-
     // create straight linked list of all the nodes
     xbLinkListNode<xbRelation *> *llN = GetNextTreeNode( NULL );
     while( llN ){
@@ -1383,7 +1253,6 @@ xbInt16 xbRelate::RelKeySearch( xbRelation *pRel, const char cFL, xbString &sKey
   }
   return iRc;
 }
-
 /************************************************************************/
 xbLinkListNode<xbRelation *> *xbRelate::GetLastTreeNode( xbLinkListNode<xbRelation *> *lln ){
 
@@ -1412,10 +1281,7 @@ xbLinkListNode<xbRelation *> *xbRelate::GetLastTreeNode( xbLinkListNode<xbRelati
 
   return llnWork;
 }
-
-
 /************************************************************************/
-
 xbLinkListNode<xbRelation *> *xbRelate::GetNextTreeNode( xbLinkListNode<xbRelation *> *lln ){
 
   // if no tree exists, return null
@@ -1447,18 +1313,6 @@ xbLinkListNode<xbRelation *> *xbRelate::GetNextTreeNode( xbLinkListNode<xbRelati
 }
 
 /************************************************************************/
-//! @brief Get Last Rel Record.
-/*!
-
-  Used to position to the last composite record defined for the relation.
-  After execution, all tables are positioned to the appropriate record.
-  If the linkage is defined as optional and there is no associated record
-  for a given table, the table will be positioned to blank record 0.
-
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-
-*/
-
 xbInt16 xbRelate::GetLastRelRecord(){
 
   xbInt16    iRc        = XB_NO_ERROR;
@@ -1474,7 +1328,6 @@ xbInt16 xbRelate::GetLastRelRecord(){
     if( llQryList.GetNodeCnt() == 0 )
       InitQuery();
 
-
     // clear any previous positioning
     lln = llQryList.GetHeadNode();
     while( lln ){
@@ -1486,7 +1339,6 @@ xbInt16 xbRelate::GetLastRelRecord(){
       pRel->ulRecPos = 0;
       lln = lln->GetNextNode();
     }
-
 
     lln = llQryList.GetHeadNode();
     xbInt32 iMctr = 0;
@@ -1542,38 +1394,13 @@ xbInt16 xbRelate::GetLastRelRecord(){
 }
 
 /************************************************************************/
-//! @brief Get Next Rel Record.
-/*!
-
-  Used to position to the previous composite record defined for the relation.
-  After execution, all tables are positioned to the appropriate record.
-  If the linkage is defined as optional and there is no associated record
-  for a given table, the table will be positioned to blank record 0.
-
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-
-*/
-
 xbInt16 xbRelate::GetNextRelRecord(){
   return GetRelRecord( 'N' );
 }
 /************************************************************************/
-//! @brief Get Prev Rel Record.
-/*!
-
-  Used to position to the previous composite record defined for the relation.
-  After execution, all tables are positioned to the appropriate record.
-  If the linkage is defined as optional and there is no associated record
-  for a given table, the table will be positioned to blank record 0.
-
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-
-*/
-
 xbInt16 xbRelate::GetPrevRelRecord(){
   return GetRelRecord( 'P' );
 }
-
 /************************************************************************/
 xbInt16 xbRelate::GetRelRecord( const char cDirection ){
 
@@ -1647,18 +1474,6 @@ xbInt16 xbRelate::GetRelRecord( const char cDirection ){
   return iRc;
 }
 /************************************************************************/
-//! @brief Set Master Table for an xbRelation.
-/*!
-
-  Set the master table for an xbRelation.  This routine is called first before 
-  any of the  AddRelation() or any of the Get methods are called.
-
-  \param dParent - Pointer to parent/master table.
-  \param sFilter = Optional filter (place holder for future version of software).
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-
-*/
-
 xbInt16 xbRelate::SetMaster( xbDbf * d, const xbString &sFilter ) {
 
   xbInt16    iRc        = XB_NO_ERROR;
@@ -1672,31 +1487,26 @@ xbInt16 xbRelate::SetMaster( xbDbf * d, const xbString &sFilter ) {
       iErrorStop = 100;
       throw iRc;
     }
-
     if( !d ){
       iRc = XB_NOT_OPEN;
       iErrorStop = 110;
       throw iRc;
     }
-
     if( d->GetDbfStatus() != XB_OPEN ){
       iRc = XB_NOT_OPEN;
       iErrorStop = 120;
       throw iRc;
     }
-
     if(( iRc = xbase->CheckRelListForTblUse( d )) != XB_NO_ERROR ){
       iErrorStop = 130;
       throw iRc;
     }
-
     // allocate an xbRelation structure
     if(( pRelation = (xbRelation *) calloc( 1, (size_t) sizeof( xbRelation ))) == NULL ){
       iRc = XB_NO_MEMORY;
       iErrorStop = 140;
       throw iRc;
     }
-
     pRelation->dDbf   = d;
     pRelation->cType  = 'M';          // main parent
     pRelation->sParentExpression = new xbString();
@@ -1715,7 +1525,6 @@ xbInt16 xbRelate::SetMaster( xbDbf * d, const xbString &sFilter ) {
       iErrorStop  = 160;
       throw iRc;
     }
-
   }
   catch (xbInt16 iRc ){
     xbString sMsg;
@@ -1730,11 +1539,9 @@ xbInt16 xbRelate::SetMaster( xbDbf * d, const xbString &sFilter ) {
         delete pRelation->sFilter;
         pRelation->sFilter = NULL;
       }
-
       free( pRelation );
     }
   }
-
   return iRc;
 }
 /************************************************************************/

@@ -32,6 +32,13 @@ int main( int argCnt, char **av )
                        /* 1 - NORMAL   */
                        /* 2 - VERBOSE  */
 
+  xbSchema MyRecord[] = 
+  {
+    { "CHAR1",      XB_CHAR_FLD,      1, 0 },
+    { "",0,0,0 }
+  };
+
+
   if( argCnt > 1 ) {
     if( av[1][0] == 'Q' )
       iPo = 0;
@@ -48,6 +55,7 @@ int main( int argCnt, char **av )
   xbString sLogDir = PROJECT_LOG_DIR;
 //  x.SetLogDirectory( sLogDir );
   x.SetLogDirectory( PROJECT_LOG_DIR );
+  x.SetDataDirectory( PROJECT_DATA_DIR );
 
 
   x.EnableMsgLogging();
@@ -59,6 +67,26 @@ int main( int argCnt, char **av )
   x.WriteLogMessage( sMsg );
   #endif
   InitTime();
+
+
+
+  iRc += TestMethod( iPo, "SetMultiUSer( -9 )", x.SetMultiUser( -9 ), XB_INVALID_OPTION );
+  iRc += TestMethod( iPo, "SetMultiUSer( xbOn )", x.SetMultiUser( xbOn ), XB_NO_ERROR );
+  iRc += TestMethod( iPo, "SetMultiUSer( xbOff )", x.SetMultiUser( xbOff ), XB_NO_ERROR );
+
+  xbDbf * MyFile;
+  #ifdef XB_DBF4_SUPPORT
+  MyFile = new xbDbf4( &x );                /* version 4 dbf file */
+  #else
+  MyFile = new xbDbf3( &x );                /* version 3 dbf file */
+  #endif
+  xbInt16 iRc2 = MyFile->CreateTable( "Multi.DBF", "MultiTest", MyRecord, XB_OVERLAY, XB_MULTI_USER );
+  iRc += TestMethod( iPo, "CreateTable()", iRc2, XB_NO_ERROR );
+
+  iRc += TestMethod( iPo, "SetMultiUSer( xbOn )", x.SetMultiUser( xbOn ), XB_NOT_CLOSED );
+
+//  MyFile->Close();
+  MyFile->DeleteTable();
 
 
   x.SetDefaultDateFormat( "YY-MM-DD" );
@@ -90,7 +118,7 @@ int main( int argCnt, char **av )
   sLogName += XB_PLATFORM;
   sLogName += ".xbLog.txt";
 
-  iRc += TestMethod( iPo, "GetLogFileName()", x.GetLogFileName(), sLogName, sLogName.Len());
+  iRc += TestMethod( iPo, " GetLogFileName()", x.GetLogFileName(), sLogName, sLogName.Len());
   x.WriteLogMessage( "Program xb_test_xbase - test logfile message" );
   #endif
 
@@ -207,6 +235,10 @@ int main( int argCnt, char **av )
   #else
     iRc += TestMethod( iPo, "Set/GetTempDirectory()", x.GetTempDirectory(),  "/ABCDEFG/", 9 );
   #endif
+
+
+  iRc += TestMethod( iPo, "Close()", MyFile->Close(), XB_NO_ERROR );
+  delete MyFile;
 
 
 //  std::cout << "path separator = [" << x.GetPathSeparator() << "]\n";

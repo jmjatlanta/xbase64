@@ -19,11 +19,10 @@ Email Contact:
 #include "xbase.h"
 
 
+
 using namespace xb;
 
-
 #include "tstfuncs.cpp"
-
 
 int main( int argCnt, char **av )
 {
@@ -57,7 +56,7 @@ int main( int argCnt, char **av )
   xbString sWrkStr;
   xbString sWrkStr2;
   sWrkStr = PROJECT_DATA_DIR;
-  f.SetDataDirectory( PROJECT_DATA_DIR );
+  x.SetDataDirectory( PROJECT_DATA_DIR );
 
   #ifdef WIN32
     sWrkStr.SwapChars( '/', '\\' );
@@ -65,7 +64,7 @@ int main( int argCnt, char **av )
     sWrkStr.SwapChars( '\\', '/' );
   #endif
 
-  iRc += TestMethod( iPo, "Set/GetDataDirectory()", f.GetDataDirectory(), sWrkStr, sWrkStr.Len());
+  iRc += TestMethod( iPo, "Set/GetDataDirectory()", x.GetDataDirectory(), sWrkStr, sWrkStr.Len());
 
   f.SetFileName( "TestFile.txt" );
   sWrkStr = "TestFile.txt";
@@ -98,9 +97,9 @@ int main( int argCnt, char **av )
   iRc += TestMethod( iPo, "GetDirectory()", f.GetDirectory(), sWrkStr2, 16 );
   iRc += TestMethod( iPo, "GetFileName()", f.GetFileName(), "myfile.dat", 10 );
 
-  iRc += TestMethod( iPo, "NameSuffixMissing()", f.NameSuffixMissing( "myfile.dbf", 1 ), 0 );
-  iRc += TestMethod( iPo, "NameSuffixMissing()", f.NameSuffixMissing( "myfile", 1 ), 1 );
-  iRc += TestMethod( iPo, "NameSuffixMissing()", f.NameSuffixMissing( "MYFILE", 1 ), 2 );
+  iRc += TestMethod( iPo, "NameSuffixMissing()", f.NameSuffixMissing( "myfile.dbf", 1 ), XB_NO_ERROR );
+  iRc += TestMethod( iPo, "NameSuffixMissing()", f.NameSuffixMissing( "myfile", 1 ), XB_NOT_FOUND );
+  iRc += TestMethod( iPo, "NameSuffixMissing()", f.NameSuffixMissing( "MYFILE", 1 ), XB_NOT_FOUND );
 
   f.SetDirectory( PROJECT_DATA_DIR );
   f.SetFileName( "xbfile.txt" );
@@ -151,6 +150,7 @@ int main( int argCnt, char **av )
   iRc += TestMethod( iPo, "xbFclose()", f2.xbFclose(), XB_NO_ERROR );
   iRc += TestMethod( iPo, "FileExists()", f2.FileExists( sFqnS ), xbTrue );
 
+
   iRc += TestMethod( iPo, "CreateUniqueFileName()", f2.CreateUniqueFileName( PROJECT_DATA_DIR, "dbf", sFqnT ), XB_NO_ERROR );
   iRc += TestMethod( iPo, "xbRename()", f2.xbRename( sFqnS, sFqnT ), XB_NO_ERROR );
   iRc += TestMethod( iPo, "xbRemove()", f.xbRemove( sFqnT ), XB_NO_ERROR );
@@ -172,13 +172,23 @@ int main( int argCnt, char **av )
     BlockBuf[i] = 'A';
   iRc += TestMethod( iPo, "WriteBlock()", f.WriteBlock( 0L, 512, BlockBuf ), XB_NO_ERROR );
 
+  xbUInt64 uulFs = 0;
+  iRc += TestMethod( iPo, "GetFileSize(1)", f.GetFileSize( uulFs ), XB_NO_ERROR );
+  iRc += TestMethod( iPo, "GetFileSize(2)", uulFs, (xbUInt64) 512 );
+
   for( int i = 0; i < 512; i++ )
     BlockBuf[i] = 'B';
   iRc += TestMethod( iPo, "WriteBlock()", f.WriteBlock( 1L, 512, BlockBuf ), XB_NO_ERROR );
 
+  iRc += TestMethod( iPo, "GetFileSize(3)", f.GetFileSize( uulFs ), XB_NO_ERROR );
+  iRc += TestMethod( iPo, "GetFileSize(4)", uulFs, (xbUInt64) 1024 );
+
+
   for( int i = 0; i < 512; i++ )
     BlockBuf[i] = 'C';
   iRc += TestMethod( iPo, "WriteBlock()", f.WriteBlock( 2L, 512, BlockBuf ), XB_NO_ERROR );
+  iRc += TestMethod( iPo, "GetFileSize(5)", f.GetFileSize( uulFs ), XB_NO_ERROR );
+  iRc += TestMethod( iPo, "GetFileSize(6)", uulFs, (xbUInt64) 1536 );
 
   char BlockBuf2[513];
   memset( BlockBuf2, 0x00, 513 );

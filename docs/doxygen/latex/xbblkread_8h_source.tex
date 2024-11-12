@@ -1,12 +1,12 @@
 \hypertarget{xbblkread_8h_source}{}\doxysection{xbblkread.\+h}
-\label{xbblkread_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbblkread.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbblkread.h}}
+\label{xbblkread_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbblkread.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbblkread.h}}
 \mbox{\hyperlink{xbblkread_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*  xbblkread.h}}
 \DoxyCodeLine{2 \textcolor{comment}{}}
 \DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
 \DoxyCodeLine{4 \textcolor{comment}{}}
-\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2024 Gary A Kunkel}}
 \DoxyCodeLine{6 \textcolor{comment}{}}
 \DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
 \DoxyCodeLine{8 \textcolor{comment}{}}
@@ -26,44 +26,48 @@
 \DoxyCodeLine{22 }
 \DoxyCodeLine{23 }
 \DoxyCodeLine{25 }
-\DoxyCodeLine{32 \textcolor{keyword}{class }XBDLLEXPORT xbBlockRead \{}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34   \textcolor{keyword}{public}:}
-\DoxyCodeLine{35     xbBlockRead( \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}} * d );}
-\DoxyCodeLine{36     \string~xbBlockRead();}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38 \textcolor{preprocessor}{    \#ifdef XB\_DEBUG\_SUPPORT}}
-\DoxyCodeLine{39     \textcolor{keywordtype}{void}     DumpReadBlockInternals();}
-\DoxyCodeLine{40 \textcolor{preprocessor}{    \#endif}}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42     xbInt16  Init( xbUInt32 ulBlkSize = 0 );}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44     xbUInt32 GetBlockFirstRecNo() \textcolor{keyword}{const};}
-\DoxyCodeLine{45     xbUInt32 GetBlockRecCnt() \textcolor{keyword}{const};}
-\DoxyCodeLine{46     xbUInt32 GetBlockSize() \textcolor{keyword}{const};}
+\DoxyCodeLine{33 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbBlockRead}{xbBlockRead}} \{}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35   \textcolor{keyword}{public}:}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{41     \mbox{\hyperlink{classxb_1_1xbBlockRead_a05e8b875e4f7704b02d29f7c883b1c34}{xbBlockRead}}( \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}} * d );}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{46     \mbox{\hyperlink{classxb_1_1xbBlockRead_a553a2d18b17eb3ec048bcd7fc54c7bf1}{\string~xbBlockRead}}();}
 \DoxyCodeLine{47 }
-\DoxyCodeLine{48     xbInt16  GetRecord( xbUInt32 ulRecNo );            \textcolor{comment}{// retrieve a data record from a block to RecBuf}}
-\DoxyCodeLine{49     xbInt16  SetBlockSize( xbUInt32 ulBlkSize );}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52   \textcolor{keyword}{private}:}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54     xbInt16  GetBlockForRecNo( xbUInt32 ulRecNo );    \textcolor{comment}{// retrieve block from disk for a given record number}}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56     \textcolor{keywordtype}{char}     *pBlock;             \textcolor{comment}{// block pointer}}
-\DoxyCodeLine{57     xbUInt32 ulBlkSize;           \textcolor{comment}{// block size in bytes}}
-\DoxyCodeLine{58     xbUInt32 ulFirstBlkRec;       \textcolor{comment}{// first recod number in the block}}
-\DoxyCodeLine{59     xbUInt32 ulRecCnt;            \textcolor{comment}{// number of records in block}}
-\DoxyCodeLine{60     xbUInt32 ulMaxRecs;           \textcolor{comment}{// max number of records block can handle}}
-\DoxyCodeLine{61     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bEof;                \textcolor{comment}{// EOF flag}}
-\DoxyCodeLine{62     \mbox{\hyperlink{namespacexb_ab2eae4b4732466698a7fdd89d77ba53b}{xbDbf}}    *dbf;                \textcolor{comment}{// reference to associated dbf file}}
-\DoxyCodeLine{63 \textcolor{comment}{//    xbXBase  *xbase;              // reference to main xbXBase structure}}
-\DoxyCodeLine{64     time\_t   tFmTime;             \textcolor{comment}{// file modify time at time of block read}}
-\DoxyCodeLine{65 }
-\DoxyCodeLine{66 \};}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// XB\_BLOCKREAD}}
-\DoxyCodeLine{69 \}  \textcolor{comment}{/* namespace */}}
-\DoxyCodeLine{70 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{/*  \_\_XB\_BLOCKREAD\_H\_\_  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{    \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void}     \mbox{\hyperlink{classxb_1_1xbBlockRead_a508e8c4832d6128cf243f8080729d9b9}{DumpReadBlockInternals}}();}
+\DoxyCodeLine{53 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{58     xbUInt32 \mbox{\hyperlink{classxb_1_1xbBlockRead_aa2aaed3a7ae1f8d47f796411eb0a6d9f}{GetBlockFirstRecNo}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{63     xbUInt32 \mbox{\hyperlink{classxb_1_1xbBlockRead_a33e8dc016559867308474a560eff32ad}{GetBlockRecCnt}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{68     xbUInt32 \mbox{\hyperlink{classxb_1_1xbBlockRead_ae9e391c63e5c62e255e288d609a6d2ba}{GetBlockSize}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{81     xbInt16  \mbox{\hyperlink{classxb_1_1xbBlockRead_a5c752df4096be6c0de83673ee87fc833}{GetRecord}}( xbUInt32 ulRecNo );}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{90     xbInt16  \mbox{\hyperlink{classxb_1_1xbBlockRead_ac77f5e0776d312fa6ead323294e66e57}{Init}}( xbUInt32 ulBlockSize = 0 );}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{95     \textcolor{keywordtype}{void}  \mbox{\hyperlink{classxb_1_1xbBlockRead_a0640fd39ae17ec795ad9516c1579fa22}{SetBlockSize}}( xbUInt32 ulBlkSize );}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98   \textcolor{keyword}{private}:}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     xbInt16  GetBlockForRecNo( xbUInt32 ulRecNo );    \textcolor{comment}{// retrieve block from disk for a given record number}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keywordtype}{char}     *pBlock;             \textcolor{comment}{// block pointer}}
+\DoxyCodeLine{103     xbUInt32 ulBlkSize;           \textcolor{comment}{// block size in bytes}}
+\DoxyCodeLine{104     xbUInt32 ulFirstBlkRec;       \textcolor{comment}{// first recod number in the block}}
+\DoxyCodeLine{105     xbUInt32 ulRecCnt;            \textcolor{comment}{// number of records in block}}
+\DoxyCodeLine{106     xbUInt32 ulMaxRecs;           \textcolor{comment}{// max number of records block can handle}}
+\DoxyCodeLine{107     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bEof;                \textcolor{comment}{// EOF flag}}
+\DoxyCodeLine{108     \mbox{\hyperlink{classxb_1_1xbDbf}{xbDbf}}    *dbf;                \textcolor{comment}{// reference to associated dbf file}}
+\DoxyCodeLine{109     time\_t   tFmTime;             \textcolor{comment}{// file modify time at time of block read}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \};}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// XB\_BLOCKREAD}}
+\DoxyCodeLine{114 \}  \textcolor{comment}{/* namespace */}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{/*  \_\_XB\_BLOCKREAD\_H\_\_  */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

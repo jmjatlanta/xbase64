@@ -95,7 +95,8 @@ xbInt16 xbTblMgr::AddTblToTblList( xbDbf *d, const xbString & sFqTblName, const 
       sTblName.Ltrunc( iSlashPos );           // remove the directory part from the table name
       sFqTemp = sFqTblName;
     } else{
-      sFqTemp.Sprintf( "%s%s", GetDataDirectory().Str(), sFqTblName.Str());   // add the dir part to the FQ name
+//      sFqTemp.Sprintf( "%s%s", GetDataDirectory().Str(), sFqTblName.Str());   // add the dir part to the FQ name
+      sFqTemp.Sprintf( "%s%s", sDataDirectory.Str(), sFqTblName.Str());   // add the dir part to the FQ name
     }
 
     xbUInt32 iDbfPos = sFqTemp.Pos( ".DBF" );

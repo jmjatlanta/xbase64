@@ -11,7 +11,6 @@ Email Contact:
 
     xb64-devel@lists.sourceforge.net
     xb64-users@lists.sourceforge.net
-
 */
 
 #include <xbase.h>
@@ -21,14 +20,13 @@ using namespace xb;
 void PrintMode( xbInt16 iMode );
 void PrintMode( xbInt16 iMode ){
 
-  if( iMode == XB_EMULATE_DBASE )
-    std::cout << "Mode:  [XB_EMULATE_DBASE]" << std::endl;
-  else if( iMode == XB_HALT_ON_DUPKEY )
-    std::cout << "Mode:  [XB_HALT_ON_DUPKEY]" << std::endl;
+  if( iMode == XB_IX_DBASE_MODE )
+    std::cout << "Ix Mode:  [XB_IX_DBASE_MODE]" << std::endl;
+  else if( iMode == XB_IX_XBASE_MODE )
+    std::cout << "Ix Mode:  [XB_IX_XBASE_MODE]" << std::endl;
   else
-    std::cout << "Mode:  [Unknwon]" << std::endl;
+    std::cout << "Ix Mode:  [Unknwon]" << std::endl;
 }
-
 
 void PrintHelp();
 void PrintHelp(){
@@ -37,8 +35,8 @@ void PrintHelp(){
   std::cout << "If -n is used, only the specified NDX file is reindexed.\n";
   std::cout << "If -n is not specified, then all tags in the production MDX index and any indices included ";
   std::cout << "in the associated INF file are reindexed." << std::endl;
-  std::cout << "-c is XB_EMULATE_DBASE  - DBase compatibility mode (DBase duplicate key handling)" << std::endl;
-  std::cout << "-u is XB_HALT_ON_DUPKEY - Enforce Unique Index Keys." << std::endl;
+  std::cout << "-c is XB_IX_DBASE_MODE  - DBase compatibility mode (DBase duplicate key && deleted row handling )" << std::endl;
+  std::cout << "-x is XB_IX_XBASE_MODE  - Enforce Unique Index Keys, removed deleted recs from indices." << std::endl;
   
 }
 void PrintVersion();
@@ -69,7 +67,7 @@ int main(int argc, char *argv[] )
   if ( x.GetCmdLineOpt( argc, argv, "-v", sParm ) ||
        x.GetCmdLineOpt( argc, argv, "--version", sParm )){
     PrintVersion();
-    PrintMode( x.GetUniqueKeyOpt());
+//    PrintMode( x.GetUniqueKeyOpt());
     return 1;
   }
 
@@ -85,27 +83,23 @@ int main(int argc, char *argv[] )
   }
 
   if( x.GetCmdLineOpt( argc, argv, "-c", sParm )){
-    x.SetUniqueKeyOpt( XB_EMULATE_DBASE );
-    PrintMode( x.GetUniqueKeyOpt());
+    x.SetDefaultIxTagMode( XB_IX_DBASE_MODE );
+    PrintMode( XB_IX_DBASE_MODE );
+  } else if( x.GetCmdLineOpt( argc, argv, "-x", sParm )){
+    x.SetDefaultIxTagMode( XB_IX_XBASE_MODE );
+    PrintMode( XB_IX_XBASE_MODE );
   }
-
-  if( x.GetCmdLineOpt( argc, argv, "-u", sParm )){
-    x.SetUniqueKeyOpt( XB_HALT_ON_DUPKEY );
-    PrintMode( x.GetUniqueKeyOpt());
-  }
-  
 
   x.GetCmdLineOpt( argc, argv, "-n", sNdx );
 
-  if(( iRc = x.OpenHighestVersion( sParm.Str(), "", &MyFile )) != XB_NO_ERROR ){
+  // if(( iRc = x.OpenHighestVersion( sParm.Str(), "", &MyFile )) != XB_NO_ERROR ){
+  if(( iRc = x.Open( sParm.Str(), "", &MyFile )) != XB_NO_ERROR ){
     std::cout << "Could not open file iRc = " << iRc  << " file = "  << sParm.Str() << std::endl;
     x.DisplayError( iRc );
     return 1;
   }
 
-
   if( sNdx.Len() > 0 ){
-
     iReindexOpt = 0;
 
     // verify valid NDX file name

@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -47,6 +51,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classxb_1_1xbDate.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,16 +82,10 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespacexb.html">xb</a></li><li class="navelem"><a class="el" href="classxb_1_1xbDate.html">xbDate</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a>  </div>
   <div class="headertitle"><div class="title">xb::xbDate Class Reference</div></div>
 </div><!--header-->
@@ -86,208 +101,192 @@ Inheritance diagram for xb::xbDate:</div>
  <div class="center">
   <img src="classxb_1_1xbDate.png" usemap="#xb::xbDate_map" alt=""/>
   <map id="xb::xbDate_map" name="xb::xbDate_map">
-<area href="classxb_1_1xbSsv.html" title="Class for handling shared system variables." alt="xb::xbSsv" shape="rect" coords="0,0,70,24"/>
+<area href="classxb_1_1xbCore.html" alt="xb::xbCore" shape="rect" coords="0,0,72,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab3150e7db0ab5db10a07d748b55465eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#ab3150e7db0ab5db10a07d748b55465eb">xbDate</a> ()</td></tr>
-<tr class="memdesc:ab3150e7db0ab5db10a07d748b55465eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbDate.html#ab3150e7db0ab5db10a07d748b55465eb">More...</a><br /></td></tr>
-<tr class="separator:ab3150e7db0ab5db10a07d748b55465eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8a4d9330221a3daee21b3c28c1d9719"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#ac8a4d9330221a3daee21b3c28c1d9719">xbDate</a> (const char *Date8)</td></tr>
-<tr class="memdesc:ac8a4d9330221a3daee21b3c28c1d9719"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbDate.html#ac8a4d9330221a3daee21b3c28c1d9719">More...</a><br /></td></tr>
-<tr class="separator:ac8a4d9330221a3daee21b3c28c1d9719"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf4546f5681735ede18210f60bab68d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#acf4546f5681735ede18210f60bab68d4">xbDate</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;Date8)</td></tr>
-<tr class="memdesc:acf4546f5681735ede18210f60bab68d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbDate.html#acf4546f5681735ede18210f60bab68d4">More...</a><br /></td></tr>
-<tr class="separator:acf4546f5681735ede18210f60bab68d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ab727a7ec184a086ad36ef83b948170"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a7ab727a7ec184a086ad36ef83b948170">xbDate</a> (xbInt32 lJulDate)</td></tr>
-<tr class="memdesc:a7ab727a7ec184a086ad36ef83b948170"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbDate.html#a7ab727a7ec184a086ad36ef83b948170">More...</a><br /></td></tr>
-<tr class="separator:a7ab727a7ec184a086ad36ef83b948170"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dfc827b466be3c5e3def599277dfa43"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a8dfc827b466be3c5e3def599277dfa43">xbDate</a> (xbUInt16 iInit)</td></tr>
-<tr class="memdesc:a8dfc827b466be3c5e3def599277dfa43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbDate.html#a8dfc827b466be3c5e3def599277dfa43">More...</a><br /></td></tr>
-<tr class="separator:a8dfc827b466be3c5e3def599277dfa43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc0aaf136fd655a2aded243bd0ba88a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#acc0aaf136fd655a2aded243bd0ba88a7">xbDate</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dtDate)</td></tr>
-<tr class="memdesc:acc0aaf136fd655a2aded243bd0ba88a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbDate.html#acc0aaf136fd655a2aded243bd0ba88a7">More...</a><br /></td></tr>
-<tr class="separator:acc0aaf136fd655a2aded243bd0ba88a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05c9680c6eb9fe07ecf13a189b596c37"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a05c9680c6eb9fe07ecf13a189b596c37">~xbDate</a> ()</td></tr>
 <tr class="memdesc:a05c9680c6eb9fe07ecf13a189b596c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classxb_1_1xbDate.html#a05c9680c6eb9fe07ecf13a189b596c37">More...</a><br /></td></tr>
 <tr class="separator:a05c9680c6eb9fe07ecf13a189b596c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e33ad9415c32e820e08fd8084198690"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a2e33ad9415c32e820e08fd8084198690">operator=</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;d)</td></tr>
-<tr class="memdesc:a2e33ad9415c32e820e08fd8084198690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set operator=.  <a href="classxb_1_1xbDate.html#a2e33ad9415c32e820e08fd8084198690">More...</a><br /></td></tr>
-<tr class="separator:a2e33ad9415c32e820e08fd8084198690"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a947ba156d04fe063aaa4c9964ae5d163"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a947ba156d04fe063aaa4c9964ae5d163">operator+=</a> (xbInt32 i)</td></tr>
-<tr class="memdesc:a947ba156d04fe063aaa4c9964ae5d163"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator +=  <a href="classxb_1_1xbDate.html#a947ba156d04fe063aaa4c9964ae5d163">More...</a><br /></td></tr>
-<tr class="separator:a947ba156d04fe063aaa4c9964ae5d163"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a8f207d759540114373f5e9d6d375f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a4a8f207d759540114373f5e9d6d375f7">operator-=</a> (xbInt32 i)</td></tr>
-<tr class="memdesc:a4a8f207d759540114373f5e9d6d375f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator -=  <a href="classxb_1_1xbDate.html#a4a8f207d759540114373f5e9d6d375f7">More...</a><br /></td></tr>
-<tr class="separator:a4a8f207d759540114373f5e9d6d375f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c7d9e3718c43df18b21646072c8605e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a1c7d9e3718c43df18b21646072c8605e">operator++</a> (xbInt32 i)</td></tr>
-<tr class="memdesc:a1c7d9e3718c43df18b21646072c8605e"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator ++  <a href="classxb_1_1xbDate.html#a1c7d9e3718c43df18b21646072c8605e">More...</a><br /></td></tr>
-<tr class="separator:a1c7d9e3718c43df18b21646072c8605e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2b33dfee60d324916d833b2098b5a6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#ae2b33dfee60d324916d833b2098b5a6b">operator--</a> (xbInt32 i)</td></tr>
-<tr class="memdesc:ae2b33dfee60d324916d833b2098b5a6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &ndash;  <a href="classxb_1_1xbDate.html#ae2b33dfee60d324916d833b2098b5a6b">More...</a><br /></td></tr>
-<tr class="separator:ae2b33dfee60d324916d833b2098b5a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f3a8802c96098c85aa8d0e19717a979"><td class="memItemLeft" align="right" valign="top">xbInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a3f3a8802c96098c85aa8d0e19717a979">operator-</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;) const</td></tr>
-<tr class="memdesc:a3f3a8802c96098c85aa8d0e19717a979"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator -  <a href="classxb_1_1xbDate.html#a3f3a8802c96098c85aa8d0e19717a979">More...</a><br /></td></tr>
-<tr class="separator:a3f3a8802c96098c85aa8d0e19717a979"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73ff5c037046ac0a0bb7d73f74e25cbb"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a73ff5c037046ac0a0bb7d73f74e25cbb">operator-</a> (xbInt32 i)</td></tr>
-<tr class="memdesc:a73ff5c037046ac0a0bb7d73f74e25cbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator -  <a href="classxb_1_1xbDate.html#a73ff5c037046ac0a0bb7d73f74e25cbb">More...</a><br /></td></tr>
-<tr class="separator:a73ff5c037046ac0a0bb7d73f74e25cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad09609bf78cf038886a4f9cd19423f9c"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#ad09609bf78cf038886a4f9cd19423f9c">operator+</a> (xbInt32 i)</td></tr>
-<tr class="memdesc:ad09609bf78cf038886a4f9cd19423f9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator +  <a href="classxb_1_1xbDate.html#ad09609bf78cf038886a4f9cd19423f9c">More...</a><br /></td></tr>
-<tr class="separator:ad09609bf78cf038886a4f9cd19423f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaf98c1a672066021895f0953b6e94d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#aaaf98c1a672066021895f0953b6e94d0">operator==</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;) const</td></tr>
-<tr class="memdesc:aaaf98c1a672066021895f0953b6e94d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator ==  <a href="classxb_1_1xbDate.html#aaaf98c1a672066021895f0953b6e94d0">More...</a><br /></td></tr>
-<tr class="separator:aaaf98c1a672066021895f0953b6e94d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3aaf8997fc0c36676085e7741f33a8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#ac3aaf8997fc0c36676085e7741f33a8a">operator!=</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;) const</td></tr>
-<tr class="memdesc:ac3aaf8997fc0c36676085e7741f33a8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator !=  <a href="classxb_1_1xbDate.html#ac3aaf8997fc0c36676085e7741f33a8a">More...</a><br /></td></tr>
-<tr class="separator:ac3aaf8997fc0c36676085e7741f33a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11f09d97ed527e7ef00ba6f17b9fb02c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a11f09d97ed527e7ef00ba6f17b9fb02c">operator&lt;</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;) const</td></tr>
-<tr class="memdesc:a11f09d97ed527e7ef00ba6f17b9fb02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &lt;  <a href="classxb_1_1xbDate.html#a11f09d97ed527e7ef00ba6f17b9fb02c">More...</a><br /></td></tr>
-<tr class="separator:a11f09d97ed527e7ef00ba6f17b9fb02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a744031c4031d6ec4595d34acbd1c5860"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a744031c4031d6ec4595d34acbd1c5860">operator&gt;</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;) const</td></tr>
-<tr class="memdesc:a744031c4031d6ec4595d34acbd1c5860"><td class="mdescLeft">&#160;</td><td class="mdescRight">&gt;  <a href="classxb_1_1xbDate.html#a744031c4031d6ec4595d34acbd1c5860">More...</a><br /></td></tr>
-<tr class="separator:a744031c4031d6ec4595d34acbd1c5860"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d8fa4df4664f3fd8d4cc15e77f6d046"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a6d8fa4df4664f3fd8d4cc15e77f6d046">operator&lt;=</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;) const</td></tr>
-<tr class="memdesc:a6d8fa4df4664f3fd8d4cc15e77f6d046"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &lt;=  <a href="classxb_1_1xbDate.html#a6d8fa4df4664f3fd8d4cc15e77f6d046">More...</a><br /></td></tr>
-<tr class="separator:a6d8fa4df4664f3fd8d4cc15e77f6d046"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d81959ea55440588068ea7f82617c99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a1d81959ea55440588068ea7f82617c99">operator&gt;=</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;) const</td></tr>
-<tr class="memdesc:a1d81959ea55440588068ea7f82617c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &gt;=  <a href="classxb_1_1xbDate.html#a1d81959ea55440588068ea7f82617c99">More...</a><br /></td></tr>
-<tr class="separator:a1d81959ea55440588068ea7f82617c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9df58caa54105c489c314785c457e8cb"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a9df58caa54105c489c314785c457e8cb">CalcRollingCenturyForYear</a> (xbInt16 year) const</td></tr>
-<tr class="memdesc:a9df58caa54105c489c314785c457e8cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate century for a given year.  <a href="classxb_1_1xbDate.html#a9df58caa54105c489c314785c457e8cb">More...</a><br /></td></tr>
-<tr class="separator:a9df58caa54105c489c314785c457e8cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ff19085558544b61b5cb5aac4d94319"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a8ff19085558544b61b5cb5aac4d94319">CalcRollingCenturyForYear</a> (xbInt16 iYear) const</td></tr>
+<tr class="memdesc:a8ff19085558544b61b5cb5aac4d94319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate century for a given year. Calculate a century for a given year using an 80/20 rolling date window. The routine compares the input year and looks 80 years into the future or 20 years into the past to calculate the century.  <a href="classxb_1_1xbDate.html#a8ff19085558544b61b5cb5aac4d94319">More...</a><br /></td></tr>
+<tr class="separator:a8ff19085558544b61b5cb5aac4d94319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38b2c5285c69ed65e94ece6c22dafde0"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a38b2c5285c69ed65e94ece6c22dafde0">CenturyOf</a> () const</td></tr>
-<tr class="memdesc:a38b2c5285c69ed65e94ece6c22dafde0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get century for date.  <a href="classxb_1_1xbDate.html#a38b2c5285c69ed65e94ece6c22dafde0">More...</a><br /></td></tr>
+<tr class="memdesc:a38b2c5285c69ed65e94ece6c22dafde0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get century for date object.  <a href="classxb_1_1xbDate.html#a38b2c5285c69ed65e94ece6c22dafde0">More...</a><br /></td></tr>
 <tr class="separator:a38b2c5285c69ed65e94ece6c22dafde0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fc29730b66cddfbb58c69992a99cc7c"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a9fc29730b66cddfbb58c69992a99cc7c">CharDayOf</a> (<a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sOutCharDay)</td></tr>
-<tr class="memdesc:a9fc29730b66cddfbb58c69992a99cc7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the day of the week.  <a href="classxb_1_1xbDate.html#a9fc29730b66cddfbb58c69992a99cc7c">More...</a><br /></td></tr>
+<tr class="memdesc:a9fc29730b66cddfbb58c69992a99cc7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the day of the week for date object.  <a href="classxb_1_1xbDate.html#a9fc29730b66cddfbb58c69992a99cc7c">More...</a><br /></td></tr>
 <tr class="separator:a9fc29730b66cddfbb58c69992a99cc7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afffc84f02bd421335ff8ebe9fb3db0ac"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#afffc84f02bd421335ff8ebe9fb3db0ac">CharMonthOf</a> (<a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sOutCharMonth)</td></tr>
-<tr class="memdesc:afffc84f02bd421335ff8ebe9fb3db0ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the month from the date.  <a href="classxb_1_1xbDate.html#afffc84f02bd421335ff8ebe9fb3db0ac">More...</a><br /></td></tr>
+<tr class="memdesc:afffc84f02bd421335ff8ebe9fb3db0ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the month from date object.  <a href="classxb_1_1xbDate.html#afffc84f02bd421335ff8ebe9fb3db0ac">More...</a><br /></td></tr>
 <tr class="separator:afffc84f02bd421335ff8ebe9fb3db0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a367f66ef0c03c1747c12a18784554ccb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a367f66ef0c03c1747c12a18784554ccb">DateIsValid</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sDate8) const</td></tr>
-<tr class="memdesc:a367f66ef0c03c1747c12a18784554ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check a date for valid data.  <a href="classxb_1_1xbDate.html#a367f66ef0c03c1747c12a18784554ccb">More...</a><br /></td></tr>
-<tr class="separator:a367f66ef0c03c1747c12a18784554ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46e5e2ade84867cea89afd9eef3fb6c9"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a46e5e2ade84867cea89afd9eef3fb6c9">DayOf</a> (xbInt16 iFormat=<a class="el" href="xbdate_8h.html#aeacf2f7cc897ab5bd64781c0fb52b75d">XB_FMT_MONTH</a>) const</td></tr>
-<tr class="separator:a46e5e2ade84867cea89afd9eef3fb6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb1eb4b0394e4a67aadab15779b1b8c5"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#abb1eb4b0394e4a67aadab15779b1b8c5">CTOD</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sCtodInDate)</td></tr>
-<tr class="memdesc:abb1eb4b0394e4a67aadab15779b1b8c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format MM/DD/YY date.  <a href="classxb_1_1xbDate.html#abb1eb4b0394e4a67aadab15779b1b8c5">More...</a><br /></td></tr>
+<tr class="memdesc:abb1eb4b0394e4a67aadab15779b1b8c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format MM/DD/YY date This routine takes an MM/DD/YY format date as input and populates a date class with the appropriate YYYYMMDD data.  <a href="classxb_1_1xbDate.html#abb1eb4b0394e4a67aadab15779b1b8c5">More...</a><br /></td></tr>
 <tr class="separator:abb1eb4b0394e4a67aadab15779b1b8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01de44dc869f7db99f33046fc91f2c6a"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a01de44dc869f7db99f33046fc91f2c6a">FormatDate</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sFmtIn, <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sFmtOut)</td></tr>
-<tr class="separator:a01de44dc869f7db99f33046fc91f2c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab43a5d8d929767c0ffdd722972bb8cc0"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#ab43a5d8d929767c0ffdd722972bb8cc0">Str</a> () const</td></tr>
-<tr class="memdesc:ab43a5d8d929767c0ffdd722972bb8cc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the date value.  <a href="classxb_1_1xbDate.html#ab43a5d8d929767c0ffdd722972bb8cc0">More...</a><br /></td></tr>
-<tr class="separator:ab43a5d8d929767c0ffdd722972bb8cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2bd33a72448e2c5ee00d8b711dc5d95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#af2bd33a72448e2c5ee00d8b711dc5d95">IsLeapYear</a> (xbInt16 iYear) const</td></tr>
-<tr class="memdesc:af2bd33a72448e2c5ee00d8b711dc5d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if date is a leap year.  <a href="classxb_1_1xbDate.html#af2bd33a72448e2c5ee00d8b711dc5d95">More...</a><br /></td></tr>
-<tr class="separator:af2bd33a72448e2c5ee00d8b711dc5d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f8051c31b29244265e8f26ac3547b9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a5f8051c31b29244265e8f26ac3547b9b">IsLeapYear</a> () const</td></tr>
-<tr class="memdesc:a5f8051c31b29244265e8f26ac3547b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if date is a leap year.  <a href="classxb_1_1xbDate.html#a5f8051c31b29244265e8f26ac3547b9b">More...</a><br /></td></tr>
-<tr class="separator:a5f8051c31b29244265e8f26ac3547b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd52f9967bce3b5d159b3b4c5c2bd670"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#afd52f9967bce3b5d159b3b4c5c2bd670">DateIsValid</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sDate8In) const</td></tr>
+<tr class="memdesc:afd52f9967bce3b5d159b3b4c5c2bd670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check an input date in CCYYMMDD format for valid data.  <a href="classxb_1_1xbDate.html#afd52f9967bce3b5d159b3b4c5c2bd670">More...</a><br /></td></tr>
+<tr class="separator:afd52f9967bce3b5d159b3b4c5c2bd670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46e5e2ade84867cea89afd9eef3fb6c9"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a46e5e2ade84867cea89afd9eef3fb6c9">DayOf</a> (xbInt16 iFormat=<a class="el" href="xbdate_8h.html#aeacf2f7cc897ab5bd64781c0fb52b75d">XB_FMT_MONTH</a>) const</td></tr>
+<tr class="memdesc:a46e5e2ade84867cea89afd9eef3fb6c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">DayOf This routine returns the numeric day for the given date object.  <a href="classxb_1_1xbDate.html#a46e5e2ade84867cea89afd9eef3fb6c9">More...</a><br /></td></tr>
+<tr class="separator:a46e5e2ade84867cea89afd9eef3fb6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acecb46afdb072c6b8a1f79286bdfb6ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#acecb46afdb072c6b8a1f79286bdfb6ac">Dump</a> (const char *sTitle)</td></tr>
+<tr class="memdesc:acecb46afdb072c6b8a1f79286bdfb6ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump date information to stdout.  <a href="classxb_1_1xbDate.html#acecb46afdb072c6b8a1f79286bdfb6ac">More...</a><br /></td></tr>
+<tr class="separator:acecb46afdb072c6b8a1f79286bdfb6ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad58c7963abc6f0da693cca0fc9e89f2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#ad58c7963abc6f0da693cca0fc9e89f2a">DumpDateTables</a> ()</td></tr>
+<tr class="memdesc:ad58c7963abc6f0da693cca0fc9e89f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump the date tables. This dumps the internal date structures to stdout.  <a href="classxb_1_1xbDate.html#ad58c7963abc6f0da693cca0fc9e89f2a">More...</a><br /></td></tr>
+<tr class="separator:ad58c7963abc6f0da693cca0fc9e89f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb2b1a268f3e028c44c09d2541deb52a"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#afb2b1a268f3e028c44c09d2541deb52a">FormatDate</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sFormatIn, <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sOutFormattedDate)</td></tr>
+<tr class="memdesc:afb2b1a268f3e028c44c09d2541deb52a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a formatted date based on the format specifiers entered in sFormatIn. If no input format is specified, the routine will use the system default date format.  <a href="classxb_1_1xbDate.html#afb2b1a268f3e028c44c09d2541deb52a">More...</a><br /></td></tr>
+<tr class="separator:afb2b1a268f3e028c44c09d2541deb52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dfb00ade511d5b86f3ae5cca9cca187"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a8dfb00ade511d5b86f3ae5cca9cca187">GetDefaultDateFormat</a> () const</td></tr>
+<tr class="memdesc:a8dfb00ade511d5b86f3ae5cca9cca187"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default date format for all dates.  <a href="classxb_1_1xbDate.html#a8dfb00ade511d5b86f3ae5cca9cca187">More...</a><br /></td></tr>
+<tr class="separator:a8dfb00ade511d5b86f3ae5cca9cca187"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a611a64b14ff89ad3c20b34081ea1e658"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a611a64b14ff89ad3c20b34081ea1e658">IsNull</a> () const</td></tr>
-<tr class="memdesc:a611a64b14ff89ad3c20b34081ea1e658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if date is null date.  <a href="classxb_1_1xbDate.html#a611a64b14ff89ad3c20b34081ea1e658">More...</a><br /></td></tr>
+<tr class="memdesc:a611a64b14ff89ad3c20b34081ea1e658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if date object is null.  <a href="classxb_1_1xbDate.html#a611a64b14ff89ad3c20b34081ea1e658">More...</a><br /></td></tr>
 <tr class="separator:a611a64b14ff89ad3c20b34081ea1e658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ee3377d4ead9d31099eee539d9b13a7"><td class="memItemLeft" align="right" valign="top">xbInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a1ee3377d4ead9d31099eee539d9b13a7">JulianDays</a> () const</td></tr>
 <tr class="memdesc:a1ee3377d4ead9d31099eee539d9b13a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate julian days for a given date.  <a href="classxb_1_1xbDate.html#a1ee3377d4ead9d31099eee539d9b13a7">More...</a><br /></td></tr>
 <tr class="separator:a1ee3377d4ead9d31099eee539d9b13a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d28b2a46d8aaa284b92f44eeb96b2ff"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a9d28b2a46d8aaa284b92f44eeb96b2ff">JulToDate8</a> (xbInt32 lJulDate)</td></tr>
-<tr class="memdesc:a9d28b2a46d8aaa284b92f44eeb96b2ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the number of julian days to gregorian date.  <a href="classxb_1_1xbDate.html#a9d28b2a46d8aaa284b92f44eeb96b2ff">More...</a><br /></td></tr>
-<tr class="separator:a9d28b2a46d8aaa284b92f44eeb96b2ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0303609026dfff4b8308926a38a2921c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a0303609026dfff4b8308926a38a2921c">JulToDate8</a> (xbInt32 lJulDate)</td></tr>
+<tr class="memdesc:a0303609026dfff4b8308926a38a2921c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert julian days to gregorian date.  <a href="classxb_1_1xbDate.html#a0303609026dfff4b8308926a38a2921c">More...</a><br /></td></tr>
+<tr class="separator:a0303609026dfff4b8308926a38a2921c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15847866bb7642aa42bc254e0cf2038a"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a15847866bb7642aa42bc254e0cf2038a">LastDayOfMonth</a> ()</td></tr>
-<tr class="memdesc:a15847866bb7642aa42bc254e0cf2038a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the date to the last day of month for a given date.  <a href="classxb_1_1xbDate.html#a15847866bb7642aa42bc254e0cf2038a">More...</a><br /></td></tr>
+<tr class="memdesc:a15847866bb7642aa42bc254e0cf2038a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the date object to the last day of month.  <a href="classxb_1_1xbDate.html#a15847866bb7642aa42bc254e0cf2038a">More...</a><br /></td></tr>
 <tr class="separator:a15847866bb7642aa42bc254e0cf2038a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08bd84c67e1119d8c5c1748cd89d092e"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a08bd84c67e1119d8c5c1748cd89d092e">MonthOf</a> () const</td></tr>
-<tr class="memdesc:a08bd84c67e1119d8c5c1748cd89d092e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the month for the date.  <a href="classxb_1_1xbDate.html#a08bd84c67e1119d8c5c1748cd89d092e">More...</a><br /></td></tr>
+<tr class="memdesc:a08bd84c67e1119d8c5c1748cd89d092e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the month for the date object.  <a href="classxb_1_1xbDate.html#a08bd84c67e1119d8c5c1748cd89d092e">More...</a><br /></td></tr>
 <tr class="separator:a08bd84c67e1119d8c5c1748cd89d092e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b0cde152b5de0f7d26608d1445110b6"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a4b0cde152b5de0f7d26608d1445110b6">Set</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;Date8)</td></tr>
-<tr class="memdesc:a4b0cde152b5de0f7d26608d1445110b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the date.  <a href="classxb_1_1xbDate.html#a4b0cde152b5de0f7d26608d1445110b6">More...</a><br /></td></tr>
-<tr class="separator:a4b0cde152b5de0f7d26608d1445110b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40ba54a58d64cf56266f020f91584192"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a40ba54a58d64cf56266f020f91584192">Sysdate</a> ()</td></tr>
-<tr class="memdesc:a40ba54a58d64cf56266f020f91584192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the date equal to the system date.  <a href="classxb_1_1xbDate.html#a40ba54a58d64cf56266f020f91584192">More...</a><br /></td></tr>
-<tr class="separator:a40ba54a58d64cf56266f020f91584192"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a445e9c574013ba58c96e78b196be8451"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a445e9c574013ba58c96e78b196be8451">operator!=</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt) const</td></tr>
+<tr class="memdesc:a445e9c574013ba58c96e78b196be8451"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator != Compare two dates for inequality.  <a href="classxb_1_1xbDate.html#a445e9c574013ba58c96e78b196be8451">More...</a><br /></td></tr>
+<tr class="separator:a445e9c574013ba58c96e78b196be8451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c0e807e6e2746eef96730f46725366"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a08c0e807e6e2746eef96730f46725366">operator+</a> (xbInt32 lCount)</td></tr>
+<tr class="memdesc:a08c0e807e6e2746eef96730f46725366"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator + Add <em>lCount</em> days to a date object.  <a href="classxb_1_1xbDate.html#a08c0e807e6e2746eef96730f46725366">More...</a><br /></td></tr>
+<tr class="separator:a08c0e807e6e2746eef96730f46725366"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a363989a4f9cf8f3e38d1ff61b1f1e7c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a363989a4f9cf8f3e38d1ff61b1f1e7c0">operator++</a> (xbInt32)</td></tr>
+<tr class="memdesc:a363989a4f9cf8f3e38d1ff61b1f1e7c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator ++ Add one day to the date object if the date is not null.  <a href="classxb_1_1xbDate.html#a363989a4f9cf8f3e38d1ff61b1f1e7c0">More...</a><br /></td></tr>
+<tr class="separator:a363989a4f9cf8f3e38d1ff61b1f1e7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90d725c45e2335fc5bf0d5e5ef6ea697"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a90d725c45e2335fc5bf0d5e5ef6ea697">operator+=</a> (xbInt32 lDays)</td></tr>
+<tr class="memdesc:a90d725c45e2335fc5bf0d5e5ef6ea697"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator += Add <em>lDays</em> to the date object if the date is not null.  <a href="classxb_1_1xbDate.html#a90d725c45e2335fc5bf0d5e5ef6ea697">More...</a><br /></td></tr>
+<tr class="separator:a90d725c45e2335fc5bf0d5e5ef6ea697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b81cc74da25b2b36d7705eacb6ee20d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a7b81cc74da25b2b36d7705eacb6ee20d">operator--</a> (xbInt32 lDays)</td></tr>
+<tr class="memdesc:a7b81cc74da25b2b36d7705eacb6ee20d"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &ndash; Subtracts one day from the date object if the date is not null.  <a href="classxb_1_1xbDate.html#a7b81cc74da25b2b36d7705eacb6ee20d">More...</a><br /></td></tr>
+<tr class="separator:a7b81cc74da25b2b36d7705eacb6ee20d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5ae306941bc30329c59f10df95b9bc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#ab5ae306941bc30329c59f10df95b9bc0">operator-=</a> (xbInt32 lDays)</td></tr>
+<tr class="memdesc:ab5ae306941bc30329c59f10df95b9bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator -= Subtract <em>lDays</em> from the date object if the date is not null.  <a href="classxb_1_1xbDate.html#ab5ae306941bc30329c59f10df95b9bc0">More...</a><br /></td></tr>
+<tr class="separator:ab5ae306941bc30329c59f10df95b9bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a811b149dbac972028edd47d3938f405a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a811b149dbac972028edd47d3938f405a">operator&lt;</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt) const</td></tr>
+<tr class="memdesc:a811b149dbac972028edd47d3938f405a"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &lt; Compares two dates for less than.  <a href="classxb_1_1xbDate.html#a811b149dbac972028edd47d3938f405a">More...</a><br /></td></tr>
+<tr class="separator:a811b149dbac972028edd47d3938f405a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ed92ad3c5e76923af73ffa7d92ff064"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a7ed92ad3c5e76923af73ffa7d92ff064">operator&lt;=</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt) const</td></tr>
+<tr class="memdesc:a7ed92ad3c5e76923af73ffa7d92ff064"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &lt;= Compare two dates for less than or equal.  <a href="classxb_1_1xbDate.html#a7ed92ad3c5e76923af73ffa7d92ff064">More...</a><br /></td></tr>
+<tr class="separator:a7ed92ad3c5e76923af73ffa7d92ff064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afefdf9de78590e8a43371a0556cae8bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#afefdf9de78590e8a43371a0556cae8bb">operator=</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt)</td></tr>
+<tr class="memdesc:afefdf9de78590e8a43371a0556cae8bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set operator=.  <a href="classxb_1_1xbDate.html#afefdf9de78590e8a43371a0556cae8bb">More...</a><br /></td></tr>
+<tr class="separator:afefdf9de78590e8a43371a0556cae8bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1e416f728ef07354c2f5dbe7c83c2b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#af1e416f728ef07354c2f5dbe7c83c2b2">operator==</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt) const</td></tr>
+<tr class="memdesc:af1e416f728ef07354c2f5dbe7c83c2b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator == Compare two dates for equality.  <a href="classxb_1_1xbDate.html#af1e416f728ef07354c2f5dbe7c83c2b2">More...</a><br /></td></tr>
+<tr class="separator:af1e416f728ef07354c2f5dbe7c83c2b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae29584fcaa73f4f984474822377a1a0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#ae29584fcaa73f4f984474822377a1a0f">operator&gt;</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt) const</td></tr>
+<tr class="memdesc:ae29584fcaa73f4f984474822377a1a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &gt; Compares two dates for greater than.  <a href="classxb_1_1xbDate.html#ae29584fcaa73f4f984474822377a1a0f">More...</a><br /></td></tr>
+<tr class="separator:ae29584fcaa73f4f984474822377a1a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7549d4851b784e939394cadd26f83197"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a7549d4851b784e939394cadd26f83197">operator&gt;=</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt) const</td></tr>
+<tr class="memdesc:a7549d4851b784e939394cadd26f83197"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &gt;= Compare two dates for greater than or equal.  <a href="classxb_1_1xbDate.html#a7549d4851b784e939394cadd26f83197">More...</a><br /></td></tr>
+<tr class="separator:a7549d4851b784e939394cadd26f83197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f08e372cef53cc984c473cbd8be6832"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a7f08e372cef53cc984c473cbd8be6832">Set</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sDateIn)</td></tr>
+<tr class="memdesc:a7f08e372cef53cc984c473cbd8be6832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the date object from sDateIn.  <a href="classxb_1_1xbDate.html#a7f08e372cef53cc984c473cbd8be6832">More...</a><br /></td></tr>
+<tr class="separator:a7f08e372cef53cc984c473cbd8be6832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96500db703bb52080586f5ff257420c7"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a96500db703bb52080586f5ff257420c7">Set</a> (xbInt16 iMonth, xbInt16 iDay, xbInt16 iYear)</td></tr>
+<tr class="memdesc:a96500db703bb52080586f5ff257420c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the date object from input month day and year.  <a href="classxb_1_1xbDate.html#a96500db703bb52080586f5ff257420c7">More...</a><br /></td></tr>
+<tr class="separator:a96500db703bb52080586f5ff257420c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dc692d8e0e302aa9c10801127368bbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a6dc692d8e0e302aa9c10801127368bbd">SetDefaultDateFormat</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;<a class="el" href="classxb_1_1xbCore.html#a227c789b55eaa2a89a6fee4d90b28c23">sDefaultDateFormat</a>)</td></tr>
+<tr class="memdesc:a6dc692d8e0e302aa9c10801127368bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the default date format for all dates.  <a href="classxb_1_1xbDate.html#a6dc692d8e0e302aa9c10801127368bbd">More...</a><br /></td></tr>
+<tr class="separator:a6dc692d8e0e302aa9c10801127368bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab43a5d8d929767c0ffdd722972bb8cc0"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#ab43a5d8d929767c0ffdd722972bb8cc0">Str</a> () const</td></tr>
+<tr class="memdesc:ab43a5d8d929767c0ffdd722972bb8cc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the date value.  <a href="classxb_1_1xbDate.html#ab43a5d8d929767c0ffdd722972bb8cc0">More...</a><br /></td></tr>
+<tr class="separator:ab43a5d8d929767c0ffdd722972bb8cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aa6ce2da6fb4e39befe0ed6a6a07a45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a9aa6ce2da6fb4e39befe0ed6a6a07a45">Sysdate</a> ()</td></tr>
+<tr class="memdesc:a9aa6ce2da6fb4e39befe0ed6a6a07a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the date equal to the system date.  <a href="classxb_1_1xbDate.html#a9aa6ce2da6fb4e39befe0ed6a6a07a45">More...</a><br /></td></tr>
+<tr class="separator:a9aa6ce2da6fb4e39befe0ed6a6a07a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31057dfaa36389a16e40e3db82c46262"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a31057dfaa36389a16e40e3db82c46262">YearOf</a> () const</td></tr>
-<tr class="memdesc:a31057dfaa36389a16e40e3db82c46262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the year of the date.  <a href="classxb_1_1xbDate.html#a31057dfaa36389a16e40e3db82c46262">More...</a><br /></td></tr>
+<tr class="memdesc:a31057dfaa36389a16e40e3db82c46262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the year of the date object.  <a href="classxb_1_1xbDate.html#a31057dfaa36389a16e40e3db82c46262">More...</a><br /></td></tr>
 <tr class="separator:a31057dfaa36389a16e40e3db82c46262"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97dfa59ab9a8e9f17454da0faceb023d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a97dfa59ab9a8e9f17454da0faceb023d">DisplayError</a> (xbInt16 ErrorCode) const</td></tr>
-<tr class="memdesc:a97dfa59ab9a8e9f17454da0faceb023d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display error message on console for a given error number.  <a href="classxb_1_1xbSsv.html#a97dfa59ab9a8e9f17454da0faceb023d">More...</a><br /></td></tr>
-<tr class="separator:a97dfa59ab9a8e9f17454da0faceb023d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fbb9c3a550ab0b3378f9586a57791d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a6fbb9c3a550ab0b3378f9586a57791d2">GetDefaultDateFormat</a> () const</td></tr>
-<tr class="memdesc:a6fbb9c3a550ab0b3378f9586a57791d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default date format.  <a href="classxb_1_1xbSsv.html#a6fbb9c3a550ab0b3378f9586a57791d2">More...</a><br /></td></tr>
-<tr class="separator:a6fbb9c3a550ab0b3378f9586a57791d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d803a4bfc8ba0561267a0bf9e51f7d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a1d803a4bfc8ba0561267a0bf9e51f7d9">GetDataDirectory</a> () const</td></tr>
-<tr class="memdesc:a1d803a4bfc8ba0561267a0bf9e51f7d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current data directory.  <a href="classxb_1_1xbSsv.html#a1d803a4bfc8ba0561267a0bf9e51f7d9">More...</a><br /></td></tr>
-<tr class="separator:a1d803a4bfc8ba0561267a0bf9e51f7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfaeef85935331073d213465bb362a61"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#abfaeef85935331073d213465bb362a61">GetTempDirectory</a> () const</td></tr>
-<tr class="memdesc:abfaeef85935331073d213465bb362a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current temp directory.  <a href="classxb_1_1xbSsv.html#abfaeef85935331073d213465bb362a61">More...</a><br /></td></tr>
-<tr class="separator:abfaeef85935331073d213465bb362a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc9c06c95d71fbad8294e1ae8862cea9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#abc9c06c95d71fbad8294e1ae8862cea9">GetHomeDir</a> (<a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sHomeDirOut)</td></tr>
-<tr class="memdesc:abc9c06c95d71fbad8294e1ae8862cea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get home directory.  <a href="classxb_1_1xbSsv.html#abc9c06c95d71fbad8294e1ae8862cea9">More...</a><br /></td></tr>
-<tr class="separator:abc9c06c95d71fbad8294e1ae8862cea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49cd162f066eef2b829ba7c9f6620243"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a49cd162f066eef2b829ba7c9f6620243">GetEndianType</a> () const</td></tr>
-<tr class="memdesc:a49cd162f066eef2b829ba7c9f6620243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Endian type.  <a href="classxb_1_1xbSsv.html#a49cd162f066eef2b829ba7c9f6620243">More...</a><br /></td></tr>
-<tr class="separator:a49cd162f066eef2b829ba7c9f6620243"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56961d2a67b8e7470098626ac4dac7e4"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a56961d2a67b8e7470098626ac4dac7e4">GetErrorMessage</a> (xbInt16 ErrorCode) const</td></tr>
-<tr class="memdesc:a56961d2a67b8e7470098626ac4dac7e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an error message.  <a href="classxb_1_1xbSsv.html#a56961d2a67b8e7470098626ac4dac7e4">More...</a><br /></td></tr>
-<tr class="separator:a56961d2a67b8e7470098626ac4dac7e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63cee13b473ee13970e93b11837b9e35"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a63cee13b473ee13970e93b11837b9e35">GetPathSeparator</a> () const</td></tr>
-<tr class="memdesc:a63cee13b473ee13970e93b11837b9e35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the OS dependent path separator.  <a href="classxb_1_1xbSsv.html#a63cee13b473ee13970e93b11837b9e35">More...</a><br /></td></tr>
-<tr class="separator:a63cee13b473ee13970e93b11837b9e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57caaaadfbd089d9a58ecfcb50c88a6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a57caaaadfbd089d9a58ecfcb50c88a6c">SetDataDirectory</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sDataDirectory)</td></tr>
-<tr class="memdesc:a57caaaadfbd089d9a58ecfcb50c88a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the data directory.  <a href="classxb_1_1xbSsv.html#a57caaaadfbd089d9a58ecfcb50c88a6c">More...</a><br /></td></tr>
-<tr class="separator:a57caaaadfbd089d9a58ecfcb50c88a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f74db23f8902846d581935c7db73f9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a5f74db23f8902846d581935c7db73f9c">SetDefaultDateFormat</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sDefaultDateFormat)</td></tr>
-<tr class="memdesc:a5f74db23f8902846d581935c7db73f9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the default date format.  <a href="classxb_1_1xbSsv.html#a5f74db23f8902846d581935c7db73f9c">More...</a><br /></td></tr>
-<tr class="separator:a5f74db23f8902846d581935c7db73f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17c229a20ef9ab4034df8f9cd657adb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a17c229a20ef9ab4034df8f9cd657adb2">SetTempDirectory</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sTempDirectory)</td></tr>
-<tr class="memdesc:a17c229a20ef9ab4034df8f9cd657adb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the temp directory.  <a href="classxb_1_1xbSsv.html#a17c229a20ef9ab4034df8f9cd657adb2">More...</a><br /></td></tr>
-<tr class="separator:a17c229a20ef9ab4034df8f9cd657adb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62e4fd0a5888665c76bbbad962794e72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a62e4fd0a5888665c76bbbad962794e72">BitSet</a> (unsigned char c, xbInt16 iBitNo) const</td></tr>
-<tr class="memdesc:a62e4fd0a5888665c76bbbad962794e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check a bit in a one byte field and see if it is set.  <a href="classxb_1_1xbSsv.html#a62e4fd0a5888665c76bbbad962794e72">More...</a><br /></td></tr>
-<tr class="separator:a62e4fd0a5888665c76bbbad962794e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8551b15a3ce4fa2a40d698db01f4a9ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a8551b15a3ce4fa2a40d698db01f4a9ae">BitDump</a> (unsigned char c) const</td></tr>
-<tr class="separator:a8551b15a3ce4fa2a40d698db01f4a9ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba1395b8e4c7f28c3614061de6e49190"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#aba1395b8e4c7f28c3614061de6e49190">BitDump</a> (char c) const</td></tr>
-<tr class="separator:aba1395b8e4c7f28c3614061de6e49190"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6982f973e81587b04916f4509746aaf5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a6982f973e81587b04916f4509746aaf5">GetDefaultAutoCommit</a> () const</td></tr>
-<tr class="memdesc:a6982f973e81587b04916f4509746aaf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default auto commit setting.  <a href="classxb_1_1xbSsv.html#a6982f973e81587b04916f4509746aaf5">More...</a><br /></td></tr>
-<tr class="separator:a6982f973e81587b04916f4509746aaf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25542afadaaf39b4fb5a1772a29cc0bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a25542afadaaf39b4fb5a1772a29cc0bd">SetDefaultAutoCommit</a> (<a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> bDefaultAutoCommit)</td></tr>
-<tr class="memdesc:a25542afadaaf39b4fb5a1772a29cc0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the default auto commit.  <a href="classxb_1_1xbSsv.html#a25542afadaaf39b4fb5a1772a29cc0bd">More...</a><br /></td></tr>
-<tr class="separator:a25542afadaaf39b4fb5a1772a29cc0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4822315bded3969b59aeeb683c373051"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a4822315bded3969b59aeeb683c373051">GetLogDirectory</a> () const</td></tr>
-<tr class="separator:a4822315bded3969b59aeeb683c373051"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afaef09435be73b3111f5edbd7091d861"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#afaef09435be73b3111f5edbd7091d861">GetLogFileName</a> () const</td></tr>
-<tr class="separator:afaef09435be73b3111f5edbd7091d861"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b992ed97281bf25b5b66f5df686225e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a7b992ed97281bf25b5b66f5df686225e">SetLogDirectory</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sLogDirectory)</td></tr>
-<tr class="separator:a7b992ed97281bf25b5b66f5df686225e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f05738e7dfd759e89990242ef503544"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a7f05738e7dfd759e89990242ef503544">SetLogFileName</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sLogFileName)</td></tr>
-<tr class="separator:a7f05738e7dfd759e89990242ef503544"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd58031c5f1c3766c24d47a82e6fd9c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#abd58031c5f1c3766c24d47a82e6fd9c5">GetMultiUser</a> () const</td></tr>
-<tr class="memdesc:abd58031c5f1c3766c24d47a82e6fd9c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the multi user setting.  <a href="classxb_1_1xbSsv.html#abd58031c5f1c3766c24d47a82e6fd9c5">More...</a><br /></td></tr>
-<tr class="separator:abd58031c5f1c3766c24d47a82e6fd9c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba6e59512f7172dd55dcf92059e5928c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#aba6e59512f7172dd55dcf92059e5928c">SetMultiUser</a> (<a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> bMultiUser)</td></tr>
-<tr class="memdesc:aba6e59512f7172dd55dcf92059e5928c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the multi user setting.  <a href="classxb_1_1xbSsv.html#aba6e59512f7172dd55dcf92059e5928c">More...</a><br /></td></tr>
-<tr class="separator:aba6e59512f7172dd55dcf92059e5928c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ab3150e7db0ab5db10a07d748b55465eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#ab3150e7db0ab5db10a07d748b55465eb">xbDate</a> ()</td></tr>
+<tr class="memdesc:ab3150e7db0ab5db10a07d748b55465eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, set to null date.  <a href="classxb_1_1xbDate.html#ab3150e7db0ab5db10a07d748b55465eb">More...</a><br /></td></tr>
+<tr class="separator:ab3150e7db0ab5db10a07d748b55465eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a359167dbd6707777b29c5ff024b84878"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a359167dbd6707777b29c5ff024b84878">xbDate</a> (const char *sDate8)</td></tr>
+<tr class="memdesc:a359167dbd6707777b29c5ff024b84878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, set to input date.  <a href="classxb_1_1xbDate.html#a359167dbd6707777b29c5ff024b84878">More...</a><br /></td></tr>
+<tr class="separator:a359167dbd6707777b29c5ff024b84878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc0aaf136fd655a2aded243bd0ba88a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#acc0aaf136fd655a2aded243bd0ba88a7">xbDate</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dtDate)</td></tr>
+<tr class="memdesc:acc0aaf136fd655a2aded243bd0ba88a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, set to input date.  <a href="classxb_1_1xbDate.html#acc0aaf136fd655a2aded243bd0ba88a7">More...</a><br /></td></tr>
+<tr class="separator:acc0aaf136fd655a2aded243bd0ba88a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30530eb9571dc13ecc1e9d82d5a45e18"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a30530eb9571dc13ecc1e9d82d5a45e18">xbDate</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sDate8)</td></tr>
+<tr class="memdesc:a30530eb9571dc13ecc1e9d82d5a45e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, set to input date.  <a href="classxb_1_1xbDate.html#a30530eb9571dc13ecc1e9d82d5a45e18">More...</a><br /></td></tr>
+<tr class="separator:a30530eb9571dc13ecc1e9d82d5a45e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae72538343019d5bf97ee7507a34e6cfd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#ae72538343019d5bf97ee7507a34e6cfd">xbDate</a> (xbInt32 lDateOpt)</td></tr>
+<tr class="memdesc:ae72538343019d5bf97ee7507a34e6cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, set to input date.  <a href="classxb_1_1xbDate.html#ae72538343019d5bf97ee7507a34e6cfd">More...</a><br /></td></tr>
+<tr class="separator:ae72538343019d5bf97ee7507a34e6cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8424e74e0047b393f1509a45ef1f022f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a8424e74e0047b393f1509a45ef1f022f">xbDate</a> (xbInt16 iMonth, xbInt16 iDay, xbInt16 iYear)</td></tr>
+<tr class="memdesc:a8424e74e0047b393f1509a45ef1f022f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, Set to input month, day year.  <a href="classxb_1_1xbDate.html#a8424e74e0047b393f1509a45ef1f022f">More...</a><br /></td></tr>
+<tr class="separator:a8424e74e0047b393f1509a45ef1f022f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a5f8051c31b29244265e8f26ac3547b9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#a5f8051c31b29244265e8f26ac3547b9b">IsLeapYear</a> () const</td></tr>
+<tr class="memdesc:a5f8051c31b29244265e8f26ac3547b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if date object is a leap year.  <a href="classxb_1_1xbDate.html#a5f8051c31b29244265e8f26ac3547b9b">More...</a><br /></td></tr>
+<tr class="separator:a5f8051c31b29244265e8f26ac3547b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2bd33a72448e2c5ee00d8b711dc5d95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#af2bd33a72448e2c5ee00d8b711dc5d95">IsLeapYear</a> (xbInt16 iYear) const</td></tr>
+<tr class="memdesc:af2bd33a72448e2c5ee00d8b711dc5d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if input year is a leap year.  <a href="classxb_1_1xbDate.html#af2bd33a72448e2c5ee00d8b711dc5d95">More...</a><br /></td></tr>
+<tr class="separator:af2bd33a72448e2c5ee00d8b711dc5d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:aefc91f2a7e125a02a4fd2d88356f9397"><td class="memItemLeft" align="right" valign="top">xbInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#aefc91f2a7e125a02a4fd2d88356f9397">operator-</a> (const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt) const</td></tr>
+<tr class="memdesc:aefc91f2a7e125a02a4fd2d88356f9397"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator - Subtract one date from another date returning the difference.  <a href="classxb_1_1xbDate.html#aefc91f2a7e125a02a4fd2d88356f9397">More...</a><br /></td></tr>
+<tr class="separator:aefc91f2a7e125a02a4fd2d88356f9397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadf98ccf39a72e88c945d88916ed1bac"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbDate.html#aadf98ccf39a72e88c945d88916ed1bac">operator-</a> (xbInt32 lCount)</td></tr>
+<tr class="memdesc:aadf98ccf39a72e88c945d88916ed1bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator - Subtract <em>lCount</em> days from a date object.  <a href="classxb_1_1xbDate.html#aadf98ccf39a72e88c945d88916ed1bac">More...</a><br /></td></tr>
+<tr class="separator:aadf98ccf39a72e88c945d88916ed1bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a6219f1b5e24ea12fe158cd5aea56988e"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a6219f1b5e24ea12fe158cd5aea56988e">ErrorCodeText</a> []</td></tr>
-<tr class="separator:a6219f1b5e24ea12fe158cd5aea56988e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a904ec348fd029d4a76e72b8fde636108"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a904ec348fd029d4a76e72b8fde636108">SetEndianType</a> ()</td></tr>
-<tr class="memdesc:a904ec348fd029d4a76e72b8fde636108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the endian type.  <a href="classxb_1_1xbSsv.html#a904ec348fd029d4a76e72b8fde636108">More...</a><br /></td></tr>
-<tr class="separator:a904ec348fd029d4a76e72b8fde636108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2f79db40c113c70830787a67047a07d"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#ad2f79db40c113c70830787a67047a07d">ErrorCodeText</a> []</td></tr>
+<tr class="separator:ad2f79db40c113c70830787a67047a07d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a5849e813f5e8e1cd180f0366637adbf3"><td class="memItemLeft" align="right" valign="top">static xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a5849e813f5e8e1cd180f0366637adbf3">iEndianType</a> = 0</td></tr>
-<tr class="separator:a5849e813f5e8e1cd180f0366637adbf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dec3164c3b264882df634915ecf21da"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbSsv.html#a9dec3164c3b264882df634915ecf21da">sNullString</a> = &quot;&quot;</td></tr>
-<tr class="separator:a9dec3164c3b264882df634915ecf21da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17974342108b35e89e62be960b70d087"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#a17974342108b35e89e62be960b70d087">bMultiUser</a></td></tr>
+<tr class="separator:a17974342108b35e89e62be960b70d087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6bf5e7a9ace06c68efb72dc376e445"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#a5f6bf5e7a9ace06c68efb72dc376e445">bDefaultAutoCommit</a></td></tr>
+<tr class="separator:a5f6bf5e7a9ace06c68efb72dc376e445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82b17abc5f1ef87373da819688ed7bad"><td class="memItemLeft" align="right" valign="top">static xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#a82b17abc5f1ef87373da819688ed7bad">iDefaultFileVersion</a></td></tr>
+<tr class="separator:a82b17abc5f1ef87373da819688ed7bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc0303a96900bff413c8c463987a9149"><td class="memItemLeft" align="right" valign="top">static xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#acc0303a96900bff413c8c463987a9149">iEndianType</a></td></tr>
+<tr class="separator:acc0303a96900bff413c8c463987a9149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8159129440110a6e3487801529272ef"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#ae8159129440110a6e3487801529272ef">sDataDirectory</a></td></tr>
+<tr class="separator:ae8159129440110a6e3487801529272ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a034d596e86e6ab2151b6e1f8657f49d4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#a034d596e86e6ab2151b6e1f8657f49d4">sNullString</a></td></tr>
+<tr class="separator:a034d596e86e6ab2151b6e1f8657f49d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45ae9a4fc81347cf9c9ebf02673d3f2a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#a45ae9a4fc81347cf9c9ebf02673d3f2a">sTempDirectory</a></td></tr>
+<tr class="separator:a45ae9a4fc81347cf9c9ebf02673d3f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a227c789b55eaa2a89a6fee4d90b28c23"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#a227c789b55eaa2a89a6fee4d90b28c23">sDefaultDateFormat</a></td></tr>
+<tr class="separator:a227c789b55eaa2a89a6fee4d90b28c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb6ba41685ea760777a114c422c07a19"><td class="memItemLeft" align="right" valign="top">static xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#aeb6ba41685ea760777a114c422c07a19">ulDefaultBlockReadSize</a></td></tr>
+<tr class="separator:aeb6ba41685ea760777a114c422c07a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7872526434ff6f6d0388ebff430742cc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#a7872526434ff6f6d0388ebff430742cc">sDefaultTimeFormat</a></td></tr>
+<tr class="separator:a7872526434ff6f6d0388ebff430742cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86b726cb25fd081442b44795f1b046dc"><td class="memItemLeft" align="right" valign="top">static xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#a86b726cb25fd081442b44795f1b046dc">iDefaultLockFlavor</a></td></tr>
+<tr class="separator:a86b726cb25fd081442b44795f1b046dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac376593264672ab595ea4081063f104e"><td class="memItemLeft" align="right" valign="top">static xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#ac376593264672ab595ea4081063f104e">iDefaultLockRetries</a></td></tr>
+<tr class="separator:ac376593264672ab595ea4081063f104e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad569c53a46fa1e7f413e61c3131bcd3c"><td class="memItemLeft" align="right" valign="top">static xbInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#ad569c53a46fa1e7f413e61c3131bcd3c">lDefaultLockWait</a></td></tr>
+<tr class="separator:ad569c53a46fa1e7f413e61c3131bcd3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab62c163d32416266b7053bf6832d3811"><td class="memItemLeft" align="right" valign="top">static xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#ab62c163d32416266b7053bf6832d3811">iCreateMdxBlockSize</a></td></tr>
+<tr class="separator:ab62c163d32416266b7053bf6832d3811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35d44a54668f998b3f3008631118c053"><td class="memItemLeft" align="right" valign="top">static xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#a35d44a54668f998b3f3008631118c053">iDefaultIxTagMode</a></td></tr>
+<tr class="separator:a35d44a54668f998b3f3008631118c053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a847b9285633d22a5b5e34ac1166e3512"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#a847b9285633d22a5b5e34ac1166e3512">sLogDirectory</a></td></tr>
+<tr class="separator:a847b9285633d22a5b5e34ac1166e3512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02c13215a731ce0790f78f8e41714e65"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbCore.html#a02c13215a731ce0790f78f8e41714e65">sLogFileName</a></td></tr>
+<tr class="separator:a02c13215a731ce0790f78f8e41714e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="el" href="classxb_1_1xbDate.html" title="xbDate class.">xbDate</a> class. </p>
@@ -321,12 +320,12 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor. </p>
+<p>Constructor, set to null date. </p>
 
 </div>
 </div>
-<a id="ac8a4d9330221a3daee21b3c28c1d9719" name="ac8a4d9330221a3daee21b3c28c1d9719"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8a4d9330221a3daee21b3c28c1d9719">&#9670;&nbsp;</a></span>xbDate() <span class="overload">[2/6]</span></h2>
+<a id="a359167dbd6707777b29c5ff024b84878" name="a359167dbd6707777b29c5ff024b84878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a359167dbd6707777b29c5ff024b84878">&#9670;&nbsp;</a></span>xbDate() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,96 +334,24 @@ Static Protected Attributes</h2></td></tr>
           <td class="memname">xb::xbDate::xbDate </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>sDate8In</em></td><td>)</td>
+          <td class="paramname"><em>sDate8</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor. </p>
+<p>Constructor, set to input date. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sDate8In</td><td>- Input date. </td></tr>
+    <tr><td class="paramname">sDate8</td><td>Null terminated char string in CCYYMMDD format. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="acf4546f5681735ede18210f60bab68d4" name="acf4546f5681735ede18210f60bab68d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf4546f5681735ede18210f60bab68d4">&#9670;&nbsp;</a></span>xbDate() <span class="overload">[3/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">xb::xbDate::xbDate </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>sDate8In</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sDate8In</td><td>- Input date. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a7ab727a7ec184a086ad36ef83b948170" name="a7ab727a7ec184a086ad36ef83b948170"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ab727a7ec184a086ad36ef83b948170">&#9670;&nbsp;</a></span>xbDate() <span class="overload">[4/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">xb::xbDate::xbDate </td>
-          <td>(</td>
-          <td class="paramtype">xbInt32&#160;</td>
-          <td class="paramname"><em>lJulDate</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lJulDate</td><td>- Input julian date. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8dfc827b466be3c5e3def599277dfa43" name="a8dfc827b466be3c5e3def599277dfa43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dfc827b466be3c5e3def599277dfa43">&#9670;&nbsp;</a></span>xbDate() <span class="overload">[5/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">xb::xbDate::xbDate </td>
-          <td>(</td>
-          <td class="paramtype">xbUInt16&#160;</td>
-          <td class="paramname"><em>iInit</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor. </p>
 
 </div>
 </div>
 <a id="acc0aaf136fd655a2aded243bd0ba88a7" name="acc0aaf136fd655a2aded243bd0ba88a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc0aaf136fd655a2aded243bd0ba88a7">&#9670;&nbsp;</a></span>xbDate() <span class="overload">[6/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acc0aaf136fd655a2aded243bd0ba88a7">&#9670;&nbsp;</a></span>xbDate() <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -433,16 +360,116 @@ Static Protected Attributes</h2></td></tr>
           <td class="memname">xb::xbDate::xbDate </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;&#160;</td>
-          <td class="paramname"><em>dtDateIn</em></td><td>)</td>
+          <td class="paramname"><em>dtDate</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor. </p>
+<p>Constructor, set to input date. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dtDateIn</td><td>- Input date. </td></tr>
+    <tr><td class="paramname">dtDate</td><td>Date object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a30530eb9571dc13ecc1e9d82d5a45e18" name="a30530eb9571dc13ecc1e9d82d5a45e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30530eb9571dc13ecc1e9d82d5a45e18">&#9670;&nbsp;</a></span>xbDate() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">xb::xbDate::xbDate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
+          <td class="paramname"><em>sDate8</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor, set to input date. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sDate8</td><td><a class="el" href="classxb_1_1xbString.html">xbString</a> in CCYYMMDD format. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae72538343019d5bf97ee7507a34e6cfd" name="ae72538343019d5bf97ee7507a34e6cfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae72538343019d5bf97ee7507a34e6cfd">&#9670;&nbsp;</a></span>xbDate() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">xb::xbDate::xbDate </td>
+          <td>(</td>
+          <td class="paramtype">xbInt32&#160;</td>
+          <td class="paramname"><em>lDateOpt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor, set to input date. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lDateOpt</td><td>-1 Null Date<br  />
+ 0 Sysdate<br  />
+ Julian date </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8424e74e0047b393f1509a45ef1f022f" name="a8424e74e0047b393f1509a45ef1f022f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8424e74e0047b393f1509a45ef1f022f">&#9670;&nbsp;</a></span>xbDate() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">xb::xbDate::xbDate </td>
+          <td>(</td>
+          <td class="paramtype">xbInt16&#160;</td>
+          <td class="paramname"><em>iMonth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">xbInt16&#160;</td>
+          <td class="paramname"><em>iDay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">xbInt16&#160;</td>
+          <td class="paramname"><em>iYear</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor, Set to input month, day year. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iMonth</td><td>Input month<br  />
+ </td></tr>
+    <tr><td class="paramname">iDay</td><td>Input Day<br  />
+ </td></tr>
+    <tr><td class="paramname">iYear</td><td>Input year </td></tr>
   </table>
   </dd>
 </dl>
@@ -469,107 +496,8 @@ Static Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aba1395b8e4c7f28c3614061de6e49190" name="aba1395b8e4c7f28c3614061de6e49190"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba1395b8e4c7f28c3614061de6e49190">&#9670;&nbsp;</a></span>BitDump() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void xb::xbSsv::BitDump </td>
-          <td>(</td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8551b15a3ce4fa2a40d698db01f4a9ae" name="a8551b15a3ce4fa2a40d698db01f4a9ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8551b15a3ce4fa2a40d698db01f4a9ae">&#9670;&nbsp;</a></span>BitDump() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void xb::xbSsv::BitDump </td>
-          <td>(</td>
-          <td class="paramtype">unsigned char&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a62e4fd0a5888665c76bbbad962794e72" name="a62e4fd0a5888665c76bbbad962794e72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62e4fd0a5888665c76bbbad962794e72">&#9670;&nbsp;</a></span>BitSet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> xb::xbSsv::BitSet </td>
-          <td>(</td>
-          <td class="paramtype">unsigned char&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">xbInt16&#160;</td>
-          <td class="paramname"><em>iBitNo</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check a bit in a one byte field and see if it is set. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">c</td><td>One byte char field to examine. </td></tr>
-    <tr><td class="paramname">iBitNo</td><td>which bit to examine. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue Bit is set<br  />
- xbFalse Bit is not set </dd></dl>
-
-</div>
-</div>
-<a id="a9df58caa54105c489c314785c457e8cb" name="a9df58caa54105c489c314785c457e8cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9df58caa54105c489c314785c457e8cb">&#9670;&nbsp;</a></span>CalcRollingCenturyForYear()</h2>
+<a id="a8ff19085558544b61b5cb5aac4d94319" name="a8ff19085558544b61b5cb5aac4d94319"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ff19085558544b61b5cb5aac4d94319">&#9670;&nbsp;</a></span>CalcRollingCenturyForYear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -578,17 +506,16 @@ Static Protected Attributes</h2></td></tr>
           <td class="memname">xbInt16 xb::xbDate::CalcRollingCenturyForYear </td>
           <td>(</td>
           <td class="paramtype">xbInt16&#160;</td>
-          <td class="paramname"><em>iCalcYear</em></td><td>)</td>
+          <td class="paramname"><em>iYear</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calculate century for a given year. </p>
-<p >This routine calculates a century for a given year. It uses an 80/20 rolling date window to calculate the century.</p>
+<p>Calculate century for a given year. Calculate a century for a given year using an 80/20 rolling date window. The routine compares the input year and looks 80 years into the future or 20 years into the past to calculate the century. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iCalcYear</td><td>- Two digit year to calculate a century for. </td></tr>
+    <tr><td class="paramname">iYear</td><td>Two digit year to calculate a century on. </td></tr>
   </table>
   </dd>
 </dl>
@@ -611,8 +538,8 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get century for date. </p>
-<dl class="section return"><dt>Returns</dt><dd>the century from the valid date. or 0 for a null date. </dd></dl>
+<p>Get century for date object. </p>
+<dl class="section return"><dt>Returns</dt><dd>The century of the date object or 0 if null date. </dd></dl>
 
 </div>
 </div>
@@ -632,10 +559,10 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the day of the week. </p>
+<p>Get the day of the week for date object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sOutCharDay</td><td>- Output character day of week (Sun-Sat). </td></tr>
+    <tr><td class="paramname">sOutCharDay</td><td>- Output character day of week (Sun,Mon,Tue,Wed,Thu,Fri,Sat). </td></tr>
   </table>
   </dd>
 </dl>
@@ -660,7 +587,7 @@ XB_NO_ERROR </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Get the month from the date. </p>
+<p>Get the month from date object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sOutCharMonth</td><td>- Output character month. </td></tr>
@@ -688,8 +615,7 @@ XB_NO_ERROR </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Format MM/DD/YY date. </p>
-<p >This routine takes an MM/DD/YY format date as input and populates a date class with the appropriate YYYYMMDD data.</p>
+<p>Format MM/DD/YY date This routine takes an MM/DD/YY format date as input and populates a date class with the appropriate YYYYMMDD data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sCtodInDate</td><td>- MM/DD/YY formatted date as input. </td></tr>
@@ -701,8 +627,8 @@ XB_NO_ERROR </dd></dl>
 
 </div>
 </div>
-<a id="a367f66ef0c03c1747c12a18784554ccb" name="a367f66ef0c03c1747c12a18784554ccb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a367f66ef0c03c1747c12a18784554ccb">&#9670;&nbsp;</a></span>DateIsValid()</h2>
+<a id="afd52f9967bce3b5d159b3b4c5c2bd670" name="afd52f9967bce3b5d159b3b4c5c2bd670"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd52f9967bce3b5d159b3b4c5c2bd670">&#9670;&nbsp;</a></span>DateIsValid()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -711,16 +637,16 @@ XB_NO_ERROR </dd></dl>
           <td class="memname"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> xb::xbDate::DateIsValid </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>sDateIn</em></td><td>)</td>
+          <td class="paramname"><em>sDate8In</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Check a date for valid data. </p>
+<p>Check an input date in CCYYMMDD format for valid data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sDateIn</td><td>- Date to check for valid formaat of CCYYMMDD. </td></tr>
+    <tr><td class="paramname">sDate8In</td><td>- Date to check for valid formaat of CCYYMMDD. </td></tr>
   </table>
   </dd>
 </dl>
@@ -744,7 +670,9 @@ xbFalse - Not a valid date. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >This routine returns the numeric day. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>DayOf This routine returns the numeric day for the given date object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">iFormat</td><td>XB_FMT_WEEK Number of day in WEEK 0-6 ( Sat - Fri )<br  />
  XB_FMT_MONTH Number of day in MONTH 1-31<br  />
@@ -757,42 +685,55 @@ XB_NO_ERROR </dd></dl>
 
 </div>
 </div>
-<a id="a97dfa59ab9a8e9f17454da0faceb023d" name="a97dfa59ab9a8e9f17454da0faceb023d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97dfa59ab9a8e9f17454da0faceb023d">&#9670;&nbsp;</a></span>DisplayError()</h2>
+<a id="acecb46afdb072c6b8a1f79286bdfb6ac" name="acecb46afdb072c6b8a1f79286bdfb6ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acecb46afdb072c6b8a1f79286bdfb6ac">&#9670;&nbsp;</a></span>Dump()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void xb::xbSsv::DisplayError </td>
+          <td class="memname">void xb::xbDate::Dump </td>
           <td>(</td>
-          <td class="paramtype">xbInt16&#160;</td>
-          <td class="paramname"><em>iErrorCode</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>sTitle</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Display error message on console for a given error number. </p>
+<p>Dump date information to stdout. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iErrorCode</td><td>Error number to reference </td></tr>
+    <tr><td class="paramname">sTitle</td><td>- Title for output. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>This method is only available if the XB_DEBUG_SUPPORT option is compiled into libarary. </dd></dl>
 
 </div>
 </div>
-<a id="a01de44dc869f7db99f33046fc91f2c6a" name="a01de44dc869f7db99f33046fc91f2c6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01de44dc869f7db99f33046fc91f2c6a">&#9670;&nbsp;</a></span>FormatDate()</h2>
+<a id="ad58c7963abc6f0da693cca0fc9e89f2a" name="ad58c7963abc6f0da693cca0fc9e89f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad58c7963abc6f0da693cca0fc9e89f2a">&#9670;&nbsp;</a></span>DumpDateTables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xb::xbDate::DumpDateTables </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dump the date tables. This dumps the internal date structures to stdout. </p>
+<dl class="section note"><dt>Note</dt><dd>This method is only available if the XB_DEBUG_SUPPORT option iscompiled into libarary. </dd></dl>
+
+</div>
+</div>
+<a id="afb2b1a268f3e028c44c09d2541deb52a" name="afb2b1a268f3e028c44c09d2541deb52a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb2b1a268f3e028c44c09d2541deb52a">&#9670;&nbsp;</a></span>FormatDate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -801,13 +742,13 @@ XB_NO_ERROR </dd></dl>
           <td class="memname">xbInt16 xb::xbDate::FormatDate </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>sFmtIn</em>, </td>
+          <td class="paramname"><em>sFormatIn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>sOutFmtDate</em>&#160;</td>
+          <td class="paramname"><em>sOutFormattedDate</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -816,354 +757,58 @@ XB_NO_ERROR </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >This routine will reformat a date based on the format specifiers entered in sFmtIn. If no input format is specified, the routine will use the system default date format.</p>
+
+<p>Create a formatted date based on the format specifiers entered in sFormatIn. If no input format is specified, the routine will use the system default date format. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sFmtIn</td><td>- A format specifier with the following paramaters:<br  />
- <pre class="fragment">  1) YYDDD    -  A julian date format
-  2) YY or YYYY will print a 2 or 4 digit year
-  3) M,MM,MMM or MMMM
-     M    - one digit month if no leading zero
-     MM   - two digit month, contains leading zero
-     MMM  - Jan through Dec
-     MMMM - January through December
-  4) D,DD,DDD or DDDD
-     D    - one digit dayif no leading zero
-     DD   - two digit day, contains leading zero
-     DDD  - Sun through Sat (or julian if YYDDD)
-     DDDD - Sunday through Saturday
-</pre> </td></tr>
-    <tr><td class="paramname">sOutFmtDate</td><td>- Reformatted output date. </td></tr>
+    <tr><td class="paramname">sFormatIn</td><td>- A format specifier with the following paramaters:<br  />
+ <pre class="fragment">1) YYDDD    -  A julian date format
+2) YY or YYYY will print a 2 or 4 digit year
+3) M,MM,MMM or MMMM
+   M    - one digit month if no leading zero
+   MM   - two digit month, contains leading zero
+   MMM  - Jan through Dec
+   MMMM - January through December
+4) D,DD,DDD or DDDD
+   D    - one digit dayif no leading zero
+   DD   - two digit day, contains leading zero
+   DDD  - Sun through Sat (or julian if YYDDD)
+   DDDD - Sunday through Saturday
+</pre></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>XB_NO_ERROR <br  />
-<br  />
- Format Examples:<br  />
- MM/DD/YY<br  />
+<p>Examples for sFmtIn: MM/DD/YY<br  />
  YYYY-MM-DD<br  />
- DDDDDDDDDDD MMMMMMMMMMM DD,YYYY </dd></dl>
-
-</div>
-</div>
-<a id="a1d803a4bfc8ba0561267a0bf9e51f7d9" name="a1d803a4bfc8ba0561267a0bf9e51f7d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d803a4bfc8ba0561267a0bf9e51f7d9">&#9670;&nbsp;</a></span>GetDataDirectory()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbSsv::GetDataDirectory </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the current data directory. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classxb_1_1xbString.html" title="Class for handling string data.">xbString</a> containing the current data directory where the database files are stored. </dd></dl>
-
-</div>
-</div>
-<a id="a6982f973e81587b04916f4509746aaf5" name="a6982f973e81587b04916f4509746aaf5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6982f973e81587b04916f4509746aaf5">&#9670;&nbsp;</a></span>GetDefaultAutoCommit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> xb::xbSsv::GetDefaultAutoCommit </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the default auto commit setting. </p>
-<p >When auto commit is enabled, the library will automatically post any updates when moving off an updated record or closing files. If auto commit is disabled, the application program will need to explicitly update the tables using using dbf-&gt;Put() and dbf-&gt;AppendRecord().</p>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue if auto commit is turned on<br  />
- xbFalse is auto commit is turned off </dd></dl>
-
-</div>
-</div>
-<a id="a6fbb9c3a550ab0b3378f9586a57791d2" name="a6fbb9c3a550ab0b3378f9586a57791d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fbb9c3a550ab0b3378f9586a57791d2">&#9670;&nbsp;</a></span>GetDefaultDateFormat()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbSsv::GetDefaultDateFormat </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the default date format. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classxb_1_1xbString.html" title="Class for handling string data.">xbString</a> containing the default date format. </dd></dl>
-
-</div>
-</div>
-<a id="a49cd162f066eef2b829ba7c9f6620243" name="a49cd162f066eef2b829ba7c9f6620243"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49cd162f066eef2b829ba7c9f6620243">&#9670;&nbsp;</a></span>GetEndianType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbInt16 xb::xbSsv::GetEndianType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the Endian type. </p>
-<dl class="section return"><dt>Returns</dt><dd>B - Big endian<br  />
- L - Little endian<br  />
- </dd></dl>
-
-</div>
-</div>
-<a id="a56961d2a67b8e7470098626ac4dac7e4" name="a56961d2a67b8e7470098626ac4dac7e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56961d2a67b8e7470098626ac4dac7e4">&#9670;&nbsp;</a></span>GetErrorMessage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char * xb::xbSsv::GetErrorMessage </td>
-          <td>(</td>
-          <td class="paramtype">xbInt16&#160;</td>
-          <td class="paramname"><em>iErrorCode</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get an error message. </p>
+ DDDDDDDDDDD MMMMMMMMMMM DD,YYYY</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iErrorCode</td><td>ErrorCode is the error number of description to be returned. </td></tr>
+    <tr><td class="paramname">sOutFormattedDate</td><td>- Reformatted output date. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns a pointer to a string containing a text description for the error code. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>XB_NO_ERROR<br  />
+XB_INVALID_DATE </dd></dl>
 
 </div>
 </div>
-<a id="abc9c06c95d71fbad8294e1ae8862cea9" name="abc9c06c95d71fbad8294e1ae8862cea9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc9c06c95d71fbad8294e1ae8862cea9">&#9670;&nbsp;</a></span>GetHomeDir()</h2>
+<a id="a8dfb00ade511d5b86f3ae5cca9cca187" name="a8dfb00ade511d5b86f3ae5cca9cca187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dfb00ade511d5b86f3ae5cca9cca187">&#9670;&nbsp;</a></span>GetDefaultDateFormat()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void xb::xbSsv::GetHomeDir </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>sHomeDirOut</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get home directory. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sHomeDirOut</td><td>- Output home directory for current user. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a4822315bded3969b59aeeb683c373051" name="a4822315bded3969b59aeeb683c373051"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4822315bded3969b59aeeb683c373051">&#9670;&nbsp;</a></span>GetLogDirectory()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbSsv::GetLogDirectory </td>
+          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbDate::GetDefaultDateFormat </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="afaef09435be73b3111f5edbd7091d861" name="afaef09435be73b3111f5edbd7091d861"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaef09435be73b3111f5edbd7091d861">&#9670;&nbsp;</a></span>GetLogFileName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbSsv::GetLogFileName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abd58031c5f1c3766c24d47a82e6fd9c5" name="abd58031c5f1c3766c24d47a82e6fd9c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd58031c5f1c3766c24d47a82e6fd9c5">&#9670;&nbsp;</a></span>GetMultiUser()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> xb::xbSsv::GetMultiUser </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the multi user setting. </p>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue - Multi user mode turned on.<br  />
- xbFalse - Multi user mode turned off.<br  />
- </dd></dl>
-
-</div>
-</div>
-<a id="a63cee13b473ee13970e93b11837b9e35" name="a63cee13b473ee13970e93b11837b9e35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63cee13b473ee13970e93b11837b9e35">&#9670;&nbsp;</a></span>GetPathSeparator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">char xb::xbSsv::GetPathSeparator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the OS dependent path separator. </p>
-<dl class="section return"><dt>Returns</dt><dd>Returns '\' for windows environment, otherwise returns '/'. </dd></dl>
-
-</div>
-</div>
-<a id="abfaeef85935331073d213465bb362a61" name="abfaeef85935331073d213465bb362a61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfaeef85935331073d213465bb362a61">&#9670;&nbsp;</a></span>GetTempDirectory()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbSsv::GetTempDirectory </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the current temp directory. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classxb_1_1xbString.html" title="Class for handling string data.">xbString</a> containing the current data directory where the database files are stored. </dd></dl>
+<p>Get the default date format for all dates. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classxb_1_1xbString.html">xbString</a> containing the default date format. </dd></dl>
 
 </div>
 </div>
@@ -1182,9 +827,9 @@ XB_NO_ERROR </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Determine if date is a leap year. </p>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue - Is leapyear.<br  />
- xbFalse - Not a leap year. </dd></dl>
+<p>Determine if date object is a leap year. </p>
+<dl class="section return"><dt>Returns</dt><dd>xbTrue - Date object is a leapyear.<br  />
+xbFalse - Date object is not a leap year. </dd></dl>
 
 </div>
 </div>
@@ -1204,15 +849,15 @@ XB_NO_ERROR </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Determine if date is a leap year. </p>
+<p>Determine if input year is a leap year. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iYear</td><td>- Year to check for leap year status. </td></tr>
+    <tr><td class="paramname">iYear</td><td>- Input year in the format of CCYY </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue - Is leapyear.<br  />
- xbFalse - Not a leap year. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>xbTrue - Date object is a leapyear.<br  />
+xbFalse - Date object is not a leap year. </dd></dl>
 
 </div>
 </div>
@@ -1231,9 +876,9 @@ XB_NO_ERROR </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Determine if date is null date. </p>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue - If null date.<br  />
- xbFalse - Not a null date. </dd></dl>
+<p>Determine if date object is null. </p>
+<dl class="section return"><dt>Returns</dt><dd>xbTrue - Date object is null.<br  />
+ xbFalse - Date object is not null. </dd></dl>
 
 </div>
 </div>
@@ -1253,34 +898,33 @@ XB_NO_ERROR </dd></dl>
 </div><div class="memdoc">
 
 <p>Calculate julian days for a given date. </p>
-<dl class="section return"><dt>Returns</dt><dd>The number of days since 01/01/0001 + JUL_OFFSET. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of days since 01/01/0001 + JUL_OFFSET (1721425L). </dd></dl>
 
 </div>
 </div>
-<a id="a9d28b2a46d8aaa284b92f44eeb96b2ff" name="a9d28b2a46d8aaa284b92f44eeb96b2ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d28b2a46d8aaa284b92f44eeb96b2ff">&#9670;&nbsp;</a></span>JulToDate8()</h2>
+<a id="a0303609026dfff4b8308926a38a2921c" name="a0303609026dfff4b8308926a38a2921c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0303609026dfff4b8308926a38a2921c">&#9670;&nbsp;</a></span>JulToDate8()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">xbInt16 xb::xbDate::JulToDate8 </td>
+          <td class="memname">void xb::xbDate::JulToDate8 </td>
           <td>(</td>
           <td class="paramtype">xbInt32&#160;</td>
-          <td class="paramname"><em>lJulDays</em></td><td>)</td>
+          <td class="paramname"><em>lJulDate</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Convert the number of julian days to gregorian date. </p>
+<p>Convert julian days to gregorian date. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lJulDays</td><td>- Julian days. </td></tr>
+    <tr><td class="paramname">lJulDate</td><td>- Julian days. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>XB_NO_ERROR </dd></dl>
 
 </div>
 </div>
@@ -1299,8 +943,9 @@ XB_NO_ERROR </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Set the date to the last day of month for a given date. </p>
-<p >This routine sets the last date of the month. </p><dl class="section return"><dt>Returns</dt><dd>XB_NO_ERROR </dd></dl>
+<p>Set the date object to the last day of month. </p>
+<dl class="section return"><dt>Returns</dt><dd>XB_NO_ERROR<br  />
+XB_INVALID_DATE </dd></dl>
 
 </div>
 </div>
@@ -1319,13 +964,13 @@ XB_NO_ERROR </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Return the month for the date. </p>
+<p>Return the month for the date object. </p>
 <dl class="section return"><dt>Returns</dt><dd>The month of the date. </dd></dl>
 
 </div>
 </div>
-<a id="ac3aaf8997fc0c36676085e7741f33a8a" name="ac3aaf8997fc0c36676085e7741f33a8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3aaf8997fc0c36676085e7741f33a8a">&#9670;&nbsp;</a></span>operator!=()</h2>
+<a id="a445e9c574013ba58c96e78b196be8451" name="a445e9c574013ba58c96e78b196be8451"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a445e9c574013ba58c96e78b196be8451">&#9670;&nbsp;</a></span>operator!=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1340,8 +985,8 @@ XB_NO_ERROR </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>operator != </p>
-<p >This routine compares two dates for inequality. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>operator != Compare two dates for inequality. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dt</td><td>- Date to compare. </td></tr>
   </table>
@@ -1352,8 +997,8 @@ xbFalse - Dates match. </dd></dl>
 
 </div>
 </div>
-<a id="ad09609bf78cf038886a4f9cd19423f9c" name="ad09609bf78cf038886a4f9cd19423f9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad09609bf78cf038886a4f9cd19423f9c">&#9670;&nbsp;</a></span>operator+()</h2>
+<a id="a08c0e807e6e2746eef96730f46725366" name="a08c0e807e6e2746eef96730f46725366"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08c0e807e6e2746eef96730f46725366">&#9670;&nbsp;</a></span>operator+()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1368,8 +1013,8 @@ xbFalse - Dates match. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>operator + </p>
-<p >This routine adds additional days to a valid date field. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>operator + Add <em>lCount</em> days to a date object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lCount</td><td>- Number of days to add. </td></tr>
   </table>
@@ -1379,8 +1024,8 @@ xbFalse - Dates match. </dd></dl>
 
 </div>
 </div>
-<a id="a1c7d9e3718c43df18b21646072c8605e" name="a1c7d9e3718c43df18b21646072c8605e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c7d9e3718c43df18b21646072c8605e">&#9670;&nbsp;</a></span>operator++()</h2>
+<a id="a363989a4f9cf8f3e38d1ff61b1f1e7c0" name="a363989a4f9cf8f3e38d1ff61b1f1e7c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a363989a4f9cf8f3e38d1ff61b1f1e7c0">&#9670;&nbsp;</a></span>operator++()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1389,19 +1034,18 @@ xbFalse - Dates match. </dd></dl>
           <td class="memname">void xb::xbDate::operator++ </td>
           <td>(</td>
           <td class="paramtype">xbInt32&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>operator ++ </p>
-<p >This routine adds one day to the date field if the date is not null. </p>
+<p>operator ++ Add one day to the date object if the date is not null. </p>
 
 </div>
 </div>
-<a id="a947ba156d04fe063aaa4c9964ae5d163" name="a947ba156d04fe063aaa4c9964ae5d163"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a947ba156d04fe063aaa4c9964ae5d163">&#9670;&nbsp;</a></span>operator+=()</h2>
+<a id="a90d725c45e2335fc5bf0d5e5ef6ea697" name="a90d725c45e2335fc5bf0d5e5ef6ea697"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90d725c45e2335fc5bf0d5e5ef6ea697">&#9670;&nbsp;</a></span>operator+=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1416,8 +1060,8 @@ xbFalse - Dates match. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>operator += </p>
-<p >This routine adds lDays to the date if the date is not null. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>operator += Add <em>lDays</em> to the date object if the date is not null. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lDays</td><td>- Number of days to add to the date. </td></tr>
   </table>
@@ -1426,8 +1070,8 @@ xbFalse - Dates match. </dd></dl>
 
 </div>
 </div>
-<a id="a3f3a8802c96098c85aa8d0e19717a979" name="a3f3a8802c96098c85aa8d0e19717a979"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f3a8802c96098c85aa8d0e19717a979">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+<a id="aefc91f2a7e125a02a4fd2d88356f9397" name="aefc91f2a7e125a02a4fd2d88356f9397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefc91f2a7e125a02a4fd2d88356f9397">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1442,8 +1086,8 @@ xbFalse - Dates match. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>operator - </p>
-<p >This routine subtracts one date from another date returning the difference. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>operator - Subtract one date from another date returning the difference. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dt</td><td>- Date to subtract </td></tr>
   </table>
@@ -1453,8 +1097,8 @@ xbFalse - Dates match. </dd></dl>
 
 </div>
 </div>
-<a id="a73ff5c037046ac0a0bb7d73f74e25cbb" name="a73ff5c037046ac0a0bb7d73f74e25cbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73ff5c037046ac0a0bb7d73f74e25cbb">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/2]</span></h2>
+<a id="aadf98ccf39a72e88c945d88916ed1bac" name="aadf98ccf39a72e88c945d88916ed1bac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadf98ccf39a72e88c945d88916ed1bac">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1469,8 +1113,8 @@ xbFalse - Dates match. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>operator - </p>
-<p >This routine subtracts days from a valid date field. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>operator - Subtract <em>lCount</em> days from a date object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lCount</td><td>- Number of days to subtract. </td></tr>
   </table>
@@ -1480,8 +1124,8 @@ xbFalse - Dates match. </dd></dl>
 
 </div>
 </div>
-<a id="ae2b33dfee60d324916d833b2098b5a6b" name="ae2b33dfee60d324916d833b2098b5a6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2b33dfee60d324916d833b2098b5a6b">&#9670;&nbsp;</a></span>operator--()</h2>
+<a id="a7b81cc74da25b2b36d7705eacb6ee20d" name="a7b81cc74da25b2b36d7705eacb6ee20d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b81cc74da25b2b36d7705eacb6ee20d">&#9670;&nbsp;</a></span>operator--()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1490,19 +1134,18 @@ xbFalse - Dates match. </dd></dl>
           <td class="memname">void xb::xbDate::operator-- </td>
           <td>(</td>
           <td class="paramtype">xbInt32&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
+          <td class="paramname"><em>lDays</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>operator &ndash; </p>
-<p >This routine subtracts one day from the date field if the date is not null. </p>
+<p>operator &ndash; Subtracts one day from the date object if the date is not null. </p>
 
 </div>
 </div>
-<a id="a4a8f207d759540114373f5e9d6d375f7" name="a4a8f207d759540114373f5e9d6d375f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a8f207d759540114373f5e9d6d375f7">&#9670;&nbsp;</a></span>operator-=()</h2>
+<a id="ab5ae306941bc30329c59f10df95b9bc0" name="ab5ae306941bc30329c59f10df95b9bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5ae306941bc30329c59f10df95b9bc0">&#9670;&nbsp;</a></span>operator-=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1517,8 +1160,8 @@ xbFalse - Dates match. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>operator -= </p>
-<p >This routine subtracts lDays from the date if the date is not null. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>operator -= Subtract <em>lDays</em> from the date object if the date is not null. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lDays</td><td>- Number of days to subtract from the date. </td></tr>
   </table>
@@ -1527,8 +1170,8 @@ xbFalse - Dates match. </dd></dl>
 
 </div>
 </div>
-<a id="a11f09d97ed527e7ef00ba6f17b9fb02c" name="a11f09d97ed527e7ef00ba6f17b9fb02c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11f09d97ed527e7ef00ba6f17b9fb02c">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+<a id="a811b149dbac972028edd47d3938f405a" name="a811b149dbac972028edd47d3938f405a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a811b149dbac972028edd47d3938f405a">&#9670;&nbsp;</a></span>operator&lt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1543,8 +1186,8 @@ xbFalse - Dates match. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>operator &lt; </p>
-<p >This routine compares two dates </p><dl class="params"><dt>Parameters</dt><dd>
+<p>operator &lt; Compares two dates for less than. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dt</td><td>- Date to compare. </td></tr>
   </table>
@@ -1555,8 +1198,8 @@ xbFalse - Dates match. </dd></dl>
 
 </div>
 </div>
-<a id="a6d8fa4df4664f3fd8d4cc15e77f6d046" name="a6d8fa4df4664f3fd8d4cc15e77f6d046"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d8fa4df4664f3fd8d4cc15e77f6d046">&#9670;&nbsp;</a></span>operator&lt;=()</h2>
+<a id="a7ed92ad3c5e76923af73ffa7d92ff064" name="a7ed92ad3c5e76923af73ffa7d92ff064"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ed92ad3c5e76923af73ffa7d92ff064">&#9670;&nbsp;</a></span>operator&lt;=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1571,8 +1214,8 @@ xbFalse - Dates match. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>operator &lt;= </p>
-<p >This routine compares two dates </p><dl class="params"><dt>Parameters</dt><dd>
+<p>operator &lt;= Compare two dates for less than or equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dt</td><td>- Date to compare. </td></tr>
   </table>
@@ -1583,8 +1226,8 @@ xbFalse - Dates match. </dd></dl>
 
 </div>
 </div>
-<a id="a2e33ad9415c32e820e08fd8084198690" name="a2e33ad9415c32e820e08fd8084198690"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e33ad9415c32e820e08fd8084198690">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="afefdf9de78590e8a43371a0556cae8bb" name="afefdf9de78590e8a43371a0556cae8bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afefdf9de78590e8a43371a0556cae8bb">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1609,8 +1252,8 @@ xbFalse - Dates match. </dd></dl>
 
 </div>
 </div>
-<a id="aaaf98c1a672066021895f0953b6e94d0" name="aaaf98c1a672066021895f0953b6e94d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaaf98c1a672066021895f0953b6e94d0">&#9670;&nbsp;</a></span>operator==()</h2>
+<a id="af1e416f728ef07354c2f5dbe7c83c2b2" name="af1e416f728ef07354c2f5dbe7c83c2b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1e416f728ef07354c2f5dbe7c83c2b2">&#9670;&nbsp;</a></span>operator==()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1625,8 +1268,8 @@ xbFalse - Dates match. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>operator == </p>
-<p >This routine compares two dates for equality. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>operator == Compare two dates for equality. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dt</td><td>- Date to compare. </td></tr>
   </table>
@@ -1637,8 +1280,8 @@ xbFalse - Dates don't match. </dd></dl>
 
 </div>
 </div>
-<a id="a744031c4031d6ec4595d34acbd1c5860" name="a744031c4031d6ec4595d34acbd1c5860"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a744031c4031d6ec4595d34acbd1c5860">&#9670;&nbsp;</a></span>operator&gt;()</h2>
+<a id="ae29584fcaa73f4f984474822377a1a0f" name="ae29584fcaa73f4f984474822377a1a0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae29584fcaa73f4f984474822377a1a0f">&#9670;&nbsp;</a></span>operator&gt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1653,8 +1296,8 @@ xbFalse - Dates don't match. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>&gt; </p>
-<p >This routine compares two dates </p><dl class="params"><dt>Parameters</dt><dd>
+<p>operator &gt; Compares two dates for greater than. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dt</td><td>- Date to compare. </td></tr>
   </table>
@@ -1665,8 +1308,8 @@ xbFalse - Dates don't match. </dd></dl>
 
 </div>
 </div>
-<a id="a1d81959ea55440588068ea7f82617c99" name="a1d81959ea55440588068ea7f82617c99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d81959ea55440588068ea7f82617c99">&#9670;&nbsp;</a></span>operator&gt;=()</h2>
+<a id="a7549d4851b784e939394cadd26f83197" name="a7549d4851b784e939394cadd26f83197"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7549d4851b784e939394cadd26f83197">&#9670;&nbsp;</a></span>operator&gt;=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1681,8 +1324,8 @@ xbFalse - Dates don't match. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>operator &gt;= </p>
-<p >This routine compares two dates </p><dl class="params"><dt>Parameters</dt><dd>
+<p>operator &gt;= Compare two dates for greater than or equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dt</td><td>- Date to compare. </td></tr>
   </table>
@@ -1693,8 +1336,8 @@ xbFalse - Dates don't match. </dd></dl>
 
 </div>
 </div>
-<a id="a4b0cde152b5de0f7d26608d1445110b6" name="a4b0cde152b5de0f7d26608d1445110b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b0cde152b5de0f7d26608d1445110b6">&#9670;&nbsp;</a></span>Set()</h2>
+<a id="a7f08e372cef53cc984c473cbd8be6832" name="a7f08e372cef53cc984c473cbd8be6832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f08e372cef53cc984c473cbd8be6832">&#9670;&nbsp;</a></span>Set() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1709,266 +1352,101 @@ xbFalse - Dates don't match. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Set the date. </p>
+<p>Set the date object from sDateIn. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sDateIn</td><td>- Input date. </td></tr>
+    <tr><td class="paramname">sDateIn</td><td>- Input date in format CCYYMMDD. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>XB_NO_ERROR </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>XB_NO_ERROR<br  />
+XB_INVALID_DATE </dd></dl>
 
 </div>
 </div>
-<a id="a57caaaadfbd089d9a58ecfcb50c88a6c" name="a57caaaadfbd089d9a58ecfcb50c88a6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57caaaadfbd089d9a58ecfcb50c88a6c">&#9670;&nbsp;</a></span>SetDataDirectory()</h2>
+<a id="a96500db703bb52080586f5ff257420c7" name="a96500db703bb52080586f5ff257420c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96500db703bb52080586f5ff257420c7">&#9670;&nbsp;</a></span>Set() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void xb::xbSsv::SetDataDirectory </td>
+          <td class="memname">xbInt16 xb::xbDate::Set </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>sDataDirectory</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">xbInt16&#160;</td>
+          <td class="paramname"><em>iMonth</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the data directory. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sDataDirectory</td><td>Set the data directory. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a25542afadaaf39b4fb5a1772a29cc0bd" name="a25542afadaaf39b4fb5a1772a29cc0bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25542afadaaf39b4fb5a1772a29cc0bd">&#9670;&nbsp;</a></span>SetDefaultAutoCommit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">void xb::xbSsv::SetDefaultAutoCommit </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td>
-          <td class="paramname"><em>bDefaultAutoCommit</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">xbInt16&#160;</td>
+          <td class="paramname"><em>iDay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">xbInt16&#160;</td>
+          <td class="paramname"><em>iYear</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Set the default auto commit. </p>
-<p >Disabling auto commit requires the application execute explicit updates using dbf-&gt;Put() and dbf-&gt;AppendRecord(). With auto commit on, the library posts updates automatically when moving off the current record or closing a file.</p>
+<p>Set the date object from input month day and year. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bDefaultAutoCommit</td><td>xbTrue - Enable default auto commit.<br  />
- xbFalse - Disable default auto commit.<br  />
+    <tr><td class="paramname">iMonth</td><td>Input month<br  />
  </td></tr>
+    <tr><td class="paramname">iDay</td><td>Input Day<br  />
+ </td></tr>
+    <tr><td class="paramname">iYear</td><td>Input year </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>XB_NO_ERROR<br  />
+XB_INVALID_DATE </dd></dl>
 
 </div>
 </div>
-<a id="a5f74db23f8902846d581935c7db73f9c" name="a5f74db23f8902846d581935c7db73f9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f74db23f8902846d581935c7db73f9c">&#9670;&nbsp;</a></span>SetDefaultDateFormat()</h2>
+<a id="a6dc692d8e0e302aa9c10801127368bbd" name="a6dc692d8e0e302aa9c10801127368bbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc692d8e0e302aa9c10801127368bbd">&#9670;&nbsp;</a></span>SetDefaultDateFormat()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void xb::xbSsv::SetDefaultDateFormat </td>
+          <td class="memname">void xb::xbDate::SetDefaultDateFormat </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
           <td class="paramname"><em>sDefaultDateFormat</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Set the default date format. </p>
+<p>Set the default date format for all dates. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sDefaultDateFormat</td><td>Set the default date format. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a904ec348fd029d4a76e72b8fde636108" name="a904ec348fd029d4a76e72b8fde636108"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a904ec348fd029d4a76e72b8fde636108">&#9670;&nbsp;</a></span>SetEndianType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void xb::xbSsv::SetEndianType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the endian type. </p>
-<p >This routine determines the Endian-ness at run time instead of compile time as some processers (ie; Sparc,ARM) can be switched either way. This routine is called automatically by the library at startup and does not need to be called in an application program. </p>
-
-</div>
-</div>
-<a id="a7b992ed97281bf25b5b66f5df686225e" name="a7b992ed97281bf25b5b66f5df686225e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b992ed97281bf25b5b66f5df686225e">&#9670;&nbsp;</a></span>SetLogDirectory()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void xb::xbSsv::SetLogDirectory </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>sLogDirectory</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7f05738e7dfd759e89990242ef503544" name="a7f05738e7dfd759e89990242ef503544"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f05738e7dfd759e89990242ef503544">&#9670;&nbsp;</a></span>SetLogFileName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void xb::xbSsv::SetLogFileName </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>sLogFileName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aba6e59512f7172dd55dcf92059e5928c" name="aba6e59512f7172dd55dcf92059e5928c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba6e59512f7172dd55dcf92059e5928c">&#9670;&nbsp;</a></span>SetMultiUser()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void xb::xbSsv::SetMultiUser </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td>
-          <td class="paramname"><em>bMultiUser</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the multi user setting. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bMultiUser</td><td>xbTrue - Turn on Multi user mode.<br  />
- xbFalse - Turn off Multi user mode.<br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a17c229a20ef9ab4034df8f9cd657adb2" name="a17c229a20ef9ab4034df8f9cd657adb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17c229a20ef9ab4034df8f9cd657adb2">&#9670;&nbsp;</a></span>SetTempDirectory()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void xb::xbSsv::SetTempDirectory </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>sTempDirectory</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the temp directory. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sTempDirectory</td><td>Set the data direcroty. </td></tr>
+    <tr><td class="paramname">sDefaultDateFormat</td><td>- A format specifier with the following paramaters:<br  />
+ <pre class="fragment">1) YYDDD    -  A julian date format
+2) YY or YYYY will print a 2 or 4 digit year
+3) M,MM,MMM or MMMM
+   M    - one digit month if no leading zero
+   MM   - two digit month, contains leading zero
+   MMM  - Jan through Dec
+   MMMM - January through December
+4) D,DD,DDD or DDDD
+   D    - one digit dayif no leading zero
+   DD   - two digit day, contains leading zero
+   DDD  - Sun through Sat (or julian if YYDDD)
+   DDDD - Sunday through Saturday
+</pre> Examples for sFmtIn: MM/DD/YY<br  />
+ YYYY-MM-DD<br  />
+ DDDDDDDDDDD MMMMMMMMMMM DD,YYYY </td></tr>
   </table>
   </dd>
 </dl>
@@ -1991,18 +1469,18 @@ xbFalse - Dates don't match. </dd></dl>
 </div><div class="memdoc">
 
 <p>Return the date value. </p>
-<dl class="section return"><dt>Returns</dt><dd>char ptr to date value. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>char ptr to date value in CCYYMMDD format. </dd></dl>
 
 </div>
 </div>
-<a id="a40ba54a58d64cf56266f020f91584192" name="a40ba54a58d64cf56266f020f91584192"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40ba54a58d64cf56266f020f91584192">&#9670;&nbsp;</a></span>Sysdate()</h2>
+<a id="a9aa6ce2da6fb4e39befe0ed6a6a07a45" name="a9aa6ce2da6fb4e39befe0ed6a6a07a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aa6ce2da6fb4e39befe0ed6a6a07a45">&#9670;&nbsp;</a></span>Sysdate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">xbInt16 xb::xbDate::Sysdate </td>
+          <td class="memname">void xb::xbDate::Sysdate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2011,7 +1489,6 @@ xbFalse - Dates don't match. </dd></dl>
 </div><div class="memdoc">
 
 <p>Set the date equal to the system date. </p>
-<dl class="section return"><dt>Returns</dt><dd>XB_NO_ERROR </dd></dl>
 
 </div>
 </div>
@@ -2030,14 +1507,14 @@ xbFalse - Dates don't match. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the year of the date. </p>
+<p>Returns the year of the date object. </p>
 <dl class="section return"><dt>Returns</dt><dd>The year of the date. </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
-<a id="a6219f1b5e24ea12fe158cd5aea56988e" name="a6219f1b5e24ea12fe158cd5aea56988e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6219f1b5e24ea12fe158cd5aea56988e">&#9670;&nbsp;</a></span>ErrorCodeText</h2>
+<a id="a5f6bf5e7a9ace06c68efb72dc376e445" name="a5f6bf5e7a9ace06c68efb72dc376e445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f6bf5e7a9ace06c68efb72dc376e445">&#9670;&nbsp;</a></span>bDefaultAutoCommit</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2046,7 +1523,51 @@ xbFalse - Dates don't match. </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const char* xb::xbSsv::ErrorCodeText[]</td>
+          <td class="memname"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> xb::xbCore::bDefaultAutoCommit</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17974342108b35e89e62be960b70d087" name="a17974342108b35e89e62be960b70d087"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17974342108b35e89e62be960b70d087">&#9670;&nbsp;</a></span>bMultiUser</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> xb::xbCore::bMultiUser</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad2f79db40c113c70830787a67047a07d" name="ad2f79db40c113c70830787a67047a07d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2f79db40c113c70830787a67047a07d">&#9670;&nbsp;</a></span>ErrorCodeText</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* xb::xbCore::ErrorCodeText[]</td>
         </tr>
       </table>
   </td>
@@ -2058,8 +1579,8 @@ xbFalse - Dates don't match. </dd></dl>
 
 </div>
 </div>
-<a id="a5849e813f5e8e1cd180f0366637adbf3" name="a5849e813f5e8e1cd180f0366637adbf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5849e813f5e8e1cd180f0366637adbf3">&#9670;&nbsp;</a></span>iEndianType</h2>
+<a id="ab62c163d32416266b7053bf6832d3811" name="ab62c163d32416266b7053bf6832d3811"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab62c163d32416266b7053bf6832d3811">&#9670;&nbsp;</a></span>iCreateMdxBlockSize</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2068,7 +1589,7 @@ xbFalse - Dates don't match. </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">xbInt16 xb::xbSsv::iEndianType = 0</td>
+          <td class="memname">xbInt16 xb::xbCore::iCreateMdxBlockSize</td>
         </tr>
       </table>
   </td>
@@ -2080,8 +1601,8 @@ xbFalse - Dates don't match. </dd></dl>
 
 </div>
 </div>
-<a id="a9dec3164c3b264882df634915ecf21da" name="a9dec3164c3b264882df634915ecf21da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dec3164c3b264882df634915ecf21da">&#9670;&nbsp;</a></span>sNullString</h2>
+<a id="a82b17abc5f1ef87373da819688ed7bad" name="a82b17abc5f1ef87373da819688ed7bad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82b17abc5f1ef87373da819688ed7bad">&#9670;&nbsp;</a></span>iDefaultFileVersion</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2090,7 +1611,7 @@ xbFalse - Dates don't match. </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> xb::xbSsv::sNullString = &quot;&quot;</td>
+          <td class="memname">xbInt16 xb::xbCore::iDefaultFileVersion</td>
         </tr>
       </table>
   </td>
@@ -2102,14 +1623,303 @@ xbFalse - Dates don't match. </dd></dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/1Tdata/xbase/xbase64-4.1.7/src/include/<a class="el" href="xbdate_8h_source.html">xbdate.h</a></li>
-<li>/mnt/1Tdata/xbase/xbase64-4.1.7/src/core/<a class="el" href="xbdate_8cpp.html">xbdate.cpp</a></li>
+<a id="a35d44a54668f998b3f3008631118c053" name="a35d44a54668f998b3f3008631118c053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35d44a54668f998b3f3008631118c053">&#9670;&nbsp;</a></span>iDefaultIxTagMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">xbInt16 xb::xbCore::iDefaultIxTagMode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86b726cb25fd081442b44795f1b046dc" name="a86b726cb25fd081442b44795f1b046dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86b726cb25fd081442b44795f1b046dc">&#9670;&nbsp;</a></span>iDefaultLockFlavor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">xbInt16 xb::xbCore::iDefaultLockFlavor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac376593264672ab595ea4081063f104e" name="ac376593264672ab595ea4081063f104e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac376593264672ab595ea4081063f104e">&#9670;&nbsp;</a></span>iDefaultLockRetries</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">xbInt16 xb::xbCore::iDefaultLockRetries</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc0303a96900bff413c8c463987a9149" name="acc0303a96900bff413c8c463987a9149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc0303a96900bff413c8c463987a9149">&#9670;&nbsp;</a></span>iEndianType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">xbInt16 xb::xbCore::iEndianType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad569c53a46fa1e7f413e61c3131bcd3c" name="ad569c53a46fa1e7f413e61c3131bcd3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad569c53a46fa1e7f413e61c3131bcd3c">&#9670;&nbsp;</a></span>lDefaultLockWait</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">xbInt32 xb::xbCore::lDefaultLockWait</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8159129440110a6e3487801529272ef" name="ae8159129440110a6e3487801529272ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8159129440110a6e3487801529272ef">&#9670;&nbsp;</a></span>sDataDirectory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> xb::xbCore::sDataDirectory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a227c789b55eaa2a89a6fee4d90b28c23" name="a227c789b55eaa2a89a6fee4d90b28c23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a227c789b55eaa2a89a6fee4d90b28c23">&#9670;&nbsp;</a></span>sDefaultDateFormat</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> xb::xbCore::sDefaultDateFormat</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7872526434ff6f6d0388ebff430742cc" name="a7872526434ff6f6d0388ebff430742cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7872526434ff6f6d0388ebff430742cc">&#9670;&nbsp;</a></span>sDefaultTimeFormat</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> xb::xbCore::sDefaultTimeFormat</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a847b9285633d22a5b5e34ac1166e3512" name="a847b9285633d22a5b5e34ac1166e3512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a847b9285633d22a5b5e34ac1166e3512">&#9670;&nbsp;</a></span>sLogDirectory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> xb::xbCore::sLogDirectory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02c13215a731ce0790f78f8e41714e65" name="a02c13215a731ce0790f78f8e41714e65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02c13215a731ce0790f78f8e41714e65">&#9670;&nbsp;</a></span>sLogFileName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> xb::xbCore::sLogFileName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a034d596e86e6ab2151b6e1f8657f49d4" name="a034d596e86e6ab2151b6e1f8657f49d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034d596e86e6ab2151b6e1f8657f49d4">&#9670;&nbsp;</a></span>sNullString</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> xb::xbCore::sNullString</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a45ae9a4fc81347cf9c9ebf02673d3f2a" name="a45ae9a4fc81347cf9c9ebf02673d3f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45ae9a4fc81347cf9c9ebf02673d3f2a">&#9670;&nbsp;</a></span>sTempDirectory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> xb::xbCore::sTempDirectory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb6ba41685ea760777a114c422c07a19" name="aeb6ba41685ea760777a114c422c07a19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb6ba41685ea760777a114c422c07a19">&#9670;&nbsp;</a></span>ulDefaultBlockReadSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">xbUInt32 xb::xbCore::ulDefaultBlockReadSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>/mnt/1Tdata/xbase/xbase64-4.1.11/src/include/<a class="el" href="xbdate_8h_source.html">xbdate.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacexb.html">xb</a></li><li class="navelem"><a class="el" href="classxb_1_1xbDate.html">xbDate</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

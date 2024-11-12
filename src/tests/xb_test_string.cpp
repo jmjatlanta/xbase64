@@ -253,23 +253,19 @@ int main( int argCnt, char **av = NULL )
   rc += TestMethod( po, "GetLastPos", (xbInt16) s1.GetLastPos( '$' ), 0 );
   rc += TestMethod( po, "GetLastPos", (xbInt16) s1.GetLastPos( "ab" ), 7 );
 
-
   s1 = "\\ABC\\XYZ";
   rc += TestMethod( po, "GetPathSeparator()", s1.GetPathSeparator(), '\\' );
 
   s1 = "/ABC/XYZ";
   rc += TestMethod( po, "GetPathSeparator()", s1.GetPathSeparator(), '/' );
 
-
   s1 = "123";
   s2 = "ABC";
   rc += TestMethod( po, "HasAlphaChars()", s1.HasAlphaChars(), 0 );
   rc += TestMethod( po, "HasAlphaChars()", s2.HasAlphaChars(), 1 );
 
-
   s2 = "";
   rc += TestMethod( po, "IsEmpty()", s2.IsEmpty(), 1 );
-
 
   s1.SetNum( (long) 123456 );
 
@@ -297,7 +293,7 @@ int main( int argCnt, char **av = NULL )
   rc += TestMethod( po, "Ltrim()", s1.Ltrim(), "ABC   ", 6 );
 
   s1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  rc += TestMethod( po, "Mid(3,0) ", s1.Mid(3,0), "", 0 );
+  rc += TestMethod( po, "Mid(3,0) ", s1.Mid(3,0), "CDEFGHIJKLMNOPQRSTUVWXYZ", 24 );
 
   s1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   rc += TestMethod( po, "Mid(4,5) ", s1.Mid(4,5), "DEFGH", 5 );

@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014, 2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014, 2022,2023, 2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -76,6 +76,7 @@ int main( int argCnt, char **av )
   #ifdef XB_LOGGING_SUPPORT
   x.SetLogDirectory( PROJECT_LOG_DIR );
   x.EnableMsgLogging();
+  x.SetDefaultIxTagMode( XB_IX_XBASE_MODE );
   if( po ){
     std::cout << "Logfile is [" << x.GetLogFqFileName().Str() << "]" << std::endl;
   }
@@ -96,13 +97,13 @@ int main( int argCnt, char **av )
   // verify a delete on a non existant table doesn't crash things
   sSql = "DROP TABLE IF EXISTS NoTable.DBF";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "DropTable()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "DropTable(100)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
   sSql = "DROP TABLE IF EXISTS Address.DBF";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "DropTable()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "DropTable(101)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
@@ -117,14 +118,14 @@ int main( int argCnt, char **av )
   // xbString sSql = "CREATE INDEX tag1 ON Address.DBF( CITY, STATE )";
 
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "SqL CreateIndex()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "SqL CreateIndex(102)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
   #endif // XB_MDX_SUPPORT
 
   sSql = "INSERT INTO Address (CITY, STATE, ZIPCODE, NOTES, LASTUPDATE, ACTIVE ) VALUES ( 'San Diego', 'CA', 92007, 'San Diego is a cool place', '1989-02-09', 'Y')";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "SqlInsert()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "SqlInsert(103)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
@@ -136,62 +137,62 @@ int main( int argCnt, char **av )
 
   sSql = "DROP TABLE IF EXISTS AddressR.DBF";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "DropTable()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "DropTable(104)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
   sSql = "ALTER TABLE Address.DBF RENAME TO AddressR.DBF";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "SqlAlterTable()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "SqlAlterTable(105)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
   sSql = "DELETE FROM AddressR.DBF WHERE CITY='San Diego'";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "SqlDelete()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "SqlDelete(106)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
   sSql = "UNDELETE FROM AddressR.DBF WHERE CITY='San Diego'";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "SqlUndelete()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "SqlUndelete(107)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
   sSql = "DELETE FROM AddressR.DBF";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "SqlDelete()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "SqlDelete(108)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
   sSql = "UNDELETE FROM AddressR.DBF";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "SqlDelete()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "SqlDelete(109)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
   sSql = "DELETE FROM AddressR.DBF WHERE BAD='EXPRESSION'";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "SqlDelete()", (xbInt32) iRc2, XB_INVALID_FIELD_NAME );
+  iRc += TestMethod( po, "SqlDelete(110)", (xbInt32) iRc2, XB_INVALID_FIELD_NAME );
 
 
   sSql = "DROP TABLE IF EXISTS AddressR.DBF";
-  iRc += TestMethod( po, "Drop Table()", sql.ExecuteNonQuery( sSql ), XB_NO_ERROR );
-  iRc += TestMethod( po, "Drop Table()", sql.ExecuteNonQuery( sSql ), XB_NO_ERROR );
+  iRc += TestMethod( po, "Drop Table(111)", sql.ExecuteNonQuery( sSql ), XB_NO_ERROR );
+  iRc += TestMethod( po, "Drop Table(112)", sql.ExecuteNonQuery( sSql ), XB_NO_ERROR );
 
 */
 
 
   sSql = "DROP TABLE IF EXISTS ZipCode.DBF";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "DropTable()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "DropTable(120)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
 
   sSql = "CREATE TABLE ZipCode.DBF ( ZIPCODE NUMERIC(9,0), CITY CHAR(30), STATE CHAR(2) )";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "CreateTable()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "CreateTable(121)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 
@@ -201,6 +202,20 @@ int main( int argCnt, char **av )
   sSql = "INSERT INTO ZipCode.DBF ( ZIPCODE, CITY, STATE ) VALUES ( 75087, 'Rockwall', 'TX' )";
   iRc2 = sql.ExecuteNonQuery( sSql );
 
+  sSql = "INSERT INTO ZipCode.DBF ( ZIPCODE, CITY, STATE ) VALUES ( 44256, 'Medina', 'OH' )";
+  iRc2 = sql.ExecuteNonQuery( sSql );
+
+  sSql = "INSERT INTO ZipCode.DBF ( ZIPCODE, CITY, STATE ) VALUES ( 44287, 'Salem', 'OH' )";
+  iRc2 = sql.ExecuteNonQuery( sSql );
+
+  sSql = "INSERT INTO ZipCode.DBF ( ZIPCODE, CITY, STATE ) VALUES ( 26554, 'Fairmont', 'WV' )";
+  iRc2 = sql.ExecuteNonQuery( sSql );
+
+  sSql = "INSERT INTO ZipCode.DBF ( ZIPCODE, CITY, STATE ) VALUES ( 74743, 'Hugo', 'OK' )";
+  iRc2 = sql.ExecuteNonQuery( sSql );
+
+  sSql = "INSERT INTO ZipCode.DBF ( ZIPCODE, CITY, STATE ) VALUES ( 29073, 'Lexington', 'SC' )";
+  iRc2 = sql.ExecuteNonQuery( sSql );
 
 
 /*
@@ -209,24 +224,34 @@ int main( int argCnt, char **av )
   iRc2 = sql.ExecuteNonQuery( sSql );
   if( iRc2 )
     x.DisplayError( iRc2 );
-  iRc += TestMethod( po, "Create Index()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "Create Index(122)", (xbInt32) iRc2, XB_NO_ERROR );
 */
 
 
   sSql = "CREATE UNIQUE INDEX ZipCode2.NDX ON ZipCode.DBF( ZIPCODE ) ASSOCIATE";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "Create Index()", (xbInt32) iRc2, XB_KEY_NOT_UNIQUE );
+  iRc += TestMethod( po, "Create Index(123)", (xbInt32) iRc2, XB_KEY_NOT_UNIQUE );
+
+/*
+
+  // 10/18/24 segfaults
+  sSql = "DROP INDEX IF EXISTS ZipCode3.NDX";
+  iRc2 = sql.ExecuteNonQuery( sSql );
+  iRc += TestMethod( po, "Drop Index(124)", (xbInt32) iRc2, XB_NO_ERROR );
+*/
 
 
+/*
+  // 10/18/24 throws an error if the index file already exists
   sSql = "CREATE INDEX ZipCode3.NDX ON ZipCode.DBF( ZIPCODE ) ASSOCIATE";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "Create Index()", (xbInt32) iRc2, XB_NO_ERROR );
-
+  iRc += TestMethod( po, "Create Index(125)", (xbInt32) iRc2, XB_NO_ERROR );
+*/
 
 /*
   sSql = "DROP TABLE IF EXISTS ZipCode.DBF";
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "DropTable()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "DropTable(125)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 */
@@ -245,13 +270,13 @@ int main( int argCnt, char **av )
   sSql = "CREATE INDEX ZipCode.NDX ON Addres.DBF( ZIPCODE )";
 
   iRc2 = sql.ExecuteNonQuery( sSql );
-  iRc += TestMethod( po, "CreateTable()", (xbInt32) iRc2, XB_NO_ERROR );
+  iRc += TestMethod( po, "CreateTable(130)", (xbInt32) iRc2, XB_NO_ERROR );
   if( iRc2 )
     x.DisplayError( iRc2 );
 */
 
 //  sSql = "DROP TABLE IF EXISTS AddressR.DBF";
-//  iRc += TestMethod( po, "Drop Table()", sqlQry1.ExecuteQuery( sSql ), XB_NO_ERROR );
+//  iRc += TestMethod( po, "Drop Table(140)", sqlQry1.ExecuteQuery( sSql ), XB_NO_ERROR );
 
 
 

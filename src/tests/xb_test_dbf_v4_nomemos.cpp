@@ -80,9 +80,9 @@ int main( int argCnt, char **av )
 
   x.SetDataDirectory( PROJECT_DATA_DIR );
 
-  #ifdef XB_LOCKING_SUPPORT
-  x.DisableDefaultAutoLock();
-  #endif // XB_LOCKING_SUPPORT
+  //#ifdef XB_LOCKING_SUPPORT
+  //x.DisableDefaultAutoLock();
+  //#endif // XB_LOCKING_SUPPORT
 
   InitTime();
 
@@ -318,12 +318,13 @@ int main( int argCnt, char **av )
   rc += TestMethod( po, "GetField()", V4Dbf.GetField( fldAMT, sf ), XB_NO_ERROR );
   rc += TestMethod( po, "GetField()", sf, "   666.22", 9 );
 
+  rc += TestMethod( po, "AutoCommit()", V4Dbf.SetAutoCommit( -50 ), XB_INVALID_OPTION );
   rc += TestMethod( po, "AutoCommit()", V4Dbf.SetAutoCommit( 0 ), XB_NO_ERROR );
   rc += TestMethod( po, "PutField()", V4Dbf.PutField( "AMOUNT", "999.33" ), XB_NO_ERROR );
   rc += TestMethod( po, "GetPrevRecord()", V4Dbf.GetPrevRecord(), XB_NO_ERROR );
   rc += TestMethod( po, "GetNextRecord()", V4Dbf.GetNextRecord(), XB_NO_ERROR );
   rc += TestMethod( po, "GetField()", V4Dbf.GetField( fldAMT, sf ), XB_NO_ERROR );
-  rc += TestMethod( po, "GetField()", sf, "   666.22", 9 );
+  rc += TestMethod( po, "GetField(500)", sf, "   666.22", 9 );
 
   rc += TestMethod( po, "AutoCommit()", V4Dbf.SetAutoCommit( -1 ), XB_NO_ERROR );
   rc += TestMethod( po, "PutField()", V4Dbf.PutField( "AMOUNT", "999.33" ), XB_NO_ERROR );

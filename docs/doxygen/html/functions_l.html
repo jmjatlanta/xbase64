@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -48,6 +52,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_l.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,16 +87,37 @@ $(function() {
 
 <h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
 <li>LastDayOfMonth()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a15847866bb7642aa42bc254e0cf2038a">xb::xbDate</a></li>
+<li>lDefaultLockWait&#160;:&#160;<a class="el" href="classxb_1_1xbCore.html#ad569c53a46fa1e7f413e61c3131bcd3c">xb::xbCore</a></li>
 <li>Left()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#acdc3a6d6955b99f0a6b1d181fb3098b9">xb::xbString</a></li>
+<li>LEFT()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#ad8f52953a282c8ceca9aa449a613b204">xb::xbXBase</a></li>
 <li>Len()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a998b240eedac311aea5843047f55649b">xb::xbString</a></li>
-<li>llChildren&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a7f1f3d2be9f73045cf17a57638deac9d">xb::xbRelation</a></li>
+<li>LEN()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a0d9c0e0740722eb9daaaae74da256579">xb::xbXBase</a></li>
+<li>LockAppend()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#affa4f048ae2ac01f01a25b0ba186f380">xb::xbDbf</a></li>
+<li>LockHeader()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a7b3c52761f4565f592a20b9f3aab1ba9">xb::xbDbf</a></li>
+<li>LockMemo()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a16edcf4906131e21cdf2cbd4c78ab304">xb::xbDbf</a></li>
+<li>LockRecord()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ad734ea5a87670fd3bcb2a39139c3a6c4">xb::xbDbf</a></li>
+<li>LockTable()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a79f6b5c5a151d2518a3eec2457fe7ad4">xb::xbDbf</a></li>
+<li>LOG()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a140240aead572ebbd9de5c491e4f6ae2">xb::xbXBase</a></li>
+<li>LogClose()&#160;:&#160;<a class="el" href="classxb_1_1xbLog.html#a30688f1f27334d1cdfc9b9d434b536cb">xb::xbLog</a></li>
+<li>LogGetLogSize()&#160;:&#160;<a class="el" href="classxb_1_1xbLog.html#ada8ceae008ecabf71e263306f8ff41ec">xb::xbLog</a></li>
+<li>LogGetStatus()&#160;:&#160;<a class="el" href="classxb_1_1xbLog.html#af2871addbe4e3f0cc714a4916d3b8b64">xb::xbLog</a></li>
+<li>LogOpen()&#160;:&#160;<a class="el" href="classxb_1_1xbLog.html#a295f9dfc2ea5f17c17609cf29f59b33c">xb::xbLog</a></li>
+<li>LogSetLogSize()&#160;:&#160;<a class="el" href="classxb_1_1xbLog.html#af4e510ba62ffcb717cf768b3a6217a47">xb::xbLog</a></li>
+<li>LogSetStatus()&#160;:&#160;<a class="el" href="classxb_1_1xbLog.html#adb2673208f57da1ed6f7fc78dfc77763">xb::xbLog</a></li>
+<li>LogWrite()&#160;:&#160;<a class="el" href="classxb_1_1xbLog.html#a2fa1acf20c36ddebb4434abea23e609c">xb::xbLog</a></li>
+<li>LogWriteBytes()&#160;:&#160;<a class="el" href="classxb_1_1xbLog.html#a033a7b4ed672b426a08414735a727ad9">xb::xbLog</a></li>
+<li>LOWER()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#abc75aef8665888b6e526266997627419">xb::xbXBase</a></li>
 <li>Ltrim()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a90e0d0be4fd0d82dd2ebbe689adf18ee">xb::xbString</a></li>
+<li>LTRIM()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#ab2271775d29fe2ae086f7bd1e4b9080b">xb::xbXBase</a></li>
 <li>Ltrunc()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a656f5854f74064b7257ff96d96dfb68b">xb::xbString</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

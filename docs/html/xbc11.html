@@ -3,7 +3,7 @@
 <TITLE>Xbase64 DBMS Chapter 11</TITLE>
 <BODY BGCOLOR=#FFFFFF>
 <H2><p align="center">Logging</p></H2>
-<p align="center">Chapter Updated 11/21/23</p><hr>
+<p align="center">Chapter Updated 9/01/24</p><hr>
 
 <br><br>
 The objective of this chapter is to provide information regarding the logging funcitionality contained within the Xbase64 library.
@@ -44,10 +44,10 @@ to get the updates to take effect.
 <h3>Methods for managing the logfile</h3>
 <table border=1>
 <tr><th>Method</th><th>Description</th></tr>
-<tr><td>xbString& xbSsv::GetLogDirectory() const</td><td>Get the log file directory.</td><tr>
-<tr><td>xbString& xbSsv::GetLogFileName() const</td><td>Get the log file name.</td></tr>
-<tr><td>xbString& xbSsv::SetLogDirectory( const xbString &sLogDirectory )</td><td>Set the log file directory.</td><tr>
-<tr><td>void xbSsv::SetLogFileName( const xbString &sLogFileName )</td><td>Set the log file name.</td></tr>
+<tr><td>xbString& xbCore::GetLogDirectory() const</td><td>Get the log file directory.</td><tr>
+<tr><td>xbString& xbCore::GetLogFileName() const</td><td>Get the log file name.</td></tr>
+<tr><td>xbString& xbCore::SetLogDirectory( const xbString &sLogDirectory )</td><td>Set the log file directory.</td><tr>
+<tr><td>void xbCore::SetLogFileName( const xbString &sLogFileName )</td><td>Set the log file name.</td></tr>
 <tr><td>void xbXBase::DisableMsgLogging()</td><td>Disable message logging.</td></tr>
 <tr><td>void xbXBase::EnableMsgLogging()</td><td>Enable message logging.</td></tr>
 <tr><td>xbInt16 xbXBase::FlushLog()</td><td>Flush any buffered log file messages to disk.</td></tr>

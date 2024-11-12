@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -1283,7 +1283,6 @@ int main( int argCnt, char **av )
 
 
 
-
 // misc stuff that might be useful
 //  DumpRecs( &x, 1, 1, "Test 17, get first record", dRel0, dRel1Mtch );
 //  pRel16->DumpRelationTree();
@@ -1305,10 +1304,16 @@ int main( int argCnt, char **av )
 
   x.CloseAllTables();
 
+  delete dRel0;
+  delete dRel1Mfml;
+  delete dRel1Mtch;
+  delete dRel1DK;
+  delete dRelEmpty;
+  delete dRel2Mtch;
+
 #ifdef XB_LOGGING_SUPPORT
   sMsg.Sprintf( "Program [%s] terminating with [%d] errors...", av[0], iRc * -1 );
   x.WriteLogMessage( sMsg );
-  
   std::cout << sMsg.Str() << std::endl;
 #endif
 

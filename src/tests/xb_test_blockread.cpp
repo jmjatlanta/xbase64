@@ -93,7 +93,7 @@ int main( int argCnt, char **av )
   }
 
 
-  dbf.SetDefaultBlockReadSize( 2000 );
+  x.SetDefaultBlockReadSize( 2000 );
 
   // enable block read for this table
   iRc += TestMethod( iPo, "EnableBlockReadProcessing()", dbf.EnableBlockReadProcessing(), XB_NO_ERROR );

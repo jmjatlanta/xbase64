@@ -5,10 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Xbase64: /mnt/1Tdata/xbase/xbase64-4.1.7/src/include/xbdate.h Source File</title>
+<title>Xbase64: /mnt/1Tdata/xbase/xbase64-4.1.11/src/include/xbdate.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -47,6 +51,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('xbdate_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +82,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">xbdate.h</div></div>
 </div><!--header-->
@@ -74,7 +90,7 @@ $(function() {
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"></span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">XBase64 Software Library</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">Copyright (c) 1997,2003,2014,2022 Gary A Kunkel</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">Copyright (c) 1997,2003,2014,2022,2024 Gary A Kunkel</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"></span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"></span> </div>
@@ -100,87 +116,193 @@ $(function() {
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="xbdate_8h.html#aeacf2f7cc897ab5bd64781c0fb52b75d">   28</a></span><span class="preprocessor">#define XB_FMT_MONTH  2</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="xbdate_8h.html#aa29d78982a9e007874af1c4f4e4d1aa4">   29</a></span><span class="preprocessor">#define XB_FMT_YEAR   3</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// next value is added to the date calculation to match dbase calculation</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// first valid dbase date is 01/01/0001</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// next value is added to the date calculation to match dBASE calculation</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// first valid dBASE date is 01/01/0001</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="xbdate_8h.html#a119f32fda399e2ebc2d734012a130e8f">   33</a></span><span class="preprocessor">#define JUL_OFFSET  1721425L</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html">   62</a></span><span class="keyword">class </span>XBDLLEXPORT <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> : <span class="keyword">public</span> <a class="code hl_class" href="classxb_1_1xbSsv.html">xbSsv</a> {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html">   62</a></span><span class="keyword">class </span>XBDLLEXPORT <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> : <span class="keyword">public</span> <a class="code hl_class" href="classxb_1_1xbCore.html">xbCore</a> {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a>();</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a>( <span class="keyword">const</span> <span class="keywordtype">char</span> * Date8 );</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;Date8 );</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a>( xbInt32 lJulDate );</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a>( xbUInt16 iInit );           <span class="comment">// Constructor used to set the static variables, also defaults to sysdate</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp;dtDate );</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <a class="code hl_class" href="classxb_1_1xbDate.html">~xbDate</a>();</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <span class="keywordtype">void</span> operator=( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp;d );</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <span class="keywordtype">void</span> operator+=( xbInt32 i );</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keywordtype">void</span> operator-=( xbInt32 i );</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keywordtype">void</span> operator++( xbInt32 i );</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="keywordtype">void</span> operator--( xbInt32 i );</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  xbInt32 operator-( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp; ) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="keyword">const</span> <span class="keywordtype">char</span> * operator-( xbInt32 i );</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <span class="keyword">const</span> <span class="keywordtype">char</span> * operator+( xbInt32 i );</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#ab3150e7db0ab5db10a07d748b55465eb">   69</a></span>   <a class="code hl_function" href="classxb_1_1xbDate.html#ab3150e7db0ab5db10a07d748b55465eb">xbDate</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a359167dbd6707777b29c5ff024b84878">   75</a></span>   <a class="code hl_function" href="classxb_1_1xbDate.html#a359167dbd6707777b29c5ff024b84878">xbDate</a>( <span class="keyword">const</span> <span class="keywordtype">char</span> *sDate8 );</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#acc0aaf136fd655a2aded243bd0ba88a7">   81</a></span>   <a class="code hl_function" href="classxb_1_1xbDate.html#acc0aaf136fd655a2aded243bd0ba88a7">xbDate</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp;dtDate );</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> operator==( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp; ) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> operator!=( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp; ) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> operator&lt; ( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp; ) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> operator&gt; ( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp; ) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> operator&lt;=( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp; ) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> operator&gt;=( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp; ) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  xbInt16     CalcRollingCenturyForYear( xbInt16 year ) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  xbInt16     CenturyOf() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  xbInt16     CharDayOf( <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sOutCharDay );</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  xbInt16     CharMonthOf( <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sOutCharMonth );</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>      DateIsValid ( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sDate8 ) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  xbInt16     DayOf( xbInt16 iFormat = <a class="code hl_define" href="xbdate_8h.html#aeacf2f7cc897ab5bd64781c0fb52b75d">XB_FMT_MONTH</a> ) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  xbInt16     CTOD( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sCtodInDate );</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  xbInt16     FormatDate( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sFmtIn, <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sFmtOut );</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  <span class="keyword">const</span> <span class="keywordtype">char</span>  *Str() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>      IsLeapYear( xbInt16 iYear ) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>      IsLeapYear() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>      IsNull() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  xbInt32     JulianDays() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  xbInt16     JulToDate8( xbInt32 lJulDate );</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  xbInt16     LastDayOfMonth();</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  xbInt16     MonthOf() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  xbInt16     Set( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;Date8 );</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  xbInt16     Sysdate();</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  xbInt16     YearOf() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#ifdef XB_DEBUG_SUPPORT</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  <span class="keywordtype">void</span>        Dump( <span class="keyword">const</span> <span class="keywordtype">char</span> * title );</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  <span class="keywordtype">void</span>        DumpDateTables();</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  <span class="keywordtype">void</span> SetDateTables();</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> sDate8;              <span class="comment">// CCYYMMDD date format  ie; 20140718</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                                <span class="comment">// Null date is identified by sDate.Len() &lt; 8</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  <span class="keyword">static</span> <span class="keywordtype">int</span> iAggregatedDaysInMonths[2][13];</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  <span class="keyword">static</span> <span class="keywordtype">int</span> iDaysInMonths[2][13];</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>};</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}         <span class="comment">/* namespace */</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#endif    </span><span class="comment">/*__XB_XBDATE_H__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a30530eb9571dc13ecc1e9d82d5a45e18">   87</a></span>   <a class="code hl_function" href="classxb_1_1xbDate.html#a30530eb9571dc13ecc1e9d82d5a45e18">xbDate</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sDate8 );</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#ae72538343019d5bf97ee7507a34e6cfd">   95</a></span>   <a class="code hl_function" href="classxb_1_1xbDate.html#ae72538343019d5bf97ee7507a34e6cfd">xbDate</a>( xbInt32 lDateOpt );</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a8424e74e0047b393f1509a45ef1f022f">  103</a></span>   <a class="code hl_function" href="classxb_1_1xbDate.html#a8424e74e0047b393f1509a45ef1f022f">xbDate</a>( xbInt16 iMonth, xbInt16 iDay, xbInt16 iYear );</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a05c9680c6eb9fe07ecf13a189b596c37">  110</a></span>  <a class="code hl_function" href="classxb_1_1xbDate.html#a05c9680c6eb9fe07ecf13a189b596c37">~xbDate</a>();</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a8ff19085558544b61b5cb5aac4d94319">  120</a></span>  xbInt16 <a class="code hl_function" href="classxb_1_1xbDate.html#a8ff19085558544b61b5cb5aac4d94319">CalcRollingCenturyForYear</a>( xbInt16 iYear ) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a38b2c5285c69ed65e94ece6c22dafde0">  125</a></span>  xbInt16 <a class="code hl_function" href="classxb_1_1xbDate.html#a38b2c5285c69ed65e94ece6c22dafde0">CenturyOf</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a9fc29730b66cddfbb58c69992a99cc7c">  132</a></span>  xbInt16 <a class="code hl_function" href="classxb_1_1xbDate.html#a9fc29730b66cddfbb58c69992a99cc7c">CharDayOf</a>( <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sOutCharDay );</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#afffc84f02bd421335ff8ebe9fb3db0ac">  138</a></span>  xbInt16 <a class="code hl_function" href="classxb_1_1xbDate.html#afffc84f02bd421335ff8ebe9fb3db0ac">CharMonthOf</a>( <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sOutCharMonth );</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#abb1eb4b0394e4a67aadab15779b1b8c5">  147</a></span>  xbInt16     <a class="code hl_function" href="classxb_1_1xbDate.html#abb1eb4b0394e4a67aadab15779b1b8c5">CTOD</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sCtodInDate );</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#afd52f9967bce3b5d159b3b4c5c2bd670">  154</a></span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>      <a class="code hl_function" href="classxb_1_1xbDate.html#afd52f9967bce3b5d159b3b4c5c2bd670">DateIsValid</a> ( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sDate8In ) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a46e5e2ade84867cea89afd9eef3fb6c9">  164</a></span>  xbInt16     <a class="code hl_function" href="classxb_1_1xbDate.html#a46e5e2ade84867cea89afd9eef3fb6c9">DayOf</a>( xbInt16 iFormat = <a class="code hl_define" href="xbdate_8h.html#aeacf2f7cc897ab5bd64781c0fb52b75d">XB_FMT_MONTH</a> ) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="preprocessor">  #ifdef XB_DEBUG_SUPPORT</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#acecb46afdb072c6b8a1f79286bdfb6ac">  171</a></span>  <span class="keywordtype">void</span>        <a class="code hl_function" href="classxb_1_1xbDate.html#acecb46afdb072c6b8a1f79286bdfb6ac">Dump</a>( <span class="keyword">const</span> <span class="keywordtype">char</span> * sTitle );</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#ad58c7963abc6f0da693cca0fc9e89f2a">  177</a></span>  <span class="keywordtype">void</span>        <a class="code hl_function" href="classxb_1_1xbDate.html#ad58c7963abc6f0da693cca0fc9e89f2a">DumpDateTables</a>();</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="preprocessor">  #endif</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#afb2b1a268f3e028c44c09d2541deb52a">  209</a></span>  xbInt16     <a class="code hl_function" href="classxb_1_1xbDate.html#afb2b1a268f3e028c44c09d2541deb52a">FormatDate</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sFormatIn, <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sOutFormattedDate );</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a8dfb00ade511d5b86f3ae5cca9cca187">  214</a></span>  <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a>&amp;  <a class="code hl_function" href="classxb_1_1xbDate.html#a8dfb00ade511d5b86f3ae5cca9cca187">GetDefaultDateFormat</a>      () <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a5f8051c31b29244265e8f26ac3547b9b">  221</a></span>   <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> <a class="code hl_function" href="classxb_1_1xbDate.html#a5f8051c31b29244265e8f26ac3547b9b">IsLeapYear</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#af2bd33a72448e2c5ee00d8b711dc5d95">  227</a></span>   <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> <a class="code hl_function" href="classxb_1_1xbDate.html#af2bd33a72448e2c5ee00d8b711dc5d95">IsLeapYear</a>( xbInt16 iYear ) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a611a64b14ff89ad3c20b34081ea1e658">  234</a></span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>      <a class="code hl_function" href="classxb_1_1xbDate.html#a611a64b14ff89ad3c20b34081ea1e658">IsNull</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a1ee3377d4ead9d31099eee539d9b13a7">  240</a></span>  xbInt32     <a class="code hl_function" href="classxb_1_1xbDate.html#a1ee3377d4ead9d31099eee539d9b13a7">JulianDays</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a0303609026dfff4b8308926a38a2921c">  246</a></span>  <span class="keywordtype">void</span>     <a class="code hl_function" href="classxb_1_1xbDate.html#a0303609026dfff4b8308926a38a2921c">JulToDate8</a>( xbInt32 lJulDate );</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a15847866bb7642aa42bc254e0cf2038a">  252</a></span>  xbInt16     <a class="code hl_function" href="classxb_1_1xbDate.html#a15847866bb7642aa42bc254e0cf2038a">LastDayOfMonth</a>();</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a08bd84c67e1119d8c5c1748cd89d092e">  258</a></span>  xbInt16     <a class="code hl_function" href="classxb_1_1xbDate.html#a08bd84c67e1119d8c5c1748cd89d092e">MonthOf</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a445e9c574013ba58c96e78b196be8451">  265</a></span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> <a class="code hl_function" href="classxb_1_1xbDate.html#a445e9c574013ba58c96e78b196be8451">operator!=</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt ) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a08c0e807e6e2746eef96730f46725366">  272</a></span>  <span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code hl_function" href="classxb_1_1xbDate.html#a08c0e807e6e2746eef96730f46725366">operator+</a>( xbInt32 lCount );</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a363989a4f9cf8f3e38d1ff61b1f1e7c0">  277</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classxb_1_1xbDate.html#a363989a4f9cf8f3e38d1ff61b1f1e7c0">operator++</a>( xbInt32 );</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a90d725c45e2335fc5bf0d5e5ef6ea697">  283</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classxb_1_1xbDate.html#a90d725c45e2335fc5bf0d5e5ef6ea697">operator+=</a>( xbInt32 lDays );</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#aefc91f2a7e125a02a4fd2d88356f9397">  291</a></span>   xbInt32 <a class="code hl_function" href="classxb_1_1xbDate.html#aefc91f2a7e125a02a4fd2d88356f9397">operator-</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt ) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#aadf98ccf39a72e88c945d88916ed1bac">  298</a></span>   <span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code hl_function" href="classxb_1_1xbDate.html#aadf98ccf39a72e88c945d88916ed1bac">operator-</a>( xbInt32 lCount );</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a7b81cc74da25b2b36d7705eacb6ee20d">  304</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classxb_1_1xbDate.html#a7b81cc74da25b2b36d7705eacb6ee20d">operator--</a>( xbInt32 lDays );</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#ab5ae306941bc30329c59f10df95b9bc0">  311</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classxb_1_1xbDate.html#ab5ae306941bc30329c59f10df95b9bc0">operator-=</a>( xbInt32 lDays );</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a811b149dbac972028edd47d3938f405a">  319</a></span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> operator&lt; ( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt ) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a7ed92ad3c5e76923af73ffa7d92ff064">  327</a></span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> <a class="code hl_function" href="classxb_1_1xbDate.html#a7ed92ad3c5e76923af73ffa7d92ff064">operator&lt;=</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt ) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#afefdf9de78590e8a43371a0556cae8bb">  333</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classxb_1_1xbDate.html#afefdf9de78590e8a43371a0556cae8bb">operator=</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt );</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#af1e416f728ef07354c2f5dbe7c83c2b2">  340</a></span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> <a class="code hl_function" href="classxb_1_1xbDate.html#af1e416f728ef07354c2f5dbe7c83c2b2">operator==</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt ) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#ae29584fcaa73f4f984474822377a1a0f">  348</a></span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> operator&gt; ( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt ) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a7549d4851b784e939394cadd26f83197">  357</a></span>  <a class="code hl_typedef" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> <a class="code hl_function" href="classxb_1_1xbDate.html#a7549d4851b784e939394cadd26f83197">operator&gt;=</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt ) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a7f08e372cef53cc984c473cbd8be6832">  364</a></span>  xbInt16 <a class="code hl_function" href="classxb_1_1xbDate.html#a7f08e372cef53cc984c473cbd8be6832">Set</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sDateIn );</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a96500db703bb52080586f5ff257420c7">  372</a></span>  xbInt16 <a class="code hl_function" href="classxb_1_1xbDate.html#a96500db703bb52080586f5ff257420c7">Set</a>( xbInt16 iMonth, xbInt16 iDay, xbInt16 iYear );</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span> </div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span> </div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a6dc692d8e0e302aa9c10801127368bbd">  396</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classxb_1_1xbDate.html#a6dc692d8e0e302aa9c10801127368bbd">SetDefaultDateFormat</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sDefaultDateFormat );</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span> </div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span> </div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#ab43a5d8d929767c0ffdd722972bb8cc0">  402</a></span>  <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_function" href="classxb_1_1xbDate.html#ab43a5d8d929767c0ffdd722972bb8cc0">Str</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span> </div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a9aa6ce2da6fb4e39befe0ed6a6a07a45">  406</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classxb_1_1xbDate.html#a9aa6ce2da6fb4e39befe0ed6a6a07a45">Sysdate</a>();</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno"><a class="line" href="classxb_1_1xbDate.html#a31057dfaa36389a16e40e3db82c46262">  411</a></span>  xbInt16 <a class="code hl_function" href="classxb_1_1xbDate.html#a31057dfaa36389a16e40e3db82c46262">YearOf</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span> </div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>  <span class="keywordtype">void</span> SetDateTables();</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>  <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> sDate8;              <span class="comment">// CCYYMMDD date format  ie; 20140718</span></div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>                                <span class="comment">// Null date is identified by sDate.Len() &lt; 8</span></div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span> </div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>  <span class="keyword">static</span> <span class="keywordtype">int</span> iAggregatedDaysInMonths[2][13];</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>  <span class="keyword">static</span> <span class="keywordtype">int</span> iDaysInMonths[2][13];</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>};</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span> </div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>}         <span class="comment">/* namespace */</span></div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span><span class="preprocessor">#endif    </span><span class="comment">/*__XB_XBDATE_H__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span> </div>
+<div class="ttc" id="aclassxb_1_1xbCore_html"><div class="ttname"><a href="classxb_1_1xbCore.html">xb::xbCore</a></div><div class="ttdef"><b>Definition:</b> xbcore.h:57</div></div>
 <div class="ttc" id="aclassxb_1_1xbDate_html"><div class="ttname"><a href="classxb_1_1xbDate.html">xb::xbDate</a></div><div class="ttdoc">xbDate class.</div><div class="ttdef"><b>Definition:</b> xbdate.h:62</div></div>
-<div class="ttc" id="aclassxb_1_1xbSsv_html"><div class="ttname"><a href="classxb_1_1xbSsv.html">xb::xbSsv</a></div><div class="ttdoc">Class for handling shared system variables.</div><div class="ttdef"><b>Definition:</b> xbssv.h:59</div></div>
-<div class="ttc" id="aclassxb_1_1xbString_html"><div class="ttname"><a href="classxb_1_1xbString.html">xb::xbString</a></div><div class="ttdoc">Class for handling string data.</div><div class="ttdef"><b>Definition:</b> xbstring.h:50</div></div>
-<div class="ttc" id="anamespacexb_html"><div class="ttname"><a href="namespacexb.html">xb</a></div><div class="ttdef"><b>Definition:</b> xbdate.cpp:19</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a0303609026dfff4b8308926a38a2921c"><div class="ttname"><a href="classxb_1_1xbDate.html#a0303609026dfff4b8308926a38a2921c">xb::xbDate::JulToDate8</a></div><div class="ttdeci">void JulToDate8(xbInt32 lJulDate)</div><div class="ttdoc">Convert julian days to gregorian date.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a05c9680c6eb9fe07ecf13a189b596c37"><div class="ttname"><a href="classxb_1_1xbDate.html#a05c9680c6eb9fe07ecf13a189b596c37">xb::xbDate::~xbDate</a></div><div class="ttdeci">~xbDate()</div><div class="ttdoc">Destructor.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a08bd84c67e1119d8c5c1748cd89d092e"><div class="ttname"><a href="classxb_1_1xbDate.html#a08bd84c67e1119d8c5c1748cd89d092e">xb::xbDate::MonthOf</a></div><div class="ttdeci">xbInt16 MonthOf() const</div><div class="ttdoc">Return the month for the date object.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a08c0e807e6e2746eef96730f46725366"><div class="ttname"><a href="classxb_1_1xbDate.html#a08c0e807e6e2746eef96730f46725366">xb::xbDate::operator+</a></div><div class="ttdeci">const char * operator+(xbInt32 lCount)</div><div class="ttdoc">operator + Add lCount days to a date object.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a15847866bb7642aa42bc254e0cf2038a"><div class="ttname"><a href="classxb_1_1xbDate.html#a15847866bb7642aa42bc254e0cf2038a">xb::xbDate::LastDayOfMonth</a></div><div class="ttdeci">xbInt16 LastDayOfMonth()</div><div class="ttdoc">Set the date object to the last day of month.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a1ee3377d4ead9d31099eee539d9b13a7"><div class="ttname"><a href="classxb_1_1xbDate.html#a1ee3377d4ead9d31099eee539d9b13a7">xb::xbDate::JulianDays</a></div><div class="ttdeci">xbInt32 JulianDays() const</div><div class="ttdoc">Calculate julian days for a given date.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a30530eb9571dc13ecc1e9d82d5a45e18"><div class="ttname"><a href="classxb_1_1xbDate.html#a30530eb9571dc13ecc1e9d82d5a45e18">xb::xbDate::xbDate</a></div><div class="ttdeci">xbDate(const xbString &amp;sDate8)</div><div class="ttdoc">Constructor, set to input date.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a31057dfaa36389a16e40e3db82c46262"><div class="ttname"><a href="classxb_1_1xbDate.html#a31057dfaa36389a16e40e3db82c46262">xb::xbDate::YearOf</a></div><div class="ttdeci">xbInt16 YearOf() const</div><div class="ttdoc">Returns the year of the date object.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a359167dbd6707777b29c5ff024b84878"><div class="ttname"><a href="classxb_1_1xbDate.html#a359167dbd6707777b29c5ff024b84878">xb::xbDate::xbDate</a></div><div class="ttdeci">xbDate(const char *sDate8)</div><div class="ttdoc">Constructor, set to input date.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a363989a4f9cf8f3e38d1ff61b1f1e7c0"><div class="ttname"><a href="classxb_1_1xbDate.html#a363989a4f9cf8f3e38d1ff61b1f1e7c0">xb::xbDate::operator++</a></div><div class="ttdeci">void operator++(xbInt32)</div><div class="ttdoc">operator ++ Add one day to the date object if the date is not null.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a38b2c5285c69ed65e94ece6c22dafde0"><div class="ttname"><a href="classxb_1_1xbDate.html#a38b2c5285c69ed65e94ece6c22dafde0">xb::xbDate::CenturyOf</a></div><div class="ttdeci">xbInt16 CenturyOf() const</div><div class="ttdoc">Get century for date object.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a445e9c574013ba58c96e78b196be8451"><div class="ttname"><a href="classxb_1_1xbDate.html#a445e9c574013ba58c96e78b196be8451">xb::xbDate::operator!=</a></div><div class="ttdeci">xbBool operator!=(const xbDate &amp;dt) const</div><div class="ttdoc">operator != Compare two dates for inequality.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a46e5e2ade84867cea89afd9eef3fb6c9"><div class="ttname"><a href="classxb_1_1xbDate.html#a46e5e2ade84867cea89afd9eef3fb6c9">xb::xbDate::DayOf</a></div><div class="ttdeci">xbInt16 DayOf(xbInt16 iFormat=XB_FMT_MONTH) const</div><div class="ttdoc">DayOf This routine returns the numeric day for the given date object.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a5f8051c31b29244265e8f26ac3547b9b"><div class="ttname"><a href="classxb_1_1xbDate.html#a5f8051c31b29244265e8f26ac3547b9b">xb::xbDate::IsLeapYear</a></div><div class="ttdeci">xbBool IsLeapYear() const</div><div class="ttdoc">Determine if date object is a leap year.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a611a64b14ff89ad3c20b34081ea1e658"><div class="ttname"><a href="classxb_1_1xbDate.html#a611a64b14ff89ad3c20b34081ea1e658">xb::xbDate::IsNull</a></div><div class="ttdeci">xbBool IsNull() const</div><div class="ttdoc">Determine if date object is null.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a6dc692d8e0e302aa9c10801127368bbd"><div class="ttname"><a href="classxb_1_1xbDate.html#a6dc692d8e0e302aa9c10801127368bbd">xb::xbDate::SetDefaultDateFormat</a></div><div class="ttdeci">void SetDefaultDateFormat(const xbString &amp;sDefaultDateFormat)</div><div class="ttdoc">Set the default date format for all dates.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a7549d4851b784e939394cadd26f83197"><div class="ttname"><a href="classxb_1_1xbDate.html#a7549d4851b784e939394cadd26f83197">xb::xbDate::operator&gt;=</a></div><div class="ttdeci">xbBool operator&gt;=(const xbDate &amp;dt) const</div><div class="ttdoc">operator &gt;= Compare two dates for greater than or equal.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a7b81cc74da25b2b36d7705eacb6ee20d"><div class="ttname"><a href="classxb_1_1xbDate.html#a7b81cc74da25b2b36d7705eacb6ee20d">xb::xbDate::operator--</a></div><div class="ttdeci">void operator--(xbInt32 lDays)</div><div class="ttdoc">operator – Subtracts one day from the date object if the date is not null.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a7ed92ad3c5e76923af73ffa7d92ff064"><div class="ttname"><a href="classxb_1_1xbDate.html#a7ed92ad3c5e76923af73ffa7d92ff064">xb::xbDate::operator&lt;=</a></div><div class="ttdeci">xbBool operator&lt;=(const xbDate &amp;dt) const</div><div class="ttdoc">operator &lt;= Compare two dates for less than or equal.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a7f08e372cef53cc984c473cbd8be6832"><div class="ttname"><a href="classxb_1_1xbDate.html#a7f08e372cef53cc984c473cbd8be6832">xb::xbDate::Set</a></div><div class="ttdeci">xbInt16 Set(const xbString &amp;sDateIn)</div><div class="ttdoc">Set the date object from sDateIn.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a8424e74e0047b393f1509a45ef1f022f"><div class="ttname"><a href="classxb_1_1xbDate.html#a8424e74e0047b393f1509a45ef1f022f">xb::xbDate::xbDate</a></div><div class="ttdeci">xbDate(xbInt16 iMonth, xbInt16 iDay, xbInt16 iYear)</div><div class="ttdoc">Constructor, Set to input month, day year.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a8dfb00ade511d5b86f3ae5cca9cca187"><div class="ttname"><a href="classxb_1_1xbDate.html#a8dfb00ade511d5b86f3ae5cca9cca187">xb::xbDate::GetDefaultDateFormat</a></div><div class="ttdeci">xbString &amp; GetDefaultDateFormat() const</div><div class="ttdoc">Get the default date format for all dates.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a8ff19085558544b61b5cb5aac4d94319"><div class="ttname"><a href="classxb_1_1xbDate.html#a8ff19085558544b61b5cb5aac4d94319">xb::xbDate::CalcRollingCenturyForYear</a></div><div class="ttdeci">xbInt16 CalcRollingCenturyForYear(xbInt16 iYear) const</div><div class="ttdoc">Calculate century for a given year. Calculate a century for a given year using an 80/20 rolling date ...</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a90d725c45e2335fc5bf0d5e5ef6ea697"><div class="ttname"><a href="classxb_1_1xbDate.html#a90d725c45e2335fc5bf0d5e5ef6ea697">xb::xbDate::operator+=</a></div><div class="ttdeci">void operator+=(xbInt32 lDays)</div><div class="ttdoc">operator += Add lDays to the date object if the date is not null.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a96500db703bb52080586f5ff257420c7"><div class="ttname"><a href="classxb_1_1xbDate.html#a96500db703bb52080586f5ff257420c7">xb::xbDate::Set</a></div><div class="ttdeci">xbInt16 Set(xbInt16 iMonth, xbInt16 iDay, xbInt16 iYear)</div><div class="ttdoc">Set the date object from input month day and year.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a9aa6ce2da6fb4e39befe0ed6a6a07a45"><div class="ttname"><a href="classxb_1_1xbDate.html#a9aa6ce2da6fb4e39befe0ed6a6a07a45">xb::xbDate::Sysdate</a></div><div class="ttdeci">void Sysdate()</div><div class="ttdoc">Set the date equal to the system date.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_a9fc29730b66cddfbb58c69992a99cc7c"><div class="ttname"><a href="classxb_1_1xbDate.html#a9fc29730b66cddfbb58c69992a99cc7c">xb::xbDate::CharDayOf</a></div><div class="ttdeci">xbInt16 CharDayOf(xbString &amp;sOutCharDay)</div><div class="ttdoc">Get the day of the week for date object.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_aadf98ccf39a72e88c945d88916ed1bac"><div class="ttname"><a href="classxb_1_1xbDate.html#aadf98ccf39a72e88c945d88916ed1bac">xb::xbDate::operator-</a></div><div class="ttdeci">const char * operator-(xbInt32 lCount)</div><div class="ttdoc">operator - Subtract lCount days from a date object.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_ab3150e7db0ab5db10a07d748b55465eb"><div class="ttname"><a href="classxb_1_1xbDate.html#ab3150e7db0ab5db10a07d748b55465eb">xb::xbDate::xbDate</a></div><div class="ttdeci">xbDate()</div><div class="ttdoc">Constructor, set to null date.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_ab43a5d8d929767c0ffdd722972bb8cc0"><div class="ttname"><a href="classxb_1_1xbDate.html#ab43a5d8d929767c0ffdd722972bb8cc0">xb::xbDate::Str</a></div><div class="ttdeci">const char * Str() const</div><div class="ttdoc">Return the date value.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_ab5ae306941bc30329c59f10df95b9bc0"><div class="ttname"><a href="classxb_1_1xbDate.html#ab5ae306941bc30329c59f10df95b9bc0">xb::xbDate::operator-=</a></div><div class="ttdeci">void operator-=(xbInt32 lDays)</div><div class="ttdoc">operator -= Subtract lDays from the date object if the date is not null.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_abb1eb4b0394e4a67aadab15779b1b8c5"><div class="ttname"><a href="classxb_1_1xbDate.html#abb1eb4b0394e4a67aadab15779b1b8c5">xb::xbDate::CTOD</a></div><div class="ttdeci">xbInt16 CTOD(const xbString &amp;sCtodInDate)</div><div class="ttdoc">Format MM/DD/YY date This routine takes an MM/DD/YY format date as input and populates a date class w...</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_acc0aaf136fd655a2aded243bd0ba88a7"><div class="ttname"><a href="classxb_1_1xbDate.html#acc0aaf136fd655a2aded243bd0ba88a7">xb::xbDate::xbDate</a></div><div class="ttdeci">xbDate(const xbDate &amp;dtDate)</div><div class="ttdoc">Constructor, set to input date.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_acecb46afdb072c6b8a1f79286bdfb6ac"><div class="ttname"><a href="classxb_1_1xbDate.html#acecb46afdb072c6b8a1f79286bdfb6ac">xb::xbDate::Dump</a></div><div class="ttdeci">void Dump(const char *sTitle)</div><div class="ttdoc">Dump date information to stdout.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_ad58c7963abc6f0da693cca0fc9e89f2a"><div class="ttname"><a href="classxb_1_1xbDate.html#ad58c7963abc6f0da693cca0fc9e89f2a">xb::xbDate::DumpDateTables</a></div><div class="ttdeci">void DumpDateTables()</div><div class="ttdoc">Dump the date tables. This dumps the internal date structures to stdout.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_ae72538343019d5bf97ee7507a34e6cfd"><div class="ttname"><a href="classxb_1_1xbDate.html#ae72538343019d5bf97ee7507a34e6cfd">xb::xbDate::xbDate</a></div><div class="ttdeci">xbDate(xbInt32 lDateOpt)</div><div class="ttdoc">Constructor, set to input date.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_aefc91f2a7e125a02a4fd2d88356f9397"><div class="ttname"><a href="classxb_1_1xbDate.html#aefc91f2a7e125a02a4fd2d88356f9397">xb::xbDate::operator-</a></div><div class="ttdeci">xbInt32 operator-(const xbDate &amp;dt) const</div><div class="ttdoc">operator - Subtract one date from another date returning the difference.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_af1e416f728ef07354c2f5dbe7c83c2b2"><div class="ttname"><a href="classxb_1_1xbDate.html#af1e416f728ef07354c2f5dbe7c83c2b2">xb::xbDate::operator==</a></div><div class="ttdeci">xbBool operator==(const xbDate &amp;dt) const</div><div class="ttdoc">operator == Compare two dates for equality.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_af2bd33a72448e2c5ee00d8b711dc5d95"><div class="ttname"><a href="classxb_1_1xbDate.html#af2bd33a72448e2c5ee00d8b711dc5d95">xb::xbDate::IsLeapYear</a></div><div class="ttdeci">xbBool IsLeapYear(xbInt16 iYear) const</div><div class="ttdoc">Determine if input year is a leap year.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_afb2b1a268f3e028c44c09d2541deb52a"><div class="ttname"><a href="classxb_1_1xbDate.html#afb2b1a268f3e028c44c09d2541deb52a">xb::xbDate::FormatDate</a></div><div class="ttdeci">xbInt16 FormatDate(const xbString &amp;sFormatIn, xbString &amp;sOutFormattedDate)</div><div class="ttdoc">Create a formatted date based on the format specifiers entered in sFormatIn. If no input format is sp...</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_afd52f9967bce3b5d159b3b4c5c2bd670"><div class="ttname"><a href="classxb_1_1xbDate.html#afd52f9967bce3b5d159b3b4c5c2bd670">xb::xbDate::DateIsValid</a></div><div class="ttdeci">xbBool DateIsValid(const xbString &amp;sDate8In) const</div><div class="ttdoc">Check an input date in CCYYMMDD format for valid data.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_afefdf9de78590e8a43371a0556cae8bb"><div class="ttname"><a href="classxb_1_1xbDate.html#afefdf9de78590e8a43371a0556cae8bb">xb::xbDate::operator=</a></div><div class="ttdeci">void operator=(const xbDate &amp;dt)</div><div class="ttdoc">Set operator=.</div></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html_afffc84f02bd421335ff8ebe9fb3db0ac"><div class="ttname"><a href="classxb_1_1xbDate.html#afffc84f02bd421335ff8ebe9fb3db0ac">xb::xbDate::CharMonthOf</a></div><div class="ttdeci">xbInt16 CharMonthOf(xbString &amp;sOutCharMonth)</div><div class="ttdoc">Get the month from date object.</div></div>
+<div class="ttc" id="aclassxb_1_1xbString_html"><div class="ttname"><a href="classxb_1_1xbString.html">xb::xbString</a></div><div class="ttdef"><b>Definition:</b> xbstring.h:46</div></div>
+<div class="ttc" id="anamespacexb_html"><div class="ttname"><a href="namespacexb.html">xb</a></div><div class="ttdef"><b>Definition:</b> xbbit.h:25</div></div>
 <div class="ttc" id="anamespacexb_html_ab1a750481dd487f0d384aa1d200dff0f"><div class="ttname"><a href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xb::xbBool</a></div><div class="ttdeci">short int xbBool</div><div class="ttdef"><b>Definition:</b> xbtypes.h:24</div></div>
 <div class="ttc" id="axbdate_8h_html_aeacf2f7cc897ab5bd64781c0fb52b75d"><div class="ttname"><a href="xbdate_8h.html#aeacf2f7cc897ab5bd64781c0fb52b75d">XB_FMT_MONTH</a></div><div class="ttdeci">#define XB_FMT_MONTH</div><div class="ttdef"><b>Definition:</b> xbdate.h:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li><li class="navelem"><a class="el" href="xbdate_8h.html">xbdate.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

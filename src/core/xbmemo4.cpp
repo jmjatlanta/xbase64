@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -23,32 +23,18 @@ Email Contact:
 namespace xb{
 
 /***********************************************************************/
-//! @brief Class Constructor.
-/*!
-  \param dbf Pointer to dbf instance.
-  \param sFileName Memo file name.
-*/
 xbMemoDbt4::xbMemoDbt4( xbDbf * dbf, xbString const & sFileName ) : xbMemo( dbf, sFileName ){
  iMemoFileType = 4;
  SetBlockSize( dbf->GetCreateMemoBlockSize() );
 }
-
 /***********************************************************************/
-//! @brief Class Deconstructor.
 xbMemoDbt4::~xbMemoDbt4(){}
-
 /***********************************************************************/
-//! @brief Abort.
-/*!
-  Abort any pending updates to the memo file.
-  \returns XB_NO_ERROR
-*/
 xbInt16 xbMemoDbt4::Abort(){
 
   xbInt16  rc = XB_NO_ERROR;
   xbInt16  iErrorStop = 0;
   xbUInt32 ulBlockNo;
-
   try{
     xbUInt32 ulNodeCnt = llNewBlocks.GetNodeCnt();
     for( xbUInt32 l = 0; l < ulNodeCnt; l++ ){
@@ -68,23 +54,16 @@ xbInt16 xbMemoDbt4::Abort(){
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::Abort() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
-
 /***********************************************************************/
-//! @brief Commit changes to memo file.
-/*!
-  Commit any pending updates to the memo file.
-  \returns XB_NO_ERROR.
-*/
 xbInt16 xbMemoDbt4::Commit(){
 
   xbInt16  rc = XB_NO_ERROR;
   xbInt16  iErrorStop = 0;
   xbUInt32 ulBlockNo;
-
   try{
     xbUInt32 ulNodeCnt = llOldBlocks.GetNodeCnt();
     for( xbUInt32 l = 0; l < ulNodeCnt; l++ ){
@@ -103,28 +82,21 @@ xbInt16 xbMemoDbt4::Commit(){
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::Commit() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
 /***********************************************************************/
-//! @brief Create memo file.
-/*!
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt4::CreateMemoFile(){
 
   xbInt16 iErrorStop = 0;
   xbInt16 rc = XB_NO_ERROR;
   char cBuf[4];
-
   try{
     if(( rc = xbFopen( "w+b", dbf->GetShareMode() )) != XB_NO_ERROR ){
       iErrorStop = 100;
       throw rc;
     }
-
     ulHdrNextBlock = 1L;
     ePutUInt32( cBuf, ulHdrNextBlock );
     if(( rc = xbFwrite( cBuf, 4, 1 ))!= XB_NO_ERROR ){
@@ -161,18 +133,13 @@ xbInt16 xbMemoDbt4::CreateMemoFile(){
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::CreateMemoFile() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
     xbFclose();
   }
   return rc;
 }
 /***********************************************************************/
 #ifdef XB_DEBUG_SUPPORT
-//! @brief Dump memo file header.
-/*!
-  \returns XB_NO_ERROR
-*/
-
 xbInt16 xbMemoDbt4::DumpMemoFreeChain() 
 {
   xbInt16 rc = XB_NO_ERROR;
@@ -188,12 +155,10 @@ xbInt16 xbMemoDbt4::DumpMemoFreeChain()
       iErrorStop = 110;
       throw rc;
     }
-
     ulCurBlock = ulHdrNextBlock;
     std::cout << "**********************************" << std::endl;
     std::cout << "Head Node Next Block = " << ulCurBlock      << std::endl;;
     std::cout << "Total blocks in file = " << ulLastDataBlock << std::endl;
-
     while( ulCurBlock < ulLastDataBlock ){
       if(( rc = ReadBlockHeader( ulCurBlock, 2 )) != XB_NO_ERROR ){
         iErrorStop = 120;
@@ -209,31 +174,23 @@ xbInt16 xbMemoDbt4::DumpMemoFreeChain()
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::UpdateMemoField() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return XB_NO_ERROR;
 }
-
-//! @brief Dump memo internals.
-/*!
-  \returns XB_NO_ERROR
-*/
 
 xbInt16 xbMemoDbt4::DumpMemoInternals() {
 
   xbLinkListNode<xbUInt32> *llPtr;
   xbInt16 iNodeCnt;
-
   llPtr    = llOldBlocks.GetHeadNode();
   iNodeCnt = llOldBlocks.GetNodeCnt();
-
   std::cout << "Link List Old Blocks - " << iNodeCnt << " nodes" << std::endl;
   for( xbInt16 i = 0; i < iNodeCnt; i++ ){
     std::cout << llPtr->GetKey() << ",";
     llPtr = llPtr->GetNextNode();
   }
   std::cout << std::endl;
-
   llPtr    = llNewBlocks.GetHeadNode();
   iNodeCnt = llNewBlocks.GetNodeCnt();
   std::cout << "Link List New Blocks - " << iNodeCnt << " nodes" << std::endl;
@@ -242,16 +199,11 @@ xbInt16 xbMemoDbt4::DumpMemoInternals() {
     llPtr = llPtr->GetNextNode();
   }
   std::cout << std::endl;
-
   return XB_NO_ERROR;
 }
 #endif  // XB_DEBUG_SUPPORT
 
 /***********************************************************************/
-//! @brief Dump memo file header.
-/*!
-  \returns XB_NO_ERROR
-*/
 xbInt16 xbMemoDbt4::DumpMemoHeader(){
 
   xbInt16  rc = XB_NO_ERROR;
@@ -270,21 +222,6 @@ xbInt16 xbMemoDbt4::DumpMemoHeader(){
 }
 
 /************************************************************************/
-//! @brief Find an empty set of blocks in the free block chain
-/*!
-  This routine searches thruugh the free node chain in a dbase IV type   
-  memo file searching for a place to grab some free blocks for reuse 
-
-  \param ulBlocksNeeded The size to look in the chain for.
-  \param ulLastDataBlock is the last data block in the file, enter 0
-                    for the routine to calculate it.
-  \param ulLocation The location it finds.
-  \param ulPreviousNode Block number of the node immediately previous to this node in the chain.<br>
-                        0 if header node
-  \param bFound Output xbFalse - Spot not found in chain.<br>
-                       xbTrue - Spot found in chain.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbMemoDbt4::FindBlockSetInChain( xbUInt32 ulBlocksNeeded,
     xbUInt32 &ulLastDataBlock, xbUInt32 &ulLocation, xbUInt32 &ulPrevNode, xbBool &bFound ){
   xbInt16  rc = XB_NO_ERROR;
@@ -331,28 +268,16 @@ xbInt16 xbMemoDbt4::FindBlockSetInChain( xbUInt32 ulBlocksNeeded,
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::FindBlockSetInChain() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
 /***********************************************************************/
-//! @brief Free a block.
-/*!
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt4::FreeMemoBlockChain( xbUInt32 ulBlockNo ){
   xbUInt32 ulLastDataBlock;
   return FreeMemoBlockChain( ulBlockNo, ulLastDataBlock );
 }
-
 /***********************************************************************/
-//! @brief Free a block.
-/*!
-  \param ulBlockNo The block number being deleted.
-  \param ulLastDataBlock Output - Last free block number,prior to this block.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbMemoDbt4::FreeMemoBlockChain( xbUInt32 ulBlockNo, xbUInt32 &ulLastDataBlock )
 {
   xbInt16 rc = XB_NO_ERROR;
@@ -378,13 +303,11 @@ xbInt16 xbMemoDbt4::FreeMemoBlockChain( xbUInt32 ulBlockNo, xbUInt32 &ulLastData
       rc =XB_INVALID_BLOCK_NO;
       throw rc;
     }
-
     /* Load the first block */
     if(( rc = ReadBlockHeader( ulBlockNo, 1 )) != XB_NO_ERROR ){
       iErrorStop = 110;
       throw rc;
     }
-
     if( (ulFieldLen) % GetBlockSize() )
       ulNoOfFreedBlocks = ((ulFieldLen) / GetBlockSize()) + 1L;
     else
@@ -395,17 +318,14 @@ xbInt16 xbMemoDbt4::FreeMemoBlockChain( xbUInt32 ulBlockNo, xbUInt32 &ulLastData
       iErrorStop = 120;
       throw rc;
     }
-
     if(( rc = ReadDbtHeader( 0 )) != XB_NO_ERROR ){
       iErrorStop = 130;
       throw rc;
     }
-
     // Not an empty node chain, position to correct location in chain
     ulNextFreeBlock = ulHdrNextBlock;
     while( ulBlockNo > ulNextFreeBlock && ulBlockNo < ulLastDataBlock ){
       ulLastFreeBlock = ulNextFreeBlock;
-
       if(( rc = ReadBlockHeader( ulNextFreeBlock, 2 )) != XB_NO_ERROR ){
         iErrorStop = 140;
         return rc;
@@ -417,7 +337,6 @@ xbInt16 xbMemoDbt4::FreeMemoBlockChain( xbUInt32 ulBlockNo, xbUInt32 &ulLastData
     //  A)  This block is combined with the next free block chain, and points to the free chain after the next free block
     //  B)  This block is not combined with the next free block chain, and points to the next block 
     //      (which could be the last block
-
     // should next block should be concatonated onto the end of this set?
     ulSaveNextFreeBlock = ulNextFreeBlock;
     if(( ulBlockNo + ulNoOfFreedBlocks ) == ulNextFreeBlock && ulNextFreeBlock < ulLastDataBlock ){
@@ -497,22 +416,11 @@ xbInt16 xbMemoDbt4::FreeMemoBlockChain( xbUInt32 ulBlockNo, xbUInt32 &ulLastData
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::DeleteMemoField() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
 /************************************************************************/
-//! @brief Get a set of blocks from the free block chain.
-/*!
-   This routine grabs a set of blocks out of the free block chain.
-
-  \param ulBlocksNeeded The number of blocks requested.
-  \param ulLocation
-  \param ulPrevNode
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
-
 xbInt16 xbMemoDbt4::GetBlockSetFromChain( xbUInt32 ulBlocksNeeded,
    xbUInt32 ulLocation, xbUInt32 ulPrevNode )
 {
@@ -589,18 +497,11 @@ xbInt16 xbMemoDbt4::GetBlockSetFromChain( xbUInt32 ulBlocksNeeded,
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::GetBlockSetFromChain() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
 /***********************************************************************/
-//! @brief Get a memo field for a given field number.
-/*!
-  \param iFieldNo Field number to retrieve data for.
-  \param sMemoData Output - string containing memo field data.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt4::GetMemoField( xbInt16 iFieldNo, xbString & sMemoData ){
 
   xbUInt32 ulBlockNo;
@@ -657,42 +558,24 @@ xbInt16 xbMemoDbt4::GetMemoField( xbInt16 iFieldNo, xbString & sMemoData ){
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::GetMemoField() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
     if( p )
       free( p );
   }
   return rc;
 }
-
 /***********************************************************************/
-//! @brief Get a memo field length for a given field number.
-/*!
-  \param iFieldNo Field number to retrieve data for.
-  \param ulMemoFieldLen Output - length of memo field data.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbMemoDbt4::GetMemoFieldLen( xbInt16 iFieldNo, xbUInt32 &ulMemoFieldLen ){
   xbUInt32 ulBlockNo;
   return GetMemoFieldLen( iFieldNo, ulMemoFieldLen, ulBlockNo );
 }
-
 /***********************************************************************/
-//! @brief Get a memo field length for a given field number.
-/*!
-  \param iFieldNo Field number to retrieve data for.
-  \param ulMemoFieldLen Output - length of memo field data.
-  \param ulBlockNo Output - Starting block number.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt4::GetMemoFieldLen( xbInt16 iFieldNo, xbUInt32 &ulMemoFieldLen, xbUInt32 &ulBlockNo ){
 
   xbInt16 rc = XB_NO_ERROR;
   xbInt16 iErrorStop = 0;
   char    cFieldType;
-
   try{
-
     if(( rc = dbf->GetFieldType( iFieldNo, cFieldType )) != XB_NO_ERROR ){
       iErrorStop = 100;
       throw rc;
@@ -720,21 +603,15 @@ xbInt16 xbMemoDbt4::GetMemoFieldLen( xbInt16 iFieldNo, xbUInt32 &ulMemoFieldLen,
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::GetMemoFieldLen() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
 /***********************************************************************/
-//! @brief Open memo file.
-/*!
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt4::OpenMemoFile() {
 
   xbInt16 iErrorStop = 0;
   xbInt16 rc = XB_NO_ERROR;
-
   try{
     if(( rc = xbFopen( dbf->GetOpenMode(), dbf->GetShareMode())) != XB_NO_ERROR ){
       iErrorStop = 100;
@@ -755,19 +632,11 @@ xbInt16 xbMemoDbt4::OpenMemoFile() {
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::OpenMemoFile() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
 /***********************************************************************/
-//! @brief Pack memo file.
-/*!
-  This routine frees up any unused blocks in the file resulting from field updates.
-  Version 3 memo files do not reclaim unused space (Version 4 files do).
-  This routine cleans up the unused space.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt4::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUInt32 ulNumItems )){
   xbInt16 iRc = 0;
   xbInt16 iErrorStop = 0;
@@ -780,7 +649,8 @@ xbInt16 xbMemoDbt4::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUI
 
   try{
     #ifdef XB_LOCKING_SUPPORT
-    if( dbf->GetAutoLock() && !dbf->GetTableLocked() ){
+    //if( dbf->GetAutoLock() && !dbf->GetTableLocked() ){
+    if( dbf->GetMultiUser() && !dbf->GetTableLocked() ){
       if(( iRc = dbf->LockTable( XB_LOCK )) != XB_NO_ERROR ){
         iErrorStop = 100;
         throw iRc;
@@ -799,7 +669,7 @@ xbInt16 xbMemoDbt4::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUI
     // create temp file
     xbString sTempMemoName;
     //if(( iRc = CreateUniqueFileName( GetDirectory(), "dbt", sTempMemoName )) != XB_NO_ERROR ){
-    if(( iRc = CreateUniqueFileName( GetTempDirectory(), "DBT", sTempMemoName )) != XB_NO_ERROR ){
+    if(( iRc = CreateUniqueFileName( xbase->GetTempDirectory(), "DBT", sTempMemoName )) != XB_NO_ERROR ){
       iErrorStop = 120;
       throw iRc;
     }
@@ -809,7 +679,7 @@ xbInt16 xbMemoDbt4::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUI
       iErrorStop = 130;
       throw iRc;
     }
-    // for dbase III, block size is always 512, don't need to reset it
+    // for dBASE III, block size is always 512, don't need to reset it
     // for each record in dbf
     xbUInt32 ulRecCnt;
     if(( iRc = dbf->GetRecordCnt( ulRecCnt)) != XB_NO_ERROR ){
@@ -849,7 +719,6 @@ xbInt16 xbMemoDbt4::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUI
         }
       }
     }
-
     //copy target back to source
     xbUInt32 ulBlkSize = GetBlockSize();
     xbUInt64 ullFileSize;
@@ -870,7 +739,6 @@ xbInt16 xbMemoDbt4::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUI
       iErrorStop = 210;
       throw iRc;
     }
-
     if(( cBlock = (char *) malloc( ulBlkSize )) == NULL ){
       iErrorStop = 220;
       throw iRc;
@@ -918,7 +786,7 @@ xbInt16 xbMemoDbt4::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUI
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::PackMemo() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   #ifdef XB_LOCKING_SUPPORT
    if( bTableLocked )
@@ -929,21 +797,11 @@ xbInt16 xbMemoDbt4::PackMemo( void (*memoStatusFunc ) ( xbUInt32 ulItemNum, xbUI
   return iRc;
 }
 /***********************************************************************/
-//! @brief Read block header.
-/*!
-  \param ulBlockNo Block to read
-  \param iOption 1 - Read fields option 1
-                 2 - Read fields option 2
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt4::ReadBlockHeader( xbUInt32 ulBlockNo, xbInt16 iOption ) {
 
   xbInt16 rc = XB_NO_ERROR;
   xbInt16 iErrorStop = 0;
-
   try{
-
     if(( rc = ReadBlock( ulBlockNo, 8, mbb )) != XB_NO_ERROR ){
       iErrorStop = 100;
       rc = XB_READ_ERROR;
@@ -967,18 +825,11 @@ xbInt16 xbMemoDbt4::ReadBlockHeader( xbUInt32 ulBlockNo, xbInt16 iOption ) {
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::ReadBlockHeader() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
 /***********************************************************************/
-//! @brief Read dbt header file.
-/*!
-  \param iOption 0  -->  read only first four bytes<br>
-                 1  -->  read the entire thing
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt4::ReadDbtHeader( xbInt16 iOption ) {
 
   xbInt16 iErrorStop = 0;
@@ -986,7 +837,6 @@ xbInt16 xbMemoDbt4::ReadDbtHeader( xbInt16 iOption ) {
   xbInt16 iReadLen = 0;
   char    *p;
   char    MemoBlock[22];
-
   try{
     if( !FileIsOpen() ){
       iErrorStop = 100;
@@ -1002,51 +852,35 @@ xbInt16 xbMemoDbt4::ReadDbtHeader( xbInt16 iOption ) {
       iReadLen = 22;
     else
       iReadLen = 4;
-
     if(( xbFread( &MemoBlock, (size_t) iReadLen, 1 )) != XB_NO_ERROR ){
       iErrorStop = 120;
       rc = XB_READ_ERROR;
       throw rc;
     }
-
     p = MemoBlock;
     ulHdrNextBlock = eGetUInt32( p );
     if( iOption == 0)
       return XB_NO_ERROR;
-
     p += 8;
     sDbfFileNameWoExt = "";
     for( int i = 0; i < 8; i++ )
       sDbfFileNameWoExt += *p++;
-
     p += 4;
     SetBlockSize( (xbUInt32) eGetInt16( p ));
-
     cVersion = MemoBlock[16];
-
   }
   catch (xbInt16 rc ){
 
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::ReadDbtHeader() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
 
 /***********************************************************************/
 #ifdef XB_DEBUG_SUPPORT
-//! @brief Read free block information from header.
-/*!
-  This routing pulls any reusable block information for file header.
-  Not used with version 3 memo files - stub.
-
-  \param ulBlockNo
-  \param ulNextBlock
-  \param ulFreeBlockCnt
-  \returns XB_NO_ERROR
-*/
 xbInt16 xbMemoDbt4::ReadFreeBlockHeader( xbUInt32 ulBlockNo, xbUInt32 &ulNextBlock, xbUInt32 &ulFreeBlockCount ){
 
   xbInt16 rc = XB_NO_ERROR;
@@ -1057,19 +891,13 @@ xbInt16 xbMemoDbt4::ReadFreeBlockHeader( xbUInt32 ulBlockNo, xbUInt32 &ulNextBlo
 }
 #endif
 /***********************************************************************/
-//! @brief Update header name.
-/*!
-  \returns XB_NO_ERROR
-*/
 xbInt16 xbMemoDbt4::UpdateHeaderName() {
 
   xbInt16 rc = XB_NO_ERROR;
   xbInt16 iErrorStop = 0;
-
   GetFileNamePart( sDbfFileNameWoExt );
   sDbfFileNameWoExt.PadRight( ' ', 8 );                  // need at least eight bytes of name
   sDbfFileNameWoExt = sDbfFileNameWoExt.Mid( 1, 8 );     // need no more than eight bytes of name
-
   try{
     if(( rc = xbFseek( 8, SEEK_SET )) != XB_NO_ERROR ){
       iErrorStop = 100;
@@ -1087,41 +915,35 @@ xbInt16 xbMemoDbt4::UpdateHeaderName() {
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::UpdateHeaderName() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
 /***********************************************************************/
-//! @brief Update a memo field length for a given field number.
-/*!
-  \param iFieldNo Field number to update data for.
-  \param sMemoData Data to update memo field data with.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt4::UpdateMemoField( xbInt16 iFieldNo, const xbString & sMemoData ) {
 
   xbInt16  iErrorStop = 0;
   xbInt16  rc = XB_NO_ERROR;
   xbUInt32 ulBlockNo;
-
   try{
-
     if(( rc = dbf->GetULongField( iFieldNo, ulBlockNo )) < XB_NO_ERROR ){
       iErrorStop = 100;
       throw rc;
     }
-
     if( sMemoData == "" ){
       if( ulBlockNo == 0 ){
         /* if nothing to do, return */
         return XB_NO_ERROR;
       } else {
-
         // if this is in the new blocks link list already, then this is not the first update for this memo field
         // this would be second or third update on the field since the original change and not commited
         // Since it won't be needed in either a Commmit() or Abort(), can be freed immediately
-        if( llNewBlocks.SearchFor( ulBlockNo ) > 0 ){
+
+        //std::cout << "cp1 ulBlockNo = " << ulBlockNo << " rc = " << llNewBlocks.SearchFor( ulBlockNo ) << "\n";
+        if( llNewBlocks.SearchFor( ulBlockNo ) == XB_NO_ERROR ){
+
+        // if( llNewBlocks.SearchFor( ulBlockNo ) > 0 ){
+
           if(( rc = FreeMemoBlockChain( ulBlockNo )) != XB_NO_ERROR ){
             iErrorStop = 110;
             throw rc;
@@ -1147,7 +969,10 @@ xbInt16 xbMemoDbt4::UpdateMemoField( xbInt16 iFieldNo, const xbString & sMemoDat
       xbUInt32 ulLastDataBlock = 0L;
 
       if( ulBlockNo > 0 ){
-        if( llNewBlocks.SearchFor( ulBlockNo ) > 0 ){
+
+        // std::cout << "cp2 ulBlockNo = " << ulBlockNo << " rc = " << llNewBlocks.SearchFor( ulBlockNo ) << "\n";
+        // if( llNewBlocks.SearchFor( ulBlockNo ) > 0 ){
+        if( llNewBlocks.SearchFor( ulBlockNo ) == XB_NO_ERROR ){
 
           if(( rc = FreeMemoBlockChain( ulBlockNo, ulLastDataBlock )) != XB_NO_ERROR ){
             iErrorStop = 150;
@@ -1247,24 +1072,15 @@ xbInt16 xbMemoDbt4::UpdateMemoField( xbInt16 iFieldNo, const xbString & sMemoDat
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::UpdateMemoField() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
 /***********************************************************************/
-//! @brief Write block header.
-/*!  
-  \param ulBlockNo Block to read
-  \param iOption 1 - Read fields option 1
-                 2 - Read fields option 2
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbMemoDbt4::WriteBlockHeader( xbUInt32 ulBlockNo, xbInt16 iOption ) {
 
   xbInt16 rc = XB_NO_ERROR;
   xbInt16 iErrorStop = 0;
-
   try{
     if( iOption == 1 ){
       ePutInt16 ((char *) mbb,   iField1 );
@@ -1280,7 +1096,6 @@ xbInt16 xbMemoDbt4::WriteBlockHeader( xbUInt32 ulBlockNo, xbInt16 iOption ) {
       rc = XB_INVALID_OPTION;
       throw rc;
     }
-
     if(( rc = WriteBlock( ulBlockNo, 8, mbb )) != XB_NO_ERROR ){
       iErrorStop = 110;
       rc = XB_READ_ERROR;
@@ -1290,15 +1105,11 @@ xbInt16 xbMemoDbt4::WriteBlockHeader( xbUInt32 ulBlockNo, xbInt16 iOption ) {
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::WriteHeader() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, rc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( rc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( rc ));
   }
   return rc;
 }
 /***********************************************************************/
-//! @brief Empty the memo file.
-/*!
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbMemoDbt4::Zap(){
 
   xbInt16 iRc = 0;
@@ -1307,7 +1118,6 @@ xbInt16 xbMemoDbt4::Zap(){
   try{
     ulHdrNextBlock = 1L;
     ePutUInt32( cBuf, ulHdrNextBlock );
-
     if(( iRc != xbFseek( 0, SEEK_SET )) != XB_NO_ERROR ){
       iErrorStop = 100;
       throw iRc;
@@ -1321,12 +1131,11 @@ xbInt16 xbMemoDbt4::Zap(){
       throw iRc;
     }
   }
-
   catch (xbInt16 iRc ){
     xbString sMsg;
     sMsg.Sprintf( "xbMemoDbt4::Zap() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }/***********************************************************************/

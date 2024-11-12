@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -85,7 +85,7 @@ xbInt16 xbStmt::ExecuteQuery( const xbString &sCmdLine ){
     xbString sMsg;
     sMsg.Sprintf( "xbStmt::ExecuteQuery() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
 
   return iRc;

@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -38,7 +38,7 @@ xbInt16 xbSql::SqlInsert( const xbString &sCmdLine ){
   xbString sFieldData;
 
   // queue the memo data to post after the append occurs
-  // dbase does not support usage of memo fields with insert commands
+  // dBASE does not support usage of memo fields with insert commands
   xbLinkList <xbInt16>  llMemoFieldNos;
   xbLinkList <xbString> llMemoFieldData;
 
@@ -51,7 +51,8 @@ xbInt16 xbSql::SqlInsert( const xbString &sCmdLine ){
     dbf = xbase->GetDbfPtr( sTableName );
 
     if( !dbf ){
-      if(( iRc = xbase->OpenHighestVersion( sTableName, "", &dbf )) != XB_NO_ERROR ){
+      //if(( iRc = xbase->OpenHighestVersion( sTableName, "", &dbf )) != XB_NO_ERROR ){
+      if(( iRc = xbase->Open( sTableName, "", &dbf )) != XB_NO_ERROR ){
         iErrorStop = 100;
         throw iRc;
       }
@@ -176,7 +177,7 @@ xbInt16 xbSql::SqlInsert( const xbString &sCmdLine ){
     xbase->WriteLogMessage( sCmdLine );
     sMsg.Sprintf( "xbSql::SqlInsert() Exception Caught. Error Stop = [%d] rc = [%d] table = [%s] field = [%s] data = [%s]", iErrorStop, iRc, sTableName.Str(), sFieldName.Str(), sFieldData.Str() );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
     if( dbf )
       dbf->Abort();
   }

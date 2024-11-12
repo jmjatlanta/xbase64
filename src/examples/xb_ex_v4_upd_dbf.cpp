@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -37,6 +37,10 @@ int main()
   xbInt16 iRc = 0;
   xbInt16 iErrorStop = 0;
 
+  #ifdef XB_MEMO_SUPPORT
+  xbString sMemoData = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  #endif
+
   try{
 
     if(( iRc = MyTable->Open( "Address.DBF" )) != XB_NO_ERROR ){
@@ -54,8 +58,8 @@ int main()
     xbInt16 iFld_ZIPCD     = MyTable->GetFieldNo( "ZIPCD" );
     xbInt16 iFld_AMOUNT2   = MyTable->GetFieldNo( "AMOUNT2" );
 
-    #ifdef XB_MEMO_FIELDS
-    zbInt16 iFld_MEMO1     = MyTable->GetFieldNo( "MEMO1" );
+    #ifdef XB_MEMO_SUPPORT
+    xbInt16 iFld_MEMO1     = MyTable->GetFieldNo( "NOTES" );
     #endif
 
 
@@ -103,47 +107,54 @@ int main()
       throw iRc;
     }
 
+    #ifdef XB_MEMO_SUPPORT
+    if(( iRc = MyTable->UpdateMemoField( iFld_MEMO1, sMemoData )) != XB_NO_ERROR ){
+      iErrorStop = 180;
+      throw iRc;
+    }
+    #endif
+
     // Append the first record
     if(( iRc = MyTable->AppendRecord()) != XB_NO_ERROR ){
-      iErrorStop = 180;
+      iErrorStop = 190;
       throw iRc;
     }
 
     // Commit the updates
     if(( iRc = MyTable->Commit()) != XB_NO_ERROR ){
-      iErrorStop = 190;
+      iErrorStop = 200;
       throw iRc;
     }
 
     // Blank the record buffer
     if(( iRc = MyTable->BlankRecord()) != XB_NO_ERROR ){
-      iErrorStop = 200;
+      iErrorStop = 210;
       throw iRc;
     }
 
     // put field to the record buffer using field name (slightly less efficient than using field numbers) 
     if(( iRc = MyTable->PutField( "LASTNAME", "FUCKPUTIN" )) != XB_NO_ERROR ){
-      iErrorStop = 210;
-      throw iRc;
-    }
-
-    if(( iRc = MyTable->PutField( "FIRSTNAME", "ALBERT" )) != XB_NO_ERROR ){
       iErrorStop = 220;
       throw iRc;
     }
 
-    if(( iRc = MyTable->PutDoubleField( "AMOUNT1", (xbDouble) 987.55 )) != XB_NO_ERROR ){
+    if(( iRc = MyTable->PutField( "FIRSTNAME", "ALBERT" )) != XB_NO_ERROR ){
       iErrorStop = 230;
       throw iRc;
     }
 
-    if(( iRc = MyTable->PutLogicalField( "FRIEND?", "N" )) != XB_NO_ERROR ){
+    if(( iRc = MyTable->PutDoubleField( "AMOUNT1", (xbDouble) 987.55 )) != XB_NO_ERROR ){
       iErrorStop = 240;
       throw iRc;
     }
 
-    if(( iRc = MyTable->PutLongField( "ZIPCD", 44256 )) != XB_NO_ERROR ){
+    if(( iRc = MyTable->PutLogicalField( "FRIEND?", "N" )) != XB_NO_ERROR ){
       iErrorStop = 250;
+      throw iRc;
+    }
+
+    if(( iRc = MyTable->PutLongField( "ZIPCD", 44256 )) != XB_NO_ERROR ){
+      iErrorStop = 260;
       throw iRc;
     }
 
@@ -151,24 +162,33 @@ int main()
     std::cout << f << std::endl;
 
     if(( iRc = MyTable->PutFloatField( iFld_AMOUNT2, f )) != XB_NO_ERROR ){
-      iErrorStop = 260;
+      iErrorStop = 270;
       throw iRc;
     }
     xbDouble d = 76543.21;
     if(( iRc = MyTable->PutDoubleField( iFld_AMOUNT1, d )) != XB_NO_ERROR ){
-      iErrorStop = 270;
+      iErrorStop = 280;
       throw iRc;
     }
 
+    #ifdef XB_MEMO_SUPPORT
+    sMemoData += "more memo data";
+    if(( iRc = MyTable->UpdateMemoField( iFld_MEMO1, sMemoData )) != XB_NO_ERROR ){
+      iErrorStop = 290;
+      throw iRc;
+    }
+    #endif
+
+
     // Append the second record
     if(( iRc = MyTable->AppendRecord()) != XB_NO_ERROR ){
-      iErrorStop = 280;
+      iErrorStop = 300;
       throw iRc;
     }
 
     // Commit the updates
     if(( iRc = MyTable->Commit()) != XB_NO_ERROR ){
-      iErrorStop = 290;
+      iErrorStop = 310;
       throw iRc;
     }
 
@@ -176,98 +196,117 @@ int main()
     // get a field with a field number
     xbString FirstName;
     if(( iRc = MyTable->GetField( iFld_FIRSTNAME, FirstName )) < 0 ){
-      iErrorStop = 300;
+      iErrorStop = 400;
       throw iRc;
     }
     std::cout << "First Name is [" << FirstName.Str() << "]" << std::endl;
 
     xbString LastName;
     if(( iRc = MyTable->GetField( "LASTNAME", LastName )) < 0 ){
-      iErrorStop = 310;
+      iErrorStop = 410;
       throw iRc;
     }
     std::cout << "Last Name is [" << LastName.Str() << "]" << std::endl;
 
     xbInt16 iNoOfDecimals;
     if(( iRc = MyTable->GetFieldDecimal( "AMOUNT2", iNoOfDecimals )) != XB_NO_ERROR ){
-      iErrorStop = 320;
+      iErrorStop = 420;
       throw iRc;
     }
     std::cout << "There are " << iNoOfDecimals << " decimals in the AMOUNT field" << std::endl;
 
     xbString FieldName;
     if(( iRc = MyTable->GetFieldName( 4, FieldName )) != XB_NO_ERROR ){
-      iErrorStop = 330;
+      iErrorStop = 430;
       throw iRc;
     }
     std::cout << "Field #4 name is " << FieldName.Str() << std::endl;
 
     xbString sFriend;
     if(( iRc = MyTable->GetLogicalField( "FRIEND?", sFriend )) < 0 ){
-      iErrorStop = 340;
+      iErrorStop = 440;
       throw iRc;
     }
     std::cout << "Switch value = [" << sFriend.Str() << "]" << std::endl;
 
     xbInt32 lZip = 0;
     if(( iRc = MyTable->GetLongField( "ZIPCODE", lZip )) < 0  ){
-      iErrorStop = 350;
+      iErrorStop = 450;
       throw iRc;
     }
     std::cout << "Long value = [" << lZip << "]" << std::endl;
 
     if(( iRc = MyTable->GetFloatField( iFld_AMOUNT2, f )) < 0 ){
-      iErrorStop = 360;
+      iErrorStop = 460;
       throw iRc;
     }
     printf( "Field NUMFLD1 %8.2f\n", f );
 
 
     if(( iRc = MyTable->GetDoubleField( iFld_AMOUNT1, d )) < 0 ){
-      iErrorStop = 370;
+      iErrorStop = 470;
       throw iRc;
     }
     printf( "Field NUMFLD2 %8.2f\n", d );
 
+
+    #ifdef XB_MEMO_SUPPORT
+    sMemoData = "";
+    xbUInt32 ulFldLen;
+    if(( iRc = MyTable->GetMemoFieldLen( iFld_MEMO1, ulFldLen )) != XB_NO_ERROR ){
+      iErrorStop = 480;
+      throw iRc;
+    }
+    if(( iRc = MyTable->GetMemoField( iFld_MEMO1, sMemoData )) != XB_NO_ERROR ){
+      iErrorStop = 490;
+      throw iRc;
+    }
+    printf( "FIELD MEMO1 len [%d] data [%s]\n", ulFldLen, sMemoData.Str());
+
+    #endif
+
+
+
+
     // Initialize the record buffer in preparation for another record
     if(( iRc = MyTable->BlankRecord()) != XB_NO_ERROR ){
-      iErrorStop = 380;
+      iErrorStop = 480;
       throw iRc;
     }
 
     // Append another record (it will be blank)
     if(( iRc = MyTable->AppendRecord()) != XB_NO_ERROR ){
-      iErrorStop = 390;
+      iErrorStop = 490;
       throw iRc;
     };
 
     // mark current record for deletion 
     if(( iRc = MyTable->DeleteRecord()) != XB_NO_ERROR ){
-      iErrorStop = 400;
+      iErrorStop = 500;
       throw iRc;
     };
 
     // save current record
     if(( iRc = MyTable->PutRecord()) != XB_NO_ERROR ){
-      iErrorStop = 410;
+      iErrorStop = 510;
       throw iRc;
     }
 
     if(( iRc = MyTable->Commit()) != XB_NO_ERROR ){
-      iErrorStop = 420;
+      iErrorStop = 520;
       throw iRc;
     }
 
     // example code to loop through the table
-	xbUInt32 ulRecCnt;
-	if(( iRc = MyTable->GetRecordCnt( ulRecCnt )) != XB_NO_ERROR ){
-	  iErrorStop = 430;
-	  throw iRc;
-	}
-	
+    xbUInt32 ulRecCnt;
+    if(( iRc = MyTable->GetRecordCnt( ulRecCnt )) != XB_NO_ERROR ){
+      iErrorStop = 530;
+      throw iRc;
+    }
+
     for( xbUInt32 ul = 1; ul <= ulRecCnt; ul++ ){
       if(( iRc = MyTable->GetRecord( ul )) != XB_NO_ERROR ){
-        iErrorStop = 440;
+        iErrorStop = 540;
         throw iRc;
       }
       // do something with the record here
@@ -277,7 +316,7 @@ int main()
 
     /* Close database and associated indexes */
     if(( iRc = MyTable->Close())   != XB_NO_ERROR ){
-      iErrorStop = 450;
+      iErrorStop = 550;
       throw iRc;
     }
     delete MyTable;

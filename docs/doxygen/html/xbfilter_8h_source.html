@@ -5,10 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Xbase64: /mnt/1Tdata/xbase/xbase64-4.1.7/src/include/xbfilter.h Source File</title>
+<title>Xbase64: /mnt/1Tdata/xbase/xbase64-4.1.11/src/include/xbfilter.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -47,6 +51,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('xbfilter_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +82,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">xbfilter.h</div></div>
 </div><!--header-->
@@ -74,7 +90,7 @@ $(function() {
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"></span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">XBase64 Software Library</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">Copyright (c) 1997,2003,2014,2022 Gary A Kunkel</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">Copyright (c) 1997,2003,2014,2022,2024 Gary A Kunkel</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"></span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"></span> </div>
@@ -102,66 +118,128 @@ $(function() {
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacexb.html">xb</a>{</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">class </span>XBDLLEXPORT xbFilter {</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  xbFilter( <a class="code hl_variable" href="namespacexb.html#ab2eae4b4732466698a7fdd89d77ba53b">xbDbf</a> *dbf );</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  ~xbFilter();</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  xbInt16 Set( <span class="keyword">const</span> xbString &amp;sFilterExpression );</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">  #ifdef XB_INDEX_SUPPORT</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  xbInt16 Set( <span class="keyword">const</span> xbString &amp;sFilterExpression, xbIx *ix, <span class="keywordtype">void</span> *vpTag );</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  xbInt16 Set( <span class="keyword">const</span> xbString &amp;sFilterExpression, <span class="keyword">const</span> xbString &amp;sTagName );</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  xbInt16 SetIxTag( xbIx *ix, <span class="keywordtype">void</span> *vpTag );</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  xbInt16 SetIxTag( <span class="keyword">const</span> xbString &amp;sTagName );</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">  #endif </span><span class="comment">// XB_INDEX_SUPPORT</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classxb_1_1xbFilter.html">   47</a></span><span class="keyword">class </span>XBDLLEXPORT <a class="code hl_class" href="classxb_1_1xbFilter.html">xbFilter</a> {</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  xbInt16 GetFirstRecord( xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  xbInt16 GetNextRecord ( xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  xbInt16 GetPrevRecord ( xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  xbInt16 GetLastRecord ( xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="keywordtype">void</span>    SetLimit( xbInt32 ulLimit );</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  xbInt32 GetLimit() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="keywordtype">void</span>    ResetQryCnt();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  xbInt32 GetQryCnt() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">  #ifdef XB_INDEX_SUPPORT</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  xbInt16 Find( <span class="keyword">const</span> xbString &amp;sKey,  xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a>  );</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  xbInt16 Find( <span class="keyword">const</span> xbDate   &amp;dtKey, xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a>  );</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  xbInt16 Find( <span class="keyword">const</span> <a class="code hl_typedef" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> &amp;dKey,  xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a>  );</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  xbInt16 GetFirstRecordIx( xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  xbInt16 GetNextRecordIx ( xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  xbInt16 GetPrevRecordIx ( xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  xbInt16 GetLastRecordIx ( xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">  #endif  </span><span class="comment">// XB_INDEX_SUPPORT</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <a class="code hl_variable" href="namespacexb.html#ab2eae4b4732466698a7fdd89d77ba53b">xbDbf</a>    *dbf;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  xbExp    *exp;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classxb_1_1xbFilter.html#ae2a85df613e6052ff78aff091a5817e9">   55</a></span>  <a class="code hl_function" href="classxb_1_1xbFilter.html#ae2a85df613e6052ff78aff091a5817e9">xbFilter</a>( <a class="code hl_class" href="classxb_1_1xbDbf.html">xbDbf</a> *dbf );</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classxb_1_1xbFilter.html#a757854449ca6e92e6f9f518f54709f9b">   61</a></span>  <a class="code hl_function" href="classxb_1_1xbFilter.html#a757854449ca6e92e6f9f518f54709f9b">~xbFilter</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classxb_1_1xbFilter.html#a969097f341bcba654df2e11b0b8151fc">   70</a></span>  xbInt16 <a class="code hl_function" href="classxb_1_1xbFilter.html#a969097f341bcba654df2e11b0b8151fc">Set</a>( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sFilterExpression );</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  xbInt32  lLimit;           <span class="comment">// max number rows returned</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  xbInt32  lCurQryCnt;       <span class="comment">// current count of rows returned, neg# is moving from bottom to top</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                             <span class="comment">//                                 pos# is moving from top to bottom</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">  #ifdef XB_INDEX_SUPPORT</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">  #ifdef XB_INDEX_SUPPORT</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  xbIx     *pIx;             <span class="comment">// optional index tag</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <span class="keywordtype">void</span>     *vpTag;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">  #endif  </span><span class="comment">// XB_INDEX_SUPPORT</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>}        <span class="comment">/* namespace */</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#endif   </span><span class="comment">/* XB_FILTER_SUPPORT */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#endif   </span><span class="comment">/* __XBFILTER_H__ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="anamespacexb_html"><div class="ttname"><a href="namespacexb.html">xb</a></div><div class="ttdef"><b>Definition:</b> xbdate.cpp:19</div></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  xbInt16 Set( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sFilterExpression, xbIx *ix, <span class="keywordtype">void</span> *vpTag );</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  xbInt16 Set( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sFilterExpression, <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sTagName );</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  xbInt16 SetIxTag( xbIx *ix, <span class="keywordtype">void</span> *vpTag );</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  xbInt16 SetIxTag( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sTagName );</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">  #endif </span><span class="comment">// XB_INDEX_SUPPORT</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="classxb_1_1xbFilter.html#a5c3ec394980ee45c55569824e875b0df">  124</a></span>  xbInt16 <a class="code hl_function" href="classxb_1_1xbFilter.html#a5c3ec394980ee45c55569824e875b0df">GetFirstRecord</a>( xbInt16 iOption = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classxb_1_1xbFilter.html#aa3740d7761ca906566d269e1a78b7144">  135</a></span>  xbInt16 <a class="code hl_function" href="classxb_1_1xbFilter.html#aa3740d7761ca906566d269e1a78b7144">GetNextRecord</a> ( xbInt16 iOption = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classxb_1_1xbFilter.html#a7e44b7321c7ef5fec56ec6dd1e78e8c9">  146</a></span>  xbInt16 <a class="code hl_function" href="classxb_1_1xbFilter.html#a7e44b7321c7ef5fec56ec6dd1e78e8c9">GetPrevRecord</a> ( xbInt16 iOption = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="classxb_1_1xbFilter.html#a61f5c924a8f2c59a568474e1ccc6ead7">  156</a></span>  xbInt16 <a class="code hl_function" href="classxb_1_1xbFilter.html#a61f5c924a8f2c59a568474e1ccc6ead7">GetLastRecord</a> ( xbInt16 iOption = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="classxb_1_1xbFilter.html#aefe0256e6499a3e5c93fa4c476ae9d29">  165</a></span>  <span class="keywordtype">void</span>    <a class="code hl_function" href="classxb_1_1xbFilter.html#aefe0256e6499a3e5c93fa4c476ae9d29">SetLimit</a>( xbInt32 ulLimit );</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="classxb_1_1xbFilter.html#a182fcfc538cc31ec4aaa39fcc8c52b01">  172</a></span>  xbInt32 <a class="code hl_function" href="classxb_1_1xbFilter.html#a182fcfc538cc31ec4aaa39fcc8c52b01">GetLimit</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classxb_1_1xbFilter.html#a20d9bebba9cfa70b76601e03a07c210d">  178</a></span>  <span class="keywordtype">void</span>    <a class="code hl_function" href="classxb_1_1xbFilter.html#a20d9bebba9cfa70b76601e03a07c210d">ResetQryCnt</a>();</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classxb_1_1xbFilter.html#a03a95bdbd92847bdb64287bf12f960d5">  186</a></span>  xbInt32 <a class="code hl_function" href="classxb_1_1xbFilter.html#a03a95bdbd92847bdb64287bf12f960d5">GetQryCnt</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="preprocessor">  #ifdef XB_INDEX_SUPPORT</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>  xbInt16 Find( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbString.html">xbString</a> &amp;sKey,  xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a>  );</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>  xbInt16 Find( <span class="keyword">const</span> <a class="code hl_class" href="classxb_1_1xbDate.html">xbDate</a>   &amp;dtKey, xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a>  );</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>  xbInt16 Find( <span class="keyword">const</span> <a class="code hl_typedef" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> &amp;dKey,  xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a>  );</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>  xbInt16 GetFirstRecordIx( xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>  xbInt16 GetNextRecordIx ( xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>  xbInt16 GetPrevRecordIx ( xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>  xbInt16 GetLastRecordIx ( xbInt16 iOpt = <a class="code hl_define" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a> );</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="preprocessor">  #endif  </span><span class="comment">// XB_INDEX_SUPPORT</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>  <a class="code hl_class" href="classxb_1_1xbDbf.html">xbDbf</a>    *dbf;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>  <a class="code hl_class" href="classxb_1_1xbExp.html">xbExp</a>    *exp;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>  xbInt32  lLimit;           <span class="comment">// max number rows returned</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>  xbInt32  lCurQryCnt;       <span class="comment">// current count of rows returned, neg# is moving from bottom to top</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>                             <span class="comment">//                                 pos# is moving from top to bottom</span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="preprocessor">  #ifdef XB_INDEX_SUPPORT</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>  xbIx     *pIx;             <span class="comment">// optional index tag</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>  <span class="keywordtype">void</span>     *vpTag;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="preprocessor">  #endif  </span><span class="comment">// XB_INDEX_SUPPORT</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>};</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>}        <span class="comment">/* namespace */</span></div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="preprocessor">#endif   </span><span class="comment">/* XB_FILTER_SUPPORT */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="preprocessor">#endif   </span><span class="comment">/* __XBFILTER_H__ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aclassxb_1_1xbDate_html"><div class="ttname"><a href="classxb_1_1xbDate.html">xb::xbDate</a></div><div class="ttdoc">xbDate class.</div><div class="ttdef"><b>Definition:</b> xbdate.h:62</div></div>
+<div class="ttc" id="aclassxb_1_1xbDbf_html"><div class="ttname"><a href="classxb_1_1xbDbf.html">xb::xbDbf</a></div><div class="ttdoc">xbDbf is a base class for accessing and updating dbf files/tables. Classes xbDbf3 and xbDbf4 are deri...</div><div class="ttdef"><b>Definition:</b> xbdbf.h:140</div></div>
+<div class="ttc" id="aclassxb_1_1xbExp_html"><div class="ttname"><a href="classxb_1_1xbExp.html">xb::xbExp</a></div><div class="ttdoc">Class for handling expressions.</div><div class="ttdef"><b>Definition:</b> xbexp.h:135</div></div>
+<div class="ttc" id="aclassxb_1_1xbFilter_html"><div class="ttname"><a href="classxb_1_1xbFilter.html">xb::xbFilter</a></div><div class="ttdoc">xbFilter class.</div><div class="ttdef"><b>Definition:</b> xbfilter.h:47</div></div>
+<div class="ttc" id="aclassxb_1_1xbFilter_html_a03a95bdbd92847bdb64287bf12f960d5"><div class="ttname"><a href="classxb_1_1xbFilter.html#a03a95bdbd92847bdb64287bf12f960d5">xb::xbFilter::GetQryCnt</a></div><div class="ttdeci">xbInt32 GetQryCnt() const</div><div class="ttdoc">Get Query Count.</div></div>
+<div class="ttc" id="aclassxb_1_1xbFilter_html_a182fcfc538cc31ec4aaa39fcc8c52b01"><div class="ttname"><a href="classxb_1_1xbFilter.html#a182fcfc538cc31ec4aaa39fcc8c52b01">xb::xbFilter::GetLimit</a></div><div class="ttdeci">xbInt32 GetLimit() const</div><div class="ttdoc">Get current limit setting.</div></div>
+<div class="ttc" id="aclassxb_1_1xbFilter_html_a20d9bebba9cfa70b76601e03a07c210d"><div class="ttname"><a href="classxb_1_1xbFilter.html#a20d9bebba9cfa70b76601e03a07c210d">xb::xbFilter::ResetQryCnt</a></div><div class="ttdeci">void ResetQryCnt()</div><div class="ttdoc">Reset Query Count.</div></div>
+<div class="ttc" id="aclassxb_1_1xbFilter_html_a5c3ec394980ee45c55569824e875b0df"><div class="ttname"><a href="classxb_1_1xbFilter.html#a5c3ec394980ee45c55569824e875b0df">xb::xbFilter::GetFirstRecord</a></div><div class="ttdeci">xbInt16 GetFirstRecord(xbInt16 iOption=XB_ACTIVE_RECS)</div><div class="ttdoc">Get first record for filter.</div></div>
+<div class="ttc" id="aclassxb_1_1xbFilter_html_a61f5c924a8f2c59a568474e1ccc6ead7"><div class="ttname"><a href="classxb_1_1xbFilter.html#a61f5c924a8f2c59a568474e1ccc6ead7">xb::xbFilter::GetLastRecord</a></div><div class="ttdeci">xbInt16 GetLastRecord(xbInt16 iOption=XB_ACTIVE_RECS)</div><div class="ttdoc">Get last record for filter.</div></div>
+<div class="ttc" id="aclassxb_1_1xbFilter_html_a757854449ca6e92e6f9f518f54709f9b"><div class="ttname"><a href="classxb_1_1xbFilter.html#a757854449ca6e92e6f9f518f54709f9b">xb::xbFilter::~xbFilter</a></div><div class="ttdeci">~xbFilter()</div><div class="ttdoc">Destructor.</div></div>
+<div class="ttc" id="aclassxb_1_1xbFilter_html_a7e44b7321c7ef5fec56ec6dd1e78e8c9"><div class="ttname"><a href="classxb_1_1xbFilter.html#a7e44b7321c7ef5fec56ec6dd1e78e8c9">xb::xbFilter::GetPrevRecord</a></div><div class="ttdeci">xbInt16 GetPrevRecord(xbInt16 iOption=XB_ACTIVE_RECS)</div><div class="ttdoc">Get previous record for filter.</div></div>
+<div class="ttc" id="aclassxb_1_1xbFilter_html_a969097f341bcba654df2e11b0b8151fc"><div class="ttname"><a href="classxb_1_1xbFilter.html#a969097f341bcba654df2e11b0b8151fc">xb::xbFilter::Set</a></div><div class="ttdeci">xbInt16 Set(const xbString &amp;sFilterExpression)</div><div class="ttdoc">Set filter options.</div></div>
+<div class="ttc" id="aclassxb_1_1xbFilter_html_aa3740d7761ca906566d269e1a78b7144"><div class="ttname"><a href="classxb_1_1xbFilter.html#aa3740d7761ca906566d269e1a78b7144">xb::xbFilter::GetNextRecord</a></div><div class="ttdeci">xbInt16 GetNextRecord(xbInt16 iOption=XB_ACTIVE_RECS)</div><div class="ttdoc">Get next record for filter.</div></div>
+<div class="ttc" id="aclassxb_1_1xbFilter_html_ae2a85df613e6052ff78aff091a5817e9"><div class="ttname"><a href="classxb_1_1xbFilter.html#ae2a85df613e6052ff78aff091a5817e9">xb::xbFilter::xbFilter</a></div><div class="ttdeci">xbFilter(xbDbf *dbf)</div><div class="ttdoc">Constructor.</div></div>
+<div class="ttc" id="aclassxb_1_1xbFilter_html_aefe0256e6499a3e5c93fa4c476ae9d29"><div class="ttname"><a href="classxb_1_1xbFilter.html#aefe0256e6499a3e5c93fa4c476ae9d29">xb::xbFilter::SetLimit</a></div><div class="ttdeci">void SetLimit(xbInt32 ulLimit)</div><div class="ttdoc">Set Limit.</div></div>
+<div class="ttc" id="aclassxb_1_1xbString_html"><div class="ttname"><a href="classxb_1_1xbString.html">xb::xbString</a></div><div class="ttdef"><b>Definition:</b> xbstring.h:46</div></div>
+<div class="ttc" id="anamespacexb_html"><div class="ttname"><a href="namespacexb.html">xb</a></div><div class="ttdef"><b>Definition:</b> xbbit.h:25</div></div>
 <div class="ttc" id="anamespacexb_html_a25f47b226ce924a5c78f97989b0744a2"><div class="ttname"><a href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xb::xbDouble</a></div><div class="ttdeci">double xbDouble</div><div class="ttdef"><b>Definition:</b> xbtypes.h:23</div></div>
-<div class="ttc" id="anamespacexb_html_ab2eae4b4732466698a7fdd89d77ba53b"><div class="ttname"><a href="namespacexb.html#ab2eae4b4732466698a7fdd89d77ba53b">xb::xbDbf</a></div><div class="ttdeci">class XBDLLEXPORT xbDbf</div><div class="ttdef"><b>Definition:</b> xbtblmgr.h:28</div></div>
 <div class="ttc" id="axbdbf_8h_html_a1c44bb25bf2e23a3a9d3d2312df0b592"><div class="ttname"><a href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">XB_ACTIVE_RECS</a></div><div class="ttdeci">#define XB_ACTIVE_RECS</div><div class="ttdef"><b>Definition:</b> xbdbf.h:62</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li><li class="navelem"><a class="el" href="xbfilter_8h.html">xbfilter.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

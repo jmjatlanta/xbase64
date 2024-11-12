@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022 Gary A Kunkel
+Copyright (c) 1997,2003,2014,20222,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -13,27 +13,75 @@ Email Contact:
 
 */
 
-
 #ifndef __XB_XBLNKNOD_H__
 #define __XB_XBLNKNOD_H__
-
 
 
 #ifdef XB_LINKLIST_SUPPORT
 
 namespace xb{
 
+//! @brief xbLinkNode class.
+/*!
+This class provides a template for defining nodes that are used by the 
+xbLinkList and xbLinkListOrd classes.
+
+Nodes can be used for storing any data type, and then linked together with 
+one of the linked list classes.
+
+*/
+
+
 template<class xbNodeType>
 class XBDLLEXPORT xbLinkListNode {
   public:
-   xbLinkListNode( const xbNodeType & );
-   xbLinkListNode( const xbNodeType &, const xbString & );
+   /*!
+      @brief Constructor
+      @param nVal Data value stored on this node
+   */
+   xbLinkListNode( const xbNodeType & nVal );
+ 
+   /*! 
+      @brief Constructor
+      @param nVal Data value stored on this node.  Used as the sort key in the ordered link list.
+      @param sVal User value. Optional string attached to the node.
+   */
+   xbLinkListNode( const xbNodeType & nVal, const xbString & sVal );
+
+   /*!
+      @brief Return the node data value.
+   */
    xbNodeType GetKey() const;
-   xbString   &GetData();
+
+   /*! 
+      @brief Return optional user defined string value for node.
+      @returns User defined xbString
+   */
+   xbString &GetData();
+
+   /*!
+      @brief Return pointer to next node
+      @returns Pointer to next node or NULL if last node in list
+   */
    xbLinkListNode<xbNodeType> *GetNextNode() const;
+
+   /*!
+      @brief Return pointer to previous node
+      @returns Pointer to previous node or NULL if last node in list
+   */
    xbLinkListNode<xbNodeType> *GetPrevNode() const;
-   void       SetNextNode( xbLinkListNode<xbNodeType> *llNext );
-   void       SetPrevNode( xbLinkListNode<xbNodeType> *llPrev );
+
+   /*!
+      @brief Set next pointer
+      @private
+   */
+   void SetNextNode( xbLinkListNode<xbNodeType> *llNext );
+
+   /*!
+      @brief Set previous pointer
+      @private
+   */
+   void SetPrevNode( xbLinkListNode<xbNodeType> *llPrev );
 
   private:
    xbNodeType     ntKey;
@@ -41,6 +89,8 @@ class XBDLLEXPORT xbLinkListNode {
    xbLinkListNode *llNext;
    xbLinkListNode *llPrev;
 };
+
+/// @cond
 
  template<class xbNodeType>
  xbLinkListNode<xbNodeType>::xbLinkListNode( const xbNodeType &key ){
@@ -86,7 +136,7 @@ class XBDLLEXPORT xbLinkListNode {
  void xbLinkListNode<xbNodeType>::SetPrevNode( xbLinkListNode<xbNodeType> *llp ){
    llPrev = llp;
  }
-
+/// @endcond
 }               // namespace
 #endif          // XB_LINKLIST_SUPPORT
 #endif          // XB_XBLNKNOD_H__

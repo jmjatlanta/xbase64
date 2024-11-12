@@ -1,4 +1,29 @@
 var searchData=
 [
-  ['sfldmap_0',['sFldMap',['../structsFldMap.html',1,'']]]
+  ['xbbit_0',['xbBit',['../classxb_1_1xbBit.html',1,'xb']]],
+  ['xbblockread_1',['xbBlockRead',['../classxb_1_1xbBlockRead.html',1,'xb']]],
+  ['xbcore_2',['xbCore',['../classxb_1_1xbCore.html',1,'xb']]],
+  ['xbdate_3',['xbDate',['../classxb_1_1xbDate.html',1,'xb']]],
+  ['xbdbf_4',['xbDbf',['../classxb_1_1xbDbf.html',1,'xb']]],
+  ['xbdbf3_5',['xbDbf3',['../classxb_1_1xbDbf3.html',1,'xb']]],
+  ['xbdbf4_6',['xbDbf4',['../classxb_1_1xbDbf4.html',1,'xb']]],
+  ['xbexp_7',['xbExp',['../classxb_1_1xbExp.html',1,'xb']]],
+  ['xbfile_8',['xbFile',['../classxb_1_1xbFile.html',1,'xb']]],
+  ['xbfilter_9',['xbFilter',['../classxb_1_1xbFilter.html',1,'xb']]],
+  ['xblinklist_10',['xbLinkList',['../classxb_1_1xbLinkList.html',1,'xb']]],
+  ['xblinklist_3c_20xb_3a_3axbstring_20_3e_11',['xbLinkList&lt; xb::xbString &gt;',['../classxb_1_1xbLinkList.html',1,'xb']]],
+  ['xblinklist_3c_20xbrelation_20_2a_20_3e_12',['xbLinkList&lt; xbRelation * &gt;',['../classxb_1_1xbLinkList.html',1,'xb']]],
+  ['xblinklistnode_13',['xbLinkListNode',['../classxb_1_1xbLinkListNode.html',1,'xb']]],
+  ['xblinklistnode_3c_20xb_3a_3axbstring_20_3e_14',['xbLinkListNode&lt; xb::xbString &gt;',['../classxb_1_1xbLinkListNode.html',1,'xb']]],
+  ['xblinklistnode_3c_20xbrelation_20_2a_20_3e_15',['xbLinkListNode&lt; xbRelation * &gt;',['../classxb_1_1xbLinkListNode.html',1,'xb']]],
+  ['xblinklistnode_3c_20xbuint32_20_3e_16',['xbLinkListNode&lt; xbUInt32 &gt;',['../classxb_1_1xbLinkListNode.html',1,'xb']]],
+  ['xblinklistord_17',['xbLinkListOrd',['../classxb_1_1xbLinkListOrd.html',1,'xb']]],
+  ['xblinklistord_3c_20xbuint32_20_3e_18',['xbLinkListOrd&lt; xbUInt32 &gt;',['../classxb_1_1xbLinkListOrd.html',1,'xb']]],
+  ['xblog_19',['xbLog',['../classxb_1_1xbLog.html',1,'xb']]],
+  ['xbrelate_20',['xbRelate',['../classxb_1_1xbRelate.html',1,'xb']]],
+  ['xbschema_21',['xbSchema',['../structxb_1_1xbSchema.html',1,'xb']]],
+  ['xbsql_22',['xbSql',['../classxb_1_1xbSql.html',1,'xb']]],
+  ['xbstring_23',['xbString',['../classxb_1_1xbString.html',1,'xb']]],
+  ['xbtime_24',['xbTime',['../classxb_1_1xbTime.html',1,'xb']]],
+  ['xbxbase_25',['xbXBase',['../classxb_1_1xbXBase.html',1,'xb']]]
 ];

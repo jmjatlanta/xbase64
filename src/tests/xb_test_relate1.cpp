@@ -370,8 +370,6 @@ int main( int argCnt, char **av )
   iRc += TestMethod( iPo, "AppendRecord(357)", dRel1DK.AppendRecord(), XB_NO_ERROR );
   iRc += TestMethod( iPo, "Commit(358)",       dRel1DK.Commit(), XB_NO_ERROR );
 
-
-
   iRc2 = dRel2Mtch.BlankRecord();
   iRc += TestMethod( iPo, "BlankRecord(360)",  iRc2, XB_NO_ERROR );
   iRc += TestMethod( iPo, "PutField(361)",     dRel2Mtch.PutField( "PRIM_KS5", "501" ), XB_NO_ERROR );
@@ -414,7 +412,7 @@ int main( int argCnt, char **av )
 
 
 
-
+  dRel0.Close();
 
 //  x.CloseAllTables();
 

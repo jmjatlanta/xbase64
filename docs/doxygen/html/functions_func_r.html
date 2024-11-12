@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -48,6 +52,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_func_r.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -66,21 +86,31 @@ $(function() {
 &#160;
 
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
-<li>ReadBlock()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#aa1bb80340abc7a5c22f87f878e9dc825">xb::xbFile</a></li>
-<li>ReadHeader()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a060541addb5bb1f0fe12959ed6f66fb9">xb::xbDbf</a></li>
-<li>RecordDeleted()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a94d7d626ba691fd4b740c034673e6fc6">xb::xbDbf</a></li>
-<li>RelKeySearch()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#a1511ee7484219c00998c3e592dcacb13">xb::xbRelate</a></li>
-<li>Remove()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#afaac65eaa6d9ef1596d6a0e7b91ed0f2">xb::xbString</a></li>
-<li>RemoveTblFromTblList()&#160;:&#160;<a class="el" href="classxb_1_1xbTblMgr.html#ac8eaef41acf08911b90f900aac8e70af">xb::xbTblMgr</a></li>
-<li>Rename()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#aeeeb2eb5fabcd0f91d457df07b0e0708">xb::xbDbf</a></li>
-<li>Replace()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#ac721d643c60b5c5acf60c2bce99596fa">xb::xbString</a></li>
-<li>Resize()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#aa6d346ab04e5bb8852f0bb996163a35e">xb::xbString</a></li>
+<li>ReadBlock()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#aae1bc91bacbe138a25b1d5cc3bcdee6b">xb::xbFile</a></li>
+<li>RECCOUNT()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a3e6d17057699dc7ac2920a3743782d81">xb::xbXBase</a></li>
+<li>RECNO()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#afc448c2504ff3bdb47ceef3e2f15fbea">xb::xbXBase</a></li>
+<li>RecordDeleted()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#aabe014fb18b56e762c09d20014b1a74d">xb::xbDbf</a></li>
+<li>Remove()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#ab35ce179e918117a00da9ae7ded74458">xb::xbString</a></li>
+<li>RemoveByVal()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkList.html#a18479520f1096d51c6dca980e9f676bf">xb::xbLinkList&lt; xbNodeType &gt;</a></li>
+<li>RemoveFromEnd()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkList.html#a2095a98136eba2f19357a54a00a5da48">xb::xbLinkList&lt; xbNodeType &gt;</a>, <a class="el" href="classxb_1_1xbLinkListOrd.html#a1fea42d189662360cd0cf1016f55ad22">xb::xbLinkListOrd&lt; xbNodeType &gt;</a></li>
+<li>RemoveFromFront()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkList.html#a46e22b33c80b6f38b4d8e3e07bda13ac">xb::xbLinkList&lt; xbNodeType &gt;</a>, <a class="el" href="classxb_1_1xbLinkListOrd.html#ad79f1994b7e2265c427f921bd9a27ab3">xb::xbLinkListOrd&lt; xbNodeType &gt;</a></li>
+<li>RemoveKey()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkListOrd.html#a871d93f109d05002932dc7779a406984">xb::xbLinkListOrd&lt; xbNodeType &gt;</a></li>
+<li>Rename()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf3.html#adbd111bc6c6ac3682a02be9289b3532c">xb::xbDbf3</a>, <a class="el" href="classxb_1_1xbDbf4.html#a20a6ac14ad8ee42265b3f8151bf45c60">xb::xbDbf4</a>, <a class="el" href="classxb_1_1xbDbf.html#aeeeb2eb5fabcd0f91d457df07b0e0708">xb::xbDbf</a></li>
+<li>Replace()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a238774d9a6a2323848a18ff481c32516">xb::xbString</a></li>
+<li>REPLICATE()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#aefebf2696c58a7de6ae5b21f45d83318">xb::xbXBase</a></li>
+<li>ResetQryCnt()&#160;:&#160;<a class="el" href="classxb_1_1xbFilter.html#a20d9bebba9cfa70b76601e03a07c210d">xb::xbFilter</a></li>
+<li>Resize()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a164e667764c7ed2c67d1241973b57b05">xb::xbString</a></li>
+<li>RIGHT()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a54ce45eec216200b51b8afbf775d2e11">xb::xbXBase</a></li>
 <li>Rtrim()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#aaf330188d67c347ecae0d16f65b22077">xb::xbString</a></li>
+<li>RTRIM()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#aba16279def6a7307a286ab3a16a424ac">xb::xbXBase</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,0 +1,108 @@
+\hypertarget{xbcore_8h_source}{}\doxysection{xbcore.\+h}
+\label{xbcore_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbcore.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbcore.h}}
+\mbox{\hyperlink{xbcore_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbcore.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef \_\_XB\_XBCORE\_H\_\_}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define \_\_XB\_XBCORE\_H\_\_}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifdef  CMAKE\_COMPILER\_IS\_GNUCC}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#pragma interface}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#if defined (XB\_NDX\_SUPPORT) || defined (XB\_MDX\_SUPPORT)}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define XB\_IX\_DBASE\_MODE  0}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define XB\_IX\_XBASE\_MODE  1}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbCore}{xbCore}}\{}
+\DoxyCodeLine{58  \textcolor{keyword}{public}:}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60   \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keywordtype}{char} *ErrorCodeText[];}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64   \textcolor{keyword}{static} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   \mbox{\hyperlink{classxb_1_1xbCore_a17974342108b35e89e62be960b70d087}{bMultiUser}};              \textcolor{comment}{// xbOn if multi user mode is turned on}}
+\DoxyCodeLine{65                                            \textcolor{comment}{// xbOff turn off for better performance in single user mode}}
+\DoxyCodeLine{66                                            \textcolor{comment}{// This needs to be turned on or off before any data tables are opened}}
+\DoxyCodeLine{67                                            \textcolor{comment}{// turning this on after tables are opened, can result in out of date}}
+\DoxyCodeLine{68                                            \textcolor{comment}{// file buffers if multiple users are sharing the files}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70   \textcolor{keyword}{static} \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   \mbox{\hyperlink{classxb_1_1xbCore_a5f6bf5e7a9ace06c68efb72dc376e445}{bDefaultAutoCommit}};      \textcolor{comment}{// Default dbf auto commit switch}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72   \textcolor{keyword}{static} xbInt16  \mbox{\hyperlink{classxb_1_1xbCore_a82b17abc5f1ef87373da819688ed7bad}{iDefaultFileVersion}};     \textcolor{comment}{// 3 = dBASE 3}}
+\DoxyCodeLine{73                                            \textcolor{comment}{// 4 = dBASE 4}}
+\DoxyCodeLine{74                                            \textcolor{comment}{// default version used in CreateTable command}}
+\DoxyCodeLine{75                                            \textcolor{comment}{// can be over ridden at the Xbase level, or table level}}
+\DoxyCodeLine{76                                            \textcolor{comment}{// Different versions can be open simultaneously}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78   \textcolor{keyword}{static} xbInt16  \mbox{\hyperlink{classxb_1_1xbCore_acc0303a96900bff413c8c463987a9149}{iEndianType}};             \textcolor{comment}{// B=Big Endian  L=Little Endian}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \mbox{\hyperlink{classxb_1_1xbCore_ae8159129440110a6e3487801529272ef}{sDataDirectory}};          \textcolor{comment}{//Data file directory}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \mbox{\hyperlink{classxb_1_1xbCore_a034d596e86e6ab2151b6e1f8657f49d4}{sNullString}};             \textcolor{comment}{// Null String}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \mbox{\hyperlink{classxb_1_1xbCore_a45ae9a4fc81347cf9c9ebf02673d3f2a}{sTempDirectory}};          \textcolor{comment}{//Temp file directory}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \mbox{\hyperlink{classxb_1_1xbCore_a227c789b55eaa2a89a6fee4d90b28c23}{sDefaultDateFormat}};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{preprocessor}{  \#ifdef XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{89   \textcolor{keyword}{static} xbUInt32 \mbox{\hyperlink{classxb_1_1xbCore_aeb6ba41685ea760777a114c422c07a19}{ulDefaultBlockReadSize}};}
+\DoxyCodeLine{90 \textcolor{preprocessor}{  \#endif  }\textcolor{comment}{// XB\_BLOCKREAD\_SUPPORT}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{preprocessor}{  \#ifdef XB\_DBF5\_SUPPORT}}
+\DoxyCodeLine{93   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \mbox{\hyperlink{classxb_1_1xbCore_a7872526434ff6f6d0388ebff430742cc}{sDefaultTimeFormat}};}
+\DoxyCodeLine{94 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_DBF5\_SUPPORT}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{preprocessor}{  \#ifdef XB\_LOCKING\_SUPPORT}}
+\DoxyCodeLine{97   \textcolor{comment}{//static xbInt16  bDefaultAutoLock;        // Autolocking enabled?}}
+\DoxyCodeLine{98   \textcolor{keyword}{static} xbInt16  \mbox{\hyperlink{classxb_1_1xbCore_a86b726cb25fd081442b44795f1b046dc}{iDefaultLockFlavor}};      \textcolor{comment}{// 1 = dBASE}}
+\DoxyCodeLine{99                                            \textcolor{comment}{// 2 = Clipper   -\/ not developed yet}}
+\DoxyCodeLine{100                                            \textcolor{comment}{// 3 = FoxPro    -\/ not developed yet}}
+\DoxyCodeLine{101                                            \textcolor{comment}{// 9 = Xbase64   -\/ not developed yet}}
+\DoxyCodeLine{102   \textcolor{keyword}{static} xbInt16  \mbox{\hyperlink{classxb_1_1xbCore_ac376593264672ab595ea4081063f104e}{iDefaultLockRetries}};     \textcolor{comment}{// Number of times to retry a lock before conceding}}
+\DoxyCodeLine{103   \textcolor{keyword}{static} xbInt32  \mbox{\hyperlink{classxb_1_1xbCore_ad569c53a46fa1e7f413e61c3131bcd3c}{lDefaultLockWait}};        \textcolor{comment}{// Number of milliseconds between lock retries}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{preprocessor}{  \#ifdef XB\_MDX\_SUPPORT}}
+\DoxyCodeLine{107   \textcolor{keyword}{static} xbInt16  \mbox{\hyperlink{classxb_1_1xbCore_ab62c163d32416266b7053bf6832d3811}{iCreateMdxBlockSize}};     \textcolor{comment}{// System level Mdx Block Size}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{// XB\_MDX\_SUPPORT}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{preprocessor}{  \#if defined (XB\_NDX\_SUPPORT) || defined (XB\_MDX\_SUPPORT)}}
+\DoxyCodeLine{111   \textcolor{keyword}{static} xbInt16 \mbox{\hyperlink{classxb_1_1xbCore_a35d44a54668f998b3f3008631118c053}{iDefaultIxTagMode}};}
+\DoxyCodeLine{112 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \textcolor{preprocessor}{  \#ifdef XB\_LOGGING\_SUPPORT}}
+\DoxyCodeLine{115   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \mbox{\hyperlink{classxb_1_1xbCore_a847b9285633d22a5b5e34ac1166e3512}{sLogDirectory}};           \textcolor{comment}{//Default location to store log files}}
+\DoxyCodeLine{116   \textcolor{keyword}{static} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \mbox{\hyperlink{classxb_1_1xbCore_a02c13215a731ce0790f78f8e41714e65}{sLogFileName}};            \textcolor{comment}{//Default LogFileName}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \};}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \}        \textcolor{comment}{/* namespace xb    */}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XB\_XBCORE\_H\_\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

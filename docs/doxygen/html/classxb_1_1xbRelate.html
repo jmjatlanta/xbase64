@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -47,6 +51,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classxb_1_1xbRelate.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,74 +82,70 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespacexb.html">xb</a></li><li class="navelem"><a class="el" href="classxb_1_1xbRelate.html">xbRelate</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle"><div class="title">xb::xbRelate Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class for handling table relation logic.  
+ <a href="classxb_1_1xbRelate.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="xbrelate_8h_source.html">xbrelate.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad7ab5fba2bcccd06d67eaf48c5cb547f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#ad7ab5fba2bcccd06d67eaf48c5cb547f">xbRelate</a> (<a class="el" href="classxb_1_1xbXBase.html">xbXBase</a> *xbase)</td></tr>
+<tr class="memdesc:ad7ab5fba2bcccd06d67eaf48c5cb547f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbRelate.html#ad7ab5fba2bcccd06d67eaf48c5cb547f">More...</a><br /></td></tr>
 <tr class="separator:ad7ab5fba2bcccd06d67eaf48c5cb547f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ee06b12824c15881d426b8ee1a5e840"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a7ee06b12824c15881d426b8ee1a5e840">~xbRelate</a> ()</td></tr>
+<tr class="memdesc:a7ee06b12824c15881d426b8ee1a5e840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classxb_1_1xbRelate.html#a7ee06b12824c15881d426b8ee1a5e840">More...</a><br /></td></tr>
 <tr class="separator:a7ee06b12824c15881d426b8ee1a5e840"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf4878aeec036ec7b73670f57109678a"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#abf4878aeec036ec7b73670f57109678a">AddRelation</a> (<a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *dParent, const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;ParentExpression, <a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *dChild, xbIx *pChildIx, void *pChildTag, char cType='O', const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sFilter=&quot;&quot;)</td></tr>
-<tr class="separator:abf4878aeec036ec7b73670f57109678a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2848acfb7a3ad3620f9bc981ea5a9f5b"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a2848acfb7a3ad3620f9bc981ea5a9f5b">AddRelation</a> (<a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *dParent, const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;ParentExpression, <a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *dChild, const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sChildTagName, char cType='O', const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sFilter=&quot;&quot;)</td></tr>
-<tr class="separator:a2848acfb7a3ad3620f9bc981ea5a9f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac3ff9c15e4e46cd6c4ea588e79f7b5b"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#aac3ff9c15e4e46cd6c4ea588e79f7b5b">CheckTblSts</a> (<a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *d)</td></tr>
-<tr class="separator:aac3ff9c15e4e46cd6c4ea588e79f7b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a497fb6f8abf51293a4c30733584391a2"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a497fb6f8abf51293a4c30733584391a2">AddRelation</a> (<a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *dParent, const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sParentExpression, <a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *dChild, const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sChildTagName, char cType='O', const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sFilter=&quot;&quot;)</td></tr>
+<tr class="memdesc:a497fb6f8abf51293a4c30733584391a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a relationship to an xbRelation.  <a href="classxb_1_1xbRelate.html#a497fb6f8abf51293a4c30733584391a2">More...</a><br /></td></tr>
+<tr class="separator:a497fb6f8abf51293a4c30733584391a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acef45f3e768560e8fcd6dfa3cd29f97c"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#acef45f3e768560e8fcd6dfa3cd29f97c">AddRelation</a> (<a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *dParent, const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sParentExpression, <a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *dChild, xbIx *pChildIx, void *pChildTag, char cType='O', const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sFilter=&quot;&quot;)</td></tr>
+<tr class="memdesc:acef45f3e768560e8fcd6dfa3cd29f97c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a relationship to an xbRelation.  <a href="classxb_1_1xbRelate.html#acef45f3e768560e8fcd6dfa3cd29f97c">More...</a><br /></td></tr>
+<tr class="separator:acef45f3e768560e8fcd6dfa3cd29f97c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a370eec53e54530ee7a569c3bd92bd95c"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a370eec53e54530ee7a569c3bd92bd95c">GetFirstRelRecord</a> ()</td></tr>
+<tr class="memdesc:a370eec53e54530ee7a569c3bd92bd95c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get First Rel Record.  <a href="classxb_1_1xbRelate.html#a370eec53e54530ee7a569c3bd92bd95c">More...</a><br /></td></tr>
 <tr class="separator:a370eec53e54530ee7a569c3bd92bd95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78f3c4d7aa47405512848c8f729bc380"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a78f3c4d7aa47405512848c8f729bc380">GetLastRelRecord</a> ()</td></tr>
+<tr class="memdesc:a78f3c4d7aa47405512848c8f729bc380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Last Rel Record.  <a href="classxb_1_1xbRelate.html#a78f3c4d7aa47405512848c8f729bc380">More...</a><br /></td></tr>
 <tr class="separator:a78f3c4d7aa47405512848c8f729bc380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af06ce562407cc49d6c58df202974f09e"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#af06ce562407cc49d6c58df202974f09e">GetNextRelRecord</a> ()</td></tr>
+<tr class="memdesc:af06ce562407cc49d6c58df202974f09e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Next Rel Record.  <a href="classxb_1_1xbRelate.html#af06ce562407cc49d6c58df202974f09e">More...</a><br /></td></tr>
 <tr class="separator:af06ce562407cc49d6c58df202974f09e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2d4a35dd35ba35294a427ea2b695157"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#af2d4a35dd35ba35294a427ea2b695157">GetPrevRelRecord</a> ()</td></tr>
+<tr class="memdesc:af2d4a35dd35ba35294a427ea2b695157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Prev Rel Record.  <a href="classxb_1_1xbRelate.html#af2d4a35dd35ba35294a427ea2b695157">More...</a><br /></td></tr>
 <tr class="separator:af2d4a35dd35ba35294a427ea2b695157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0e53210e6feef8657db5a79162c0093"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#af0e53210e6feef8657db5a79162c0093">SetMaster</a> (<a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *d, const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sFilter=&quot;&quot;)</td></tr>
-<tr class="separator:af0e53210e6feef8657db5a79162c0093"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a7ab045ee1cae596321b4f19b987fc2af"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a7ab045ee1cae596321b4f19b987fc2af">CompareKeys</a> (<a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> *pRel, <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s1, <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s2, <a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> &amp;d1, <a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> &amp;d2, <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt1, <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt2)</td></tr>
-<tr class="separator:a7ab045ee1cae596321b4f19b987fc2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8809bd37c53d3b9e6f7c96f0b4d61ab"><td class="memItemLeft" align="right" valign="top">xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#ae8809bd37c53d3b9e6f7c96f0b4d61ab">FindNodeForDbf</a> (<a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *d)</td></tr>
-<tr class="separator:ae8809bd37c53d3b9e6f7c96f0b4d61ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8177b0d84e6392d754e79601cf9a0225"><td class="memItemLeft" align="right" valign="top">xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a8177b0d84e6392d754e79601cf9a0225">GetLastTreeNode</a> (xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *lln)</td></tr>
-<tr class="separator:a8177b0d84e6392d754e79601cf9a0225"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12127519f9ed7de58cd2e931a4c6b3c0"><td class="memItemLeft" align="right" valign="top">xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a12127519f9ed7de58cd2e931a4c6b3c0">GetNextTreeNode</a> (xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *lln)</td></tr>
-<tr class="separator:a12127519f9ed7de58cd2e931a4c6b3c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaabe25c833ebd2d28d959e16be83a50d"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#aaabe25c833ebd2d28d959e16be83a50d">GetRelRecord</a> (const char cDirection)</td></tr>
-<tr class="separator:aaabe25c833ebd2d28d959e16be83a50d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa407c78b8c191397bd09a53e3f2ffd59"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#aa407c78b8c191397bd09a53e3f2ffd59">GetFirstRecForNode</a> (xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *lln)</td></tr>
-<tr class="separator:aa407c78b8c191397bd09a53e3f2ffd59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3526427ac6b4b6decf1217cd6dfaf27c"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a3526427ac6b4b6decf1217cd6dfaf27c">GetLastRecForNode</a> (xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *lln)</td></tr>
-<tr class="separator:a3526427ac6b4b6decf1217cd6dfaf27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedc262d61fddad093b92045c77d40c05"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#aedc262d61fddad093b92045c77d40c05">GetNextRecForNode</a> (xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *lln)</td></tr>
-<tr class="separator:aedc262d61fddad093b92045c77d40c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a932e6c9195a4891df899d655aece3788"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a932e6c9195a4891df899d655aece3788">GetPrevRecForNode</a> (xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *lln)</td></tr>
-<tr class="separator:a932e6c9195a4891df899d655aece3788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afaab067e4736ecfeaaf2340faa24c5c1"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#afaab067e4736ecfeaaf2340faa24c5c1">GetParentRelKeys</a> (<a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> *pRel, <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s, <a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> &amp;d, <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt)</td></tr>
-<tr class="separator:afaab067e4736ecfeaaf2340faa24c5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32bfabcc6399727df5fe84cbcd44eaf4"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a32bfabcc6399727df5fe84cbcd44eaf4">GetChildRelKeys</a> (<a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> *pRel, <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s, <a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> &amp;d, <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt)</td></tr>
-<tr class="separator:a32bfabcc6399727df5fe84cbcd44eaf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41079e67bb4b518646211018c24d676f"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a41079e67bb4b518646211018c24d676f">InitQuery</a> ()</td></tr>
-<tr class="separator:a41079e67bb4b518646211018c24d676f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1511ee7484219c00998c3e592dcacb13"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a1511ee7484219c00998c3e592dcacb13">RelKeySearch</a> (<a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> *pRel, const char cFL, <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s, <a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> &amp;d, <a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;dt)</td></tr>
-<tr class="separator:a1511ee7484219c00998c3e592dcacb13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cdeaea89342d09cef5d269e3db67c86"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbRelate.html#a7cdeaea89342d09cef5d269e3db67c86">SetMaster</a> (<a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *dTbl, const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sFilter=&quot;&quot;)</td></tr>
+<tr class="memdesc:a7cdeaea89342d09cef5d269e3db67c86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Master Table for an xbRelation.  <a href="classxb_1_1xbRelate.html#a7cdeaea89342d09cef5d269e3db67c86">More...</a><br /></td></tr>
+<tr class="separator:a7cdeaea89342d09cef5d269e3db67c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Class for handling table relation logic. </p>
+<p >The <a class="el" href="classxb_1_1xbRelate.html" title="Class for handling table relation logic.">xbRelate</a> class is used define master / slave relationships between tables</p>
+<ul>
+<li>
+Similar in functionality to SQL joins </li>
+<li>
+The highest level has one entry, the main master/parent node which can have one or more slave/child nodes. </li>
+<li>
+Slave/child tables can be the master table in lower level master/slave relationships </li>
+<li>
+There are two types of master/slave relationship - Optional (think left join) or Required (think inner join). </li>
+<li>
+Handled internally as a tree of linked lists. The tree is processed using a depth first algorith for traversing the tree. </li>
+<li>
+There is a one to many relationship between master and slave relationships. </li>
+<li>
+<p class="startli">After the relationships are established, using the <a class="el" href="classxb_1_1xbRelate.html#a370eec53e54530ee7a569c3bd92bd95c" title="Get First Rel Record.">GetFirstRelRecord()</a>, <a class="el" href="classxb_1_1xbRelate.html#af06ce562407cc49d6c58df202974f09e" title="Get Next Rel Record.">GetNextRelRecord()</a>, <a class="el" href="classxb_1_1xbRelate.html#a78f3c4d7aa47405512848c8f729bc380" title="Get Last Rel Record.">GetLastRelRecord()</a> and <a class="el" href="classxb_1_1xbRelate.html#af2d4a35dd35ba35294a427ea2b695157" title="Get Prev Rel Record.">GetPrevRelRecord()</a> are used to navigate thtough the data.</p>
+<p class="endli"></p>
+</li>
+</ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad7ab5fba2bcccd06d67eaf48c5cb547f" name="ad7ab5fba2bcccd06d67eaf48c5cb547f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad7ab5fba2bcccd06d67eaf48c5cb547f">&#9670;&nbsp;</a></span>xbRelate()</h2>
 
@@ -144,6 +161,8 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructor. </p>
 
 </div>
 </div>
@@ -162,11 +181,13 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Destructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2848acfb7a3ad3620f9bc981ea5a9f5b" name="a2848acfb7a3ad3620f9bc981ea5a9f5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2848acfb7a3ad3620f9bc981ea5a9f5b">&#9670;&nbsp;</a></span>AddRelation() <span class="overload">[1/2]</span></h2>
+<a id="a497fb6f8abf51293a4c30733584391a2" name="a497fb6f8abf51293a4c30733584391a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a497fb6f8abf51293a4c30733584391a2">&#9670;&nbsp;</a></span>AddRelation() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,7 +202,7 @@ Protected Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>ParentExpression</em>, </td>
+          <td class="paramname"><em>sParentExpression</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -215,10 +236,26 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Add a relationship to an xbRelation. </p>
+<p >This routine is called after the <a class="el" href="classxb_1_1xbRelate.html#a7cdeaea89342d09cef5d269e3db67c86" title="Set Master Table for an xbRelation.">SetMaster()</a> method is called.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dParent</td><td>Pointer to parent/master table. </td></tr>
+    <tr><td class="paramname">sParentExpression</td><td>Parent table expression that links to the child table. </td></tr>
+    <tr><td class="paramname">dChild</td><td>Pointer to child/slave table. </td></tr>
+    <tr><td class="paramname">sChildTagName</td><td>Name of Child tag to use. </td></tr>
+    <tr><td class="paramname">cType</td><td>O = Optional (left join)<br  />
+R = Required (inner join) </td></tr>
+    <tr><td class="paramname">sFilter</td><td>Optional child tag filter (place holder for future version of software). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a href="xbretcod_8h.html">Return Codes</a> </dd></dl>
+
 </div>
 </div>
-<a id="abf4878aeec036ec7b73670f57109678a" name="abf4878aeec036ec7b73670f57109678a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf4878aeec036ec7b73670f57109678a">&#9670;&nbsp;</a></span>AddRelation() <span class="overload">[2/2]</span></h2>
+<a id="acef45f3e768560e8fcd6dfa3cd29f97c" name="acef45f3e768560e8fcd6dfa3cd29f97c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acef45f3e768560e8fcd6dfa3cd29f97c">&#9670;&nbsp;</a></span>AddRelation() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,7 +270,7 @@ Protected Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>ParentExpression</em>, </td>
+          <td class="paramname"><em>sParentExpression</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -273,189 +310,22 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="aac3ff9c15e4e46cd6c4ea588e79f7b5b" name="aac3ff9c15e4e46cd6c4ea588e79f7b5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac3ff9c15e4e46cd6c4ea588e79f7b5b">&#9670;&nbsp;</a></span>CheckTblSts()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbInt16 xb::xbRelate::CheckTblSts </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7ab045ee1cae596321b4f19b987fc2af" name="a7ab045ee1cae596321b4f19b987fc2af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ab045ee1cae596321b4f19b987fc2af">&#9670;&nbsp;</a></span>CompareKeys()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbInt16 xb::xbRelate::CompareKeys </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> *&#160;</td>
-          <td class="paramname"><em>pRel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>s1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>s2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> &amp;&#160;</td>
-          <td class="paramname"><em>d1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> &amp;&#160;</td>
-          <td class="paramname"><em>d2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;&#160;</td>
-          <td class="paramname"><em>dt1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;&#160;</td>
-          <td class="paramname"><em>dt2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae8809bd37c53d3b9e6f7c96f0b4d61ab" name="ae8809bd37c53d3b9e6f7c96f0b4d61ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8809bd37c53d3b9e6f7c96f0b4d61ab">&#9670;&nbsp;</a></span>FindNodeForDbf()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; * xb::xbRelate::FindNodeForDbf </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a32bfabcc6399727df5fe84cbcd44eaf4" name="a32bfabcc6399727df5fe84cbcd44eaf4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32bfabcc6399727df5fe84cbcd44eaf4">&#9670;&nbsp;</a></span>GetChildRelKeys()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbInt16 xb::xbRelate::GetChildRelKeys </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> *&#160;</td>
-          <td class="paramname"><em>pRel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> &amp;&#160;</td>
-          <td class="paramname"><em>d</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;&#160;</td>
-          <td class="paramname"><em>dt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa407c78b8c191397bd09a53e3f2ffd59" name="aa407c78b8c191397bd09a53e3f2ffd59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa407c78b8c191397bd09a53e3f2ffd59">&#9670;&nbsp;</a></span>GetFirstRecForNode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbInt16 xb::xbRelate::GetFirstRecForNode </td>
-          <td>(</td>
-          <td class="paramtype">xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *&#160;</td>
-          <td class="paramname"><em>lln</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Add a relationship to an xbRelation. </p>
+<p >This routine is called after the <a class="el" href="classxb_1_1xbRelate.html#a7cdeaea89342d09cef5d269e3db67c86" title="Set Master Table for an xbRelation.">SetMaster()</a> method is called.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dParent</td><td>Pointer to parent/master table. </td></tr>
+    <tr><td class="paramname">sParentExpression</td><td>Parent table expression that links to the child table. </td></tr>
+    <tr><td class="paramname">dChild</td><td>Pointer to child/slave table. </td></tr>
+    <tr><td class="paramname">pChildIx</td><td>Pointer to the child index file that is used to link the child to the parent table. </td></tr>
+    <tr><td class="paramname">pChildTag</td><td>Pointer to the tag in the index file that is used to link the child to the parent table. </td></tr>
+    <tr><td class="paramname">cType</td><td>O = Optional (left join)<br  />
+R = Required (inner join) </td></tr>
+    <tr><td class="paramname">sFilter</td><td>= Optional child tag filter (place holder for future version of software). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a href="xbretcod_8h.html">Return Codes</a> </dd></dl>
 
 </div>
 </div>
@@ -474,31 +344,9 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a3526427ac6b4b6decf1217cd6dfaf27c" name="a3526427ac6b4b6decf1217cd6dfaf27c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3526427ac6b4b6decf1217cd6dfaf27c">&#9670;&nbsp;</a></span>GetLastRecForNode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbInt16 xb::xbRelate::GetLastRecForNode </td>
-          <td>(</td>
-          <td class="paramtype">xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *&#160;</td>
-          <td class="paramname"><em>lln</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Get First Rel Record. </p>
+<p >Used to position to the first composite record defined for the relation. After execution, all tables are positioned to the appropriate record. If the linkage is defined as optional and there is no associated record for a given table, the table will be positioned to blank record 0.</p>
+<dl class="section return"><dt>Returns</dt><dd><a href="xbretcod_8h.html">Return Codes</a> </dd></dl>
 
 </div>
 </div>
@@ -517,57 +365,9 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a8177b0d84e6392d754e79601cf9a0225" name="a8177b0d84e6392d754e79601cf9a0225"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8177b0d84e6392d754e79601cf9a0225">&#9670;&nbsp;</a></span>GetLastTreeNode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; * xb::xbRelate::GetLastTreeNode </td>
-          <td>(</td>
-          <td class="paramtype">xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *&#160;</td>
-          <td class="paramname"><em>lln</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aedc262d61fddad093b92045c77d40c05" name="aedc262d61fddad093b92045c77d40c05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedc262d61fddad093b92045c77d40c05">&#9670;&nbsp;</a></span>GetNextRecForNode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbInt16 xb::xbRelate::GetNextRecForNode </td>
-          <td>(</td>
-          <td class="paramtype">xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *&#160;</td>
-          <td class="paramname"><em>lln</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Get Last Rel Record. </p>
+<p >Used to position to the last composite record defined for the relation. After execution, all tables are positioned to the appropriate record. If the linkage is defined as optional and there is no associated record for a given table, the table will be positioned to blank record 0.</p>
+<dl class="section return"><dt>Returns</dt><dd><a href="xbretcod_8h.html">Return Codes</a> </dd></dl>
 
 </div>
 </div>
@@ -586,105 +386,9 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a12127519f9ed7de58cd2e931a4c6b3c0" name="a12127519f9ed7de58cd2e931a4c6b3c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12127519f9ed7de58cd2e931a4c6b3c0">&#9670;&nbsp;</a></span>GetNextTreeNode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; * xb::xbRelate::GetNextTreeNode </td>
-          <td>(</td>
-          <td class="paramtype">xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *&#160;</td>
-          <td class="paramname"><em>lln</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afaab067e4736ecfeaaf2340faa24c5c1" name="afaab067e4736ecfeaaf2340faa24c5c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaab067e4736ecfeaaf2340faa24c5c1">&#9670;&nbsp;</a></span>GetParentRelKeys()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbInt16 xb::xbRelate::GetParentRelKeys </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> *&#160;</td>
-          <td class="paramname"><em>pRel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> &amp;&#160;</td>
-          <td class="paramname"><em>d</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;&#160;</td>
-          <td class="paramname"><em>dt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a932e6c9195a4891df899d655aece3788" name="a932e6c9195a4891df899d655aece3788"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a932e6c9195a4891df899d655aece3788">&#9670;&nbsp;</a></span>GetPrevRecForNode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbInt16 xb::xbRelate::GetPrevRecForNode </td>
-          <td>(</td>
-          <td class="paramtype">xbLinkListNode&lt; <a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> * &gt; *&#160;</td>
-          <td class="paramname"><em>lln</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Get Next Rel Record. </p>
+<p >Used to position to the next composite record defined for the relation. After execution, all tables are positioned to the appropriate record. If the linkage is defined as optional and there is no associated record for a given table, the table will be positioned to blank record 0.</p>
+<dl class="section return"><dt>Returns</dt><dd><a href="xbretcod_8h.html">Return Codes</a> </dd></dl>
 
 </div>
 </div>
@@ -703,115 +407,14 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="aaabe25c833ebd2d28d959e16be83a50d" name="aaabe25c833ebd2d28d959e16be83a50d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaabe25c833ebd2d28d959e16be83a50d">&#9670;&nbsp;</a></span>GetRelRecord()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbInt16 xb::xbRelate::GetRelRecord </td>
-          <td>(</td>
-          <td class="paramtype">const char&#160;</td>
-          <td class="paramname"><em>cDirection</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Get Prev Rel Record. </p>
+<p >Used to position to the previous composite record defined for the relation. After execution, all tables are positioned to the appropriate record. If the linkage is defined as optional and there is no associated record for a given table, the table will be positioned to blank record 0.</p>
+<dl class="section return"><dt>Returns</dt><dd><a href="xbretcod_8h.html">Return Codes</a> </dd></dl>
 
 </div>
 </div>
-<a id="a41079e67bb4b518646211018c24d676f" name="a41079e67bb4b518646211018c24d676f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41079e67bb4b518646211018c24d676f">&#9670;&nbsp;</a></span>InitQuery()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbInt16 xb::xbRelate::InitQuery </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1511ee7484219c00998c3e592dcacb13" name="a1511ee7484219c00998c3e592dcacb13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1511ee7484219c00998c3e592dcacb13">&#9670;&nbsp;</a></span>RelKeySearch()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">xbInt16 xb::xbRelate::RelKeySearch </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structxb_1_1xbRelation.html">xbRelation</a> *&#160;</td>
-          <td class="paramname"><em>pRel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char&#160;</td>
-          <td class="paramname"><em>cFL</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> &amp;&#160;</td>
-          <td class="paramname"><em>d</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classxb_1_1xbDate.html">xbDate</a> &amp;&#160;</td>
-          <td class="paramname"><em>dt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af0e53210e6feef8657db5a79162c0093" name="af0e53210e6feef8657db5a79162c0093"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0e53210e6feef8657db5a79162c0093">&#9670;&nbsp;</a></span>SetMaster()</h2>
+<a id="a7cdeaea89342d09cef5d269e3db67c86" name="a7cdeaea89342d09cef5d269e3db67c86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cdeaea89342d09cef5d269e3db67c86">&#9670;&nbsp;</a></span>SetMaster()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -820,7 +423,7 @@ Protected Member Functions</h2></td></tr>
           <td class="memname">xbInt16 xb::xbRelate::SetMaster </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classxb_1_1xbDbf.html">xbDbf</a> *&#160;</td>
-          <td class="paramname"><em>d</em>, </td>
+          <td class="paramname"><em>dTbl</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -836,15 +439,30 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Set Master Table for an xbRelation. </p>
+<p >Set the master table for an xbRelation. This routine is called first before any of the <a class="el" href="classxb_1_1xbRelate.html#a497fb6f8abf51293a4c30733584391a2" title="Add a relationship to an xbRelation.">AddRelation()</a> or any of the Get methods are called.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dTbl</td><td>- Pointer to parent/master table. </td></tr>
+    <tr><td class="paramname">sFilter</td><td>= Optional filter (place holder for future version of software). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a href="xbretcod_8h.html">Return Codes</a> </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/mnt/1Tdata/xbase/xbase64-4.1.7/src/include/<a class="el" href="xbrelate_8h_source.html">xbrelate.h</a></li>
+<li>/mnt/1Tdata/xbase/xbase64-4.1.11/src/include/<a class="el" href="xbrelate_8h_source.html">xbrelate.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacexb.html">xb</a></li><li class="navelem"><a class="el" href="classxb_1_1xbRelate.html">xbRelate</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

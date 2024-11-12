@@ -1,0 +1,244 @@
+\hypertarget{classxb_1_1xbFilter}{}\doxysection{xb\+::xb\+Filter Class Reference}
+\label{classxb_1_1xbFilter}\index{xb::xbFilter@{xb::xbFilter}}
+
+
+\mbox{\hyperlink{classxb_1_1xbFilter}{xb\+Filter}} class.  
+
+
+
+
+{\ttfamily \#include $<$xbfilter.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classxb_1_1xbFilter_ae2a85df613e6052ff78aff091a5817e9}{xb\+Filter}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$dbf)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbFilter_a757854449ca6e92e6f9f518f54709f9b}{$\sim$xb\+Filter}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFilter_a969097f341bcba654df2e11b0b8151fc}{Set}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Filter\+Expression)
+\begin{DoxyCompactList}\small\item\em Set filter options. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFilter_a5c3ec394980ee45c55569824e875b0df}{Get\+First\+Record}} (xb\+Int16 i\+Option=\mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\+\_\+\+ACTIVE\+\_\+\+RECS}})
+\begin{DoxyCompactList}\small\item\em Get first record for filter. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFilter_aa3740d7761ca906566d269e1a78b7144}{Get\+Next\+Record}} (xb\+Int16 i\+Option=\mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\+\_\+\+ACTIVE\+\_\+\+RECS}})
+\begin{DoxyCompactList}\small\item\em Get next record for filter. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFilter_a7e44b7321c7ef5fec56ec6dd1e78e8c9}{Get\+Prev\+Record}} (xb\+Int16 i\+Option=\mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\+\_\+\+ACTIVE\+\_\+\+RECS}})
+\begin{DoxyCompactList}\small\item\em Get previous record for filter. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbFilter_a61f5c924a8f2c59a568474e1ccc6ead7}{Get\+Last\+Record}} (xb\+Int16 i\+Option=\mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\+\_\+\+ACTIVE\+\_\+\+RECS}})
+\begin{DoxyCompactList}\small\item\em Get last record for filter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFilter_aefe0256e6499a3e5c93fa4c476ae9d29}{Set\+Limit}} (xb\+Int32 ul\+Limit)
+\begin{DoxyCompactList}\small\item\em Set Limit. \end{DoxyCompactList}\item 
+xb\+Int32 \mbox{\hyperlink{classxb_1_1xbFilter_a182fcfc538cc31ec4aaa39fcc8c52b01}{Get\+Limit}} () const
+\begin{DoxyCompactList}\small\item\em Get current limit setting. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbFilter_a20d9bebba9cfa70b76601e03a07c210d}{Reset\+Qry\+Cnt}} ()
+\begin{DoxyCompactList}\small\item\em Reset Query Count. \end{DoxyCompactList}\item 
+xb\+Int32 \mbox{\hyperlink{classxb_1_1xbFilter_a03a95bdbd92847bdb64287bf12f960d5}{Get\+Qry\+Cnt}} () const
+\begin{DoxyCompactList}\small\item\em Get Query Count. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classxb_1_1xbFilter}{xb\+Filter}} class. 
+
+The x\+Filter class is used to establish a data filter on a given table (DBF file). 
+\begin{DoxyEnumerate}
+\item A filter can be established to limit selected records in a query. 
+\item Similar to a {\itshape WHERE} clause in SQL. 
+\item The filter logic uses the expression module for processing. 
+\item Any of the expression routines that return a logical value can be used to establish a filter condition. 
+\item See Chapter four or the xb\+\_\+ex\+\_\+expression sample program for more information on valid expressions. 
+\end{DoxyEnumerate}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classxb_1_1xbFilter_ae2a85df613e6052ff78aff091a5817e9}\label{classxb_1_1xbFilter_ae2a85df613e6052ff78aff091a5817e9}} 
+\index{xb::xbFilter@{xb::xbFilter}!xbFilter@{xbFilter}}
+\index{xbFilter@{xbFilter}!xb::xbFilter@{xb::xbFilter}}
+\doxysubsubsection{\texorpdfstring{xbFilter()}{xbFilter()}}
+{\footnotesize\ttfamily xb\+::xb\+Filter\+::xb\+Filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{dbf }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Create instance of \mbox{\hyperlink{classxb_1_1xbFilter}{xb\+Filter}}. 
+\begin{DoxyParams}{Parameters}
+{\em dbf} & Pointer to associated dbf structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbFilter_a757854449ca6e92e6f9f518f54709f9b}\label{classxb_1_1xbFilter_a757854449ca6e92e6f9f518f54709f9b}} 
+\index{xb::xbFilter@{xb::xbFilter}!````~xbFilter@{$\sim$xbFilter}}
+\index{````~xbFilter@{$\sim$xbFilter}!xb::xbFilter@{xb::xbFilter}}
+\doxysubsubsection{\texorpdfstring{$\sim$xbFilter()}{~xbFilter()}}
+{\footnotesize\ttfamily xb\+::xb\+Filter\+::$\sim$xb\+Filter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+Destructor for \mbox{\hyperlink{classxb_1_1xbFilter}{xb\+Filter}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classxb_1_1xbFilter_a5c3ec394980ee45c55569824e875b0df}\label{classxb_1_1xbFilter_a5c3ec394980ee45c55569824e875b0df}} 
+\index{xb::xbFilter@{xb::xbFilter}!GetFirstRecord@{GetFirstRecord}}
+\index{GetFirstRecord@{GetFirstRecord}!xb::xbFilter@{xb::xbFilter}}
+\doxysubsubsection{\texorpdfstring{GetFirstRecord()}{GetFirstRecord()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Filter\+::\+Get\+First\+Record (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Option = {\ttfamily \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\+\_\+\+ACTIVE\+\_\+\+RECS}}} }\end{DoxyParamCaption})}
+
+
+
+Get first record for filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Option} & XB\+\_\+\+ALL\+\_\+\+RECS -\/ Get the first filtered record, deleted or not.~\newline
+ XB\+\_\+\+ACTIVE\+\_\+\+RECS -\/ Get the first filtered active record. Default setting.~\newline
+ XB\+\_\+\+DELETED\+\_\+\+RECS -\/ Get the first filtered deleted record.~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFilter_a61f5c924a8f2c59a568474e1ccc6ead7}\label{classxb_1_1xbFilter_a61f5c924a8f2c59a568474e1ccc6ead7}} 
+\index{xb::xbFilter@{xb::xbFilter}!GetLastRecord@{GetLastRecord}}
+\index{GetLastRecord@{GetLastRecord}!xb::xbFilter@{xb::xbFilter}}
+\doxysubsubsection{\texorpdfstring{GetLastRecord()}{GetLastRecord()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Filter\+::\+Get\+Last\+Record (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Option = {\ttfamily \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\+\_\+\+ACTIVE\+\_\+\+RECS}}} }\end{DoxyParamCaption})}
+
+
+
+Get last record for filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Option} & XB\+\_\+\+ALL\+\_\+\+RECS -\/ Get the last filtered record, deleted or not.~\newline
+ XB\+\_\+\+ACTIVE\+\_\+\+RECS -\/ Get the last active filtered record. Default setting.~\newline
+ XB\+\_\+\+DELETED\+\_\+\+RECS -\/ Get the last deleted filtered record.~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFilter_a182fcfc538cc31ec4aaa39fcc8c52b01}\label{classxb_1_1xbFilter_a182fcfc538cc31ec4aaa39fcc8c52b01}} 
+\index{xb::xbFilter@{xb::xbFilter}!GetLimit@{GetLimit}}
+\index{GetLimit@{GetLimit}!xb::xbFilter@{xb::xbFilter}}
+\doxysubsubsection{\texorpdfstring{GetLimit()}{GetLimit()}}
+{\footnotesize\ttfamily xb\+Int32 xb\+::xb\+Filter\+::\+Get\+Limit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get current limit setting. 
+
+\begin{DoxyReturn}{Returns}
+Current limit value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFilter_aa3740d7761ca906566d269e1a78b7144}\label{classxb_1_1xbFilter_aa3740d7761ca906566d269e1a78b7144}} 
+\index{xb::xbFilter@{xb::xbFilter}!GetNextRecord@{GetNextRecord}}
+\index{GetNextRecord@{GetNextRecord}!xb::xbFilter@{xb::xbFilter}}
+\doxysubsubsection{\texorpdfstring{GetNextRecord()}{GetNextRecord()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Filter\+::\+Get\+Next\+Record (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Option = {\ttfamily \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\+\_\+\+ACTIVE\+\_\+\+RECS}}} }\end{DoxyParamCaption})}
+
+
+
+Get next record for filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Option} & XB\+\_\+\+ALL\+\_\+\+RECS -\/ Get the next filtered record, deleted or not.~\newline
+ XB\+\_\+\+ACTIVE\+\_\+\+RECS -\/ Get the next active filtered record. Default setting.~\newline
+ XB\+\_\+\+DELETED\+\_\+\+RECS -\/ Get the next deleted filtered record.~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFilter_a7e44b7321c7ef5fec56ec6dd1e78e8c9}\label{classxb_1_1xbFilter_a7e44b7321c7ef5fec56ec6dd1e78e8c9}} 
+\index{xb::xbFilter@{xb::xbFilter}!GetPrevRecord@{GetPrevRecord}}
+\index{GetPrevRecord@{GetPrevRecord}!xb::xbFilter@{xb::xbFilter}}
+\doxysubsubsection{\texorpdfstring{GetPrevRecord()}{GetPrevRecord()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Filter\+::\+Get\+Prev\+Record (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Option = {\ttfamily \mbox{\hyperlink{xbdbf_8h_a1c44bb25bf2e23a3a9d3d2312df0b592}{XB\+\_\+\+ACTIVE\+\_\+\+RECS}}} }\end{DoxyParamCaption})}
+
+
+
+Get previous record for filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Option} & XB\+\_\+\+ALL\+\_\+\+RECS -\/ Get the previous filtered record, deleted or not.~\newline
+ XB\+\_\+\+ACTIVE\+\_\+\+RECS -\/ Get the previous active filtered record. Default setting.~\newline
+ XB\+\_\+\+DELETED\+\_\+\+RECS -\/ Get the previous deleted filtered record.~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFilter_a03a95bdbd92847bdb64287bf12f960d5}\label{classxb_1_1xbFilter_a03a95bdbd92847bdb64287bf12f960d5}} 
+\index{xb::xbFilter@{xb::xbFilter}!GetQryCnt@{GetQryCnt}}
+\index{GetQryCnt@{GetQryCnt}!xb::xbFilter@{xb::xbFilter}}
+\doxysubsubsection{\texorpdfstring{GetQryCnt()}{GetQryCnt()}}
+{\footnotesize\ttfamily xb\+Int32 xb\+::xb\+Filter\+::\+Get\+Qry\+Cnt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get Query Count. 
+
+Return the number of records returned for a given query. \begin{DoxyReturn}{Returns}
+number of query records. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Setting of zero is unlimited. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbFilter_a20d9bebba9cfa70b76601e03a07c210d}\label{classxb_1_1xbFilter_a20d9bebba9cfa70b76601e03a07c210d}} 
+\index{xb::xbFilter@{xb::xbFilter}!ResetQryCnt@{ResetQryCnt}}
+\index{ResetQryCnt@{ResetQryCnt}!xb::xbFilter@{xb::xbFilter}}
+\doxysubsubsection{\texorpdfstring{ResetQryCnt()}{ResetQryCnt()}}
+{\footnotesize\ttfamily void xb\+::xb\+Filter\+::\+Reset\+Qry\+Cnt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reset Query Count. 
+
+Reset the Query count to zero. \mbox{\Hypertarget{classxb_1_1xbFilter_a969097f341bcba654df2e11b0b8151fc}\label{classxb_1_1xbFilter_a969097f341bcba654df2e11b0b8151fc}} 
+\index{xb::xbFilter@{xb::xbFilter}!Set@{Set}}
+\index{Set@{Set}!xb::xbFilter@{xb::xbFilter}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Filter\+::\+Set (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Filter\+Expression }\end{DoxyParamCaption})}
+
+
+
+Set filter options. 
+
+Set the filter string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Filter\+Expression} & filter expression \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbFilter_aefe0256e6499a3e5c93fa4c476ae9d29}\label{classxb_1_1xbFilter_aefe0256e6499a3e5c93fa4c476ae9d29}} 
+\index{xb::xbFilter@{xb::xbFilter}!SetLimit@{SetLimit}}
+\index{SetLimit@{SetLimit}!xb::xbFilter@{xb::xbFilter}}
+\doxysubsubsection{\texorpdfstring{SetLimit()}{SetLimit()}}
+{\footnotesize\ttfamily void xb\+::xb\+Filter\+::\+Set\+Limit (\begin{DoxyParamCaption}\item[{xb\+Int32}]{ul\+Limit }\end{DoxyParamCaption})}
+
+
+
+Set Limit. 
+
+Sets the limit for the number of records for a given query.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Limit} & max number of records for a query. Zero (unlimited) is default value. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+11/src/include/\mbox{\hyperlink{xbfilter_8h}{xbfilter.\+h}}\end{DoxyCompactItemize}

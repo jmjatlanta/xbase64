@@ -224,6 +224,15 @@ int main( int argc, char *argv [] )
     fprintf( stdout, "XB_UTILS_SUPPORT        = [OFF]\n" );
   #endif
 
+  #if defined (XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
+  if( x.GetDefaultIxTagMode() == XB_IX_DBASE_MODE )
+    fprintf( stdout, "Default IX Tag Mode     = [XB_IX_DBASE_MODE]\n" );
+  else if( x.GetDefaultIxTagMode() == XB_IX_XBASE_MODE )
+    fprintf( stdout, "Default IX Tag Mode     = [XB_IX_XBASE_MODE]\n" );
+  else
+    fprintf( stdout, "Default IX Tag Mode     = [unknown]\n" );
+  #endif  // defined (XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
+
   fprintf( stdout, "\nDirectories:\n" );
   fprintf( stdout, "HOME_DIRECTORY                 = [%s]\n",   CMAKE_HOME_DIRECTORY );
   fprintf( stdout, "PROJECT_PARENT_DIR             = [%s]\n",   PROJECT_PARENT_DIR );

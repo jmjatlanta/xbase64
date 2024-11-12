@@ -49,7 +49,7 @@ int main( int argCnt, char **av )
     { "CITY",   XB_CHAR_FLD,    100, 0 },
     { "STATE",  XB_CHAR_FLD,      2, 0 },
     { "ZIP",    XB_NUMERIC_FLD,   9, 0 },
-    { "DATE1",  XB_DATE_FLD,      8, 0  },
+    { "DATE1",  XB_DATE_FLD,      8, 0 },
     { "",0,0,0 }
   };
 
@@ -72,9 +72,9 @@ int main( int argCnt, char **av )
   if( iPo > 0 )
     std::cout << "Default Data Directory is [" << x.GetDataDirectory().Str() << "]" << std::endl;
 
+  x.SetDefaultIxTagMode( XB_IX_DBASE_MODE );
+  iRc += TestMethod( iPo, "GetDefaultIxTagMode(100)", x.GetDefaultIxTagMode(), XB_IX_DBASE_MODE );
 
-  x.SetUniqueKeyOpt( XB_HALT_ON_DUPKEY );
-  iRc += TestMethod( iPo, "SetUniqueKeyOpt(100)", x.GetUniqueKeyOpt(), XB_HALT_ON_DUPKEY );
 
 //  xbFile f( &x );
   xbIx *pIx0;
@@ -179,7 +179,7 @@ int main( int argCnt, char **av )
   iRc += TestMethod( iPo, "CheckTagIntegrity(204)", V4DbfX1->CheckTagIntegrity( 1, 0 ), XB_NO_ERROR );
 
 
-  // attempt to add a dup key, should fail with XB_KEY_NOT_UNIQUE
+  // attempt to add a dup key 
   iRc2 = V4DbfX1->BlankRecord();
   if( iRc2 != XB_NO_ERROR )
     iRc += TestMethod( iPo, "BlankRecord(210)", iRc2, XB_NO_ERROR );
@@ -199,20 +199,14 @@ int main( int argCnt, char **av )
     iRc += TestMethod( iPo, "PutField(213)", iRc2, XB_NO_ERROR );
 
   iRc2 = V4DbfX1->AppendRecord();
-  if( iRc2 != XB_KEY_NOT_UNIQUE )
+  if( iRc2 != XB_NO_ERROR )
     iRc += TestMethod( iPo, "AppendRecord(214)", iRc2, XB_NO_ERROR );
 
   iRc2 = V4DbfX1->Abort();
   if( iRc2 != XB_NO_ERROR )
     iRc += TestMethod( iPo, "Abort(215)", iRc2, XB_NO_ERROR );
 
-
-  iRc += TestMethod( iPo, "CheckTagIntegrity(220)", V4DbfX1->CheckTagIntegrity( 1, 0 ), XB_NO_ERROR );
-
-
-
-  x.SetUniqueKeyOpt( XB_EMULATE_DBASE );
-  iRc += TestMethod( iPo, "SetUniqueKeyOpt(300)", x.GetUniqueKeyOpt(), XB_EMULATE_DBASE );
+  iRc += TestMethod( iPo, "CheckTagIntegrity(220)", V4DbfX1->CheckTagIntegrity( 1, 0 ), 1 );
 
 
   uZip = 10000;
@@ -254,14 +248,95 @@ int main( int argCnt, char **av )
   }
 
   iRc += TestMethod( iPo, "CheckTagIntegrity(310)", V4DbfX1->CheckTagIntegrity( 1, 0 ), 1 );
-
   iRc += TestMethod( iPo, "DeleteTag(320)", V4DbfX1->DeleteTag( V4DbfX1->GetCurIxType(), V4DbfX1->GetCurTagName()), XB_NO_ERROR );
   iRc += TestMethod( iPo, "CheckTagIntegrity(321)", V4DbfX1->CheckTagIntegrity( 1, 0 ), 1 );
 
 
+  // test XB_IX_XBASE_MODE functionality
+  x.SetDefaultIxTagMode( XB_IX_XBASE_MODE );
+  iRc += TestMethod( iPo, "GetDefaultIxTagMode(501)", x.GetDefaultIxTagMode(), XB_IX_XBASE_MODE );
+
+  xbDbf *V4DbfX2 = new xbDbf4( &x );
+
+  iRc2 = V4DbfX2->CreateTable( "TMDXDB02.DBF", "TestMdxX3", MyV4Record, XB_OVERLAY, XB_MULTI_USER );
+  iRc += TestMethod( iPo, "CreateTable(101)", iRc2, 0 );
+
+  iRc2 = V4DbfX2->CreateTag( "MDX", "CITY_TAGA",  "CITY", "", 0, 0, XB_OVERLAY, &pIx0, &pTag0 );
+  iRc += TestMethod( iPo, "CreateTag(502)", iRc2, 0 );
+
+  iRc2 = V4DbfX2->CreateTag( "MDX", "ZIP_TAG",   "ZIP", "",  xbTrue, xbTrue, XB_OVERLAY, &pIx1, &pTag1 );
+  iRc += TestMethod( iPo, "CreateTag(503)", iRc2, 0 );
+
+
+  // add a record
+  iRc2 = V4DbfX2->BlankRecord();
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "BlankRecord(510)", iRc2, XB_NO_ERROR );
+
+  iRc2 = V4DbfX2->PutField( "CITY", "Tampa" );
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "PutField(511)", iRc2, XB_NO_ERROR );
+
+  iRc2 = V4DbfX2->PutLongField( "ZIP", uZip++ );
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "PutField(512)", iRc2, XB_NO_ERROR );
+
+  dt.Set( "19890209" );
+  iRc2 = V4DbfX2->PutDateField( "DATE1", dt );
+  dt++;
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "PutField(513)", iRc2, XB_NO_ERROR );
+
+  iRc2 = V4DbfX2->AppendRecord();
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "AppendRecord(514)", iRc2, XB_NO_ERROR );
+
+
+  iRc2 = V4DbfX2->AppendRecord();
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "AppendRecord(515)", iRc2, XB_KEY_NOT_UNIQUE );
+
+  iRc2 = V4DbfX2->Abort();
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "Abort(516)", iRc2, XB_NO_ERROR );
+
+
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "BlankRecord(520)", iRc2, XB_NO_ERROR );
+
+  iRc2 = V4DbfX2->PutField( "CITY", "Miame" );
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "PutField(521)", iRc2, XB_NO_ERROR );
+
+  iRc2 = V4DbfX2->PutLongField( "ZIP", uZip++ );
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "PutField(522)", iRc2, XB_NO_ERROR );
+
+  dt.Set( "19890209" );
+  iRc2 = V4DbfX2->PutDateField( "DATE1", dt );
+  dt++;
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "PutField(523)", iRc2, XB_NO_ERROR );
+
+  iRc2 = V4DbfX2->AppendRecord();
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "AppendRecord(524)", iRc2, XB_NO_ERROR );
+
+  iRc += TestMethod( iPo, "GetRecord(530)",      V4DbfX2->GetRecord( 1 ),  XB_NO_ERROR );
+  iRc += TestMethod( iPo, "DeleteRecord(531)",   V4DbfX2->DeleteRecord(),  XB_NO_ERROR );
+
+  iRc2 = V4DbfX1->Commit();
+  if( iRc2 != XB_NO_ERROR )
+    iRc += TestMethod( iPo, "Commit()", iRc2, XB_NO_ERROR );
+
+  iRc += TestMethod( iPo, "CheckTagIntegrity(540)", V4DbfX2->CheckTagIntegrity( 1, 0 ), 0 );
+
   x.CloseAllTables();
-//  delete V4DbfX1;
-//  delete V4DbfX2;
+
+
+
+
+
 
   if( iPo > 0 || iRc < 0 )
     fprintf( stdout, "Total Errors = %d\n", iRc * -1 );

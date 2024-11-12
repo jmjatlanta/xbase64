@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.2...5.0)
 project (Xbase64)
 set( xbase_VERSION_MAJOR 4 )
 set( xbase_VERSION_MINOR 1 )
-set( xbase_VERSION_PATCH 7 )
+set( xbase_VERSION_PATCH 11 )
 
 MESSAGE( "--- Xbase build for:          " ${CMAKE_SYSTEM_NAME} )
 MESSAGE( "--- Compiler:                 " ${CMAKE_CXX_COMPILER_ID} )
@@ -155,19 +155,20 @@ ENDIF( NOT ${iSize} EQUAL 8 )
 option( BUILD_SHARED_LIBS     "Build shared libraries"                          ON)
 option( XB_DBF3_SUPPORT       "Compile DBase File Format Version 3 support"     ON)
 option( XB_DBF4_SUPPORT       "Compile DBase File Format Version 4 support"     ON)
+option( XB_DBF5_SUPPORT       "Compile DBase File Format Version 5 support"     ON)
 option( XB_MEMO_SUPPORT       "Compile memo field support into library"         ON)
 option( XB_NDX_SUPPORT        "Compile NDX Index support into library"          ON)
 option( XB_MDX_SUPPORT        "Compile MDX Index support into library"          ON)
-option( XB_LOCKING_SUPPORT    "Compile Multi User Locking support into library" ON)
+option( XB_LOCKING_SUPPORT    "Compile multi user locking support into library" ON)
 option( XB_TDX_SUPPORT        "Compile temporary index support into library"    ON)
 
 option( XB_LOGGING_SUPPORT    "Compile message logging support into library"    ON)
-option( XB_LINKLIST_SUPPORT   "Compile Link List routines into library"         ON)
+option( XB_LINKLIST_SUPPORT   "Compile link list routines into library"         ON)
 option( XB_FUNCTION_SUPPORT   "Compile XBase Function support into library"     ON)
-option( XB_EXPRESSION_SUPPORT "Compile Expression support into library"         ON)
+option( XB_EXPRESSION_SUPPORT "Compile expression support into library"         ON)
 option( XB_INF_SUPPORT        "Compile NDX INF file support into library"       ON)
-option( XB_FILTER_SUPPORT     "Compile Filter support into library"             ON)
-option( XB_BLOCKREAD_SUPPORT  "Compile Block Read support into library"         ON)
+option( XB_FILTER_SUPPORT     "Compile filter support into library"             ON)
+option( XB_BLOCKREAD_SUPPORT  "Compile block read support into library"         ON)
 option( XB_RELATE_SUPPORT     "Compile relation support into library"           ON)
 option( XB_SQL_SUPPORT        "Compile SQL support into library - alpha"        ON)
 option( XB_DEBUG_SUPPORT      "Compile debug logic into library"                ON)
@@ -293,11 +294,8 @@ ENDIF( XB_NDX_SUPPORT OR XB_MDX_SUPPORT )
 
 # Set directories
 # PROJECT_PARENT_DIR is two nodes higher
-#get_filename_component( PROJECT_PARENT_DIR ${PROJECT_BINARY_DIR} DIRECTORY )
-#get_filename_component( PROJECT_PARENT_DIR ${PROJECT_PARENT_DIR} DIRECTORY )
-# the problem with the above is that PROJECT_BINARY_DIR is wrong when using this project as a git submodule
-cmake_path(GET CMAKE_CURRENT_SOURCE_DIR PARENT_PATH PROJECT_PARENT_DIR)
-cmake_path(GET PROJECT_PARENT_DIR PARENT_PATH PROJECT_PARENT_DIR)
+get_filename_component( PROJECT_PARENT_DIR ${PROJECT_BINARY_DIR} DIRECTORY )
+get_filename_component( PROJECT_PARENT_DIR ${PROJECT_PARENT_DIR} DIRECTORY )
 
 # MESSAGE( "PROJECT_PARENT_DIR = " ${PROJECT_PARENT_DIR} )
 # MESSAGE( "PROJECT_BINARY_DIR = " ${PROJECT_BINARY_DIR} )
@@ -427,14 +425,17 @@ MESSAGE( "--- Lib type " ${LIB_TYPE} )
 
 
 set (SOURCES ${PROJECT_SOURCE_DIR}/core/xbstring.cpp
-             ${PROJECT_SOURCE_DIR}/core/xbssv.cpp
+             ${PROJECT_SOURCE_DIR}/core/xbbit.cpp
+             ${PROJECT_SOURCE_DIR}/core/xbcore.cpp
              ${PROJECT_SOURCE_DIR}/core/xbdate.cpp
              ${PROJECT_SOURCE_DIR}/core/xbtblmgr.cpp
              ${PROJECT_SOURCE_DIR}/core/xbxbase.cpp
              ${PROJECT_SOURCE_DIR}/core/xbfile.cpp
              ${PROJECT_SOURCE_DIR}/core/xbdbf.cpp
              ${PROJECT_SOURCE_DIR}/core/xbfields.cpp
-             ${PROJECT_SOURCE_DIR}/core/xblog.cpp)
+             ${PROJECT_SOURCE_DIR}/core/xblog.cpp )
+
+
 
 IF( XB_MEMO_SUPPORT )
   set (SOURCES ${SOURCES}  ${PROJECT_SOURCE_DIR}/core/xbmemo.cpp )
@@ -453,6 +454,10 @@ IF( XB_DBF4_SUPPORT )
     set (SOURCES ${SOURCES}  ${PROJECT_SOURCE_DIR}/core/xbmemo4.cpp )
   ENDIF( XB_MEMO_SUPPORT )
 ENDIF( XB_DBF4_SUPPORT )
+
+IF( XB_DBF5_SUPPORT )
+  set (SOURCES ${SOURCES}  ${PROJECT_SOURCE_DIR}/core/xbtime.cpp )
+ENDIF( XB_DBF5_SUPPORT )
 
 IF( XB_FUNCTION_SUPPORT )
   set (SOURCES ${SOURCES} ${PROJECT_SOURCE_DIR}/core/xbfuncs.cpp )
@@ -500,7 +505,12 @@ IF( XB_SQL_SUPPORT )
   set (SOURCES ${SOURCES}   ${PROJECT_SOURCE_DIR}/sql/xbsql.cpp    )
   set (SOURCES ${SOURCES}   ${PROJECT_SOURCE_DIR}/sql/xbstmt.cpp   )
   set (SOURCES ${SOURCES}   ${PROJECT_SOURCE_DIR}/sql/xbselect.cpp )
+
+
+
 ENDIF( XB_SQL_SUPPORT )
+
+
 
 
 IF( XB_FILTER_SUPPORT )
@@ -634,6 +644,13 @@ ENDIF( XB_DBF4_SUPPORT )
 
 
 
+IF( XB_DBF5_SUPPORT )
+add_executable( xb_test_time                    ${PROJECT_SOURCE_DIR}/tests/xb_test_time.cpp )
+target_link_libraries( xb_test_time             ${EXTRA_LIBS})
+add_test( NAME xbTime COMMAND xb_test_time QUIET )
+ENDIF( XB_DBF5_SUPPORT )
+
+
 IF( XB_INDEX_SUPPORT )
 add_executable( xb_test_bcd                     ${PROJECT_SOURCE_DIR}/tests/xb_test_bcd.cpp )
 target_link_libraries( xb_test_bcd              ${EXTRA_LIBS})
@@ -715,8 +732,8 @@ IF( XB_EXAMPLES_SUPPORT )
   add_executable( xb_ex_v4_upd_dbf                ${PROJECT_SOURCE_DIR}/examples/xb_ex_v4_upd_dbf.cpp )
   target_link_libraries( xb_ex_v4_upd_dbf         ${EXTRA_LIBS})
 
-  add_executable( xb_ex_ssv                       ${PROJECT_SOURCE_DIR}/examples/xb_ex_ssv.cpp )
-  target_link_libraries( xb_ex_ssv                ${EXTRA_LIBS})
+  add_executable( xb_ex_core                      ${PROJECT_SOURCE_DIR}/examples/xb_ex_core.cpp )
+  target_link_libraries( xb_ex_core               ${EXTRA_LIBS})
 
   IF( XB_LOGGING_SUPPORT )
   add_executable( xb_ex_log                       ${PROJECT_SOURCE_DIR}/examples/xb_ex_log.cpp )
@@ -732,6 +749,16 @@ IF( XB_EXAMPLES_SUPPORT )
   add_executable( xb_ex_filter                    ${PROJECT_SOURCE_DIR}/examples/xb_ex_filter.cpp )
   target_link_libraries( xb_ex_filter             ${EXTRA_LIBS})
   ENDIF( XB_FILTER_SUPPORT )
+
+  IF( XB_DBF5_SUPPORT )
+  add_executable( xb_ex_time                      ${PROJECT_SOURCE_DIR}/examples/xb_ex_time.cpp )
+  target_link_libraries( xb_ex_time               ${EXTRA_LIBS})
+  ENDIF( XB_DBF5_SUPPORT )
+
+  IF( XB_LINKLIST_SUPPORT )
+  add_executable( xb_ex_linklist                  ${PROJECT_SOURCE_DIR}/examples/xb_ex_linklist.cpp )
+  target_link_libraries( xb_ex_linklist           ${EXTRA_LIBS})
+  ENDIF( XB_LINKLIST_SUPPORT )
 
 
 ENDIF( XB_EXAMPLES_SUPPORT )
@@ -820,7 +847,7 @@ install (FILES ${PROJECT_BINARY_DIR}/include/xbconfig.h
                ${PROJECT_SOURCE_DIR}/include/xbmemo.h
                ${PROJECT_SOURCE_DIR}/include/xbretcod.h
                ${PROJECT_SOURCE_DIR}/include/xbsql.h
-               ${PROJECT_SOURCE_DIR}/include/xbssv.h
+               ${PROJECT_SOURCE_DIR}/include/xbcore.h
                ${PROJECT_SOURCE_DIR}/include/xbstring.h
                ${PROJECT_SOURCE_DIR}/include/xbtag.h
                ${PROJECT_SOURCE_DIR}/include/xbtblmgr.h
@@ -848,7 +875,7 @@ install (FILES ${PROJECT_PARENT_DIR}/docs/man/xb_cfg_check.1.gz
 ENDIF( NOT WIN32 )
 
 
-SET_TARGET_PROPERTIES( ${XB_LIBNAME} PROPERTIES VERSION 4.1.7 SOVERSION 0 )
+SET_TARGET_PROPERTIES( ${XB_LIBNAME} PROPERTIES VERSION 4.1.11 SOVERSION 0 )
 
 IF( WIN32 )
   install (TARGETS ${XB_LIBNAME}     DESTINATION bin)

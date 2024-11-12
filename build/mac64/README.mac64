@@ -1,21 +1,47 @@
 
-Mingw build steps for Xbase64 running on Windows - 3/7/23
+
+MacOSX build steps for Xbase64 running on Mac OS - 5/23/24
 
 1)  Verify cmake is installed with command:  cmake --version
     If it is not installed, install the latest version.
 
 
+    PATH="/Applications/CMake.app/Contensts/bin":"$PATH"
 
-2)  Verify you have xcode installed and operational.
+
+2)  Verify you have xcode installed and is operational
 
 
 3)  Build xbase64 library
 
 
      cd build/mac64
-     cmake . -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
+     cmake . -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
      make			build the library
-     make test			tsst the library
+     make test			test the library
      make install		install it
      xb_cfg_check		test it
 
+
+
+4)  In the Mac environment, locking functionality doesn't work with SMB Shares.
+    Per Apple, this was by design.
+
+
+    To use locking, you'll need to use nfs file shares with the MAC.
+
+    Mount the nfs volume
+
+    cd /Volumes
+    sudo mkdir xbase
+    sudo mount -t nfs -o rw l64:/opt/1Tdata/xbase /Volumes/xbase
+
+    or if that one doesn't work
+
+    sudo mount -o resvport l64:/opt/1Tdata/xbase /Volumes/xbase
+
+
+    cd /Volumes/xbase/xbase.99/build/mac64
+    cmake . -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
+    make
+    make test

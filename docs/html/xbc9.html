@@ -3,18 +3,18 @@
 <TITLE>Xbase64 DBMS Chapter 9</TITLE>
 <BODY BGCOLOR=#FFFFFF>
 <H2><p align="center">Class xbXBase</p></H2>
-<p align="center">Chapter Updated 11/21/23</p><hr>
+<p align="center">Chapter Updated 09/01/24</p><hr>
 
 <h3>Class xbXBase - Core Level Class</h3>
 
 
 The xbXBase class is the core class that needs to be in every application program.
-Established an instance of class xbXBase before any other Xbase calls are made.
+Establish an instance of class xbXBase before any other Xbase calls are made.
 
 <i>xbXBase x</i>
 
 <br><br>
-xbXBase is derived from base classes xbTblMgr and xbSsv.
+xbXBase is derived from base classes xbTblMgr and xbCore.
 <br><br><br><br>
 
 <center>
@@ -56,54 +56,54 @@ xbXBase::GetCmdLineOpt( xbInt32 lArgc, char **sArgv, const char *sOptRqst, xbStr
 <tr><td>void xbSleep( xbInt32 lMillisecs )</td><td>Sleep command, used mainly in lock commands for waiting between retries.</td><td>Misc</td></td></tr>
 
 <tr><td colspan=3><hr></td></tr>
-<tr><td>xbInt16 ABS( xbDouble dIn, xbDouble &dOut )</td><td>Dbase ABS function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 ALLTRIM( const xbString &sIn, xbString &sOut )</td><td>Dbase ALLTRIM function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 ASC( const xbString &s, xbDouble &dAscOut )</td><td>Dbase ASC function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 AT( const xbString &sSrchFor, const xbString &sBase, xbDouble &dPos )</td><td>Dbase AT function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 CDOW( xbDate &dInDate, xbString &sOutDow )</td><td>Dbase CDOW function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 CHR( xbDouble dAsciCd, xbString &sOut )</td><td>Dbase CHR function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 CMONTH( xbDate &dInDate, xbString &sOutMonth )</td><td>Dbase CMONTH function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 CTOD( const xbString &sInDate, xbDate &dOutDate )</td><td>Dbase CTOD function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 DATE( xbDate &dOutDate )</td><td>Dbase DATE function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 DAY( const xbDate &dInDate, xbDouble &dOutDay )</td><td>Dbase DAY function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 DEL( xbDbf * d, xbString &sOut, xbInt16 iRecBufSw = 0 )</td><td>Dbase DEL function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 DELETED( xbDbf * d, xbBool &bOut, xbInt16 iRecBufSw = 0 )</td><td>Dbase DELETED function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 DESCEND( const xbString &sIn,xbString &sOut )<br>xbInt16 DESCEND( const xbDate &dInDate, xbDate &dOutDate )<br>xbInt16 DESCEND( const xbDouble dIn, xbDouble &dsOut )</td><td>Dbase DESCEND function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 DOW( const xbDate &sInDate, xbDouble &dDowOut )</td><td>Dbase DOW function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 DTOC( xbDate &dInDate, xbString &sOutFmtDate )</td><td>Dbase DTOC function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 DTOS( xbDate &dInDate, xbString &sOutFmtDate )</td><td>Dbase DTOS function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 EXP( xbDouble dIn, xbDouble &dOut )</td><td>Dbase EXP function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 IIF( xbBool bResult, const xbString &sTrueResult, const xbString &sFalseResult, xbString &sResult )</td><td>Dbase IIF function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 INT( xbDouble dIn, xbDouble &dOut )</td><td>Dbase INT function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 ISALPHA( const xbString &s, xbBool &bResult )</td><td>Dbase ISALPHA function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 ISLOWER( const xbString &s, xbBool &bResult )</td><td>Dbase ISLOWER function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 ISUPPER( const xbString &s, xbBool &bResult )</td><td>Dbase ISUPPER function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 LEFT( const xbString &sIn, xbUInt32 lCharCnt, xbString &sOut )</td><td>Dbase LEF function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 LEN( const xbString &sIn, xbDouble &dLen )</td><td>Dbase LEN function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 LOG( xbDouble dIn, xbDouble &dOut )</td><td>Dbase LOG function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 LOWER( const xbString &sIn, xbString &sOut )</td><td>Dbase LOWER function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 LTRIM( const xbString &sIn, xbString & sOut )</td><td>Dbase LTRIM function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 MAX( xbDouble dIn1, xbDouble dIn2, xbDouble &dOut )</td><td>Dbase MAX function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 MIN( xbDouble dIn1, xbDouble dIn2, xbDouble &dOut )</td><td>Dbase MIN function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 MONTH( xbDate &dInDate, xbDouble &dMonthOut )</td><td>Dbase MONTH function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 RECCOUNT( xbDbf * d, xbDouble &dRecOut )</td><td>Dbase RECCOUNT function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 RECNO( xbDbf * d, xbDouble &dRecOut )</td><td>Dbase RECNO function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 REPLICATE( const xbString &sIn, xbUInt32 ulRepCnt, xbString &sOut )</td><td>Dbase REPLICATE function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 RIGHT( const xbString &sIn, xbUInt32 iCharCnt, xbString &sOut )</td><td>Dbase RIGHT function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 RTRIM( const xbString &sIn, xbString &sOut )</td><td>Dbase RTRIM function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 SPACE( xbInt32 lCnt, xbString &sOut )</td><td>Dbase SPACE function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 SQRT( xbDouble dBase, xbDouble &dSqrRt )</td><td>Dbase SQRT function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 STOD( const xbString &sIn, xbDate &sDateOut )</td><td>Dbase STOD function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 STR( xbDouble dIn, xbString &sOut )</td><td>Dbase function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 ABS( xbDouble dIn, xbDouble &dOut )</td><td>dBASE ABS function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 ALLTRIM( const xbString &sIn, xbString &sOut )</td><td>dBASE ALLTRIM function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 ASC( const xbString &s, xbDouble &dAscOut )</td><td>dBASE ASC function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 AT( const xbString &sSrchFor, const xbString &sBase, xbDouble &dPos )</td><td>dBASE AT function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 CDOW( xbDate &dInDate, xbString &sOutDow )</td><td>dBASE CDOW function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 CHR( xbDouble dAsciCd, xbString &sOut )</td><td>dBASE CHR function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 CMONTH( xbDate &dInDate, xbString &sOutMonth )</td><td>dBASE CMONTH function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 CTOD( const xbString &sInDate, xbDate &dOutDate )</td><td>dBASE CTOD function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DATE( xbDate &dOutDate )</td><td>dBASE DATE function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DAY( const xbDate &dInDate, xbDouble &dOutDay )</td><td>dBASE DAY function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DEL( xbDbf * d, xbString &sOut, xbInt16 iRecBufSw = 0 )</td><td>dBASE DEL function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DELETED( xbDbf * d, xbBool &bOut, xbInt16 iRecBufSw = 0 )</td><td>dBASE DELETED function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DESCEND( const xbString &sIn,xbString &sOut )<br>xbInt16 DESCEND( const xbDate &dInDate, xbDate &dOutDate )<br>xbInt16 DESCEND( const xbDouble dIn, xbDouble &dsOut )</td><td>dBASE DESCEND function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DOW( const xbDate &sInDate, xbDouble &dDowOut )</td><td>dBASE DOW function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DTOC( xbDate &dInDate, xbString &sOutFmtDate )</td><td>dBASE DTOC function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 DTOS( xbDate &dInDate, xbString &sOutFmtDate )</td><td>dBASE DTOS function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 EXP( xbDouble dIn, xbDouble &dOut )</td><td>dBASE EXP function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 IIF( xbBool bResult, const xbString &sTrueResult, const xbString &sFalseResult, xbString &sResult )</td><td>dBASE IIF function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 INT( xbDouble dIn, xbDouble &dOut )</td><td>dBASE INT function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 ISALPHA( const xbString &s, xbBool &bResult )</td><td>dBASE ISALPHA function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 ISLOWER( const xbString &s, xbBool &bResult )</td><td>dBASE ISLOWER function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 ISUPPER( const xbString &s, xbBool &bResult )</td><td>dBASE ISUPPER function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 LEFT( const xbString &sIn, xbUInt32 lCharCnt, xbString &sOut )</td><td>dBASE LEF function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 LEN( const xbString &sIn, xbDouble &dLen )</td><td>dBASE LEN function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 LOG( xbDouble dIn, xbDouble &dOut )</td><td>dBASE LOG function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 LOWER( const xbString &sIn, xbString &sOut )</td><td>dBASE LOWER function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 LTRIM( const xbString &sIn, xbString & sOut )</td><td>dBASE LTRIM function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 MAX( xbDouble dIn1, xbDouble dIn2, xbDouble &dOut )</td><td>dBASE MAX function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 MIN( xbDouble dIn1, xbDouble dIn2, xbDouble &dOut )</td><td>dBASE MIN function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 MONTH( xbDate &dInDate, xbDouble &dMonthOut )</td><td>dBASE MONTH function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 RECCOUNT( xbDbf * d, xbDouble &dRecOut )</td><td>dBASE RECCOUNT function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 RECNO( xbDbf * d, xbDouble &dRecOut )</td><td>dBASE RECNO function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 REPLICATE( const xbString &sIn, xbUInt32 ulRepCnt, xbString &sOut )</td><td>dBASE REPLICATE function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 RIGHT( const xbString &sIn, xbUInt32 iCharCnt, xbString &sOut )</td><td>dBASE RIGHT function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 RTRIM( const xbString &sIn, xbString &sOut )</td><td>dBASE RTRIM function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 SPACE( xbInt32 lCnt, xbString &sOut )</td><td>dBASE SPACE function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 SQRT( xbDouble dBASE, xbDouble &dSqrRt )</td><td>dBASE SQRT function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 STOD( const xbString &sIn, xbDate &sDateOut )</td><td>dBASE STOD function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 STR( xbDouble dIn, xbString &sOut )</td><td>dBASE function.</td><td>Expression</td></tr>
 <tr><td>xbInt16 STR( xbDouble dIn, xbUInt32 ulLen, xbString &sOut )<br>
         xbInt16 STR( xbDouble dIn, xbUInt32 ulLen, xbUInt32 ulDec, xbString &sOut )<br>
-        xbInt16 STR( xbDouble dIn, xbUInt32 ulLen, xbUInt32 ulDec, xbString &sPadChar, xbString &sOut )</td><td>Dbase STR function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 STRZERO( xbDouble dIn, xbUInt32 ulLen, xbUInt32 ulDec, xbString &sOut )</td><td>Dbase STRZERO function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 SUBSTR( const xbString &sIn, xbUInt32 ulStartPos, xbUInt32 ulLen, xbString &sOut )</td><td>Dbase SUBSTR function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 TRIM( const xbString &sIn, xbString &sOut )</td><td>Dbase TRIM function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 UPPER( const xbString &sIn, xbString &sOut )</td><td>Dbase UPPER function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 VAL( const xbString &sIn, xbDouble &dOut )</td><td>Dbase VAL function.</td><td>Expression</td></tr>
-<tr><td>xbInt16 YEAR( xbDate &dInDate, xbDouble &dOutYear )</td><td>Dbase YEAR function.</td><td>Expression</td></tr>
+        xbInt16 STR( xbDouble dIn, xbUInt32 ulLen, xbUInt32 ulDec, xbString &sPadChar, xbString &sOut )</td><td>dBASE STR function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 STRZERO( xbDouble dIn, xbUInt32 ulLen, xbUInt32 ulDec, xbString &sOut )</td><td>dBASE STRZERO function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 SUBSTR( const xbString &sIn, xbUInt32 ulStartPos, xbUInt32 ulLen, xbString &sOut )</td><td>dBASE SUBSTR function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 TRIM( const xbString &sIn, xbString &sOut )</td><td>dBASE TRIM function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 UPPER( const xbString &sIn, xbString &sOut )</td><td>dBASE UPPER function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 VAL( const xbString &sIn, xbDouble &dOut )</td><td>dBASE VAL function.</td><td>Expression</td></tr>
+<tr><td>xbInt16 YEAR( xbDate &dInDate, xbDouble &dOutYear )</td><td>dBASE YEAR function.</td><td>Expression</td></tr>
 </table>
 
 <br><br>
@@ -112,10 +112,12 @@ xbXBase::GetCmdLineOpt( xbInt32 lArgc, char **sArgv, const char *sOptRqst, xbStr
 <h3>Example program using xbXbase methods</h3>
 </center>
 <xmp>
-/*  xb_ex_ssv.cpp
+
+/*  xb_ex_core.cpp
+
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2021,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2021,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -124,7 +126,7 @@ Email Contact:
     XDB-devel@lists.sourceforge.net
     XDB-users@lists.sourceforge.net
 
-This program demonstrates using functionality of the xbSsv class  (Shared system values)
+This program demonstrates using functionality of the xbCore class  (Shared system values)
 
 */
 
@@ -132,7 +134,9 @@ This program demonstrates using functionality of the xbSsv class  (Shared system
 
 using namespace xb;
 
-int main( int ac, char ** av ){
+//int main( int ac, char ** av ){
+
+int main( int, char ** av ){
 
   xbXBase  x;              // set up xbase for business
   xbString sMsg;           // a message string
@@ -140,8 +144,9 @@ int main( int ac, char ** av ){
   sMsg.Sprintf( "Program [%s] initializing...", av[0] );
   std::cout << sMsg.Str() << std::endl;
 
+
   // example code to set up log file usage
- #ifdef XB_LOGGING_SUPPORT
+  #ifdef XB_LOGGING_SUPPORT
     char     cSeperator;                      // is this a unix (/) or windows (\) file system
     xbString sLog;                            // general string for log file activities
     sLog = x.GetLogFqFileName().Str();        // get the system default log file name
@@ -158,7 +163,7 @@ int main( int ac, char ** av ){
     std::cout << "New logfile is [" << sLog.Str() << "]" << std::endl;
 
     // turn on logging after file name set
-    x.EnableMsgLogging(); 
+    x.EnableMsgLogging();
   #endif  // XB_LOGGING_SUPPORT
 
   // const char *GetErrorMessage( xbInt16 ErrorCode ) const;
@@ -167,14 +172,14 @@ int main( int ac, char ** av ){
   x.DisplayError( -100 );
   //  << "]" << std::endl;
 
-
   // void      SetDefaultDateFormat( const xbString &sDefaultDateFormat );
   // xbString& GetDefaultDateFormat() const;
-  std::cout << "GetDefaultDateFormat() - " << x.GetDefaultDateFormat() << std::endl;
+  std::cout << "GetDefaultDateFormat() - " << x.GetDefaultDateFormat().Str() << std::endl;
+
 
   //  void       SetDataDirectory          ( const xbString &sDataDirectory );
   // xbString& GetDataDirectory() const;
-  std::cout << "GetDataDirectory() - " << x.GetDataDirectory() << std::endl;
+  std::cout << "GetDataDirectory() - " << x.GetDataDirectory().Str() << std::endl;
 
   // xbInt16 GetEndianType() const;
   if( x.GetEndianType() == 'L' )
@@ -197,14 +202,11 @@ int main( int ac, char ** av ){
     std::cout << "Multi user (locking) not enabled." << std::endl;
 
   #if defined (XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
-  // xbInt16    GetUniqueKeyOpt           () const;
-  // xbInt16    SetUniqueKeyOpt           ( xbInt16 iUniqueKeyOpt );
-  //   XB_HALT_ON_DUPKEY
-  //   XB_EMULATE_DBASE
-  if( x.GetUniqueKeyOpt() == XB_HALT_ON_DUPKEY )
-    std::cout << "UniqueKey option - XB_HALT_ON_DUPKEY" << std::endl;
-  else if( x.GetUniqueKeyOpt() == XB_EMULATE_DBASE )
-    std::cout << "UniqueKey option - XB_EMULATE_DBASE" << std::endl;
+  // Get / SetDefaultIxTagMode
+  if( x.GetDefaultIxTagMode() == XB_IX_DBASE_MODE )
+    std::cout << "DefaultTagMode option - XB_IX_DBASE_MODE" << std::endl;
+  else if( x.GetDefaultIxTagMode() == XB_IX_XBASE_MODE )
+    std::cout << "DefaultTagMode - XB_IX_XBASE_MODE" << std::endl;
   #endif  // (XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
 
   #ifdef XB_LOCKING_SUPPORT
@@ -214,14 +216,9 @@ int main( int ac, char ** av ){
   //void       SetDefaultLockWait        ( xbInt32 lRetryWait );
   //xbInt16    GetDefaultLockFlavor      () const;
   //void       SetDefaultLockFlavor      ( xbInt16 iLockFlavor );
-  //xbBool     GetDefaultAutoLock        () const;
-  //void       SetDefaultAutoLock        ( xbBool bAutoLock );
-  //void       EnableDefaultAutoLock     ();
-  //void       DisableDefaultAutoLock    ();
-  
+
   std::cout << "GetDefaultLockRetries() - " << x.GetDefaultLockRetries() << std::endl;
   std::cout << "GetDefaultLockWait() - " << x.GetDefaultLockWait() << std::endl;
-  std::cout << "GetDefaultAutoLock() - " << x.GetDefaultAutoLock() << std::endl;
   #endif  // XB_LOCKING_SUPPORT
 
   #ifdef XB_MDX_SUPPORT
@@ -242,6 +239,7 @@ int main( int ac, char ** av ){
   std::cout << "BitDump( 'A' ) - ";
   x.BitDump( 'A' );
 
+  std::cout << std::endl;
   return 0;
 }
 

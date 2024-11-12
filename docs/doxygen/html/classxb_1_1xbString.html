@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -47,6 +51,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classxb_1_1xbString.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +82,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespacexb.html">xb</a></li><li class="navelem"><a class="el" href="classxb_1_1xbString.html">xbString</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -74,139 +90,19 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Class for handling string data.  
- <a href="classxb_1_1xbString.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="xbstring_8h_source.html">xbstring.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a63f9313217e0ff3c9789ec59316216a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a63f9313217e0ff3c9789ec59316216a1">xbString</a> (xbUInt32 size)</td></tr>
-<tr class="memdesc:a63f9313217e0ff3c9789ec59316216a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbString.html#a63f9313217e0ff3c9789ec59316216a1">More...</a><br /></td></tr>
-<tr class="separator:a63f9313217e0ff3c9789ec59316216a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a146840c386d2876ccb7ec929398d5f5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a146840c386d2876ccb7ec929398d5f5b">xbString</a> (char cIn)</td></tr>
-<tr class="memdesc:a146840c386d2876ccb7ec929398d5f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbString.html#a146840c386d2876ccb7ec929398d5f5b">More...</a><br /></td></tr>
-<tr class="separator:a146840c386d2876ccb7ec929398d5f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65113c1b7e78b912310a4287cbabfc3e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a65113c1b7e78b912310a4287cbabfc3e">xbString</a> (const char *sIn, xbUInt32 ulMaxLen)</td></tr>
-<tr class="memdesc:a65113c1b7e78b912310a4287cbabfc3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbString.html#a65113c1b7e78b912310a4287cbabfc3e">More...</a><br /></td></tr>
-<tr class="separator:a65113c1b7e78b912310a4287cbabfc3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac28cadec768736ef9e9e19f29238a55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aac28cadec768736ef9e9e19f29238a55">xbString</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sIn)</td></tr>
-<tr class="memdesc:aac28cadec768736ef9e9e19f29238a55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbString.html#aac28cadec768736ef9e9e19f29238a55">More...</a><br /></td></tr>
-<tr class="separator:aac28cadec768736ef9e9e19f29238a55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d46700c769b857862bfcd5311f2d080"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a5d46700c769b857862bfcd5311f2d080">xbString</a> (const char *sIn=&quot;&quot;)</td></tr>
-<tr class="memdesc:a5d46700c769b857862bfcd5311f2d080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbString.html#a5d46700c769b857862bfcd5311f2d080">More...</a><br /></td></tr>
-<tr class="separator:a5d46700c769b857862bfcd5311f2d080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad865b55e3b08dffd527afee8e7e8e3fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ad865b55e3b08dffd527afee8e7e8e3fe">xbString</a> (<a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> d)</td></tr>
-<tr class="memdesc:ad865b55e3b08dffd527afee8e7e8e3fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbString.html#ad865b55e3b08dffd527afee8e7e8e3fe">More...</a><br /></td></tr>
-<tr class="separator:ad865b55e3b08dffd527afee8e7e8e3fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10a6549efab02bc76ab33b15916b1eb1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a10a6549efab02bc76ab33b15916b1eb1">~xbString</a> ()</td></tr>
 <tr class="memdesc:a10a6549efab02bc76ab33b15916b1eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classxb_1_1xbString.html#a10a6549efab02bc76ab33b15916b1eb1">More...</a><br /></td></tr>
 <tr class="separator:a10a6549efab02bc76ab33b15916b1eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f69d11cbd43edf71725a606d0ca8f40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a4f69d11cbd43edf71725a606d0ca8f40">operator=</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
-<tr class="memdesc:a4f69d11cbd43edf71725a606d0ca8f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set operator =.  <a href="classxb_1_1xbString.html#a4f69d11cbd43edf71725a606d0ca8f40">More...</a><br /></td></tr>
-<tr class="separator:a4f69d11cbd43edf71725a606d0ca8f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84ae7d16c5d73c5aa2270aa9895a7f7c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a84ae7d16c5d73c5aa2270aa9895a7f7c">operator=</a> (const char *s)</td></tr>
-<tr class="memdesc:a84ae7d16c5d73c5aa2270aa9895a7f7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set operator =.  <a href="classxb_1_1xbString.html#a84ae7d16c5d73c5aa2270aa9895a7f7c">More...</a><br /></td></tr>
-<tr class="separator:a84ae7d16c5d73c5aa2270aa9895a7f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a545df0ae9590f0ea5844a165e38a6388"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a545df0ae9590f0ea5844a165e38a6388">operator const char *</a> () const</td></tr>
-<tr class="memdesc:a545df0ae9590f0ea5844a165e38a6388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator const char *.  <a href="classxb_1_1xbString.html#a545df0ae9590f0ea5844a165e38a6388">More...</a><br /></td></tr>
-<tr class="separator:a545df0ae9590f0ea5844a165e38a6388"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe45e463226ac8e18550ced18c5a9df3"><td class="memItemLeft" align="right" valign="top">char &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#abe45e463226ac8e18550ced18c5a9df3">operator[]</a> (xbUInt32 n) const</td></tr>
-<tr class="memdesc:abe45e463226ac8e18550ced18c5a9df3"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator []  <a href="classxb_1_1xbString.html#abe45e463226ac8e18550ced18c5a9df3">More...</a><br /></td></tr>
-<tr class="separator:abe45e463226ac8e18550ced18c5a9df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4deaa68d9571753349c29baacb5613e8"><td class="memItemLeft" align="right" valign="top">char &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a4deaa68d9571753349c29baacb5613e8">operator[]</a> (xbInt32 n) const</td></tr>
-<tr class="memdesc:a4deaa68d9571753349c29baacb5613e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator []  <a href="classxb_1_1xbString.html#a4deaa68d9571753349c29baacb5613e8">More...</a><br /></td></tr>
-<tr class="separator:a4deaa68d9571753349c29baacb5613e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76a47af239797a266ada6141c150001c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a76a47af239797a266ada6141c150001c">operator+=</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
-<tr class="memdesc:a76a47af239797a266ada6141c150001c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append operator +=.  <a href="classxb_1_1xbString.html#a76a47af239797a266ada6141c150001c">More...</a><br /></td></tr>
-<tr class="separator:a76a47af239797a266ada6141c150001c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab319120dbad9107e1e7090139c956100"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ab319120dbad9107e1e7090139c956100">operator+=</a> (const char *s)</td></tr>
-<tr class="memdesc:ab319120dbad9107e1e7090139c956100"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append operator +=.  <a href="classxb_1_1xbString.html#ab319120dbad9107e1e7090139c956100">More...</a><br /></td></tr>
-<tr class="separator:ab319120dbad9107e1e7090139c956100"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae12f45b8be84e438e032c0b860f985c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ae12f45b8be84e438e032c0b860f985c6">operator+=</a> (char c)</td></tr>
-<tr class="memdesc:ae12f45b8be84e438e032c0b860f985c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append operator +=.  <a href="classxb_1_1xbString.html#ae12f45b8be84e438e032c0b860f985c6">More...</a><br /></td></tr>
-<tr class="separator:ae12f45b8be84e438e032c0b860f985c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7f4db1b4eae9dfad46346db6e17ea15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aa7f4db1b4eae9dfad46346db6e17ea15">operator-=</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
-<tr class="memdesc:aa7f4db1b4eae9dfad46346db6e17ea15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append operator -=.  <a href="classxb_1_1xbString.html#aa7f4db1b4eae9dfad46346db6e17ea15">More...</a><br /></td></tr>
-<tr class="separator:aa7f4db1b4eae9dfad46346db6e17ea15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaae97e6eda3d18c9f463993ade985bf4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aaae97e6eda3d18c9f463993ade985bf4">operator-=</a> (const char *s)</td></tr>
-<tr class="memdesc:aaae97e6eda3d18c9f463993ade985bf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append operator -=.  <a href="classxb_1_1xbString.html#aaae97e6eda3d18c9f463993ade985bf4">More...</a><br /></td></tr>
-<tr class="separator:aaae97e6eda3d18c9f463993ade985bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcafd019df23bb5724c46e34f3f31194"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#adcafd019df23bb5724c46e34f3f31194">operator-=</a> (char c)</td></tr>
-<tr class="memdesc:adcafd019df23bb5724c46e34f3f31194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append operator -=.  <a href="classxb_1_1xbString.html#adcafd019df23bb5724c46e34f3f31194">More...</a><br /></td></tr>
-<tr class="separator:adcafd019df23bb5724c46e34f3f31194"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2df3ed2fc9456214f5fd2fcf77b69bc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a2df3ed2fc9456214f5fd2fcf77b69bc1">operator==</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;) const</td></tr>
-<tr class="memdesc:a2df3ed2fc9456214f5fd2fcf77b69bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator ==  <a href="classxb_1_1xbString.html#a2df3ed2fc9456214f5fd2fcf77b69bc1">More...</a><br /></td></tr>
-<tr class="separator:a2df3ed2fc9456214f5fd2fcf77b69bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94031269af3c433393d4cf0ff9b4be38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a94031269af3c433393d4cf0ff9b4be38">operator==</a> (const char *) const</td></tr>
-<tr class="memdesc:a94031269af3c433393d4cf0ff9b4be38"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator ==  <a href="classxb_1_1xbString.html#a94031269af3c433393d4cf0ff9b4be38">More...</a><br /></td></tr>
-<tr class="separator:a94031269af3c433393d4cf0ff9b4be38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf89691607050b0505dc6af28d059c38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#acf89691607050b0505dc6af28d059c38">operator!=</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;) const</td></tr>
-<tr class="memdesc:acf89691607050b0505dc6af28d059c38"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator !=  <a href="classxb_1_1xbString.html#acf89691607050b0505dc6af28d059c38">More...</a><br /></td></tr>
-<tr class="separator:acf89691607050b0505dc6af28d059c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a822448f2a0ce653473d4c1de5763a3a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a822448f2a0ce653473d4c1de5763a3a6">operator!=</a> (const char *) const</td></tr>
-<tr class="memdesc:a822448f2a0ce653473d4c1de5763a3a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator !=  <a href="classxb_1_1xbString.html#a822448f2a0ce653473d4c1de5763a3a6">More...</a><br /></td></tr>
-<tr class="separator:a822448f2a0ce653473d4c1de5763a3a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71c7aafa0d523c72cbe58c474be2270a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a71c7aafa0d523c72cbe58c474be2270a">operator&lt;</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;) const</td></tr>
-<tr class="memdesc:a71c7aafa0d523c72cbe58c474be2270a"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &lt;  <a href="classxb_1_1xbString.html#a71c7aafa0d523c72cbe58c474be2270a">More...</a><br /></td></tr>
-<tr class="separator:a71c7aafa0d523c72cbe58c474be2270a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae46f6a45da5686b607a4edf2786a2fff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ae46f6a45da5686b607a4edf2786a2fff">operator&gt;</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;) const</td></tr>
-<tr class="memdesc:ae46f6a45da5686b607a4edf2786a2fff"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &gt;  <a href="classxb_1_1xbString.html#ae46f6a45da5686b607a4edf2786a2fff">More...</a><br /></td></tr>
-<tr class="separator:ae46f6a45da5686b607a4edf2786a2fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a461f245e60cddfdf5f78a972a46e5880"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a461f245e60cddfdf5f78a972a46e5880">operator&lt;=</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;) const</td></tr>
-<tr class="memdesc:a461f245e60cddfdf5f78a972a46e5880"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &lt;=  <a href="classxb_1_1xbString.html#a461f245e60cddfdf5f78a972a46e5880">More...</a><br /></td></tr>
-<tr class="separator:a461f245e60cddfdf5f78a972a46e5880"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f16643cb7ba3ee9cf685422c9ea0e67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a8f16643cb7ba3ee9cf685422c9ea0e67">operator&gt;=</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;) const</td></tr>
-<tr class="memdesc:a8f16643cb7ba3ee9cf685422c9ea0e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &gt;=  <a href="classxb_1_1xbString.html#a8f16643cb7ba3ee9cf685422c9ea0e67">More...</a><br /></td></tr>
-<tr class="separator:a8f16643cb7ba3ee9cf685422c9ea0e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06abec236b95f6933ba17bf67089f7cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a06abec236b95f6933ba17bf67089f7cf">operator-</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
-<tr class="memdesc:a06abec236b95f6933ba17bf67089f7cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatonate operator -.  <a href="classxb_1_1xbString.html#a06abec236b95f6933ba17bf67089f7cf">More...</a><br /></td></tr>
-<tr class="separator:a06abec236b95f6933ba17bf67089f7cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab556e8c3cb478dd95643327d72a48bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aab556e8c3cb478dd95643327d72a48bd">operator+</a> (const char *s)</td></tr>
-<tr class="memdesc:aab556e8c3cb478dd95643327d72a48bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatonate operator +.  <a href="classxb_1_1xbString.html#aab556e8c3cb478dd95643327d72a48bd">More...</a><br /></td></tr>
-<tr class="separator:aab556e8c3cb478dd95643327d72a48bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f289d577ba90c500bc1be3ec7bb0206"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a1f289d577ba90c500bc1be3ec7bb0206">operator+</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
-<tr class="memdesc:a1f289d577ba90c500bc1be3ec7bb0206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatonate operator +.  <a href="classxb_1_1xbString.html#a1f289d577ba90c500bc1be3ec7bb0206">More...</a><br /></td></tr>
-<tr class="separator:a1f289d577ba90c500bc1be3ec7bb0206"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af559654baba81c3c0c19823c0b7a69d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#af559654baba81c3c0c19823c0b7a69d3">operator+</a> (const char c)</td></tr>
-<tr class="memdesc:af559654baba81c3c0c19823c0b7a69d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatonate operator +.  <a href="classxb_1_1xbString.html#af559654baba81c3c0c19823c0b7a69d3">More...</a><br /></td></tr>
-<tr class="separator:af559654baba81c3c0c19823c0b7a69d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c4fdb689d27a9d19a0b5b4236e1ca62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a6c4fdb689d27a9d19a0b5b4236e1ca62">AddBackSlash</a> (char c)</td></tr>
 <tr class="memdesc:a6c4fdb689d27a9d19a0b5b4236e1ca62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a prefixing back slash to specified characters in the string.  <a href="classxb_1_1xbString.html#a6c4fdb689d27a9d19a0b5b4236e1ca62">More...</a><br /></td></tr>
 <tr class="separator:a6c4fdb689d27a9d19a0b5b4236e1ca62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f202e4798491f2ae9ce51ff58dd5815"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a8f202e4798491f2ae9ce51ff58dd5815">Append</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
-<tr class="memdesc:a8f202e4798491f2ae9ce51ff58dd5815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append data to string.  <a href="classxb_1_1xbString.html#a8f202e4798491f2ae9ce51ff58dd5815">More...</a><br /></td></tr>
-<tr class="separator:a8f202e4798491f2ae9ce51ff58dd5815"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1922319303feb6da1f40b5994c5e8240"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a1922319303feb6da1f40b5994c5e8240">Append</a> (const char *s)</td></tr>
-<tr class="memdesc:a1922319303feb6da1f40b5994c5e8240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append data to string.  <a href="classxb_1_1xbString.html#a1922319303feb6da1f40b5994c5e8240">More...</a><br /></td></tr>
-<tr class="separator:a1922319303feb6da1f40b5994c5e8240"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab36afc9ce956cbd505bbccfa55ff786c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ab36afc9ce956cbd505bbccfa55ff786c">Append</a> (const char *s, xbUInt32 ulByteCount)</td></tr>
-<tr class="memdesc:ab36afc9ce956cbd505bbccfa55ff786c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append data to string.  <a href="classxb_1_1xbString.html#ab36afc9ce956cbd505bbccfa55ff786c">More...</a><br /></td></tr>
-<tr class="separator:ab36afc9ce956cbd505bbccfa55ff786c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a093c6ab5df375a2589755bb8f48fa5c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a093c6ab5df375a2589755bb8f48fa5c7">Append</a> (char c)</td></tr>
-<tr class="memdesc:a093c6ab5df375a2589755bb8f48fa5c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append data to string.  <a href="classxb_1_1xbString.html#a093c6ab5df375a2589755bb8f48fa5c7">More...</a><br /></td></tr>
-<tr class="separator:a093c6ab5df375a2589755bb8f48fa5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad90789d8e49b2fdb94cd41a873f35f9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ad90789d8e49b2fdb94cd41a873f35f9a">Assign</a> (const char *srcStr, xbUInt32 ulStartPos, xbUInt32 ulCopyLen)</td></tr>
-<tr class="memdesc:ad90789d8e49b2fdb94cd41a873f35f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign portion of string.  <a href="classxb_1_1xbString.html#ad90789d8e49b2fdb94cd41a873f35f9a">More...</a><br /></td></tr>
-<tr class="separator:ad90789d8e49b2fdb94cd41a873f35f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9062c8c8edf0d54a7567f0c08d039109"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a9062c8c8edf0d54a7567f0c08d039109">Assign</a> (const char *srcStr, xbUInt32 ulStartPos)</td></tr>
-<tr class="memdesc:a9062c8c8edf0d54a7567f0c08d039109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign portion of string.  <a href="classxb_1_1xbString.html#a9062c8c8edf0d54a7567f0c08d039109">More...</a><br /></td></tr>
-<tr class="separator:a9062c8c8edf0d54a7567f0c08d039109"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf454c08623300ab676dd8b96018ca1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#acf454c08623300ab676dd8b96018ca1f">Assign</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;srcStr, xbUInt32 ulStartPos, xbUInt32 ulCopyLen)</td></tr>
-<tr class="memdesc:acf454c08623300ab676dd8b96018ca1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign portion of string.  <a href="classxb_1_1xbString.html#acf454c08623300ab676dd8b96018ca1f">More...</a><br /></td></tr>
-<tr class="separator:acf454c08623300ab676dd8b96018ca1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace4bf55888ed338987b4fbaf0e89e25e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ace4bf55888ed338987b4fbaf0e89e25e">Assign</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;srcStr, xbUInt32 ulStartPos)</td></tr>
-<tr class="memdesc:ace4bf55888ed338987b4fbaf0e89e25e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign portion of string.  <a href="classxb_1_1xbString.html#ace4bf55888ed338987b4fbaf0e89e25e">More...</a><br /></td></tr>
-<tr class="separator:ace4bf55888ed338987b4fbaf0e89e25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7a8466b03c04df838bd182ef244f792"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ac7a8466b03c04df838bd182ef244f792">Copy</a> () const</td></tr>
 <tr class="memdesc:ac7a8466b03c04df838bd182ef244f792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a string.  <a href="classxb_1_1xbString.html#ac7a8466b03c04df838bd182ef244f792">More...</a><br /></td></tr>
 <tr class="separator:ac7a8466b03c04df838bd182ef244f792"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26bc14d92dc7ce1f2bf31cd74af0db0f"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a26bc14d92dc7ce1f2bf31cd74af0db0f">CountChar</a> (char c) const</td></tr>
-<tr class="memdesc:a26bc14d92dc7ce1f2bf31cd74af0db0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of characters in the string.  <a href="classxb_1_1xbString.html#a26bc14d92dc7ce1f2bf31cd74af0db0f">More...</a><br /></td></tr>
-<tr class="separator:a26bc14d92dc7ce1f2bf31cd74af0db0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc0204bcfd1c052b9aea9229b10acf72"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#adc0204bcfd1c052b9aea9229b10acf72">CountChar</a> (char c, xbInt16 iOpt) const</td></tr>
-<tr class="memdesc:adc0204bcfd1c052b9aea9229b10acf72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of characters in the string.  <a href="classxb_1_1xbString.html#adc0204bcfd1c052b9aea9229b10acf72">More...</a><br /></td></tr>
-<tr class="separator:adc0204bcfd1c052b9aea9229b10acf72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a737bd408a94903f214eb2879eb56de"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a0a737bd408a94903f214eb2879eb56de">CvtHexChar</a> (char &amp;cOut)</td></tr>
 <tr class="memdesc:a0a737bd408a94903f214eb2879eb56de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert hex character to string.  <a href="classxb_1_1xbString.html#a0a737bd408a94903f214eb2879eb56de">More...</a><br /></td></tr>
 <tr class="separator:a0a737bd408a94903f214eb2879eb56de"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -219,21 +115,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae3ab18365e132323f8ae4c99eb72181c"><td class="memItemLeft" align="right" valign="top">xbInt16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ae3ab18365e132323f8ae4c99eb72181c">CvtLongLong</a> (xbInt64 &amp;llOut)</td></tr>
 <tr class="memdesc:ae3ab18365e132323f8ae4c99eb72181c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert string to xbInt64 number.  <a href="classxb_1_1xbString.html#ae3ab18365e132323f8ae4c99eb72181c">More...</a><br /></td></tr>
 <tr class="separator:ae3ab18365e132323f8ae4c99eb72181c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b33a8df49cdcb76033cbce5d8dc59d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a6b33a8df49cdcb76033cbce5d8dc59d7">ExtractElement</a> (<a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s, char delim, xbUInt32 iCnt, xbInt16 iOpt=0)</td></tr>
-<tr class="memdesc:a6b33a8df49cdcb76033cbce5d8dc59d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract an element out of a delimited string.  <a href="classxb_1_1xbString.html#a6b33a8df49cdcb76033cbce5d8dc59d7">More...</a><br /></td></tr>
-<tr class="separator:a6b33a8df49cdcb76033cbce5d8dc59d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77195fc4957952625cb33bb503517a3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a77195fc4957952625cb33bb503517a3e">ExtractElement</a> (const char *src, char delim, xbUInt32 iCnt, xbInt16 iOpt=0)</td></tr>
-<tr class="memdesc:a77195fc4957952625cb33bb503517a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract an element out of a delimited string.  <a href="classxb_1_1xbString.html#a77195fc4957952625cb33bb503517a3e">More...</a><br /></td></tr>
-<tr class="separator:a77195fc4957952625cb33bb503517a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72de24c43d4085813ec7720f8a970095"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a72de24c43d4085813ec7720f8a970095">GetCharacter</a> (xbUInt32 ulPos) const</td></tr>
-<tr class="memdesc:a72de24c43d4085813ec7720f8a970095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a character by position.  <a href="classxb_1_1xbString.html#a72de24c43d4085813ec7720f8a970095">More...</a><br /></td></tr>
-<tr class="separator:a72de24c43d4085813ec7720f8a970095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7698665f44413a5e99a5b5bc573c6df"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ac7698665f44413a5e99a5b5bc573c6df">GetLastPos</a> (char c) const</td></tr>
-<tr class="memdesc:ac7698665f44413a5e99a5b5bc573c6df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the position of the last occurrence of a given character.  <a href="classxb_1_1xbString.html#ac7698665f44413a5e99a5b5bc573c6df">More...</a><br /></td></tr>
-<tr class="separator:ac7698665f44413a5e99a5b5bc573c6df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c55587904fe7e534290559d0ecb8646"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a1c55587904fe7e534290559d0ecb8646">GetLastPos</a> (const char *s) const</td></tr>
-<tr class="memdesc:a1c55587904fe7e534290559d0ecb8646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the position of the last occurrence of a given string.  <a href="classxb_1_1xbString.html#a1c55587904fe7e534290559d0ecb8646">More...</a><br /></td></tr>
-<tr class="separator:a1c55587904fe7e534290559d0ecb8646"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8b8b808cf43cd352321b43f500142db"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#af8b8b808cf43cd352321b43f500142db">GetPathSeparator</a> () const</td></tr>
 <tr class="memdesc:af8b8b808cf43cd352321b43f500142db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the path separator out of the string.  <a href="classxb_1_1xbString.html#af8b8b808cf43cd352321b43f500142db">More...</a><br /></td></tr>
 <tr class="separator:af8b8b808cf43cd352321b43f500142db"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -253,7 +134,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:acdc3a6d6955b99f0a6b1d181fb3098b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retain left part of string, drop rightmost characters.  <a href="classxb_1_1xbString.html#acdc3a6d6955b99f0a6b1d181fb3098b9">More...</a><br /></td></tr>
 <tr class="separator:acdc3a6d6955b99f0a6b1d181fb3098b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a998b240eedac311aea5843047f55649b"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a998b240eedac311aea5843047f55649b">Len</a> () const</td></tr>
-<tr class="memdesc:a998b240eedac311aea5843047f55649b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve length of current string.  <a href="classxb_1_1xbString.html#a998b240eedac311aea5843047f55649b">More...</a><br /></td></tr>
+<tr class="memdesc:a998b240eedac311aea5843047f55649b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve length of current string object.  <a href="classxb_1_1xbString.html#a998b240eedac311aea5843047f55649b">More...</a><br /></td></tr>
 <tr class="separator:a998b240eedac311aea5843047f55649b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90e0d0be4fd0d82dd2ebbe689adf18ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a90e0d0be4fd0d82dd2ebbe689adf18ee">Ltrim</a> ()</td></tr>
 <tr class="memdesc:a90e0d0be4fd0d82dd2ebbe689adf18ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Left trim white space from string.  <a href="classxb_1_1xbString.html#a90e0d0be4fd0d82dd2ebbe689adf18ee">More...</a><br /></td></tr>
@@ -261,68 +142,67 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a656f5854f74064b7257ff96d96dfb68b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a656f5854f74064b7257ff96d96dfb68b">Ltrunc</a> (xbUInt32 ulCnt)</td></tr>
 <tr class="memdesc:a656f5854f74064b7257ff96d96dfb68b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Left truncate string.  <a href="classxb_1_1xbString.html#a656f5854f74064b7257ff96d96dfb68b">More...</a><br /></td></tr>
 <tr class="separator:a656f5854f74064b7257ff96d96dfb68b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f9eefc836b24c4ee7c5a316c5d812b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a0f9eefc836b24c4ee7c5a316c5d812b7">Mid</a> (xbUInt32 ulPos, xbUInt32 lLen)</td></tr>
-<tr class="memdesc:a0f9eefc836b24c4ee7c5a316c5d812b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract portion of data from string.  <a href="classxb_1_1xbString.html#a0f9eefc836b24c4ee7c5a316c5d812b7">More...</a><br /></td></tr>
-<tr class="separator:a0f9eefc836b24c4ee7c5a316c5d812b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a09cfed22066b0c72432f26960f9e7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a6a09cfed22066b0c72432f26960f9e7b">PadLeft</a> (char c, xbUInt32 ulLen)</td></tr>
-<tr class="memdesc:a6a09cfed22066b0c72432f26960f9e7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Left pad string.  <a href="classxb_1_1xbString.html#a6a09cfed22066b0c72432f26960f9e7b">More...</a><br /></td></tr>
-<tr class="separator:a6a09cfed22066b0c72432f26960f9e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba13f0c77eb6c4a22996039569fad284"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aba13f0c77eb6c4a22996039569fad284">PadRight</a> (char c, xbUInt32 ulLen)</td></tr>
-<tr class="memdesc:aba13f0c77eb6c4a22996039569fad284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Right pad string.  <a href="classxb_1_1xbString.html#aba13f0c77eb6c4a22996039569fad284">More...</a><br /></td></tr>
-<tr class="separator:aba13f0c77eb6c4a22996039569fad284"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b586890138da8bf0e23090bd8b34581"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a1b586890138da8bf0e23090bd8b34581">Pos</a> (char c, xbUInt32 ulStartPos) const</td></tr>
-<tr class="memdesc:a1b586890138da8bf0e23090bd8b34581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine position of a given character.  <a href="classxb_1_1xbString.html#a1b586890138da8bf0e23090bd8b34581">More...</a><br /></td></tr>
-<tr class="separator:a1b586890138da8bf0e23090bd8b34581"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3baf59d15099589ff631995f129e582b"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a3baf59d15099589ff631995f129e582b">Pos</a> (char c) const</td></tr>
-<tr class="memdesc:a3baf59d15099589ff631995f129e582b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine position of a given character.  <a href="classxb_1_1xbString.html#a3baf59d15099589ff631995f129e582b">More...</a><br /></td></tr>
-<tr class="separator:a3baf59d15099589ff631995f129e582b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8705d7277b72f5aa98021e84438914da"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a8705d7277b72f5aa98021e84438914da">Pos</a> (const char *s) const</td></tr>
-<tr class="memdesc:a8705d7277b72f5aa98021e84438914da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine position of a given substring.  <a href="classxb_1_1xbString.html#a8705d7277b72f5aa98021e84438914da">More...</a><br /></td></tr>
-<tr class="separator:a8705d7277b72f5aa98021e84438914da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5e9155ce6e5c8dcee8f941cc60e0c16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ab5e9155ce6e5c8dcee8f941cc60e0c16">Mid</a> (xbUInt32 ulStartPos, xbUInt32 ulTargLen=0)</td></tr>
+<tr class="memdesc:ab5e9155ce6e5c8dcee8f941cc60e0c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract portion of data from string.  <a href="classxb_1_1xbString.html#ab5e9155ce6e5c8dcee8f941cc60e0c16">More...</a><br /></td></tr>
+<tr class="separator:ab5e9155ce6e5c8dcee8f941cc60e0c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a545df0ae9590f0ea5844a165e38a6388"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a545df0ae9590f0ea5844a165e38a6388">operator const char *</a> () const</td></tr>
+<tr class="memdesc:a545df0ae9590f0ea5844a165e38a6388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator const char *.  <a href="classxb_1_1xbString.html#a545df0ae9590f0ea5844a165e38a6388">More...</a><br /></td></tr>
+<tr class="separator:a545df0ae9590f0ea5844a165e38a6388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06abec236b95f6933ba17bf67089f7cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a06abec236b95f6933ba17bf67089f7cf">operator-</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
+<tr class="memdesc:a06abec236b95f6933ba17bf67089f7cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatonate operator -.  <a href="classxb_1_1xbString.html#a06abec236b95f6933ba17bf67089f7cf">More...</a><br /></td></tr>
+<tr class="separator:a06abec236b95f6933ba17bf67089f7cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb04911d5b7a1c5411606ed774c70a99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#adb04911d5b7a1c5411606ed774c70a99">operator&lt;</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s) const</td></tr>
+<tr class="memdesc:adb04911d5b7a1c5411606ed774c70a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &lt;  <a href="classxb_1_1xbString.html#adb04911d5b7a1c5411606ed774c70a99">More...</a><br /></td></tr>
+<tr class="separator:adb04911d5b7a1c5411606ed774c70a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed85b8f9f2af1159741b45dcb337651b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aed85b8f9f2af1159741b45dcb337651b">operator&lt;=</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s) const</td></tr>
+<tr class="memdesc:aed85b8f9f2af1159741b45dcb337651b"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &lt;=  <a href="classxb_1_1xbString.html#aed85b8f9f2af1159741b45dcb337651b">More...</a><br /></td></tr>
+<tr class="separator:aed85b8f9f2af1159741b45dcb337651b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c747092a0adb44401bda01357ef6764"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a7c747092a0adb44401bda01357ef6764">operator&gt;</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s) const</td></tr>
+<tr class="memdesc:a7c747092a0adb44401bda01357ef6764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator &gt;<br  />
+Greater than compare.  <a href="classxb_1_1xbString.html#a7c747092a0adb44401bda01357ef6764">More...</a><br /></td></tr>
+<tr class="separator:a7c747092a0adb44401bda01357ef6764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14e3e09db44cc698fa79c5e4a1be8ba1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a14e3e09db44cc698fa79c5e4a1be8ba1">operator&gt;=</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s) const</td></tr>
+<tr class="memdesc:a14e3e09db44cc698fa79c5e4a1be8ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator &gt;=<br  />
+Greater than or equal compare.  <a href="classxb_1_1xbString.html#a14e3e09db44cc698fa79c5e4a1be8ba1">More...</a><br /></td></tr>
+<tr class="separator:a14e3e09db44cc698fa79c5e4a1be8ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50b07e479b8f0fbe26f4f11a6e330ef6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a50b07e479b8f0fbe26f4f11a6e330ef6">PadLeft</a> (char c, xbUInt32 ulNewLen)</td></tr>
+<tr class="memdesc:a50b07e479b8f0fbe26f4f11a6e330ef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Left pad string.  <a href="classxb_1_1xbString.html#a50b07e479b8f0fbe26f4f11a6e330ef6">More...</a><br /></td></tr>
+<tr class="separator:a50b07e479b8f0fbe26f4f11a6e330ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ca98cefd599f922481de3e417604d80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a5ca98cefd599f922481de3e417604d80">PadRight</a> (char c, xbUInt32 ulNewLen)</td></tr>
+<tr class="memdesc:a5ca98cefd599f922481de3e417604d80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Right pad string.  <a href="classxb_1_1xbString.html#a5ca98cefd599f922481de3e417604d80">More...</a><br /></td></tr>
+<tr class="separator:a5ca98cefd599f922481de3e417604d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bae6fa8f608261f6e889616482f6e39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a1bae6fa8f608261f6e889616482f6e39">PutAt</a> (xbUInt32 ulPos, char c)</td></tr>
 <tr class="memdesc:a1bae6fa8f608261f6e889616482f6e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert character into string.  <a href="classxb_1_1xbString.html#a1bae6fa8f608261f6e889616482f6e39">More...</a><br /></td></tr>
 <tr class="separator:a1bae6fa8f608261f6e889616482f6e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afaac65eaa6d9ef1596d6a0e7b91ed0f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#afaac65eaa6d9ef1596d6a0e7b91ed0f2">Remove</a> (xbUInt32 ulPos, xbUInt32 ulN)</td></tr>
-<tr class="memdesc:afaac65eaa6d9ef1596d6a0e7b91ed0f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove portion of string.  <a href="classxb_1_1xbString.html#afaac65eaa6d9ef1596d6a0e7b91ed0f2">More...</a><br /></td></tr>
-<tr class="separator:afaac65eaa6d9ef1596d6a0e7b91ed0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac721d643c60b5c5acf60c2bce99596fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ac721d643c60b5c5acf60c2bce99596fa">Replace</a> (const char *sReplace, const char *sReplaceWith, xbInt16 iOpt=0)</td></tr>
-<tr class="memdesc:ac721d643c60b5c5acf60c2bce99596fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace a value within a string with another value.  <a href="classxb_1_1xbString.html#ac721d643c60b5c5acf60c2bce99596fa">More...</a><br /></td></tr>
-<tr class="separator:ac721d643c60b5c5acf60c2bce99596fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6d346ab04e5bb8852f0bb996163a35e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aa6d346ab04e5bb8852f0bb996163a35e">Resize</a> (xbUInt32 lSize)</td></tr>
-<tr class="memdesc:aa6d346ab04e5bb8852f0bb996163a35e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize a string.  <a href="classxb_1_1xbString.html#aa6d346ab04e5bb8852f0bb996163a35e">More...</a><br /></td></tr>
-<tr class="separator:aa6d346ab04e5bb8852f0bb996163a35e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab35ce179e918117a00da9ae7ded74458"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ab35ce179e918117a00da9ae7ded74458">Remove</a> (xbUInt32 ulStartPos, xbUInt32 ulDelSize)</td></tr>
+<tr class="memdesc:ab35ce179e918117a00da9ae7ded74458"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove portion of string.  <a href="classxb_1_1xbString.html#ab35ce179e918117a00da9ae7ded74458">More...</a><br /></td></tr>
+<tr class="separator:ab35ce179e918117a00da9ae7ded74458"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a164e667764c7ed2c67d1241973b57b05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a164e667764c7ed2c67d1241973b57b05">Resize</a> (xbUInt32 ulSize)</td></tr>
+<tr class="memdesc:a164e667764c7ed2c67d1241973b57b05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize a string.  <a href="classxb_1_1xbString.html#a164e667764c7ed2c67d1241973b57b05">More...</a><br /></td></tr>
+<tr class="separator:a164e667764c7ed2c67d1241973b57b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf330188d67c347ecae0d16f65b22077"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aaf330188d67c347ecae0d16f65b22077">Rtrim</a> ()</td></tr>
-<tr class="memdesc:aaf330188d67c347ecae0d16f65b22077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Right trim the string.  <a href="classxb_1_1xbString.html#aaf330188d67c347ecae0d16f65b22077">More...</a><br /></td></tr>
+<tr class="memdesc:aaf330188d67c347ecae0d16f65b22077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Right trim the string by removing any white space,.  <a href="classxb_1_1xbString.html#aaf330188d67c347ecae0d16f65b22077">More...</a><br /></td></tr>
 <tr class="separator:aaf330188d67c347ecae0d16f65b22077"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab85753d2c39882e946a8468cbb587700"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ab85753d2c39882e946a8468cbb587700">Set</a> (const char *s)</td></tr>
-<tr class="memdesc:ab85753d2c39882e946a8468cbb587700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the string.  <a href="classxb_1_1xbString.html#ab85753d2c39882e946a8468cbb587700">More...</a><br /></td></tr>
-<tr class="separator:ab85753d2c39882e946a8468cbb587700"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0d08bd688fd0e3707e32886d0dfeb09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ac0d08bd688fd0e3707e32886d0dfeb09">Set</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
-<tr class="memdesc:ac0d08bd688fd0e3707e32886d0dfeb09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the string.  <a href="classxb_1_1xbString.html#ac0d08bd688fd0e3707e32886d0dfeb09">More...</a><br /></td></tr>
-<tr class="separator:ac0d08bd688fd0e3707e32886d0dfeb09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eba6ccd0c805a22516de2c18a30f8a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a6eba6ccd0c805a22516de2c18a30f8a3">Set</a> (const char *s, xbUInt32 ulSize)</td></tr>
-<tr class="memdesc:a6eba6ccd0c805a22516de2c18a30f8a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the string.  <a href="classxb_1_1xbString.html#a6eba6ccd0c805a22516de2c18a30f8a3">More...</a><br /></td></tr>
-<tr class="separator:a6eba6ccd0c805a22516de2c18a30f8a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3af5b1f111f94b0667551fcbd1d97abd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a3af5b1f111f94b0667551fcbd1d97abd">SetNum</a> (xbInt32 lNum)</td></tr>
 <tr class="memdesc:a3af5b1f111f94b0667551fcbd1d97abd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the string to long integer numeric value.  <a href="classxb_1_1xbString.html#a3af5b1f111f94b0667551fcbd1d97abd">More...</a><br /></td></tr>
 <tr class="separator:a3af5b1f111f94b0667551fcbd1d97abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e9bfa29d86377b915f1628aeb0e9195"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a9e9bfa29d86377b915f1628aeb0e9195">Sprintf</a> (const char *format,...)</td></tr>
-<tr class="memdesc:a9e9bfa29d86377b915f1628aeb0e9195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Printf routine for formatting a string.  <a href="classxb_1_1xbString.html#a9e9bfa29d86377b915f1628aeb0e9195">More...</a><br /></td></tr>
-<tr class="separator:a9e9bfa29d86377b915f1628aeb0e9195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8eab6994cfeeec1f51003c5f3e7d2e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ac8eab6994cfeeec1f51003c5f3e7d2e4">Sprintf</a> (const char *sFormat,...)</td></tr>
+<tr class="memdesc:ac8eab6994cfeeec1f51003c5f3e7d2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Printf routine for formatting a string.  <a href="classxb_1_1xbString.html#ac8eab6994cfeeec1f51003c5f3e7d2e4">More...</a><br /></td></tr>
+<tr class="separator:ac8eab6994cfeeec1f51003c5f3e7d2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6715f4c0010f3ab487c9d787838a29b3"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a6715f4c0010f3ab487c9d787838a29b3">Str</a> () const</td></tr>
 <tr class="memdesc:a6715f4c0010f3ab487c9d787838a29b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return string data.  <a href="classxb_1_1xbString.html#a6715f4c0010f3ab487c9d787838a29b3">More...</a><br /></td></tr>
 <tr class="separator:a6715f4c0010f3ab487c9d787838a29b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bc9e856c34f0c240a6e36e5b6e3ea7b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a3bc9e856c34f0c240a6e36e5b6e3ea7b">strncpy</a> (char *cDest, xbUInt32 n) const</td></tr>
 <tr class="memdesc:a3bc9e856c34f0c240a6e36e5b6e3ea7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy all or part of string to character array.  <a href="classxb_1_1xbString.html#a3bc9e856c34f0c240a6e36e5b6e3ea7b">More...</a><br /></td></tr>
 <tr class="separator:a3bc9e856c34f0c240a6e36e5b6e3ea7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a054683872e1f05d11c2cf8683a63a6fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a054683872e1f05d11c2cf8683a63a6fe">SwapChars</a> (char from, char to)</td></tr>
-<tr class="memdesc:a054683872e1f05d11c2cf8683a63a6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap characters.  <a href="classxb_1_1xbString.html#a054683872e1f05d11c2cf8683a63a6fe">More...</a><br /></td></tr>
-<tr class="separator:a054683872e1f05d11c2cf8683a63a6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a010ddb83773ee4e45c8324e82d6c8678"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a010ddb83773ee4e45c8324e82d6c8678">SwapChars</a> (char cFrom, char cTo)</td></tr>
+<tr class="memdesc:a010ddb83773ee4e45c8324e82d6c8678"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap characters.  <a href="classxb_1_1xbString.html#a010ddb83773ee4e45c8324e82d6c8678">More...</a><br /></td></tr>
+<tr class="separator:a010ddb83773ee4e45c8324e82d6c8678"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a602cac1a6ef3f6b52f587ac4c0ef4fb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a602cac1a6ef3f6b52f587ac4c0ef4fb2">ToLowerCase</a> ()</td></tr>
-<tr class="memdesc:a602cac1a6ef3f6b52f587ac4c0ef4fb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace all upper case charaters with lower case characters.  <a href="classxb_1_1xbString.html#a602cac1a6ef3f6b52f587ac4c0ef4fb2">More...</a><br /></td></tr>
+<tr class="memdesc:a602cac1a6ef3f6b52f587ac4c0ef4fb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace all upper case characters with lower case characters.  <a href="classxb_1_1xbString.html#a602cac1a6ef3f6b52f587ac4c0ef4fb2">More...</a><br /></td></tr>
 <tr class="separator:a602cac1a6ef3f6b52f587ac4c0ef4fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68001d0a44e6b4fe61e29a4e41ded9d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a68001d0a44e6b4fe61e29a4e41ded9d4">ToUpperCase</a> ()</td></tr>
-<tr class="memdesc:a68001d0a44e6b4fe61e29a4e41ded9d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace all lower case charaters with lower case characters.  <a href="classxb_1_1xbString.html#a68001d0a44e6b4fe61e29a4e41ded9d4">More...</a><br /></td></tr>
+<tr class="memdesc:a68001d0a44e6b4fe61e29a4e41ded9d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace all lower case characters with upper case characters.  <a href="classxb_1_1xbString.html#a68001d0a44e6b4fe61e29a4e41ded9d4">More...</a><br /></td></tr>
 <tr class="separator:a68001d0a44e6b4fe61e29a4e41ded9d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc9bd33687d4e03ca52d77885721d626"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#abc9bd33687d4e03ca52d77885721d626">Trim</a> ()</td></tr>
 <tr class="memdesc:abc9bd33687d4e03ca52d77885721d626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim all leading and trailing white space from string.  <a href="classxb_1_1xbString.html#abc9bd33687d4e03ca52d77885721d626">More...</a><br /></td></tr>
@@ -342,6 +222,192 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afe3415bfa2e1089b792aeda0462fb99e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#afe3415bfa2e1089b792aeda0462fb99e">ZapTrailingChar</a> (char c)</td></tr>
 <tr class="memdesc:afe3415bfa2e1089b792aeda0462fb99e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove trailing character from a string.  <a href="classxb_1_1xbString.html#afe3415bfa2e1089b792aeda0462fb99e">More...</a><br /></td></tr>
 <tr class="separator:afe3415bfa2e1089b792aeda0462fb99e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a8a2f0fd54682b9baa08520d9042b59fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a8a2f0fd54682b9baa08520d9042b59fc">xbString</a> (xbUInt32 ulSize)</td></tr>
+<tr class="memdesc:a8a2f0fd54682b9baa08520d9042b59fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbString.html#a8a2f0fd54682b9baa08520d9042b59fc">More...</a><br /></td></tr>
+<tr class="separator:a8a2f0fd54682b9baa08520d9042b59fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a146840c386d2876ccb7ec929398d5f5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a146840c386d2876ccb7ec929398d5f5b">xbString</a> (char cIn)</td></tr>
+<tr class="memdesc:a146840c386d2876ccb7ec929398d5f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbString.html#a146840c386d2876ccb7ec929398d5f5b">More...</a><br /></td></tr>
+<tr class="separator:a146840c386d2876ccb7ec929398d5f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65113c1b7e78b912310a4287cbabfc3e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a65113c1b7e78b912310a4287cbabfc3e">xbString</a> (const char *sIn, xbUInt32 ulMaxLen)</td></tr>
+<tr class="memdesc:a65113c1b7e78b912310a4287cbabfc3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbString.html#a65113c1b7e78b912310a4287cbabfc3e">More...</a><br /></td></tr>
+<tr class="separator:a65113c1b7e78b912310a4287cbabfc3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac28cadec768736ef9e9e19f29238a55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aac28cadec768736ef9e9e19f29238a55">xbString</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sIn)</td></tr>
+<tr class="memdesc:aac28cadec768736ef9e9e19f29238a55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbString.html#aac28cadec768736ef9e9e19f29238a55">More...</a><br /></td></tr>
+<tr class="separator:aac28cadec768736ef9e9e19f29238a55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d46700c769b857862bfcd5311f2d080"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a5d46700c769b857862bfcd5311f2d080">xbString</a> (const char *sIn=&quot;&quot;)</td></tr>
+<tr class="memdesc:a5d46700c769b857862bfcd5311f2d080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbString.html#a5d46700c769b857862bfcd5311f2d080">More...</a><br /></td></tr>
+<tr class="separator:a5d46700c769b857862bfcd5311f2d080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a076a16268819c3bf31c7accb1af9c305"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a076a16268819c3bf31c7accb1af9c305">xbString</a> (<a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a> dNum)</td></tr>
+<tr class="memdesc:a076a16268819c3bf31c7accb1af9c305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classxb_1_1xbString.html#a076a16268819c3bf31c7accb1af9c305">More...</a><br /></td></tr>
+<tr class="separator:a076a16268819c3bf31c7accb1af9c305"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a8f202e4798491f2ae9ce51ff58dd5815"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a8f202e4798491f2ae9ce51ff58dd5815">Append</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
+<tr class="memdesc:a8f202e4798491f2ae9ce51ff58dd5815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append data to string.  <a href="classxb_1_1xbString.html#a8f202e4798491f2ae9ce51ff58dd5815">More...</a><br /></td></tr>
+<tr class="separator:a8f202e4798491f2ae9ce51ff58dd5815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1922319303feb6da1f40b5994c5e8240"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a1922319303feb6da1f40b5994c5e8240">Append</a> (const char *s)</td></tr>
+<tr class="memdesc:a1922319303feb6da1f40b5994c5e8240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append data to string.  <a href="classxb_1_1xbString.html#a1922319303feb6da1f40b5994c5e8240">More...</a><br /></td></tr>
+<tr class="separator:a1922319303feb6da1f40b5994c5e8240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab36afc9ce956cbd505bbccfa55ff786c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ab36afc9ce956cbd505bbccfa55ff786c">Append</a> (const char *s, xbUInt32 ulByteCount)</td></tr>
+<tr class="memdesc:ab36afc9ce956cbd505bbccfa55ff786c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append data to string.  <a href="classxb_1_1xbString.html#ab36afc9ce956cbd505bbccfa55ff786c">More...</a><br /></td></tr>
+<tr class="separator:ab36afc9ce956cbd505bbccfa55ff786c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a093c6ab5df375a2589755bb8f48fa5c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a093c6ab5df375a2589755bb8f48fa5c7">Append</a> (char c)</td></tr>
+<tr class="memdesc:a093c6ab5df375a2589755bb8f48fa5c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append data to string.  <a href="classxb_1_1xbString.html#a093c6ab5df375a2589755bb8f48fa5c7">More...</a><br /></td></tr>
+<tr class="separator:a093c6ab5df375a2589755bb8f48fa5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a7704102747ce5dc40bb49f58ef172eb9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a7704102747ce5dc40bb49f58ef172eb9">Assign</a> (const char *sSrc, xbUInt32 ulStartPos, xbUInt32 ulCopyLen)</td></tr>
+<tr class="memdesc:a7704102747ce5dc40bb49f58ef172eb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign portion of string.  <a href="classxb_1_1xbString.html#a7704102747ce5dc40bb49f58ef172eb9">More...</a><br /></td></tr>
+<tr class="separator:a7704102747ce5dc40bb49f58ef172eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eb422adbe89a96fc9d39d4c2126b1ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a7eb422adbe89a96fc9d39d4c2126b1ff">Assign</a> (const char *sSrc, xbUInt32 ulStartPos)</td></tr>
+<tr class="memdesc:a7eb422adbe89a96fc9d39d4c2126b1ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign portion of string.  <a href="classxb_1_1xbString.html#a7eb422adbe89a96fc9d39d4c2126b1ff">More...</a><br /></td></tr>
+<tr class="separator:a7eb422adbe89a96fc9d39d4c2126b1ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1ec90158504ae41ee06049e802d0550"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ab1ec90158504ae41ee06049e802d0550">Assign</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sSrc, xbUInt32 ulStartPos, xbUInt32 ulCopyLen)</td></tr>
+<tr class="memdesc:ab1ec90158504ae41ee06049e802d0550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign portion of string.  <a href="classxb_1_1xbString.html#ab1ec90158504ae41ee06049e802d0550">More...</a><br /></td></tr>
+<tr class="separator:ab1ec90158504ae41ee06049e802d0550"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabdb5379f055018923a51fb2a66a53a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aabdb5379f055018923a51fb2a66a53a9">Assign</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sSrc, xbUInt32 ulStartPos)</td></tr>
+<tr class="memdesc:aabdb5379f055018923a51fb2a66a53a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign portion of string.  <a href="classxb_1_1xbString.html#aabdb5379f055018923a51fb2a66a53a9">More...</a><br /></td></tr>
+<tr class="separator:aabdb5379f055018923a51fb2a66a53a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a26bc14d92dc7ce1f2bf31cd74af0db0f"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a26bc14d92dc7ce1f2bf31cd74af0db0f">CountChar</a> (char c) const</td></tr>
+<tr class="memdesc:a26bc14d92dc7ce1f2bf31cd74af0db0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of characters in the string.  <a href="classxb_1_1xbString.html#a26bc14d92dc7ce1f2bf31cd74af0db0f">More...</a><br /></td></tr>
+<tr class="separator:a26bc14d92dc7ce1f2bf31cd74af0db0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc0204bcfd1c052b9aea9229b10acf72"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#adc0204bcfd1c052b9aea9229b10acf72">CountChar</a> (char c, xbInt16 iOpt) const</td></tr>
+<tr class="memdesc:adc0204bcfd1c052b9aea9229b10acf72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of characters in the string.  <a href="classxb_1_1xbString.html#adc0204bcfd1c052b9aea9229b10acf72">More...</a><br /></td></tr>
+<tr class="separator:adc0204bcfd1c052b9aea9229b10acf72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a18786500adc65f9f42b7b95269d39549"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a18786500adc65f9f42b7b95269d39549">Dump</a> (const char *sTitle) const</td></tr>
+<tr class="memdesc:a18786500adc65f9f42b7b95269d39549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump string.  <a href="classxb_1_1xbString.html#a18786500adc65f9f42b7b95269d39549">More...</a><br /></td></tr>
+<tr class="separator:a18786500adc65f9f42b7b95269d39549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa96e69d9733240f8848e5bb99e5f2af0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aa96e69d9733240f8848e5bb99e5f2af0">Dump</a> (const char *sTitle, <a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> bHexOption) const</td></tr>
+<tr class="memdesc:aa96e69d9733240f8848e5bb99e5f2af0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump string.  <a href="classxb_1_1xbString.html#aa96e69d9733240f8848e5bb99e5f2af0">More...</a><br /></td></tr>
+<tr class="separator:aa96e69d9733240f8848e5bb99e5f2af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04be4f82ad65028f4e09ef9cad575b15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a04be4f82ad65028f4e09ef9cad575b15">Dump</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sTitle) const</td></tr>
+<tr class="memdesc:a04be4f82ad65028f4e09ef9cad575b15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump string.  <a href="classxb_1_1xbString.html#a04be4f82ad65028f4e09ef9cad575b15">More...</a><br /></td></tr>
+<tr class="separator:a04be4f82ad65028f4e09ef9cad575b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa65125007623b2205b4fc9ffa17036ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aa65125007623b2205b4fc9ffa17036ee">Dump</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sTitle, <a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a> bHexOption) const</td></tr>
+<tr class="memdesc:aa65125007623b2205b4fc9ffa17036ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump string.  <a href="classxb_1_1xbString.html#aa65125007623b2205b4fc9ffa17036ee">More...</a><br /></td></tr>
+<tr class="separator:aa65125007623b2205b4fc9ffa17036ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:aaab8a53ff8278a2ffcd605c6e5839143"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aaab8a53ff8278a2ffcd605c6e5839143">DumpHex</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sTitle) const</td></tr>
+<tr class="memdesc:aaab8a53ff8278a2ffcd605c6e5839143"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump Hex.  <a href="classxb_1_1xbString.html#aaab8a53ff8278a2ffcd605c6e5839143">More...</a><br /></td></tr>
+<tr class="separator:aaab8a53ff8278a2ffcd605c6e5839143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f598bd3f6bfabb567234f5eaec46ab1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a5f598bd3f6bfabb567234f5eaec46ab1">DumpHex</a> (const char *sTitle) const</td></tr>
+<tr class="memdesc:a5f598bd3f6bfabb567234f5eaec46ab1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump Hex.  <a href="classxb_1_1xbString.html#a5f598bd3f6bfabb567234f5eaec46ab1">More...</a><br /></td></tr>
+<tr class="separator:a5f598bd3f6bfabb567234f5eaec46ab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a2bc9475a3d768b91c7f93a588260f4d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a2bc9475a3d768b91c7f93a588260f4d8">ExtractElement</a> (<a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sSrc, char cDelim, xbUInt32 lSkipCnt, xbInt16 iOpt=0)</td></tr>
+<tr class="memdesc:a2bc9475a3d768b91c7f93a588260f4d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract an element out of a delimited string.  <a href="classxb_1_1xbString.html#a2bc9475a3d768b91c7f93a588260f4d8">More...</a><br /></td></tr>
+<tr class="separator:a2bc9475a3d768b91c7f93a588260f4d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad86feeadae35a2f0128e9029bafb1207"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ad86feeadae35a2f0128e9029bafb1207">ExtractElement</a> (const char *sSrc, char cDelim, xbUInt32 lSkipCnt, xbInt16 iOpt=0)</td></tr>
+<tr class="memdesc:ad86feeadae35a2f0128e9029bafb1207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract an element out of a delimited string.  <a href="classxb_1_1xbString.html#ad86feeadae35a2f0128e9029bafb1207">More...</a><br /></td></tr>
+<tr class="separator:ad86feeadae35a2f0128e9029bafb1207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72de24c43d4085813ec7720f8a970095"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a72de24c43d4085813ec7720f8a970095">GetCharacter</a> (xbUInt32 ulPos) const</td></tr>
+<tr class="memdesc:a72de24c43d4085813ec7720f8a970095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a character by position.  <a href="classxb_1_1xbString.html#a72de24c43d4085813ec7720f8a970095">More...</a><br /></td></tr>
+<tr class="separator:a72de24c43d4085813ec7720f8a970095"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7698665f44413a5e99a5b5bc573c6df"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ac7698665f44413a5e99a5b5bc573c6df">GetLastPos</a> (char c) const</td></tr>
+<tr class="memdesc:ac7698665f44413a5e99a5b5bc573c6df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the position of the last occurrence of a given character.  <a href="classxb_1_1xbString.html#ac7698665f44413a5e99a5b5bc573c6df">More...</a><br /></td></tr>
+<tr class="separator:ac7698665f44413a5e99a5b5bc573c6df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c55587904fe7e534290559d0ecb8646"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a1c55587904fe7e534290559d0ecb8646">GetLastPos</a> (const char *s) const</td></tr>
+<tr class="memdesc:a1c55587904fe7e534290559d0ecb8646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the position of the last occurrence of a given string.  <a href="classxb_1_1xbString.html#a1c55587904fe7e534290559d0ecb8646">More...</a><br /></td></tr>
+<tr class="separator:a1c55587904fe7e534290559d0ecb8646"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a41a73c84323a8c48e244a45ab0c66130"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a41a73c84323a8c48e244a45ab0c66130">operator!=</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s) const</td></tr>
+<tr class="memdesc:a41a73c84323a8c48e244a45ab0c66130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare for inequality operator.  <a href="classxb_1_1xbString.html#a41a73c84323a8c48e244a45ab0c66130">More...</a><br /></td></tr>
+<tr class="separator:a41a73c84323a8c48e244a45ab0c66130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdd7ba38a4bfa269ce52cfc6459fb91f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#afdd7ba38a4bfa269ce52cfc6459fb91f">operator!=</a> (const char *s) const</td></tr>
+<tr class="memdesc:afdd7ba38a4bfa269ce52cfc6459fb91f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare for inequality operator.  <a href="classxb_1_1xbString.html#afdd7ba38a4bfa269ce52cfc6459fb91f">More...</a><br /></td></tr>
+<tr class="separator:afdd7ba38a4bfa269ce52cfc6459fb91f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:aab556e8c3cb478dd95643327d72a48bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aab556e8c3cb478dd95643327d72a48bd">operator+</a> (const char *s)</td></tr>
+<tr class="memdesc:aab556e8c3cb478dd95643327d72a48bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatonate operator +<br  />
+Concatonate left string with right string returning new string.  <a href="classxb_1_1xbString.html#aab556e8c3cb478dd95643327d72a48bd">More...</a><br /></td></tr>
+<tr class="separator:aab556e8c3cb478dd95643327d72a48bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af559654baba81c3c0c19823c0b7a69d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#af559654baba81c3c0c19823c0b7a69d3">operator+</a> (const char c)</td></tr>
+<tr class="memdesc:af559654baba81c3c0c19823c0b7a69d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatonate operator +<br  />
+Concatonate left string with char value returning new string.  <a href="classxb_1_1xbString.html#af559654baba81c3c0c19823c0b7a69d3">More...</a><br /></td></tr>
+<tr class="separator:af559654baba81c3c0c19823c0b7a69d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f289d577ba90c500bc1be3ec7bb0206"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a1f289d577ba90c500bc1be3ec7bb0206">operator+</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
+<tr class="memdesc:a1f289d577ba90c500bc1be3ec7bb0206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatonate operator +<br  />
+Concatonate left string with right string returning new string.  <a href="classxb_1_1xbString.html#a1f289d577ba90c500bc1be3ec7bb0206">More...</a><br /></td></tr>
+<tr class="separator:a1f289d577ba90c500bc1be3ec7bb0206"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ae12f45b8be84e438e032c0b860f985c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ae12f45b8be84e438e032c0b860f985c6">operator+=</a> (char c)</td></tr>
+<tr class="memdesc:ae12f45b8be84e438e032c0b860f985c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append operator +=.  <a href="classxb_1_1xbString.html#ae12f45b8be84e438e032c0b860f985c6">More...</a><br /></td></tr>
+<tr class="separator:ae12f45b8be84e438e032c0b860f985c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab319120dbad9107e1e7090139c956100"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ab319120dbad9107e1e7090139c956100">operator+=</a> (const char *s)</td></tr>
+<tr class="memdesc:ab319120dbad9107e1e7090139c956100"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append operator +=.  <a href="classxb_1_1xbString.html#ab319120dbad9107e1e7090139c956100">More...</a><br /></td></tr>
+<tr class="separator:ab319120dbad9107e1e7090139c956100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76a47af239797a266ada6141c150001c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a76a47af239797a266ada6141c150001c">operator+=</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
+<tr class="memdesc:a76a47af239797a266ada6141c150001c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append operator +=.  <a href="classxb_1_1xbString.html#a76a47af239797a266ada6141c150001c">More...</a><br /></td></tr>
+<tr class="separator:a76a47af239797a266ada6141c150001c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:adcafd019df23bb5724c46e34f3f31194"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#adcafd019df23bb5724c46e34f3f31194">operator-=</a> (char c)</td></tr>
+<tr class="memdesc:adcafd019df23bb5724c46e34f3f31194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append operator += Append to the right of the right trimmed string object.  <a href="classxb_1_1xbString.html#adcafd019df23bb5724c46e34f3f31194">More...</a><br /></td></tr>
+<tr class="separator:adcafd019df23bb5724c46e34f3f31194"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaae97e6eda3d18c9f463993ade985bf4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aaae97e6eda3d18c9f463993ade985bf4">operator-=</a> (const char *s)</td></tr>
+<tr class="memdesc:aaae97e6eda3d18c9f463993ade985bf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append operator += Append to the right of the string, right trimming both strings.  <a href="classxb_1_1xbString.html#aaae97e6eda3d18c9f463993ade985bf4">More...</a><br /></td></tr>
+<tr class="separator:aaae97e6eda3d18c9f463993ade985bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7f4db1b4eae9dfad46346db6e17ea15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aa7f4db1b4eae9dfad46346db6e17ea15">operator-=</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
+<tr class="memdesc:aa7f4db1b4eae9dfad46346db6e17ea15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append operator += Append to the right of the string, right trimming both strings.  <a href="classxb_1_1xbString.html#aa7f4db1b4eae9dfad46346db6e17ea15">More...</a><br /></td></tr>
+<tr class="separator:aa7f4db1b4eae9dfad46346db6e17ea15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a84ae7d16c5d73c5aa2270aa9895a7f7c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a84ae7d16c5d73c5aa2270aa9895a7f7c">operator=</a> (const char *s)</td></tr>
+<tr class="memdesc:a84ae7d16c5d73c5aa2270aa9895a7f7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator =<br  />
+Assignment operator  <a href="classxb_1_1xbString.html#a84ae7d16c5d73c5aa2270aa9895a7f7c">More...</a><br /></td></tr>
+<tr class="separator:a84ae7d16c5d73c5aa2270aa9895a7f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f69d11cbd43edf71725a606d0ca8f40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a4f69d11cbd43edf71725a606d0ca8f40">operator=</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
+<tr class="memdesc:a4f69d11cbd43edf71725a606d0ca8f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator =<br  />
+Assignment operator  <a href="classxb_1_1xbString.html#a4f69d11cbd43edf71725a606d0ca8f40">More...</a><br /></td></tr>
+<tr class="separator:a4f69d11cbd43edf71725a606d0ca8f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a13edecf629090656763b51f371740535"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a13edecf629090656763b51f371740535">operator==</a> (const char *s) const</td></tr>
+<tr class="memdesc:a13edecf629090656763b51f371740535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare for equality operator.  <a href="classxb_1_1xbString.html#a13edecf629090656763b51f371740535">More...</a><br /></td></tr>
+<tr class="separator:a13edecf629090656763b51f371740535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8023d686046ec9d6e3b145b5aae9544"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#aa8023d686046ec9d6e3b145b5aae9544">operator==</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s) const</td></tr>
+<tr class="memdesc:aa8023d686046ec9d6e3b145b5aae9544"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare for equality operator.  <a href="classxb_1_1xbString.html#aa8023d686046ec9d6e3b145b5aae9544">More...</a><br /></td></tr>
+<tr class="separator:aa8023d686046ec9d6e3b145b5aae9544"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a90402baf798aad358bdde90a363608f2"><td class="memItemLeft" align="right" valign="top">char &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a90402baf798aad358bdde90a363608f2">operator[]</a> (xbUInt32 iPos) const</td></tr>
+<tr class="memdesc:a90402baf798aad358bdde90a363608f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscript operator[]<br  />
+Return char value for position <em>iPos</em>.  <a href="classxb_1_1xbString.html#a90402baf798aad358bdde90a363608f2">More...</a><br /></td></tr>
+<tr class="separator:a90402baf798aad358bdde90a363608f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbe221abc2932f64ac72d9eb6e2e5278"><td class="memItemLeft" align="right" valign="top">char &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#afbe221abc2932f64ac72d9eb6e2e5278">operator[]</a> (xbInt32 iPos) const</td></tr>
+<tr class="memdesc:afbe221abc2932f64ac72d9eb6e2e5278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscript operator[]<br  />
+Return char value for position <em>iPos</em>.  <a href="classxb_1_1xbString.html#afbe221abc2932f64ac72d9eb6e2e5278">More...</a><br /></td></tr>
+<tr class="separator:afbe221abc2932f64ac72d9eb6e2e5278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a3baf59d15099589ff631995f129e582b"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a3baf59d15099589ff631995f129e582b">Pos</a> (char c) const</td></tr>
+<tr class="memdesc:a3baf59d15099589ff631995f129e582b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine position of a given character within a string object.  <a href="classxb_1_1xbString.html#a3baf59d15099589ff631995f129e582b">More...</a><br /></td></tr>
+<tr class="separator:a3baf59d15099589ff631995f129e582b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b586890138da8bf0e23090bd8b34581"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a1b586890138da8bf0e23090bd8b34581">Pos</a> (char c, xbUInt32 ulStartPos) const</td></tr>
+<tr class="memdesc:a1b586890138da8bf0e23090bd8b34581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine position of a given character within a string object starting at position <em>ulStartPos</em>.  <a href="classxb_1_1xbString.html#a1b586890138da8bf0e23090bd8b34581">More...</a><br /></td></tr>
+<tr class="separator:a1b586890138da8bf0e23090bd8b34581"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8705d7277b72f5aa98021e84438914da"><td class="memItemLeft" align="right" valign="top">xbUInt32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a8705d7277b72f5aa98021e84438914da">Pos</a> (const char *s) const</td></tr>
+<tr class="memdesc:a8705d7277b72f5aa98021e84438914da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine position of a given substring within a string object.  <a href="classxb_1_1xbString.html#a8705d7277b72f5aa98021e84438914da">More...</a><br /></td></tr>
+<tr class="separator:a8705d7277b72f5aa98021e84438914da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a238774d9a6a2323848a18ff481c32516"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a238774d9a6a2323848a18ff481c32516">Replace</a> (const char *sReplace, const char *sReplaceWith, xbInt16 iOption=0)</td></tr>
+<tr class="memdesc:a238774d9a6a2323848a18ff481c32516"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace a value within a string with another value.  <a href="classxb_1_1xbString.html#a238774d9a6a2323848a18ff481c32516">More...</a><br /></td></tr>
+<tr class="separator:a238774d9a6a2323848a18ff481c32516"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac52188af03bf0b6fc5bdf705d66e37d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ac52188af03bf0b6fc5bdf705d66e37d5">Replace</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sReplace, const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sReplaceWith, xbInt16 iOption=0)</td></tr>
+<tr class="memdesc:ac52188af03bf0b6fc5bdf705d66e37d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace a value within a string with another value.  <a href="classxb_1_1xbString.html#ac52188af03bf0b6fc5bdf705d66e37d5">More...</a><br /></td></tr>
+<tr class="separator:ac52188af03bf0b6fc5bdf705d66e37d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c321fcabe57fcb7ba433051b67da74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#af2c321fcabe57fcb7ba433051b67da74">Replace</a> (const char *sReplace, const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sReplaceWith, xbInt16 iOption=0)</td></tr>
+<tr class="memdesc:af2c321fcabe57fcb7ba433051b67da74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace a value within a string with another value.  <a href="classxb_1_1xbString.html#af2c321fcabe57fcb7ba433051b67da74">More...</a><br /></td></tr>
+<tr class="separator:af2c321fcabe57fcb7ba433051b67da74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac88b3735fe2e34f41711227535d54a5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ac88b3735fe2e34f41711227535d54a5b">Replace</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;sReplace, const char *sReplaceWith, xbInt16 iOption=0)</td></tr>
+<tr class="memdesc:ac88b3735fe2e34f41711227535d54a5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace a value within a string with another value.  <a href="classxb_1_1xbString.html#ac88b3735fe2e34f41711227535d54a5b">More...</a><br /></td></tr>
+<tr class="separator:ac88b3735fe2e34f41711227535d54a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ab85753d2c39882e946a8468cbb587700"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ab85753d2c39882e946a8468cbb587700">Set</a> (const char *s)</td></tr>
+<tr class="memdesc:ab85753d2c39882e946a8468cbb587700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the string.  <a href="classxb_1_1xbString.html#ab85753d2c39882e946a8468cbb587700">More...</a><br /></td></tr>
+<tr class="separator:ab85753d2c39882e946a8468cbb587700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eba6ccd0c805a22516de2c18a30f8a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#a6eba6ccd0c805a22516de2c18a30f8a3">Set</a> (const char *s, xbUInt32 ulSize)</td></tr>
+<tr class="memdesc:a6eba6ccd0c805a22516de2c18a30f8a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the string.  <a href="classxb_1_1xbString.html#a6eba6ccd0c805a22516de2c18a30f8a3">More...</a><br /></td></tr>
+<tr class="separator:a6eba6ccd0c805a22516de2c18a30f8a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0d08bd688fd0e3707e32886d0dfeb09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxb_1_1xbString.html#ac0d08bd688fd0e3707e32886d0dfeb09">Set</a> (const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;s)</td></tr>
+<tr class="memdesc:ac0d08bd688fd0e3707e32886d0dfeb09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the string.  <a href="classxb_1_1xbString.html#ac0d08bd688fd0e3707e32886d0dfeb09">More...</a><br /></td></tr>
+<tr class="separator:ac0d08bd688fd0e3707e32886d0dfeb09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -350,23 +416,15 @@ Friends</h2></td></tr>
 <tr class="separator:a8e5856ab09babb5b10c2fcb64434ca60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Class for handling string data. </p>
-<p >This class defines a basic string class with all the functions one would expect in a string class.</p>
-<p >For purposes of the <a class="el" href="classxb_1_1xbString.html" title="Class for handling string data.">xbString</a> class, a string is defined as a variable sized array of one byte characters terminated with a null (0x00 or \0) byte.<br  />
-<br  />
+<div class="textblock"><p ><a class="el" href="classxb_1_1xbString.html">xbString</a> is a basic string class with all the functionality one would expect in a string class.</p>
+<p >For purposes of the <a class="el" href="classxb_1_1xbString.html">xbString</a> class, a string is defined as a variable sized array of one byte characters terminated with a null (0x00 or \0) byte.<br  />
 </p>
-<p >This version of the <a class="el" href="classxb_1_1xbString.html" title="Class for handling string data.">xbString</a> class does not support wide (wchar_t) characters. Perhaps you would be interested in creating a class for supporting wide characters.<br  />
-<br  />
+<p >This version of the <a class="el" href="classxb_1_1xbString.html">xbString</a> class does not support wide (wchar_t) characters at this time.<br  />
 </p>
-<p >This string class handle strings in a 1-based (not 0 based) fashion. Any string routines taking an offset use a 1-based value. That is, the first position of the string is position 1, not 0.<br  />
-<br  />
- <br  />
-</p>
-<p >Position 1 (not 0) is considered the first position in a string. <br  />
- A return of 0 would indicate a not found condition. A return of 1, would be the first byte. </p>
+<p >This string class handle strings in a 1-based (not 0 based) fashion. Any string routines taking an offset use a 1-based value. That is, the first position of the string is position 1, not 0. Position 1 (not 0) is considered the first position in a string. A return of 0 would indicate a not found condition. A return of 1, would be the first byte. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a63f9313217e0ff3c9789ec59316216a1" name="a63f9313217e0ff3c9789ec59316216a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63f9313217e0ff3c9789ec59316216a1">&#9670;&nbsp;</a></span>xbString() <span class="overload">[1/6]</span></h2>
+<a id="a8a2f0fd54682b9baa08520d9042b59fc" name="a8a2f0fd54682b9baa08520d9042b59fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a2f0fd54682b9baa08520d9042b59fc">&#9670;&nbsp;</a></span>xbString() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,7 +442,7 @@ Friends</h2></td></tr>
 <p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ulSize</td><td>- Allocation size. The allocation size is normally handled internally by the class, but it can be set in this constructor. </td></tr>
+    <tr><td class="paramname">ulSize</td><td>Size to allocate for a string. </td></tr>
   </table>
   </dd>
 </dl>
@@ -401,7 +459,7 @@ Friends</h2></td></tr>
           <td class="memname">xb::xbString::xbString </td>
           <td>(</td>
           <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
+          <td class="paramname"><em>cIn</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -410,7 +468,7 @@ Friends</h2></td></tr>
 <p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">c</td><td>- Initialize string to c. </td></tr>
+    <tr><td class="paramname">cIn</td><td>Character value to set as a string. </td></tr>
   </table>
   </dd>
 </dl>
@@ -427,7 +485,7 @@ Friends</h2></td></tr>
           <td class="memname">xb::xbString::xbString </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
+          <td class="paramname"><em>sIn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -446,8 +504,8 @@ Friends</h2></td></tr>
 <p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>Initialize string to s. </td></tr>
-    <tr><td class="paramname">ulMaxLen</td><td>Maximum length of string. Truncate any characters greater than ulMaxLen. </td></tr>
+    <tr><td class="paramname">sIn</td><td>String value to set as a string. </td></tr>
+    <tr><td class="paramname">ulMaxLen</td><td>Max Length for new string. </td></tr>
   </table>
   </dd>
 </dl>
@@ -464,7 +522,7 @@ Friends</h2></td></tr>
           <td class="memname">xb::xbString::xbString </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
+          <td class="paramname"><em>sIn</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -473,7 +531,7 @@ Friends</h2></td></tr>
 <p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>Initialize string to s. </td></tr>
+    <tr><td class="paramname">sIn</td><td>String value to set as a string. </td></tr>
   </table>
   </dd>
 </dl>
@@ -490,7 +548,7 @@ Friends</h2></td></tr>
           <td class="memname">xb::xbString::xbString </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>s</em> = <code>&quot;&quot;</code></td><td>)</td>
+          <td class="paramname"><em>sIn</em> = <code>&quot;&quot;</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -499,15 +557,15 @@ Friends</h2></td></tr>
 <p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>- Initialize string to s. </td></tr>
+    <tr><td class="paramname">sIn</td><td>String value to set as a string. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="ad865b55e3b08dffd527afee8e7e8e3fe" name="ad865b55e3b08dffd527afee8e7e8e3fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad865b55e3b08dffd527afee8e7e8e3fe">&#9670;&nbsp;</a></span>xbString() <span class="overload">[6/6]</span></h2>
+<a id="a076a16268819c3bf31c7accb1af9c305" name="a076a16268819c3bf31c7accb1af9c305"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a076a16268819c3bf31c7accb1af9c305">&#9670;&nbsp;</a></span>xbString() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -516,7 +574,7 @@ Friends</h2></td></tr>
           <td class="memname">xb::xbString::xbString </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacexb.html#a25f47b226ce924a5c78f97989b0744a2">xbDouble</a>&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
+          <td class="paramname"><em>dNum</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -525,7 +583,7 @@ Friends</h2></td></tr>
 <p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">d</td><td>- Initiailize string to d. </td></tr>
+    <tr><td class="paramname">dNum</td><td>numeric valus to set as string. </td></tr>
   </table>
   </dd>
 </dl>
@@ -598,7 +656,7 @@ Friends</h2></td></tr>
 <p>Append data to string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">c</td><td>String data to append. </td></tr>
+    <tr><td class="paramname">c</td><td>char data to append. </td></tr>
   </table>
   </dd>
 </dl>
@@ -699,8 +757,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a9062c8c8edf0d54a7567f0c08d039109" name="a9062c8c8edf0d54a7567f0c08d039109"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9062c8c8edf0d54a7567f0c08d039109">&#9670;&nbsp;</a></span>Assign() <span class="overload">[1/4]</span></h2>
+<a id="a7eb422adbe89a96fc9d39d4c2126b1ff" name="a7eb422adbe89a96fc9d39d4c2126b1ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eb422adbe89a96fc9d39d4c2126b1ff">&#9670;&nbsp;</a></span>Assign() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -709,7 +767,7 @@ Friends</h2></td></tr>
           <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbString::Assign </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>sStr</em>, </td>
+          <td class="paramname"><em>sSrc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -728,7 +786,7 @@ Friends</h2></td></tr>
 <p>Assign portion of string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sStr</td><td>- Source string for copy operation. sStr needs to be a Null terminated string. </td></tr>
+    <tr><td class="paramname">sSrc</td><td>- Null terminated source string for copy operation. </td></tr>
     <tr><td class="paramname">ulStartPos</td><td>- Starting position within source string. </td></tr>
   </table>
   </dd>
@@ -737,8 +795,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="ad90789d8e49b2fdb94cd41a873f35f9a" name="ad90789d8e49b2fdb94cd41a873f35f9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad90789d8e49b2fdb94cd41a873f35f9a">&#9670;&nbsp;</a></span>Assign() <span class="overload">[2/4]</span></h2>
+<a id="a7704102747ce5dc40bb49f58ef172eb9" name="a7704102747ce5dc40bb49f58ef172eb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7704102747ce5dc40bb49f58ef172eb9">&#9670;&nbsp;</a></span>Assign() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -747,7 +805,7 @@ Friends</h2></td></tr>
           <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbString::Assign </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>sStr</em>, </td>
+          <td class="paramname"><em>sSrc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -772,7 +830,7 @@ Friends</h2></td></tr>
 <p>Assign portion of string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sStr</td><td>- Source string for copy operation. sStr needs to be a Null terminated string. </td></tr>
+    <tr><td class="paramname">sSrc</td><td>- Null terminated source string for copy operation. </td></tr>
     <tr><td class="paramname">ulStartPos</td><td>- Starting position within source string. </td></tr>
     <tr><td class="paramname">ulCopyLen</td><td>- Length of data to copy. </td></tr>
   </table>
@@ -782,8 +840,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="ace4bf55888ed338987b4fbaf0e89e25e" name="ace4bf55888ed338987b4fbaf0e89e25e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace4bf55888ed338987b4fbaf0e89e25e">&#9670;&nbsp;</a></span>Assign() <span class="overload">[3/4]</span></h2>
+<a id="aabdb5379f055018923a51fb2a66a53a9" name="aabdb5379f055018923a51fb2a66a53a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabdb5379f055018923a51fb2a66a53a9">&#9670;&nbsp;</a></span>Assign() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -792,7 +850,7 @@ Friends</h2></td></tr>
           <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbString::Assign </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>sStr</em>, </td>
+          <td class="paramname"><em>sSrc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -811,7 +869,7 @@ Friends</h2></td></tr>
 <p>Assign portion of string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sStr</td><td>- Source string for copy operation. sStr needs to be a Null terminated string. </td></tr>
+    <tr><td class="paramname">sSrc</td><td>- Source <a class="el" href="classxb_1_1xbString.html">xbString</a> object for copy operation. </td></tr>
     <tr><td class="paramname">ulStartPos</td><td>- Starting position within source string. </td></tr>
   </table>
   </dd>
@@ -820,8 +878,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="acf454c08623300ab676dd8b96018ca1f" name="acf454c08623300ab676dd8b96018ca1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf454c08623300ab676dd8b96018ca1f">&#9670;&nbsp;</a></span>Assign() <span class="overload">[4/4]</span></h2>
+<a id="ab1ec90158504ae41ee06049e802d0550" name="ab1ec90158504ae41ee06049e802d0550"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1ec90158504ae41ee06049e802d0550">&#9670;&nbsp;</a></span>Assign() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -830,7 +888,7 @@ Friends</h2></td></tr>
           <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbString::Assign </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>sStr</em>, </td>
+          <td class="paramname"><em>sSrc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -855,7 +913,7 @@ Friends</h2></td></tr>
 <p>Assign portion of string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sStr</td><td>- Source string for copy operation. sStr needs to be a Null terminated string. </td></tr>
+    <tr><td class="paramname">sSrc</td><td>- Source <a class="el" href="classxb_1_1xbString.html">xbString</a> object for copy operation. </td></tr>
     <tr><td class="paramname">ulStartPos</td><td>- Starting position within source string. </td></tr>
     <tr><td class="paramname">ulCopyLen</td><td>- Length of data to copy. </td></tr>
   </table>
@@ -881,7 +939,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Copy a string. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classxb_1_1xbString.html" title="Class for handling string data.">xbString</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classxb_1_1xbString.html">xbString</a>. </dd></dl>
 
 </div>
 </div>
@@ -975,8 +1033,8 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>XB_INVALID_PARM on error<br  />
- XB_NO_ERROR on success. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>XB_INVALID_PARM<br  />
+ XB_NO_ERROR </dd></dl>
 
 </div>
 </div>
@@ -997,15 +1055,14 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Convert string of hex characters to string. </p>
-<p >This routine converts a string of one or more four byte sequences 0x00 to a string of one byte chars.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >This routine converts a string of one or more four byte sequences 0x00 to a string of one byte chars. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sOut</td><td>Output string of converted characters. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>XB_INVALID_PARM on error<br  />
- XB_NO_ERROR on success. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>XB_INVALID_PARM<br  />
+ XB_NO_ERROR. </dd></dl>
 
 </div>
 </div>
@@ -1028,11 +1085,12 @@ Friends</h2></td></tr>
 <p>Convert string to xbInt64 number. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">llOut</td><td>- output long long. </td></tr>
+    <tr><td class="paramname">llOut</td><td>- output xbInt64 (long long) number. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>XB_NO_ERROR </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Current version has no data checking. </dd></dl>
 
 </div>
 </div>
@@ -1055,16 +1113,203 @@ Friends</h2></td></tr>
 <p>Convert string to xbUInt64 number. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ullOut</td><td>- output unsigned long long. </td></tr>
+    <tr><td class="paramname">ullOut</td><td>- output xbUInt64 (unsigned long long) number. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>XB_NO_ERROR </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Current version has no data checking. </dd></dl>
 
 </div>
 </div>
-<a id="a77195fc4957952625cb33bb503517a3e" name="a77195fc4957952625cb33bb503517a3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77195fc4957952625cb33bb503517a3e">&#9670;&nbsp;</a></span>ExtractElement() <span class="overload">[1/2]</span></h2>
+<a id="a18786500adc65f9f42b7b95269d39549" name="a18786500adc65f9f42b7b95269d39549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18786500adc65f9f42b7b95269d39549">&#9670;&nbsp;</a></span>Dump() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xb::xbString::Dump </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>sTitle</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dump string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sTitle</td><td>Title to print in output. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This method is only available if the XB_DEBUG_SUPPORT option is compiled into libarary. </dd></dl>
+
+</div>
+</div>
+<a id="aa96e69d9733240f8848e5bb99e5f2af0" name="aa96e69d9733240f8848e5bb99e5f2af0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa96e69d9733240f8848e5bb99e5f2af0">&#9670;&nbsp;</a></span>Dump() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xb::xbString::Dump </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>sTitle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td>
+          <td class="paramname"><em>bHexOption</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dump string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sTitle</td><td>Title to print in output. </td></tr>
+    <tr><td class="paramname">bHexOption</td><td>xbFalse Don't include hex output in dump.<br  />
+xbTrue Include hex output in dump. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This method is only available if the XB_DEBUG_SUPPORT option is compiled into libarary. </dd></dl>
+
+</div>
+</div>
+<a id="a04be4f82ad65028f4e09ef9cad575b15" name="a04be4f82ad65028f4e09ef9cad575b15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04be4f82ad65028f4e09ef9cad575b15">&#9670;&nbsp;</a></span>Dump() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xb::xbString::Dump </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
+          <td class="paramname"><em>sTitle</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dump string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sTitle</td><td>Title to print in output. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This method is only available if the XB_DEBUG_SUPPORT option is compiled into libarary. </dd></dl>
+
+</div>
+</div>
+<a id="aa65125007623b2205b4fc9ffa17036ee" name="aa65125007623b2205b4fc9ffa17036ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa65125007623b2205b4fc9ffa17036ee">&#9670;&nbsp;</a></span>Dump() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xb::xbString::Dump </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
+          <td class="paramname"><em>sTitle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacexb.html#ab1a750481dd487f0d384aa1d200dff0f">xbBool</a>&#160;</td>
+          <td class="paramname"><em>bHexOption</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dump string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sTitle</td><td>Title to print in output. </td></tr>
+    <tr><td class="paramname">bHexOption</td><td>xbFalse Don't include hex output in dump.<br  />
+xbTrue Include hex output in dump. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This method is only available if the XB_DEBUG_SUPPORT option is compiled into libarary. </dd></dl>
+
+</div>
+</div>
+<a id="a5f598bd3f6bfabb567234f5eaec46ab1" name="a5f598bd3f6bfabb567234f5eaec46ab1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f598bd3f6bfabb567234f5eaec46ab1">&#9670;&nbsp;</a></span>DumpHex() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xb::xbString::DumpHex </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>sTitle</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dump Hex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sTitle</td><td>Dump hex values for a string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This method is only available if the XB_DEBUG_SUPPORT option is compiled into libarary. </dd></dl>
+
+</div>
+</div>
+<a id="aaab8a53ff8278a2ffcd605c6e5839143" name="aaab8a53ff8278a2ffcd605c6e5839143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaab8a53ff8278a2ffcd605c6e5839143">&#9670;&nbsp;</a></span>DumpHex() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xb::xbString::DumpHex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
+          <td class="paramname"><em>sTitle</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dump Hex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sTitle</td><td>Dump hex values for a string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This method is only available if the XB_DEBUG_SUPPORT option is compiled into libarary. </dd></dl>
+
+</div>
+</div>
+<a id="ad86feeadae35a2f0128e9029bafb1207" name="ad86feeadae35a2f0128e9029bafb1207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad86feeadae35a2f0128e9029bafb1207">&#9670;&nbsp;</a></span>ExtractElement() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1073,7 +1318,7 @@ Friends</h2></td></tr>
           <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbString::ExtractElement </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>pSrc</em>, </td>
+          <td class="paramname"><em>sSrc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1104,10 +1349,10 @@ Friends</h2></td></tr>
 <p>Extract an element out of a delimited string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pSrc</td><td>Source string. </td></tr>
+    <tr><td class="paramname">sSrc</td><td>Source string. </td></tr>
     <tr><td class="paramname">cDelim</td><td>Delimiter. </td></tr>
     <tr><td class="paramname">lSkipCnt</td><td>Number of delimiters to skip. </td></tr>
-    <tr><td class="paramname">iOpt</td><td>0 - ignore single and double quotes.<br  />
+    <tr><td class="paramname">iOpt</td><td>0 - ignore single and double quotes. (Default)<br  />
  1 - ignore delimiters between single or double quotes. </td></tr>
   </table>
   </dd>
@@ -1116,8 +1361,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a6b33a8df49cdcb76033cbce5d8dc59d7" name="a6b33a8df49cdcb76033cbce5d8dc59d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b33a8df49cdcb76033cbce5d8dc59d7">&#9670;&nbsp;</a></span>ExtractElement() <span class="overload">[2/2]</span></h2>
+<a id="a2bc9475a3d768b91c7f93a588260f4d8" name="a2bc9475a3d768b91c7f93a588260f4d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bc9475a3d768b91c7f93a588260f4d8">&#9670;&nbsp;</a></span>ExtractElement() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1160,7 +1405,7 @@ Friends</h2></td></tr>
     <tr><td class="paramname">sSrc</td><td>Source string. </td></tr>
     <tr><td class="paramname">cDelim</td><td>Delimiter. </td></tr>
     <tr><td class="paramname">lSkipCnt</td><td>Number of delimiters to skip. </td></tr>
-    <tr><td class="paramname">iOpt</td><td>0 - ignore single and double quotes.<br  />
+    <tr><td class="paramname">iOpt</td><td>0 - ignore single and double quotes. (Default)<br  />
  1 - ignore delimiters between single or double quotes. </td></tr>
   </table>
   </dd>
@@ -1179,7 +1424,7 @@ Friends</h2></td></tr>
           <td class="memname">char xb::xbString::GetCharacter </td>
           <td>(</td>
           <td class="paramtype">xbUInt32&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
+          <td class="paramname"><em>ulPos</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -1188,7 +1433,7 @@ Friends</h2></td></tr>
 <p>Get a character by position. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>- Position in string to extract. First position is 1 (not 0). </td></tr>
+    <tr><td class="paramname">ulPos</td><td>Position in string to extract. First position is 1 (not 0). </td></tr>
   </table>
   </dd>
 </dl>
@@ -1266,7 +1511,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get the path separator out of the string. </p>
-<p >This method assumes the string is a valid path name. If it is, it returns either / or . </p><dl class="section return"><dt>Returns</dt><dd>Char value containing either / or \ depending on OS. </dd></dl>
+<p >This method assumes the string is a valid path name. If it is, it returns either / or . </p><dl class="section return"><dt>Returns</dt><dd>/, \ or null. </dd></dl>
 
 </div>
 </div>
@@ -1306,8 +1551,8 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determine if the string has any alpha characters. </p>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue - String contains one or more alpha characters.<br  />
- xbFalse - String contains no alpha characters. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>xbTrue String contains one or more alpha characters.<br  />
+ xbFalse String contains no alpha characters. </dd></dl>
 
 </div>
 </div>
@@ -1395,7 +1640,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retrieve length of current string. </p>
+<p>Retrieve length of current string object. </p>
 <dl class="section return"><dt>Returns</dt><dd>String length, excluding the terminating null byte. </dd></dl>
 
 </div>
@@ -1447,8 +1692,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a0f9eefc836b24c4ee7c5a316c5d812b7" name="a0f9eefc836b24c4ee7c5a316c5d812b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f9eefc836b24c4ee7c5a316c5d812b7">&#9670;&nbsp;</a></span>Mid()</h2>
+<a id="ab5e9155ce6e5c8dcee8f941cc60e0c16" name="ab5e9155ce6e5c8dcee8f941cc60e0c16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5e9155ce6e5c8dcee8f941cc60e0c16">&#9670;&nbsp;</a></span>Mid()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1463,7 +1708,7 @@ Friends</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">xbUInt32&#160;</td>
-          <td class="paramname"><em>ulTargLen</em>&#160;</td>
+          <td class="paramname"><em>ulTargLen</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1477,11 +1722,14 @@ Friends</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ulStartPos</td><td>Starting position </td></tr>
-    <tr><td class="paramname">ulTargLen</td><td>Length </td></tr>
+    <tr><td class="paramname">ulTargLen</td><td>Length to copy. If 0 copy everything after ulStartPos. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to string </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to string</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This is a 1 based routine (first position in string is 1). </dd>
+<dd>
+If ulStartPos &gt; string length, ulStartPos + TargLen &gt; String Length or the string is null, the routine returns without making any updates. </dd></dl>
 
 </div>
 </div>
@@ -1505,8 +1753,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a822448f2a0ce653473d4c1de5763a3a6" name="a822448f2a0ce653473d4c1de5763a3a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a822448f2a0ce653473d4c1de5763a3a6">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/2]</span></h2>
+<a id="afdd7ba38a4bfa269ce52cfc6459fb91f" name="afdd7ba38a4bfa269ce52cfc6459fb91f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdd7ba38a4bfa269ce52cfc6459fb91f">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1521,21 +1769,20 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>operator != </p>
+<p>Compare for inequality operator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>String to compare </td></tr>
+    <tr><td class="paramname">s</td><td>- Compare string <em>s</em> to the string object. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>xbTrue - Strings don't match.<br  />
- zbFalse - Strings match.<br  />
- </dd></dl>
+xbFalse - Strings match. </dd></dl>
 
 </div>
 </div>
-<a id="acf89691607050b0505dc6af28d059c38" name="acf89691607050b0505dc6af28d059c38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf89691607050b0505dc6af28d059c38">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/2]</span></h2>
+<a id="a41a73c84323a8c48e244a45ab0c66130" name="a41a73c84323a8c48e244a45ab0c66130"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41a73c84323a8c48e244a45ab0c66130">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1550,16 +1797,15 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>operator != </p>
+<p>Compare for inequality operator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>String to compare </td></tr>
+    <tr><td class="paramname">s</td><td>- Compare string <em>s</em> to the string object. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>xbTrue - Strings don't match.<br  />
- xbFalse - Strings match.<br  />
- </dd></dl>
+xbFalse - Strings match. </dd></dl>
 
 </div>
 </div>
@@ -1573,20 +1819,21 @@ Friends</h2></td></tr>
           <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> xb::xbString::operator+ </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>s1</em></td><td>)</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Concatonate operator +. </p>
-<p >Concatonate left string with right string returning reference to new string.</p>
+<p>Concatonate operator +<br  />
+Concatonate left string with right string returning new string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s1</td><td>Right string operator. </td></tr>
+    <tr><td class="paramname">s</td><td>Right string operator. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Resultant string. </dd></dl>
 
 </div>
 </div>
@@ -1606,14 +1853,15 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Concatonate operator +. </p>
-<p >Concatonate left string with right string returning reference to new string.</p>
+<p>Concatonate operator +<br  />
+Concatonate left string with char value returning new string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>Right string operator. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Resultant string. </dd></dl>
 
 </div>
 </div>
@@ -1627,20 +1875,21 @@ Friends</h2></td></tr>
           <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> xb::xbString::operator+ </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>s1</em></td><td>)</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Concatonate operator +. </p>
-<p >Concatonate left string with right string returning reference to new string.</p>
+<p>Concatonate operator +<br  />
+Concatonate left string with right string returning new string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s1</td><td>Right string operator. </td></tr>
+    <tr><td class="paramname">s</td><td>Right string operator. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Resultant string. </dd></dl>
 
 </div>
 </div>
@@ -1663,7 +1912,7 @@ Friends</h2></td></tr>
 <p>Append operator +=. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">c</td><td>- Append c to the string. </td></tr>
+    <tr><td class="paramname">c</td><td>- Append char c to the string object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1689,7 +1938,7 @@ Friends</h2></td></tr>
 <p>Append operator +=. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>- Append s to the string. </td></tr>
+    <tr><td class="paramname">s</td><td>- Append null terminated string s to the string object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1715,7 +1964,7 @@ Friends</h2></td></tr>
 <p>Append operator +=. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>- Append s to the string. </td></tr>
+    <tr><td class="paramname">s</td><td>- Append <a class="el" href="classxb_1_1xbString.html">xbString</a> s to the string object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1732,17 +1981,16 @@ Friends</h2></td></tr>
           <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> xb::xbString::operator- </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
-          <td class="paramname"><em>s1</em></td><td>)</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Concatonate operator -. </p>
-<p >Concatonate left string with right string returning reference to new string. Both strings are trimmed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Concatonate left string with right string returning new string. Both strings are trimmed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s1</td><td>Right string operator. </td></tr>
+    <tr><td class="paramname">s</td><td>Right string operator. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1765,10 +2013,10 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Append operator -=. </p>
-<p >Append c to the right of this string, trimming right space on this string first. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Append operator += Append to the right of the right trimmed string object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">c</td><td>- Append s to the right of the string value. </td></tr>
+    <tr><td class="paramname">c</td><td>Append string. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1791,10 +2039,10 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Append operator -=. </p>
-<p >Append s to the right of this string, right trimming both strings. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Append operator += Append to the right of the string, right trimming both strings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>- Append s to the right of the string value. </td></tr>
+    <tr><td class="paramname">s</td><td>Append null terminated char string. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1817,18 +2065,18 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Append operator -=. </p>
-<p >Append s to the right of this string, right trimming both strings. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Append operator += Append to the right of the string, right trimming both strings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>- Append s to the right of the string value. </td></tr>
+    <tr><td class="paramname">s</td><td>Append string. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a71c7aafa0d523c72cbe58c474be2270a" name="a71c7aafa0d523c72cbe58c474be2270a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71c7aafa0d523c72cbe58c474be2270a">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+<a id="adb04911d5b7a1c5411606ed774c70a99" name="adb04911d5b7a1c5411606ed774c70a99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb04911d5b7a1c5411606ed774c70a99">&#9670;&nbsp;</a></span>operator&lt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1856,8 +2104,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a461f245e60cddfdf5f78a972a46e5880" name="a461f245e60cddfdf5f78a972a46e5880"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a461f245e60cddfdf5f78a972a46e5880">&#9670;&nbsp;</a></span>operator&lt;=()</h2>
+<a id="aed85b8f9f2af1159741b45dcb337651b" name="aed85b8f9f2af1159741b45dcb337651b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed85b8f9f2af1159741b45dcb337651b">&#9670;&nbsp;</a></span>operator&lt;=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1879,8 +2127,8 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue - Left string is less than or equal to the right string.<br  />
- zbFalse - Left string is not less than or equal to the right string.<br  />
+<dl class="section return"><dt>Returns</dt><dd>xbTrue Left string is less than or equal to the right string.<br  />
+ xbFalse Left string is not less than or equal to the right string.<br  />
  </dd></dl>
 
 </div>
@@ -1901,10 +2149,11 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set operator =. </p>
+<p>operator =<br  />
+Assignment operator </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>- Set the string to the string on the right of the equal sign. </td></tr>
+    <tr><td class="paramname">s</td><td>Null terminated char string. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1927,18 +2176,19 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set operator =. </p>
+<p>operator =<br  />
+Assignment operator </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>- Set the string to the string on the right of the equal sign. </td></tr>
+    <tr><td class="paramname">s</td><td>xBbString to assign. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a94031269af3c433393d4cf0ff9b4be38" name="a94031269af3c433393d4cf0ff9b4be38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94031269af3c433393d4cf0ff9b4be38">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
+<a id="a13edecf629090656763b51f371740535" name="a13edecf629090656763b51f371740535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13edecf629090656763b51f371740535">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1953,21 +2203,20 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>operator == </p>
+<p>Compare for equality operator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>String to compare </td></tr>
+    <tr><td class="paramname">s</td><td>Null terminated char string <em>s</em>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue - Strings match.<br  />
- zbFalse - Strings don't match.<br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>xbTrue Strings match.<br  />
+xbFalse Strings don't match. </dd></dl>
 
 </div>
 </div>
-<a id="a2df3ed2fc9456214f5fd2fcf77b69bc1" name="a2df3ed2fc9456214f5fd2fcf77b69bc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2df3ed2fc9456214f5fd2fcf77b69bc1">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
+<a id="aa8023d686046ec9d6e3b145b5aae9544" name="aa8023d686046ec9d6e3b145b5aae9544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8023d686046ec9d6e3b145b5aae9544">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1982,21 +2231,20 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>operator == </p>
+<p>Compare for equality operator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>String to compare </td></tr>
+    <tr><td class="paramname">s</td><td><a class="el" href="classxb_1_1xbString.html">xbString</a> object <em>s</em>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue - Strings match.<br  />
- zbFalse - Strings don't match.<br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>xbTrue Strings match.<br  />
+xbFalse Strings don't match. </dd></dl>
 
 </div>
 </div>
-<a id="ae46f6a45da5686b607a4edf2786a2fff" name="ae46f6a45da5686b607a4edf2786a2fff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae46f6a45da5686b607a4edf2786a2fff">&#9670;&nbsp;</a></span>operator&gt;()</h2>
+<a id="a7c747092a0adb44401bda01357ef6764" name="a7c747092a0adb44401bda01357ef6764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c747092a0adb44401bda01357ef6764">&#9670;&nbsp;</a></span>operator&gt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2011,21 +2259,21 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>operator &gt; </p>
+<p>Operator &gt;<br  />
+Greater than compare. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>String to compare </td></tr>
+    <tr><td class="paramname">s</td><td><a class="el" href="classxb_1_1xbString.html">xbString</a> for compare operation. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue - Left string is greater than the right string.<br  />
- zbFalse - Left string is not greater than the right string.<br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>xbTrue - Left string greater than right string.<br  />
+xbFalse - Left string not greater than right string. </dd></dl>
 
 </div>
 </div>
-<a id="a8f16643cb7ba3ee9cf685422c9ea0e67" name="a8f16643cb7ba3ee9cf685422c9ea0e67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f16643cb7ba3ee9cf685422c9ea0e67">&#9670;&nbsp;</a></span>operator&gt;=()</h2>
+<a id="a14e3e09db44cc698fa79c5e4a1be8ba1" name="a14e3e09db44cc698fa79c5e4a1be8ba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e3e09db44cc698fa79c5e4a1be8ba1">&#9670;&nbsp;</a></span>operator&gt;=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2040,21 +2288,21 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>operator &gt;= </p>
+<p>Operator &gt;=<br  />
+Greater than or equal compare. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>String to compare </td></tr>
+    <tr><td class="paramname">s</td><td><a class="el" href="classxb_1_1xbString.html">xbString</a> for compare operation. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue - Left string is greater than or equal to the right string.<br  />
- zbFalse - Left string is not greater than or equal to the right string.<br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>xbTrue - Left string greater than or equal to right string.<br  />
+xbFalse - Left string not greater than or equal to right string. </dd></dl>
 
 </div>
 </div>
-<a id="a4deaa68d9571753349c29baacb5613e8" name="a4deaa68d9571753349c29baacb5613e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4deaa68d9571753349c29baacb5613e8">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+<a id="afbe221abc2932f64ac72d9eb6e2e5278" name="afbe221abc2932f64ac72d9eb6e2e5278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbe221abc2932f64ac72d9eb6e2e5278">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2063,25 +2311,26 @@ Friends</h2></td></tr>
           <td class="memname">char &amp; xb::xbString::operator[] </td>
           <td>(</td>
           <td class="paramtype">xbInt32&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
+          <td class="paramname"><em>iPos</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>operator [] </p>
+<p>Subscript operator[]<br  />
+Return char value for position <em>iPos</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>- Offset into the string of the byte to retrieve. </td></tr>
+    <tr><td class="paramname">iPos</td><td>1 based offset for string character retrieval. Position 1 is the first byte in the string. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>c - The character to return from the offset within the [] brackets. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Character at position <em>iPos</em>. </dd></dl>
 
 </div>
 </div>
-<a id="abe45e463226ac8e18550ced18c5a9df3" name="abe45e463226ac8e18550ced18c5a9df3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe45e463226ac8e18550ced18c5a9df3">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+<a id="a90402baf798aad358bdde90a363608f2" name="a90402baf798aad358bdde90a363608f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90402baf798aad358bdde90a363608f2">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2090,25 +2339,26 @@ Friends</h2></td></tr>
           <td class="memname">char &amp; xb::xbString::operator[] </td>
           <td>(</td>
           <td class="paramtype">xbUInt32&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
+          <td class="paramname"><em>iPos</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>operator [] </p>
+<p>Subscript operator[]<br  />
+Return char value for position <em>iPos</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>- Offset into the string of the byte to retrieve. </td></tr>
+    <tr><td class="paramname">iPos</td><td>1 based offset for string character retrieval. Position 1 is the first byte in the string. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>c - The character to return from the offset within the [] brackets. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Character at position <em>iPos</em>. </dd></dl>
 
 </div>
 </div>
-<a id="a6a09cfed22066b0c72432f26960f9e7b" name="a6a09cfed22066b0c72432f26960f9e7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a09cfed22066b0c72432f26960f9e7b">&#9670;&nbsp;</a></span>PadLeft()</h2>
+<a id="a50b07e479b8f0fbe26f4f11a6e330ef6" name="a50b07e479b8f0fbe26f4f11a6e330ef6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50b07e479b8f0fbe26f4f11a6e330ef6">&#9670;&nbsp;</a></span>PadLeft()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2145,8 +2395,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="aba13f0c77eb6c4a22996039569fad284" name="aba13f0c77eb6c4a22996039569fad284"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba13f0c77eb6c4a22996039569fad284">&#9670;&nbsp;</a></span>PadRight()</h2>
+<a id="a5ca98cefd599f922481de3e417604d80" name="a5ca98cefd599f922481de3e417604d80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ca98cefd599f922481de3e417604d80">&#9670;&nbsp;</a></span>PadRight()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2199,14 +2449,14 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Determine position of a given character. </p>
+<p>Determine position of a given character within a string object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">c</td><td>Seek character </td></tr>
+    <tr><td class="paramname">c</td><td>Seek character. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Position within string. Returns 0 if not found. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Position within string or 0 if not found. </dd></dl>
 
 </div>
 </div>
@@ -2236,15 +2486,15 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Determine position of a given character. </p>
+<p>Determine position of a given character within a string object starting at position <em>ulStartPos</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">c</td><td>Seek character </td></tr>
-    <tr><td class="paramname">ulStartPos</td><td>starting position for search, first position is 1 </td></tr>
+    <tr><td class="paramname">c</td><td>Seek character. </td></tr>
+    <tr><td class="paramname">ulStartPos</td><td>starting position for search, first position is 1. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Position within string. Returns 0 if not found. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Position within string or 0 if not found. </dd></dl>
 
 </div>
 </div>
@@ -2264,14 +2514,14 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Determine position of a given substring. </p>
+<p>Determine position of a given substring within a string object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">s</td><td>Substring </td></tr>
+    <tr><td class="paramname">s</td><td>Substring to search for. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Position within string. Returns 0 if not found. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Position within string or 0 if not found. </dd></dl>
 
 </div>
 </div>
@@ -2304,7 +2554,7 @@ Friends</h2></td></tr>
 <p>Insert character into string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ulPos</td><td>Insertion position. </td></tr>
+    <tr><td class="paramname">ulPos</td><td>Insertion position. First string position is 1. </td></tr>
     <tr><td class="paramname">c</td><td>Character to insert. </td></tr>
   </table>
   </dd>
@@ -2313,8 +2563,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="afaac65eaa6d9ef1596d6a0e7b91ed0f2" name="afaac65eaa6d9ef1596d6a0e7b91ed0f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaac65eaa6d9ef1596d6a0e7b91ed0f2">&#9670;&nbsp;</a></span>Remove()</h2>
+<a id="ab35ce179e918117a00da9ae7ded74458" name="ab35ce179e918117a00da9ae7ded74458"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab35ce179e918117a00da9ae7ded74458">&#9670;&nbsp;</a></span>Remove()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2351,8 +2601,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="ac721d643c60b5c5acf60c2bce99596fa" name="ac721d643c60b5c5acf60c2bce99596fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac721d643c60b5c5acf60c2bce99596fa">&#9670;&nbsp;</a></span>Replace()</h2>
+<a id="a238774d9a6a2323848a18ff481c32516" name="a238774d9a6a2323848a18ff481c32516"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a238774d9a6a2323848a18ff481c32516">&#9670;&nbsp;</a></span>Replace() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2388,7 +2638,7 @@ Friends</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">sReplace</td><td>- Character string to replace. </td></tr>
     <tr><td class="paramname">sReplaceWith</td><td>- Character string to replace with </td></tr>
-    <tr><td class="paramname">iOption</td><td>- 0 = All occurrences, 1 = first occurrence </td></tr>
+    <tr><td class="paramname">iOption</td><td>0 = All occurrences (default), 1 = first occurrence </td></tr>
   </table>
   </dd>
 </dl>
@@ -2396,8 +2646,143 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="aa6d346ab04e5bb8852f0bb996163a35e" name="aa6d346ab04e5bb8852f0bb996163a35e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6d346ab04e5bb8852f0bb996163a35e">&#9670;&nbsp;</a></span>Resize()</h2>
+<a id="af2c321fcabe57fcb7ba433051b67da74" name="af2c321fcabe57fcb7ba433051b67da74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2c321fcabe57fcb7ba433051b67da74">&#9670;&nbsp;</a></span>Replace() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbString::Replace </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>sReplace</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
+          <td class="paramname"><em>sReplaceWith</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">xbInt16&#160;</td>
+          <td class="paramname"><em>iOption</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Replace a value within a string with another value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sReplace</td><td>- Character string to replace. </td></tr>
+    <tr><td class="paramname">sReplaceWith</td><td>- Character string to replace with </td></tr>
+    <tr><td class="paramname">iOption</td><td>0 = All occurrences (default), 1 = first occurrence </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this string. </dd></dl>
+
+</div>
+</div>
+<a id="ac88b3735fe2e34f41711227535d54a5b" name="ac88b3735fe2e34f41711227535d54a5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac88b3735fe2e34f41711227535d54a5b">&#9670;&nbsp;</a></span>Replace() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbString::Replace </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
+          <td class="paramname"><em>sReplace</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>sReplaceWith</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">xbInt16&#160;</td>
+          <td class="paramname"><em>iOption</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Replace a value within a string with another value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sReplace</td><td>- Character string to replace. </td></tr>
+    <tr><td class="paramname">sReplaceWith</td><td>- Character string to replace with </td></tr>
+    <tr><td class="paramname">iOption</td><td>0 = All occurrences (default), 1 = first occurrence </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this string. </dd></dl>
+
+</div>
+</div>
+<a id="ac52188af03bf0b6fc5bdf705d66e37d5" name="ac52188af03bf0b6fc5bdf705d66e37d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac52188af03bf0b6fc5bdf705d66e37d5">&#9670;&nbsp;</a></span>Replace() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classxb_1_1xbString.html">xbString</a> &amp; xb::xbString::Replace </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
+          <td class="paramname"><em>sReplace</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classxb_1_1xbString.html">xbString</a> &amp;&#160;</td>
+          <td class="paramname"><em>sReplaceWith</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">xbInt16&#160;</td>
+          <td class="paramname"><em>iOption</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Replace a value within a string with another value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sReplace</td><td>- Character string to replace. </td></tr>
+    <tr><td class="paramname">sReplaceWith</td><td>- Character string to replace with </td></tr>
+    <tr><td class="paramname">iOption</td><td>0 = All occurrences (default), 1 = first occurrence </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this string. </dd></dl>
+
+</div>
+</div>
+<a id="a164e667764c7ed2c67d1241973b57b05" name="a164e667764c7ed2c67d1241973b57b05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a164e667764c7ed2c67d1241973b57b05">&#9670;&nbsp;</a></span>Resize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2438,8 +2823,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Right trim the string. </p>
-<p >This routine removes any trailing white space on the string.</p>
+<p>Right trim the string by removing any white space,. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to string. </dd></dl>
 
 </div>
@@ -2461,7 +2845,6 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set the value of the string. </p>
-<p >Note: This routine fails if you try to set the string to itself or some part of itself.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">s</td><td>Value to set the string. </td></tr>
@@ -2469,6 +2852,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to string. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This routine fails if you try to set the string to itself or some part of itself. </dd></dl>
 
 </div>
 </div>
@@ -2499,15 +2883,15 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set the value of the string. </p>
-<p >Note: This routine fails if you try to set the string to itself or some part of itself.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">s</td><td>Value to set the string. </td></tr>
-    <tr><td class="paramname">ulSize</td><td>Maximum size of resultant string. </td></tr>
+    <tr><td class="paramname">ulSize</td><td>Max size of resultant string. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to string. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This routine fails if you try to set the string to itself or some part of itself. </dd></dl>
 
 </div>
 </div>
@@ -2535,6 +2919,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to string. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This routine fails if you try to set the string to itself or some part of itself. </dd></dl>
 
 </div>
 </div>
@@ -2565,8 +2950,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a9e9bfa29d86377b915f1628aeb0e9195" name="a9e9bfa29d86377b915f1628aeb0e9195"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e9bfa29d86377b915f1628aeb0e9195">&#9670;&nbsp;</a></span>Sprintf()</h2>
+<a id="ac8eab6994cfeeec1f51003c5f3e7d2e4" name="ac8eab6994cfeeec1f51003c5f3e7d2e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8eab6994cfeeec1f51003c5f3e7d2e4">&#9670;&nbsp;</a></span>Sprintf()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2592,9 +2977,9 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Printf routine for formatting a string. </p>
-<p >See documentation on the standard C printf function for how to use this.</p>
-<p >MyString.Sprintf( "a number %d  some text %s", 100, "test text data" );</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >See documentation on the standard C printf function for format specifiers for your platform.<br  />
+<br  />
+ Example: <em>MyString.Sprintf( "a number [%d] and some text [%s]", 100, "my test text data" );</em> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sFormat</td><td>A format specifier </td></tr>
   </table>
@@ -2654,16 +3039,17 @@ Friends</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cDest</td><td>pointer to destination buffer. </td></tr>
-    <tr><td class="paramname">n</td><td>Number of bytes to copy. It is the responsibility of the application to verify the buffer is large enough to hold the string contents. </td></tr>
+    <tr><td class="paramname">n</td><td>Number of bytes to copy. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>char * to result </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>It is the responsibility of the application program to verify the buffer is large enough to hold string contents. </dd></dl>
 
 </div>
 </div>
-<a id="a054683872e1f05d11c2cf8683a63a6fe" name="a054683872e1f05d11c2cf8683a63a6fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a054683872e1f05d11c2cf8683a63a6fe">&#9670;&nbsp;</a></span>SwapChars()</h2>
+<a id="a010ddb83773ee4e45c8324e82d6c8678" name="a010ddb83773ee4e45c8324e82d6c8678"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a010ddb83773ee4e45c8324e82d6c8678">&#9670;&nbsp;</a></span>SwapChars()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2715,7 +3101,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Replace all upper case charaters with lower case characters. </p>
+<p>Replace all upper case characters with lower case characters. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this string. </dd></dl>
 
 </div>
@@ -2735,7 +3121,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Replace all lower case charaters with lower case characters. </p>
+<p>Replace all lower case characters with upper case characters. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this string. </dd></dl>
 
 </div>
@@ -2777,8 +3163,7 @@ Friends</h2></td></tr>
 
 <p>Check for valid logical field data. </p>
 <p >Valid logical data is one 'T', 'F', 'N' or 'Y'.<br  />
-</p>
-<dl class="section return"><dt>Returns</dt><dd>xbTrue if the data is valid logical data.<br  />
+ </p><dl class="section return"><dt>Returns</dt><dd>xbTrue if the data is valid logical data.<br  />
  xbFalse if not valid logical data. </dd></dl>
 
 </div>
@@ -2827,7 +3212,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this stirng.void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this string. </dd></dl>
 
 </div>
 </div>
@@ -2877,7 +3262,7 @@ Friends</h2></td></tr>
 <p>Remove trailing character from a string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">c</td><td>character to remove from ending of string. </td></tr>
+    <tr><td class="paramname">c</td><td>character to remove from end of string. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2921,8 +3306,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Stream insertion operator &lt;&lt;. </p>
-<p >std::cout &lt;&lt; MyString &lt;&lt; std::endl;</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >std::cout &lt;&lt; MyString &lt;&lt; std::endl; </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">os</td><td>Output stream </td></tr>
     <tr><td class="paramname">s</td><td>String to send to output stream </td></tr>
@@ -2932,14 +3316,17 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>/mnt/1Tdata/xbase/xbase64-4.1.7/src/include/<a class="el" href="xbstring_8h_source.html">xbstring.h</a></li>
-<li>/mnt/1Tdata/xbase/xbase64-4.1.7/src/core/<a class="el" href="xbstring_8cpp.html">xbstring.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>/mnt/1Tdata/xbase/xbase64-4.1.11/src/include/<a class="el" href="xbstring_8h_source.html">xbstring.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacexb.html">xb</a></li><li class="navelem"><a class="el" href="classxb_1_1xbString.html">xbString</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

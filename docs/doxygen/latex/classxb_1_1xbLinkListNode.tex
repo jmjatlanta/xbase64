@@ -1,0 +1,133 @@
+\hypertarget{classxb_1_1xbLinkListNode}{}\doxysection{xb\+::xb\+Link\+List\+Node\texorpdfstring{$<$}{<} xb\+Node\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classxb_1_1xbLinkListNode}\index{xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}}
+
+
+xb\+Link\+Node class.  
+
+
+
+
+{\ttfamily \#include $<$xblnknod.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classxb_1_1xbLinkListNode_ab9f2cb7471fe4505528bd6015413d520}{xb\+Link\+List\+Node}} (const xb\+Node\+Type \&n\+Val)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbLinkListNode_a22525d5018e401b24f2a58b03a21e1cb}{xb\+Link\+List\+Node}} (const xb\+Node\+Type \&n\+Val, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Val)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+xb\+Node\+Type \mbox{\hyperlink{classxb_1_1xbLinkListNode_a593a4719640bd36407d41b735b19e0b1}{Get\+Key}} () const
+\begin{DoxyCompactList}\small\item\em Return the node data value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbLinkListNode_a5c4488df6ee744d9011ae40ac3eee152}{Get\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Return optional user defined string value for node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkListNode_a600f3607f51a46366103190bcebb65be}{Get\+Next\+Node}} () const
+\begin{DoxyCompactList}\small\item\em Return pointer to next node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkListNode_a3532b44ddaeb3a77aa84a50a95758616}{Get\+Prev\+Node}} () const
+\begin{DoxyCompactList}\small\item\em Return pointer to previous node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class xb\+Node\+Type$>$\newline
+class xb\+::xb\+Link\+List\+Node$<$ xb\+Node\+Type $>$}
+xb\+Link\+Node class. 
+
+This class provides a template for defining nodes that are used by the \mbox{\hyperlink{classxb_1_1xbLinkList}{xb\+Link\+List}} and \mbox{\hyperlink{classxb_1_1xbLinkListOrd}{xb\+Link\+List\+Ord}} classes.
+
+Nodes can be used for storing any data type, and then linked together with one of the linked list classes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classxb_1_1xbLinkListNode_ab9f2cb7471fe4505528bd6015413d520}\label{classxb_1_1xbLinkListNode_ab9f2cb7471fe4505528bd6015413d520}} 
+\index{xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}!xbLinkListNode@{xbLinkListNode}}
+\index{xbLinkListNode@{xbLinkListNode}!xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{xbLinkListNode()}{xbLinkListNode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+::xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$\+::xb\+Link\+List\+Node (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{n\+Val }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Val} & Data value stored on this node \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbLinkListNode_a22525d5018e401b24f2a58b03a21e1cb}\label{classxb_1_1xbLinkListNode_a22525d5018e401b24f2a58b03a21e1cb}} 
+\index{xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}!xbLinkListNode@{xbLinkListNode}}
+\index{xbLinkListNode@{xbLinkListNode}!xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{xbLinkListNode()}{xbLinkListNode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+::xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$\+::xb\+Link\+List\+Node (\begin{DoxyParamCaption}\item[{const xb\+Node\+Type \&}]{n\+Val,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Val }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Val} & Data value stored on this node. Used as the sort key in the ordered link list. \\
+\hline
+{\em s\+Val} & User value. Optional string attached to the node. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classxb_1_1xbLinkListNode_a5c4488df6ee744d9011ae40ac3eee152}\label{classxb_1_1xbLinkListNode_a5c4488df6ee744d9011ae40ac3eee152}} 
+\index{xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}!GetData@{GetData}}
+\index{GetData@{GetData}!xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetData()}{GetData()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+::xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$\+::\+Get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return optional user defined string value for node. 
+
+\begin{DoxyReturn}{Returns}
+User defined \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkListNode_a593a4719640bd36407d41b735b19e0b1}\label{classxb_1_1xbLinkListNode_a593a4719640bd36407d41b735b19e0b1}} 
+\index{xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}!GetKey@{GetKey}}
+\index{GetKey@{GetKey}!xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetKey()}{GetKey()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+xb\+Node\+Type \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+::xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$\+::\+Get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return the node data value. 
+
+\mbox{\Hypertarget{classxb_1_1xbLinkListNode_a600f3607f51a46366103190bcebb65be}\label{classxb_1_1xbLinkListNode_a600f3607f51a46366103190bcebb65be}} 
+\index{xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}!GetNextNode@{GetNextNode}}
+\index{GetNextNode@{GetNextNode}!xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetNextNode()}{GetNextNode()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+::xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$\+::\+Get\+Next\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return pointer to next node. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to next node or NULL if last node in list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbLinkListNode_a3532b44ddaeb3a77aa84a50a95758616}\label{classxb_1_1xbLinkListNode_a3532b44ddaeb3a77aa84a50a95758616}} 
+\index{xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}!GetPrevNode@{GetPrevNode}}
+\index{GetPrevNode@{GetPrevNode}!xb::xbLinkListNode$<$ xbNodeType $>$@{xb::xbLinkListNode$<$ xbNodeType $>$}}
+\doxysubsubsection{\texorpdfstring{GetPrevNode()}{GetPrevNode()}}
+{\footnotesize\ttfamily template$<$class xb\+Node\+Type $>$ \\
+\mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$ $\ast$ \mbox{\hyperlink{classxb_1_1xbLinkListNode}{xb\+::xb\+Link\+List\+Node}}$<$ xb\+Node\+Type $>$\+::\+Get\+Prev\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return pointer to previous node. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to previous node or NULL if last node in list 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+11/src/include/\mbox{\hyperlink{xblnknod_8h}{xblnknod.\+h}}\end{DoxyCompactItemize}

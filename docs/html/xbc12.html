@@ -3,7 +3,7 @@
 <TITLE>Xbase64 DBMS Chapter 12</TITLE>
 <BODY BGCOLOR=#FFFFFF>
 <H2><p align="center">Dates</p></H2>
-<p align="center">Chapter Updated 11/21/23</p><hr>
+<p align="center">Chapter Updated 05/30/24</p><hr>
 
 <br><br>
 
@@ -16,7 +16,7 @@
                     xbDate( const xbString &Date8 )<br>
                     xbDate( xbInt32 lJulDate )<br>
                     xbDate( const xbDate &dtDate )</td>
-            <td>xbDate constructor.</td></tr>
+        <td>xbDate constructor.</td></tr>
 
 <tr><td>xbDate( xbUInt16 iInit )</td><td>Special xbDate constructor, called to initialize static variables and/or set to Sysdate</td></tr>
 
@@ -51,10 +51,10 @@
 <tr><td>xbBool IsNull() const</td><td>Returns xbTrue is the date is null, else returns false.</td><tr>
 <tr><td>xbInt32 JulianDays() const</td><td>Return the Julian days value.</td><tr>
 <tr><td>xbInt16 JulToDate8( xbInt32 lJulDate )</td><td>Convert a Julian date to xbDate value.</td><tr>
-<tr><td>xbInt16 LastDayOfMonth()</td><td>Calculate the last day of a month for the given teat and month.</td><tr>
+<tr><td>xbInt16 LastDayOfMonth()</td><td>Calculate the last day of a month for the date object.</td><tr>
 <tr><td>xbInt16 MonthOf() const</td><td>Return the numeric month of the date.</td><tr>
 <tr><td>xbInt16 Set( const xbString &Date8 )</td><td>Set the date to valid input date.</td><tr>
-<tr><td>xbInt16 Sysdate()</td><td>Set the date to the system date.</td><tr>
+<tr><td>void Sysdate()</td><td>Set the date to the system date.</td><tr>
 <tr><td>xbInt16 YearOf() const</td><td>Return the numeric year of the date.</td><tr>
 
 </table>
@@ -65,10 +65,9 @@
 <xmp>
 /*  xb_ex_date.cpp
 
-
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2021,2022 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2021,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -94,10 +93,12 @@ int main()
    xbString StringDate( "19601007" );      /* oct 7 1960 */
    char     CharDate[9] = "19611109";      /* nov 9 1961 */
 
-   xbDate d1;                              /* today is default   */
+   xbDate d1;
+   d1.Sysdate();                           /* set to SysDate     */
    xbDate d2( StringDate );                /* from string data   */ 
    xbDate d3( CharDate );                  /* from char data     */
    xbDate d4;                              /* another date class */
+   xbDate d5( d2 );                        /* set new date d5 equal to date d2 */
    xbString s;
 
    std::cout << "This program demonstrates usage of the xbDate class" << std::endl;
@@ -134,9 +135,10 @@ int main()
    if( d3.IsLeapYear())
       std::cout << "CharDate is a leap year" << std::endl;
    else
-      std::cout << "CharDate is not a leap year." << std::endl;
+       std::cout << "CharDate is not a leap year." << std::endl;
 
-   std::cout << "Today is " << d1.Sysdate() << std::endl;
+   d1.Sysdate();
+   std::cout << "Today is " << d1.Str() << std::endl;
 
    if( d1.DateIsValid( "19951301" ))
       std::cout << "19951301 is a valid date" << std::endl;
@@ -163,10 +165,6 @@ int main()
 
    d4 = d1;    // set d4 class = to sysdate 
    std::cout << "Object d4 initialized to " << d4.Str() << std::endl;
-   std::cout << "This should be todays date: "
-             << d4.JulToDate8(d4.JulianDays()) << std::endl;
-   std::cout << "In 7 days it will be "  
-             << d4.JulToDate8(d4.JulianDays() + 7L ) << std::endl;
 
    d1.CharDayOf( s );
    std::cout << "Today is " << s.Str() << std::endl;
@@ -194,10 +192,13 @@ int main()
    d1.FormatDate( "DDDDDDDDD, MMMMMMMMMM DD YYYY", sOutDate );
    std::cout << "Format (DDDDDDDDD, MMMMMMMMMM DD YYYY) = " << sOutDate.Str() << std::endl;
 
-   std::cout << "Last day this month " << d1.LastDayOfMonth() << std::endl;
-   std::cout << "Last day of month for StringDate is " << d2.LastDayOfMonth() << std::endl;
+   d1.LastDayOfMonth();
+   std::cout << "Last day this month " << d1.Str() << std::endl;
 
-   std::cout << "Overloaded operators test..." << std::endl;
+   d2.LastDayOfMonth();
+   std::cout << "Last day of month for StringDate is " << d2.Str() << std::endl;
+
+   std::cout << "Operators test..." << std::endl;
 
    if( d1 == d2 )
      std::cout << d1.Str() << " is equal to " << d2.Str()
@@ -275,6 +276,7 @@ int main()
    std::cout << "CalcRollingCenturyForYear( 95 ) = " << d1.CalcRollingCenturyForYear( 95 ) << std::endl;
    return 0;
 }
+
 </xmp>
 
 <br><br>

@@ -12,7 +12,7 @@ xb\+Xbase class.
 Inheritance diagram for xb\+::xb\+XBase\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{classxb_1_1xbXBase}
+\includegraphics[height=2.000000cm]{classxb_1_1xbXBase}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -25,138 +25,217 @@ Inheritance diagram for xb\+::xb\+XBase\+:\begin{figure}[H]
 xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_afccb552ca0daff779c0500ff20d22c2b}{Close\+All\+Tables}} ()
 \begin{DoxyCompactList}\small\item\em Close all tables / files. \end{DoxyCompactList}\item 
 xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_aa41240d920b604dcbd91dce7eecb78e1}{Create\+Fqn}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Dir\+In, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Name\+In, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Ext\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Fqfn\+Out)
-\begin{DoxyCompactList}\small\item\em Fully qualified file name from a directory, filename and extension. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Create a fully qualified file name from a directory, filename and extension. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a56a258229c31f423c6293c791d3fa8ef}{Display\+Error}} (xb\+Int16 i\+Error\+Code) const
+\begin{DoxyCompactList}\small\item\em Display error message on console for a given error number. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classxb_1_1xbXBase_ae357fac4fdebdf49e46563cf611caf65}{Disable\+Msg\+Logging}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Disable message logging. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classxb_1_1xbXBase_a470e6eb0ed0be60338f9b40976d3ad48}{Enable\+Msg\+Logging}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Enable message logging. \end{DoxyCompactList}\item 
 xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a5a5ecaed9777978344902446c9ae3b8e}{Flush\+Log}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Flush log file updates to disk. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbXBase_a4776de817dd8e4f96f76979108485e18}{Get\+Default\+Date\+Format}} () const
+\begin{DoxyCompactList}\small\item\em Get the default date format. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a12fd4761bd613bc55452fd963e47c0b5}{Get\+Endian\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Get the Endian type. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{classxb_1_1xbXBase_a6252d4ff713dfab5db058d1378a2d1fe}{Get\+Error\+Message}} (xb\+Int16 i\+Error\+Code) const
+\begin{DoxyCompactList}\small\item\em Get an error message. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classxb_1_1xbXBase_aa8c42d4ea81fea26a5809e5d5b0c87ba}{Get\+Path\+Separator}} () const
+\begin{DoxyCompactList}\small\item\em Get the OS dependent path separator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a8e9f1e16deaf96a89d3b8a29f012832e}{Set\+Data\+Directory}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Data\+Directory)
+\begin{DoxyCompactList}\small\item\em Set the data directory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_aa19de297f99ce4d51978f96c3da037f3}{Set\+Default\+Date\+Format}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Default\+Date\+Format)
+\begin{DoxyCompactList}\small\item\em Set the default date format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a995ab1fc94ba21cd8b95481683a09a9d}{Set\+Temp\+Directory}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Temp\+Directory)
+\begin{DoxyCompactList}\small\item\em Set the temp directory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbXBase_a6d8158594f949c66bacfc282b795c66a}{Get\+Data\+Directory}} () const
+\begin{DoxyCompactList}\small\item\em Get the current data directory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbXBase_a7ec2f105c6f4e313a92e5714db4db678}{Get\+Temp\+Directory}} () const
+\begin{DoxyCompactList}\small\item\em Get the current temp directory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_afd2457de6faec56bd8969a03e0fe2ece}{Get\+Home\+Dir}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Home\+Dir\+Out)
+\begin{DoxyCompactList}\small\item\em Get home directory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbXBase_a49da8cb55a1e51645148581629832352}{Get\+Default\+Auto\+Commit}} () const
+\begin{DoxyCompactList}\small\item\em Get the default auto commit setting. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a8213c1b7a6d500778f410a196190b565}{Set\+Default\+Auto\+Commit}} (\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} b\+Default\+Auto\+Commit)
+\begin{DoxyCompactList}\small\item\em Set the default auto commit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbXBase_ac7dc2c6154f100e5fd94379c7cf69b3c}{Get\+Log\+Directory}} () const
+\begin{DoxyCompactList}\small\item\em Get the default log directory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbXBase_a9b52e742134c4f8d94aba417394a95af}{Get\+Log\+File\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get log file name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a0be4affb02f01ae1e965c3621edff16a}{Set\+Log\+Directory}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Log\+Directory)
+\begin{DoxyCompactList}\small\item\em Set the default log directory name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a94010b88a309315ef980715eb581336c}{Set\+Log\+File\+Name}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Log\+File\+Name)
+\begin{DoxyCompactList}\small\item\em Set the log file name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbXBase_af583513ad57bc8e492dcea192c17f8ab}{Get\+Multi\+User}} () const
+\begin{DoxyCompactList}\small\item\em Get the multi user setting. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a30e8e1be96e5e57170af4c0668378e6e}{Set\+Multi\+User}} (\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} b\+Multi\+User)
+\begin{DoxyCompactList}\small\item\em Set the default multi user setting. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbXBase_ab5d63cd7d9137eba8a1d4d9c3df522b7}{Get\+Log\+Fq\+File\+Name}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Get fully qualified log file name. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbXBase_ade34cd72c2a7e70fb55429a8a6f6c028}{Get\+Log\+Status}} () const
-\item 
-xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_aa957eb502ecd076e5df89e7415cb094b}{Open\+Highest\+Version}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Table\+Name, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Alias, \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} \&dbf, int dummy)
-\item 
-xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_afa7bbac08a4601f49cd53b457196ee0e}{Open\+Highest\+Version}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Table\+Name, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Alias, \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$$\ast$dbf)
-\item 
-\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$ \mbox{\hyperlink{classxb_1_1xbXBase_aafb1abd6b6124cddf635adaf9f615a4a}{Open}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Table\+Name, xb\+Int16 \&i\+Rc)
-\begin{DoxyCompactList}\small\item\em Open highest qualified class available for dbf file. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get the logging status. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_abdf560ff45173ece0baab3640c908fc8}{Open}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Table\+Name, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Alias, \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$$\ast$dbf)
+\begin{DoxyCompactList}\small\item\em Open DBF file using highest version class available. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$ \mbox{\hyperlink{classxb_1_1xbXBase_ab35cec5ac8f0fa95f10653ca7ac817f6}{Open}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Table\+Name, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Alias, xb\+Int16 i\+Open\+Mode, xb\+Int16 i\+Share\+Mode, xb\+Int16 i\+Version, xb\+Int16 \&i\+Rc)
-\begin{DoxyCompactList}\small\item\em Open highest qualified class available for dbf file. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Open DBF file using highest version class available. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$ \mbox{\hyperlink{classxb_1_1xbXBase_aafb1abd6b6124cddf635adaf9f615a4a}{Open}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Table\+Name, xb\+Int16 \&i\+Rc)
+\begin{DoxyCompactList}\small\item\em Open DBF file using highest version class available. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classxb_1_1xbXBase_a666a0cb5b76ec7a9a3677d339e0c6b42}{Set\+Log\+Size}} (size\+\_\+t l\+Size)
-\item 
+\begin{DoxyCompactList}\small\item\em Set the logfile size. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{classxb_1_1xbXBase_aedb4c2aa2c90e4529915198a2305b355}{Get\+Log\+Size}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Get the logfile size. \end{DoxyCompactList}\item 
 xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a9ca5be73abffd0fdd18bdc799877272a}{Write\+Log\+Message}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Log\+Message, xb\+Int16 i\+Output\+Opt=0)
-\item 
+\begin{DoxyCompactList}\small\item\em Write message to logfile. \end{DoxyCompactList}\item 
 xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a0dff00b9ee3c288841e137ca01168116}{Write\+Log\+Bytes}} (xb\+UInt32 l\+Cnt, const char $\ast$p)
-\item 
+\begin{DoxyCompactList}\small\item\em Write message to logfile. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classxb_1_1xbXBase_a0915aff7be4b2dd3e881f3c5d0da4baf}{xb\+Sleep}} (xb\+Int32 l\+Millisecs)
 \begin{DoxyCompactList}\small\item\em Cross platform sleep function. \end{DoxyCompactList}\item 
-xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_aadecb3ac460d8e94b88b2e809e22f48e}{Get\+Cmd\+Line\+Opt}} (xb\+Int32 l\+Argc, char $\ast$$\ast$argv, const char $\ast$s\+Opt\+Rqst, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Parm\+Out)
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_afcace09f410988cd94403ef29178534b}{Get\+Cmd\+Line\+Opt}} (xb\+Int32 l\+Argc, char $\ast$$\ast$s\+Argv, const char $\ast$s\+Opt\+Rqst, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Parm\+Out)
 \begin{DoxyCompactList}\small\item\em Parse commmand line options for a given parm request. \end{DoxyCompactList}\item 
-xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a8612e0c5334349fbceb9394b47817fd5}{Get\+Cmd\+Line\+Opt}} (xb\+Int32 l\+Argc, char $\ast$$\ast$argv, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Opt\+Rqst, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Parm\+Out)
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_aa676593eb34a1a2c2b8ec1eb7727363c}{Get\+Cmd\+Line\+Opt}} (xb\+Int32 l\+Argc, char $\ast$$\ast$s\+Argv, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Opt\+Rqst, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Parm\+Out)
 \begin{DoxyCompactList}\small\item\em Parse commmand line options for a given parm request. \end{DoxyCompactList}\item 
-xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTblMgr_af16832ff2bfaee09265652e0fc03709a}{Add\+Tbl\+To\+Tbl\+List}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$d, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Fq\+Tbl\+Name)
-\item 
-xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTblMgr_a2033188e9b08778188a034a6fc90ca85}{Add\+Tbl\+To\+Tbl\+List}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$d, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Fq\+Tbl\+Name, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Tbl\+Alias)
-\item 
-xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTblMgr_a5eebffb9e8cc64141e35c2622045cb50}{Display\+Table\+List}} () const
-\item 
-\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$ \mbox{\hyperlink{classxb_1_1xbTblMgr_ad8a5d28a2ee6720a9aa74bcb45662cf5}{Get\+Dbf\+Ptr}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Tbl\+Alias) const
-\item 
-\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$ \mbox{\hyperlink{classxb_1_1xbTblMgr_a801dfecf7fc216954b4197b2c31b25d6}{Get\+Dbf\+Ptr}} (xb\+Int16 s\+Item\+No) const
-\item 
-\mbox{\hyperlink{structxb_1_1xbTblList}{xb\+Tbl\+List}} $\ast$ \mbox{\hyperlink{classxb_1_1xbTblMgr_acbf148ddba4297021cfb980a161ebef9}{Get\+Tbl\+List\+Entry}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$d)
-\item 
-xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTblMgr_ad0d2d4adabc0dc0e761cfdee63c84069}{Get\+Open\+Table\+Count}} () const
-\item 
-xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTblMgr_ac8eaef41acf08911b90f900aac8e70af}{Remove\+Tbl\+From\+Tbl\+List}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Tbl\+Alias)
-\item 
-xb\+Int16 \mbox{\hyperlink{classxb_1_1xbTblMgr_a3d82b6e73d5c0bc8cac22b9a260389c1}{Remove\+Tbl\+From\+Tbl\+List}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$d)
-\item 
-void \mbox{\hyperlink{classxb_1_1xbSsv_a97dfa59ab9a8e9f17454da0faceb023d}{Display\+Error}} (xb\+Int16 Error\+Code) const
-\begin{DoxyCompactList}\small\item\em Display error message on console for a given error number. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbSsv_a6fbb9c3a550ab0b3378f9586a57791d2}{Get\+Default\+Date\+Format}} () const
-\begin{DoxyCompactList}\small\item\em Get the default date format. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbSsv_a1d803a4bfc8ba0561267a0bf9e51f7d9}{Get\+Data\+Directory}} () const
-\begin{DoxyCompactList}\small\item\em Get the current data directory. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbSsv_abfaeef85935331073d213465bb362a61}{Get\+Temp\+Directory}} () const
-\begin{DoxyCompactList}\small\item\em Get the current temp directory. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classxb_1_1xbSsv_abc9c06c95d71fbad8294e1ae8862cea9}{Get\+Home\+Dir}} (\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Home\+Dir\+Out)
-\begin{DoxyCompactList}\small\item\em Get home directory. \end{DoxyCompactList}\item 
-xb\+Int16 \mbox{\hyperlink{classxb_1_1xbSsv_a49cd162f066eef2b829ba7c9f6620243}{Get\+Endian\+Type}} () const
-\begin{DoxyCompactList}\small\item\em Get the Endian type. \end{DoxyCompactList}\item 
-const char $\ast$ \mbox{\hyperlink{classxb_1_1xbSsv_a56961d2a67b8e7470098626ac4dac7e4}{Get\+Error\+Message}} (xb\+Int16 Error\+Code) const
-\begin{DoxyCompactList}\small\item\em Get an error message. \end{DoxyCompactList}\item 
-char \mbox{\hyperlink{classxb_1_1xbSsv_a63cee13b473ee13970e93b11837b9e35}{Get\+Path\+Separator}} () const
-\begin{DoxyCompactList}\small\item\em Get the OS dependent path separator. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classxb_1_1xbSsv_a57caaaadfbd089d9a58ecfcb50c88a6c}{Set\+Data\+Directory}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Data\+Directory)
-\begin{DoxyCompactList}\small\item\em Set the data directory. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classxb_1_1xbSsv_a5f74db23f8902846d581935c7db73f9c}{Set\+Default\+Date\+Format}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Default\+Date\+Format)
-\begin{DoxyCompactList}\small\item\em Set the default date format. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classxb_1_1xbSsv_a17c229a20ef9ab4034df8f9cd657adb2}{Set\+Temp\+Directory}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Temp\+Directory)
-\begin{DoxyCompactList}\small\item\em Set the temp directory. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbSsv_a62e4fd0a5888665c76bbbad962794e72}{Bit\+Set}} (unsigned char c, xb\+Int16 i\+Bit\+No) const
-\begin{DoxyCompactList}\small\item\em Check a bit in a one byte field and see if it is set. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classxb_1_1xbSsv_a8551b15a3ce4fa2a40d698db01f4a9ae}{Bit\+Dump}} (unsigned char c) const
-\item 
-void \mbox{\hyperlink{classxb_1_1xbSsv_aba1395b8e4c7f28c3614061de6e49190}{Bit\+Dump}} (char c) const
-\item 
-\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbSsv_a6982f973e81587b04916f4509746aaf5}{Get\+Default\+Auto\+Commit}} () const
-\begin{DoxyCompactList}\small\item\em Get the default auto commit setting. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classxb_1_1xbSsv_a25542afadaaf39b4fb5a1772a29cc0bd}{Set\+Default\+Auto\+Commit}} (\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} b\+Default\+Auto\+Commit)
-\begin{DoxyCompactList}\small\item\em Set the default auto commit. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbSsv_a4822315bded3969b59aeeb683c373051}{Get\+Log\+Directory}} () const
-\item 
-\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbSsv_afaef09435be73b3111f5edbd7091d861}{Get\+Log\+File\+Name}} () const
-\item 
-void \mbox{\hyperlink{classxb_1_1xbSsv_a7b992ed97281bf25b5b66f5df686225e}{Set\+Log\+Directory}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Log\+Directory)
-\item 
-void \mbox{\hyperlink{classxb_1_1xbSsv_a7f05738e7dfd759e89990242ef503544}{Set\+Log\+File\+Name}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Log\+File\+Name)
-\item 
-\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbSsv_abd58031c5f1c3766c24d47a82e6fd9c5}{Get\+Multi\+User}} () const
-\begin{DoxyCompactList}\small\item\em Get the multi user setting. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classxb_1_1xbSsv_aba6e59512f7172dd55dcf92059e5928c}{Set\+Multi\+User}} (\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} b\+Multi\+User)
-\begin{DoxyCompactList}\small\item\em Get the multi user setting. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-static const char $\ast$ \mbox{\hyperlink{classxb_1_1xbSsv_a6219f1b5e24ea12fe158cd5aea56988e}{Error\+Code\+Text}} \mbox{[}$\,$\mbox{]}
-\end{DoxyCompactItemize}
-\doxysubsection*{Protected Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_ae52e53340593b4253936c1372ec15ee1}{Get\+Function\+Info}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Exp\+Line, char \&c\+Return\+Type, xb\+Int16 \&i\+Return\+Len\+Calc, xb\+Int32 \&l\+Return\+Len\+Val) const
-\item 
-void \mbox{\hyperlink{classxb_1_1xbSsv_a904ec348fd029d4a76e72b8fde636108}{Set\+Endian\+Type}} ()
-\begin{DoxyCompactList}\small\item\em Set the endian type. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Static Protected Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-static xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a1b239c021358476382942522911b5c66}{xb\+Memcmp}} (const unsigned char $\ast$s1, const unsigned char $\ast$s2, size\+\_\+t n)
-\begin{DoxyCompactList}\small\item\em Cross memcmp function. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Static Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-static xb\+Int16 \mbox{\hyperlink{classxb_1_1xbSsv_a5849e813f5e8e1cd180f0366637adbf3}{i\+Endian\+Type}} = 0
-\item 
-static \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \mbox{\hyperlink{classxb_1_1xbSsv_a9dec3164c3b264882df634915ecf21da}{s\+Null\+String}} = \char`\"{}\char`\"{}
-\end{DoxyCompactItemize}
-\doxysubsection*{Friends}
-\begin{DoxyCompactItemize}
-\item 
-class \mbox{\hyperlink{classxb_1_1xbXBase_a86a53ce3efbf910996df0f853f1c0add}{xb\+Bcd}}
-\item 
-class \mbox{\hyperlink{classxb_1_1xbXBase_a3c3e5617be811d732472fe2cc8fb18cc}{xb\+Exp}}
-\end{DoxyCompactItemize}
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_add74b7865b040ffa62da5eb4ab6cb623}{Get\+Create\+Mdx\+Block\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Get the mdx file block size used when creating a memo file. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a7e859c19a788c617148dad8a189add06}{Set\+Create\+Mdx\+Block\+Size}} (xb\+Int16 ul\+Block\+Size)
+\begin{DoxyCompactList}\small\item\em Create mdx block size. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a9f2860151e7b9f1038bffc95e091103e}{Get\+Default\+Ix\+Tag\+Mode}} () const
+\begin{DoxyCompactList}\small\item\em Get the default index tag mode. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a5f4ca6af91e1815b1697a05fb2b52446}{Set\+Default\+Ix\+Tag\+Mode}} (xb\+Int16 i\+Index\+Mode=\mbox{\hyperlink{xbcore_8h_aa36b5d6bf6a868e143f04081c90b4ea7}{XB\+\_\+\+IX\+\_\+\+DBASE\+\_\+\+MODE}})
+\begin{DoxyCompactList}\small\item\em Set the default index tag mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& \mbox{\hyperlink{classxb_1_1xbXBase_a1c29351f05d2ae04996d9ed88e953301}{Get\+Default\+Time\+Format}} () const
+\begin{DoxyCompactList}\small\item\em Get the default time format. Available if XB\+\_\+\+DBF5\+\_\+\+SUPPORT is on. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a8e35972e54976ea550db09998c3a9900}{Set\+Default\+Time\+Format}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Default\+Time\+Format)
+\begin{DoxyCompactList}\small\item\em Set the default time format. Available if XB\+\_\+\+DBF5\+\_\+\+SUPPORT is on. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbXBase_af3f76909846cac248b20805bd9f6e616}{Get\+Default\+Block\+Read\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Get Default Read Block Size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a2d800e8618595811d48946c34cc4e5bf}{Set\+Default\+Block\+Read\+Size}} (xb\+UInt32 ul\+Dflt\+Block\+Read\+Size)
+\begin{DoxyCompactList}\small\item\em Set Default Read Block Size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_ad4134df4b304a6e93a3d8ebbc1949538}{Disable\+Default\+Auto\+Lock}} ()
+\begin{DoxyCompactList}\small\item\em Disable defalt auto locking. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a9f1b8e43e9e42bce08f7638ddf2f13b8}{Enable\+Default\+Auto\+Lock}} ()
+\begin{DoxyCompactList}\small\item\em Enable default auto locking. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \mbox{\hyperlink{classxb_1_1xbXBase_ab41e1f58db3d38b9d983fa2ddff1cd97}{Get\+Default\+Auto\+Lock}} () const
+\begin{DoxyCompactList}\small\item\em Get the default auto lock setting. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_aae076facfd25c56191fd89458b77471c}{Get\+Default\+Lock\+Flavor}} () const
+\begin{DoxyCompactList}\small\item\em Get default lock flavor. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a3327771df27f0788cd16d540c51e295f}{Get\+Default\+Lock\+Retries}} () const
+\begin{DoxyCompactList}\small\item\em Get the default lock retries. \end{DoxyCompactList}\item 
+xb\+Int32 \mbox{\hyperlink{classxb_1_1xbXBase_aeb3a08a3a06457063b9e298e1f4a6e3f}{Get\+Default\+Lock\+Wait}} () const
+\begin{DoxyCompactList}\small\item\em Get default lock wait. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a30956a19a2051df707372dfc3a830ddd}{Set\+Default\+Auto\+Lock}} (\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} b\+Auto\+Lock)
+\begin{DoxyCompactList}\small\item\em Set the default auto lock setting. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a2f28495d5e41d7dbaaae6bb5a62da498}{Set\+Default\+Lock\+Flavor}} (xb\+Int16 i\+Lock\+Flavor)
+\begin{DoxyCompactList}\small\item\em Set default lock flavor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a39cf80d51175980ddb71dfa323578d34}{Set\+Default\+Lock\+Retries}} (xb\+Int16 i\+Retry\+Count)
+\begin{DoxyCompactList}\small\item\em Set the default lock retries. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbXBase_a8fb92073b1d923c4d3d67fb38feac3e1}{Set\+Default\+Lock\+Wait}} (xb\+Int32 l\+Retry\+Wait)
+\begin{DoxyCompactList}\small\item\em Set default lock wait. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a25d3734654ae93de29637dce33342948}{ABS}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Out)
+\begin{DoxyCompactList}\small\item\em Calculate absolute value of a numeric expression. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a18d210949fb02302ad0f88ccd7f9cf6f}{ALLTRIM}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Trim leading and trailing white space from a string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a54776e118c5a95492969fc49734e4324}{ASC}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Asc\+Out)
+\begin{DoxyCompactList}\small\item\em Return ASCII code for the first character in a string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_ac4ef9b49e2eab0e1b428953cd3966f15}{AT}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Srch\+For, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Base, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Pos)
+\begin{DoxyCompactList}\small\item\em Return number indicating starting position of string within a string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a424e02d403bfa0633d08ed4c7a654e15}{CDOW}} (\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&d\+In\+Date, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out\+Dow)
+\begin{DoxyCompactList}\small\item\em Return character weekday name for date. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a219a21119bd7c012fbc5ee99d9d6fa17}{CHR}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+Asci\+Cd, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Convert numeric expression to a character. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a7ff64ac104423bdcd66ad5bf49f0a678}{CMONTH}} (\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&d\+In\+Date, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out\+Month)
+\begin{DoxyCompactList}\small\item\em Return character month name for date. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a6f79e02b502e62e3eaca9db19d7d432c}{CTOD}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In\+Date, \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&d\+Out\+Date)
+\begin{DoxyCompactList}\small\item\em Return date from character input date. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a0fad88645d15f4c4a6616141a1adef47}{DATE}} (\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&d\+Out\+Date)
+\begin{DoxyCompactList}\small\item\em Return system date. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a7f5c4387011f5df64a0269007e19a9ad}{DAY}} (const \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&d\+In\+Date, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Out\+Day)
+\begin{DoxyCompactList}\small\item\em Return the day of the month from a date. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_aa1aaa32b7c5f9d4ecbe5f9eab8ea9104}{DEL}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$dbf, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out, xb\+Int16 i\+Rec\+Buf\+Sw=0)
+\begin{DoxyCompactList}\small\item\em Return record deletion status for current record. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a3c369a57da8570f4f5da9bd5a8d1b616}{DELETED}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$dbf, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \&b\+Out, xb\+Int16 i\+Rec\+Buf\+Sw=0)
+\begin{DoxyCompactList}\small\item\em Return record deletion status for current record. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a6c593d78fdb1cca70b9c212e550e4130}{DESCEND}} (const \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&dt\+In\+Date, \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&dt\+Out\+Date)
+\begin{DoxyCompactList}\small\item\em Clipper DESCEND function. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a41a823026457d40f89c31421331f529f}{DESCEND}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Clipper DESCEND function. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_af8b27ae246c4b3dac0f61a4316891961}{DESCEND}} (const \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Out)
+\begin{DoxyCompactList}\small\item\em Clipper DESCEND function. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a7192e221428cdf7d92f0f3da0a2070d7}{DOW}} (const \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&dt\+In\+Date, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Dow\+Out)
+\begin{DoxyCompactList}\small\item\em Return number of day of week. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_ad71ba5db9a58a54973032d09f3a98cb5}{DTOC}} (\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&d\+In\+Date, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out\+Fmt\+Date)
+\begin{DoxyCompactList}\small\item\em Return character date from input date. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_ae052c2842a13e57dd4c7202011a12407}{DTOS}} (\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&dt\+In\+Date, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out\+Fmt\+Date)
+\begin{DoxyCompactList}\small\item\em Return char CCYYMMDD date from input date. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a4e9529bf02e8c7c0d037afcd7e3f8cea}{EXP}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Out)
+\begin{DoxyCompactList}\small\item\em Return exponent value. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a3a2494c7ca60e77f93f204242620bef6}{IIF}} (\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} b\+Result, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+True\+Result, const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+False\+Result, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Result)
+\begin{DoxyCompactList}\small\item\em Immediate if. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a8c5e2b0af9675b758d4b95257c11bb9e}{INT}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Out)
+\begin{DoxyCompactList}\small\item\em Convert number to integer, truncate any decimals. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a91bb7ca631625646a9206e40e8a64512}{ISALPHA}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \&b\+Result)
+\begin{DoxyCompactList}\small\item\em Check if string begins with alpha character. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_acd9cd0874ba039b13d6aba9aeb8fd055}{ISLOWER}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \&b\+Result)
+\begin{DoxyCompactList}\small\item\em Check if string begins with lower case alpha character. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a78da4a049e79beda14a67542e31a4272}{ISUPPER}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \&b\+Result)
+\begin{DoxyCompactList}\small\item\em Check if string begins with upper case alpha character. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_ad8f52953a282c8ceca9aa449a613b204}{LEFT}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, xb\+UInt32 ul\+Char\+Cnt, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Return left characters from string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a0d9c0e0740722eb9daaaae74da256579}{LEN}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Len)
+\begin{DoxyCompactList}\small\item\em Return length of string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a140240aead572ebbd9de5c491e4f6ae2}{LOG}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Out)
+\begin{DoxyCompactList}\small\item\em Calculate logarithm. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_abc75aef8665888b6e526266997627419}{LOWER}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Convert upper case to lower case. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_ab2271775d29fe2ae086f7bd1e4b9080b}{LTRIM}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Trim white space from left side of string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a3a2881bf3dd6a316f23ca67e05b41cd2}{MAX}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In1, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In2, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Out)
+\begin{DoxyCompactList}\small\item\em Return higher of two values. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a30f192c9e0622d6d697964c1ee8c36cf}{MIN}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In1, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In2, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Out)
+\begin{DoxyCompactList}\small\item\em Return lessor of two values. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a6f313e95ea040ae84db3055ce7a6e97b}{MONTH}} (\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&dt\+In\+Date, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Out\+Month)
+\begin{DoxyCompactList}\small\item\em Return number of month for a given date. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a3e6d17057699dc7ac2920a3743782d81}{RECCOUNT}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$dbf, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Rec\+Out)
+\begin{DoxyCompactList}\small\item\em Return number of records in a given table. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_afc448c2504ff3bdb47ceef3e2f15fbea}{RECNO}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$dbf, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Rec\+Out)
+\begin{DoxyCompactList}\small\item\em Return current record number for a given table. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_aefebf2696c58a7de6ae5b21f45d83318}{REPLICATE}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, xb\+UInt32 ul\+Rep\+Cnt, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Repeat character expression N times. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a54ce45eec216200b51b8afbf775d2e11}{RIGHT}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, xb\+UInt32 ul\+Char\+Cnt, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Return right characters from string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_aba16279def6a7307a286ab3a16a424ac}{RTRIM}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Trim white space from right side of string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_ae77654cfddde8db3d32d07c32de1d556}{SPACE}} (xb\+Int32 l\+Cnt, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Generate a string of N spaces. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_aaff30b6214c4766bc0dd3589a58bfc6b}{SQRT}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+Base, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Sqr\+Root)
+\begin{DoxyCompactList}\small\item\em Calculate a square root. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a1673a57ba38538f10488f032fad8133b}{STOD}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In\+Date, \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&dt\+Out\+Date)
+\begin{DoxyCompactList}\small\item\em Converts a valid 8 byte (CCYYMMDD) input date into a date class. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_ab05f5ecd843d7f37ee56b71fc65dab78}{STR}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Convert number to a character string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_ad9d305aa26ac0fddf4bf738715e1d36f}{STR}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In, xb\+UInt32 ul\+Len, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Convert number to a character string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a3de59b82a85d5bed3320013a83203a18}{STR}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In, xb\+UInt32 ul\+Len, xb\+UInt32 ul\+Dec, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Convert number to a character string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a4b98b62038b5c953098e908c7d0f45a4}{STR}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In, xb\+UInt32 ul\+Len, xb\+UInt32 ul\+Dec, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Pad\+Char, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Convert number to a character string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a6541340a14cfc0055fe1c81781d1e8e3}{STRZERO}} (\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} d\+In, xb\+UInt32 ul\+Len, xb\+UInt32 ul\+Dec, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Convert number to a character string with leading zeroes. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_ac79ae09e538b43533605e2228c9d385e}{SUBSTR}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, xb\+UInt32 ul\+Start\+Pos, xb\+UInt32 ul\+Len, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Extract a portion of a string from another string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a4fe642f63e95df8fcf7a8bdef07aa1a4}{TRIM}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Trim white space from left and right sides of string. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_ac0052f456658e7a78f5b9676136945ba}{UPPER}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+Out)
+\begin{DoxyCompactList}\small\item\em Convert lower case to upper case. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_ac8c1d2c5f116ddf28ad601ef13b8e886}{VAL}} (const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&s\+In, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Out)
+\begin{DoxyCompactList}\small\item\em Convert numeric characters to number. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbXBase_a2fb4849f65c409add5e01538f580fc1d}{YEAR}} (\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&d\+In\+Date, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&d\+Out\+Year)
+\begin{DoxyCompactList}\small\item\em Return year for a given date. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 xb\+Xbase class. 
 
-The \mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} class is the core class that needs to be in every application program. 
+The \mbox{\hyperlink{classxb_1_1xbXBase}{xb\+XBase}} class is the core class that needs to be declared in every application program. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classxb_1_1xbXBase_a6c68588e33946fb5416af3f86fe83224}\label{classxb_1_1xbXBase_a6c68588e33946fb5416af3f86fe83224}} 
@@ -182,50 +261,127 @@ Class Deconstructor.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classxb_1_1xbTblMgr_af16832ff2bfaee09265652e0fc03709a}\label{classxb_1_1xbTblMgr_af16832ff2bfaee09265652e0fc03709a}} 
-\index{xb::xbXBase@{xb::xbXBase}!AddTblToTblList@{AddTblToTblList}}
-\index{AddTblToTblList@{AddTblToTblList}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{AddTblToTblList()}{AddTblToTblList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Tbl\+Mgr\+::\+Add\+Tbl\+To\+Tbl\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{d,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Fq\+Tbl\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
-
-\mbox{\Hypertarget{classxb_1_1xbTblMgr_a2033188e9b08778188a034a6fc90ca85}\label{classxb_1_1xbTblMgr_a2033188e9b08778188a034a6fc90ca85}} 
-\index{xb::xbXBase@{xb::xbXBase}!AddTblToTblList@{AddTblToTblList}}
-\index{AddTblToTblList@{AddTblToTblList}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{AddTblToTblList()}{AddTblToTblList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Tbl\+Mgr\+::\+Add\+Tbl\+To\+Tbl\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{d,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Fq\+Tbl\+Name,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Tbl\+Alias }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
-
-\mbox{\Hypertarget{classxb_1_1xbSsv_aba1395b8e4c7f28c3614061de6e49190}\label{classxb_1_1xbSsv_aba1395b8e4c7f28c3614061de6e49190}} 
-\index{xb::xbXBase@{xb::xbXBase}!BitDump@{BitDump}}
-\index{BitDump@{BitDump}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{BitDump()}{BitDump()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Bit\+Dump (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
-
-\mbox{\Hypertarget{classxb_1_1xbSsv_a8551b15a3ce4fa2a40d698db01f4a9ae}\label{classxb_1_1xbSsv_a8551b15a3ce4fa2a40d698db01f4a9ae}} 
-\index{xb::xbXBase@{xb::xbXBase}!BitDump@{BitDump}}
-\index{BitDump@{BitDump}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{BitDump()}{BitDump()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Bit\+Dump (\begin{DoxyParamCaption}\item[{unsigned char}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
-
-\mbox{\Hypertarget{classxb_1_1xbSsv_a62e4fd0a5888665c76bbbad962794e72}\label{classxb_1_1xbSsv_a62e4fd0a5888665c76bbbad962794e72}} 
-\index{xb::xbXBase@{xb::xbXBase}!BitSet@{BitSet}}
-\index{BitSet@{BitSet}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{BitSet()}{BitSet()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Ssv\+::\+Bit\+Set (\begin{DoxyParamCaption}\item[{unsigned char}]{c,  }\item[{xb\+Int16}]{i\+Bit\+No }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a25d3734654ae93de29637dce33342948}\label{classxb_1_1xbXBase_a25d3734654ae93de29637dce33342948}} 
+\index{xb::xbXBase@{xb::xbXBase}!ABS@{ABS}}
+\index{ABS@{ABS}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{ABS()}{ABS()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+ABS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Out }\end{DoxyParamCaption})}
 
 
 
-Check a bit in a one byte field and see if it is set. 
+Calculate absolute value of a numeric expression. 
 
-
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a25d3734654ae93de29637dce33342948}{ABS()}}. 
 \begin{DoxyParams}{Parameters}
-{\em c} & One byte char field to examine. \\
+{\em d\+In} & Input -\/ Numeric expression. \\
 \hline
-{\em i\+Bit\+No} & which bit to examine. \\
+{\em d\+Out} & Output -\/ Absolute value. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-xb\+True Bit is set~\newline
- xb\+False Bit is not set 
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a18d210949fb02302ad0f88ccd7f9cf6f}\label{classxb_1_1xbXBase_a18d210949fb02302ad0f88ccd7f9cf6f}} 
+\index{xb::xbXBase@{xb::xbXBase}!ALLTRIM@{ALLTRIM}}
+\index{ALLTRIM@{ALLTRIM}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{ALLTRIM()}{ALLTRIM()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+ALLTRIM (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Trim leading and trailing white space from a string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a18d210949fb02302ad0f88ccd7f9cf6f}{ALLTRIM()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ Input string to trim. \\
+\hline
+{\em s\+Out} & Output -\/ Trimmed string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a54776e118c5a95492969fc49734e4324}\label{classxb_1_1xbXBase_a54776e118c5a95492969fc49734e4324}} 
+\index{xb::xbXBase@{xb::xbXBase}!ASC@{ASC}}
+\index{ASC@{ASC}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{ASC()}{ASC()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+ASC (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Asc\+Out }\end{DoxyParamCaption})}
+
+
+
+Return ASCII code for the first character in a string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a54776e118c5a95492969fc49734e4324}{ASC()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ Input character string. \\
+\hline
+{\em d\+Asc\+Out} & Output -\/ Ascii code of first character in string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_ac4ef9b49e2eab0e1b428953cd3966f15}\label{classxb_1_1xbXBase_ac4ef9b49e2eab0e1b428953cd3966f15}} 
+\index{xb::xbXBase@{xb::xbXBase}!AT@{AT}}
+\index{AT@{AT}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{AT()}{AT()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+AT (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Srch\+For,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Base,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Pos }\end{DoxyParamCaption})}
+
+
+
+Return number indicating starting position of string within a string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ac4ef9b49e2eab0e1b428953cd3966f15}{AT()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+Srch\+For} & Input -\/ Input string to search for. \\
+\hline
+{\em s\+Base} & Input -\/ Input string to search. \\
+\hline
+{\em d\+Pos} & Output -\/ Position of string s1 within s2. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a424e02d403bfa0633d08ed4c7a654e15}\label{classxb_1_1xbXBase_a424e02d403bfa0633d08ed4c7a654e15}} 
+\index{xb::xbXBase@{xb::xbXBase}!CDOW@{CDOW}}
+\index{CDOW@{CDOW}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{CDOW()}{CDOW()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+CDOW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{d\+In\+Date,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out\+Dow }\end{DoxyParamCaption})}
+
+
+
+Return character weekday name for date. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a424e02d403bfa0633d08ed4c7a654e15}{CDOW()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In\+Date} & Input -\/ Input date. \\
+\hline
+{\em s\+Out\+Dow} & Output -\/ Character day of week. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a219a21119bd7c012fbc5ee99d9d6fa17}\label{classxb_1_1xbXBase_a219a21119bd7c012fbc5ee99d9d6fa17}} 
+\index{xb::xbXBase@{xb::xbXBase}!CHR@{CHR}}
+\index{CHR@{CHR}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{CHR()}{CHR()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+CHR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+Asci\+Cd,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert numeric expression to a character. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a219a21119bd7c012fbc5ee99d9d6fa17}{CHR()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+Asci\+Cd} & Input -\/ Numeric expression. \\
+\hline
+{\em s\+Out} & Output -\/ Character result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classxb_1_1xbXBase_afccb552ca0daff779c0500ff20d22c2b}\label{classxb_1_1xbXBase_afccb552ca0daff779c0500ff20d22c2b}} 
 \index{xb::xbXBase@{xb::xbXBase}!CloseAllTables@{CloseAllTables}}
@@ -240,15 +396,35 @@ Close all tables / files.
 This closes everything and deletes references to the associated \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} objects. \begin{DoxyReturn}{Returns}
 \href{xbretcod_8h.html}{\texttt{ Return Codes}} 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a7ff64ac104423bdcd66ad5bf49f0a678}\label{classxb_1_1xbXBase_a7ff64ac104423bdcd66ad5bf49f0a678}} 
+\index{xb::xbXBase@{xb::xbXBase}!CMONTH@{CMONTH}}
+\index{CMONTH@{CMONTH}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{CMONTH()}{CMONTH()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+CMONTH (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{d\+In\+Date,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out\+Month }\end{DoxyParamCaption})}
+
+
+
+Return character month name for date. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a7ff64ac104423bdcd66ad5bf49f0a678}{CMONTH()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In\+Date} & Input -\/ Input date. \\
+\hline
+{\em s\+Out\+Month} & Output -\/ Character month. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classxb_1_1xbXBase_aa41240d920b604dcbd91dce7eecb78e1}\label{classxb_1_1xbXBase_aa41240d920b604dcbd91dce7eecb78e1}} 
 \index{xb::xbXBase@{xb::xbXBase}!CreateFqn@{CreateFqn}}
 \index{CreateFqn@{CreateFqn}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{CreateFqn()}{CreateFqn()}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Create\+Fqn (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Dir\+In,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Name\+In,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Ext\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Fqn\+Out }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Create\+Fqn (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Dir\+In,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Name\+In,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Ext\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Fqfn\+Out }\end{DoxyParamCaption})}
 
 
 
-Fully qualified file name from a directory, filename and extension. 
+Create a fully qualified file name from a directory, filename and extension. 
 
 Given a directory, file name and file extension as inputs, create a fully qualified file name.
 
@@ -260,23 +436,209 @@ Given a directory, file name and file extension as inputs, create a fully qualif
 \hline
 {\em s\+Ext\+In} & File Extension \\
 \hline
-{\em s\+Fqn\+Out} & A fully qualifed unique file name as output \\
+{\em s\+Fqfn\+Out} & A fully qualifed unique file name as output \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-XB\+\_\+\+INVALIED\+\_\+\+PARAMETER or XB\+\_\+\+NO\+\_\+\+ERROR 
+XB\+\_\+\+INVALID\+\_\+\+PARAMETER or XB\+\_\+\+NO\+\_\+\+ERROR 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classxb_1_1xbXBase_ae357fac4fdebdf49e46563cf611caf65}\label{classxb_1_1xbXBase_ae357fac4fdebdf49e46563cf611caf65}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_a6f79e02b502e62e3eaca9db19d7d432c}\label{classxb_1_1xbXBase_a6f79e02b502e62e3eaca9db19d7d432c}} 
+\index{xb::xbXBase@{xb::xbXBase}!CTOD@{CTOD}}
+\index{CTOD@{CTOD}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{CTOD()}{CTOD()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+CTOD (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In\+Date,  }\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{d\+Out\+Date }\end{DoxyParamCaption})}
+
+
+
+Return date from character input date. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a6f79e02b502e62e3eaca9db19d7d432c}{CTOD()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In\+Date} & Input -\/ Input date in MM/\+DD/\+YY format. \\
+\hline
+{\em d\+Out\+Date} & Output -\/ Output date. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a0fad88645d15f4c4a6616141a1adef47}\label{classxb_1_1xbXBase_a0fad88645d15f4c4a6616141a1adef47}} 
+\index{xb::xbXBase@{xb::xbXBase}!DATE@{DATE}}
+\index{DATE@{DATE}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{DATE()}{DATE()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+DATE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{d\+Out\+Date }\end{DoxyParamCaption})}
+
+
+
+Return system date. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a0fad88645d15f4c4a6616141a1adef47}{DATE()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+Out\+Date} & Output -\/ Output date. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a7f5c4387011f5df64a0269007e19a9ad}\label{classxb_1_1xbXBase_a7f5c4387011f5df64a0269007e19a9ad}} 
+\index{xb::xbXBase@{xb::xbXBase}!DAY@{DAY}}
+\index{DAY@{DAY}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{DAY()}{DAY()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+DAY (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{d\+In\+Date,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Out\+Day }\end{DoxyParamCaption})}
+
+
+
+Return the day of the month from a date. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a7f5c4387011f5df64a0269007e19a9ad}{DAY()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In\+Date} & Input -\/ Input date. \\
+\hline
+{\em d\+Out\+Day} & Output -\/ Output day of month. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_aa1aaa32b7c5f9d4ecbe5f9eab8ea9104}\label{classxb_1_1xbXBase_aa1aaa32b7c5f9d4ecbe5f9eab8ea9104}} 
+\index{xb::xbXBase@{xb::xbXBase}!DEL@{DEL}}
+\index{DEL@{DEL}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{DEL()}{DEL()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+DEL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{dbf,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out,  }\item[{xb\+Int16}]{i\+Rec\+Buf\+Sw = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Return record deletion status for current record. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_aa1aaa32b7c5f9d4ecbe5f9eab8ea9104}{DEL()}}. 
+\begin{DoxyParams}{Parameters}
+{\em dbf} & Input -\/ Table to check current record deletion status. \\
+\hline
+{\em i\+Rec\+Buf\+Sw} & Input -\/ Which buffer.~\newline
+ 0 -\/ Current record buffer~\newline
+ 1 -\/ Original record buffer \\
+\hline
+{\em s\+Out} & Output -\/ \textquotesingle{}$\ast$ if record is deleted, otherise space. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR~\newline
+XB\+\_\+\+PARSE\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a3c369a57da8570f4f5da9bd5a8d1b616}\label{classxb_1_1xbXBase_a3c369a57da8570f4f5da9bd5a8d1b616}} 
+\index{xb::xbXBase@{xb::xbXBase}!DELETED@{DELETED}}
+\index{DELETED@{DELETED}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{DELETED()}{DELETED()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+DELETED (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{dbf,  }\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \&}]{b\+Out,  }\item[{xb\+Int16}]{i\+Rec\+Buf\+Sw = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Return record deletion status for current record. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a3c369a57da8570f4f5da9bd5a8d1b616}{DELETED()}}. 
+\begin{DoxyParams}{Parameters}
+{\em dbf} & Input -\/ Table to check current record deletion status for. \\
+\hline
+{\em i\+Rec\+Buf\+Sw} & Input -\/ Which buffer.~\newline
+ 0 -\/ Current record buffer~\newline
+ 1 -\/ Original record buffer \\
+\hline
+{\em b\+Out} & Output -\/ xb\+True if record is deleted.~\newline
+ xb\+False if record is not deleted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR~\newline
+XB\+\_\+\+PARSE\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a6c593d78fdb1cca70b9c212e550e4130}\label{classxb_1_1xbXBase_a6c593d78fdb1cca70b9c212e550e4130}} 
+\index{xb::xbXBase@{xb::xbXBase}!DESCEND@{DESCEND}}
+\index{DESCEND@{DESCEND}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{DESCEND()}{DESCEND()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+DESCEND (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{dt\+In\+Date,  }\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{dt\+Out\+Date }\end{DoxyParamCaption})}
+
+
+
+Clipper DESCEND function. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a6c593d78fdb1cca70b9c212e550e4130}{DESCEND()}}. 
+\begin{DoxyParams}{Parameters}
+{\em dt\+In\+Date} & Input -\/ Input date. \\
+\hline
+{\em dt\+Out\+Date} & Output -\/ Output date. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_af8b27ae246c4b3dac0f61a4316891961}\label{classxb_1_1xbXBase_af8b27ae246c4b3dac0f61a4316891961}} 
+\index{xb::xbXBase@{xb::xbXBase}!DESCEND@{DESCEND}}
+\index{DESCEND@{DESCEND}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{DESCEND()}{DESCEND()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+DESCEND (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Out }\end{DoxyParamCaption})}
+
+
+
+Clipper DESCEND function. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a6c593d78fdb1cca70b9c212e550e4130}{DESCEND()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In} & Input -\/ Input number. \\
+\hline
+{\em d\+Out} & Output -\/ Output number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a41a823026457d40f89c31421331f529f}\label{classxb_1_1xbXBase_a41a823026457d40f89c31421331f529f}} 
+\index{xb::xbXBase@{xb::xbXBase}!DESCEND@{DESCEND}}
+\index{DESCEND@{DESCEND}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{DESCEND()}{DESCEND()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+DESCEND (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Clipper DESCEND function. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a6c593d78fdb1cca70b9c212e550e4130}{DESCEND()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ Input string. \\
+\hline
+{\em s\+Out} & Output -\/ Output string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_ad4134df4b304a6e93a3d8ebbc1949538}\label{classxb_1_1xbXBase_ad4134df4b304a6e93a3d8ebbc1949538}} 
+\index{xb::xbXBase@{xb::xbXBase}!DisableDefaultAutoLock@{DisableDefaultAutoLock}}
+\index{DisableDefaultAutoLock@{DisableDefaultAutoLock}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{DisableDefaultAutoLock()}{DisableDefaultAutoLock()}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Disable\+Default\+Auto\+Lock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Disable defalt auto locking. 
+
+When auto locking is turned off, the library does not automatically lock and unlock files and indices as needed in a multi user environment.
+
+Locking is optional in a single user environment.~\newline
+ Locking is required in a multi user envrionment. \mbox{\Hypertarget{classxb_1_1xbXBase_ae357fac4fdebdf49e46563cf611caf65}\label{classxb_1_1xbXBase_ae357fac4fdebdf49e46563cf611caf65}} 
 \index{xb::xbXBase@{xb::xbXBase}!DisableMsgLogging@{DisableMsgLogging}}
 \index{DisableMsgLogging@{DisableMsgLogging}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{DisableMsgLogging()}{DisableMsgLogging()}}
 {\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Disable\+Msg\+Logging (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classxb_1_1xbSsv_a97dfa59ab9a8e9f17454da0faceb023d}\label{classxb_1_1xbSsv_a97dfa59ab9a8e9f17454da0faceb023d}} 
+
+
+Disable message logging. 
+
+\mbox{\Hypertarget{classxb_1_1xbXBase_a56a258229c31f423c6293c791d3fa8ef}\label{classxb_1_1xbXBase_a56a258229c31f423c6293c791d3fa8ef}} 
 \index{xb::xbXBase@{xb::xbXBase}!DisplayError@{DisplayError}}
 \index{DisplayError@{DisplayError}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{DisplayError()}{DisplayError()}}
-{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Display\+Error (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Error\+Code }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Display\+Error (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Error\+Code }\end{DoxyParamCaption}) const}
 
 
 
@@ -287,25 +649,119 @@ Display error message on console for a given error number.
 {\em i\+Error\+Code} & Error number to reference \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classxb_1_1xbTblMgr_a5eebffb9e8cc64141e35c2622045cb50}\label{classxb_1_1xbTblMgr_a5eebffb9e8cc64141e35c2622045cb50}} 
-\index{xb::xbXBase@{xb::xbXBase}!DisplayTableList@{DisplayTableList}}
-\index{DisplayTableList@{DisplayTableList}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{DisplayTableList()}{DisplayTableList()}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Tbl\+Mgr\+::\+Display\+Table\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a7192e221428cdf7d92f0f3da0a2070d7}\label{classxb_1_1xbXBase_a7192e221428cdf7d92f0f3da0a2070d7}} 
+\index{xb::xbXBase@{xb::xbXBase}!DOW@{DOW}}
+\index{DOW@{DOW}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{DOW()}{DOW()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+DOW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{dt\+In\+Date,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Dow\+Out }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classxb_1_1xbXBase_a470e6eb0ed0be60338f9b40976d3ad48}\label{classxb_1_1xbXBase_a470e6eb0ed0be60338f9b40976d3ad48}} 
+
+
+Return number of day of week. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a7192e221428cdf7d92f0f3da0a2070d7}{DOW()}}. 
+\begin{DoxyParams}{Parameters}
+{\em dt\+In\+Date} & Input -\/ Input date. \\
+\hline
+{\em d\+Dow\+Out} & Output -\/ Output day of week. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_ad71ba5db9a58a54973032d09f3a98cb5}\label{classxb_1_1xbXBase_ad71ba5db9a58a54973032d09f3a98cb5}} 
+\index{xb::xbXBase@{xb::xbXBase}!DTOC@{DTOC}}
+\index{DTOC@{DTOC}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{DTOC()}{DTOC()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+DTOC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{d\+In\+Date,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out\+Fmt\+Date }\end{DoxyParamCaption})}
+
+
+
+Return character date from input date. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ad71ba5db9a58a54973032d09f3a98cb5}{DTOC()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In\+Date} & Input -\/ Input date. \\
+\hline
+{\em s\+Out\+Fmt\+Date} & Output -\/ Output date. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_ae052c2842a13e57dd4c7202011a12407}\label{classxb_1_1xbXBase_ae052c2842a13e57dd4c7202011a12407}} 
+\index{xb::xbXBase@{xb::xbXBase}!DTOS@{DTOS}}
+\index{DTOS@{DTOS}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{DTOS()}{DTOS()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+DTOS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{dt\+In\+Date,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out\+Fmt\+Date }\end{DoxyParamCaption})}
+
+
+
+Return char CCYYMMDD date from input date. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ae052c2842a13e57dd4c7202011a12407}{DTOS()}}. 
+\begin{DoxyParams}{Parameters}
+{\em dt\+In\+Date} & Input -\/ Input date. \\
+\hline
+{\em s\+Out\+Fmt\+Date} & Output -\/ Output date. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a9f1b8e43e9e42bce08f7638ddf2f13b8}\label{classxb_1_1xbXBase_a9f1b8e43e9e42bce08f7638ddf2f13b8}} 
+\index{xb::xbXBase@{xb::xbXBase}!EnableDefaultAutoLock@{EnableDefaultAutoLock}}
+\index{EnableDefaultAutoLock@{EnableDefaultAutoLock}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{EnableDefaultAutoLock()}{EnableDefaultAutoLock()}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Enable\+Default\+Auto\+Lock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Enable default auto locking. 
+
+When auto locking is turned on, the library automatically locks and unlocks files and indices as needed in a multi user environment. \mbox{\Hypertarget{classxb_1_1xbXBase_a470e6eb0ed0be60338f9b40976d3ad48}\label{classxb_1_1xbXBase_a470e6eb0ed0be60338f9b40976d3ad48}} 
 \index{xb::xbXBase@{xb::xbXBase}!EnableMsgLogging@{EnableMsgLogging}}
 \index{EnableMsgLogging@{EnableMsgLogging}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{EnableMsgLogging()}{EnableMsgLogging()}}
 {\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Enable\+Msg\+Logging (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Enable message logging. 
+
+\mbox{\Hypertarget{classxb_1_1xbXBase_a4e9529bf02e8c7c0d037afcd7e3f8cea}\label{classxb_1_1xbXBase_a4e9529bf02e8c7c0d037afcd7e3f8cea}} 
+\index{xb::xbXBase@{xb::xbXBase}!EXP@{EXP}}
+\index{EXP@{EXP}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{EXP()}{EXP()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+EXP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Out }\end{DoxyParamCaption})}
+
+
+
+Return exponent value. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a4e9529bf02e8c7c0d037afcd7e3f8cea}{EXP()}}. This function returns e$\ast$$\ast$x where e is approximately 2.\+71828 and x is d\+In.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d\+In} & Input -\/ exp value. \\
+\hline
+{\em d\+Out} & Output -\/ value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classxb_1_1xbXBase_a5a5ecaed9777978344902446c9ae3b8e}\label{classxb_1_1xbXBase_a5a5ecaed9777978344902446c9ae3b8e}} 
 \index{xb::xbXBase@{xb::xbXBase}!FlushLog@{FlushLog}}
 \index{FlushLog@{FlushLog}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{FlushLog()}{FlushLog()}}
 {\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Flush\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classxb_1_1xbXBase_aadecb3ac460d8e94b88b2e809e22f48e}\label{classxb_1_1xbXBase_aadecb3ac460d8e94b88b2e809e22f48e}} 
+
+
+Flush log file updates to disk. 
+
+\mbox{\Hypertarget{classxb_1_1xbXBase_afcace09f410988cd94403ef29178534b}\label{classxb_1_1xbXBase_afcace09f410988cd94403ef29178534b}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetCmdLineOpt@{GetCmdLineOpt}}
 \index{GetCmdLineOpt@{GetCmdLineOpt}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetCmdLineOpt()}{GetCmdLineOpt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -330,7 +786,7 @@ Parse commmand line options for a given parm request.
 0 -\/ paramater request not found~\newline
  1 -\/ Parameter found 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classxb_1_1xbXBase_a8612e0c5334349fbceb9394b47817fd5}\label{classxb_1_1xbXBase_a8612e0c5334349fbceb9394b47817fd5}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_aa676593eb34a1a2c2b8ec1eb7727363c}\label{classxb_1_1xbXBase_aa676593eb34a1a2c2b8ec1eb7727363c}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetCmdLineOpt@{GetCmdLineOpt}}
 \index{GetCmdLineOpt@{GetCmdLineOpt}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetCmdLineOpt()}{GetCmdLineOpt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -355,11 +811,24 @@ Parse commmand line options for a given parm request.
 0 -\/ paramater request not found~\newline
  1 -\/ Parameter found 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classxb_1_1xbSsv_a1d803a4bfc8ba0561267a0bf9e51f7d9}\label{classxb_1_1xbSsv_a1d803a4bfc8ba0561267a0bf9e51f7d9}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_add74b7865b040ffa62da5eb4ab6cb623}\label{classxb_1_1xbXBase_add74b7865b040ffa62da5eb4ab6cb623}} 
+\index{xb::xbXBase@{xb::xbXBase}!GetCreateMdxBlockSize@{GetCreateMdxBlockSize}}
+\index{GetCreateMdxBlockSize@{GetCreateMdxBlockSize}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{GetCreateMdxBlockSize()}{GetCreateMdxBlockSize()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Get\+Create\+Mdx\+Block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the mdx file block size used when creating a memo file. 
+
+\begin{DoxyReturn}{Returns}
+System default setting for MDX block size. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a6d8158594f949c66bacfc282b795c66a}\label{classxb_1_1xbXBase_a6d8158594f949c66bacfc282b795c66a}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetDataDirectory@{GetDataDirectory}}
 \index{GetDataDirectory@{GetDataDirectory}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetDataDirectory()}{GetDataDirectory()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Ssv\+::\+Get\+Data\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+XBase\+::\+Get\+Data\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -368,23 +837,11 @@ Get the current data directory.
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} containing the current data directory where the database files are stored. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classxb_1_1xbTblMgr_ad8a5d28a2ee6720a9aa74bcb45662cf5}\label{classxb_1_1xbTblMgr_ad8a5d28a2ee6720a9aa74bcb45662cf5}} 
-\index{xb::xbXBase@{xb::xbXBase}!GetDbfPtr@{GetDbfPtr}}
-\index{GetDbfPtr@{GetDbfPtr}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{GetDbfPtr()}{GetDbfPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$ xb\+::xb\+Tbl\+Mgr\+::\+Get\+Dbf\+Ptr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Tbl\+Alias }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
-
-\mbox{\Hypertarget{classxb_1_1xbTblMgr_a801dfecf7fc216954b4197b2c31b25d6}\label{classxb_1_1xbTblMgr_a801dfecf7fc216954b4197b2c31b25d6}} 
-\index{xb::xbXBase@{xb::xbXBase}!GetDbfPtr@{GetDbfPtr}}
-\index{GetDbfPtr@{GetDbfPtr}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{GetDbfPtr()}{GetDbfPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$ xb\+::xb\+Tbl\+Mgr\+::\+Get\+Dbf\+Ptr (\begin{DoxyParamCaption}\item[{xb\+Int16}]{s\+Item\+No }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
-
-\mbox{\Hypertarget{classxb_1_1xbSsv_a6982f973e81587b04916f4509746aaf5}\label{classxb_1_1xbSsv_a6982f973e81587b04916f4509746aaf5}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_a49da8cb55a1e51645148581629832352}\label{classxb_1_1xbXBase_a49da8cb55a1e51645148581629832352}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetDefaultAutoCommit@{GetDefaultAutoCommit}}
 \index{GetDefaultAutoCommit@{GetDefaultAutoCommit}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetDefaultAutoCommit()}{GetDefaultAutoCommit()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Ssv\+::\+Get\+Default\+Auto\+Commit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+XBase\+::\+Get\+Default\+Auto\+Commit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -396,11 +853,34 @@ When auto commit is enabled, the library will automatically post any updates whe
 xb\+True if auto commit is turned on~\newline
  xb\+False is auto commit is turned off 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classxb_1_1xbSsv_a6fbb9c3a550ab0b3378f9586a57791d2}\label{classxb_1_1xbSsv_a6fbb9c3a550ab0b3378f9586a57791d2}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_ab41e1f58db3d38b9d983fa2ddff1cd97}\label{classxb_1_1xbXBase_ab41e1f58db3d38b9d983fa2ddff1cd97}} 
+\index{xb::xbXBase@{xb::xbXBase}!GetDefaultAutoLock@{GetDefaultAutoLock}}
+\index{GetDefaultAutoLock@{GetDefaultAutoLock}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{GetDefaultAutoLock()}{GetDefaultAutoLock()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+XBase\+::\+Get\+Default\+Auto\+Lock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the default auto lock setting. 
+
+When auto locking is turned on, the library automatically locks and unlocks files and indices as needed in a multi user environment. \begin{DoxyReturn}{Returns}
+Number of lock attempt settings. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_af3f76909846cac248b20805bd9f6e616}\label{classxb_1_1xbXBase_af3f76909846cac248b20805bd9f6e616}} 
+\index{xb::xbXBase@{xb::xbXBase}!GetDefaultBlockReadSize@{GetDefaultBlockReadSize}}
+\index{GetDefaultBlockReadSize@{GetDefaultBlockReadSize}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{GetDefaultBlockReadSize()}{GetDefaultBlockReadSize()}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+XBase\+::\+Get\+Default\+Block\+Read\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get Default Read Block Size. 
+
+This routine returns the default read block size used when allocating buffer space for block reads of table data. Initial setting is 32768 bytes. \mbox{\Hypertarget{classxb_1_1xbXBase_a4776de817dd8e4f96f76979108485e18}\label{classxb_1_1xbXBase_a4776de817dd8e4f96f76979108485e18}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetDefaultDateFormat@{GetDefaultDateFormat}}
 \index{GetDefaultDateFormat@{GetDefaultDateFormat}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetDefaultDateFormat()}{GetDefaultDateFormat()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Ssv\+::\+Get\+Default\+Date\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+XBase\+::\+Get\+Default\+Date\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -409,26 +889,104 @@ Get the default date format.
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} containing the default date format. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classxb_1_1xbSsv_a49cd162f066eef2b829ba7c9f6620243}\label{classxb_1_1xbSsv_a49cd162f066eef2b829ba7c9f6620243}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_a9f2860151e7b9f1038bffc95e091103e}\label{classxb_1_1xbXBase_a9f2860151e7b9f1038bffc95e091103e}} 
+\index{xb::xbXBase@{xb::xbXBase}!GetDefaultIxTagMode@{GetDefaultIxTagMode}}
+\index{GetDefaultIxTagMode@{GetDefaultIxTagMode}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{GetDefaultIxTagMode()}{GetDefaultIxTagMode()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Get\+Default\+Ix\+Tag\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the default index tag mode. 
+
+XB\+\_\+\+IX\+\_\+\+DBASE\+\_\+\+MODE -\/ DBASE Compatibility mode~\newline
+ 1) For index tags defined as unique, d\+BASE allows mutliple records in a table all having the same key, but only the first entry in the table with the unique key will be referenced in the unique index.~\newline
+ 2) Deleted DBF records are not deleted from the associated tag file.~\newline
+ 3) This is the system default.~\newline
+
+
+XB\+\_\+\+IX\+\_\+\+XBASE\+\_\+\+MODE -\/ XBase mode~\newline
+ 1) For index tags defined as unique, the library will throw an error when an attempt is made to add/update a record with a duplicate key.~\newline
+ 2) Deleted DBF records are deleted from the associated index tag.~\newline
+
+
+\begin{DoxyNote}{Note}
+When switching between modes, reindex any affected index tags. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbXBase_aae076facfd25c56191fd89458b77471c}\label{classxb_1_1xbXBase_aae076facfd25c56191fd89458b77471c}} 
+\index{xb::xbXBase@{xb::xbXBase}!GetDefaultLockFlavor@{GetDefaultLockFlavor}}
+\index{GetDefaultLockFlavor@{GetDefaultLockFlavor}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{GetDefaultLockFlavor()}{GetDefaultLockFlavor()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Get\+Default\+Lock\+Flavor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get default lock flavor. 
+
+Currently one flavor. This routine is part of the structure to support future additional locking scenarios for Clipper and Foxpro. \begin{DoxyReturn}{Returns}
+1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a3327771df27f0788cd16d540c51e295f}\label{classxb_1_1xbXBase_a3327771df27f0788cd16d540c51e295f}} 
+\index{xb::xbXBase@{xb::xbXBase}!GetDefaultLockRetries@{GetDefaultLockRetries}}
+\index{GetDefaultLockRetries@{GetDefaultLockRetries}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{GetDefaultLockRetries()}{GetDefaultLockRetries()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Get\+Default\+Lock\+Retries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the default lock retries. 
+
+This is the number of lock attempts the libary will make before returning failure if the lock request can not be completed. \begin{DoxyReturn}{Returns}
+Default lock retry count. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_aeb3a08a3a06457063b9e298e1f4a6e3f}\label{classxb_1_1xbXBase_aeb3a08a3a06457063b9e298e1f4a6e3f}} 
+\index{xb::xbXBase@{xb::xbXBase}!GetDefaultLockWait@{GetDefaultLockWait}}
+\index{GetDefaultLockWait@{GetDefaultLockWait}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{GetDefaultLockWait()}{GetDefaultLockWait()}}
+{\footnotesize\ttfamily xb\+Int32 xb\+::xb\+XBase\+::\+Get\+Default\+Lock\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get default lock wait. 
+
+The lock wait time is the time the library waits between lock requests. \begin{DoxyReturn}{Returns}
+Lock wait time in milliseconds. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a1c29351f05d2ae04996d9ed88e953301}\label{classxb_1_1xbXBase_a1c29351f05d2ae04996d9ed88e953301}} 
+\index{xb::xbXBase@{xb::xbXBase}!GetDefaultTimeFormat@{GetDefaultTimeFormat}}
+\index{GetDefaultTimeFormat@{GetDefaultTimeFormat}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{GetDefaultTimeFormat()}{GetDefaultTimeFormat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+XBase\+::\+Get\+Default\+Time\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the default time format. Available if XB\+\_\+\+DBF5\+\_\+\+SUPPORT is on. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} containing the default time format. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a12fd4761bd613bc55452fd963e47c0b5}\label{classxb_1_1xbXBase_a12fd4761bd613bc55452fd963e47c0b5}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetEndianType@{GetEndianType}}
 \index{GetEndianType@{GetEndianType}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetEndianType()}{GetEndianType()}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Ssv\+::\+Get\+Endian\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Get\+Endian\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
 Get the Endian type. 
+
+Endianness is the byte order used by the computer architecture. Big endian stores the most signficant byte first whereas little endian stores the least signficant byte first. The DBF file formats utilize the little endian format and the Xbase64 library automatically handles the endianness of the archticture the software is running on to store the data in little endian format.
 
 \begin{DoxyReturn}{Returns}
 B -\/ Big endian~\newline
  L -\/ Little endian~\newline
  
 \end{DoxyReturn}
-\mbox{\Hypertarget{classxb_1_1xbSsv_a56961d2a67b8e7470098626ac4dac7e4}\label{classxb_1_1xbSsv_a56961d2a67b8e7470098626ac4dac7e4}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_a6252d4ff713dfab5db058d1378a2d1fe}\label{classxb_1_1xbXBase_a6252d4ff713dfab5db058d1378a2d1fe}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetErrorMessage@{GetErrorMessage}}
 \index{GetErrorMessage@{GetErrorMessage}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetErrorMessage()}{GetErrorMessage()}}
-{\footnotesize\ttfamily const char $\ast$ xb\+::xb\+Ssv\+::\+Get\+Error\+Message (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Error\+Code }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily const char $\ast$ xb\+::xb\+XBase\+::\+Get\+Error\+Message (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Error\+Code }\end{DoxyParamCaption}) const}
 
 
 
@@ -442,17 +1000,11 @@ Get an error message.
 \begin{DoxyReturn}{Returns}
 Returns a pointer to a string containing a text description for the error code. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classxb_1_1xbXBase_ae52e53340593b4253936c1372ec15ee1}\label{classxb_1_1xbXBase_ae52e53340593b4253936c1372ec15ee1}} 
-\index{xb::xbXBase@{xb::xbXBase}!GetFunctionInfo@{GetFunctionInfo}}
-\index{GetFunctionInfo@{GetFunctionInfo}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{GetFunctionInfo()}{GetFunctionInfo()}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Get\+Function\+Info (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Exp\+Line,  }\item[{char \&}]{c\+Return\+Type,  }\item[{xb\+Int16 \&}]{i\+Return\+Len\+Calc,  }\item[{xb\+Int32 \&}]{l\+Return\+Len\+Val }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
-
-\mbox{\Hypertarget{classxb_1_1xbSsv_abc9c06c95d71fbad8294e1ae8862cea9}\label{classxb_1_1xbSsv_abc9c06c95d71fbad8294e1ae8862cea9}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_afd2457de6faec56bd8969a03e0fe2ece}\label{classxb_1_1xbXBase_afd2457de6faec56bd8969a03e0fe2ece}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetHomeDir@{GetHomeDir}}
 \index{GetHomeDir@{GetHomeDir}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetHomeDir()}{GetHomeDir()}}
-{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Get\+Home\+Dir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Home\+Dir\+Out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Get\+Home\+Dir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Home\+Dir\+Out }\end{DoxyParamCaption})}
 
 
 
@@ -463,62 +1015,95 @@ Get home directory.
 {\em s\+Home\+Dir\+Out} & -\/ Output home directory for current user. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classxb_1_1xbSsv_a4822315bded3969b59aeeb683c373051}\label{classxb_1_1xbSsv_a4822315bded3969b59aeeb683c373051}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_ac7dc2c6154f100e5fd94379c7cf69b3c}\label{classxb_1_1xbXBase_ac7dc2c6154f100e5fd94379c7cf69b3c}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetLogDirectory@{GetLogDirectory}}
 \index{GetLogDirectory@{GetLogDirectory}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetLogDirectory()}{GetLogDirectory()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Ssv\+::\+Get\+Log\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+XBase\+::\+Get\+Log\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-\mbox{\Hypertarget{classxb_1_1xbSsv_afaef09435be73b3111f5edbd7091d861}\label{classxb_1_1xbSsv_afaef09435be73b3111f5edbd7091d861}} 
+
+
+Get the default log directory. 
+
+\begin{DoxyReturn}{Returns}
+Returns the log directory. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a9b52e742134c4f8d94aba417394a95af}\label{classxb_1_1xbXBase_a9b52e742134c4f8d94aba417394a95af}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetLogFileName@{GetLogFileName}}
 \index{GetLogFileName@{GetLogFileName}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetLogFileName()}{GetLogFileName()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Ssv\+::\+Get\+Log\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+XBase\+::\+Get\+Log\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Get log file name. 
+
+\begin{DoxyReturn}{Returns}
+Returns the log file name. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classxb_1_1xbXBase_ab5d63cd7d9137eba8a1d4d9c3df522b7}\label{classxb_1_1xbXBase_ab5d63cd7d9137eba8a1d4d9c3df522b7}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetLogFqFileName@{GetLogFqFileName}}
 \index{GetLogFqFileName@{GetLogFqFileName}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetLogFqFileName()}{GetLogFqFileName()}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+XBase\+::\+Get\+Log\+Fq\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Get fully qualified log file name. 
+
+\begin{DoxyReturn}{Returns}
+Returns the fully qualified log file name. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classxb_1_1xbXBase_aedb4c2aa2c90e4529915198a2305b355}\label{classxb_1_1xbXBase_aedb4c2aa2c90e4529915198a2305b355}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetLogSize@{GetLogSize}}
 \index{GetLogSize@{GetLogSize}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetLogSize()}{GetLogSize()}}
 {\footnotesize\ttfamily size\+\_\+t xb\+::xb\+XBase\+::\+Get\+Log\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Get the logfile size. 
+
+Logfile size is the setting at which the logfile will roll over and start a new logfile. \begin{DoxyReturn}{Returns}
+log file size 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classxb_1_1xbXBase_ade34cd72c2a7e70fb55429a8a6f6c028}\label{classxb_1_1xbXBase_ade34cd72c2a7e70fb55429a8a6f6c028}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetLogStatus@{GetLogStatus}}
 \index{GetLogStatus@{GetLogStatus}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetLogStatus()}{GetLogStatus()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+XBase\+::\+Get\+Log\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-\mbox{\Hypertarget{classxb_1_1xbSsv_abd58031c5f1c3766c24d47a82e6fd9c5}\label{classxb_1_1xbSsv_abd58031c5f1c3766c24d47a82e6fd9c5}} 
+
+
+Get the logging status. 
+
+\begin{DoxyReturn}{Returns}
+xb\+True -\/ Logging enabled.~\newline
+xb\+False -\/ Logging disables. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_af583513ad57bc8e492dcea192c17f8ab}\label{classxb_1_1xbXBase_af583513ad57bc8e492dcea192c17f8ab}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetMultiUser@{GetMultiUser}}
 \index{GetMultiUser@{GetMultiUser}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetMultiUser()}{GetMultiUser()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+Ssv\+::\+Get\+Multi\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} xb\+::xb\+XBase\+::\+Get\+Multi\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
 Get the multi user setting. 
 
+If XB\+\_\+\+LOCKING\+\_\+\+SUPPORT is compiled into the library, this is on by default but can be updated and turned off.~\newline
+ If XB\+\_\+\+LOCKING\+\_\+\+SUPPORT is not compiled into the library, this is always off and can\textquotesingle{}t be turned on.
+
 \begin{DoxyReturn}{Returns}
-xb\+True -\/ Multi user mode turned on.~\newline
- xb\+False -\/ Multi user mode turned off.~\newline
+xb\+True or xb\+On -\/ Multi user mode turned on.~\newline
+ xb\+False or xb\+Off -\/ Multi user mode turned off.~\newline
  
 \end{DoxyReturn}
-\mbox{\Hypertarget{classxb_1_1xbTblMgr_ad0d2d4adabc0dc0e761cfdee63c84069}\label{classxb_1_1xbTblMgr_ad0d2d4adabc0dc0e761cfdee63c84069}} 
-\index{xb::xbXBase@{xb::xbXBase}!GetOpenTableCount@{GetOpenTableCount}}
-\index{GetOpenTableCount@{GetOpenTableCount}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{GetOpenTableCount()}{GetOpenTableCount()}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Tbl\+Mgr\+::\+Get\+Open\+Table\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
-
-\mbox{\Hypertarget{classxb_1_1xbSsv_a63cee13b473ee13970e93b11837b9e35}\label{classxb_1_1xbSsv_a63cee13b473ee13970e93b11837b9e35}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_aa8c42d4ea81fea26a5809e5d5b0c87ba}\label{classxb_1_1xbXBase_aa8c42d4ea81fea26a5809e5d5b0c87ba}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetPathSeparator@{GetPathSeparator}}
 \index{GetPathSeparator@{GetPathSeparator}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetPathSeparator()}{GetPathSeparator()}}
-{\footnotesize\ttfamily char xb\+::xb\+Ssv\+::\+Get\+Path\+Separator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily char xb\+::xb\+XBase\+::\+Get\+Path\+Separator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -527,34 +1112,324 @@ Get the OS dependent path separator.
 \begin{DoxyReturn}{Returns}
 Returns \textquotesingle{}\textbackslash{}\textquotesingle{} for windows environment, otherwise returns \textquotesingle{}/\textquotesingle{}. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classxb_1_1xbTblMgr_acbf148ddba4297021cfb980a161ebef9}\label{classxb_1_1xbTblMgr_acbf148ddba4297021cfb980a161ebef9}} 
-\index{xb::xbXBase@{xb::xbXBase}!GetTblListEntry@{GetTblListEntry}}
-\index{GetTblListEntry@{GetTblListEntry}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{GetTblListEntry()}{GetTblListEntry()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structxb_1_1xbTblList}{xb\+Tbl\+List}} $\ast$ xb\+::xb\+Tbl\+Mgr\+::\+Get\+Tbl\+List\+Entry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
-
-\mbox{\Hypertarget{classxb_1_1xbSsv_abfaeef85935331073d213465bb362a61}\label{classxb_1_1xbSsv_abfaeef85935331073d213465bb362a61}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_a7ec2f105c6f4e313a92e5714db4db678}\label{classxb_1_1xbXBase_a7ec2f105c6f4e313a92e5714db4db678}} 
 \index{xb::xbXBase@{xb::xbXBase}!GetTempDirectory@{GetTempDirectory}}
 \index{GetTempDirectory@{GetTempDirectory}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{GetTempDirectory()}{GetTempDirectory()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+Ssv\+::\+Get\+Temp\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \& xb\+::xb\+XBase\+::\+Get\+Temp\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
 Get the current temp directory. 
 
 \begin{DoxyReturn}{Returns}
-\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} containing the current data directory where the database files are stored. 
+\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} containing the current data directory where temporary files are stored. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a3a2494c7ca60e77f93f204242620bef6}\label{classxb_1_1xbXBase_a3a2494c7ca60e77f93f204242620bef6}} 
+\index{xb::xbXBase@{xb::xbXBase}!IIF@{IIF}}
+\index{IIF@{IIF}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{IIF()}{IIF()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+IIF (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}}}]{b\+Result,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+True\+Result,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+False\+Result,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Result }\end{DoxyParamCaption})}
+
+
+
+Immediate if. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a3a2494c7ca60e77f93f204242620bef6}{IIF()}}. 
+\begin{DoxyParams}{Parameters}
+{\em b\+Result} & Input -\/ boolean expression. \\
+\hline
+{\em s\+True\+Result} & Input -\/ value if boolean expression is true. \\
+\hline
+{\em s\+False\+Result} & Input -\/ value if boolean expression is false. \\
+\hline
+{\em s\+Result} & Output -\/ s\+True\+Result or s\+False\+Result depending on b\+Resultvalue. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a8c5e2b0af9675b758d4b95257c11bb9e}\label{classxb_1_1xbXBase_a8c5e2b0af9675b758d4b95257c11bb9e}} 
+\index{xb::xbXBase@{xb::xbXBase}!INT@{INT}}
+\index{INT@{INT}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{INT()}{INT()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+INT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert number to integer, truncate any decimals. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a8c5e2b0af9675b758d4b95257c11bb9e}{INT()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In} & Input -\/ Input number. \\
+\hline
+{\em d\+Out} & Output -\/ integer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a91bb7ca631625646a9206e40e8a64512}\label{classxb_1_1xbXBase_a91bb7ca631625646a9206e40e8a64512}} 
+\index{xb::xbXBase@{xb::xbXBase}!ISALPHA@{ISALPHA}}
+\index{ISALPHA@{ISALPHA}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{ISALPHA()}{ISALPHA()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+ISALPHA (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \&}]{b\+Result }\end{DoxyParamCaption})}
+
+
+
+Check if string begins with alpha character. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a91bb7ca631625646a9206e40e8a64512}{ISALPHA()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ Input string. \\
+\hline
+{\em b\+Result} & Output -\/ xb\+True if string begins with alpha character.~\newline
+xb\+False if string does not begin with alpha character. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_acd9cd0874ba039b13d6aba9aeb8fd055}\label{classxb_1_1xbXBase_acd9cd0874ba039b13d6aba9aeb8fd055}} 
+\index{xb::xbXBase@{xb::xbXBase}!ISLOWER@{ISLOWER}}
+\index{ISLOWER@{ISLOWER}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{ISLOWER()}{ISLOWER()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+ISLOWER (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \&}]{b\+Result }\end{DoxyParamCaption})}
+
+
+
+Check if string begins with lower case alpha character. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_acd9cd0874ba039b13d6aba9aeb8fd055}{ISLOWER()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ Input string. \\
+\hline
+{\em b\+Result} & Output -\/ xb\+True if string begins with lower case alpha character.~\newline
+ xb\+False if string does not begin with lower case alpha character. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a78da4a049e79beda14a67542e31a4272}\label{classxb_1_1xbXBase_a78da4a049e79beda14a67542e31a4272}} 
+\index{xb::xbXBase@{xb::xbXBase}!ISUPPER@{ISUPPER}}
+\index{ISUPPER@{ISUPPER}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{ISUPPER()}{ISUPPER()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+ISUPPER (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}} \&}]{b\+Result }\end{DoxyParamCaption})}
+
+
+
+Check if string begins with upper case alpha character. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a78da4a049e79beda14a67542e31a4272}{ISUPPER()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ Input string. \\
+\hline
+{\em b\+Result} & Output -\/ xb\+True if string begins with upper case alpha character.~\newline
+ xb\+False if string does not begin with upper case alpha character. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_ad8f52953a282c8ceca9aa449a613b204}\label{classxb_1_1xbXBase_ad8f52953a282c8ceca9aa449a613b204}} 
+\index{xb::xbXBase@{xb::xbXBase}!LEFT@{LEFT}}
+\index{LEFT@{LEFT}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{LEFT()}{LEFT()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+LEFT (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{xb\+UInt32}]{ul\+Char\+Cnt,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Return left characters from string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ad8f52953a282c8ceca9aa449a613b204}{LEFT()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ string. \\
+\hline
+{\em ul\+Char\+Cnt} & Input -\/ number of characters to extract from string. \\
+\hline
+{\em s\+Out} & Output -\/ resultant string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a0d9c0e0740722eb9daaaae74da256579}\label{classxb_1_1xbXBase_a0d9c0e0740722eb9daaaae74da256579}} 
+\index{xb::xbXBase@{xb::xbXBase}!LEN@{LEN}}
+\index{LEN@{LEN}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{LEN()}{LEN()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+LEN (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Len }\end{DoxyParamCaption})}
+
+
+
+Return length of string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a0d9c0e0740722eb9daaaae74da256579}{LEN()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ Input string. \\
+\hline
+{\em d\+Len} & Output -\/ string length. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a140240aead572ebbd9de5c491e4f6ae2}\label{classxb_1_1xbXBase_a140240aead572ebbd9de5c491e4f6ae2}} 
+\index{xb::xbXBase@{xb::xbXBase}!LOG@{LOG}}
+\index{LOG@{LOG}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{LOG()}{LOG()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+LOG (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Out }\end{DoxyParamCaption})}
+
+
+
+Calculate logarithm. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a140240aead572ebbd9de5c491e4f6ae2}{LOG()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In} & Input -\/ numeric expression. \\
+\hline
+{\em d\+Out} & Output -\/ numeric log value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_abc75aef8665888b6e526266997627419}\label{classxb_1_1xbXBase_abc75aef8665888b6e526266997627419}} 
+\index{xb::xbXBase@{xb::xbXBase}!LOWER@{LOWER}}
+\index{LOWER@{LOWER}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{LOWER()}{LOWER()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+LOWER (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert upper case to lower case. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_abc75aef8665888b6e526266997627419}{LOWER()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ string. \\
+\hline
+{\em s\+Out} & Output -\/ string result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_ab2271775d29fe2ae086f7bd1e4b9080b}\label{classxb_1_1xbXBase_ab2271775d29fe2ae086f7bd1e4b9080b}} 
+\index{xb::xbXBase@{xb::xbXBase}!LTRIM@{LTRIM}}
+\index{LTRIM@{LTRIM}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{LTRIM()}{LTRIM()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+LTRIM (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Trim white space from left side of string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ab2271775d29fe2ae086f7bd1e4b9080b}{LTRIM()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ string. \\
+\hline
+{\em s\+Out} & Output -\/ string result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a3a2881bf3dd6a316f23ca67e05b41cd2}\label{classxb_1_1xbXBase_a3a2881bf3dd6a316f23ca67e05b41cd2}} 
+\index{xb::xbXBase@{xb::xbXBase}!MAX@{MAX}}
+\index{MAX@{MAX}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{MAX()}{MAX()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+MAX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In1,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In2,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Out }\end{DoxyParamCaption})}
+
+
+
+Return higher of two values. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a3a2881bf3dd6a316f23ca67e05b41cd2}{MAX()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In1} & Input -\/ Numeric value 1. \\
+\hline
+{\em d\+In2} & Input -\/ Numeric value 2. \\
+\hline
+{\em d\+Out} & Output -\/ Higher of d1 or d2. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a30f192c9e0622d6d697964c1ee8c36cf}\label{classxb_1_1xbXBase_a30f192c9e0622d6d697964c1ee8c36cf}} 
+\index{xb::xbXBase@{xb::xbXBase}!MIN@{MIN}}
+\index{MIN@{MIN}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{MIN()}{MIN()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+MIN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In1,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In2,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Out }\end{DoxyParamCaption})}
+
+
+
+Return lessor of two values. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a30f192c9e0622d6d697964c1ee8c36cf}{MIN()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In1} & Input -\/ Numeric value 1. \\
+\hline
+{\em d\+In2} & Input -\/ Numeric value 2. \\
+\hline
+{\em d\+Out} & Output -\/ Lessor of d1 or d2. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a6f313e95ea040ae84db3055ce7a6e97b}\label{classxb_1_1xbXBase_a6f313e95ea040ae84db3055ce7a6e97b}} 
+\index{xb::xbXBase@{xb::xbXBase}!MONTH@{MONTH}}
+\index{MONTH@{MONTH}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{MONTH()}{MONTH()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+MONTH (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{dt\+In\+Date,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Out\+Month }\end{DoxyParamCaption})}
+
+
+
+Return number of month for a given date. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a6f313e95ea040ae84db3055ce7a6e97b}{MONTH()}}. 
+\begin{DoxyParams}{Parameters}
+{\em dt\+In\+Date} & Input date. \\
+\hline
+{\em d\+Out\+Month} & -\/ Month number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR.~\newline
+XB\+\_\+\+PARSE\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_abdf560ff45173ece0baab3640c908fc8}\label{classxb_1_1xbXBase_abdf560ff45173ece0baab3640c908fc8}} 
+\index{xb::xbXBase@{xb::xbXBase}!Open@{Open}}
+\index{Open@{Open}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{Open()}{Open()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Open (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Table\+Name,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Alias,  }\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$$\ast$}]{dbf }\end{DoxyParamCaption})}
+
+
+
+Open DBF file using highest version class available. 
+
+This routine opens the highest available version of the dbf file. Defaults to XB\+\_\+\+READ\+\_\+\+WRITE and XB\+\_\+\+MULTI\+\_\+\+USER mode. 
+\begin{DoxyParams}{Parameters}
+{\em s\+Table\+Name} & -\/ Table name to open. \\
+\hline
+{\em s\+Alias} & -\/ Optional alias name. \\
+\hline
+{\em dbf} & Output -\/ pointer to dbf file or null if error. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classxb_1_1xbXBase_ab35cec5ac8f0fa95f10653ca7ac817f6}\label{classxb_1_1xbXBase_ab35cec5ac8f0fa95f10653ca7ac817f6}} 
 \index{xb::xbXBase@{xb::xbXBase}!Open@{Open}}
 \index{Open@{Open}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{Open()}{Open()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$ xb\+::xb\+XBase\+::\+Open (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Table\+Name,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Alias,  }\item[{xb\+Int16}]{i\+Open\+Mode,  }\item[{xb\+Int16}]{i\+Share\+Mode,  }\item[{xb\+Int16}]{i\+Request\+Version,  }\item[{xb\+Int16 \&}]{i\+Rc }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{Open()}{Open()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$ xb\+::xb\+XBase\+::\+Open (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Table\+Name,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Alias,  }\item[{xb\+Int16}]{i\+Open\+Mode,  }\item[{xb\+Int16}]{i\+Share\+Mode,  }\item[{xb\+Int16}]{i\+Version,  }\item[{xb\+Int16 \&}]{i\+Rc }\end{DoxyParamCaption})}
 
 
 
-Open highest qualified class available for dbf file. 
+Open DBF file using highest version class available. 
 
 This routine can open various versions of the dbf file dependent on the i\+Version field
 
@@ -568,7 +1443,10 @@ This routine can open various versions of the dbf file dependent on the i\+Versi
 \hline
 {\em i\+Share\+Mode} & -\/ XB\+\_\+\+SINGLE\+\_\+\+USER or XB\+\_\+\+MULTI\+\_\+\+USER \\
 \hline
-{\em i\+Request\+Version} & 0 -\/ Highest available 4 -\/ Version four dbf 3 -\/ Version three dbf \\
+{\em i\+Version} & 0 -\/ Highest available~\newline
+ 4 -\/ Version four dbf~\newline
+ 3 -\/ Version three dbf~\newline
+ \\
 \hline
 {\em i\+Rc} & -\/ Return code from open request \\
 \hline
@@ -579,45 +1457,155 @@ param dbf -\/ Output pointer to dbf file opened or null if error
 \mbox{\Hypertarget{classxb_1_1xbXBase_aafb1abd6b6124cddf635adaf9f615a4a}\label{classxb_1_1xbXBase_aafb1abd6b6124cddf635adaf9f615a4a}} 
 \index{xb::xbXBase@{xb::xbXBase}!Open@{Open}}
 \index{Open@{Open}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{Open()}{Open()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{Open()}{Open()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$ xb\+::xb\+XBase\+::\+Open (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Table\+Name,  }\item[{xb\+Int16 \&}]{i\+Rc }\end{DoxyParamCaption})}
 
 
 
-Open highest qualified class available for dbf file. 
+Open DBF file using highest version class available. 
 
-This routine opens the highest available version of the dbf file. Defaults to XB\+\_\+\+READ\+\_\+\+WRITE and XB\+\_\+\+MULTI\+\_\+\+USER mode. \begin{DoxyReturn}{Returns}
+This routine opens the highest available version of the dbf file. Defaults to XB\+\_\+\+READ\+\_\+\+WRITE and XB\+\_\+\+MULTI\+\_\+\+USER mode. 
+\begin{DoxyParams}{Parameters}
+{\em s\+Table\+Name} & -\/ Table name to open. \\
+\hline
+{\em i\+Rc} & -\/ Return code from open request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
 param dbf -\/ Output pointer to dbf file opened or null if error 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classxb_1_1xbXBase_aa957eb502ecd076e5df89e7415cb094b}\label{classxb_1_1xbXBase_aa957eb502ecd076e5df89e7415cb094b}} 
-\index{xb::xbXBase@{xb::xbXBase}!OpenHighestVersion@{OpenHighestVersion}}
-\index{OpenHighestVersion@{OpenHighestVersion}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{OpenHighestVersion()}{OpenHighestVersion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Open\+Highest\+Version (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Table\+Name,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Alias,  }\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} \&}]{dbf,  }\item[{int}]{dummy }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a3e6d17057699dc7ac2920a3743782d81}\label{classxb_1_1xbXBase_a3e6d17057699dc7ac2920a3743782d81}} 
+\index{xb::xbXBase@{xb::xbXBase}!RECCOUNT@{RECCOUNT}}
+\index{RECCOUNT@{RECCOUNT}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{RECCOUNT()}{RECCOUNT()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+RECCOUNT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{dbf,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Rec\+Out }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classxb_1_1xbXBase_afa7bbac08a4601f49cd53b457196ee0e}\label{classxb_1_1xbXBase_afa7bbac08a4601f49cd53b457196ee0e}} 
-\index{xb::xbXBase@{xb::xbXBase}!OpenHighestVersion@{OpenHighestVersion}}
-\index{OpenHighestVersion@{OpenHighestVersion}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{OpenHighestVersion()}{OpenHighestVersion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Open\+Highest\+Version (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Table\+Name,  }\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Alias,  }\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$$\ast$}]{dbf }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classxb_1_1xbTblMgr_ac8eaef41acf08911b90f900aac8e70af}\label{classxb_1_1xbTblMgr_ac8eaef41acf08911b90f900aac8e70af}} 
-\index{xb::xbXBase@{xb::xbXBase}!RemoveTblFromTblList@{RemoveTblFromTblList}}
-\index{RemoveTblFromTblList@{RemoveTblFromTblList}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{RemoveTblFromTblList()}{RemoveTblFromTblList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Tbl\+Mgr\+::\+Remove\+Tbl\+From\+Tbl\+List (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Tbl\+Alias }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
 
-\mbox{\Hypertarget{classxb_1_1xbTblMgr_a3d82b6e73d5c0bc8cac22b9a260389c1}\label{classxb_1_1xbTblMgr_a3d82b6e73d5c0bc8cac22b9a260389c1}} 
-\index{xb::xbXBase@{xb::xbXBase}!RemoveTblFromTblList@{RemoveTblFromTblList}}
-\index{RemoveTblFromTblList@{RemoveTblFromTblList}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{RemoveTblFromTblList()}{RemoveTblFromTblList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Tbl\+Mgr\+::\+Remove\+Tbl\+From\+Tbl\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+Return number of records in a given table. 
 
-\mbox{\Hypertarget{classxb_1_1xbSsv_a57caaaadfbd089d9a58ecfcb50c88a6c}\label{classxb_1_1xbSsv_a57caaaadfbd089d9a58ecfcb50c88a6c}} 
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a3e6d17057699dc7ac2920a3743782d81}{RECCOUNT()}}. 
+\begin{DoxyParams}{Parameters}
+{\em dbf} & -\/ Table. \\
+\hline
+{\em d\+Rec\+Out} & -\/ Number of records. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_afc448c2504ff3bdb47ceef3e2f15fbea}\label{classxb_1_1xbXBase_afc448c2504ff3bdb47ceef3e2f15fbea}} 
+\index{xb::xbXBase@{xb::xbXBase}!RECNO@{RECNO}}
+\index{RECNO@{RECNO}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{RECNO()}{RECNO()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+RECNO (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{dbf,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Rec\+Out }\end{DoxyParamCaption})}
+
+
+
+Return current record number for a given table. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_afc448c2504ff3bdb47ceef3e2f15fbea}{RECNO()}}. 
+\begin{DoxyParams}{Parameters}
+{\em dbf} & -\/ Table. \\
+\hline
+{\em d\+Rec\+Out} & -\/ Record number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR.~\newline
+XB\+\_\+\+PARSE\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_aefebf2696c58a7de6ae5b21f45d83318}\label{classxb_1_1xbXBase_aefebf2696c58a7de6ae5b21f45d83318}} 
+\index{xb::xbXBase@{xb::xbXBase}!REPLICATE@{REPLICATE}}
+\index{REPLICATE@{REPLICATE}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{REPLICATE()}{REPLICATE()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+REPLICATE (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{xb\+UInt32}]{ul\+Rep\+Cnt,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Repeat character expression N times. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_aefebf2696c58a7de6ae5b21f45d83318}{REPLICATE()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Inout -\/ String to replicate. \\
+\hline
+{\em ul\+Rep\+Cnt} & Input -\/ Number of times to repeat. \\
+\hline
+{\em s\+Out} & Output -\/ String result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR.~\newline
+XB\+\_\+\+PARSE\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a54ce45eec216200b51b8afbf775d2e11}\label{classxb_1_1xbXBase_a54ce45eec216200b51b8afbf775d2e11}} 
+\index{xb::xbXBase@{xb::xbXBase}!RIGHT@{RIGHT}}
+\index{RIGHT@{RIGHT}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{RIGHT()}{RIGHT()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+RIGHT (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{xb\+UInt32}]{ul\+Char\+Cnt,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Return right characters from string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a54ce45eec216200b51b8afbf775d2e11}{RIGHT()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ string. \\
+\hline
+{\em ul\+Char\+Cnt} & Input -\/ number of characters to extract from string. \\
+\hline
+{\em s\+Out} & Output -\/ resultant string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_aba16279def6a7307a286ab3a16a424ac}\label{classxb_1_1xbXBase_aba16279def6a7307a286ab3a16a424ac}} 
+\index{xb::xbXBase@{xb::xbXBase}!RTRIM@{RTRIM}}
+\index{RTRIM@{RTRIM}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{RTRIM()}{RTRIM()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+RTRIM (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Trim white space from right side of string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_aba16279def6a7307a286ab3a16a424ac}{RTRIM()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ string. \\
+\hline
+{\em s\+Out} & Output -\/ string result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a7e859c19a788c617148dad8a189add06}\label{classxb_1_1xbXBase_a7e859c19a788c617148dad8a189add06}} 
+\index{xb::xbXBase@{xb::xbXBase}!SetCreateMdxBlockSize@{SetCreateMdxBlockSize}}
+\index{SetCreateMdxBlockSize@{SetCreateMdxBlockSize}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{SetCreateMdxBlockSize()}{SetCreateMdxBlockSize()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Set\+Create\+Mdx\+Block\+Size (\begin{DoxyParamCaption}\item[{xb\+Int16}]{ul\+Block\+Size }\end{DoxyParamCaption})}
+
+
+
+Create mdx block size. 
+
+This routine sets the mdx file block size at the system level. This value is used when the mdx index file is initially created so if you want to change it, this must be called before creating the table.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Block\+Size} & -\/ Block size, must be evenly divisible by 512 and \texorpdfstring{$<$}{<}= 16384 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+SIZE~\newline
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a8e9f1e16deaf96a89d3b8a29f012832e}\label{classxb_1_1xbXBase_a8e9f1e16deaf96a89d3b8a29f012832e}} 
 \index{xb::xbXBase@{xb::xbXBase}!SetDataDirectory@{SetDataDirectory}}
 \index{SetDataDirectory@{SetDataDirectory}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{SetDataDirectory()}{SetDataDirectory()}}
-{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Data\+Directory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Data\+Directory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Data\+Directory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Data\+Directory }\end{DoxyParamCaption})}
 
 
 
@@ -628,17 +1616,19 @@ Set the data directory.
 {\em s\+Data\+Directory} & Set the data directory. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classxb_1_1xbSsv_a25542afadaaf39b4fb5a1772a29cc0bd}\label{classxb_1_1xbSsv_a25542afadaaf39b4fb5a1772a29cc0bd}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_a8213c1b7a6d500778f410a196190b565}\label{classxb_1_1xbXBase_a8213c1b7a6d500778f410a196190b565}} 
 \index{xb::xbXBase@{xb::xbXBase}!SetDefaultAutoCommit@{SetDefaultAutoCommit}}
 \index{SetDefaultAutoCommit@{SetDefaultAutoCommit}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{SetDefaultAutoCommit()}{SetDefaultAutoCommit()}}
-{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Default\+Auto\+Commit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}}}]{b\+Default\+Auto\+Commit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Default\+Auto\+Commit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}}}]{b\+Default\+Auto\+Commit }\end{DoxyParamCaption})}
 
 
 
 Set the default auto commit. 
 
-Disabling auto commit requires the application execute explicit updates using dbf-\/\texorpdfstring{$>$}{>}Put() and dbf-\/\texorpdfstring{$>$}{>}Append\+Record(). With auto commit on, the library posts updates automatically when moving off the current record or closing a file.
+With auto commit on, the library posts updates automatically when moving off the current record or closing file.
+
+Disabling auto commit requires the application execute explicit updates using dbf-\/\texorpdfstring{$>$}{>}Put() and dbf-\/\texorpdfstring{$>$}{>}Append\+Record().
 
 
 \begin{DoxyParams}{Parameters}
@@ -647,11 +1637,40 @@ Disabling auto commit requires the application execute explicit updates using db
  \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classxb_1_1xbSsv_a5f74db23f8902846d581935c7db73f9c}\label{classxb_1_1xbSsv_a5f74db23f8902846d581935c7db73f9c}} 
+\mbox{\Hypertarget{classxb_1_1xbXBase_a30956a19a2051df707372dfc3a830ddd}\label{classxb_1_1xbXBase_a30956a19a2051df707372dfc3a830ddd}} 
+\index{xb::xbXBase@{xb::xbXBase}!SetDefaultAutoLock@{SetDefaultAutoLock}}
+\index{SetDefaultAutoLock@{SetDefaultAutoLock}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{SetDefaultAutoLock()}{SetDefaultAutoLock()}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Default\+Auto\+Lock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}}}]{b\+Auto\+Lock }\end{DoxyParamCaption})}
+
+
+
+Set the default auto lock setting. 
+
+When auto locking is turned on, the library automatically locks and unlocks files and indices as needed in a multi user environment. Locking is not required in single a single user environment.
+
+
+\begin{DoxyParams}{Parameters}
+{\em b\+Auto\+Lock} & xb\+True -\/ Turn autolocking on~\newline
+ xb\+False -\/ Turn autolocking off~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a2d800e8618595811d48946c34cc4e5bf}\label{classxb_1_1xbXBase_a2d800e8618595811d48946c34cc4e5bf}} 
+\index{xb::xbXBase@{xb::xbXBase}!SetDefaultBlockReadSize@{SetDefaultBlockReadSize}}
+\index{SetDefaultBlockReadSize@{SetDefaultBlockReadSize}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{SetDefaultBlockReadSize()}{SetDefaultBlockReadSize()}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Default\+Block\+Read\+Size (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Dflt\+Block\+Read\+Size }\end{DoxyParamCaption})}
+
+
+
+Set Default Read Block Size. 
+
+This routine sets the default read block size used when allocating buffer space for block reads of table data. Initial setting is 32768 bytes. \mbox{\Hypertarget{classxb_1_1xbXBase_aa19de297f99ce4d51978f96c3da037f3}\label{classxb_1_1xbXBase_aa19de297f99ce4d51978f96c3da037f3}} 
 \index{xb::xbXBase@{xb::xbXBase}!SetDefaultDateFormat@{SetDefaultDateFormat}}
 \index{SetDefaultDateFormat@{SetDefaultDateFormat}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{SetDefaultDateFormat()}{SetDefaultDateFormat()}}
-{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Default\+Date\+Format (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Default\+Date\+Format }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Default\+Date\+Format (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Default\+Date\+Format }\end{DoxyParamCaption})}
 
 
 
@@ -662,56 +1681,166 @@ Set the default date format.
 {\em s\+Default\+Date\+Format} & Set the default date format. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classxb_1_1xbSsv_a904ec348fd029d4a76e72b8fde636108}\label{classxb_1_1xbSsv_a904ec348fd029d4a76e72b8fde636108}} 
-\index{xb::xbXBase@{xb::xbXBase}!SetEndianType@{SetEndianType}}
-\index{SetEndianType@{SetEndianType}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{SetEndianType()}{SetEndianType()}}
-{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Endian\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a5f4ca6af91e1815b1697a05fb2b52446}\label{classxb_1_1xbXBase_a5f4ca6af91e1815b1697a05fb2b52446}} 
+\index{xb::xbXBase@{xb::xbXBase}!SetDefaultIxTagMode@{SetDefaultIxTagMode}}
+\index{SetDefaultIxTagMode@{SetDefaultIxTagMode}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{SetDefaultIxTagMode()}{SetDefaultIxTagMode()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Set\+Default\+Ix\+Tag\+Mode (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Index\+Mode = {\ttfamily \mbox{\hyperlink{xbcore_8h_aa36b5d6bf6a868e143f04081c90b4ea7}{XB\+\_\+\+IX\+\_\+\+DBASE\+\_\+\+MODE}}} }\end{DoxyParamCaption})}
 
 
 
-Set the endian type. 
+Set the default index tag mode. 
 
-This routine determines the Endian-\/ness at run time instead of compile time as some processers (ie; Sparc,ARM) can be switched either way. This routine is called automatically by the library at startup and does not need to be called in an application program. \mbox{\Hypertarget{classxb_1_1xbSsv_a7b992ed97281bf25b5b66f5df686225e}\label{classxb_1_1xbSsv_a7b992ed97281bf25b5b66f5df686225e}} 
+XB\+\_\+\+IX\+\_\+\+DBASE\+\_\+\+MODE -\/ DBASE Compatibility mode~\newline
+ 1) For index tags defined as unique, d\+BASE allows mutliple records in a table all having the same key, but only the first entry in the table with the unique key will be referenced in the unique index.~\newline
+ 2) Deleted DBF records are not deleted from the associated tag file.~\newline
+ 3) This is the system default.~\newline
+
+
+XB\+\_\+\+IX\+\_\+\+XBASE\+\_\+\+MODE -\/ XBase mode~\newline
+ 1) For index tags defined as unique, the library will throw an error when an attempt is made to add/update a record with a duplicate key.~\newline
+ 2) Deleted DBF records are deleted from the associated index tag.~\newline
+
+
+\begin{DoxyNote}{Note}
+When switching between modes, reindex any affected index tags. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a2f28495d5e41d7dbaaae6bb5a62da498}\label{classxb_1_1xbXBase_a2f28495d5e41d7dbaaae6bb5a62da498}} 
+\index{xb::xbXBase@{xb::xbXBase}!SetDefaultLockFlavor@{SetDefaultLockFlavor}}
+\index{SetDefaultLockFlavor@{SetDefaultLockFlavor}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{SetDefaultLockFlavor()}{SetDefaultLockFlavor()}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Default\+Lock\+Flavor (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Lock\+Flavor }\end{DoxyParamCaption})}
+
+
+
+Set default lock flavor. 
+
+Currently one flavor. This routine is part of the structure to support future additional locking scenarios for Clipper and Foxpro. \mbox{\Hypertarget{classxb_1_1xbXBase_a39cf80d51175980ddb71dfa323578d34}\label{classxb_1_1xbXBase_a39cf80d51175980ddb71dfa323578d34}} 
+\index{xb::xbXBase@{xb::xbXBase}!SetDefaultLockRetries@{SetDefaultLockRetries}}
+\index{SetDefaultLockRetries@{SetDefaultLockRetries}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{SetDefaultLockRetries()}{SetDefaultLockRetries()}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Default\+Lock\+Retries (\begin{DoxyParamCaption}\item[{xb\+Int16}]{i\+Retry\+Count }\end{DoxyParamCaption})}
+
+
+
+Set the default lock retries. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Retry\+Count} & -\/ Number of lock attempts before returning failure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a8fb92073b1d923c4d3d67fb38feac3e1}\label{classxb_1_1xbXBase_a8fb92073b1d923c4d3d67fb38feac3e1}} 
+\index{xb::xbXBase@{xb::xbXBase}!SetDefaultLockWait@{SetDefaultLockWait}}
+\index{SetDefaultLockWait@{SetDefaultLockWait}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{SetDefaultLockWait()}{SetDefaultLockWait()}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Default\+Lock\+Wait (\begin{DoxyParamCaption}\item[{xb\+Int32}]{l\+Retry\+Wait }\end{DoxyParamCaption})}
+
+
+
+Set default lock wait. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+Retry\+Wait} & Set default lock wait in milliseconds. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a8e35972e54976ea550db09998c3a9900}\label{classxb_1_1xbXBase_a8e35972e54976ea550db09998c3a9900}} 
+\index{xb::xbXBase@{xb::xbXBase}!SetDefaultTimeFormat@{SetDefaultTimeFormat}}
+\index{SetDefaultTimeFormat@{SetDefaultTimeFormat}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{SetDefaultTimeFormat()}{SetDefaultTimeFormat()}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Default\+Time\+Format (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Default\+Time\+Format }\end{DoxyParamCaption})}
+
+
+
+Set the default time format. Available if XB\+\_\+\+DBF5\+\_\+\+SUPPORT is on. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Default\+Time\+Format} & Set the default time format. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a0be4affb02f01ae1e965c3621edff16a}\label{classxb_1_1xbXBase_a0be4affb02f01ae1e965c3621edff16a}} 
 \index{xb::xbXBase@{xb::xbXBase}!SetLogDirectory@{SetLogDirectory}}
 \index{SetLogDirectory@{SetLogDirectory}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{SetLogDirectory()}{SetLogDirectory()}}
-{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Log\+Directory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Log\+Directory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Log\+Directory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Log\+Directory }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classxb_1_1xbSsv_a7f05738e7dfd759e89990242ef503544}\label{classxb_1_1xbSsv_a7f05738e7dfd759e89990242ef503544}} 
+
+
+Set the default log directory name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Log\+Directory} & Name of desired log directory. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a94010b88a309315ef980715eb581336c}\label{classxb_1_1xbXBase_a94010b88a309315ef980715eb581336c}} 
 \index{xb::xbXBase@{xb::xbXBase}!SetLogFileName@{SetLogFileName}}
 \index{SetLogFileName@{SetLogFileName}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{SetLogFileName()}{SetLogFileName()}}
-{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Log\+File\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Log\+File\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Log\+File\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Log\+File\+Name }\end{DoxyParamCaption})}
 
+
+
+Set the log file name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+Log\+File\+Name} & -\/ Log File Name. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classxb_1_1xbXBase_a666a0cb5b76ec7a9a3677d339e0c6b42}\label{classxb_1_1xbXBase_a666a0cb5b76ec7a9a3677d339e0c6b42}} 
 \index{xb::xbXBase@{xb::xbXBase}!SetLogSize@{SetLogSize}}
 \index{SetLogSize@{SetLogSize}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{SetLogSize()}{SetLogSize()}}
 {\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Log\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{l\+Size }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classxb_1_1xbSsv_aba6e59512f7172dd55dcf92059e5928c}\label{classxb_1_1xbSsv_aba6e59512f7172dd55dcf92059e5928c}} 
-\index{xb::xbXBase@{xb::xbXBase}!SetMultiUser@{SetMultiUser}}
-\index{SetMultiUser@{SetMultiUser}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{SetMultiUser()}{SetMultiUser()}}
-{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Multi\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}}}]{b\+Multi\+User }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
 
 
+Set the logfile size. 
 
-Get the multi user setting. 
+When the logfile grows to this size, it will close the current logfile and roll to a new logfile.
 
 
 \begin{DoxyParams}{Parameters}
-{\em b\+Multi\+User} & xb\+True -\/ Turn on Multi user mode.~\newline
- xb\+False -\/ Turn off Multi user mode.~\newline
+{\em l\+Size} & -\/ Log File Size. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a30e8e1be96e5e57170af4c0668378e6e}\label{classxb_1_1xbXBase_a30e8e1be96e5e57170af4c0668378e6e}} 
+\index{xb::xbXBase@{xb::xbXBase}!SetMultiUser@{SetMultiUser}}
+\index{SetMultiUser@{SetMultiUser}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{SetMultiUser()}{SetMultiUser()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Set\+Multi\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xb\+Bool}}}]{b\+Multi\+User }\end{DoxyParamCaption})}
+
+
+
+Set the default multi user setting. 
+
+This is the system level setting. Locking at the table level can also be set which overrides the system level setting. See \mbox{\hyperlink{classxb_1_1xbDbf_a3aeb476162be900fd7ca797c34f0e692}{xb\+Dbf\+::\+Set\+Multi\+User()}}.
+
+If XB\+\_\+\+LOCKING\+\_\+\+SUPPORT is compiled into the library, this is on by default but can be updated and turned off.~\newline
+ If XB\+\_\+\+LOCKING\+\_\+\+SUPPORT is not compiled into the library, this is always off and can\textquotesingle{}t be turned on.
+
+All tables must be closed to change this setting.
+
+
+\begin{DoxyParams}{Parameters}
+{\em b\+Multi\+User} & xb\+True or xb\+On -\/ Turn on Multi user mode.~\newline
+ xb\+False or xb\+Off -\/ Turn off Multi user mode.~\newline
  \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classxb_1_1xbSsv_a17c229a20ef9ab4034df8f9cd657adb2}\label{classxb_1_1xbSsv_a17c229a20ef9ab4034df8f9cd657adb2}} 
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+INVALID\+\_\+\+OPTION~\newline
+ XB\+\_\+\+NO\+\_\+\+ERROR~\newline
+ XB\+\_\+\+NOT\+\_\+\+CLOSED -\/ There are open tables. Close all tables to change the setting. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a995ab1fc94ba21cd8b95481683a09a9d}\label{classxb_1_1xbXBase_a995ab1fc94ba21cd8b95481683a09a9d}} 
 \index{xb::xbXBase@{xb::xbXBase}!SetTempDirectory@{SetTempDirectory}}
 \index{SetTempDirectory@{SetTempDirectory}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{SetTempDirectory()}{SetTempDirectory()}}
-{\footnotesize\ttfamily void xb\+::xb\+Ssv\+::\+Set\+Temp\+Directory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Temp\+Directory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+{\footnotesize\ttfamily void xb\+::xb\+XBase\+::\+Set\+Temp\+Directory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Temp\+Directory }\end{DoxyParamCaption})}
 
 
 
@@ -722,41 +1851,309 @@ Set the temp directory.
 {\em s\+Temp\+Directory} & Set the data direcroty. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbXBase_ae77654cfddde8db3d32d07c32de1d556}\label{classxb_1_1xbXBase_ae77654cfddde8db3d32d07c32de1d556}} 
+\index{xb::xbXBase@{xb::xbXBase}!SPACE@{SPACE}}
+\index{SPACE@{SPACE}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{SPACE()}{SPACE()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+SPACE (\begin{DoxyParamCaption}\item[{xb\+Int32}]{l\+Cnt,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Generate a string of N spaces. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ae77654cfddde8db3d32d07c32de1d556}{SPACE()}}. 
+\begin{DoxyParams}{Parameters}
+{\em l\+Cnt} & Input -\/ Number of spaces. \\
+\hline
+{\em s\+Out} & Output -\/ Output string consisting of specified number of spaces. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_aaff30b6214c4766bc0dd3589a58bfc6b}\label{classxb_1_1xbXBase_aaff30b6214c4766bc0dd3589a58bfc6b}} 
+\index{xb::xbXBase@{xb::xbXBase}!SQRT@{SQRT}}
+\index{SQRT@{SQRT}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{SQRT()}{SQRT()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+SQRT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+Base,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Sqr\+Root }\end{DoxyParamCaption})}
+
+
+
+Calculate a square root. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_aaff30b6214c4766bc0dd3589a58bfc6b}{SQRT()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+Base} & Input -\/ Base number. \\
+\hline
+{\em d\+Sqr\+Root} & Output -\/ Square root. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a1673a57ba38538f10488f032fad8133b}\label{classxb_1_1xbXBase_a1673a57ba38538f10488f032fad8133b}} 
+\index{xb::xbXBase@{xb::xbXBase}!STOD@{STOD}}
+\index{STOD@{STOD}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{STOD()}{STOD()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+STOD (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In\+Date,  }\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{dt\+Out\+Date }\end{DoxyParamCaption})}
+
+
+
+Converts a valid 8 byte (CCYYMMDD) input date into a date class. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a1673a57ba38538f10488f032fad8133b}{STOD()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In\+Date} & Input -\/ Input date. \\
+\hline
+{\em dt\+Out\+Date} & Output -\/ Output date. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR.~\newline
+XB\+\_\+\+INVALID\+\_\+\+DATE. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_ab05f5ecd843d7f37ee56b71fc65dab78}\label{classxb_1_1xbXBase_ab05f5ecd843d7f37ee56b71fc65dab78}} 
+\index{xb::xbXBase@{xb::xbXBase}!STR@{STR}}
+\index{STR@{STR}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{STR()}{STR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+STR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert number to a character string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ab05f5ecd843d7f37ee56b71fc65dab78}{STR()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In} & Input -\/ Number. \\
+\hline
+{\em s\+Out} & Output -\/ String. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_ad9d305aa26ac0fddf4bf738715e1d36f}\label{classxb_1_1xbXBase_ad9d305aa26ac0fddf4bf738715e1d36f}} 
+\index{xb::xbXBase@{xb::xbXBase}!STR@{STR}}
+\index{STR@{STR}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{STR()}{STR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+STR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In,  }\item[{xb\+UInt32}]{ul\+Len,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert number to a character string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ab05f5ecd843d7f37ee56b71fc65dab78}{STR()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In} & Input -\/ Number. \\
+\hline
+{\em ul\+Len} & Input -\/ Length. \\
+\hline
+{\em s\+Out} & Output -\/ String. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a3de59b82a85d5bed3320013a83203a18}\label{classxb_1_1xbXBase_a3de59b82a85d5bed3320013a83203a18}} 
+\index{xb::xbXBase@{xb::xbXBase}!STR@{STR}}
+\index{STR@{STR}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{STR()}{STR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+STR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In,  }\item[{xb\+UInt32}]{ul\+Len,  }\item[{xb\+UInt32}]{ul\+Dec,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert number to a character string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ab05f5ecd843d7f37ee56b71fc65dab78}{STR()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In} & Input -\/ Number. \\
+\hline
+{\em ul\+Len} & Input -\/ Length. \\
+\hline
+{\em ul\+Dec} & Input -\/ Number of decimals. \\
+\hline
+{\em s\+Out} & Output -\/ String. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a4b98b62038b5c953098e908c7d0f45a4}\label{classxb_1_1xbXBase_a4b98b62038b5c953098e908c7d0f45a4}} 
+\index{xb::xbXBase@{xb::xbXBase}!STR@{STR}}
+\index{STR@{STR}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{STR()}{STR()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+STR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In,  }\item[{xb\+UInt32}]{ul\+Len,  }\item[{xb\+UInt32}]{ul\+Dec,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Pad\+Char,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert number to a character string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ab05f5ecd843d7f37ee56b71fc65dab78}{STR()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In} & Input -\/ Number. \\
+\hline
+{\em ul\+Len} & Input -\/ Length. \\
+\hline
+{\em ul\+Dec} & Input -\/ Number of decimals. \\
+\hline
+{\em s\+Pad\+Char} & Input -\/ Left pad character, typically zero or space. \\
+\hline
+{\em s\+Out} & Output -\/ String. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a6541340a14cfc0055fe1c81781d1e8e3}\label{classxb_1_1xbXBase_a6541340a14cfc0055fe1c81781d1e8e3}} 
+\index{xb::xbXBase@{xb::xbXBase}!STRZERO@{STRZERO}}
+\index{STRZERO@{STRZERO}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{STRZERO()}{STRZERO()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+STRZERO (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}}}]{d\+In,  }\item[{xb\+UInt32}]{ul\+Len,  }\item[{xb\+UInt32}]{ul\+Dec,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert number to a character string with leading zeroes. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a6541340a14cfc0055fe1c81781d1e8e3}{STRZERO()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In} & Input -\/ Number. \\
+\hline
+{\em ul\+Len} & Input -\/ Length. \\
+\hline
+{\em ul\+Dec} & Input -\/ Number of decimals. \\
+\hline
+{\em s\+Out} & Output -\/ String. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_ac79ae09e538b43533605e2228c9d385e}\label{classxb_1_1xbXBase_ac79ae09e538b43533605e2228c9d385e}} 
+\index{xb::xbXBase@{xb::xbXBase}!SUBSTR@{SUBSTR}}
+\index{SUBSTR@{SUBSTR}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{SUBSTR()}{SUBSTR()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+SUBSTR (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{xb\+UInt32}]{ul\+Start\+Pos,  }\item[{xb\+UInt32}]{ul\+Len,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Extract a portion of a string from another string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ac79ae09e538b43533605e2228c9d385e}{SUBSTR()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ Source string. \\
+\hline
+{\em ul\+Start\+Pos} & Input -\/ Starting position for string extraction. \\
+\hline
+{\em ul\+Len} & Input -\/ Number of characters to extract. \\
+\hline
+{\em s\+Out} & Output -\/ String. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a4fe642f63e95df8fcf7a8bdef07aa1a4}\label{classxb_1_1xbXBase_a4fe642f63e95df8fcf7a8bdef07aa1a4}} 
+\index{xb::xbXBase@{xb::xbXBase}!TRIM@{TRIM}}
+\index{TRIM@{TRIM}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{TRIM()}{TRIM()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+TRIM (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Trim white space from left and right sides of string. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a4fe642f63e95df8fcf7a8bdef07aa1a4}{TRIM()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ string. \\
+\hline
+{\em s\+Out} & Output string result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_ac0052f456658e7a78f5b9676136945ba}\label{classxb_1_1xbXBase_ac0052f456658e7a78f5b9676136945ba}} 
+\index{xb::xbXBase@{xb::xbXBase}!UPPER@{UPPER}}
+\index{UPPER@{UPPER}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{UPPER()}{UPPER()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+UPPER (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert lower case to upper case. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ac0052f456658e7a78f5b9676136945ba}{UPPER()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ string. \\
+\hline
+{\em s\+Out} & Output -\/ string result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbXBase_ac8c1d2c5f116ddf28ad601ef13b8e886}\label{classxb_1_1xbXBase_ac8c1d2c5f116ddf28ad601ef13b8e886}} 
+\index{xb::xbXBase@{xb::xbXBase}!VAL@{VAL}}
+\index{VAL@{VAL}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{VAL()}{VAL()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+VAL (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+In,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Out }\end{DoxyParamCaption})}
+
+
+
+Convert numeric characters to number. 
+
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_ac8c1d2c5f116ddf28ad601ef13b8e886}{VAL()}}. 
+\begin{DoxyParams}{Parameters}
+{\em s\+In} & Input -\/ string. \\
+\hline
+{\em d\+Out} & Output -\/ numeric result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classxb_1_1xbXBase_a0dff00b9ee3c288841e137ca01168116}\label{classxb_1_1xbXBase_a0dff00b9ee3c288841e137ca01168116}} 
 \index{xb::xbXBase@{xb::xbXBase}!WriteLogBytes@{WriteLogBytes}}
 \index{WriteLogBytes@{WriteLogBytes}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{WriteLogBytes()}{WriteLogBytes()}}
 {\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Write\+Log\+Bytes (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{l\+Cnt,  }\item[{const char $\ast$}]{p }\end{DoxyParamCaption})}
 
+
+
+Write message to logfile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+Cnt} & -\/ Number of bytes to write. \\
+\hline
+{\em p} & -\/ Pointer to bytes to write to log file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classxb_1_1xbXBase_a9ca5be73abffd0fdd18bdc799877272a}\label{classxb_1_1xbXBase_a9ca5be73abffd0fdd18bdc799877272a}} 
 \index{xb::xbXBase@{xb::xbXBase}!WriteLogMessage@{WriteLogMessage}}
 \index{WriteLogMessage@{WriteLogMessage}!xb::xbXBase@{xb::xbXBase}}
 \doxysubsubsection{\texorpdfstring{WriteLogMessage()}{WriteLogMessage()}}
 {\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+Write\+Log\+Message (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} \&}]{s\+Log\+Message,  }\item[{xb\+Int16}]{i\+Output\+Opt = {\ttfamily 0} }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classxb_1_1xbXBase_a1b239c021358476382942522911b5c66}\label{classxb_1_1xbXBase_a1b239c021358476382942522911b5c66}} 
-\index{xb::xbXBase@{xb::xbXBase}!xbMemcmp@{xbMemcmp}}
-\index{xbMemcmp@{xbMemcmp}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{xbMemcmp()}{xbMemcmp()}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::xb\+Memcmp (\begin{DoxyParamCaption}\item[{const unsigned char $\ast$}]{s1,  }\item[{const unsigned char $\ast$}]{s2,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
 
 
-
-Cross memcmp function. 
+Write message to logfile. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em s1} & Left operand to compare. \\
+{\em s\+Log\+Message} & -\/ Message to write. \\
 \hline
-{\em s2} & Right operand to compare. \\
-\hline
-{\em n} & Number of bytes to compare. \\
+{\em i\+Output\+Opt} & 0 = stdout~\newline
+ 1 = Syslog~\newline
+ 2 = Both~\newline
+ \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-1 s1 \texorpdfstring{$>$}{>} s2~\newline
- 0 s1 == s2~\newline
- -\/1 s1 \texorpdfstring{$<$}{<} s2 
+\href{xbretcod_8h.html}{\texttt{ Return Codes}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classxb_1_1xbXBase_a0915aff7be4b2dd3e881f3c5d0da4baf}\label{classxb_1_1xbXBase_a0915aff7be4b2dd3e881f3c5d0da4baf}} 
 \index{xb::xbXBase@{xb::xbXBase}!xbSleep@{xbSleep}}
@@ -773,45 +2170,29 @@ Cross platform sleep function.
 {\em l\+Millisecs} & Milliseconds to sleep. \\
 \hline
 \end{DoxyParams}
-
-
-\doxysubsection{Friends And Related Function Documentation}
-\mbox{\Hypertarget{classxb_1_1xbXBase_a86a53ce3efbf910996df0f853f1c0add}\label{classxb_1_1xbXBase_a86a53ce3efbf910996df0f853f1c0add}} 
-\index{xb::xbXBase@{xb::xbXBase}!xbBcd@{xbBcd}}
-\index{xbBcd@{xbBcd}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{xbBcd}{xbBcd}}
-{\footnotesize\ttfamily friend class xb\+Bcd\hspace{0.3cm}{\ttfamily [friend]}}
-
-\mbox{\Hypertarget{classxb_1_1xbXBase_a3c3e5617be811d732472fe2cc8fb18cc}\label{classxb_1_1xbXBase_a3c3e5617be811d732472fe2cc8fb18cc}} 
-\index{xb::xbXBase@{xb::xbXBase}!xbExp@{xbExp}}
-\index{xbExp@{xbExp}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{xbExp}{xbExp}}
-{\footnotesize\ttfamily friend class xb\+Exp\hspace{0.3cm}{\ttfamily [friend]}}
+\mbox{\Hypertarget{classxb_1_1xbXBase_a2fb4849f65c409add5e01538f580fc1d}\label{classxb_1_1xbXBase_a2fb4849f65c409add5e01538f580fc1d}} 
+\index{xb::xbXBase@{xb::xbXBase}!YEAR@{YEAR}}
+\index{YEAR@{YEAR}!xb::xbXBase@{xb::xbXBase}}
+\doxysubsubsection{\texorpdfstring{YEAR()}{YEAR()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+XBase\+::\+YEAR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDate}{xb\+Date}} \&}]{d\+In\+Date,  }\item[{\mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xb\+Double}} \&}]{d\+Out\+Year }\end{DoxyParamCaption})}
 
 
 
-\doxysubsection{Field Documentation}
-\mbox{\Hypertarget{classxb_1_1xbSsv_a6219f1b5e24ea12fe158cd5aea56988e}\label{classxb_1_1xbSsv_a6219f1b5e24ea12fe158cd5aea56988e}} 
-\index{xb::xbXBase@{xb::xbXBase}!ErrorCodeText@{ErrorCodeText}}
-\index{ErrorCodeText@{ErrorCodeText}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{ErrorCodeText}{ErrorCodeText}}
-{\footnotesize\ttfamily const char$\ast$ xb\+::xb\+Ssv\+::\+Error\+Code\+Text\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [inherited]}}
+Return year for a given date. 
 
-\mbox{\Hypertarget{classxb_1_1xbSsv_a5849e813f5e8e1cd180f0366637adbf3}\label{classxb_1_1xbSsv_a5849e813f5e8e1cd180f0366637adbf3}} 
-\index{xb::xbXBase@{xb::xbXBase}!iEndianType@{iEndianType}}
-\index{iEndianType@{iEndianType}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{iEndianType}{iEndianType}}
-{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Ssv\+::i\+Endian\+Type = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
-
-\mbox{\Hypertarget{classxb_1_1xbSsv_a9dec3164c3b264882df634915ecf21da}\label{classxb_1_1xbSsv_a9dec3164c3b264882df634915ecf21da}} 
-\index{xb::xbXBase@{xb::xbXBase}!sNullString@{sNullString}}
-\index{sNullString@{sNullString}!xb::xbXBase@{xb::xbXBase}}
-\doxysubsubsection{\texorpdfstring{sNullString}{sNullString}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classxb_1_1xbString}{xb\+String}} xb\+::xb\+Ssv\+::s\+Null\+String = \char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+Expression function \mbox{\hyperlink{classxb_1_1xbXBase_a2fb4849f65c409add5e01538f580fc1d}{YEAR()}}. 
+\begin{DoxyParams}{Parameters}
+{\em d\+In\+Date} & Input date. \\
+\hline
+{\em d\+Out\+Year} & -\/ Year. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR.~\newline
+XB\+\_\+\+PARSE\+\_\+\+ERROR. 
+\end{DoxyReturn}
 
 
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+7/src/include/\mbox{\hyperlink{xbxbase_8h}{xbxbase.\+h}}\item 
-/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+7/src/core/\mbox{\hyperlink{xbxbase_8cpp}{xbxbase.\+cpp}}\end{DoxyCompactItemize}
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+11/src/include/\mbox{\hyperlink{xbxbase_8h}{xbxbase.\+h}}\end{DoxyCompactItemize}

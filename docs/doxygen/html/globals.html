@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -48,6 +52,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('globals.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -65,13 +85,141 @@ $(function() {
 <div class="contents">
 <div class="textblock">Here is a list of all functions, variables, defines, enums, and typedefs with links to the files they belong to:</div>
 
-<h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>ChronTime()&#160;:&#160;<a class="el" href="tstfuncs_8cpp.html#af990eed1e43605771a5810196b4043f7">tstfuncs.cpp</a></li>
+<h3><a id="index_j" name="index_j"></a>- j -</h3><ul>
+<li>JUL_OFFSET&#160;:&#160;<a class="el" href="xbdate_8h.html#a119f32fda399e2ebc2d734012a130e8f">xbdate.h</a></li>
+</ul>
+
+
+<h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
+<li>LK1000000000&#160;:&#160;<a class="el" href="xbtypes_8h.html#a9e7f451d7e08245a79f636379f38875e">xbtypes.h</a></li>
+<li>LK3026531838&#160;:&#160;<a class="el" href="xbtypes_8h.html#ac1840e5d7a4944647ef65340d9860dfb">xbtypes.h</a></li>
+<li>LK4026531838&#160;:&#160;<a class="el" href="xbtypes_8h.html#aaef5e08dd83a703820405b75b55c2bdb">xbtypes.h</a></li>
+<li>LK4026531839&#160;:&#160;<a class="el" href="xbtypes_8h.html#afccf2e3001923ae83f06abeb1fcd9a1f">xbtypes.h</a></li>
+<li>LK_CLIPPER&#160;:&#160;<a class="el" href="xbdbf_8h.html#a01d6d7910b0da2170eb904a97d864a41">xbdbf.h</a></li>
+<li>LK_DBASE&#160;:&#160;<a class="el" href="xbdbf_8h.html#a4c08d01bd69e295b001bd00a228d8106">xbdbf.h</a></li>
+<li>LK_FOX&#160;:&#160;<a class="el" href="xbdbf_8h.html#a65e29186276222f460a7171803e07adf">xbdbf.h</a></li>
+<li>LK_XBASE64&#160;:&#160;<a class="el" href="xbdbf_8h.html#a42aea0ccd94f7422c8e0d7422dce85a4">xbdbf.h</a></li>
+</ul>
+
+
+<h3><a id="index_x" name="index_x"></a>- x -</h3><ul>
+<li>XB_ACTIVE_RECS&#160;:&#160;<a class="el" href="xbdbf_8h.html#a1c44bb25bf2e23a3a9d3d2312df0b592">xbdbf.h</a></li>
+<li>XB_ALL_RECS&#160;:&#160;<a class="el" href="xbdbf_8h.html#a8bd17730da3ba5c55a6a07bc482dd0e4">xbdbf.h</a></li>
+<li>XB_ALREADY_DEFINED&#160;:&#160;<a class="el" href="xbretcod_8h.html#ae4a1ddd703ada1b148cdac5cac26a991">xbretcod.h</a></li>
+<li>XB_ALREADY_OPEN&#160;:&#160;<a class="el" href="xbretcod_8h.html#aa2ff8301503f446c6a5f6510090e520f">xbretcod.h</a></li>
+<li>XB_BLOCKREAD_NOT_ENABLED&#160;:&#160;<a class="el" href="xbretcod_8h.html#aae9241d91cfb37f5d236128b3bce0a4a">xbretcod.h</a></li>
+<li>XB_BOF&#160;:&#160;<a class="el" href="xbretcod_8h.html#ade5f3a7cf1467d12761e4e21b5e4200f">xbretcod.h</a></li>
+<li>XB_CHAR_FLD&#160;:&#160;<a class="el" href="xbdbf_8h.html#a20f739b9d9dc6a002a246a999e76aeaa">xbdbf.h</a></li>
+<li>XB_CHAREOF&#160;:&#160;<a class="el" href="xbdbf_8h.html#ada1115f596131888c04df61546b198c4">xbdbf.h</a></li>
+<li>XB_CHARHDR&#160;:&#160;<a class="el" href="xbdbf_8h.html#a35d56cac7959c1e5c761684ced3f1e17">xbdbf.h</a></li>
+<li>XB_CLOSE_ERROR&#160;:&#160;<a class="el" href="xbretcod_8h.html#a030684d5541cf6127a76d81b0684b235">xbretcod.h</a></li>
+<li>XB_CLOSED&#160;:&#160;<a class="el" href="xbdbf_8h.html#a843ca4569326dbd1d0647899b0eb512f">xbdbf.h</a></li>
+<li>XB_DATE_FLD&#160;:&#160;<a class="el" href="xbdbf_8h.html#a7f685e6f5fe804b2174725a27ce73adc">xbdbf.h</a></li>
+<li>XB_DBF_FILE_NOT_OPEN&#160;:&#160;<a class="el" href="xbretcod_8h.html#a8104510b347c87998eadd0b27201e3c2">xbretcod.h</a></li>
+<li>XB_DELETE_FAILED&#160;:&#160;<a class="el" href="xbretcod_8h.html#ada15513935d5ede9216f07c0438f34d2">xbretcod.h</a></li>
+<li>XB_DELETED_RECS&#160;:&#160;<a class="el" href="xbdbf_8h.html#acc0a441854ed92b9d65d1181a97cad43">xbdbf.h</a></li>
+<li>XB_DIRECTORY_ERROR&#160;:&#160;<a class="el" href="xbretcod_8h.html#af532df74147ce2d872f61abfee49c53e">xbretcod.h</a></li>
+<li>XB_DONTOVERLAY&#160;:&#160;<a class="el" href="xbdbf_8h.html#a7b797840abdb3291373d15978103a778">xbdbf.h</a></li>
+<li>XB_DUP_TABLE_OR_ALIAS&#160;:&#160;<a class="el" href="xbretcod_8h.html#ac18036408d10e5eee1bf76cf92352b95">xbretcod.h</a></li>
+<li>XB_EMPTY&#160;:&#160;<a class="el" href="xbretcod_8h.html#a18068d0cbe0c7a1b4dd3176220180c29">xbretcod.h</a></li>
+<li>XB_END_OF_EXPRESSION&#160;:&#160;<a class="el" href="xbexp_8h.html#a2fb38fb232e593931149efacd5e60bf3">xbexp.h</a></li>
+<li>XB_EOF&#160;:&#160;<a class="el" href="xbretcod_8h.html#a8b47031e90c3f86306c7058e4490d3b7">xbretcod.h</a></li>
+<li>XB_EXP_CHAR&#160;:&#160;<a class="el" href="xbexp_8h.html#ac77bde7b380d8bc1cf40ac2af1c9716c">xbexp.h</a></li>
+<li>XB_EXP_CONSTANT&#160;:&#160;<a class="el" href="xbexp_8h.html#a67216e7284740f454a8f83dd721b12a8">xbexp.h</a></li>
+<li>XB_EXP_DATE&#160;:&#160;<a class="el" href="xbexp_8h.html#a727a6acf614d931d78c290431211d119">xbexp.h</a></li>
+<li>XB_EXP_FIELD&#160;:&#160;<a class="el" href="xbexp_8h.html#a93a81882c892eb9d6491b5a5a4151cb4">xbexp.h</a></li>
+<li>XB_EXP_FUNCTION&#160;:&#160;<a class="el" href="xbexp_8h.html#a2e53bebb82cfe7803b8f0b71d55cef1c">xbexp.h</a></li>
+<li>XB_EXP_LOGICAL&#160;:&#160;<a class="el" href="xbexp_8h.html#a35b6583bb06116fad5222f5685478151">xbexp.h</a></li>
+<li>XB_EXP_NOTROOT&#160;:&#160;<a class="el" href="xbexp_8h.html#a540361b864df69f13ec81941fda1bbf6">xbexp.h</a></li>
+<li>XB_EXP_NUMERIC&#160;:&#160;<a class="el" href="xbexp_8h.html#a54124c5dcb5557b39880fcade5230965">xbexp.h</a></li>
+<li>XB_EXP_OPERATOR&#160;:&#160;<a class="el" href="xbexp_8h.html#aa6d815f4a873ae42791708c77d97dccb">xbexp.h</a></li>
+<li>XB_EXP_POST_OPERATOR&#160;:&#160;<a class="el" href="xbexp_8h.html#ad2ff5dc18c105d5818fd8f28cf8cfe35">xbexp.h</a></li>
+<li>XB_EXP_PRE_OPERATOR&#160;:&#160;<a class="el" href="xbexp_8h.html#a36add8db9b27bc1ddae173cafd9ecdb8">xbexp.h</a></li>
+<li>XB_EXP_UNKNOWN&#160;:&#160;<a class="el" href="xbexp_8h.html#aebaa4c59013cebdcbf365759d601b227">xbexp.h</a></li>
+<li>XB_FILE_EXISTS&#160;:&#160;<a class="el" href="xbretcod_8h.html#a54303a9677dbd5342233f33dd08c64d0">xbretcod.h</a></li>
+<li>XB_FILE_NOT_FOUND&#160;:&#160;<a class="el" href="xbretcod_8h.html#ad090af330c93111d12f6de35dbb065bc">xbretcod.h</a></li>
+<li>XB_FILE_TYPE_NOT_SUPPORTED&#160;:&#160;<a class="el" href="xbretcod_8h.html#ab7b9130a5f1df9975cfeaf6241933596">xbretcod.h</a></li>
+<li>XB_FLOAT_FLD&#160;:&#160;<a class="el" href="xbdbf_8h.html#a96ab4218d70ab603b4866354ce8c18cd">xbdbf.h</a></li>
+<li>XB_FMT_MONTH&#160;:&#160;<a class="el" href="xbdate_8h.html#aeacf2f7cc897ab5bd64781c0fb52b75d">xbdate.h</a></li>
+<li>XB_FMT_WEEK&#160;:&#160;<a class="el" href="xbdate_8h.html#a8f22704d3fd93fa85dd93b6c699e8178">xbdate.h</a></li>
+<li>XB_FMT_YEAR&#160;:&#160;<a class="el" href="xbdate_8h.html#aa29d78982a9e007874af1c4f4e4d1aa4">xbdate.h</a></li>
+<li>XB_INCOMPATIBLE_OPERANDS&#160;:&#160;<a class="el" href="xbretcod_8h.html#af141ec58b7ca7360e0be6c61d015ea74">xbretcod.h</a></li>
+<li>XB_INCONSISTENT_PARM_LENS&#160;:&#160;<a class="el" href="xbretcod_8h.html#adc4b24bfffa202f8df25409894e547b9">xbretcod.h</a></li>
+<li>XB_INVALID_BLOCK_NO&#160;:&#160;<a class="el" href="xbretcod_8h.html#a4e13b529b486c43ca600ce7d8ddbf3c2">xbretcod.h</a></li>
+<li>XB_INVALID_BLOCK_SIZE&#160;:&#160;<a class="el" href="xbretcod_8h.html#a1bd22921612389c37f6b2eac438c62c5">xbretcod.h</a></li>
+<li>XB_INVALID_DATA&#160;:&#160;<a class="el" href="xbretcod_8h.html#afb40bbed323ecb369dd430a2e1242f9a">xbretcod.h</a></li>
+<li>XB_INVALID_DATE&#160;:&#160;<a class="el" href="xbretcod_8h.html#a702475500357a27b8a34463be3e11925">xbretcod.h</a></li>
+<li>XB_INVALID_EXPRESSION&#160;:&#160;<a class="el" href="xbretcod_8h.html#a54db562c3cae97581812b4fccd52b71a">xbretcod.h</a></li>
+<li>XB_INVALID_FIELD&#160;:&#160;<a class="el" href="xbretcod_8h.html#a34180b2e2bd350ba2ebcdd1335e15d7e">xbretcod.h</a></li>
+<li>XB_INVALID_FIELD_LEN&#160;:&#160;<a class="el" href="xbretcod_8h.html#a7bd322c0efbba17f68ccccd6cf624411">xbretcod.h</a></li>
+<li>XB_INVALID_FIELD_NAME&#160;:&#160;<a class="el" href="xbretcod_8h.html#a59403978784130834cf39434cb73f96e">xbretcod.h</a></li>
+<li>XB_INVALID_FIELD_NO&#160;:&#160;<a class="el" href="xbretcod_8h.html#a09d6c08a44316f551108a74003efd381">xbretcod.h</a></li>
+<li>XB_INVALID_FIELD_TYPE&#160;:&#160;<a class="el" href="xbretcod_8h.html#a79e2588f067d6e236c0e5a2c0728ba9f">xbretcod.h</a></li>
+<li>XB_INVALID_FUNCTION&#160;:&#160;<a class="el" href="xbretcod_8h.html#a2b7e5e440dbcf5e6dc885b24dbe28742">xbretcod.h</a></li>
+<li>XB_INVALID_INDEX&#160;:&#160;<a class="el" href="xbretcod_8h.html#acd175ef0541e2cad424791bd87619dd4">xbretcod.h</a></li>
+<li>XB_INVALID_KEYNO&#160;:&#160;<a class="el" href="xbretcod_8h.html#aec2c0ac2bd62e0329ef130e4fbda39f8">xbretcod.h</a></li>
+<li>XB_INVALID_LOCK_OPTION&#160;:&#160;<a class="el" href="xbretcod_8h.html#ab45735e63c208eb7e6d6df31fd527aec">xbretcod.h</a></li>
+<li>XB_INVALID_MEMO_FIELD&#160;:&#160;<a class="el" href="xbretcod_8h.html#a187c50745f51bfe4aa6f70a92f16c59f">xbretcod.h</a></li>
+<li>XB_INVALID_NODELINK&#160;:&#160;<a class="el" href="xbretcod_8h.html#a13e6876470bd34c8c4e5533f115e04eb">xbretcod.h</a></li>
+<li>XB_INVALID_OBJECT&#160;:&#160;<a class="el" href="xbretcod_8h.html#a418c047353bc683d0fd6ecbbdd5b7885">xbretcod.h</a></li>
+<li>XB_INVALID_OPTION&#160;:&#160;<a class="el" href="xbretcod_8h.html#af1cd0baf346cad686fa4dd11f700012a">xbretcod.h</a></li>
+<li>XB_INVALID_PAGE&#160;:&#160;<a class="el" href="xbretcod_8h.html#ad0aba12b5ae2137f8d6abd28b47f95f0">xbretcod.h</a></li>
+<li>XB_INVALID_PARAMETER&#160;:&#160;<a class="el" href="xbretcod_8h.html#a1b78533ada854b4185c51ad8a5ce9f02">xbretcod.h</a></li>
+<li>XB_INVALID_PARM&#160;:&#160;<a class="el" href="xbretcod_8h.html#a4cedf96581c9cbc9c14d07494143702d">xbretcod.h</a></li>
+<li>XB_INVALID_RECORD&#160;:&#160;<a class="el" href="xbretcod_8h.html#a0fd212f912b2e62700a66bae95bd73a1">xbretcod.h</a></li>
+<li>XB_INVALID_TABLE_NAME&#160;:&#160;<a class="el" href="xbretcod_8h.html#a53891c95a78483704d2a8e14c4499f92">xbretcod.h</a></li>
+<li>XB_INVALID_TAG&#160;:&#160;<a class="el" href="xbretcod_8h.html#a176d917912d3433f065483f905a4c50a">xbretcod.h</a></li>
+<li>XB_IX_DBASE_MODE&#160;:&#160;<a class="el" href="xbcore_8h.html#aa36b5d6bf6a868e143f04081c90b4ea7">xbcore.h</a></li>
+<li>XB_IX_XBASE_MODE&#160;:&#160;<a class="el" href="xbcore_8h.html#a5af68d3aa747ae73e28bf1ccc6200a78">xbcore.h</a></li>
+<li>XB_KEY_NOT_UNIQUE&#160;:&#160;<a class="el" href="xbretcod_8h.html#ad60dbb1862c0c1c2dc0464cfbfd93a34">xbretcod.h</a></li>
+<li>XB_LIMIT_REACHED&#160;:&#160;<a class="el" href="xbretcod_8h.html#a59f1a8a6aca19595c2d1804349a24850">xbretcod.h</a></li>
+<li>XB_LOCK&#160;:&#160;<a class="el" href="xbdbf_8h.html#a395a2e101a793bacabf6bc079d178e29">xbdbf.h</a></li>
+<li>XB_LOCK_FAILED&#160;:&#160;<a class="el" href="xbretcod_8h.html#a001e24b39e0f155fb1e892f5b1b9cff1">xbretcod.h</a></li>
+<li>XB_LOGICAL_FLD&#160;:&#160;<a class="el" href="xbdbf_8h.html#a2f6d5073af761bc1a806a2c7b1c1d886">xbdbf.h</a></li>
+<li>XB_MAX_ERROR_NO&#160;:&#160;<a class="el" href="xbretcod_8h.html#a299419a9c80e000b74bf97a2d24d6a3d">xbretcod.h</a></li>
+<li>XB_MEMCPY_ERROR&#160;:&#160;<a class="el" href="xbretcod_8h.html#aa2925f035e3b186d7efa14648ea0e86d">xbretcod.h</a></li>
+<li>XB_MEMO_FLD&#160;:&#160;<a class="el" href="xbdbf_8h.html#a23fa19b19cb43bd6dcc59a5a3f6c30ad">xbdbf.h</a></li>
+<li>XB_MULTI_USER&#160;:&#160;<a class="el" href="xbfile_8h.html#a05c0fc99ba71cf953d046d12f3f874bc">xbfile.h</a></li>
+<li>XB_NO_ERROR&#160;:&#160;<a class="el" href="xbretcod_8h.html#ac720d5b4ec45bfd606f5865d40816e23">xbretcod.h</a></li>
+<li>XB_NO_MEMORY&#160;:&#160;<a class="el" href="xbretcod_8h.html#ae687fc7d872ba0475a8477e4447f9b54">xbretcod.h</a></li>
+<li>XB_NOT_CLOSED&#160;:&#160;<a class="el" href="xbretcod_8h.html#a924a6c5471f92d102d9b3e89f60751c2">xbretcod.h</a></li>
+<li>XB_NOT_FOUND&#160;:&#160;<a class="el" href="xbretcod_8h.html#ac2606659a54111334f5b02861e533700">xbretcod.h</a></li>
+<li>XB_NOT_OPEN&#160;:&#160;<a class="el" href="xbretcod_8h.html#a9474b400f647bdefbbb07e5177e8d7a1">xbretcod.h</a></li>
+<li>XB_NULL_DATE&#160;:&#160;<a class="el" href="xbexp_8h.html#a6e9d2ccba2b3ac6e44ab411ffda488c2">xbexp.h</a></li>
+<li>XB_NUMERIC_FLD&#160;:&#160;<a class="el" href="xbdbf_8h.html#ae9fb6d69cc5edc94d36ae403c22ec1c6">xbdbf.h</a></li>
+<li>XB_OPEN&#160;:&#160;<a class="el" href="xbdbf_8h.html#a9a6dafbb07cac744eb14094efa739409">xbdbf.h</a></li>
+<li>XB_OPEN_ERROR&#160;:&#160;<a class="el" href="xbretcod_8h.html#aaab55236993a1d3acb29206252a904c8">xbretcod.h</a></li>
+<li>XB_OVERLAY&#160;:&#160;<a class="el" href="xbdbf_8h.html#a6fe10b307878b4612b04c2c876a4a592">xbdbf.h</a></li>
+<li>XB_PARSE_ERROR&#160;:&#160;<a class="el" href="xbretcod_8h.html#aec713cac2b03a0d536a2d16336ae7c0b">xbretcod.h</a></li>
+<li>XB_READ&#160;:&#160;<a class="el" href="xbfile_8h.html#ae58c73e0ba237fcf67ee20feea6c2743">xbfile.h</a></li>
+<li>XB_READ_ERROR&#160;:&#160;<a class="el" href="xbretcod_8h.html#adbd40585db8bb748d191f94a33bac710">xbretcod.h</a></li>
+<li>XB_READ_WRITE&#160;:&#160;<a class="el" href="xbfile_8h.html#af991a288c327f6857e90156ea734a633">xbfile.h</a></li>
+<li>XB_RENAME_ERROR&#160;:&#160;<a class="el" href="xbretcod_8h.html#a373f30b2efcbbab9f6d060fb3fe8cba3">xbretcod.h</a></li>
+<li>XB_SEEK_ERROR&#160;:&#160;<a class="el" href="xbretcod_8h.html#a0455ad8719e153b08ec68b10c81e9f41">xbretcod.h</a></li>
+<li>XB_SETVBUF_ERROR&#160;:&#160;<a class="el" href="xbretcod_8h.html#a75f88f86d71e03f34c32bc7e70ed088f">xbretcod.h</a></li>
+<li>XB_SINGLE_USER&#160;:&#160;<a class="el" href="xbfile_8h.html#a9ec4d60a008c667d9861e3b3814f0232">xbfile.h</a></li>
+<li>XB_SYNTAX_ERROR&#160;:&#160;<a class="el" href="xbretcod_8h.html#a5db3a90f215534143bdde81253729c7f">xbretcod.h</a></li>
+<li>XB_TABLE_NOT_LOCKED&#160;:&#160;<a class="el" href="xbretcod_8h.html#af6aaf779fddecca521d785666f6dc56b">xbretcod.h</a></li>
+<li>XB_UNBALANCED_PARENS&#160;:&#160;<a class="el" href="xbretcod_8h.html#aff5646a6b0884ff81004de6961473ea6">xbretcod.h</a></li>
+<li>XB_UNBALANCED_QUOTES&#160;:&#160;<a class="el" href="xbretcod_8h.html#aedfa20a6c4eb9ba3063ba56be8280eac">xbretcod.h</a></li>
+<li>XB_UNLOCK&#160;:&#160;<a class="el" href="xbdbf_8h.html#a21389b73e7b4e7e185fa635b9e354c2e">xbdbf.h</a></li>
+<li>XB_UPDATED&#160;:&#160;<a class="el" href="xbdbf_8h.html#a26e7eeda69f32bc88b08a208ca9e7991">xbdbf.h</a></li>
+<li>XB_WRITE&#160;:&#160;<a class="el" href="xbfile_8h.html#abbf99e259c2f31572c886da6d85b1359">xbfile.h</a></li>
+<li>XB_WRITE_ERROR&#160;:&#160;<a class="el" href="xbretcod_8h.html#aef34ebe6726057f805d6063130280549">xbretcod.h</a></li>
+<li>xbFalse&#160;:&#160;<a class="el" href="xbtypes_8h.html#adc4b6ca5ad299f63675136d9e03938cc">xbtypes.h</a></li>
+<li>xbFileNo&#160;:&#160;<a class="el" href="xbtypes_8h.html#a2c65f692ac861990861575e18f72f6eb">xbtypes.h</a></li>
+<li>xbOff&#160;:&#160;<a class="el" href="xbtypes_8h.html#a42f73ecdeea3947c7c7893d017285458">xbtypes.h</a></li>
+<li>xbOn&#160;:&#160;<a class="el" href="xbtypes_8h.html#a233cacecb85cbc5427a65d17eb2a271b">xbtypes.h</a></li>
+<li>xbSysDflt&#160;:&#160;<a class="el" href="xbtypes_8h.html#a2d747f9c553281ce16236c4f077db02a">xbtypes.h</a></li>
+<li>xbTrue&#160;:&#160;<a class="el" href="xbtypes_8h.html#ab0ae00665298fe7f5292691cb98ec2d9">xbtypes.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

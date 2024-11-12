@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['uiheaderlen_0',['uiHeaderLen',['../classxb_1_1xbDbf.html#a62f5fa9149ae0f6dc75642823de66918',1,'xb::xbDbf']]],
-  ['uirecordlen_1',['uiRecordLen',['../classxb_1_1xbDbf.html#a1760e222567e2c849f9c799b9d896e91',1,'xb::xbDbf']]],
-  ['ulcurrec_2',['ulCurRec',['../classxb_1_1xbDbf.html#afcd99924606be0a9e1e25180bcd1abf8',1,'xb::xbDbf']]],
-  ['ulnoofrecs_3',['ulNoOfRecs',['../classxb_1_1xbDbf.html#acb594ab61dd35b17bdf28394083f8e87',1,'xb::xbDbf']]],
-  ['ulrecpos_4',['ulRecPos',['../structxb_1_1xbRelation.html#ae6e3bd84ea5ae30cf66e90d3e3b8e4cf',1,'xb::xbRelation']]],
-  ['ulsaveparrecno_5',['ulSaveParRecNo',['../structxb_1_1xbRelation.html#aca82e4f3ff6c82a37fee957b40b9c27f',1,'xb::xbRelation']]],
-  ['undeleteallrecords_6',['UndeleteAllRecords',['../classxb_1_1xbDbf.html#ae94cb1bf9f75184f39d9e1a80ab49d4a',1,'xb::xbDbf']]],
-  ['undeleterecord_7',['UndeleteRecord',['../classxb_1_1xbDbf.html#a255681976a04fc722538bb630507b3a0',1,'xb::xbDbf']]]
+  ['tolowercase_0',['ToLowerCase',['../classxb_1_1xbString.html#a602cac1a6ef3f6b52f587ac4c0ef4fb2',1,'xb::xbString']]],
+  ['totimet_1',['ToTimeT',['../classxb_1_1xbTime.html#a0d50d6dc78e4c9790280c5121474eb07',1,'xb::xbTime']]],
+  ['touppercase_2',['ToUpperCase',['../classxb_1_1xbString.html#a68001d0a44e6b4fe61e29a4e41ded9d4',1,'xb::xbString']]],
+  ['trim_3',['Trim',['../classxb_1_1xbString.html#abc9bd33687d4e03ca52d77885721d626',1,'xb::xbString']]],
+  ['trim_4',['TRIM',['../classxb_1_1xbXBase.html#a4fe642f63e95df8fcf7a8bdef07aa1a4',1,'xb::xbXBase']]]
 ];

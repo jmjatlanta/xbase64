@@ -1,0 +1,185 @@
+\hypertarget{classxb_1_1xbBlockRead}{}\doxysection{xb\+::xb\+Block\+Read Class Reference}
+\label{classxb_1_1xbBlockRead}\index{xb::xbBlockRead@{xb::xbBlockRead}}
+
+
+\mbox{\hyperlink{classxb_1_1xbBlockRead}{xb\+Block\+Read}} class.  
+
+
+
+
+{\ttfamily \#include $<$xbblkread.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classxb_1_1xbBlockRead_a05e8b875e4f7704b02d29f7c883b1c34}{xb\+Block\+Read}} (\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$d)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxb_1_1xbBlockRead_a553a2d18b17eb3ec048bcd7fc54c7bf1}{$\sim$xb\+Block\+Read}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbBlockRead_a508e8c4832d6128cf243f8080729d9b9}{Dump\+Read\+Block\+Internals}} ()
+\begin{DoxyCompactList}\small\item\em Dump internals to stdout. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbBlockRead_aa2aaed3a7ae1f8d47f796411eb0a6d9f}{Get\+Block\+First\+Rec\+No}} () const
+\begin{DoxyCompactList}\small\item\em Retrieve the first record number in the current block. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbBlockRead_a33e8dc016559867308474a560eff32ad}{Get\+Block\+Rec\+Cnt}} () const
+\begin{DoxyCompactList}\small\item\em Retrieve the number of records loaded in the curent block. \end{DoxyCompactList}\item 
+xb\+UInt32 \mbox{\hyperlink{classxb_1_1xbBlockRead_ae9e391c63e5c62e255e288d609a6d2ba}{Get\+Block\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Retrieve the current block size. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbBlockRead_a5c752df4096be6c0de83673ee87fc833}{Get\+Record}} (xb\+UInt32 ul\+Rec\+No)
+\begin{DoxyCompactList}\small\item\em Get record for specified record number. \end{DoxyCompactList}\item 
+xb\+Int16 \mbox{\hyperlink{classxb_1_1xbBlockRead_ac77f5e0776d312fa6ead323294e66e57}{Init}} (xb\+UInt32 ul\+Block\+Size=0)
+\begin{DoxyCompactList}\small\item\em Init the block processing for a given DBF file. This routine may adjust the block size as needed to eliminate unused memory or adjust it bigger if too small. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classxb_1_1xbBlockRead_a0640fd39ae17ec795ad9516c1579fa22}{Set\+Block\+Size}} (xb\+UInt32 ul\+Blk\+Size)
+\begin{DoxyCompactList}\small\item\em Set the block size for this instance.~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classxb_1_1xbBlockRead}{xb\+Block\+Read}} class. 
+
+The \mbox{\hyperlink{classxb_1_1xbBlockRead}{xb\+Block\+Read}} class can be used to read blocks of records at one time rather than one record at a time for perfomance improvements when reading a DBF file sequentially.~\newline
+ ~\newline
+ See program xb\+\_\+dumprecs.\+cpp for an example on how to use block read processing. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classxb_1_1xbBlockRead_a05e8b875e4f7704b02d29f7c883b1c34}\label{classxb_1_1xbBlockRead_a05e8b875e4f7704b02d29f7c883b1c34}} 
+\index{xb::xbBlockRead@{xb::xbBlockRead}!xbBlockRead@{xbBlockRead}}
+\index{xbBlockRead@{xbBlockRead}!xb::xbBlockRead@{xb::xbBlockRead}}
+\doxysubsubsection{\texorpdfstring{xbBlockRead()}{xbBlockRead()}}
+{\footnotesize\ttfamily xb\+::xb\+Block\+Read\+::xb\+Block\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classxb_1_1xbDbf}{xb\+Dbf}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Pointer to dbf table object to apply block processing on. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classxb_1_1xbBlockRead_a553a2d18b17eb3ec048bcd7fc54c7bf1}\label{classxb_1_1xbBlockRead_a553a2d18b17eb3ec048bcd7fc54c7bf1}} 
+\index{xb::xbBlockRead@{xb::xbBlockRead}!````~xbBlockRead@{$\sim$xbBlockRead}}
+\index{````~xbBlockRead@{$\sim$xbBlockRead}!xb::xbBlockRead@{xb::xbBlockRead}}
+\doxysubsubsection{\texorpdfstring{$\sim$xbBlockRead()}{~xbBlockRead()}}
+{\footnotesize\ttfamily xb\+::xb\+Block\+Read\+::$\sim$xb\+Block\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classxb_1_1xbBlockRead_a508e8c4832d6128cf243f8080729d9b9}\label{classxb_1_1xbBlockRead_a508e8c4832d6128cf243f8080729d9b9}} 
+\index{xb::xbBlockRead@{xb::xbBlockRead}!DumpReadBlockInternals@{DumpReadBlockInternals}}
+\index{DumpReadBlockInternals@{DumpReadBlockInternals}!xb::xbBlockRead@{xb::xbBlockRead}}
+\doxysubsubsection{\texorpdfstring{DumpReadBlockInternals()}{DumpReadBlockInternals()}}
+{\footnotesize\ttfamily void xb\+::xb\+Block\+Read\+::\+Dump\+Read\+Block\+Internals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Dump internals to stdout. 
+
+\begin{DoxyNote}{Note}
+Availabe if XB\+\_\+\+DEBUG\+\_\+\+SUPPORT compiled in. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classxb_1_1xbBlockRead_aa2aaed3a7ae1f8d47f796411eb0a6d9f}\label{classxb_1_1xbBlockRead_aa2aaed3a7ae1f8d47f796411eb0a6d9f}} 
+\index{xb::xbBlockRead@{xb::xbBlockRead}!GetBlockFirstRecNo@{GetBlockFirstRecNo}}
+\index{GetBlockFirstRecNo@{GetBlockFirstRecNo}!xb::xbBlockRead@{xb::xbBlockRead}}
+\doxysubsubsection{\texorpdfstring{GetBlockFirstRecNo()}{GetBlockFirstRecNo()}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+Block\+Read\+::\+Get\+Block\+First\+Rec\+No (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieve the first record number in the current block. 
+
+\begin{DoxyReturn}{Returns}
+First record number in the current block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbBlockRead_a33e8dc016559867308474a560eff32ad}\label{classxb_1_1xbBlockRead_a33e8dc016559867308474a560eff32ad}} 
+\index{xb::xbBlockRead@{xb::xbBlockRead}!GetBlockRecCnt@{GetBlockRecCnt}}
+\index{GetBlockRecCnt@{GetBlockRecCnt}!xb::xbBlockRead@{xb::xbBlockRead}}
+\doxysubsubsection{\texorpdfstring{GetBlockRecCnt()}{GetBlockRecCnt()}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+Block\+Read\+::\+Get\+Block\+Rec\+Cnt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieve the number of records loaded in the curent block. 
+
+\begin{DoxyReturn}{Returns}
+Record count loaded in current block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbBlockRead_ae9e391c63e5c62e255e288d609a6d2ba}\label{classxb_1_1xbBlockRead_ae9e391c63e5c62e255e288d609a6d2ba}} 
+\index{xb::xbBlockRead@{xb::xbBlockRead}!GetBlockSize@{GetBlockSize}}
+\index{GetBlockSize@{GetBlockSize}!xb::xbBlockRead@{xb::xbBlockRead}}
+\doxysubsubsection{\texorpdfstring{GetBlockSize()}{GetBlockSize()}}
+{\footnotesize\ttfamily xb\+UInt32 xb\+::xb\+Block\+Read\+::\+Get\+Block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieve the current block size. 
+
+\begin{DoxyReturn}{Returns}
+Current Block Size. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbBlockRead_a5c752df4096be6c0de83673ee87fc833}\label{classxb_1_1xbBlockRead_a5c752df4096be6c0de83673ee87fc833}} 
+\index{xb::xbBlockRead@{xb::xbBlockRead}!GetRecord@{GetRecord}}
+\index{GetRecord@{GetRecord}!xb::xbBlockRead@{xb::xbBlockRead}}
+\doxysubsubsection{\texorpdfstring{GetRecord()}{GetRecord()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Block\+Read\+::\+Get\+Record (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Rec\+No }\end{DoxyParamCaption})}
+
+
+
+Get record for specified record number. 
+
+This method retrieves a record from read block buffer and copies it into the record buffer. If the record is not in the current block, the routine calls Get\+Block\+For\+Rec\+No to load the currect block from disk.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Rec\+No} & -\/ Record number to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR, XB\+\_\+\+SEEK\+\_\+\+ERROR, XB\+\_\+\+LOCK\+\_\+\+FAILED, XB\+\_\+\+FILE\+\_\+\+NOT\+\_\+\+FOUND or XB\+\_\+\+INVALID\+\_\+\+OPTION 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+For performance reasons, this method assumes a valid record number has been passed and does no error checking on ul\+Rec\+No. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classxb_1_1xbBlockRead_ac77f5e0776d312fa6ead323294e66e57}\label{classxb_1_1xbBlockRead_ac77f5e0776d312fa6ead323294e66e57}} 
+\index{xb::xbBlockRead@{xb::xbBlockRead}!Init@{Init}}
+\index{Init@{Init}!xb::xbBlockRead@{xb::xbBlockRead}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily xb\+Int16 xb\+::xb\+Block\+Read\+::\+Init (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Block\+Size = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Init the block processing for a given DBF file. This routine may adjust the block size as needed to eliminate unused memory or adjust it bigger if too small. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Block\+Size} & -\/ Block size to allocate. If 0 or missing, it uses default block size of 32K. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+XB\+\_\+\+NO\+\_\+\+ERROR or XB\+\_\+\+MEMORY\+\_\+\+ERROR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classxb_1_1xbBlockRead_a0640fd39ae17ec795ad9516c1579fa22}\label{classxb_1_1xbBlockRead_a0640fd39ae17ec795ad9516c1579fa22}} 
+\index{xb::xbBlockRead@{xb::xbBlockRead}!SetBlockSize@{SetBlockSize}}
+\index{SetBlockSize@{SetBlockSize}!xb::xbBlockRead@{xb::xbBlockRead}}
+\doxysubsubsection{\texorpdfstring{SetBlockSize()}{SetBlockSize()}}
+{\footnotesize\ttfamily void xb\+::xb\+Block\+Read\+::\+Set\+Block\+Size (\begin{DoxyParamCaption}\item[{xb\+UInt32}]{ul\+Blk\+Size }\end{DoxyParamCaption})}
+
+
+
+Set the block size for this instance.~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Blk\+Size} & -\/ Block Size. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/1\+Tdata/xbase/xbase64-\/4.\+1.\+11/src/include/\mbox{\hyperlink{xbblkread_8h}{xbblkread.\+h}}\end{DoxyCompactItemize}

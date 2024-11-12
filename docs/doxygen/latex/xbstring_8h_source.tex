@@ -1,12 +1,12 @@
 \hypertarget{xbstring_8h_source}{}\doxysection{xbstring.\+h}
-\label{xbstring_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbstring.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbstring.h}}
+\label{xbstring_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbstring.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbstring.h}}
 \mbox{\hyperlink{xbstring_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*  xbstring.h}}
 \DoxyCodeLine{2 \textcolor{comment}{}}
 \DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
 \DoxyCodeLine{4 \textcolor{comment}{}}
-\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel}}
 \DoxyCodeLine{6 \textcolor{comment}{}}
 \DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
 \DoxyCodeLine{8 \textcolor{comment}{}}
@@ -30,147 +30,296 @@
 \DoxyCodeLine{26 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
 \DoxyCodeLine{27 }
 \DoxyCodeLine{28 }
-\DoxyCodeLine{30 }
-\DoxyCodeLine{50 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \{}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52  \textcolor{keyword}{public}:}
-\DoxyCodeLine{53   \textcolor{comment}{//Various constructors}}
-\DoxyCodeLine{54   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}(xbUInt32 size);}
-\DoxyCodeLine{55   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}(\textcolor{keywordtype}{char} cIn);}
-\DoxyCodeLine{56   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sIn, xbUInt32 ulMaxLen);}
-\DoxyCodeLine{57   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn);}
-\DoxyCodeLine{58   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sIn = \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{59   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} d );}
-\DoxyCodeLine{60   \mbox{\hyperlink{classxb_1_1xbString}{\string~xbString}}();}
+\DoxyCodeLine{46 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \{}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48  \textcolor{keyword}{public}:}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{54    \mbox{\hyperlink{classxb_1_1xbString_a8a2f0fd54682b9baa08520d9042b59fc}{xbString}}(xbUInt32 ulSize);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{60    \mbox{\hyperlink{classxb_1_1xbString_a146840c386d2876ccb7ec929398d5f5b}{xbString}}(\textcolor{keywordtype}{char} cIn);}
 \DoxyCodeLine{61 }
-\DoxyCodeLine{62   \textcolor{comment}{//operators}}
-\DoxyCodeLine{63   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&operator= (\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s);}
-\DoxyCodeLine{64   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&operator= (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
-\DoxyCodeLine{65 }
-\DoxyCodeLine{66   \textcolor{keyword}{operator} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *() \textcolor{keyword}{const};}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{68   \textcolor{keywordtype}{char} \&operator[](xbUInt32 n) \textcolor{keyword}{const};}
-\DoxyCodeLine{69   \textcolor{keywordtype}{char} \&operator[](xbInt32 n) \textcolor{keyword}{const};}
-\DoxyCodeLine{70 }
-\DoxyCodeLine{71   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&operator+=(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s);}
-\DoxyCodeLine{72   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&operator+=(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
-\DoxyCodeLine{73   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&operator+=(\textcolor{keywordtype}{char} c);}
-\DoxyCodeLine{74   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&operator-\/=(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s);}
-\DoxyCodeLine{75   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&operator-\/=(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
-\DoxyCodeLine{76   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&operator-\/=(\textcolor{keywordtype}{char} c);}
-\DoxyCodeLine{77 }
-\DoxyCodeLine{78   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator == ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& ) \textcolor{keyword}{const};}
-\DoxyCodeLine{79   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator == ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * ) \textcolor{keyword}{const};}
-\DoxyCodeLine{80   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator != ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& ) \textcolor{keyword}{const};}
-\DoxyCodeLine{81   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator != ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * ) \textcolor{keyword}{const};}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{83   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator <  ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& ) \textcolor{keyword}{const};}
-\DoxyCodeLine{84   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator >  ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& ) \textcolor{keyword}{const};}
-\DoxyCodeLine{85   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator <= ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& ) \textcolor{keyword}{const};}
-\DoxyCodeLine{86   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator >= ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& ) \textcolor{keyword}{const};}
+\DoxyCodeLine{67    \mbox{\hyperlink{classxb_1_1xbString_a65113c1b7e78b912310a4287cbabfc3e}{xbString}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sIn, xbUInt32 ulMaxLen);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{73    \mbox{\hyperlink{classxb_1_1xbString_aac28cadec768736ef9e9e19f29238a55}{xbString}}(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sIn);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{79    \mbox{\hyperlink{classxb_1_1xbString_a5d46700c769b857862bfcd5311f2d080}{xbString}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sIn = \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{85    \mbox{\hyperlink{classxb_1_1xbString_a076a16268819c3bf31c7accb1af9c305}{xbString}}( \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} dNum );}
 \DoxyCodeLine{87 }
-\DoxyCodeLine{88   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  operator-\/( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s );}
-\DoxyCodeLine{89   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  operator+( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s );}
-\DoxyCodeLine{90   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  operator+( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s );}
-\DoxyCodeLine{91   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  operator+( \textcolor{keyword}{const} \textcolor{keywordtype}{char} c );}
+\DoxyCodeLine{89   \mbox{\hyperlink{classxb_1_1xbString_a10a6549efab02bc76ab33b15916b1eb1}{\string~xbString}}();}
+\DoxyCodeLine{90 }
 \DoxyCodeLine{92 }
-\DoxyCodeLine{93   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&AddBackSlash( \textcolor{keywordtype}{char} c );}
-\DoxyCodeLine{94   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Append(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s);}
-\DoxyCodeLine{95   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Append(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
-\DoxyCodeLine{96   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Append(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s, xbUInt32 ulByteCount );}
-\DoxyCodeLine{97   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Append(\textcolor{keywordtype}{char} c);}
-\DoxyCodeLine{98   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Assign(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *srcStr, xbUInt32 ulStartPos, xbUInt32 ulCopyLen );}
-\DoxyCodeLine{99   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Assign(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *srcStr, xbUInt32 ulStartPos );}
-\DoxyCodeLine{100   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Assign(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&srcStr, xbUInt32 ulStartPos, xbUInt32 ulCopyLen );}
-\DoxyCodeLine{101   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Assign(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&srcStr, xbUInt32 ulStartPos );}
-\DoxyCodeLine{102 }
-\DoxyCodeLine{103   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  Copy() \textcolor{keyword}{const};}
-\DoxyCodeLine{104   xbUInt32  CountChar( \textcolor{keywordtype}{char} c ) \textcolor{keyword}{const};}
-\DoxyCodeLine{105   xbUInt32  CountChar( \textcolor{keywordtype}{char} c, xbInt16 iOpt ) \textcolor{keyword}{const};}
-\DoxyCodeLine{106   xbInt16   CvtHexChar( \textcolor{keywordtype}{char} \&cOut );}
-\DoxyCodeLine{107   xbInt16   CvtHexString( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{108   xbInt16   CvtULongLong( xbUInt64 \&ullOut );}
-\DoxyCodeLine{109   xbInt16   CvtLongLong( xbInt64 \&llOut );}
-\DoxyCodeLine{110 }
-\DoxyCodeLine{111 \textcolor{preprocessor}{  \#ifdef XB\_DEBUG\_SUPPORT}}
-\DoxyCodeLine{112   \textcolor{keywordtype}{void}      Dump( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *title ) \textcolor{keyword}{const};}
-\DoxyCodeLine{113   \textcolor{keywordtype}{void}      Dump( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *title, xbInt16 iOption ) \textcolor{keyword}{const};}
-\DoxyCodeLine{114   \textcolor{keywordtype}{void}      DumpHex( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *title ) \textcolor{keyword}{const};}
-\DoxyCodeLine{115 \textcolor{preprocessor}{  \#endif}}
-\DoxyCodeLine{116 }
-\DoxyCodeLine{117   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&ExtractElement(\mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s, \textcolor{keywordtype}{char} delim, xbUInt32 iCnt, xbInt16 iOpt = 0 );}
-\DoxyCodeLine{118   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&ExtractElement(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *src, \textcolor{keywordtype}{char} delim, xbUInt32 iCnt, xbInt16 iOpt = 0 );}
-\DoxyCodeLine{119 }
-\DoxyCodeLine{120   \textcolor{keywordtype}{char}      GetCharacter( xbUInt32 ulPos ) \textcolor{keyword}{const};}
-\DoxyCodeLine{121   xbUInt32  GetLastPos(\textcolor{keywordtype}{char} c) \textcolor{keyword}{const};}
-\DoxyCodeLine{122   xbUInt32  GetLastPos(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s) \textcolor{keyword}{const};}
-\DoxyCodeLine{123   \textcolor{keywordtype}{char}      GetPathSeparator() \textcolor{keyword}{const};}
-\DoxyCodeLine{124   xbUInt32  GetSize() \textcolor{keyword}{const};}
-\DoxyCodeLine{125 }
-\DoxyCodeLine{126   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}    HasAlphaChars() \textcolor{keyword}{const};}
-\DoxyCodeLine{127   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}    IsEmpty() \textcolor{keyword}{const};}
-\DoxyCodeLine{128   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}    IsNull() \textcolor{keyword}{const};}
-\DoxyCodeLine{129 }
-\DoxyCodeLine{130   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Left( xbUInt32 ulLen );}
-\DoxyCodeLine{131   xbUInt32  Len() \textcolor{keyword}{const};                     \textcolor{comment}{// returns the length of the string}}
-\DoxyCodeLine{132   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Ltrim();}
-\DoxyCodeLine{133   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Ltrunc( xbUInt32 ulCnt );}
-\DoxyCodeLine{134 }
-\DoxyCodeLine{135   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Mid(xbUInt32 ulPos, xbUInt32 lLen );}
-\DoxyCodeLine{136   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&PadLeft( \textcolor{keywordtype}{char} c, xbUInt32 ulLen );}
-\DoxyCodeLine{137   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&PadRight( \textcolor{keywordtype}{char} c, xbUInt32 ulLen );}
+\DoxyCodeLine{96   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_a6c4fdb689d27a9d19a0b5b4236e1ca62}{AddBackSlash}}( \textcolor{keywordtype}{char} c );}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{100 }
+\DoxyCodeLine{104    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_a8f202e4798491f2ae9ce51ff58dd5815}{Append}}(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s);}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{107 }
+\DoxyCodeLine{111    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_a1922319303feb6da1f40b5994c5e8240}{Append}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{114 }
+\DoxyCodeLine{119    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_ab36afc9ce956cbd505bbccfa55ff786c}{Append}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s, xbUInt32 ulByteCount );}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{122 }
+\DoxyCodeLine{126    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_a093c6ab5df375a2589755bb8f48fa5c7}{Append}}(\textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{131 }
+\DoxyCodeLine{137    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_a7704102747ce5dc40bb49f58ef172eb9}{Assign}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sSrc, xbUInt32 ulStartPos, xbUInt32 ulCopyLen );}
 \DoxyCodeLine{138 }
-\DoxyCodeLine{139   xbUInt32  Pos(\textcolor{keywordtype}{char} c, xbUInt32 ulStartPos ) \textcolor{keyword}{const};}
-\DoxyCodeLine{140   xbUInt32  Pos(\textcolor{keywordtype}{char} c) \textcolor{keyword}{const};}
-\DoxyCodeLine{141   xbUInt32  Pos(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s) \textcolor{keyword}{const};}
-\DoxyCodeLine{142   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&PutAt(xbUInt32 ulPos, \textcolor{keywordtype}{char} c);}
-\DoxyCodeLine{143 }
-\DoxyCodeLine{144   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Remove( xbUInt32 ulPos, xbUInt32 ulN );}
-\DoxyCodeLine{145   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Replace( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sReplace, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sReplaceWith, xbInt16 iOpt = 0 );}
-\DoxyCodeLine{146   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Resize( xbUInt32 lSize );}
-\DoxyCodeLine{147   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Rtrim();}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{145    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_a7eb422adbe89a96fc9d39d4c2126b1ff}{Assign}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sSrc, xbUInt32 ulStartPos );}
+\DoxyCodeLine{146 }
 \DoxyCodeLine{148 }
-\DoxyCodeLine{149   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Set( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s );}
-\DoxyCodeLine{150   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Set( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s );}
-\DoxyCodeLine{151   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Set( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s, xbUInt32 ulSize );}
-\DoxyCodeLine{152   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&SetNum( xbInt32 lNum );}
-\DoxyCodeLine{153   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Sprintf(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *format, ...);}
-\DoxyCodeLine{154 }
-\DoxyCodeLine{155   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *Str() \textcolor{keyword}{const};}
-\DoxyCodeLine{156   \textcolor{keywordtype}{char}      *strncpy( \textcolor{keywordtype}{char} * cDest, xbUInt32 n ) \textcolor{keyword}{const};}
-\DoxyCodeLine{157   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&SwapChars( \textcolor{keywordtype}{char} from, \textcolor{keywordtype}{char} to );}
-\DoxyCodeLine{158 }
-\DoxyCodeLine{159   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&ToLowerCase();}
-\DoxyCodeLine{160   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&ToUpperCase();}
-\DoxyCodeLine{161   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&Trim();}
-\DoxyCodeLine{162 }
-\DoxyCodeLine{163   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}    ValidLogicalValue() \textcolor{keyword}{const};}
-\DoxyCodeLine{164   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}    ValidNumericValue() \textcolor{keyword}{const};}
-\DoxyCodeLine{165   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&ZapChar( \textcolor{keywordtype}{char} c );}
-\DoxyCodeLine{166   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&ZapLeadingChar( \textcolor{keywordtype}{char} c );}
-\DoxyCodeLine{167   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&ZapTrailingChar( \textcolor{keywordtype}{char} c );}
-\DoxyCodeLine{168 }
-\DoxyCodeLine{169   XBDLLEXPORT \textcolor{keyword}{friend} std::ostream\& \mbox{\hyperlink{namespacexb_ad27f348219e895c44f74addba8e1889a}{operator<< }}( std::ostream\& os, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& s );}
+\DoxyCodeLine{154    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_ab1ec90158504ae41ee06049e802d0550}{Assign}}(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sSrc, xbUInt32 ulStartPos, xbUInt32 ulCopyLen );}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{157 }
+\DoxyCodeLine{162    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_aabdb5379f055018923a51fb2a66a53a9}{Assign}}(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sSrc, xbUInt32 ulStartPos );}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{166 }
+\DoxyCodeLine{169   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \mbox{\hyperlink{classxb_1_1xbString_ac7a8466b03c04df838bd182ef244f792}{Copy}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{170 }
-\DoxyCodeLine{171  \textcolor{keyword}{private}:}
-\DoxyCodeLine{172 }
-\DoxyCodeLine{173   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} * NullString;}
-\DoxyCodeLine{174   \textcolor{keyword}{static}       \textcolor{keywordtype}{char}   cJunkBuf;}
-\DoxyCodeLine{175 }
-\DoxyCodeLine{176   \textcolor{keywordtype}{char}     *data;          \textcolor{comment}{// pointer to actual string data}}
-\DoxyCodeLine{177   xbUInt32 size;           \textcolor{comment}{// size of string plus null terminating byte}}
-\DoxyCodeLine{178 }
-\DoxyCodeLine{179   \textcolor{keywordtype}{void}     ctor(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
-\DoxyCodeLine{180 \textcolor{comment}{//  xbUInt32 CalcSprintfBufSize(const char *format, ...);}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{174 }
+\DoxyCodeLine{178    xbUInt32  \mbox{\hyperlink{classxb_1_1xbString_a26bc14d92dc7ce1f2bf31cd74af0db0f}{CountChar}}( \textcolor{keywordtype}{char} c ) \textcolor{keyword}{const};}
+\DoxyCodeLine{179 }
 \DoxyCodeLine{181 }
-\DoxyCodeLine{182 \textcolor{comment}{//  char *   xb\_realloc( char *pIn, xbUInt32 iLen );}}
-\DoxyCodeLine{183 }
-\DoxyCodeLine{184   \textcolor{comment}{// next routine could result in buffer over runs if used with improperly sized buffers}}
-\DoxyCodeLine{185   \textcolor{keywordtype}{char} *   xb\_strcpy ( \textcolor{keywordtype}{char} *target, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *source);}
-\DoxyCodeLine{186 }
-\DoxyCodeLine{187 \};}
-\DoxyCodeLine{188 }
-\DoxyCodeLine{189 \}        \textcolor{comment}{/* namespace */}}
-\DoxyCodeLine{190 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XBSTRING\_H\_\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{187    xbUInt32  \mbox{\hyperlink{classxb_1_1xbString_adc0204bcfd1c052b9aea9229b10acf72}{CountChar}}( \textcolor{keywordtype}{char} c, xbInt16 iOpt ) \textcolor{keyword}{const};}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 }
+\DoxyCodeLine{193 }
+\DoxyCodeLine{202   xbInt16   \mbox{\hyperlink{classxb_1_1xbString_a0a737bd408a94903f214eb2879eb56de}{CvtHexChar}}( \textcolor{keywordtype}{char} \&cOut );}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{205 }
+\DoxyCodeLine{211   xbInt16   \mbox{\hyperlink{classxb_1_1xbString_ab5eb6918a0ae9ab6c0e961318f3d1eb0}{CvtHexString}}( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{214 }
+\DoxyCodeLine{219   xbInt16   \mbox{\hyperlink{classxb_1_1xbString_a1528b30b84a41c3564ef31d1f4496b15}{CvtULongLong}}( xbUInt64 \&ullOut );}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{222 }
+\DoxyCodeLine{227   xbInt16   \mbox{\hyperlink{classxb_1_1xbString_ae3ab18365e132323f8ae4c99eb72181c}{CvtLongLong}}( xbInt64 \&llOut );}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231 \textcolor{preprocessor}{  \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{238    \textcolor{keywordtype}{void}      \mbox{\hyperlink{classxb_1_1xbString_a18786500adc65f9f42b7b95269d39549}{Dump}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sTitle ) \textcolor{keyword}{const};}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{241 }
+\DoxyCodeLine{246    \textcolor{keywordtype}{void}      \mbox{\hyperlink{classxb_1_1xbString_aa96e69d9733240f8848e5bb99e5f2af0}{Dump}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sTitle, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bHexOption ) \textcolor{keyword}{const};}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{249 }
+\DoxyCodeLine{253    \textcolor{keywordtype}{void}      \mbox{\hyperlink{classxb_1_1xbString_a04be4f82ad65028f4e09ef9cad575b15}{Dump}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTitle ) \textcolor{keyword}{const};}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{256 }
+\DoxyCodeLine{261    \textcolor{keywordtype}{void}      \mbox{\hyperlink{classxb_1_1xbString_aa65125007623b2205b4fc9ffa17036ee}{Dump}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTitle, \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bHexOption ) \textcolor{keyword}{const};}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{266 }
+\DoxyCodeLine{270    \textcolor{keywordtype}{void}      \mbox{\hyperlink{classxb_1_1xbString_aaab8a53ff8278a2ffcd605c6e5839143}{DumpHex}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \& sTitle ) \textcolor{keyword}{const};}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{276    \textcolor{keywordtype}{void}      \mbox{\hyperlink{classxb_1_1xbString_a5f598bd3f6bfabb567234f5eaec46ab1}{DumpHex}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sTitle ) \textcolor{keyword}{const};}
+\DoxyCodeLine{278 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{279 }
+\DoxyCodeLine{282 }
+\DoxyCodeLine{290    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_a2bc9475a3d768b91c7f93a588260f4d8}{ExtractElement}}(\mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sSrc, \textcolor{keywordtype}{char} cDelim, xbUInt32 lSkipCnt, xbInt16 iOpt = 0 );}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{293 }
+\DoxyCodeLine{301    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_ad86feeadae35a2f0128e9029bafb1207}{ExtractElement}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sSrc, \textcolor{keywordtype}{char} cDelim, xbUInt32 lSkipCnt, xbInt16 iOpt = 0 );}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{304 }
+\DoxyCodeLine{308   \textcolor{keywordtype}{char} \mbox{\hyperlink{classxb_1_1xbString_a72de24c43d4085813ec7720f8a970095}{GetCharacter}}( xbUInt32 ulPos ) \textcolor{keyword}{const};}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{312 }
+\DoxyCodeLine{316    xbUInt32 \mbox{\hyperlink{classxb_1_1xbString_ac7698665f44413a5e99a5b5bc573c6df}{GetLastPos}}(\textcolor{keywordtype}{char} c) \textcolor{keyword}{const};}
+\DoxyCodeLine{317  }
+\DoxyCodeLine{319 }
+\DoxyCodeLine{323    xbUInt32  \mbox{\hyperlink{classxb_1_1xbString_a1c55587904fe7e534290559d0ecb8646}{GetLastPos}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s) \textcolor{keyword}{const};}
+\DoxyCodeLine{325 }
+\DoxyCodeLine{327 }
+\DoxyCodeLine{332   \textcolor{keywordtype}{char} \mbox{\hyperlink{classxb_1_1xbString_af8b8b808cf43cd352321b43f500142db}{GetPathSeparator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{335 }
+\DoxyCodeLine{338   xbUInt32  \mbox{\hyperlink{classxb_1_1xbString_a6c33e73659f8e98819289d2661c7271c}{GetSize}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{341 }
+\DoxyCodeLine{345   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}    \mbox{\hyperlink{classxb_1_1xbString_aa13f6b72e5a529eab04545892bbc98b4}{HasAlphaChars}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{348 }
+\DoxyCodeLine{352   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}    \mbox{\hyperlink{classxb_1_1xbString_a4a255a30d683acd62ea09c1617b53cb3}{IsEmpty}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{353 }
+\DoxyCodeLine{355 }
+\DoxyCodeLine{359   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}    \mbox{\hyperlink{classxb_1_1xbString_a3fa34fa31bcb7244ecb054ab628ad500}{IsNull}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{362 }
+\DoxyCodeLine{366   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_acdc3a6d6955b99f0a6b1d181fb3098b9}{Left}}( xbUInt32 ulLen );}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{369 }
+\DoxyCodeLine{372   xbUInt32  \mbox{\hyperlink{classxb_1_1xbString_a998b240eedac311aea5843047f55649b}{Len}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{375 }
+\DoxyCodeLine{378   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_a90e0d0be4fd0d82dd2ebbe689adf18ee}{Ltrim}}();}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{381 }
+\DoxyCodeLine{385   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_a656f5854f74064b7257ff96d96dfb68b}{Ltrunc}}( xbUInt32 ulCnt );}
+\DoxyCodeLine{386 }
+\DoxyCodeLine{388 }
+\DoxyCodeLine{397   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_ab5e9155ce6e5c8dcee8f941cc60e0c16}{Mid}}(xbUInt32 ulStartPos, xbUInt32 ulTargLen = 0 );}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{399 }
+\DoxyCodeLine{403   \textcolor{keyword}{operator} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *() \textcolor{keyword}{const};}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{406 }
+\DoxyCodeLine{411    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator != ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& s ) \textcolor{keyword}{const};}
+\DoxyCodeLine{417    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator != ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * s ) \textcolor{keyword}{const};}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{421 }
+\DoxyCodeLine{426    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \mbox{\hyperlink{classxb_1_1xbString_aab556e8c3cb478dd95643327d72a48bd}{operator+}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s );}
+\DoxyCodeLine{427 }
+\DoxyCodeLine{433    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \mbox{\hyperlink{classxb_1_1xbString_af559654baba81c3c0c19823c0b7a69d3}{operator+}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} c );}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{440    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \mbox{\hyperlink{classxb_1_1xbString_a1f289d577ba90c500bc1be3ec7bb0206}{operator+}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s );}
+\DoxyCodeLine{442 }
+\DoxyCodeLine{444 }
+\DoxyCodeLine{448    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_ae12f45b8be84e438e032c0b860f985c6}{operator+=}}(\textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{449 }
+\DoxyCodeLine{454    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_ab319120dbad9107e1e7090139c956100}{operator+=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{460    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_a76a47af239797a266ada6141c150001c}{operator+=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s);}
+\DoxyCodeLine{462 }
+\DoxyCodeLine{464 }
+\DoxyCodeLine{469   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \mbox{\hyperlink{classxb_1_1xbString_a06abec236b95f6933ba17bf67089f7cf}{operator-\/}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s );}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{472 }
+\DoxyCodeLine{476    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_adcafd019df23bb5724c46e34f3f31194}{operator-\/=}}(\textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{477 }
+\DoxyCodeLine{482    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_aaae97e6eda3d18c9f463993ade985bf4}{operator-\/=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
+\DoxyCodeLine{483 }
+\DoxyCodeLine{488    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_aa7f4db1b4eae9dfad46346db6e17ea15}{operator-\/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s);}
+\DoxyCodeLine{490 }
+\DoxyCodeLine{491 }
+\DoxyCodeLine{493 }
+\DoxyCodeLine{498   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator <  ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& s ) \textcolor{keyword}{const};}
+\DoxyCodeLine{499 }
+\DoxyCodeLine{501 }
+\DoxyCodeLine{506   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator <= ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& s ) \textcolor{keyword}{const};}
+\DoxyCodeLine{507 }
+\DoxyCodeLine{509 }
+\DoxyCodeLine{513    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&operator= (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s );}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{519    \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&operator= (\textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s );}
+\DoxyCodeLine{521 }
+\DoxyCodeLine{523 }
+\DoxyCodeLine{528    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator == ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * s ) \textcolor{keyword}{const};}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{535    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator == ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& s ) \textcolor{keyword}{const};}
+\DoxyCodeLine{537 }
+\DoxyCodeLine{543   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator > ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& s ) \textcolor{keyword}{const};}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{550   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator >= ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& s ) \textcolor{keyword}{const};}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{553 }
+\DoxyCodeLine{558    \textcolor{keywordtype}{char} \&\mbox{\hyperlink{classxb_1_1xbString_a90402baf798aad358bdde90a363608f2}{operator[]}}(xbUInt32 iPos) \textcolor{keyword}{const};}
+\DoxyCodeLine{559 }
+\DoxyCodeLine{565     \textcolor{keywordtype}{char} \&\mbox{\hyperlink{classxb_1_1xbString_afbe221abc2932f64ac72d9eb6e2e5278}{operator[]}}(xbInt32 iPos) \textcolor{keyword}{const};}
+\DoxyCodeLine{567 }
+\DoxyCodeLine{568 }
+\DoxyCodeLine{570 }
+\DoxyCodeLine{575   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_a50b07e479b8f0fbe26f4f11a6e330ef6}{PadLeft}}( \textcolor{keywordtype}{char} c, xbUInt32 ulNewLen );}
+\DoxyCodeLine{576 }
+\DoxyCodeLine{578 }
+\DoxyCodeLine{583   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_a5ca98cefd599f922481de3e417604d80}{PadRight}}( \textcolor{keywordtype}{char} c, xbUInt32 ulNewLen );}
+\DoxyCodeLine{584 }
+\DoxyCodeLine{585 }
+\DoxyCodeLine{587 }
+\DoxyCodeLine{592    xbUInt32  \mbox{\hyperlink{classxb_1_1xbString_a3baf59d15099589ff631995f129e582b}{Pos}}(\textcolor{keywordtype}{char} c) \textcolor{keyword}{const};}
+\DoxyCodeLine{593 }
+\DoxyCodeLine{600    xbUInt32  \mbox{\hyperlink{classxb_1_1xbString_a1b586890138da8bf0e23090bd8b34581}{Pos}}(\textcolor{keywordtype}{char} c, xbUInt32 ulStartPos ) \textcolor{keyword}{const};}
+\DoxyCodeLine{601 }
+\DoxyCodeLine{607    xbUInt32  \mbox{\hyperlink{classxb_1_1xbString_a8705d7277b72f5aa98021e84438914da}{Pos}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s) \textcolor{keyword}{const};}
+\DoxyCodeLine{609 }
+\DoxyCodeLine{611 }
+\DoxyCodeLine{616   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_a1bae6fa8f608261f6e889616482f6e39}{PutAt}}(xbUInt32 ulPos, \textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{617 }
+\DoxyCodeLine{619 }
+\DoxyCodeLine{624   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_ab35ce179e918117a00da9ae7ded74458}{Remove}}( xbUInt32 ulStartPos, xbUInt32 ulDelSize );}
+\DoxyCodeLine{625 }
+\DoxyCodeLine{627 }
+\DoxyCodeLine{634    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_a238774d9a6a2323848a18ff481c32516}{Replace}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sReplace, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sReplaceWith, xbInt16 iOption = 0 );}
+\DoxyCodeLine{635    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_ac52188af03bf0b6fc5bdf705d66e37d5}{Replace}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sReplace, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sReplaceWith, xbInt16 iOption = 0 );}
+\DoxyCodeLine{636    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_af2c321fcabe57fcb7ba433051b67da74}{Replace}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sReplace, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sReplaceWith, xbInt16 iOption = 0 );}
+\DoxyCodeLine{637    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_ac88b3735fe2e34f41711227535d54a5b}{Replace}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sReplace, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sReplaceWith, xbInt16 iOption = 0 );}
+\DoxyCodeLine{639 }
+\DoxyCodeLine{641 }
+\DoxyCodeLine{645   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_a164e667764c7ed2c67d1241973b57b05}{Resize}}( xbUInt32 ulSize );}
+\DoxyCodeLine{646 }
+\DoxyCodeLine{648 }
+\DoxyCodeLine{651   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_aaf330188d67c347ecae0d16f65b22077}{Rtrim}}();}
+\DoxyCodeLine{652 }
+\DoxyCodeLine{654 }
+\DoxyCodeLine{660    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_ab85753d2c39882e946a8468cbb587700}{Set}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s );}
+\DoxyCodeLine{661 }
+\DoxyCodeLine{669    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_a6eba6ccd0c805a22516de2c18a30f8a3}{Set}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s, xbUInt32 ulSize );}
+\DoxyCodeLine{670    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_ac0d08bd688fd0e3707e32886d0dfeb09}{Set}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s );}
+\DoxyCodeLine{672 }
+\DoxyCodeLine{674 }
+\DoxyCodeLine{678   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_a3af5b1f111f94b0667551fcbd1d97abd}{SetNum}}( xbInt32 lNum );}
+\DoxyCodeLine{679 }
+\DoxyCodeLine{681 }
+\DoxyCodeLine{687   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbString_ac8eab6994cfeeec1f51003c5f3e7d2e4}{Sprintf}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *sFormat, ...);}
+\DoxyCodeLine{688 }
+\DoxyCodeLine{689 }
+\DoxyCodeLine{691 }
+\DoxyCodeLine{694   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classxb_1_1xbString_a6715f4c0010f3ab487c9d787838a29b3}{Str}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{695 }
+\DoxyCodeLine{697 }
+\DoxyCodeLine{703   \textcolor{keywordtype}{char}      *\mbox{\hyperlink{classxb_1_1xbString_a3bc9e856c34f0c240a6e36e5b6e3ea7b}{strncpy}}( \textcolor{keywordtype}{char} * cDest, xbUInt32 n ) \textcolor{keyword}{const};}
+\DoxyCodeLine{704 }
+\DoxyCodeLine{706 }
+\DoxyCodeLine{711   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_a010ddb83773ee4e45c8324e82d6c8678}{SwapChars}}( \textcolor{keywordtype}{char} cFrom, \textcolor{keywordtype}{char} cTo );}
+\DoxyCodeLine{712 }
+\DoxyCodeLine{714 }
+\DoxyCodeLine{717   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_a602cac1a6ef3f6b52f587ac4c0ef4fb2}{ToLowerCase}}();}
+\DoxyCodeLine{718 }
+\DoxyCodeLine{720 }
+\DoxyCodeLine{723   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_a68001d0a44e6b4fe61e29a4e41ded9d4}{ToUpperCase}}();}
+\DoxyCodeLine{724 }
+\DoxyCodeLine{726 }
+\DoxyCodeLine{729   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_abc9bd33687d4e03ca52d77885721d626}{Trim}}();}
+\DoxyCodeLine{730 }
+\DoxyCodeLine{732 }
+\DoxyCodeLine{737   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}    \mbox{\hyperlink{classxb_1_1xbString_a72b16c15fd8822efaa5f158c34df7b1e}{ValidLogicalValue}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{738 }
+\DoxyCodeLine{740 }
+\DoxyCodeLine{744   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}    \mbox{\hyperlink{classxb_1_1xbString_aeed920d2a25111f776ddde2d530eb81b}{ValidNumericValue}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{745 }
+\DoxyCodeLine{747 }
+\DoxyCodeLine{751   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_a2fd30956a26a260d1ef6fdbe73dd93f9}{ZapChar}}( \textcolor{keywordtype}{char} c );}
+\DoxyCodeLine{752 }
+\DoxyCodeLine{754 }
+\DoxyCodeLine{758   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_addc3a470f6cd85d4c21bf9da38cf5ac9}{ZapLeadingChar}}( \textcolor{keywordtype}{char} c );}
+\DoxyCodeLine{759 }
+\DoxyCodeLine{761 }
+\DoxyCodeLine{765   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}  \&\mbox{\hyperlink{classxb_1_1xbString_afe3415bfa2e1089b792aeda0462fb99e}{ZapTrailingChar}}( \textcolor{keywordtype}{char} c );}
+\DoxyCodeLine{766 }
+\DoxyCodeLine{768 }
+\DoxyCodeLine{774   XBDLLEXPORT \textcolor{keyword}{friend} std::ostream\& operator<< ( std::ostream\& os, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& s );}
+\DoxyCodeLine{775 }
+\DoxyCodeLine{776  \textcolor{keyword}{private}:}
+\DoxyCodeLine{777 }
+\DoxyCodeLine{778   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}     *NullString;}
+\DoxyCodeLine{779   \textcolor{keyword}{static}       \textcolor{keywordtype}{char}     cNullByte;}
+\DoxyCodeLine{780 }
+\DoxyCodeLine{781                \textcolor{keywordtype}{char}     *data;          \textcolor{comment}{// pointer to actual string data}}
+\DoxyCodeLine{782                xbUInt32 size;           \textcolor{comment}{// size of string plus null terminating byte}}
+\DoxyCodeLine{783 }
+\DoxyCodeLine{784   \textcolor{keywordtype}{void}     ctor(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
+\DoxyCodeLine{785 }
+\DoxyCodeLine{786   \textcolor{comment}{// next routine could result in buffer over runs if used with improperly sized buffers}}
+\DoxyCodeLine{787   \textcolor{keywordtype}{char} *   xb\_strcpy ( \textcolor{keywordtype}{char} *target, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *source);}
+\DoxyCodeLine{788 }
+\DoxyCodeLine{789 \};}
+\DoxyCodeLine{790 }
+\DoxyCodeLine{791 \}        \textcolor{comment}{/* namespace */}}
+\DoxyCodeLine{792 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XBSTRING\_H\_\_ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

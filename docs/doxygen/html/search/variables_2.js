@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['errorcodetext_0',['ErrorCodeText',['../classxb_1_1xbSsv.html#a6219f1b5e24ea12fe158cd5aea56988e',1,'xb::xbSsv']]]
+  ['errorcodetext_0',['ErrorCodeText',['../classxb_1_1xbCore.html#ad2f79db40c113c70830787a67047a07d',1,'xb::xbCore']]]
 ];

@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2019,2022 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2019,2022,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -26,36 +26,153 @@ Email Contact:
 
 namespace xb{
 
+//! @brief xbLinkListOrd class.
+/*!
+<ul>
+<li>Template based class, supports an ordered list of any object type
+<li>Items are placed in the list based on key value
+<li>xbLLN is a linked list node of type xbNodeType
+<li>Class is available if XB_LINKLIST_SUPPORT is compiled in library
+</ul>
+*/
+
 
 template<class xbNodeType>
 class XBDLLEXPORT xbLinkListOrd {
   public:
+   /*!
+      @brief Constructor
+   */
    xbLinkListOrd();
+ 
+   /*!
+      @brief Destructor
+   */
    ~xbLinkListOrd();
 
+   /*!
+      @brief Clear the linked list and free memory
+   */
    void    Clear();
-   xbLinkListNode<xbNodeType> *GetHeadNode() const;
+
+   /*!
+      @brief Return the user string for a given key value
+      @param ntKey Key value to search on
+      @param sData Output - xbString for found node
+      @returns XB_NO_ERROR or XB_NOT_FOUND
+   */
+   xbInt16 GetDataForKey( const xbNodeType &ntKey, xbString &sData );
+
+   /*!
+      @brief Return dup keys setting
+      @returns xbTrue Duplicate keys allowed<br>
+               xbFalse Duplicate keys not allowed
+   */
+   xbBool GetDupKeys();
+
+   /*!
+      @brief Return the end node of the list
+      @returns Reference to the end node
+   */
    xbLinkListNode<xbNodeType> *GetEndNode() const;
-   xbLinkListNode<xbNodeType> *GetNodeForKey( const xbString &sKey ) const;
 
-   xbInt16  GetDataForKey  ( const xbNodeType &ntKey, xbString &sData );
+   /*!
+      @brief Return the head node of the list
+      @returns Reference to the head node
+   */
+   xbLinkListNode<xbNodeType> *GetHeadNode() const;
 
-   xbBool   GetDupKeys     ();
 
-   xbUInt32 GetNodeCnt     () const;
-   xbUInt32 GetNodeCnt     ( const xbString &sNodeKey ) const;
-   xbInt16  InsertKey      ( const xbNodeType &ntKey );
-   xbInt16  InsertKey      ( const xbNodeType &ntKey, const xbString &sData );
-   xbInt16  InsertKey      ( const xbNodeType &ntKey, xbUInt32 ulData );
+   /*!
+      @brief Get the total node count in the linked list
+      @returns Node count
+   */
+   xbUInt32 GetNodeCnt() const;
 
-   xbBool   KeyExists      ( const xbNodeType &ntKey ) const;
-   xbInt16  RemoveKey      ( const xbNodeType &ntKey );
-   xbInt16  RemoveFromEnd  ( xbNodeType &ntKey );
-   xbInt16  RemoveFromFront( xbNodeType &ntKey );
-   xbInt16  RemoveFromFront();
-   void     SetDupKeys     ( xbBool bAllowDupKeys );
-   xbInt16  UpdateForKey   ( const xbNodeType &ntKey, const xbString &sData );
- 
+   /*!
+      @brief Get the total node count in the linked list for a given key
+      @returns Node count
+      @note Current version only works if for node type of strings.
+             Feel free to expand this and send in your updates for inclusion in the library
+   */
+   xbUInt32 GetNodeCnt( const xbString &sNodeKey ) const;
+
+   /*!
+      @brief Insert a node into the list
+      @param ntKey Node with data
+      @return XB_NO_ERROR, XB_NO_MEMORY or XB_KEY_NOT_UNIQUE
+      @note Library inserts key into correct location
+   */
+   xbInt16 InsertKey( const xbNodeType &ntKey );
+
+   /*!
+      @brief Insert a node into the list with user string
+      @param ntKey Node with data
+      @param sData User defined string data
+      @return XB_NO_ERROR, XB_NO_MEMORY or XB_KEY_NOT_UNIQUE
+      @note Library inserts key into correct location
+   */
+   xbInt16 InsertKey( const xbNodeType &ntKey, const xbString &sData );
+
+   /*!
+      @brief Insert a node into the list with user numeric data
+      @param ntKey Node with data
+      @param ulData User defined numeric data
+      @return XB_NO_ERROR, XB_NO_MEMORY or XB_KEY_NOT_UNIQUE
+      @note Library inserts key into correct location
+   */
+   xbInt16 InsertKey( const xbNodeType &ntKey, xbUInt32 ulData );
+
+   /*!
+      @brief Check list for existence of given key
+      @returns xbTrue Key found<br>
+               xbFalse Key not found
+   */
+   xbBool KeyExists( const xbNodeType &ntKey ) const;
+
+   /*!
+      @brief Remove node for a given key
+      @param ntKey Key value
+      @returns XB_NO_ERROR or XB_NOT_FOUND
+      @note If multiple nodes with same key, this routine removes the first one
+   */
+   xbInt16 RemoveKey( const xbNodeType &ntKey );
+
+   /*!
+      @brief Remove node from end of linked list
+      @param ntKey Output key value in end node
+      @returns XB_NO_ERROR or XB_INVALID_NODELINK
+   */
+   xbInt16 RemoveFromEnd( xbNodeType &ntKey );
+
+   /*!
+      @brief Remove node from front of linked list
+      @param ntKey Output key value in first node
+      @returns XB_NO_ERROR or XB_INVALID_NODELINK
+   */
+   xbInt16 RemoveFromFront( xbNodeType &ntKey );
+
+   /*!
+      @brief Remove node from front of linked list
+      @returns XB_NO_ERROR or XB_INVALID_NODELINK
+   */
+   xbInt16 RemoveFromFront();
+
+   /*!
+      @brief Set duplicate key switch
+      @param bAllowDupKeys xbTrue Allow duplicate keys in linked list<br>
+                           xbFalse Don't allow duplicate keys in linked list
+   */
+   void SetDupKeys( xbBool bAllowDupKeys );
+
+   /*!
+      @brief Update user string value for a given key
+      @param ntKey Key value to retrieve for update
+      @param sData New data value to be associated with key
+      @returns XB_NO_ERROR or XB_NO_MEMORY
+      @note If key is not found, new node is added to the list
+   */
+   xbInt16 UpdateForKey( const xbNodeType &ntKey, const xbString &sData );
 
   private:
    xbUInt32   ulNodeCnt;
@@ -65,6 +182,7 @@ class XBDLLEXPORT xbLinkListOrd {
 
 };
 
+/// @cond
 
 template<class xbNodeType>
 xbLinkListOrd<xbNodeType>::xbLinkListOrd(){
@@ -353,11 +471,13 @@ xbInt16 xbLinkListOrd<xbNodeType>::UpdateForKey( const xbNodeType &ntKey, const 
     delete currPtr;
     return XB_NO_ERROR;
   }
-  
+
   return InsertKey( ntKey, sData );
 
 // return 0;
 }
+
+/// @endcond
 
 }               // namespace
 

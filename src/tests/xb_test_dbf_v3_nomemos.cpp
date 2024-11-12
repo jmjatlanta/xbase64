@@ -72,9 +72,9 @@ int main( int argCnt, char **av )
 
   x.SetDataDirectory( PROJECT_DATA_DIR );
 
-  #ifdef XB_LOCKING_SUPPORT
-  x.DisableDefaultAutoLock();
-  #endif // XB_LOCKING_SUPPORT
+  //#ifdef XB_LOCKING_SUPPORT
+  //x.DisableDefaultAutoLock();
+  //#endif // XB_LOCKING_SUPPORT
 
   InitTime();
 

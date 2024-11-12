@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2019,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2019,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under 
 the terms of the GPL Version 3, 2007 license.
@@ -72,7 +72,9 @@ int main(int argc, char *argv[])
   x.WriteLogMessage( sMsg );
   #endif
 
-  if(( iRc = x.OpenHighestVersion( sSrcDbf, "", &dSrc )) != XB_NO_ERROR ){
+  //if(( iRc = x.OpenHighestVersion( sSrcDbf, "", &dSrc )) != XB_NO_ERROR ){
+
+  if(( iRc = x.Open( sSrcDbf, "", &dSrc )) != XB_NO_ERROR ){
     std::cout << "Could not open file iRc = " << iRc  << " file = "  << sSrcDbf.Str() << std::endl;
     x.DisplayError( iRc );
     return 1;

@@ -128,73 +128,480 @@ literals are a series of one or more contiguous numerals, ".", "+" or "-'".
 A field is simply a field name in the default database, or is in the form
 of database->fieldname.
 
+See program /source/examples/xb_ex_expression.cpp for examples of how to use this functionality.
+
 */
 
 class XBDLLEXPORT xbExp{
 
   public:
-    xbExp( xbXBase * );
-    xbExp( xbXBase *, xbDbf * );
+
+   //! Constructor
+   /*!
+      @param x Pointer to xbXBase instance.
+   */
+    xbExp( xbXBase * x );
+
+    //! @brief Constructor
+    /*!
+     @param x Pointer to xbXBase instance.
+     @param dbf Pointer to xbDbf instance.
+    */
+    xbExp( xbXBase * x, xbDbf * dbf );
+
+    //! @brief Destructor.
     virtual ~xbExp();
+
+    //! @brief Clear tree handle.
+    /*!
+      This routine clears the expression tree of nodes and frees any associated memory.
+    */
     void ClearTreeHandle();
 
 
     #ifdef XB_DEBUG_SUPPORT
+
+    //! @brief Dump the tree of nodes and their contents.
+    /*!
+       @param iOption - Output option.
+       <table border>
+       <tr><td>1</td><td>Write to logfile</td></tr>
+       <tr><td>2</td><td>Write to stdout</td></tr>
+       <tr><td>3</td><td>Write to logfile and stdout</td></tr>
+       </table>
+
+       @note Available if XB_DEBUG_SUPPORT option compiled into the library.
+    */
     void      DumpTree( xbInt16 iOption );
-    void      DumpToken( xbExpToken &t, xbInt16 iOption = 0 );
+    //! @brief Dump token contents
+    /*!
+       @param pNode - Pointer to head node of the tree
+       @param iOption - Output option.
+       <table border>
+       <tr><td>1</td><td>Write to logfile</td></tr>
+       <tr><td>2</td><td>Write to stdout</td></tr>
+       <tr><td>3</td><td>Write to logfile and stdout</td></tr>
+       </table>
+
+       @note Available if XB_DEBUG_SUPPORT option compiled into the library.
+    */
+    void      DumpToken( xbExpToken &pNode, xbInt16 iOption = 0 );
     #endif
 
+    //! @brief Get result length.
+    /*!
+       This routine returns the result length.
+       @returns Result length.
+    */
     xbInt16   GetResultLen() const;
+
+    //! @brief Get return type.
+    /*!
+       @returns One of:<br>
+                XB_EXP_CHAR<br>
+                XB_EXP_DATE<br>
+                XB_EXP_LOGICAL<br>
+                XB_EXP_NUMERIC
+    */
     char      GetReturnType() const;
+
+    //! @brief Get bool result.
+    /*!
+       If the expression generates a boolean return type, this method retrieves the boolean value.
+       @param bResult - Output boolean value. 
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16   GetBoolResult( xbBool &bResult );
+
+    //! @brief Get date result.
+    /*!
+       If the expression generates a date return type, this method retrieves the date value.
+       @param dtResult - Output date value.
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16   GetDateResult( xbDate &dtResult );
+
+    //! @brief Get numeric result.
+    /*!
+       If the expression generates a numeric return type, this method retrieves the numeric value.
+       @param dResult - Output numeric value.
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16   GetNumericResult( xbDouble &dResult );
+
+    //! @brief Get string result.
+    /*!
+       If the expression generates a string return type, this method retrieves the string value.
+       @param sResult - Output string value.
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16   GetStringResult( xbString &sResult );
+
+    //! @brief Get string result.
+    /*!
+      If the expression generates a string return type, this method retrieves the string value.
+      @param vpResult - Pointer to user supplied buffer for result.
+      @param ulLen - Max size of buffer.
+      @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16   GetStringResult( char * vpResult, xbUInt32 ulLen );
+
+    //! @brief Get the expression tree handle.
+    /*!
+       @private
+       @returns Pointer to the top most node in the expression tree.
+    */
     xbExpNode *GetTreeHandle();
+
+    //! @brief Parse expression.
+    /*!
+       @param sExpression - Expression to parse.
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16   ParseExpression( const xbString &sExpression );
+
+    //! @brief Parse expression.
+    /*!
+       @param dbf - Pointer to xbDbf instance.
+       @param sExpression - Expression to parse.
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16   ParseExpression( xbDbf *dbf, const xbString &sExpression );
+
+    //! @brief ProcessExpression
+    /*! This method processes an expression tree leaving the result in the
+        root node of the tree
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16   ProcessExpression();
+
+    //! @brief ProcessExpression
+    /*! This method processes a parsed expression tree leaving the result in the
+        root node of the tree
+
+        @param iRecBufSw Record buffer to use when evaluating expression.<br>
+                   0 - Current record buffer.<br>
+                   1 - Original record buffer.
+    */
     xbInt16   ProcessExpression( xbInt16 iRecBufSw );
 
-
   protected:
+
+
+    //! @brief GetNextToken
+    /*!
+        @private
+        This method returns the next token in an expression of one or more tokens
+        @param t Token
+        @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16   GetNextToken( xbExpToken &t );
+
+
+    //! @brief Get operator weight.
+    /*!
+       @private
+       This method determines the priority of an operator
+
+       Operator precendence
+         10  .AND. .OR. .NOT.   (not really an operator)
+         9  > or <  (includes <= or >=)
+         6  unary plus or minus  (+,-)   -- not passed this routine
+         5  prefix increment and/or decrement (++,--)
+         4  exponentiation  ** or ^
+         3  multiplication,division or modulus  (*,/,%)
+         2  Addition, subtraction (+,-)
+         1  Postfix increment and/or decrement  (++,--)
+
+         @param sOper - Operator.
+         @returns Operator weight
+    */
     xbInt16   OperatorWeight( const xbString &sOperator );
+
+    //! @brief Get the next node in the tree.
+    /*!
+       @private
+       @param n Node to starting point.  To get the first node of the entire tree, set n = NULL
+       @returns Pointer to next node.
+    */
+
     xbExpNode *GetNextNode( xbExpNode * n ) const;  // traverses the tree from bottom left node, right, then up
 
   private:    // methods
 
     // xbInt16 CalcExpressionResultLen();
+
+    //! @brief Calulate expression return length
+    /*!
+       @private
+       This function returns the maximum possible length of an expression
+       The create index functions use this for determining the fixed length keys 
+       It sets the return length field in the node.
+
+       @param n Start node
+       @returns XB_NO_ERROR<br>XB_PARSE_ERROR
+    */
     xbInt16 CalcFunctionResultLen( xbExpNode *n ) const;
     xbInt16 CalcCharNodeLen( xbExpNode *n );
+
+    //! @brief Check parens and quotes
+    /*!
+       @private
+       This routine looks for unbalanced parens and quotes
+
+       @param sExpression Expression to examine.
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16 CheckParensAndQuotes( const xbString &sExpression );
     xbInt16 GetExpressionResultLen() const;
 
+    //! @brief GetTokenCharConstant
+    /*! @private
+        This method returns the character constant in a pair of quotes
+
+        This routine returns the tokens inside a set of matching quotes in sOutToken
+        If there is nothing between the quotes then sOutToken is returned empty
+        sOutRemainder contains whatever remains to the right of the right quote
+
+        @param t Token
+        @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
+
+    //! GetTokenCharConstant
+    /*!
+        @private
+        This method returns the character constant in a pair of quotes
+
+        This routine returns the tokens inside a set of matching quotes in sOutToken
+        If there is nothing between the quotes then sOutToken is returned empty
+        sOutRemainder contains whatever remains to the right of the right quote
+
+        @param t Token
+        @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16 GetTokenCharConstant   ( xbExpToken &t );
+
+    //! @brief GetTokenField
+    /*!
+       @private
+       This method gets a database field token 
+
+       Looks for a xbase field in one of the following formats
+
+       FIELDNAME
+          or
+       TABLENAME->FIELDNAME
+
+       @param t Token.
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16 GetTokenDatabaseField  ( xbExpToken &t );
+
+    //! @brief GetTokenDateConstant
+    /*! 
+       @private
+       This method returns the date constant in a pair of {}
+
+       Date format is one of {mm/dd/yy}   or  {mm/dd/yyyy}
+       @param t Token.
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16 GetTokenDateConstant   ( xbExpToken &t );
+
+    //! @brief GetTokenFunction
+    /*!
+      @private
+      This method gets a function and everything between the following quotes
+      @param t Token
+      @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16 GetTokenFunction       ( xbExpToken &t );
+
     xbInt16 GetTokenLogicalConstant( xbExpToken &t );
+
+    //! @brief GetTokenNumericConstant
+    /*!
+       @private
+       This method returns a numeric constant in 
+
+       This routine returns a numeric constant token
+       sOutRemainder contains whatever remains to the right of the right quote
+
+       @param t Token
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16 GetTokenNumericConstant( xbExpToken &t );
+
+    //! @brief GetTokenOperator
+    /*!
+       @private
+       This method returns the operator
+
+       @param t Token
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16 GetTokenOperator       ( xbExpToken &t );
+
+    //! @brief GetTokenParen
+    /*!
+       @private
+       This method returns the tokens in a pair of enclosed parens
+
+       This routine returns the tokens inside a set of matching parens in sOutToken
+       If there is nothing between the parens then sOutToken is returned empty
+       sOutRemainder contains whatever remains to the right of the right paren
+
+       @param t Token
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16 GetTokenParen          ( xbExpToken &t );
 
+   //! @brief Is Function
+   /*!
+      @private
+      This method determines if the next token is a function.
+
+      @param sExpression - String expression to be evaluated.
+      @param cReturnType Output - Return type.
+      @returns xbTrue - Is a function.<br>
+               xbFalse - Is not a function.
+    */
     xbBool  IsFunction             ( const xbString &sExp, char &cReturnType );
+
+    //! @brief Is Logical constant
+    /*!
+       @private
+       This method determines if the next token is a logical constant (T/F, etc).
+
+       @param sExpression - String expression to be evaluated.
+       @returns xbTrue - Is a logical constant.<br>
+                xbFalse - Is not a logical constant.
+    */
     xbBool  IsLogicalConstant      ( const xbString &sExp );
+
+    //! @brief Is Numeric constant
+    /*!
+       @private
+       This method determines if the next token is a numeric constant.
+
+       @param sExpression - String expression to be evaluated.
+       @param cPrevNodeType - Type of previous node.
+       @returns xbTrue - Is a numeric constant.<br>
+                xbFalse - Is not a numeric constant.
+    */
     xbBool  IsNumericConstant      ( const xbString &sExp, char cPrevNodeType );
+
+    //! @brief Is Operator.
+    /*!
+       @private
+       This method determines if the next token is an operator.
+
+       @param sExpression - String expression to be evaluated.
+       @returns xbTrue - Is an operator.<br>
+                xbFalse - Is not an operator.
+    */
     xbBool  IsOperator             ( const xbString &sExp );
+
+    //! @brief Is Token separator
+    /*!
+       @private
+       This method determines if the next token is a separator.
+
+       @param sExpression - String expression to be evaluated.
+       @returns xbTrue - Is a token separator.<br>
+                xbFalse - Is not a token separator.
+    */
     char    IsTokenSeparator       ( char c );
+
+
+    //! @brief Is White space
+    /*!
+       @private
+       This method determines if a given character is white space.
+
+       @param c - Character to be evaluated.
+       @returns xbTrue - Is white space.<br>
+                xbFalse - Is not white space.
+    */
     xbBool  IsWhiteSpace           ( char c );
 
+    //! @brief Parse expression.
+    /*!
+       @private
+       @param sExpression - Expression to parse.
+       @param iWeight.
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16 ParseExpression        ( const xbString &sExpression, xbInt16 iWeight );
+
+
+    //! @brief Parse expression constant.
+    /*!
+       @private
+       @param t - Token.
+       @param n - Node.
+       @returns XB_NO_ERROR<br>XB_PARSE_ERROR
+    */
     xbInt16 ParseExpressionConstant( xbExpToken &t, xbExpNode *n );
+
+    //! @brief Parse expression function.
+    /*!
+       @private
+       @param t - Token.
+       @param n - Node.
+       @param iWeight
+       @returns XB_NO_ERROR<br>XB_INVALID_FUNCTION
+    */
     xbInt16 ParseExpressionFunction( xbExpToken &t, xbExpNode *n, xbInt16 iWeight );
+
+    //! @brief Parse expression function.
+    /*!
+       @private
+
+       Creates a linked list of function parms as xbStrings
+       This function pulls out the parms and addresses embedded parens and quotes within the parms
+
+       @param sParms
+       @param lParms
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16 ParseExpressionFunctionParms( const xbString &sParms, xbLinkList<xbString> &llParms );
+
+
+    //! @brief Parse expression field.
+    /*!
+       @private
+       @param t - Token.
+       @param n - Node.
+       @returns <a href="xbretcod_8h.html">Return Codes</a>
+    */
     xbInt16 ParseExpressionField   ( xbExpToken &t, xbExpNode *n );
+
+    //! @brief Parse expression operator.
+    /*!
+       @private
+       @param t - Token.
+       @param n - Node.
+       @param iWeight
+       @returns XB_NO_ERROR
+    */
     xbInt16 ParseExpressionOperator( xbExpToken &t, xbExpNode *n, xbInt16 iWeight );
 
+    //! @brief ProcessExpression
+    /*! This method processes an expression tree for a given node.
+      @returns XB_NO_ERROR<br>
+               XB_INCONSISTENT_PARM_LENS<br>
+               XB_PARSE_ERROR
+    */
     xbInt16 ProcessExpressionFunction( xbExpNode *n, xbInt16 iRecBufSw = 0 );
+
+
+    //! @brief Process Expression Operator
+    /*! This method processes an expression operator for a given node.
+      @returns XB_NO_ERROR<br>
+               XB_INCOMPATIBLE_OPERANDS<br>
+               XB_PARSE_ERROR
+    */
     xbInt16 ProcessExpressionOperator( xbExpNode *n );
 
   private:   // fields

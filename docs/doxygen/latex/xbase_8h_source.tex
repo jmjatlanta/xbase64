@@ -1,5 +1,5 @@
 \hypertarget{xbase_8h_source}{}\doxysection{xbase.\+h}
-\label{xbase_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbase.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbase.h}}
+\label{xbase_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbase.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbase.h}}
 \mbox{\hyperlink{xbase_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*  xbase.h}}
@@ -81,34 +81,28 @@
 \DoxyCodeLine{77 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbretcod_8h}{xbretcod.h}}>}}
 \DoxyCodeLine{78 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbtypes_8h}{xbtypes.h}}>}}
 \DoxyCodeLine{79 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbstring_8h}{xbstring.h}}>}}
-\DoxyCodeLine{80 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbssv_8h}{xbssv.h}}>}}
-\DoxyCodeLine{81 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbdate_8h}{xbdate.h}}>}}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{83 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xblnknod_8h}{xblnknod.h}}>}}
-\DoxyCodeLine{84 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xblnklst_8h}{xblnklst.h}}>}}
-\DoxyCodeLine{85 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xblnklstord_8h}{xblnklstord.h}}>}}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{87 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbtblmgr_8h}{xbtblmgr.h}}>}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbbit_8h}{xbbit.h}}>}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbcore_8h}{xbcore.h}}>}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbdate_8h}{xbdate.h}}>}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbtime_8h}{xbtime.h}}>}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xblnknod_8h}{xblnknod.h}}>}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xblnklst_8h}{xblnklst.h}}>}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xblnklstord_8h}{xblnklstord.h}}>}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#include <xbtblmgr.h>}}
 \DoxyCodeLine{88 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbxbase_8h}{xbxbase.h}}>}}
-\DoxyCodeLine{89 }
-\DoxyCodeLine{90 \textcolor{comment}{//\#include <xblnknod.h>}}
-\DoxyCodeLine{91 \textcolor{comment}{//\#include <xblnklst.h>}}
-\DoxyCodeLine{92 \textcolor{comment}{//\#include <xblnklstord.h>}}
-\DoxyCodeLine{93 }
-\DoxyCodeLine{94 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbfile_8h}{xbfile.h}}>}}
-\DoxyCodeLine{95 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xblog_8h}{xblog.h}}>}}
-\DoxyCodeLine{96 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbmemo_8h}{xbmemo.h}}>}}
-\DoxyCodeLine{97 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbbcd_8h}{xbbcd.h}}>}}
-\DoxyCodeLine{98 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbuda_8h}{xbuda.h}}>}}
-\DoxyCodeLine{99 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbexpnode_8h}{xbexpnode.h}}>}}
-\DoxyCodeLine{100 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbexp_8h}{xbexp.h}}>}}
-\DoxyCodeLine{101 }
-\DoxyCodeLine{102 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbtag_8h}{xbtag.h}}>}}
-\DoxyCodeLine{103 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbblkread_8h}{xbblkread.h}}>}}
-\DoxyCodeLine{104 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbdbf_8h}{xbdbf.h}}>}             \textcolor{comment}{/* dbf base class   */}}
-\DoxyCodeLine{105 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbindex_8h}{xbindex.h}}>}           \textcolor{comment}{/* index base class */}}
-\DoxyCodeLine{106 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbfilter_8h}{xbfilter.h}}>}}
-\DoxyCodeLine{107 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbrelate_8h}{xbrelate.h}}>}}
-\DoxyCodeLine{108 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbsql_8h}{xbsql.h}}>}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbfile_8h}{xbfile.h}}>}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xblog_8h}{xblog.h}}>}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#include <xbmemo.h>}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbbcd_8h}{xbbcd.h}}>}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#include <xbuda.h>}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#include <xbexpnode.h>}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbexp_8h}{xbexp.h}}>}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbtag_8h}{xbtag.h}}>}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbblkread_8h}{xbblkread.h}}>}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbdbf_8h}{xbdbf.h}}>}             \textcolor{comment}{/* dbf base class   */}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbindex_8h}{xbindex.h}}>}           \textcolor{comment}{/* index base class */}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbfilter_8h}{xbfilter.h}}>}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbrelate_8h}{xbrelate.h}}>}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xbsql_8h}{xbsql.h}}>}}
 
 \end{DoxyCode}

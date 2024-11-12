@@ -38,7 +38,7 @@ PROJECT_NAME           = "Xbase64"
 # could be handy for archiving the generated documentation or if some version
 # control system is used.
 
-PROJECT_NUMBER         = 4.1.7
+PROJECT_NUMBER         = 4.1.11
 
 # Using the PROJECT_BRIEF tag one can provide an optional one line description
 # for a project that appears at the top of each page and should give viewer a
@@ -391,7 +391,8 @@ IDL_PROPERTY_SUPPORT   = YES
 # all members of a group must be documented explicitly.
 # The default value is: NO.
 
-DISTRIBUTE_GROUP_DOC   = NO
+#DISTRIBUTE_GROUP_DOC   = NO
+DISTRIBUTE_GROUP_DOC   = YES
 
 # If one adds a struct or class to a group and this option is enabled, then also
 # any nested class or struct is added to the same group. By default this option
@@ -876,8 +877,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = ../../../src
-#INPUT                  = /mnt/1Tdata/xbase/xbase64-4.0.1/src/core
+INPUT                  = /mnt/1Tdata/xbase/xbase64-4.1.11/src/include
 
 
 # This tag can be used to specify the character encoding of the source files
@@ -967,7 +967,10 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which doxygen is
 # run.
 
-EXCLUDE                =
+EXCLUDE                = ../../../src/include/xbexpnode.h \
+                         ../../../src/include/xbmemo.h \
+                         ../../../src/include/xbtblmgr.h \
+                         ../../../src/include/xbuda.h
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
@@ -1090,12 +1093,14 @@ USE_MDFILE_AS_MAINPAGE =
 # The default value is: NO.
 
 SOURCE_BROWSER         = NO
+#SOURCE_BROWSER         = YES
 
 # Setting the INLINE_SOURCES tag to YES will include the body of functions,
 # classes and enums directly into the documentation.
 # The default value is: NO.
 
-INLINE_SOURCES         = NO
+#INLINE_SOURCES         = NO
+INLINE_SOURCES         = YES
 
 # Setting the STRIP_CODE_COMMENTS tag to YES will instruct doxygen to hide any
 # special comment blocks from generated source code fragments. Normal C, C++ and
@@ -1570,7 +1575,9 @@ DISABLE_INDEX          = NO
 # The default value is: NO.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-GENERATE_TREEVIEW      = NO
+#GENERATE_TREEVIEW      = NO
+GENERATE_TREEVIEW      = YES
+
 
 # When both GENERATE_TREEVIEW and DISABLE_INDEX are set to YES, then the
 # FULL_SIDEBAR option determines if the side bar is limited to only the treeview
@@ -2257,7 +2264,9 @@ MACRO_EXPANSION        = NO
 # The default value is: NO.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-EXPAND_ONLY_PREDEF     = NO
+#EXPAND_ONLY_PREDEF     = NO
+EXPAND_ONLY_PREDEF     = YES
+
 
 # If the SEARCH_INCLUDES tag is set to YES, the include files in the
 # INCLUDE_PATH will be searched if a #include is found.
@@ -2289,7 +2298,11 @@ INCLUDE_FILE_PATTERNS  =
 # recursively expanded use the := operator instead of the = operator.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-PREDEFINED             =
+PREDEFINED = XB_DEBUG_SUPPORT XB_DBF3_SUPPORT XB_DBF4_SUPPORT XB_DBF5_SUPPORT XB_MEMO_SUPPORT \
+ XB_NDX_SUPPORT XB_MDX_SUPPORT XB_TDX_SUPPORT XB_LOCKING_SUPPORT XB_LINKLIST_SUPPORT \
+ XB_FUNCTION_SUPPORT XB_EXPRESSION_SUPPORT XB_FILTER_SUPPORT XB_DEBUG_SUPPORT \
+ XB_UTILS_SUPPORT XB_EXAMPLES_SUPPORT XB_LOGGING_SUPPORT XB_SQL_SUPPORT \
+ XB_INF_SUPPORT XB_RELATE_SUPPORT XB_BLOCKREAD_SUPPORT
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

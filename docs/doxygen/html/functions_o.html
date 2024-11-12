@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -48,6 +52,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_o.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -66,29 +86,31 @@ $(function() {
 <div class="textblock">Here is a list of all struct and union fields with links to the structures/unions they belong to:</div>
 
 <h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
-<li>Open()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ae388c5e02adc86e6e9988e697e061610">xb::xbDbf</a>, <a class="el" href="classxb_1_1xbXBase.html#aafb1abd6b6124cddf635adaf9f615a4a">xb::xbXBase</a></li>
-<li>OpenHighestVersion()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#aa957eb502ecd076e5df89e7415cb094b">xb::xbXBase</a></li>
+<li>Open()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf3.html#a710f8c1dcc5ee9e93a46a77d0f076b70">xb::xbDbf3</a>, <a class="el" href="classxb_1_1xbDbf4.html#af031ebaf2c787cc41e5eb7abf476ddb8">xb::xbDbf4</a>, <a class="el" href="classxb_1_1xbDbf.html#ac658818bf9b8f8ff7467d8d80495b324">xb::xbDbf</a>, <a class="el" href="classxb_1_1xbXBase.html#abdf560ff45173ece0baab3640c908fc8">xb::xbXBase</a></li>
 <li>operator const char *()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a545df0ae9590f0ea5844a165e38a6388">xb::xbString</a></li>
-<li>operator!=()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#ac3aaf8997fc0c36676085e7741f33a8a">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#acf89691607050b0505dc6af28d059c38">xb::xbString</a></li>
-<li>operator+()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#ad09609bf78cf038886a4f9cd19423f9c">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#aab556e8c3cb478dd95643327d72a48bd">xb::xbString</a></li>
-<li>operator++()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a1c7d9e3718c43df18b21646072c8605e">xb::xbDate</a></li>
-<li>operator+=()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a947ba156d04fe063aaa4c9964ae5d163">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a76a47af239797a266ada6141c150001c">xb::xbString</a></li>
-<li>operator-()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a3f3a8802c96098c85aa8d0e19717a979">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a06abec236b95f6933ba17bf67089f7cf">xb::xbString</a></li>
-<li>operator--()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#ae2b33dfee60d324916d833b2098b5a6b">xb::xbDate</a></li>
-<li>operator-=()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a4a8f207d759540114373f5e9d6d375f7">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#aa7f4db1b4eae9dfad46346db6e17ea15">xb::xbString</a></li>
-<li>operator&lt;()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a11f09d97ed527e7ef00ba6f17b9fb02c">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a71c7aafa0d523c72cbe58c474be2270a">xb::xbString</a></li>
+<li>operator!=()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a445e9c574013ba58c96e78b196be8451">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a41a73c84323a8c48e244a45ab0c66130">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#a2e00b5b789af093161d319622dbfa7b9">xb::xbTime</a></li>
+<li>operator+()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a08c0e807e6e2746eef96730f46725366">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#aab556e8c3cb478dd95643327d72a48bd">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#af52426cff980f16216013d388d085cf8">xb::xbTime</a></li>
+<li>operator++()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a363989a4f9cf8f3e38d1ff61b1f1e7c0">xb::xbDate</a>, <a class="el" href="classxb_1_1xbTime.html#a49e00e777907797616afed8be4823b69">xb::xbTime</a></li>
+<li>operator+=()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a90d725c45e2335fc5bf0d5e5ef6ea697">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#ae12f45b8be84e438e032c0b860f985c6">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#a1103ac479fa86adc5295c67bcd8bb841">xb::xbTime</a></li>
+<li>operator-()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#aefc91f2a7e125a02a4fd2d88356f9397">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a06abec236b95f6933ba17bf67089f7cf">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#ac473c54418dc0c331fae4bd30e488543">xb::xbTime</a></li>
+<li>operator--()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a7b81cc74da25b2b36d7705eacb6ee20d">xb::xbDate</a>, <a class="el" href="classxb_1_1xbTime.html#a155fa6ec93244abb7510f29399b51aa0">xb::xbTime</a></li>
+<li>operator-=()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#ab5ae306941bc30329c59f10df95b9bc0">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#adcafd019df23bb5724c46e34f3f31194">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#a672c4f3de40a4c9bb67cc1a9a42293bd">xb::xbTime</a></li>
+<li>operator&lt;()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a811b149dbac972028edd47d3938f405a">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#adb04911d5b7a1c5411606ed774c70a99">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#ac367c1f04afcc9393aa00de843a8cb4c">xb::xbTime</a></li>
 <li>operator&lt;&lt;&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a8e5856ab09babb5b10c2fcb64434ca60">xb::xbString</a></li>
-<li>operator&lt;=()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a6d8fa4df4664f3fd8d4cc15e77f6d046">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a461f245e60cddfdf5f78a972a46e5880">xb::xbString</a></li>
-<li>operator=()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a2e33ad9415c32e820e08fd8084198690">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a4f69d11cbd43edf71725a606d0ca8f40">xb::xbString</a></li>
-<li>operator==()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#aaaf98c1a672066021895f0953b6e94d0">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a2df3ed2fc9456214f5fd2fcf77b69bc1">xb::xbString</a></li>
-<li>operator&gt;()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a744031c4031d6ec4595d34acbd1c5860">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#ae46f6a45da5686b607a4edf2786a2fff">xb::xbString</a></li>
-<li>operator&gt;=()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a1d81959ea55440588068ea7f82617c99">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a8f16643cb7ba3ee9cf685422c9ea0e67">xb::xbString</a></li>
-<li>operator[]()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#abe45e463226ac8e18550ced18c5a9df3">xb::xbString</a></li>
+<li>operator&lt;=()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a7ed92ad3c5e76923af73ffa7d92ff064">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#aed85b8f9f2af1159741b45dcb337651b">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#a93f96d9ed8fb5ed6a2eef070d4586018">xb::xbTime</a></li>
+<li>operator=()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#afefdf9de78590e8a43371a0556cae8bb">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a4f69d11cbd43edf71725a606d0ca8f40">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#a83c0a9463e04a5c81a0f96333a974f8f">xb::xbTime</a></li>
+<li>operator==()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#af1e416f728ef07354c2f5dbe7c83c2b2">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a13edecf629090656763b51f371740535">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#a64bc7f3b159d5b58d29c236ba08c060b">xb::xbTime</a></li>
+<li>operator&gt;()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#ae29584fcaa73f4f984474822377a1a0f">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a7c747092a0adb44401bda01357ef6764">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#ac94f3e91767485f849b722f0964b7a3f">xb::xbTime</a></li>
+<li>operator&gt;=()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a7549d4851b784e939394cadd26f83197">xb::xbDate</a>, <a class="el" href="classxb_1_1xbString.html#a14e3e09db44cc698fa79c5e4a1be8ba1">xb::xbString</a>, <a class="el" href="classxb_1_1xbTime.html#a0f9ec4e4337e34d656442d0d87878c45">xb::xbTime</a></li>
+<li>operator[]()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a90402baf798aad358bdde90a363608f2">xb::xbString</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

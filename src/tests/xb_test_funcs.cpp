@@ -93,9 +93,9 @@ int main( int argCnt, char **av )
   iRc += TestMethod( po, "PutField()",     MyFile->PutField( "DATE1", "19890303" ),  XB_NO_ERROR );
   iRc += TestMethod( po, "PutField()",     MyFile->PutField ( "DATE2", "20120708" ), XB_NO_ERROR );
 
-  #ifdef XB_LOCKING_SUPPORT
-  MyFile->SetAutoLock( xbFalse );
-  #endif  // XB_LOCKING_SUPPORT
+//  #ifdef XB_LOCKING_SUPPORT
+//  MyFile->SetAutoLock( xbFalse );
+//  #endif  // XB_LOCKING_SUPPORT
 
 
   iRc += TestMethod( po, "AppendRecord()", MyFile->AppendRecord(),                   XB_NO_ERROR );

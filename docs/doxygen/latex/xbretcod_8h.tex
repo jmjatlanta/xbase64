@@ -1,5 +1,5 @@
-\hypertarget{xbretcod_8h}{}\doxysection{/mnt/1\+Tdata/xbase/xbase64-\/4.1.7/src/include/xbretcod.h File Reference}
-\label{xbretcod_8h}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbretcod.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbretcod.h}}
+\hypertarget{xbretcod_8h}{}\doxysection{/mnt/1\+Tdata/xbase/xbase64-\/4.1.11/src/include/xbretcod.h File Reference}
+\label{xbretcod_8h}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbretcod.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbretcod.h}}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -42,39 +42,43 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \item 
 \#define \mbox{\hyperlink{xbretcod_8h_a9474b400f647bdefbbb07e5177e8d7a1}{XB\+\_\+\+NOT\+\_\+\+OPEN}}~-\/207
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_ac2606659a54111334f5b02861e533700}{XB\+\_\+\+NOT\+\_\+\+FOUND}}~-\/208
+\#define \mbox{\hyperlink{xbretcod_8h_a924a6c5471f92d102d9b3e89f60751c2}{XB\+\_\+\+NOT\+\_\+\+CLOSED}}~-\/208
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_aaab55236993a1d3acb29206252a904c8}{XB\+\_\+\+OPEN\+\_\+\+ERROR}}~-\/209
+\#define \mbox{\hyperlink{xbretcod_8h_ac2606659a54111334f5b02861e533700}{XB\+\_\+\+NOT\+\_\+\+FOUND}}~-\/209
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_a030684d5541cf6127a76d81b0684b235}{XB\+\_\+\+CLOSE\+\_\+\+ERROR}}~-\/210
+\#define \mbox{\hyperlink{xbretcod_8h_aaab55236993a1d3acb29206252a904c8}{XB\+\_\+\+OPEN\+\_\+\+ERROR}}~-\/210
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_a0455ad8719e153b08ec68b10c81e9f41}{XB\+\_\+\+SEEK\+\_\+\+ERROR}}~-\/211
+\#define \mbox{\hyperlink{xbretcod_8h_a030684d5541cf6127a76d81b0684b235}{XB\+\_\+\+CLOSE\+\_\+\+ERROR}}~-\/211
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_adbd40585db8bb748d191f94a33bac710}{XB\+\_\+\+READ\+\_\+\+ERROR}}~-\/212
+\#define \mbox{\hyperlink{xbretcod_8h_a0455ad8719e153b08ec68b10c81e9f41}{XB\+\_\+\+SEEK\+\_\+\+ERROR}}~-\/212
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_aef34ebe6726057f805d6063130280549}{XB\+\_\+\+WRITE\+\_\+\+ERROR}}~-\/213
+\#define \mbox{\hyperlink{xbretcod_8h_adbd40585db8bb748d191f94a33bac710}{XB\+\_\+\+READ\+\_\+\+ERROR}}~-\/213
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_a8b47031e90c3f86306c7058e4490d3b7}{XB\+\_\+\+EOF}}~-\/214
+\#define \mbox{\hyperlink{xbretcod_8h_aef34ebe6726057f805d6063130280549}{XB\+\_\+\+WRITE\+\_\+\+ERROR}}~-\/214
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_ade5f3a7cf1467d12761e4e21b5e4200f}{XB\+\_\+\+BOF}}~-\/215
+\#define \mbox{\hyperlink{xbretcod_8h_a8b47031e90c3f86306c7058e4490d3b7}{XB\+\_\+\+EOF}}~-\/215
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_a1bd22921612389c37f6b2eac438c62c5}{XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+SIZE}}~-\/216
+\#define \mbox{\hyperlink{xbretcod_8h_ade5f3a7cf1467d12761e4e21b5e4200f}{XB\+\_\+\+BOF}}~-\/216
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_a4e13b529b486c43ca600ce7d8ddbf3c2}{XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+NO}}~-\/217
+\#define \mbox{\hyperlink{xbretcod_8h_a1bd22921612389c37f6b2eac438c62c5}{XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+SIZE}}~-\/217
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_a0fd212f912b2e62700a66bae95bd73a1}{XB\+\_\+\+INVALID\+\_\+\+RECORD}}~-\/218
+\#define \mbox{\hyperlink{xbretcod_8h_a4e13b529b486c43ca600ce7d8ddbf3c2}{XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+NO}}~-\/218
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_ada15513935d5ede9216f07c0438f34d2}{XB\+\_\+\+DELETE\+\_\+\+FAILED}}~-\/219
+\#define \mbox{\hyperlink{xbretcod_8h_a0fd212f912b2e62700a66bae95bd73a1}{XB\+\_\+\+INVALID\+\_\+\+RECORD}}~-\/219
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_a53891c95a78483704d2a8e14c4499f92}{XB\+\_\+\+INVALID\+\_\+\+TABLE\+\_\+\+NAME}}~-\/220
+\#define \mbox{\hyperlink{xbretcod_8h_ada15513935d5ede9216f07c0438f34d2}{XB\+\_\+\+DELETE\+\_\+\+FAILED}}~-\/220
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_a18068d0cbe0c7a1b4dd3176220180c29}{XB\+\_\+\+EMPTY}}~-\/221
+\#define \mbox{\hyperlink{xbretcod_8h_a53891c95a78483704d2a8e14c4499f92}{XB\+\_\+\+INVALID\+\_\+\+TABLE\+\_\+\+NAME}}~-\/221
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_a59f1a8a6aca19595c2d1804349a24850}{XB\+\_\+\+LIMIT\+\_\+\+REACHED}}~-\/222
+\#define \mbox{\hyperlink{xbretcod_8h_a18068d0cbe0c7a1b4dd3176220180c29}{XB\+\_\+\+EMPTY}}~-\/222
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_aae9241d91cfb37f5d236128b3bce0a4a}{XB\+\_\+\+BLOCKREAD\+\_\+\+NOT\+\_\+\+ENABLED}}~-\/223
+\#define \mbox{\hyperlink{xbretcod_8h_a59f1a8a6aca19595c2d1804349a24850}{XB\+\_\+\+LIMIT\+\_\+\+REACHED}}~-\/223
 \item 
-\#define \mbox{\hyperlink{xbretcod_8h_af532df74147ce2d872f61abfee49c53e}{XB\+\_\+\+DIRECTORY\+\_\+\+ERROR}}~-\/224
+\#define \mbox{\hyperlink{xbretcod_8h_aae9241d91cfb37f5d236128b3bce0a4a}{XB\+\_\+\+BLOCKREAD\+\_\+\+NOT\+\_\+\+ENABLED}}~-\/224
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_af532df74147ce2d872f61abfee49c53e}{XB\+\_\+\+DIRECTORY\+\_\+\+ERROR}}~-\/225
+\item 
+\#define \mbox{\hyperlink{xbretcod_8h_a75f88f86d71e03f34c32bc7e70ed088f}{XB\+\_\+\+SETVBUF\+\_\+\+ERROR}}~-\/226
 \item 
 \#define \mbox{\hyperlink{xbretcod_8h_a79e2588f067d6e236c0e5a2c0728ba9f}{XB\+\_\+\+INVALID\+\_\+\+FIELD\+\_\+\+TYPE}}~-\/300
 \item 
@@ -126,6 +130,11 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \item 
 \#define \mbox{\hyperlink{xbretcod_8h_a299419a9c80e000b74bf97a2d24d6a3d}{XB\+\_\+\+MAX\+\_\+\+ERROR\+\_\+\+NO}}~-\/999
 \end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+DOXYOFF const xb\+Error\+Message \mbox{\hyperlink{namespacexb_ac21481d2e6f709b3a9494b996eb07e69}{xb\+::xb\+Error\+Messages}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -145,19 +154,19 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \index{xbretcod.h@{xbretcod.h}!XB\_BLOCKREAD\_NOT\_ENABLED@{XB\_BLOCKREAD\_NOT\_ENABLED}}
 \index{XB\_BLOCKREAD\_NOT\_ENABLED@{XB\_BLOCKREAD\_NOT\_ENABLED}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_BLOCKREAD\_NOT\_ENABLED}{XB\_BLOCKREAD\_NOT\_ENABLED}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+BLOCKREAD\+\_\+\+NOT\+\_\+\+ENABLED~-\/223}
+{\footnotesize\ttfamily \#define XB\+\_\+\+BLOCKREAD\+\_\+\+NOT\+\_\+\+ENABLED~-\/224}
 
 \mbox{\Hypertarget{xbretcod_8h_ade5f3a7cf1467d12761e4e21b5e4200f}\label{xbretcod_8h_ade5f3a7cf1467d12761e4e21b5e4200f}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_BOF@{XB\_BOF}}
 \index{XB\_BOF@{XB\_BOF}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_BOF}{XB\_BOF}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+BOF~-\/215}
+{\footnotesize\ttfamily \#define XB\+\_\+\+BOF~-\/216}
 
 \mbox{\Hypertarget{xbretcod_8h_a030684d5541cf6127a76d81b0684b235}\label{xbretcod_8h_a030684d5541cf6127a76d81b0684b235}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_CLOSE\_ERROR@{XB\_CLOSE\_ERROR}}
 \index{XB\_CLOSE\_ERROR@{XB\_CLOSE\_ERROR}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_CLOSE\_ERROR}{XB\_CLOSE\_ERROR}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+CLOSE\+\_\+\+ERROR~-\/210}
+{\footnotesize\ttfamily \#define XB\+\_\+\+CLOSE\+\_\+\+ERROR~-\/211}
 
 \mbox{\Hypertarget{xbretcod_8h_a8104510b347c87998eadd0b27201e3c2}\label{xbretcod_8h_a8104510b347c87998eadd0b27201e3c2}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_DBF\_FILE\_NOT\_OPEN@{XB\_DBF\_FILE\_NOT\_OPEN}}
@@ -169,13 +178,13 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \index{xbretcod.h@{xbretcod.h}!XB\_DELETE\_FAILED@{XB\_DELETE\_FAILED}}
 \index{XB\_DELETE\_FAILED@{XB\_DELETE\_FAILED}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_DELETE\_FAILED}{XB\_DELETE\_FAILED}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+DELETE\+\_\+\+FAILED~-\/219}
+{\footnotesize\ttfamily \#define XB\+\_\+\+DELETE\+\_\+\+FAILED~-\/220}
 
 \mbox{\Hypertarget{xbretcod_8h_af532df74147ce2d872f61abfee49c53e}\label{xbretcod_8h_af532df74147ce2d872f61abfee49c53e}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_DIRECTORY\_ERROR@{XB\_DIRECTORY\_ERROR}}
 \index{XB\_DIRECTORY\_ERROR@{XB\_DIRECTORY\_ERROR}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_DIRECTORY\_ERROR}{XB\_DIRECTORY\_ERROR}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+DIRECTORY\+\_\+\+ERROR~-\/224}
+{\footnotesize\ttfamily \#define XB\+\_\+\+DIRECTORY\+\_\+\+ERROR~-\/225}
 
 \mbox{\Hypertarget{xbretcod_8h_ac18036408d10e5eee1bf76cf92352b95}\label{xbretcod_8h_ac18036408d10e5eee1bf76cf92352b95}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_DUP\_TABLE\_OR\_ALIAS@{XB\_DUP\_TABLE\_OR\_ALIAS}}
@@ -187,13 +196,13 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \index{xbretcod.h@{xbretcod.h}!XB\_EMPTY@{XB\_EMPTY}}
 \index{XB\_EMPTY@{XB\_EMPTY}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_EMPTY}{XB\_EMPTY}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+EMPTY~-\/221}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EMPTY~-\/222}
 
 \mbox{\Hypertarget{xbretcod_8h_a8b47031e90c3f86306c7058e4490d3b7}\label{xbretcod_8h_a8b47031e90c3f86306c7058e4490d3b7}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_EOF@{XB\_EOF}}
 \index{XB\_EOF@{XB\_EOF}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_EOF}{XB\_EOF}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+EOF~-\/214}
+{\footnotesize\ttfamily \#define XB\+\_\+\+EOF~-\/215}
 
 \mbox{\Hypertarget{xbretcod_8h_a54303a9677dbd5342233f33dd08c64d0}\label{xbretcod_8h_a54303a9677dbd5342233f33dd08c64d0}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_FILE\_EXISTS@{XB\_FILE\_EXISTS}}
@@ -229,13 +238,13 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_BLOCK\_NO@{XB\_INVALID\_BLOCK\_NO}}
 \index{XB\_INVALID\_BLOCK\_NO@{XB\_INVALID\_BLOCK\_NO}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_INVALID\_BLOCK\_NO}{XB\_INVALID\_BLOCK\_NO}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+NO~-\/217}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+NO~-\/218}
 
 \mbox{\Hypertarget{xbretcod_8h_a1bd22921612389c37f6b2eac438c62c5}\label{xbretcod_8h_a1bd22921612389c37f6b2eac438c62c5}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_BLOCK\_SIZE@{XB\_INVALID\_BLOCK\_SIZE}}
 \index{XB\_INVALID\_BLOCK\_SIZE@{XB\_INVALID\_BLOCK\_SIZE}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_INVALID\_BLOCK\_SIZE}{XB\_INVALID\_BLOCK\_SIZE}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+SIZE~-\/216}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+BLOCK\+\_\+\+SIZE~-\/217}
 
 \mbox{\Hypertarget{xbretcod_8h_afb40bbed323ecb369dd430a2e1242f9a}\label{xbretcod_8h_afb40bbed323ecb369dd430a2e1242f9a}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_DATA@{XB\_INVALID\_DATA}}
@@ -355,13 +364,13 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_RECORD@{XB\_INVALID\_RECORD}}
 \index{XB\_INVALID\_RECORD@{XB\_INVALID\_RECORD}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_INVALID\_RECORD}{XB\_INVALID\_RECORD}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+RECORD~-\/218}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+RECORD~-\/219}
 
 \mbox{\Hypertarget{xbretcod_8h_a53891c95a78483704d2a8e14c4499f92}\label{xbretcod_8h_a53891c95a78483704d2a8e14c4499f92}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_TABLE\_NAME@{XB\_INVALID\_TABLE\_NAME}}
 \index{XB\_INVALID\_TABLE\_NAME@{XB\_INVALID\_TABLE\_NAME}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_INVALID\_TABLE\_NAME}{XB\_INVALID\_TABLE\_NAME}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+TABLE\+\_\+\+NAME~-\/220}
+{\footnotesize\ttfamily \#define XB\+\_\+\+INVALID\+\_\+\+TABLE\+\_\+\+NAME~-\/221}
 
 \mbox{\Hypertarget{xbretcod_8h_a176d917912d3433f065483f905a4c50a}\label{xbretcod_8h_a176d917912d3433f065483f905a4c50a}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_INVALID\_TAG@{XB\_INVALID\_TAG}}
@@ -379,7 +388,7 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \index{xbretcod.h@{xbretcod.h}!XB\_LIMIT\_REACHED@{XB\_LIMIT\_REACHED}}
 \index{XB\_LIMIT\_REACHED@{XB\_LIMIT\_REACHED}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_LIMIT\_REACHED}{XB\_LIMIT\_REACHED}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+LIMIT\+\_\+\+REACHED~-\/222}
+{\footnotesize\ttfamily \#define XB\+\_\+\+LIMIT\+\_\+\+REACHED~-\/223}
 
 \mbox{\Hypertarget{xbretcod_8h_a001e24b39e0f155fb1e892f5b1b9cff1}\label{xbretcod_8h_a001e24b39e0f155fb1e892f5b1b9cff1}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_LOCK\_FAILED@{XB\_LOCK\_FAILED}}
@@ -411,11 +420,17 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \doxysubsubsection{\texorpdfstring{XB\_NO\_MEMORY}{XB\_NO\_MEMORY}}
 {\footnotesize\ttfamily \#define XB\+\_\+\+NO\+\_\+\+MEMORY~-\/100}
 
+\mbox{\Hypertarget{xbretcod_8h_a924a6c5471f92d102d9b3e89f60751c2}\label{xbretcod_8h_a924a6c5471f92d102d9b3e89f60751c2}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_NOT\_CLOSED@{XB\_NOT\_CLOSED}}
+\index{XB\_NOT\_CLOSED@{XB\_NOT\_CLOSED}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_NOT\_CLOSED}{XB\_NOT\_CLOSED}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+NOT\+\_\+\+CLOSED~-\/208}
+
 \mbox{\Hypertarget{xbretcod_8h_ac2606659a54111334f5b02861e533700}\label{xbretcod_8h_ac2606659a54111334f5b02861e533700}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_NOT\_FOUND@{XB\_NOT\_FOUND}}
 \index{XB\_NOT\_FOUND@{XB\_NOT\_FOUND}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_NOT\_FOUND}{XB\_NOT\_FOUND}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+NOT\+\_\+\+FOUND~-\/208}
+{\footnotesize\ttfamily \#define XB\+\_\+\+NOT\+\_\+\+FOUND~-\/209}
 
 \mbox{\Hypertarget{xbretcod_8h_a9474b400f647bdefbbb07e5177e8d7a1}\label{xbretcod_8h_a9474b400f647bdefbbb07e5177e8d7a1}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_NOT\_OPEN@{XB\_NOT\_OPEN}}
@@ -427,7 +442,7 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \index{xbretcod.h@{xbretcod.h}!XB\_OPEN\_ERROR@{XB\_OPEN\_ERROR}}
 \index{XB\_OPEN\_ERROR@{XB\_OPEN\_ERROR}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_OPEN\_ERROR}{XB\_OPEN\_ERROR}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+OPEN\+\_\+\+ERROR~-\/209}
+{\footnotesize\ttfamily \#define XB\+\_\+\+OPEN\+\_\+\+ERROR~-\/210}
 
 \mbox{\Hypertarget{xbretcod_8h_aec713cac2b03a0d536a2d16336ae7c0b}\label{xbretcod_8h_aec713cac2b03a0d536a2d16336ae7c0b}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_PARSE\_ERROR@{XB\_PARSE\_ERROR}}
@@ -439,7 +454,7 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \index{xbretcod.h@{xbretcod.h}!XB\_READ\_ERROR@{XB\_READ\_ERROR}}
 \index{XB\_READ\_ERROR@{XB\_READ\_ERROR}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_READ\_ERROR}{XB\_READ\_ERROR}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+READ\+\_\+\+ERROR~-\/212}
+{\footnotesize\ttfamily \#define XB\+\_\+\+READ\+\_\+\+ERROR~-\/213}
 
 \mbox{\Hypertarget{xbretcod_8h_a373f30b2efcbbab9f6d060fb3fe8cba3}\label{xbretcod_8h_a373f30b2efcbbab9f6d060fb3fe8cba3}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_RENAME\_ERROR@{XB\_RENAME\_ERROR}}
@@ -451,7 +466,13 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \index{xbretcod.h@{xbretcod.h}!XB\_SEEK\_ERROR@{XB\_SEEK\_ERROR}}
 \index{XB\_SEEK\_ERROR@{XB\_SEEK\_ERROR}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_SEEK\_ERROR}{XB\_SEEK\_ERROR}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+SEEK\+\_\+\+ERROR~-\/211}
+{\footnotesize\ttfamily \#define XB\+\_\+\+SEEK\+\_\+\+ERROR~-\/212}
+
+\mbox{\Hypertarget{xbretcod_8h_a75f88f86d71e03f34c32bc7e70ed088f}\label{xbretcod_8h_a75f88f86d71e03f34c32bc7e70ed088f}} 
+\index{xbretcod.h@{xbretcod.h}!XB\_SETVBUF\_ERROR@{XB\_SETVBUF\_ERROR}}
+\index{XB\_SETVBUF\_ERROR@{XB\_SETVBUF\_ERROR}!xbretcod.h@{xbretcod.h}}
+\doxysubsubsection{\texorpdfstring{XB\_SETVBUF\_ERROR}{XB\_SETVBUF\_ERROR}}
+{\footnotesize\ttfamily \#define XB\+\_\+\+SETVBUF\+\_\+\+ERROR~-\/226}
 
 \mbox{\Hypertarget{xbretcod_8h_a5db3a90f215534143bdde81253729c7f}\label{xbretcod_8h_a5db3a90f215534143bdde81253729c7f}} 
 \index{xbretcod.h@{xbretcod.h}!XB\_SYNTAX\_ERROR@{XB\_SYNTAX\_ERROR}}
@@ -481,5 +502,5 @@ namespace \mbox{\hyperlink{namespacexb}{xb}}
 \index{xbretcod.h@{xbretcod.h}!XB\_WRITE\_ERROR@{XB\_WRITE\_ERROR}}
 \index{XB\_WRITE\_ERROR@{XB\_WRITE\_ERROR}!xbretcod.h@{xbretcod.h}}
 \doxysubsubsection{\texorpdfstring{XB\_WRITE\_ERROR}{XB\_WRITE\_ERROR}}
-{\footnotesize\ttfamily \#define XB\+\_\+\+WRITE\+\_\+\+ERROR~-\/213}
+{\footnotesize\ttfamily \#define XB\+\_\+\+WRITE\+\_\+\+ERROR~-\/214}
 

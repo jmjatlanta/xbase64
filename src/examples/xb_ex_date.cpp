@@ -1,9 +1,8 @@
 /*  xb_ex_date.cpp
 
-
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2021,2022, 2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2021,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -16,9 +15,7 @@ This program demonstrates using the xbDate class
 
 */
 
-
 #include "xbase.h"
-
 using namespace xb;
 
 int main()
@@ -29,7 +26,8 @@ int main()
    xbString StringDate( "19601007" );      /* oct 7 1960 */
    char     CharDate[9] = "19611109";      /* nov 9 1961 */
 
-   xbDate d1;                              /* today is default   */
+   xbDate d1;
+   d1.Sysdate();                           /* set to SysDate     */
    xbDate d2( StringDate );                /* from string data   */ 
    xbDate d3( CharDate );                  /* from char data     */
    xbDate d4;                              /* another date class */
@@ -70,9 +68,10 @@ int main()
    if( d3.IsLeapYear())
       std::cout << "CharDate is a leap year" << std::endl;
    else
-      std::cout << "CharDate is not a leap year." << std::endl;
+       std::cout << "CharDate is not a leap year." << std::endl;
 
-   std::cout << "Today is " << d1.Sysdate() << std::endl;
+   d1.Sysdate();
+   std::cout << "Today is " << d1.Str() << std::endl;
 
    if( d1.DateIsValid( "19951301" ))
       std::cout << "19951301 is a valid date" << std::endl;
@@ -99,10 +98,6 @@ int main()
 
    d4 = d1;    // set d4 class = to sysdate 
    std::cout << "Object d4 initialized to " << d4.Str() << std::endl;
-   std::cout << "This should be todays date: "
-             << d4.JulToDate8(d4.JulianDays()) << std::endl;
-   std::cout << "In 7 days it will be "  
-             << d4.JulToDate8(d4.JulianDays() + 7L ) << std::endl;
 
    d1.CharDayOf( s );
    std::cout << "Today is " << s.Str() << std::endl;
@@ -130,10 +125,13 @@ int main()
    d1.FormatDate( "DDDDDDDDD, MMMMMMMMMM DD YYYY", sOutDate );
    std::cout << "Format (DDDDDDDDD, MMMMMMMMMM DD YYYY) = " << sOutDate.Str() << std::endl;
 
-   std::cout << "Last day this month " << d1.LastDayOfMonth() << std::endl;
-   std::cout << "Last day of month for StringDate is " << d2.LastDayOfMonth() << std::endl;
+   d1.LastDayOfMonth();
+   std::cout << "Last day this month " << d1.Str() << std::endl;
 
-   std::cout << "Overloaded operators test..." << std::endl;
+   d2.LastDayOfMonth();
+   std::cout << "Last day of month for StringDate is " << d2.Str() << std::endl;
+
+   std::cout << "Operators test..." << std::endl;
 
    if( d1 == d2 )
      std::cout << d1.Str() << " is equal to " << d2.Str()
@@ -209,5 +207,9 @@ int main()
    std::cout << "Set( '19590118' ) " << d1.Str() << std::endl;
 
    std::cout << "CalcRollingCenturyForYear( 95 ) = " << d1.CalcRollingCenturyForYear( 95 ) << std::endl;
+
+   xbDate dtSystemDate( 0 );
+   std::cout << "System date = " << dtSystemDate.Str() << std::endl;
+
    return 0;
 }

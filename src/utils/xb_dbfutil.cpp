@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2021,2022,2023 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2021,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under 
 the terms of the GPL Version 3, 2007 license.
@@ -72,7 +72,7 @@ class xbUtil{
    void    WriteLogMessage();
    #ifdef XB_LOCKING_SUPPORT
    void    UpdateDefaultLockRetries();
-   void    ToggleDefaultAutoLock();
+   // void    ToggleDefaultAutoLock();
    void    UpdateDefaultLockFlavor();
    void    UpdateDefaultLockWait();
    void    ToggleMultiUserMode();
@@ -134,7 +134,7 @@ class xbUtil{
    void    DisplayFileLockSettings(); 
    void    UpdateFileLockRetryCount();
    void    UpdateFileLockFlavor();
-   void    UpdateFileAutoLock();
+   // void    UpdateFileAutoLock();
    void    LockDbf();
    void    UnlockDbf();
    void    LockRecord();
@@ -561,12 +561,19 @@ void xbUtil::DisplayFileLockSettings(){
       std::cout << "Unknown]" << std::endl;
       break;
   }
-  std::cout << "File Auto Lock        = [";
 
-  if( dActiveTable->GetAutoLock())
+//  std::cout << "File Auto Lock        = [";
+//  if( dActiveTable->GetAutoLock())
+//   std::cout << "ON]" << std::endl;
+//  else
+//   std::cout << "OFF]" << std::endl;
+
+  std::cout << "File Multi User       = [";
+  if( dActiveTable->GetMultiUser())
    std::cout << "ON]" << std::endl;
   else
    std::cout << "OFF]" << std::endl;
+
   if( dActiveTable->GetHeaderLocked())
    std::cout << "Header Locked         = [TRUE]\n";
   else
@@ -652,6 +659,7 @@ void xbUtil::UpdateFileLockFlavor(){
   }
 }
 
+/*
 void xbUtil::UpdateFileAutoLock(){
 
   if( !dActiveTable )
@@ -687,6 +695,7 @@ void xbUtil::UpdateFileAutoLock(){
               << dActiveTable->GetAutoLock() << "]" << std::endl;
   }
 }
+*/
 
 void xbUtil::LockDbf(){
 
@@ -1819,7 +1828,8 @@ void xbUtil::Open(){
     return;
   }
   std:: cout << "File Type Byte ";
-  x->BitDump( cFileTypeByte );
+  xbBit b;
+  b.BitDump( cFileTypeByte );
   std::cout << "\n";
   std::cout << "Table Type = [" << f.DetermineXbaseTableVersion( cFileTypeByte ) << "]\n";
   std::cout << "Memo Type  = [" << f.DetermineXbaseMemoVersion( cFileTypeByte ) << "]\n";
@@ -1841,7 +1851,7 @@ void xbUtil::Open(){
     #endif
   } else {
     std::cout << "Unsupported file type file = " << filename << " type = ";
-    x->BitDump( cFileTypeByte );
+    b.BitDump( cFileTypeByte );
     std::cout << std::endl;
     return;
   }
@@ -1908,6 +1918,7 @@ void xbUtil::UpdateDefaultLockFlavor(){
               << x->GetDefaultLockFlavor() << "]" << std::endl;
   }
 }
+/*
 void xbUtil::ToggleDefaultAutoLock(){
   if( x->GetDefaultAutoLock()){
     x->DisableDefaultAutoLock();
@@ -1919,6 +1930,7 @@ void xbUtil::ToggleDefaultAutoLock(){
     std::cout << "Default Auto Lock enabled" << std::endl;
   }
 } 
+*/
 
 void xbUtil::ToggleMultiUserMode(){
   if( x->GetMultiUser()){
@@ -1937,25 +1949,35 @@ void xbUtil::ToggleMultiUserMode(){
 #if defined(XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
 void xbUtil::ToggleIndexOpt(){
 
-  std::cout << "XBase64 supports two modes for processing index files that are defined as Unique" << std::endl << std::endl;
-  std::cout << "XB_EMULATE_DBASE  - For unique index tags, DBase (TM) allows multiple records in a given" << std::endl;
-  std::cout << "                    table to have the same key but only the first record for said key " << std::endl;
+  std::cout << "XBase64 supports two modes for processing index tag files." << std::endl << std::endl;
+  std::cout << "XB_IX_DBASE_MODE  - Emulate DBase (TM) - Default mode" << std::endl << std::endl;
+  std::cout << "                  - For unique index tags, DBase (TM) allows multiple records in a given" << std::endl;
+  std::cout << "                    dbf table to have the same key but only the first record for said key " << std::endl;
   std::cout << "                    is included in the index tag." << std::endl << std::endl;
-  std::cout << "XB_HALT_ON_DUPKEY - The Xbase64 routines will halt whenever a duplicate key is" << std::endl;
-  std::cout << "                    encountered and throw a XB_KEY_NOT_UNIQUE (-121) error." << std::endl << std::endl;
-  std::cout << "Choose XB_EMULATE_DBASE  if you need to be compatible with DBase (TM)." << std::endl << std::endl;
-  std::cout << "Choose XB_HALT_ON_DUPKEY if you want the library to behave like other modern RDBMS environments where" << std::endl;
-  std::cout << "                         duplicate key values are not allowed and dup records are not allowed." << std::endl << std::endl;
+  std::cout << "                  - Indexed records flagged as deleted are kept in the index file." << std::endl << std::endl;
   
+  std::cout << "XB_IX_XBASE_MODE  - Library throws an error when attempting to add a record with a duplicate key." << std::endl << std::endl;
+  std::cout << "                  - Indexed records flagged as deleted are removed from the index tag file." << std::endl << std::endl;
+  std::cout << "                  - In MDX index files, empty pages are reused." << std::endl << std::endl;
 
-  if( x->GetUniqueKeyOpt() == XB_HALT_ON_DUPKEY ){
-    x->SetUniqueKeyOpt( XB_EMULATE_DBASE );
-    std::cout << "Unique Key Option set to [XB_EMULATE_DBASE]" << std::endl;
+  std::cout << "The two modes are not compatible." << std::endl << std::endl;
+
+  std::cout << "Choose XB_IX_DBASE_MODE  (default) if you need to be compatible with DBase (TM)." << std::endl << std::endl;
+  std::cout << "Choose XB_IX_XBASE_MODE  if you want the library to behave like other modern RDBMS environments where" << std::endl;
+  std::cout << "                         records with duplicate key values are not allowed and deleted records are not indexed." << std::endl << std::endl;
+  
+  std::cout << "Of note, it is possible to have different settings on different index tags" << std::endl <<std::endl;
+
+
+  if( x->GetDefaultIxTagMode() == XB_IX_DBASE_MODE ){
+    x->SetDefaultIxTagMode( XB_IX_XBASE_MODE );
+    std::cout << "Default IX Tag Mode changed to [XB_IX_XBASE_MODE]" << std::endl;
   } else {
-    x->SetUniqueKeyOpt( XB_HALT_ON_DUPKEY );
-    std::cout << "Unique Key Option set to [XB_HALT_ON_DUPKEY]" << std::endl;
+    x->SetDefaultIxTagMode( XB_IX_DBASE_MODE );
+    std::cout << "Default IX Tag Mode changed to [XB_IX_DBASE_MODE]" << std::endl;
   }
 }
+
 #endif
 
 /*************************************************************************************/
@@ -2138,19 +2160,19 @@ void xbUtil::UpdateDataDirectory(){
 /*************************************************************************************/
 void xbUtil::ListSystemSettings(){
   std::cout << std::endl << "List System Settings" << std::endl;
-  std::cout << "Default Data Directory  = [" << x->GetDataDirectory().Str()    << "]" << std::endl;
-//  std::cout << "Default File Version    = [" << x->GetDefaultFileVersion()      << "]" << std::endl;
+  std::cout << "Default Data Directory   = [" << x->GetDataDirectory().Str()    << "]" << std::endl;
   #ifdef XB_LOCKING_SUPPORT
-  std::cout << "Default Auto Locking    = [";
+  /*
+  std::cout << "Default Auto Locking     = [";
   if( x->GetDefaultAutoLock())
     std::cout << "ON]" << std::endl;
   else
     std::cout << "OFF]" << std::endl;
+  */
+  std::cout << "Default Lock Retries     = [" << x->GetDefaultLockRetries()      << "]" << std::endl;
+  std::cout << "Default Lock Wait Time   = [" << x->GetDefaultLockWait()         << "] (millisecs)" << std::endl;
 
-  std::cout << "Default Lock Retries    = [" << x->GetDefaultLockRetries()      << "]" << std::endl;
-  std::cout << "Default Lock Wait Time  = [" << x->GetDefaultLockWait()         << "] (millisecs)" << std::endl;
-
-  std::cout << "Default Lock Flavor     = [";
+  std::cout << "Default Lock Flavor      = [";
   switch (x->GetDefaultLockFlavor()){
     case 1:
       std::cout << "Dbase]" << std::endl;
@@ -2169,35 +2191,40 @@ void xbUtil::ListSystemSettings(){
       break;
   } 
   #endif
-  std::cout << "Log Directory           = [" << x->GetLogDirectory().Str()     << "]" << std::endl;
-  std::cout << "Logfile Name            = [" << x->GetLogFileName().Str()      << "]" << std::endl;
-  std::cout << "Default Auto Commit     = [";
+  std::cout << "Log Directory            = [" << x->GetLogDirectory().Str()     << "]" << std::endl;
+  std::cout << "Logfile Name             = [" << x->GetLogFileName().Str()      << "]" << std::endl;
+  std::cout << "Default Auto Commit      = [";
   if( x->GetDefaultAutoCommit())
     std::cout << "ON]" << std::endl;
   else
     std::cout << "OFF]" << std::endl;
 
-  std::cout << "Logging Status          = [";
+  std::cout << "Logging Status           = [";
   if( x->GetLogStatus())
     std::cout << "ON]" << std::endl;
   else
     std::cout << "OFF]" << std::endl;
-  std::cout << "Endian Type             = [";
+  std::cout << "Endian Type              = [";
   if( x->GetEndianType() == 'L' )
     std::cout << "Little Endian]" << std::endl;
   else
     std::cout << "Big Endian]" << std::endl;
 
   if( x->GetMultiUser())
-    std::cout << "Multi User Mode         = [ON]" << std::endl;
+    std::cout << "Multi User Mode          = [ON]" << std::endl;
   else
-    std::cout << "Multi User Mode         = [OFF]" << std::endl;
+    std::cout << "Multi User Mode          = [OFF]" << std::endl;
 
   #if defined(XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
-  if( x->GetUniqueKeyOpt() == XB_HALT_ON_DUPKEY )
-    std::cout << "Duplicate Index Key Opt = [XB_HALT_ON_DUPKEY]" << std::endl;
+
+  if( x->GetDefaultIxTagMode() == XB_IX_DBASE_MODE )
+    std::cout << "Default IX Tag Mode      = [XB_IX_DBASE_MODE]\n";
+  else if( x->GetDefaultIxTagMode() == XB_IX_XBASE_MODE )
+    std::cout << "Default IX Tag Mode      = [XB_IX_XBASE_MODE]\n";
   else
-    std::cout << "Duplicate Index Key Opt = [XB_EMULATE_DBASE]" << std::endl;
+    std::cout << "Default IX Tag Mode      = [Unknown/Error]\n";
+
+
   #endif
 }
 /*************************************************************************************/
@@ -2231,8 +2258,8 @@ void xbUtil::ProcessOption( const xbString &sOption ){
     #ifdef XB_LOCKING_SUPPORT
     else if( sOption == "=2.8" )
       UpdateDefaultLockRetries();
-    else if( sOption == "=2.9" )
-      ToggleDefaultAutoLock();
+    // else if( sOption == "=2.9" )
+    //  ToggleDefaultAutoLock();
     else if( sOption == "=2.10" )
       UpdateDefaultLockFlavor();
     else if( sOption == "=2.11" )
@@ -2348,8 +2375,8 @@ void xbUtil::ProcessOption( const xbString &sOption ){
       UpdateFileLockRetryCount();
     else if( sOption == "=6.3" )
       UpdateFileLockFlavor();
-    else if( sOption == "=6.4" )
-      UpdateFileAutoLock();
+    // else if( sOption == "=6.4" )
+    //  UpdateFileAutoLock();
     else if( sOption == "=6.5" )
       LockDbf();
     else if( sOption == "=6.6" )
@@ -2665,8 +2692,8 @@ void xbUtil::LockingMenu()
 
     std::cout << "  1 - Display File Specific Settings"    << std::endl;
     std::cout << "  2 - Update File Retry Count"           << std::endl;
-    std::cout << "  3 - Update Locking Flavor"             << std::endl;
-    std::cout << "  4 - Update Auto Lock"                  << std::endl;
+    // std::cout << "  3 - Update Locking Flavor"          << std::endl;
+    // std::cout << "  4 - Update Auto Lock"               << std::endl;
     std::cout << "  5 - Lock table (dbf file)"             << std::endl;
     std::cout << "  6 - Unlock table (dbf file)"           << std::endl;
     std::cout << "  7 - Lock Record"                       << std::endl;
@@ -2699,8 +2726,8 @@ void xbUtil::LockingMenu()
     case 0:                                break;
     case 1:  DisplayFileLockSettings();    break;
     case 2:  UpdateFileLockRetryCount();   break;
-    case 3:  UpdateFileLockFlavor();       break;
-    case 4:  UpdateFileAutoLock();         break;
+    // case 3:  UpdateFileLockFlavor();       break;
+    // case 4:  UpdateFileAutoLock();         break;
     case 5:  LockDbf();                    break;
     case 6:  UnlockDbf();                  break;
     case 7:  LockRecord();                 break;
@@ -3003,14 +3030,14 @@ void xbUtil::SystemMenu()
     std::cout << " 7 - Write Test Log Message"                 << std::endl;
     #ifdef XB_LOCKING_SUPPORT
     std::cout << " 8 - Update Default Lock Retries"            << std::endl;
-    std::cout << " 9 - Toggle Default Auto Lock"               << std::endl;
+    //std::cout << " 9 - Toggle Default Auto Lock"             << std::endl;  10/16/24, replaced with multiuser mode
     //std::cout << "10 - Update Lock Flavor"                   << std::endl;  3/20/17, only one flavor working
     std::cout << "11 - Update Default Lock Wait Time"          << std::endl;
     std::cout << "12 - Toggle Multi User Mode"                 << std::endl;
     #endif
 
     #if defined(XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
-    std::cout << "13 - Toggle Index Dup Key Processing Option" << std::endl;
+    std::cout << "13 - Toggle Default Index Mode"              << std::endl;
     #endif
 
     std::cout << "99 - Exit Menu"                              << std::endl;
@@ -3027,7 +3054,7 @@ void xbUtil::SystemMenu()
      case 7:  WriteLogMessage();             break;
      #ifdef XB_LOCKING_SUPPORT
      case 8:  UpdateDefaultLockRetries();    break;
-     case 9:  ToggleDefaultAutoLock();       break;
+     // case 9:  ToggleDefaultAutoLock();       break;
      case 10: UpdateDefaultLockFlavor();     break;
      case 11: UpdateDefaultLockWait();       break;
      case 12: ToggleMultiUserMode();         break;

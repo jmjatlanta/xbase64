@@ -3,7 +3,7 @@
 <TITLE>Xbase64 DBMS Chapter 10</TITLE>
 <BODY BGCOLOR=#FFFFFF>
 <H2><p align="center">Class xbDbf, xbDbf3, xbDbf4</p></H2>
-<p align="center">Chapter Updated 11/21/23</p><hr>
+<p align="center">Chapter Updated 08/26/24</p><hr>
 
 
 <h4>This chapter documents the following classes:</h4><br><br>
@@ -48,12 +48,12 @@ xbDbf::Abort() commands to post updates.
 
 <li>
 The library automatically updates any open indices.  MDX indices are opened automatically.
-For NDX style indices, early versions of DBase required the NDX files be explicitly opened in the
-application. More current versions of available DBase ODBC drivers automatically open NDX indices 
+For NDX style indices, early versions of dBASE required the NDX files be explicitly opened in the
+application. More current versions of available dBASE ODBC drivers automatically open NDX indices 
 with the addition of an <em>tablename.INF</em> file.  Xbase64 supports both scenarios.
 
 <li>Xbase64 handles all record and file locking automatically and is programmed to work the same as the
-original DBase products as far as locking goes.  If auto locking is be turned off, the application
+original dBASE products as far as locking goes.  If auto locking is be turned off, the application
 is responsible for all locking activities in multi user environments.
 
 <li>All field related methods operate on the current record.
@@ -227,7 +227,7 @@ is initializing.
 
 <tr><td>virtual xbUInt16 GetRecordLen() const</td><td>Returns the record length</td></tr>
 <tr><td>virtual const    xbString &GetTblAlias() const</td><td>Returns the table alias.  Aliases can be used to manage multiple instances of the same open table.</td></tr>
-<tr><td>virtual xbInt16  GetVersion() const = 0</td><td>Returns 3 for DBase III version files, returns 4 for DBase IV version files.</td></tr>
+<tr><td>virtual xbInt16  GetVersion() const = 0</td><td>Returns 3 for dBASE III version files, returns 4 for dBASE IV version files.</td></tr>
 <tr><td>virtual xbXBase  *GetXbasePtr() const</td><td>Returns the xbase pointer.</td></tr>
 <tr><td>virtual xbBool   MemoFieldsExist() const</td><td>Returns true if the table has any associated memo fields.</td></tr>
 

@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -48,6 +52,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -66,29 +86,31 @@ $(function() {
 <div class="textblock">Here is a list of all struct and union fields with links to the structures/unions they belong to:</div>
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>CalcRollingCenturyForYear()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a9df58caa54105c489c314785c457e8cb">xb::xbDate</a></li>
+<li>CalcRollingCenturyForYear()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a8ff19085558544b61b5cb5aac4d94319">xb::xbDate</a></li>
+<li>CDOW()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a424e02d403bfa0633d08ed4c7a654e15">xb::xbXBase</a></li>
 <li>cEncryptionFlag&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a8734e799707582f022fc341d515650f4">xb::xbDbf</a></li>
 <li>CenturyOf()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a38b2c5285c69ed65e94ece6c22dafde0">xb::xbDate</a></li>
 <li>cFieldName&#160;:&#160;<a class="el" href="structxb_1_1xbSchema.html#a514183856094123fd37df67885b4681e">xb::xbSchema</a></li>
-<li>cFldType&#160;:&#160;<a class="el" href="structsFldMap.html#af89b26b2d4bc6e26c597f8c48b97b1a3">sFldMap</a></li>
 <li>CharDayOf()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#a9fc29730b66cddfbb58c69992a99cc7c">xb::xbDate</a></li>
 <li>CharMonthOf()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#afffc84f02bd421335ff8ebe9fb3db0ac">xb::xbDate</a></li>
-<li>CheckTblSts()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#aac3ff9c15e4e46cd6c4ea588e79f7b5b">xb::xbRelate</a></li>
+<li>CHR()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a219a21119bd7c012fbc5ee99d9d6fa17">xb::xbXBase</a></li>
 <li>cIndexFlag&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ad59074633641e03647e54d2b66c9102b">xb::xbDbf</a></li>
 <li>cLangDriver&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#aea1dfe5cbd1f9cdbcfc8eb04b2c3d5f1">xb::xbDbf</a></li>
-<li>Close()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ad68d73113e54e1b5f326e90f45e9989d">xb::xbDbf</a></li>
+<li>Clear()&#160;:&#160;<a class="el" href="classxb_1_1xbLinkList.html#a9870180c2e251ec3464b4d76fccf01a4">xb::xbLinkList&lt; xbNodeType &gt;</a>, <a class="el" href="classxb_1_1xbLinkListOrd.html#a1cde93e667729969b2b955d997ca774f">xb::xbLinkListOrd&lt; xbNodeType &gt;</a></li>
+<li>ClearTreeHandle()&#160;:&#160;<a class="el" href="classxb_1_1xbExp.html#a9eadcb64ca323615f4651024c9f706d5">xb::xbExp</a></li>
+<li>Close()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a0f7f606a99e26aaacb5bed4fcd00072d">xb::xbDbf</a></li>
 <li>CloseAllTables()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#afccb552ca0daff779c0500ff20d22c2b">xb::xbXBase</a></li>
-<li>Commit()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#abd69532c885ab72bcf3fb5066b318f4f">xb::xbDbf</a></li>
-<li>CompareKeys()&#160;:&#160;<a class="el" href="classxb_1_1xbRelate.html#a7ab045ee1cae596321b4f19b987fc2af">xb::xbRelate</a></li>
+<li>CMONTH()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#a7ff64ac104423bdcd66ad5bf49f0a678">xb::xbXBase</a></li>
+<li>Commit()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#af48965c413da39ae2ca8c6e9c91741ae">xb::xbDbf</a></li>
 <li>Copy()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#ac7a8466b03c04df838bd182ef244f792">xb::xbString</a></li>
-<li>CopyDbfStructure()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a829c615a130a1fdf609d93438d8a6264">xb::xbDbf</a></li>
+<li>CopyDbfStructure()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a17414f1f7345f4fe15b48ad70370842f">xb::xbDbf</a></li>
 <li>CountChar()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a26bc14d92dc7ce1f2bf31cd74af0db0f">xb::xbString</a></li>
 <li>CreateFqn()&#160;:&#160;<a class="el" href="classxb_1_1xbXBase.html#aa41240d920b604dcbd91dce7eecb78e1">xb::xbXBase</a></li>
-<li>CreateTable()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a73e41bfe679dd06ab16c436652df93f1">xb::xbDbf</a></li>
+<li>CreateTable()&#160;:&#160;<a class="el" href="classxb_1_1xbDbf3.html#a3ce79f0221176259c7a8f957d6c6e0b6">xb::xbDbf3</a>, <a class="el" href="classxb_1_1xbDbf4.html#a381cf2f91b85c34d37419515fbff54f3">xb::xbDbf4</a>, <a class="el" href="classxb_1_1xbDbf.html#a73e41bfe679dd06ab16c436652df93f1">xb::xbDbf</a></li>
 <li>CreateUniqueFileName()&#160;:&#160;<a class="el" href="classxb_1_1xbFile.html#ad39797624a752b9d62533d00fad9feff">xb::xbFile</a></li>
-<li>CTOD()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#abb1eb4b0394e4a67aadab15779b1b8c5">xb::xbDate</a></li>
+<li>CTOD()&#160;:&#160;<a class="el" href="classxb_1_1xbDate.html#abb1eb4b0394e4a67aadab15779b1b8c5">xb::xbDate</a>, <a class="el" href="classxb_1_1xbXBase.html#a6f79e02b502e62e3eaca9db19d7d432c">xb::xbXBase</a></li>
 <li>cTransactionFlag&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#ac3c89fc3bc6a6abf385478a8adbed970">xb::xbDbf</a></li>
-<li>cType&#160;:&#160;<a class="el" href="structxb_1_1xbRelation.html#a63b486bdcf162c523f2224b80afe2d60">xb::xbRelation</a>, <a class="el" href="structxb_1_1xbSchema.html#a1d612b2ed5dc0b0289c9e91b3cda3a25">xb::xbSchema</a></li>
+<li>cType&#160;:&#160;<a class="el" href="structxb_1_1xbSchema.html#a1d612b2ed5dc0b0289c9e91b3cda3a25">xb::xbSchema</a></li>
 <li>cUpdateDD&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a6021789d314cd41488991e708fcd0df2">xb::xbDbf</a></li>
 <li>cUpdateMM&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a9340a5e8ee53eb0f3b6601eec2d71e1b">xb::xbDbf</a></li>
 <li>cUpdateYY&#160;:&#160;<a class="el" href="classxb_1_1xbDbf.html#a4fcd6a86ddd32d4a9d76a4074573440a">xb::xbDbf</a></li>
@@ -99,9 +121,12 @@ $(function() {
 <li>CvtULongLong()&#160;:&#160;<a class="el" href="classxb_1_1xbString.html#a1528b30b84a41c3564ef31d1f4496b15">xb::xbString</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

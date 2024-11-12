@@ -5,10 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Xbase64: /mnt/1Tdata/xbase/xbase64-4.1.7/src/include/xbretcod.h File Reference</title>
+<title>Xbase64: /mnt/1Tdata/xbase/xbase64-4.1.11/src/include/xbretcod.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.7</span>
+   <div id="projectname">Xbase64<span id="projectnumber">&#160;4.1.11</span>
    </div>
    <div id="projectbrief">C++ Library for handling Xbase (DBF) format type files</div>
   </td>
@@ -47,6 +51,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('xbretcod_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,15 +82,11 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">xbretcod.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -117,40 +134,44 @@ Macros</h2></td></tr>
 <tr class="separator:a418c047353bc683d0fd6ecbbdd5b7885"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9474b400f647bdefbbb07e5177e8d7a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a9474b400f647bdefbbb07e5177e8d7a1">XB_NOT_OPEN</a>&#160;&#160;&#160;-207</td></tr>
 <tr class="separator:a9474b400f647bdefbbb07e5177e8d7a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2606659a54111334f5b02861e533700"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#ac2606659a54111334f5b02861e533700">XB_NOT_FOUND</a>&#160;&#160;&#160;-208</td></tr>
+<tr class="memitem:a924a6c5471f92d102d9b3e89f60751c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a924a6c5471f92d102d9b3e89f60751c2">XB_NOT_CLOSED</a>&#160;&#160;&#160;-208</td></tr>
+<tr class="separator:a924a6c5471f92d102d9b3e89f60751c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2606659a54111334f5b02861e533700"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#ac2606659a54111334f5b02861e533700">XB_NOT_FOUND</a>&#160;&#160;&#160;-209</td></tr>
 <tr class="separator:ac2606659a54111334f5b02861e533700"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaab55236993a1d3acb29206252a904c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#aaab55236993a1d3acb29206252a904c8">XB_OPEN_ERROR</a>&#160;&#160;&#160;-209</td></tr>
+<tr class="memitem:aaab55236993a1d3acb29206252a904c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#aaab55236993a1d3acb29206252a904c8">XB_OPEN_ERROR</a>&#160;&#160;&#160;-210</td></tr>
 <tr class="separator:aaab55236993a1d3acb29206252a904c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a030684d5541cf6127a76d81b0684b235"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a030684d5541cf6127a76d81b0684b235">XB_CLOSE_ERROR</a>&#160;&#160;&#160;-210</td></tr>
+<tr class="memitem:a030684d5541cf6127a76d81b0684b235"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a030684d5541cf6127a76d81b0684b235">XB_CLOSE_ERROR</a>&#160;&#160;&#160;-211</td></tr>
 <tr class="separator:a030684d5541cf6127a76d81b0684b235"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0455ad8719e153b08ec68b10c81e9f41"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a0455ad8719e153b08ec68b10c81e9f41">XB_SEEK_ERROR</a>&#160;&#160;&#160;-211</td></tr>
+<tr class="memitem:a0455ad8719e153b08ec68b10c81e9f41"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a0455ad8719e153b08ec68b10c81e9f41">XB_SEEK_ERROR</a>&#160;&#160;&#160;-212</td></tr>
 <tr class="separator:a0455ad8719e153b08ec68b10c81e9f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbd40585db8bb748d191f94a33bac710"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#adbd40585db8bb748d191f94a33bac710">XB_READ_ERROR</a>&#160;&#160;&#160;-212</td></tr>
+<tr class="memitem:adbd40585db8bb748d191f94a33bac710"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#adbd40585db8bb748d191f94a33bac710">XB_READ_ERROR</a>&#160;&#160;&#160;-213</td></tr>
 <tr class="separator:adbd40585db8bb748d191f94a33bac710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef34ebe6726057f805d6063130280549"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#aef34ebe6726057f805d6063130280549">XB_WRITE_ERROR</a>&#160;&#160;&#160;-213</td></tr>
+<tr class="memitem:aef34ebe6726057f805d6063130280549"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#aef34ebe6726057f805d6063130280549">XB_WRITE_ERROR</a>&#160;&#160;&#160;-214</td></tr>
 <tr class="separator:aef34ebe6726057f805d6063130280549"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b47031e90c3f86306c7058e4490d3b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a8b47031e90c3f86306c7058e4490d3b7">XB_EOF</a>&#160;&#160;&#160;-214</td></tr>
+<tr class="memitem:a8b47031e90c3f86306c7058e4490d3b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a8b47031e90c3f86306c7058e4490d3b7">XB_EOF</a>&#160;&#160;&#160;-215</td></tr>
 <tr class="separator:a8b47031e90c3f86306c7058e4490d3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade5f3a7cf1467d12761e4e21b5e4200f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#ade5f3a7cf1467d12761e4e21b5e4200f">XB_BOF</a>&#160;&#160;&#160;-215</td></tr>
+<tr class="memitem:ade5f3a7cf1467d12761e4e21b5e4200f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#ade5f3a7cf1467d12761e4e21b5e4200f">XB_BOF</a>&#160;&#160;&#160;-216</td></tr>
 <tr class="separator:ade5f3a7cf1467d12761e4e21b5e4200f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bd22921612389c37f6b2eac438c62c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a1bd22921612389c37f6b2eac438c62c5">XB_INVALID_BLOCK_SIZE</a>&#160;&#160;&#160;-216</td></tr>
+<tr class="memitem:a1bd22921612389c37f6b2eac438c62c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a1bd22921612389c37f6b2eac438c62c5">XB_INVALID_BLOCK_SIZE</a>&#160;&#160;&#160;-217</td></tr>
 <tr class="separator:a1bd22921612389c37f6b2eac438c62c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e13b529b486c43ca600ce7d8ddbf3c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a4e13b529b486c43ca600ce7d8ddbf3c2">XB_INVALID_BLOCK_NO</a>&#160;&#160;&#160;-217</td></tr>
+<tr class="memitem:a4e13b529b486c43ca600ce7d8ddbf3c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a4e13b529b486c43ca600ce7d8ddbf3c2">XB_INVALID_BLOCK_NO</a>&#160;&#160;&#160;-218</td></tr>
 <tr class="separator:a4e13b529b486c43ca600ce7d8ddbf3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fd212f912b2e62700a66bae95bd73a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a0fd212f912b2e62700a66bae95bd73a1">XB_INVALID_RECORD</a>&#160;&#160;&#160;-218</td></tr>
+<tr class="memitem:a0fd212f912b2e62700a66bae95bd73a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a0fd212f912b2e62700a66bae95bd73a1">XB_INVALID_RECORD</a>&#160;&#160;&#160;-219</td></tr>
 <tr class="separator:a0fd212f912b2e62700a66bae95bd73a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada15513935d5ede9216f07c0438f34d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#ada15513935d5ede9216f07c0438f34d2">XB_DELETE_FAILED</a>&#160;&#160;&#160;-219</td></tr>
+<tr class="memitem:ada15513935d5ede9216f07c0438f34d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#ada15513935d5ede9216f07c0438f34d2">XB_DELETE_FAILED</a>&#160;&#160;&#160;-220</td></tr>
 <tr class="separator:ada15513935d5ede9216f07c0438f34d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53891c95a78483704d2a8e14c4499f92"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a53891c95a78483704d2a8e14c4499f92">XB_INVALID_TABLE_NAME</a>&#160;&#160;&#160;-220</td></tr>
+<tr class="memitem:a53891c95a78483704d2a8e14c4499f92"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a53891c95a78483704d2a8e14c4499f92">XB_INVALID_TABLE_NAME</a>&#160;&#160;&#160;-221</td></tr>
 <tr class="separator:a53891c95a78483704d2a8e14c4499f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18068d0cbe0c7a1b4dd3176220180c29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a18068d0cbe0c7a1b4dd3176220180c29">XB_EMPTY</a>&#160;&#160;&#160;-221</td></tr>
+<tr class="memitem:a18068d0cbe0c7a1b4dd3176220180c29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a18068d0cbe0c7a1b4dd3176220180c29">XB_EMPTY</a>&#160;&#160;&#160;-222</td></tr>
 <tr class="separator:a18068d0cbe0c7a1b4dd3176220180c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59f1a8a6aca19595c2d1804349a24850"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a59f1a8a6aca19595c2d1804349a24850">XB_LIMIT_REACHED</a>&#160;&#160;&#160;-222</td></tr>
+<tr class="memitem:a59f1a8a6aca19595c2d1804349a24850"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a59f1a8a6aca19595c2d1804349a24850">XB_LIMIT_REACHED</a>&#160;&#160;&#160;-223</td></tr>
 <tr class="separator:a59f1a8a6aca19595c2d1804349a24850"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae9241d91cfb37f5d236128b3bce0a4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#aae9241d91cfb37f5d236128b3bce0a4a">XB_BLOCKREAD_NOT_ENABLED</a>&#160;&#160;&#160;-223</td></tr>
+<tr class="memitem:aae9241d91cfb37f5d236128b3bce0a4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#aae9241d91cfb37f5d236128b3bce0a4a">XB_BLOCKREAD_NOT_ENABLED</a>&#160;&#160;&#160;-224</td></tr>
 <tr class="separator:aae9241d91cfb37f5d236128b3bce0a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af532df74147ce2d872f61abfee49c53e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#af532df74147ce2d872f61abfee49c53e">XB_DIRECTORY_ERROR</a>&#160;&#160;&#160;-224</td></tr>
+<tr class="memitem:af532df74147ce2d872f61abfee49c53e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#af532df74147ce2d872f61abfee49c53e">XB_DIRECTORY_ERROR</a>&#160;&#160;&#160;-225</td></tr>
 <tr class="separator:af532df74147ce2d872f61abfee49c53e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75f88f86d71e03f34c32bc7e70ed088f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a75f88f86d71e03f34c32bc7e70ed088f">XB_SETVBUF_ERROR</a>&#160;&#160;&#160;-226</td></tr>
+<tr class="separator:a75f88f86d71e03f34c32bc7e70ed088f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79e2588f067d6e236c0e5a2c0728ba9f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a79e2588f067d6e236c0e5a2c0728ba9f">XB_INVALID_FIELD_TYPE</a>&#160;&#160;&#160;-300</td></tr>
 <tr class="separator:a79e2588f067d6e236c0e5a2c0728ba9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09d6c08a44316f551108a74003efd381"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a09d6c08a44316f551108a74003efd381">XB_INVALID_FIELD_NO</a>&#160;&#160;&#160;-301</td></tr>
@@ -201,6 +222,11 @@ Macros</h2></td></tr>
 <tr class="separator:a5db3a90f215534143bdde81253729c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a299419a9c80e000b74bf97a2d24d6a3d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="xbretcod_8h.html#a299419a9c80e000b74bf97a2d24d6a3d">XB_MAX_ERROR_NO</a>&#160;&#160;&#160;-999</td></tr>
 <tr class="separator:a299419a9c80e000b74bf97a2d24d6a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac21481d2e6f709b3a9494b996eb07e69"><td class="memItemLeft" align="right" valign="top">DOXYOFF const xbErrorMessage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacexb.html#ac21481d2e6f709b3a9494b996eb07e69">xb::xbErrorMessages</a> []</td></tr>
+<tr class="separator:ac21481d2e6f709b3a9494b996eb07e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ae4a1ddd703ada1b148cdac5cac26a991" name="ae4a1ddd703ada1b148cdac5cac26a991"></a>
@@ -238,7 +264,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_BLOCKREAD_NOT_ENABLED&#160;&#160;&#160;-223</td>
+          <td class="memname">#define XB_BLOCKREAD_NOT_ENABLED&#160;&#160;&#160;-224</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -252,7 +278,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_BOF&#160;&#160;&#160;-215</td>
+          <td class="memname">#define XB_BOF&#160;&#160;&#160;-216</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -266,7 +292,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_CLOSE_ERROR&#160;&#160;&#160;-210</td>
+          <td class="memname">#define XB_CLOSE_ERROR&#160;&#160;&#160;-211</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -294,7 +320,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_DELETE_FAILED&#160;&#160;&#160;-219</td>
+          <td class="memname">#define XB_DELETE_FAILED&#160;&#160;&#160;-220</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -308,7 +334,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_DIRECTORY_ERROR&#160;&#160;&#160;-224</td>
+          <td class="memname">#define XB_DIRECTORY_ERROR&#160;&#160;&#160;-225</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -336,7 +362,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_EMPTY&#160;&#160;&#160;-221</td>
+          <td class="memname">#define XB_EMPTY&#160;&#160;&#160;-222</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -350,7 +376,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_EOF&#160;&#160;&#160;-214</td>
+          <td class="memname">#define XB_EOF&#160;&#160;&#160;-215</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -434,7 +460,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_INVALID_BLOCK_NO&#160;&#160;&#160;-217</td>
+          <td class="memname">#define XB_INVALID_BLOCK_NO&#160;&#160;&#160;-218</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -448,7 +474,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_INVALID_BLOCK_SIZE&#160;&#160;&#160;-216</td>
+          <td class="memname">#define XB_INVALID_BLOCK_SIZE&#160;&#160;&#160;-217</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -728,7 +754,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_INVALID_RECORD&#160;&#160;&#160;-218</td>
+          <td class="memname">#define XB_INVALID_RECORD&#160;&#160;&#160;-219</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -742,7 +768,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_INVALID_TABLE_NAME&#160;&#160;&#160;-220</td>
+          <td class="memname">#define XB_INVALID_TABLE_NAME&#160;&#160;&#160;-221</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -784,7 +810,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_LIMIT_REACHED&#160;&#160;&#160;-222</td>
+          <td class="memname">#define XB_LIMIT_REACHED&#160;&#160;&#160;-223</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -861,6 +887,20 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="a924a6c5471f92d102d9b3e89f60751c2" name="a924a6c5471f92d102d9b3e89f60751c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a924a6c5471f92d102d9b3e89f60751c2">&#9670;&nbsp;</a></span>XB_NOT_CLOSED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XB_NOT_CLOSED&#160;&#160;&#160;-208</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac2606659a54111334f5b02861e533700" name="ac2606659a54111334f5b02861e533700"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac2606659a54111334f5b02861e533700">&#9670;&nbsp;</a></span>XB_NOT_FOUND</h2>
 
@@ -868,7 +908,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_NOT_FOUND&#160;&#160;&#160;-208</td>
+          <td class="memname">#define XB_NOT_FOUND&#160;&#160;&#160;-209</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -896,7 +936,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_OPEN_ERROR&#160;&#160;&#160;-209</td>
+          <td class="memname">#define XB_OPEN_ERROR&#160;&#160;&#160;-210</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -924,7 +964,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_READ_ERROR&#160;&#160;&#160;-212</td>
+          <td class="memname">#define XB_READ_ERROR&#160;&#160;&#160;-213</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -952,7 +992,21 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_SEEK_ERROR&#160;&#160;&#160;-211</td>
+          <td class="memname">#define XB_SEEK_ERROR&#160;&#160;&#160;-212</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75f88f86d71e03f34c32bc7e70ed088f" name="a75f88f86d71e03f34c32bc7e70ed088f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75f88f86d71e03f34c32bc7e70ed088f">&#9670;&nbsp;</a></span>XB_SETVBUF_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XB_SETVBUF_ERROR&#160;&#160;&#160;-226</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1022,7 +1076,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define XB_WRITE_ERROR&#160;&#160;&#160;-213</td>
+          <td class="memname">#define XB_WRITE_ERROR&#160;&#160;&#160;-214</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1030,9 +1084,13 @@ Macros</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li><li class="navelem"><a class="el" href="xbretcod_8h.html">xbretcod.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
 </body>
 </html>

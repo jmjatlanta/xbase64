@@ -1,12 +1,12 @@
 \hypertarget{xbfile_8h_source}{}\doxysection{xbfile.\+h}
-\label{xbfile_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbfile.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xbfile.h}}
+\label{xbfile_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbfile.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbfile.h}}
 \mbox{\hyperlink{xbfile_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*  xbfile.h}}
 \DoxyCodeLine{2 \textcolor{comment}{}}
 \DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
 \DoxyCodeLine{4 \textcolor{comment}{}}
-\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel}}
 \DoxyCodeLine{6 \textcolor{comment}{}}
 \DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
 \DoxyCodeLine{8 \textcolor{comment}{}}
@@ -37,148 +37,230 @@
 \DoxyCodeLine{33 }
 \DoxyCodeLine{34 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
 \DoxyCodeLine{35 }
-\DoxyCodeLine{56 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbFile}{xbFile}} : \textcolor{keyword}{public} \mbox{\hyperlink{classxb_1_1xbSsv}{xbSsv}} \{}
-\DoxyCodeLine{57 }
-\DoxyCodeLine{58   \textcolor{keyword}{public}:}
-\DoxyCodeLine{59              \mbox{\hyperlink{classxb_1_1xbFile}{xbFile}}( \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}} * x );}
-\DoxyCodeLine{60              \mbox{\hyperlink{classxb_1_1xbFile}{\string~xbFile}}();}
-\DoxyCodeLine{61 }
-\DoxyCodeLine{62     \textcolor{keyword}{const}    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& GetDirectory() \textcolor{keyword}{const};}
-\DoxyCodeLine{63     \textcolor{keyword}{const}    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& GetFileName() \textcolor{keyword}{const};}
-\DoxyCodeLine{64     \textcolor{keyword}{const}    \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& GetFqFileName() \textcolor{keyword}{const};}
+\DoxyCodeLine{57 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbFile}{xbFile}} : \textcolor{keyword}{public} \mbox{\hyperlink{classxb_1_1xbCore}{xbCore}} \{}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59   \textcolor{keyword}{public}:}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{64     \mbox{\hyperlink{classxb_1_1xbFile_a869eedd74c6eddc308852eb546c87176}{xbFile}}( \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}} * x );}
 \DoxyCodeLine{65 }
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67     xbInt16  CreateUniqueFileName( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDirIn, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExtIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFqnOut, xbInt16 iOption = 0 );}
+\DoxyCodeLine{67     \mbox{\hyperlink{classxb_1_1xbFile_a491f6c48076e89da2e791a42b2727a90}{\string~xbFile}}();}
 \DoxyCodeLine{68 }
-\DoxyCodeLine{69     xbInt16  DetermineXbaseTableVersion( \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} cFileTypeByte ) \textcolor{keyword}{const};}
-\DoxyCodeLine{70     xbInt16  DetermineXbaseMemoVersion( \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} cFileTypeByte ) \textcolor{keyword}{const};}
-\DoxyCodeLine{71 }
-\DoxyCodeLine{72     \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} eGetDouble ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p ) \textcolor{keyword}{const};}
-\DoxyCodeLine{73     xbInt32  eGetInt32  ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p ) \textcolor{keyword}{const};}
-\DoxyCodeLine{74     xbUInt32 eGetUInt32 ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p ) \textcolor{keyword}{const};}
-\DoxyCodeLine{75     xbInt16  eGetInt16  ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p ) \textcolor{keyword}{const};}
-\DoxyCodeLine{76     xbUInt16 eGetUInt16 ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p ) \textcolor{keyword}{const};}
-\DoxyCodeLine{77     \textcolor{keywordtype}{void}     ePutDouble ( \textcolor{keywordtype}{char} *p, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} d );}
-\DoxyCodeLine{78     \textcolor{keywordtype}{void}     ePutInt32  ( \textcolor{keywordtype}{char} *p, xbInt32 l );}
-\DoxyCodeLine{79     \textcolor{keywordtype}{void}     ePutUInt32 ( \textcolor{keywordtype}{char} *p, xbUInt32 ul );}
-\DoxyCodeLine{80     \textcolor{keywordtype}{void}     ePutInt16  ( \textcolor{keywordtype}{char} *p, xbInt16 s );}
-\DoxyCodeLine{81     \textcolor{keywordtype}{void}     ePutUInt16 ( \textcolor{keywordtype}{char} *p, xbUInt16 s );}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{83     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   FileExists () \textcolor{keyword}{const};}
-\DoxyCodeLine{84     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   FileExists ( xbInt16 iOption ) \textcolor{keyword}{const};}
-\DoxyCodeLine{85     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   FileExists ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName ) \textcolor{keyword}{const};}
-\DoxyCodeLine{86     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   FileExists ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, xbInt16 iOption ) \textcolor{keyword}{const};}
-\DoxyCodeLine{87     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   FileIsOpen () \textcolor{keyword}{const};}
-\DoxyCodeLine{88 }
-\DoxyCodeLine{89     xbUInt32 GetBlockSize   () \textcolor{keyword}{const};}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{91     xbInt16  GetFileDirPart ( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileDirPartOut ) \textcolor{keyword}{const};}
-\DoxyCodeLine{92     xbInt16  GetFileDirPart ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sCompleteFileNameIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileDirPartOut ) \textcolor{keyword}{const};}
-\DoxyCodeLine{93     xbInt16  GetFileExtPart ( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileExtPartOut ) \textcolor{keyword}{const};}
-\DoxyCodeLine{94     xbInt16  GetFileExtPart ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sCompleteFileNameIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileExtPartOut ) \textcolor{keyword}{const};}
-\DoxyCodeLine{95     xbInt16  GetFileMtime   ( time\_t \&mtime );}
-\DoxyCodeLine{96     xbInt16  GetFileNamePart( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileNamePartOut ) \textcolor{keyword}{const};}
-\DoxyCodeLine{97     xbInt16  GetFileNamePart( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sCompleteFileNameIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileNamePartOut ) \textcolor{keyword}{const};}
-\DoxyCodeLine{98     xbInt16  GetFileSize    ( xbUInt64 \&ullFileSize );}
-\DoxyCodeLine{99     xbInt16  GetFileType    ( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileType ) \textcolor{keyword}{const};}
-\DoxyCodeLine{100 }
-\DoxyCodeLine{101 }
-\DoxyCodeLine{102     xbInt16  GetOpenMode    () \textcolor{keyword}{const};}
-\DoxyCodeLine{103     xbInt16  GetShareMode   () \textcolor{keyword}{const};}
-\DoxyCodeLine{104 }
-\DoxyCodeLine{105 }
-\DoxyCodeLine{106     xbInt16  GetXbaseFileTypeByte( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, xbInt16 \&iVersion );}
-\DoxyCodeLine{107     xbInt16  GetXbaseFileTypeByte( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \&cFileTypeByte );}
-\DoxyCodeLine{108     xbInt16  GetXbaseFileTypeByte( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \&cFileTypeByte, xbInt16 \&iVersion );}
-\DoxyCodeLine{109 }
-\DoxyCodeLine{110     xbInt16  NameSuffixMissing( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, xbInt16 iOption ) \textcolor{keyword}{const};}
-\DoxyCodeLine{111 }
-\DoxyCodeLine{112     xbInt16  ReadBlock     ( xbUInt32 ulBlockNo, \textcolor{keywordtype}{size\_t} readSize,  \textcolor{keywordtype}{void} *buf );}
-\DoxyCodeLine{113     xbInt16  ReadBlock     ( xbUInt32 ulBlockNo, xbUInt32 ulBlockSize, \textcolor{keywordtype}{size\_t} readSize,  \textcolor{keywordtype}{void} *buf );}
-\DoxyCodeLine{114 }
-\DoxyCodeLine{115     xbInt16  SetBlockSize  ( xbUInt32 ulBlockSize );}
-\DoxyCodeLine{116     \textcolor{keywordtype}{void}     SetDirectory  ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDirectory);}
-\DoxyCodeLine{117     \textcolor{keywordtype}{void}     SetFileName   ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName );}
-\DoxyCodeLine{118     \textcolor{keywordtype}{void}     SetFqFileName ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFqName );}
-\DoxyCodeLine{119     xbInt16  SetHomeFolders();}
+\DoxyCodeLine{77     xbInt16  \mbox{\hyperlink{classxb_1_1xbFile_ad39797624a752b9d62533d00fad9feff}{CreateUniqueFileName}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDirIn, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sExtIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFqnOut, xbInt16 iOption = 0 );}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 }
+\DoxyCodeLine{92     xbInt16  \mbox{\hyperlink{classxb_1_1xbFile_a5a740033664c9ad2611c90e2a6d0c2d3}{DetermineXbaseMemoVersion}}( \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} cFileTypeByte ) \textcolor{keyword}{const};}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 }
+\DoxyCodeLine{119     xbInt16  \mbox{\hyperlink{classxb_1_1xbFile_ae2b6ac26018dc28f77afbb3f008c3f66}{DetermineXbaseTableVersion}}( \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} cFileTypeByte ) \textcolor{keyword}{const};}
 \DoxyCodeLine{120 }
-\DoxyCodeLine{121     xbInt16  WriteBlock    ( xbUInt32 ulBlockNo, \textcolor{keywordtype}{size\_t} writeSize, \textcolor{keywordtype}{void} *buf );}
-\DoxyCodeLine{122 }
-\DoxyCodeLine{123     xbInt16  xbFclose      ();}
-\DoxyCodeLine{124     xbInt16  xbFeof        ();}
-\DoxyCodeLine{125     xbInt16  xbFflush      ();}
-\DoxyCodeLine{126     xbInt16  xbFgetc       ( xbInt32 \&c );}
-\DoxyCodeLine{127     xbInt16  xbFgetc       ( \textcolor{keywordtype}{char} \&c );}
-\DoxyCodeLine{128     xbInt16  xbFgets       ( \textcolor{keywordtype}{size\_t} lSize, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sLine );}
-\DoxyCodeLine{129 }
-\DoxyCodeLine{130 }
-\DoxyCodeLine{131     xbInt16  \mbox{\hyperlink{classxb_1_1xbFile_a7cdfef5ede9ac98d44a28a6b7a70972c}{xbFopen}}       ( xbInt16 iOpenMode );}
-\DoxyCodeLine{132     xbInt16  xbFopen       ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOpenMode, xbInt16 iShareMode );}
-\DoxyCodeLine{133     xbInt16  xbFopen       ( xbInt16 iOpenMode, xbInt16 iShareMode );}
-\DoxyCodeLine{134     xbInt16  xbFopen       ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sMode, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, xbInt16 iShareMode );}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{133     \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} \mbox{\hyperlink{classxb_1_1xbFile_ab14e4a11427f5efb81cba1dd32bd1aa1}{eGetDouble}} ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p ) \textcolor{keyword}{const};}
+\DoxyCodeLine{134 }
 \DoxyCodeLine{135 }
-\DoxyCodeLine{136     xbInt16  xbFputc       ( xbInt32 c );}
-\DoxyCodeLine{137     xbInt16  xbFputc       ( xbInt32 c, xbInt32 iNoTimes );}
-\DoxyCodeLine{138     xbInt16  xbFputs       ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s );}
-\DoxyCodeLine{139     xbInt16  xbFread       ( \textcolor{keywordtype}{void} *ptr, \textcolor{keywordtype}{size\_t} size, \textcolor{keywordtype}{size\_t} nmemb );}
-\DoxyCodeLine{140     xbInt16  xbFseek       ( xbInt64 llOffset, xbInt32 whence );}
-\DoxyCodeLine{141     \textcolor{keywordtype}{size\_t}   xbFtell       ();}
-\DoxyCodeLine{142     \textcolor{keywordtype}{void}     xbFTurnOffFileBuffering();}
-\DoxyCodeLine{143  }
-\DoxyCodeLine{144     xbInt16  xbReadUntil   ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} cDelim, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
-\DoxyCodeLine{145     xbInt16  xbRemove      ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, xbInt16 iOption );}
-\DoxyCodeLine{146     xbInt16  xbRemove      ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName );}
-\DoxyCodeLine{147     xbInt16  xbRemove      ();}
-\DoxyCodeLine{148 }
-\DoxyCodeLine{149     xbInt16  xbRename      ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOldName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sNewName );}
-\DoxyCodeLine{150     \textcolor{keywordtype}{void}     xbRewind      ();}
-\DoxyCodeLine{151 }
-\DoxyCodeLine{152     xbInt16  xbFwrite      ( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *ptr, \textcolor{keywordtype}{size\_t} lSize, \textcolor{keywordtype}{size\_t} lNmemb );}
-\DoxyCodeLine{153 }
-\DoxyCodeLine{154     xbInt16  xbTruncate    ( xbInt64 llSize );}
-\DoxyCodeLine{155 }
+\DoxyCodeLine{144     xbInt16  \mbox{\hyperlink{classxb_1_1xbFile_ac40c991110ddc6fb30a72d90f4652762}{eGetInt16}}  ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p ) \textcolor{keyword}{const};}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{155     xbInt32  \mbox{\hyperlink{classxb_1_1xbFile_a60b24a5afc984c586bf384c7e915ba0d}{eGetInt32}}  ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p ) \textcolor{keyword}{const};}
 \DoxyCodeLine{156 }
-\DoxyCodeLine{157 \textcolor{preprocessor}{    \#ifdef XB\_LOCKING\_SUPPORT}}
-\DoxyCodeLine{158     xbInt16  xbLock           ( xbInt16 iFunction, xbInt64 llOffset, \textcolor{keywordtype}{size\_t} stLen );}
-\DoxyCodeLine{159     xbInt16  GetLockRetryCount() \textcolor{keyword}{const};}
-\DoxyCodeLine{160     \textcolor{keywordtype}{void}     SetLockRetryCount( xbInt16 iLockRetries );}
-\DoxyCodeLine{161 \textcolor{preprocessor}{    \#endif}}
-\DoxyCodeLine{162 }
-\DoxyCodeLine{163 \textcolor{preprocessor}{    \#ifdef XB\_DEBUG\_SUPPORT}}
-\DoxyCodeLine{164     xbInt16  DumpBlockToDisk( xbUInt32 ulBlockNo, \textcolor{keywordtype}{size\_t} lBlockSize );}
-\DoxyCodeLine{165     xbInt16  DumpMemToDisk  ( \textcolor{keywordtype}{char} *p, \textcolor{keywordtype}{size\_t} lBlockSize );}
-\DoxyCodeLine{166 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{166     xbUInt16 \mbox{\hyperlink{classxb_1_1xbFile_a936ade458e6d5e6d29f9b5031888d189}{eGetUInt16}} ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p ) \textcolor{keyword}{const};}
 \DoxyCodeLine{167 }
-\DoxyCodeLine{168 }
-\DoxyCodeLine{169   \textcolor{keyword}{protected}:}
-\DoxyCodeLine{170 }
-\DoxyCodeLine{171     \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}} *\mbox{\hyperlink{classxb_1_1xbFile_ae39a67ea391b46055d4ca299cb222004}{xbase}};              \textcolor{comment}{/* pointer to the main structures                       */}}
-\DoxyCodeLine{172 }
-\DoxyCodeLine{173   \textcolor{keyword}{private}:}
-\DoxyCodeLine{174     FILE     *fp;}
-\DoxyCodeLine{175     \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sFqFileName;        \textcolor{comment}{/* fully qualified file name                            */}}
-\DoxyCodeLine{176     \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sFileName;          \textcolor{comment}{/* file name                                            */}}
-\DoxyCodeLine{177     \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sDirectory;         \textcolor{comment}{/* directory, ends with / or \(\backslash\)                          */}}
-\DoxyCodeLine{178     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bFileOpen;          \textcolor{comment}{/* true if file is open                                 */}}
-\DoxyCodeLine{179     xbUInt32 ulBlockSize;        \textcolor{comment}{/* used for memo and index files                        */}}
-\DoxyCodeLine{180 }
-\DoxyCodeLine{181     xbInt16  iOpenMode;          \textcolor{comment}{/* XB\_READ || XB\_READ\_WRITE || XB\_WRITE                 */}}
-\DoxyCodeLine{182     xbInt16  iShareMode;         \textcolor{comment}{/* XB\_SINGLE\_USER || XB\_MULTI\_USER -\/ set file buffering */}}
-\DoxyCodeLine{183     xbInt32  iFileNo;            \textcolor{comment}{/* Library File No                                      */}}
-\DoxyCodeLine{184 }
-\DoxyCodeLine{185 \textcolor{preprocessor}{    \#ifdef XB\_LOCKING\_SUPPORT}}
-\DoxyCodeLine{186     xbInt16  iLockRetries;       \textcolor{comment}{/* file override number of lock attempts                */}}
-\DoxyCodeLine{187 \textcolor{preprocessor}{    \#endif}}
-\DoxyCodeLine{188 }
-\DoxyCodeLine{189 \textcolor{preprocessor}{    \#ifdef HAVE\_SETENDOFFILE\_F}}
-\DoxyCodeLine{190     HANDLE   fHandle;}
-\DoxyCodeLine{191 \textcolor{preprocessor}{    \#endif}}
-\DoxyCodeLine{192 }
-\DoxyCodeLine{193 }
-\DoxyCodeLine{194 \};}
-\DoxyCodeLine{195 }
-\DoxyCodeLine{196 \}        \textcolor{comment}{/* namespace     */}}
-\DoxyCodeLine{197 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/*  \_\_XBFILE\_H\_\_ */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{198 }
+\DoxyCodeLine{177     xbUInt32 \mbox{\hyperlink{classxb_1_1xbFile_a78f052529d39a18deaface5a0d47d0b0}{eGetUInt32}} ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p ) \textcolor{keyword}{const};}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179 }
+\DoxyCodeLine{189     \textcolor{keywordtype}{void}     \mbox{\hyperlink{classxb_1_1xbFile_a98b6ff533ae93f90c977a2ba23eeb105}{ePutDouble}} ( \textcolor{keywordtype}{char} *p, \mbox{\hyperlink{namespacexb_a25f47b226ce924a5c78f97989b0744a2}{xbDouble}} d );}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{200     \textcolor{keywordtype}{void}     \mbox{\hyperlink{classxb_1_1xbFile_a9a97e72c49f34bef768b6b1aa3909a8a}{ePutInt16}}  ( \textcolor{keywordtype}{char} *p, xbInt16 i );}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202 }
+\DoxyCodeLine{212     \textcolor{keywordtype}{void}     \mbox{\hyperlink{classxb_1_1xbFile_a19c37f76a2ccbb45019cb0fc373d3f46}{ePutInt32}}  ( \textcolor{keywordtype}{char} *p, xbInt32 l );}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{223     \textcolor{keywordtype}{void}     \mbox{\hyperlink{classxb_1_1xbFile_a343ee664c589885c4788b0850dde7bf4}{ePutUInt16}} ( \textcolor{keywordtype}{char} *p, xbUInt16 ui );}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{234     \textcolor{keywordtype}{void}     \mbox{\hyperlink{classxb_1_1xbFile_aa3f6ceae4b96f24875d86848bf13a173}{ePutUInt32}} ( \textcolor{keywordtype}{char} *p, xbUInt32 ul );}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236 }
+\DoxyCodeLine{238 }
+\DoxyCodeLine{244      \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   \mbox{\hyperlink{classxb_1_1xbFile_a78bd8a11dce102647095baf3aff2b006}{FileExists}} () \textcolor{keyword}{const};}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{252      \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   \mbox{\hyperlink{classxb_1_1xbFile_a61130b4fbf4cf9d5972dcb4993de2f94}{FileExists}} ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName ) \textcolor{keyword}{const};}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{265      \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   \mbox{\hyperlink{classxb_1_1xbFile_a0592168f39a10f2a401a88ef781f6148}{FileExists}} ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, xbInt16 iOption ) \textcolor{keyword}{const};}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{276      \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbFile_a174d8a6aabc9cfcd32fedbd1e5b13ddd}{FileExists}} ( xbInt16 iOption ) \textcolor{keyword}{const};}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{279 }
+\DoxyCodeLine{280 }
+\DoxyCodeLine{285     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbFile_a7fa837938a32dc9ca3fbc81cbaf50f59}{FileIsOpen}} () \textcolor{keyword}{const};}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{293     xbUInt32 \mbox{\hyperlink{classxb_1_1xbFile_a638e14262410a1627819f016a16cdce2}{GetBlockSize}}   () \textcolor{keyword}{const};}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{298     \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& \mbox{\hyperlink{classxb_1_1xbFile_acd0fb2166b2bff7e8a1cf65a7bc8be1e}{GetDirectory}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{301 }
+\DoxyCodeLine{306      xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_af5127c92892816e9bbc5c19653c4147a}{GetFileDirPart}} ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sCompleteFileNameIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileDirPartOut ) \textcolor{keyword}{const};}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{312      xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a60c53998e3d1b694134b20a87bc9bf5a}{GetFileDirPart}} ( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileDirPartOut ) \textcolor{keyword}{const};}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{316 }
+\DoxyCodeLine{321      xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_ab289b6ffe955321160c1f90220c22e25}{GetFileExtPart}} ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sCompleteFileNameIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileExtPartOut ) \textcolor{keyword}{const};}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{327      xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a57a9222e5cbb51019d4eeb2c3ac89fa2}{GetFileExtPart}} ( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileExtPartOut ) \textcolor{keyword}{const};}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{334     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_ace71244e630af277f774e96f602a197c}{GetFileMtime}}   ( time\_t \&mTime );}
+\DoxyCodeLine{335 }
+\DoxyCodeLine{339     \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& \mbox{\hyperlink{classxb_1_1xbFile_ac95cb882ccbcdedc9a233c6ad9fed07a}{GetFileName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{342 }
+\DoxyCodeLine{347      xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a6110763c5ae996b72c7a62c15bdecc73}{GetFileNamePart}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sCompleteFileNameIn, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileNamePartOut ) \textcolor{keyword}{const};}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{353      xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a81422b3dd52763d2cc6c77237ec9af0a}{GetFileNamePart}}( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileNamePartOut ) \textcolor{keyword}{const};}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{360     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a50b63c39e49d44e52078038027b24cc5}{GetFileSize}}( xbUInt64 \&ullFileSize );}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{366     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a5548236d38d43b89ae29b9a015b1f678}{GetFileType}}( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileType ) \textcolor{keyword}{const};}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{371     \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\& \mbox{\hyperlink{classxb_1_1xbFile_a31b4e641f93206ba23e2a5a27491dcd4}{GetFqFileName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{372 }
+\DoxyCodeLine{376     FILE * \mbox{\hyperlink{classxb_1_1xbFile_a12f1d9b4010720023177ae7b2e6d98e6}{GetFp}}();}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378 }
+\DoxyCodeLine{384     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a3c500dc9dac22c49496e4b29386b2dd3}{GetOpenMode}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{390     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a9b63e05b77f477ff6109ff7b9432c1b6}{GetShareMode}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{393 }
+\DoxyCodeLine{402      xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a7af337808919680b90710ad5e8a99232}{GetXbaseFileTypeByte}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \&cFileTypeByte );}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{414      xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a78aebdd21d3de46a450d5f835e3027f6}{GetXbaseFileTypeByte}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \&cFileTypeByte, xbInt16 \&iVersion );}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{425      xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_aaf2e697751a0beff41432a66bb83fb5e}{GetXbaseFileTypeByte}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, xbInt16 \&iVersion );}
+\DoxyCodeLine{427 }
+\DoxyCodeLine{438    xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a361e3cc318bbf1c4d10f069e0800a24e}{NameSuffixMissing}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, xbInt16 iOption ) \textcolor{keyword}{const};}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{441 }
+\DoxyCodeLine{449     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a425b5d873f41fcc66536bb10257436ff}{ReadBlock}}( xbUInt32 ulBlockNo, \textcolor{keywordtype}{size\_t} lReadSize,  \textcolor{keywordtype}{void} *buf );}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{461      xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_aae1bc91bacbe138a25b1d5cc3bcdee6b}{ReadBlock}}( xbUInt32 ulBlockNo, xbUInt32 ulBlockSize, \textcolor{keywordtype}{size\_t} lReadSize,  \textcolor{keywordtype}{void} *buf );}
+\DoxyCodeLine{463 }
+\DoxyCodeLine{469     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a991c5676a6f38fa752435390989f413e}{SetBlockSize}}( xbUInt32 ulBlockSize );}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{474     \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbFile_ae78a85255488bc78964c16946dbaead3}{SetDirectory}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDirectory);}
+\DoxyCodeLine{475 }
+\DoxyCodeLine{483     \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbFile_a5419eb27e56822f828b2b88a9502a636}{SetFileName}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName );}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{488     \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbFile_a1fad9ef8643944ad1641810f4b1cd5b4}{SetFqFileName}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFqFileName );}
+\DoxyCodeLine{489 }
+\DoxyCodeLine{494    xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a060acbfaa8d528f86cb59301814b414a}{SetHomeFolders}}();}
+\DoxyCodeLine{495 }
+\DoxyCodeLine{503    xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a85a245b07f8eb3108d124a39038eaa3f}{WriteBlock}}( xbUInt32 ulBlockNo, \textcolor{keywordtype}{size\_t} lWriteSize, \textcolor{keywordtype}{void} *buf );}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{508    xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a18830b5755d74818f60d9c7ce38ddf2d}{xbFclose}}();}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{513     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_af5b6356832d2a67212070a1aa605f170}{xbFeof}}();}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{518    xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_ad205184d43409f04216540ae22f15009}{xbFflush}}();}
+\DoxyCodeLine{519 }
+\DoxyCodeLine{521 }
+\DoxyCodeLine{525     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a5ee229bda4d7d6695e122200e581e7a6}{xbFgetc}}( \textcolor{keywordtype}{char} \&c );}
+\DoxyCodeLine{526 }
+\DoxyCodeLine{531     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_afb1c584d2895ffb7834df80aea7eb1e4}{xbFgetc}}( xbInt32 \&c );}
+\DoxyCodeLine{533 }
+\DoxyCodeLine{539    xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_ad245955ace26e5dde85fd4373b30d026}{xbFgets}}( \textcolor{keywordtype}{size\_t} lSize, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sLine );}
+\DoxyCodeLine{540 }
+\DoxyCodeLine{542 }
+\DoxyCodeLine{564     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_ab0fa19686ca8953ff4b556fb5b249135}{xbFopen}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sMode, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, xbInt16 iShareMode );}
+\DoxyCodeLine{565 }
+\DoxyCodeLine{587     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_ac724873d8a55de7d9d13506e09ab89f1}{xbFopen}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sMode, xbInt16 iShareMode );}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{602     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_ae4ceddb8ffe24ad740937c6ef76ba960}{xbFopen}}( xbInt16 iMode, xbInt16 iShareMode );}
+\DoxyCodeLine{603 }
+\DoxyCodeLine{604 }
+\DoxyCodeLine{606 }
+\DoxyCodeLine{608 }
+\DoxyCodeLine{612     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_af2e940c78956e5cb6824f9a1bc404896}{xbFputc}}( xbInt32 c );}
+\DoxyCodeLine{613 }
+\DoxyCodeLine{619     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a17f79c009923a5142a26141536016127}{xbFputc}}( xbInt32 c, xbInt32 iNoOfTimes );}
+\DoxyCodeLine{621 }
+\DoxyCodeLine{626    xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a698f3b40216778562e639e6ca1a47573}{xbFputs}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&s );}
+\DoxyCodeLine{627 }
+\DoxyCodeLine{634    xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a0346f58f95429ac4784f87585e644892}{xbFread}}( \textcolor{keywordtype}{void} *p, \textcolor{keywordtype}{size\_t} size, \textcolor{keywordtype}{size\_t} nmemb );}
+\DoxyCodeLine{635 }
+\DoxyCodeLine{643    xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a21c91b5d0b249b63acf6e921e4c95130}{xbFseek}}( xbInt64 llOffset, xbInt32 iWhence );}
+\DoxyCodeLine{644 }
+\DoxyCodeLine{648    \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classxb_1_1xbFile_a0e1c06aedfa7fbcb92e117f891edd13b}{xbFtell}}();}
+\DoxyCodeLine{649 }
+\DoxyCodeLine{655    \textcolor{comment}{// void xbFTurnOffFileBuffering();}}
+\DoxyCodeLine{656 }
+\DoxyCodeLine{663    xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_ad5795d422730921a6e94892816d65f1a}{xbFwrite}}( \textcolor{keyword}{const} \textcolor{keywordtype}{void} *p, \textcolor{keywordtype}{size\_t} lSize, \textcolor{keywordtype}{size\_t} lNmemb );}
+\DoxyCodeLine{664  }
+\DoxyCodeLine{672    xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a08463f506f425c2385acbe1a561506e9}{xbReadUntil}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} cDelim, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOut );}
+\DoxyCodeLine{673 }
+\DoxyCodeLine{675 }
+\DoxyCodeLine{678     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_ab3c668a8570433188382d31d7c60bd48}{xbRemove}}();}
+\DoxyCodeLine{679 }
+\DoxyCodeLine{684     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a58f6a6751fdf7e9549c273bb75d93eb5}{xbRemove}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName );}
+\DoxyCodeLine{685 }
+\DoxyCodeLine{691     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a6d919366c2ec95e529906bf8842cbf07}{xbRemove}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFileName, xbInt16 iOption );}
+\DoxyCodeLine{693 }
+\DoxyCodeLine{699    xbInt16  \mbox{\hyperlink{classxb_1_1xbFile_afc8ce113aa72611a278233f9bb170012}{xbRename}}      ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sOldName, \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sNewName );}
+\DoxyCodeLine{700 }
+\DoxyCodeLine{704    \textcolor{keywordtype}{void}     \mbox{\hyperlink{classxb_1_1xbFile_a7996b6e084665c37c3892faea64b3505}{xbRewind}}      ();}
+\DoxyCodeLine{705 }
+\DoxyCodeLine{711    xbInt16  \mbox{\hyperlink{classxb_1_1xbFile_a518bfcbfa3699d883cf89affee383296}{xbTruncate}}    ( xbInt64 llSize );}
+\DoxyCodeLine{712 }
+\DoxyCodeLine{713 }
+\DoxyCodeLine{714 \textcolor{preprocessor}{    \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{715 }
+\DoxyCodeLine{726     \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbFile_a94c6179a83f212bcd276ec7337a7e5d5}{Dump}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sTitle = \textcolor{stringliteral}{"{}"{}}, xbInt16 iOutputOption = 0 );}
+\DoxyCodeLine{727 }
+\DoxyCodeLine{739     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a5ea348a9b696559d0c600017cd363470}{DumpBlockToDisk}}( xbUInt32 ulBlockNo, \textcolor{keywordtype}{size\_t} lBlockSize );}
+\DoxyCodeLine{740 }
+\DoxyCodeLine{752     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_ada631a5d3c72f7b29901e4fa922dd641}{DumpMemToDisk}}( \textcolor{keywordtype}{char} *p, \textcolor{keywordtype}{size\_t} lSize );}
+\DoxyCodeLine{753 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{754 }
+\DoxyCodeLine{755 }
+\DoxyCodeLine{756 \textcolor{preprocessor}{    \#ifdef XB\_LOCKING\_SUPPORT}}
+\DoxyCodeLine{757 }
+\DoxyCodeLine{763     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a5a67588bc8e5a5c99d83432cea0dd976}{GetLockRetryCount}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{764 }
+\DoxyCodeLine{769     \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbFile_aa39f69363bb55eb22f0a118547c5416d}{SetLockRetryCount}}( xbInt16 iLockRetries );}
+\DoxyCodeLine{770 }
+\DoxyCodeLine{779     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_af5952e44954d18cbe949440433747dff}{xbLock}}( xbInt16 iFunction, xbInt64 llOffset, \textcolor{keywordtype}{size\_t} stLen );}
+\DoxyCodeLine{780 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{781 }
+\DoxyCodeLine{782 }
+\DoxyCodeLine{783 }
+\DoxyCodeLine{784   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{785 }
+\DoxyCodeLine{786     xbInt16 \mbox{\hyperlink{classxb_1_1xbFile_a10a5813fc6bea80f8cd5a0555b8cbc24}{xbSetVbuf}}( xbInt16 iOpt );}
+\DoxyCodeLine{787 }
+\DoxyCodeLine{788     \mbox{\hyperlink{classxb_1_1xbXBase}{xbXBase}} *\mbox{\hyperlink{classxb_1_1xbFile_ae39a67ea391b46055d4ca299cb222004}{xbase}};              }
+\DoxyCodeLine{789 }
+\DoxyCodeLine{790   \textcolor{keyword}{private}:}
+\DoxyCodeLine{791 }
+\DoxyCodeLine{792     FILE     *fp;}
+\DoxyCodeLine{793     \textcolor{keywordtype}{char}     *pFileBuffer;       \textcolor{comment}{/* file buffer set with setvbuf                         */}}
+\DoxyCodeLine{794     \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sFqFileName;        \textcolor{comment}{/* fully qualified file name                            */}}
+\DoxyCodeLine{795     \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sFileName;          \textcolor{comment}{/* file name                                            */}}
+\DoxyCodeLine{796     \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sDirectory;         \textcolor{comment}{/* directory, ends with / or \(\backslash\)                          */}}
+\DoxyCodeLine{797     \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bFileOpen;          \textcolor{comment}{/* true if file is open                                 */}}
+\DoxyCodeLine{798     xbUInt32 ulBlockSize;        \textcolor{comment}{/* used for memo and index files                        */}}
+\DoxyCodeLine{799 }
+\DoxyCodeLine{800     xbInt16  iOpenMode;          \textcolor{comment}{/* XB\_READ || XB\_READ\_WRITE || XB\_WRITE                 */}}
+\DoxyCodeLine{801     xbInt16  iShareMode;         \textcolor{comment}{/* XB\_SINGLE\_USER || XB\_MULTI\_USER -\/ set file buffering */}}
+\DoxyCodeLine{802     xbInt32  iFileNo;            \textcolor{comment}{/* Library File No                                      */}}
+\DoxyCodeLine{803 }
+\DoxyCodeLine{804 \textcolor{preprocessor}{    \#ifdef XB\_LOCKING\_SUPPORT}}
+\DoxyCodeLine{805     xbInt16  iLockRetries;       \textcolor{comment}{/* file override number of lock attempts                */}}
+\DoxyCodeLine{806 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{807 }
+\DoxyCodeLine{808 \textcolor{preprocessor}{    \#ifdef HAVE\_SETENDOFFILE\_F}}
+\DoxyCodeLine{809     HANDLE   fHandle;}
+\DoxyCodeLine{810 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{811 }
+\DoxyCodeLine{812 \};}
+\DoxyCodeLine{813 }
+\DoxyCodeLine{814 \}        \textcolor{comment}{/* namespace     */}}
+\DoxyCodeLine{815 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/*  \_\_XBFILE\_H\_\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{816 }
 
 \end{DoxyCode}

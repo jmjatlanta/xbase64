@@ -25,50 +25,24 @@ for parsing various tokens out of an expression
 namespace xb{
 
 /*************************************************************************/
-//! Constructor
-/*!
-  \param x Pointer to xbXBase instance.
-*/
-
 xbExp::xbExp( xbXBase *x ){
    xbase   = x;
    dbf     = NULL;
    nTree   = NULL;
 }
-
 /*************************************************************************/
-//! Constructor
-/*!
-  \param x Pointer to xbXBase instance.
-  \param d Pointer to xbDbf instance.
-*/
 xbExp::xbExp( xbXBase *x, xbDbf *d ){
    xbase   = x;
    dbf     = d;
    nTree   = NULL;
 }
-
 /*************************************************************************/
-//! Deconstrucor.
-
 xbExp::~xbExp() {
 
   if( nTree )
     delete nTree;
 }
-
 /*************************************************************************/
-//! Calulate expression return length
-/*!
-
-   This function returns the maximum possible length of an expression
-   The create index functions use this for determining the fixed length keys 
-   It sets the return length field in the node.
-
-  \param n Start node
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::CalcFunctionResultLen( xbExpNode * n ) const{
 
   xbInt16 iRc = XB_NO_ERROR;
@@ -77,9 +51,7 @@ xbInt16 xbExp::CalcFunctionResultLen( xbExpNode * n ) const{
   xbInt32 lReturnLenVal = 0;
   xbString sNodeText;
 
-
   try{
-
     n->GetNodeText( sNodeText );
     char cReturnType = 0;
     if(( iRc = xbase->GetFunctionInfo( sNodeText, cReturnType, iReturnLenCalc, lReturnLenVal )) != XB_NO_ERROR ){
@@ -101,7 +73,6 @@ xbInt16 xbExp::CalcFunctionResultLen( xbExpNode * n ) const{
       }
       n->SetResultLen( nChild->GetResultLen());
     }
-
     else if( iReturnLenCalc == 3 ){
       // use the length from the child node identified in lReturnLenVal
       xbExpNode *nChild = n->GetChild( (xbUInt32) lReturnLenVal - 1 );
@@ -137,16 +108,13 @@ xbInt16 xbExp::CalcFunctionResultLen( xbExpNode * n ) const{
       else
         n->SetResultLen( nChild3->GetResultLen());
     }
-
     else if( iReturnLenCalc == 6 ){
-
       if( n->GetChildCnt() >= 2 ){
         xbExpNode *nChild2 = n->GetChild( 1 );
         n->SetResultLen( (xbUInt32) nChild2->GetNumericResult());
       } else {
         n->SetResultLen( (xbUInt32) lReturnLenVal );
       }
-
     } else {
       iErrorStop = 150;
       iRc = XB_PARSE_ERROR;
@@ -160,31 +128,18 @@ xbInt16 xbExp::CalcFunctionResultLen( xbExpNode * n ) const{
   }
   return iRc;
 }
-
 /*************************************************************************/
-//! Check parens and quotes
-/*!
-   This routine looks for unbalanced parens and quotes
-
-  \param sExpression Expression to examine.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
-
 xbInt16 xbExp::CheckParensAndQuotes( const xbString &sExpression ){
-
 
   xbInt16 iRc = XB_NO_ERROR;
   xbInt16 iErrorStop = 0;
-
-  xbBool  bInQuotes = xbFalse;
   xbInt16 iLparenCtr = 0;
   xbInt16 iRparenCtr = 0;
   xbInt16 iQuoteType = 0;
-  const char *s = sExpression;
+  xbBool  bInQuotes = xbFalse;
+  const   char *s = sExpression;
 
   try{
-
     while( *s ){
       if( !bInQuotes ){
         if( *s == '(' ){
@@ -224,37 +179,16 @@ xbInt16 xbExp::CheckParensAndQuotes( const xbString &sExpression ){
   return iRc;
 }
 /*************************************************************************/
-//! Clear tree handle.
-/*!
-   This routine clears the expression tree and frees any associated memory.
-  \returns void.
-*/
-
 void xbExp::ClearTreeHandle(){
   if( nTree ){
     nTree = NULL;
   }
 }
-
 /*************************************************************************/
 #ifdef XB_DEBUG_SUPPORT
-//! Dump the tree.
-/*!
-  \param iOption - Output opton.
-  \returns void.
-*/
-
 void xbExp::DumpTree( xbInt16 iOption ){
   nTree->DumpNode( iOption );
 }
-
-//! Dump token
-/*!
-  \param iOption - Output opton.
-  \returns void.
-*/
-
-
 void xbExp::DumpToken( xbExpToken &t, xbInt16 iOption ){
 
   xbString sMsg;
@@ -282,17 +216,8 @@ void xbExp::DumpToken( xbExpToken &t, xbInt16 iOption ){
   sMsg.Sprintf( "PrevReturnType = [%c]", t.cPrevReturnType );
   xbase->WriteLogMessage( sMsg.Str(), iOption );
 }
-
 #endif
-
 /*************************************************************************/
-//! Get date result.
-/*!
-  If the expression generates a date return type, this method retrieves the date value.
-  \param dtResult - Output date value.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::GetDateResult( xbDate &dtResult ){
   if( nTree ){
     dtResult.JulToDate8( (xbInt32) nTree->GetNumericResult() );
@@ -304,12 +229,6 @@ xbInt16 xbExp::GetDateResult( xbDate &dtResult ){
   }
 }
 /*************************************************************************/
-//! Get bool result.
-/*!
-  If the expression generates a boolean return type, this method retrieves the boolean value.
-  \param bResult - Output boolean value.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbExp::GetBoolResult( xbBool &bResult){
   if( nTree ){
     bResult = nTree->GetBoolResult();
@@ -319,14 +238,7 @@ xbInt16 xbExp::GetBoolResult( xbBool &bResult){
     return XB_PARSE_ERROR;
   }
 }
-
 /*************************************************************************/
-//! Get the next node in the tree.
-/*!
-  \param n Node to starting point.  To get the first node of the entire tree, set n = NULL
-  \returns Pointer to next node.
-*/
-
 xbExpNode *xbExp::GetNextNode( xbExpNode * n ) const {
 
   // to get the first node of the entire tree, set n = NULL
@@ -343,19 +255,11 @@ xbExpNode *xbExp::GetNextNode( xbExpNode * n ) const {
   }
   return n->GetNextNode();
 }
-
 /*************************************************************************/
-//! GetNextToken
-/*! This method returns the next token in an expression of one or more tokens
-  \param t Token
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::GetNextToken( xbExpToken &t  ){
 
   xbInt16 iRc = XB_NO_ERROR;
   xbInt16 iErrorStop = 0;
-
   try{
     t.iSts = XB_NO_ERROR;
     t.sExpression.Ltrim();
@@ -426,7 +330,6 @@ xbInt16 xbExp::GetNextToken( xbExpToken &t  ){
       throw iRc;
     }
   }
-
   catch (xbInt16 iRc ){
     xbString sMsg;
     sMsg.Sprintf( "xbexp::GetNextToken() Exception Caught. Error Stop = [%d] iRc = [%d] Expression = [%s]", iErrorStop, iRc, t.sExpression.Str() );sMsg.Sprintf( "xbexp::GetNextToken() Exception Caught. Error Stop = [%d] iRc = [%d] Expression = [%s]", iErrorStop, iRc, t.sExpression.Str() );sMsg.Sprintf( "xbexp::GetNextToken() Exception Caught. Error Stop = [%d] iRc = [%d] Expression = [%s]", iErrorStop, iRc, t.sExpression.Str() );sMsg.Sprintf( "xbexp::GetNextToken() Exception Caught. Error Stop = [%d] iRc = [%d] Expression = [%s]", iErrorStop, iRc, t.sExpression.Str() );
@@ -436,13 +339,6 @@ xbInt16 xbExp::GetNextToken( xbExpToken &t  ){
 }
 
 /*************************************************************************/
-//! Get numeric result.
-/*!
-  If the expression generates a numeric return type, this method retrieves the numeric value.
-  \param dResult - Output numeric value.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::GetNumericResult( xbDouble &dResult){
   if( nTree ){
     dResult = nTree->GetNumericResult();
@@ -454,40 +350,20 @@ xbInt16 xbExp::GetNumericResult( xbDouble &dResult){
   }
 }
 /*************************************************************************/
-//! Get result length.
-/*!
-  This routine returns the result length.
-  \returns Result length.
-*/
-
 xbInt16 xbExp::GetResultLen() const{
   if( nTree )
     return nTree->GetResultLen();
   else
     return 0;
 }
-
 /*************************************************************************/
-//! Get return type.
-/*!
-  \returns Expression return type.
-*/
-
 char xbExp::GetReturnType() const{
   if( nTree )
     return nTree->GetReturnType();
   else
     return ' ';
 }
-
 /*************************************************************************/
-//! Get string result.
-/*!
-  If the expression generates a string return type, this method retrieves the string value.
-  \param sResult - Output string value.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::GetStringResult( xbString &sResult){
   if( nTree ){
     sResult = nTree->GetStringResult();
@@ -498,17 +374,7 @@ xbInt16 xbExp::GetStringResult( xbString &sResult){
     return XB_PARSE_ERROR;
   }
 }
-
 /*************************************************************************/
-//! Get string result.
-/*!
-  If the expression generates a string return type, this method retrieves the string value.
-  \param vpResult - Pointer to user supplied buffer for result.
-  \param ulLen - Max size of buffer.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
-
 xbInt16 xbExp::GetStringResult( char * vpResult, xbUInt32 ulLen ){
   if( nTree ){
     nTree->GetStringResult().strncpy((char *) vpResult, ulLen );
@@ -518,22 +384,7 @@ xbInt16 xbExp::GetStringResult( char * vpResult, xbUInt32 ulLen ){
     return XB_PARSE_ERROR;
   }
 }
-
-
-
 /*************************************************************************/
-//! GetTokenCharConstant
-/*! This method returns the character constant in a pair of quotes
-
-   This routine returns the tokens inside a set of matching quotes in sOutToken
-   If there is nothing between the quotes then sOutToken is returned empty
-   sOutRemainder contains whatever remains to the right of the right quote
-
-  \param t Token
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-
-*/
-
 xbInt16 xbExp::GetTokenCharConstant( xbExpToken &t ){
 
   const char *s = t.sExpression;
@@ -576,17 +427,7 @@ xbInt16 xbExp::GetTokenCharConstant( xbExpToken &t ){
   }
   return iRc;
 }
-
-
 /*************************************************************************/
-//! GetTokenDateConstant
-/*! This method returns the date constant in a pair of {}
-
-    Date format is one of {mm/dd/yy}   or  {mm/dd/yyyy}
-    \param t Token.
-    \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::GetTokenDateConstant( xbExpToken &t ){
 
   xbInt16    iRc = XB_NO_ERROR;
@@ -638,19 +479,6 @@ xbInt16 xbExp::GetTokenDateConstant( xbExpToken &t ){
   return iRc;
 }
 /*************************************************************************/
-//! GetTokenField
-/*! This method gets a database field token 
-
-   Looks for a xbase field in one of the following formats
-
-   FIELDNAME
-     or
-   TABLENAME->FIELDNAME
-
-   \param t Token.
-   \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::GetTokenDatabaseField( xbExpToken &t ){
 
   const  char *s = t.sExpression;
@@ -706,14 +534,6 @@ xbInt16 xbExp::GetTokenDatabaseField( xbExpToken &t ){
 }
 
 /*************************************************************************/
-//! GetTokenFunction
-/*! 
-   This method gets a function and everything between the following quotes
-   \param t Token
-   \returns <a href="xbretcod_8h.html">Return Codes</a>
-
-*/
-
 xbInt16 xbExp::GetTokenFunction( xbExpToken &t ){
 
   xbUInt32 lPos  = t.sExpression.Pos( '(' );
@@ -733,62 +553,30 @@ xbInt16 xbExp::GetTokenFunction( xbExpToken &t ){
       iDepthCtr++;
     }
   }
-
   t.cNodeType   = XB_EXP_FUNCTION;
   t.sToken.Set( t.sExpression, lPos-1 );
   t.sExpression.Ltrunc( lPos-1 );
-
-//  std::cout << "lPos = [" << lPos << "] done= [" << bDone << "][" << t.sExpression << "] len=[" << lLen << "] return type = [" << t.cReturnType << "]\n";
-
   return XB_NO_ERROR;
 }
-
 /*************************************************************************/
-//! GetTokenCharConstant
-/*! This method returns the character constant in a pair of quotes
-
-   This routine returns the tokens inside a set of matching quotes in sOutToken
-   If there is nothing between the quotes then sOutToken is returned empty
-   sOutRemainder contains whatever remains to the right of the right quote
-
-   \param t Token
-   \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::GetTokenLogicalConstant( xbExpToken &t ){
-
   t.cNodeType   = XB_EXP_CONSTANT;
   t.cReturnType = XB_EXP_LOGICAL;
   t.sToken      = t.sExpression[2];
-
   if( t.sExpression[3] == '.' )
     t.sExpression.Ltrunc( 3 );
   else if( t.sExpression[6] == '.' )
     t.sExpression.Ltrunc( 6 );
   else if( t.sExpression[7] == '.' )
     t.sExpression.Ltrunc( 7 );
-
   return XB_NO_ERROR;
 }
-
-
 /*************************************************************************/
-//! GetTokenNumericConstant
-/*! This method returns a numeric constant in 
-
-   This routine returns a numeric constant token
-   sOutRemainder contains whatever remains to the right of the right quote
-
-   \param t Token
-   \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::GetTokenNumericConstant( xbExpToken &t ){
 
   const char * s      = t.sExpression;
   xbUInt32 ulTokenLen = 0;
   t.sToken            = "";
-
   t.cNodeType   = XB_EXP_CONSTANT;
   t.cReturnType = XB_EXP_NUMERIC;
 
@@ -797,14 +585,12 @@ xbInt16 xbExp::GetTokenNumericConstant( xbExpToken &t ){
     t.sToken = *s;
     ulTokenLen++;
     s++;
-
     // go past any white space between sign and number
     while( *s && IsWhiteSpace( *s )){
       s++;
       ulTokenLen++;
     }
   }
-
   // add the number to the token
   while( *s && (isdigit( *s ) || *s == '.' )){
     t.sToken += *s;
@@ -814,16 +600,7 @@ xbInt16 xbExp::GetTokenNumericConstant( xbExpToken &t ){
   t.sExpression.Ltrunc( ulTokenLen );
   return XB_NO_ERROR;
 }
-
 /*************************************************************************/
-//! GetTokenOperator
-/*! This method returns the operator
-
-   \param t Token
-   \returns <a href="xbretcod_8h.html">Return Codes</a>
-
-*/
-
 xbInt16 xbExp::GetTokenOperator( xbExpToken &t ){
 
   const char *s = t.sExpression;
@@ -837,7 +614,6 @@ xbInt16 xbExp::GetTokenOperator( xbExpToken &t ){
     t.cNodeType   = XB_EXP_OPERATOR;
     return XB_NO_ERROR;
   }
-
   if( *s == '=' || *s == '<' || *s == '>' || *s == '$' || *s == '#' ){
     t.cReturnType = XB_EXP_LOGICAL;
     t.sToken.Assign( s, 1, 1 );
@@ -921,18 +697,6 @@ xbInt16 xbExp::GetTokenOperator( xbExpToken &t ){
 }
 
 /*************************************************************************/
-//! GetTokenParen
-/*! This method returns the tokens in a pair of enclosed parens
-
-   This routine returns the tokens inside a set of matching parens in sOutToken
-   If there is nothing between the parens then sOutToken is returned empty
-   sOutRemainder contains whatever remains to the right of the right paren
-
-   \param t Token
-   \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
-
 xbInt16 xbExp::GetTokenParen( xbExpToken &t ){
 
   const char * s     = t.sExpression;
@@ -987,26 +751,11 @@ xbInt16 xbExp::GetTokenParen( xbExpToken &t ){
   }
   return iRc;
 }
-
 /*************************************************************************/
-//! Get the expression tree handle.
-/*!
-  \returns Pointer to the top most node in the expression tree.
-*/
 xbExpNode *xbExp::GetTreeHandle(){
   return nTree;
 }
-
 /*************************************************************************/
-//! Is Function
-/*! This method determines if the next token is a function.
-
-   \param sExpression - String expression to be evaluated.
-   \param cReturnType Output - Return type.
-   \returns xbTrue - Is a function.<br>
-            xbFalse - Is not a function.
-*/
-
 xbBool xbExp::IsFunction( const xbString & sExpression, char &cReturnType ){
 
   xbInt16 i = 0;
@@ -1017,16 +766,7 @@ xbBool xbExp::IsFunction( const xbString & sExpression, char &cReturnType ){
   }
   return xbFalse;
 }
-
 /*************************************************************************/
-//! Is Logical constant
-/*! This method determines if the next token is a logical constant (T/F, etc).
-
-   \param sExpression - String expression to be evaluated.
-   \returns xbTrue - Is a logical constant.<br>
-            xbFalse - Is not a logical constant.
-*/
-
 xbBool xbExp::IsLogicalConstant( const xbString & sExpression ){
 
   const char *s = sExpression;
@@ -1036,23 +776,12 @@ xbBool xbExp::IsLogicalConstant( const xbString & sExpression ){
     return xbTrue;
   else if( strncmp( s, ".FALSE.", 7 ) == 0 )
     return xbTrue;
-
   return xbFalse;
 }
-
 /*************************************************************************/
-//! Is Numeric constant
-/*! This method determines if the next token is a numeric constant.
-
-   \param sExpression - String expression to be evaluated.
-   \param cPrevNodeType - Type of previous node.
-   \returns xbTrue - Is a numeric constant.<br>
-            xbFalse - Is not a numeric constant.
-*/
 xbBool xbExp::IsNumericConstant( const xbString & sExpression, char cPrevNodeType ){
 
   // check for positive, negative or decimal number constants 
-
   const char *s = sExpression;
   if(( *s == '-' && ( cPrevNodeType == 'O' || cPrevNodeType == 0 )) ||
      ( *s == '+' && ( cPrevNodeType == 'O' || cPrevNodeType == 0 ))){
@@ -1068,15 +797,7 @@ xbBool xbExp::IsNumericConstant( const xbString & sExpression, char cPrevNodeTyp
   else
     return xbFalse;
 }
-
 /*************************************************************************/
-//! Is Operator.
-/*! This method determines if the next token is an operator.
-
-   \param sExpression - String expression to be evaluated.
-   \returns xbTrue - Is an operator.<br>
-            xbFalse - Is not an operator.
-*/
 xbBool xbExp::IsOperator( const xbString & sExpression ){
 
   const char *s = sExpression;
@@ -1095,15 +816,7 @@ xbBool xbExp::IsOperator( const xbString & sExpression ){
 
   return xbFalse;
 }
-
 /*************************************************************************/
-//! Is Token separator
-/*! This method determines if the next token is a separator.
-
-   \param sExpression - String expression to be evaluated.
-   \returns xbTrue - Is a token separator.<br>
-            xbFalse - Is not a token separator.
-*/
 char xbExp::IsTokenSeparator( char c ){
    if( c == '-' || c == '+' || c == '*' || c == '/' || c == '$' || c == '#' || 
        c == '<' || c == '>' || c == '^' || c == '=' || c == '.' || c == '!' )
@@ -1112,37 +825,10 @@ char xbExp::IsTokenSeparator( char c ){
       return 0;
 }
 /*************************************************************************/
-//! Is White space
-/*! This method determines if a given character is white space.
-
-   \param c - Character to be evaluated.
-   \returns xbTrue - Is white space.<br>
-            xbFalse - Is not white space.
-*/
 xbBool xbExp::IsWhiteSpace( char c ){
    return(( c == 0x20 )? 1 : 0 );
 }
-
 /*************************************************************************/
-//! Get operator weight.
-/*!
-   This method determines the priority of an operator
-
-   Operator precendence
-     10  .AND. .OR. .NOT.   (not really an operator)
-     9  > or <  (includes <= or >=)
-     6  unary plus or minus  (+,-)   -- not passed this routine
-     5  prefix increment and/or decrement (++,--)
-     4  exponentiation  ** or ^
-     3  multiplication,division or modulus  (*,/,%)
-     2  Addition, subtraction (+,-)
-     1  Postfix increment and/or decrement  (++,--)
-
-  \param sOper - Operator.
-  \returns Operator weight
-
-*/
-
 xbInt16 xbExp::OperatorWeight( const xbString &sOper ){
 
   if( sOper == "" || sOper.Len() > 5 ) 
@@ -1170,39 +856,16 @@ xbInt16 xbExp::OperatorWeight( const xbString &sOper ){
 
   return 0;
 }
-
-
 /*************************************************************************/
-//! Parse expression.
-/*!
-  \param sExpression - Expression to parse.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::ParseExpression( const xbString &sExpression ){
   return ParseExpression( sExpression, (xbInt16) 0 );
 }
-
 /*************************************************************************/
-//! Parse expression.
-/*!
-  \param dbf - Pointer to xbDbf instance.
-  \param sExpression - Expression to parse.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::ParseExpression( xbDbf *dbf, const xbString &sExpression  ){
   this->dbf = dbf;
   return ParseExpression( sExpression, (xbInt16) 0 );
 }
-
 /*************************************************************************/
-//! Parse expression.
-/*!
-  \param sExpression - Expression to parse.
-  \param iWeight.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbExp::ParseExpression( const xbString &sExpression, xbInt16 iWeight ){
 
   xbExpNode  *n = NULL;
@@ -1214,7 +877,6 @@ xbInt16 xbExp::ParseExpression( const xbString &sExpression, xbInt16 iWeight ){
   xbBool     bNewNode = xbFalse;
 
   try {
-
     if( nTree )
       delete nTree;
 
@@ -1222,18 +884,13 @@ xbInt16 xbExp::ParseExpression( const xbString &sExpression, xbInt16 iWeight ){
       iErrorStop = 100;
       throw iRc;
     }
-
     t.sExpression = sExpression;
-
     xbString sOriginalExp;
     while( t.iSts == XB_NO_ERROR && iRc == XB_NO_ERROR ){
 
       sOriginalExp = t.sExpression;    // test code
       iRc = GetNextToken( t );
       if( !iRc && !t.iSts ){
-
-        // comment / uncomment  debug / live
-        // DumpToken( t, 0 );
 
         if( t.cNodeType == XB_EXP_NOTROOT ){
           xbExp enr( xbase, dbf );
@@ -1245,7 +902,6 @@ xbInt16 xbExp::ParseExpression( const xbString &sExpression, xbInt16 iWeight ){
           enr.ClearTreeHandle();
 
         } else {
-
           switch( t.cNodeType ) {
 
             case XB_EXP_CONSTANT:
@@ -1443,18 +1099,10 @@ xbInt16 xbExp::ParseExpression( const xbString &sExpression, xbInt16 iWeight ){
   return iRc;
 }
 /*************************************************************************/
-//! Parse expression constant.
-/*!
-  \param t - Token.
-  \param n - Node.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbExp::ParseExpressionConstant( xbExpToken &t, xbExpNode *n ){
 
   xbDate     dtWork;
   n->SetReturnType( t.cReturnType ); 
-
-  // std::cout << "parse expression constant[" << t.sToken << "]\n";
 
   switch( t.cReturnType ){
      case XB_EXP_CHAR:
@@ -1488,14 +1136,7 @@ xbInt16 xbExp::ParseExpressionConstant( xbExpToken &t, xbExpNode *n ){
   }
   return XB_NO_ERROR;
 }
-
 /*************************************************************************/
-//! Parse expression field.
-/*!
-  \param t - Token.
-  \param n - Node.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbExp::ParseExpressionField( xbExpToken &t, xbExpNode *n ){
 
   xbInt16 iRc = XB_NO_ERROR;
@@ -1506,7 +1147,6 @@ xbInt16 xbExp::ParseExpressionField( xbExpToken &t, xbExpNode *n ){
   // do the db lookup and set the field number for the field
 
   try{
-
     xbUInt32 lPos;
 
     if(( lPos = t.sToken.Pos( "->" )) > 0 ){
@@ -1516,21 +1156,6 @@ xbInt16 xbExp::ParseExpressionField( xbExpToken &t, xbExpNode *n ){
       sFieldName = t.sToken;
       sFieldName.Mid( lPos + 2, t.sToken.Len() - lPos - 1 );
       pDbf = (xbDbf *) xbase->GetDbfPtr( sTableName );
-
-
-/*
-    //  updated 1/2/23 to support either table.field or table->field
-    if((( lPos = t.sToken.Pos( "->" )) > 0) || (( lPos = t.sToken.Pos( "." )) > 0) ){
-      //  table name is part of the token
-      xbString sTableName = t.sToken;
-      sTableName.Left( lPos-1 );
-      sFieldName = t.sToken;
-      if( t.sToken[lPos] == '.' )
-        sFieldName.Mid( lPos + 1, t.sToken.Len() - lPos );
-      else  // ->
-        sFieldName.Mid( lPos + 2, t.sToken.Len() - lPos - 1 );
-      pDbf = (xbDbf *) xbase->GetDbfPtr( sTableName );
-*/
 
     } else {
       // table name is not part of the token 
@@ -1594,15 +1219,7 @@ xbInt16 xbExp::ParseExpressionField( xbExpToken &t, xbExpNode *n ){
   }
   return iRc;
 }
-
 /*************************************************************************/
-//! Parse expression function.
-/*!
-  \param t - Token.
-  \param n - Node.
-  \param iWeight
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbExp::ParseExpressionFunction( xbExpToken &t, xbExpNode *n, xbInt16 iWeight ){
 
   xbInt16 iRc = XB_NO_ERROR;
@@ -1618,7 +1235,6 @@ xbInt16 xbExp::ParseExpressionFunction( xbExpToken &t, xbExpNode *n, xbInt16 iWe
     }
     // Get the function name and look it up in the table
 
-
     xbString sFunc = t.sToken;
     sFunc.Left( lPos - 1 ).Trim();
     char cReturnType;
@@ -1629,7 +1245,6 @@ xbInt16 xbExp::ParseExpressionFunction( xbExpToken &t, xbExpNode *n, xbInt16 iWe
       throw iRc;
     }
     n->SetNodeText( sFunc );
-
 
     // Get the function parms
     xbString sParms = t.sToken;
@@ -1693,19 +1308,7 @@ xbInt16 xbExp::ParseExpressionFunction( xbExpToken &t, xbExpNode *n, xbInt16 iWe
   }
   return iRc;
 }
-
 /*************************************************************************/
-//! Parse expression function.
-/*!
-
-  Creates a linked list of function parms as xbStrings
-  This function pulls out the parms and addresses embedded parens and quotes within the parms
-
-  \param sParms
-  \param lParms
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::ParseExpressionFunctionParms( const xbString &sParms, xbLinkList<xbString> & llParms ){
 
   xbInt16  iRc = XB_NO_ERROR;
@@ -1716,7 +1319,6 @@ xbInt16 xbExp::ParseExpressionFunctionParms( const xbString &sParms, xbLinkList<
   xbInt16  iSingleQuotes = 0;
   xbInt32  lStartPos = 0;
   xbInt32  lParmLen = 0;
-
   xbString sParm;
 
   try{
@@ -1773,22 +1375,10 @@ xbInt16 xbExp::ParseExpressionFunctionParms( const xbString &sParms, xbLinkList<
   return iRc;
 }
 /*************************************************************************/
-//! Parse expression operator.
-/*!
-  \param t - Token.
-  \param n - Node.
-  \param iWeight
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbExp::ParseExpressionOperator( xbExpToken &t, xbExpNode *n, xbInt16 iWeight ){
 
   n->SetResult( t.sToken );
   n->SetWeight( iWeight + OperatorWeight( t.sToken) );
-
-//   std::cout << "ParseExpressionOperator [" << t.cPrevNodeType << "][" << t.sToken << "] Weight = [" << iWeight;
-//   std::cout << "] PrevReturnType [" << t.cPrevReturnType;
-//   std::cout << "] Operator weight [" << OperatorWeight( t.sToken ) << "] getweight [" << n->GetWeight() << "]\n";
 
   if( t.sToken == "**" || t.sToken == "^"   ||
       t.sToken == "*"   || t.sToken == "/"   || t.sToken == "%"  || t.sToken == "*="  || t.sToken == "/=" )
@@ -1807,11 +1397,9 @@ xbInt16 xbExp::ParseExpressionOperator( xbExpToken &t, xbExpNode *n, xbInt16 iWe
            t.sToken == "$"     || t.sToken == "#"    || t.sToken == "=" )
          n->SetReturnType( XB_EXP_LOGICAL );
 
-
   else if( t.cPrevReturnType == XB_EXP_UNKNOWN )
     n->SetReturnType( XB_EXP_UNKNOWN );
 
-  // added for date constant logic 10/28/17
   else if(( t.sToken == "+" || t.sToken == "-" ) && t.cPrevReturnType == XB_EXP_DATE )
     n->SetReturnType( XB_EXP_DATE );
 
@@ -1820,25 +1408,11 @@ xbInt16 xbExp::ParseExpressionOperator( xbExpToken &t, xbExpNode *n, xbInt16 iWe
 
   return XB_NO_ERROR;
 }
-
-
 /************************************************************************/
-//! ProcessExpression
-/*! This method processes an expression tree leaving the result in the
-    root node of the tree
-*/
 xbInt16 xbExp::ProcessExpression(){
   return ProcessExpression( 0 );
 }
 /************************************************************************/
-//! ProcessExpression
-/*! This method processes a parsed expression tree leaving the result in the
-    root node of the tree
-  \param iRecBufSw Record buffer to use when evaluating expression.<br>
-                   0 - Current record buffer.<br>
-                   1 - Original record buffer.
-*/
-
 xbInt16 xbExp::ProcessExpression( xbInt16 iRecBufSw ){
 
 // iRecBufSw 0 - Record Buffer
@@ -1848,7 +1422,6 @@ xbInt16 xbExp::ProcessExpression( xbInt16 iRecBufSw ){
   xbInt16 iErrorStop = 0;
 
   try{
-
     xbExpNode * nWork = GetNextNode( NULL );
     xbExpNode * nChild1;
     xbDbf     * dbf;
@@ -2006,10 +1579,6 @@ xbInt16 xbExp::ProcessExpression( xbInt16 iRecBufSw ){
   return iRc;
 }
 /*************************************************************************/
-//! ProcessExpression
-/*! This method processes an expression tree for a given node.
-*/
-
 xbInt16 xbExp::ProcessExpressionFunction( xbExpNode * n, xbInt16 iRecBufSw ){
 
   xbInt16 iRc = XB_NO_ERROR;
@@ -2413,10 +1982,6 @@ xbInt16 xbExp::ProcessExpressionFunction( xbExpNode * n, xbInt16 iRecBufSw ){
   return iRc;
 }
 /*************************************************************************/
-//! Process Expression Operator
-/*! This method processes an expression operator for a given node.
-*/
-
 xbInt16 xbExp::ProcessExpressionOperator( xbExpNode * n ){
 
   xbInt16 iRc = XB_NO_ERROR;
@@ -2490,7 +2055,6 @@ xbInt16 xbExp::ProcessExpressionOperator( xbExpNode * n ){
           throw iRc;
         }
         break;
-
 
       case XB_EXP_DATE:
         // if date values in the leaf nodes, convert to numeric for operator logic
@@ -2690,7 +2254,6 @@ xbInt16 xbExp::ProcessExpressionOperator( xbExpNode * n ){
             iRc = XB_PARSE_ERROR;
             throw iRc;
           }
-
 
         } else {
           iErrorStop = 500;

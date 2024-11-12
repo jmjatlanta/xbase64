@@ -3,7 +3,7 @@
 <TITLE>Xbase64 DBMS Chapter 7</TITLE>
 <BODY BGCOLOR=#FFFFFF>
 <H2><p align="center">Class Inventory</p></H2>
-<p align="center">Chapter Updated 11/21/23</p><hr>
+<p align="center">Chapter Updated 09/01/24</p><hr>
 <br>
 <center><h3>Class Descriptions</h3></center>
 
@@ -12,10 +12,11 @@
 <tr><th>Class</th><th>Description</th></tr>
 <tr><td>xbBcd</td><td>Supports binary coded decimal data</td></tr>
 <tr><td>xbBlockRead<td>Supports block read functionality for improved sequential file access performance.</td></tr>
+<tr><td>xbCore</td><td>Base class, shared system values</td></tr>
 <tr><td>xbDate</td><td>Support date operations on a given date formatted as YYYYMMDD</td></tr>
 <tr><td>xbDbf</td><td>Base class for DBF file handling. If you are adding support for a new file type, <br>derive new file type class from this.</td></tr>
-<tr><td>xbDbf3</td><td>Derived from xbDbf, supports DBase V3 files</td></tr>
-<tr><td>xbDbf4</td><td>Derived from xbDbf, supports DBase V4 files</td></tr>
+<tr><td>xbDbf3</td><td>Derived from xbDbf, supports dBASE V3 files</td></tr>
+<tr><td>xbDbf4</td><td>Derived from xbDbf, supports dBASE V4 files</td></tr>
 <tr><td>xbExp</td><td>Class for supporting expression logic</td></tr>
 <tr><td>xbExpNode</td><td>Class definition of a single node, utilized by xbExp</td></tr>
 <tr><td>xbFile</td><td>Main file class.  If you are porting this library to another platform, start here</td></tr>
@@ -32,7 +33,6 @@
 <tr><td>xbMemoDbt3</td><td>Derived from xbMemo, supports V3 Memo files</td></tr>
 <tr><td>xbMemoDbt4</td><td>Derived from xbMemo, supports V3 Memo files</td></tr>
 <tr><td>xbSql</td><td>Supports SQL access</td></tr>
-<tr><td>xbSsv</td><td>Base class, shared system values</td></tr>
 <tr><td>xbString</td><td>String handling class</td></tr>
 <tr><td>xbTag</td><td>Class to support index tags</td></tr>
 <tr><td>xbTblMgr</td><td>Class used internally in the library for managing multiple open files/tables</td></tr>
@@ -43,8 +43,9 @@
 
 <hr>
 <br><br>
-Fix me...
-<p><img src="Xbase64ClassDiagramV2.jpeg" width=1800 height=1800><br>
+<center>
+<p><img src="classxb_1_1xbCore.png"><br>
+</center>
 
 <br><br>
 <hr>

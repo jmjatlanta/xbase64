@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+<TITLE>Xbase64 DBMS Chapter 17</TITLE>
+<BODY BGCOLOR=#FFFFFF>
+<H2><p align="center">Class xbLinkList and xbLinkListOrd</p></H2>
+<p align="center">Chapter Updated 09/01/24</p><hr>
+
+<h3>Class xbLinkList - Basic Link List Structure</h3>
+
+<br>
+Class xbLinkList provides standard linked list functionality.
+<br><br>
+<li>Template based class, supports a list of any object type
+<li>Supports additions at the beginning or end of the list
+<li>Support deletions at the beginning or end of the list
+<li>Can be used to support a <em>stack data structure</em> by always adding to the end and removing from the end
+<li>xbLLN is a linked list node of type xbNodeType
+<li>Class is available if XB_LINKLIST_SUPPORT is compiled in library
+<br><br><br>
+<center>
+<table border=1>
+<tr><th>Method</th><th>Description</th></tr>
+<tr><td>xbLinkList()</td><td>Constructor</td></tr>
+<tr><td>~xbLinkList()</td><td>Destructor</td></tr>
+<tr><td>xbLinkListNode<xbNodeType> *GetHeadNode() const</td><td>Return the head node</td></tr>
+<tr><td>xbLinkListNode<xbNodeType> *GetEndNode() const</td><td>Return the last node</td></tr>
+<tr><td>xbLinkListNode<xbNodeType> *GetNodeForNo( xbUInt32 ulNodeNo ) const</td><td>Return the node for a given number</td></tr>
+<tr><td>void Clear()</td><td>Clear the linked list</td></tr>
+<tr><td>xbUInt32 GetNodeCnt() const</td><td>Retrun the number of nodes in the linked list</td></tr>
+<tr><td>xbInt16 InsertAtEnd( const xbNodeType &xbLLN )</td><td>Insert a node at the end os the list</td></tr>
+<tr><td>xbInt16 InsertAtEnd( const xbNodeType &ntKey, xbLinkListNode<xbNodeType> **np )</td><td>Insert a keyed node at the end of the list</td></tr>
+<tr><td>xbInt16 InsertAtFront( const xbNodeType &xbLLN )</td><td>Insert a node in the beginning of the list</td></tr>
+<tr><td>xbInt16 RemoveByVal( const xbNodeType &xbLLN )</td><td>Remove a node for a given value</td></tr>
+<tr><td>xbInt16 RemoveFromEnd()</td><td>Remove a node from the front of the list</td></tr>
+<tr><td>xbInt16 RemoveFromEnd( xbNodeType &xbLLN )</td><td>Remove a node from the end of the list, returning data</td></tr>
+<tr><td>xbInt16 RemoveFromFront( xbNodeType &xbLLN )</td><td>Remove a node from the front of the list, returning node data</td></tr>
+<tr><td>xbInt16 SearchFor( const xbNodeType &xbLLN )</td><td>Search for a node</td></tr>
+</table>
+</center>
+<br><br>
+
+<h3>Class xbLinkListOrd - Ordered Link List Structure</h3>
+Class xbLinkListOrd provides ordered linked list functionality.
+<li>Template based class, supports an ordered list of any object type.
+<li>Inserts node into list, placement determined by key value.
+<li>Support deletions at the beginning, end or by key value.
+<li>Class is available if XB_LINKLIST_SUPPORT is compiled in library
+
+<br><br><br>
+<center>
+<table border=1>
+<tr><th>Method</th><th>Description</th></tr>
+<tr><td>xbLinkListOrd()</td><td>Constructor</td></tr>
+<tr><td>~xbLinkListOrd()</td><td>Destructor</td></tr>
+<tr><td>void Clear()</td><td>Clear the linked list</td></tr>
+<tr><td>xbLinkListNode<xbNodeType> *GetHeadNode() const</td><td>Return the head node</td></tr>
+<tr><td>xbLinkListNode<xbNodeType> *GetEndNode() const</td><td>Return the end node</td></tr>
+<tr><td>xbLinkListNode<xbNodeType> *GetNodeForKey( const xbString &sKey ) const</td><td>Return node for a given key</td></tr>
+<tr><td>xbInt16 GetDataForKey( const xbNodeType &ntKey, xbString &sData )</td><td>Get the node for a given key</td></tr>
+<tr><td>xbBool GetDupKeys()</td><td>Get the dup key setting.<br>xbTrue - allow dup keys<br>xbFalse - dup keys not allowed</td></tr>
+<tr><td>xbUInt32 GetNodeCnt() const<br>
+        xbUInt32 GetNodeCnt( const xbString &sNodeKey ) const</td><td>Get the node count</td></tr>
+<tr><td>xbInt16 InsertKey( const xbNodeType &ntKey )<br>
+        xbInt16 InsertKey( const xbNodeType &ntKey, const xbString &sData )<br>
+        xbInt16 InsertKey( const xbNodeType &ntKey, xbUInt32 ulData )</td><td>Insert into list</td></tr>
+<tr><td>xbBool KeyExists( const xbNodeType &ntKey ) const</td><td>Check for existence of key</td></tr>
+<tr><td>xbInt16 RemoveKey( const xbNodeType &ntKey )</td><td>Remove a node from the list, based on key</td></tr>
+<tr><td>xbInt16 RemoveFromEnd( xbNodeType &ntKey )</td><td>Remove node from end of list</td></tr>
+<tr><td>xbInt16 RemoveFromFront( xbNodeType &ntKey )<br>
+        xbInt16 RemoveFromFront()</td><td>Remove node from front of list</td></tr>
+<tr><td>void SetDupKeys( xbBool bAllowDupKeys )</td><td>Set dup key setting<br>xbTrue - allow dup keys<br>xbFalse - dup keys not allowed</td></tr>
+<tr><td>xbInt16 UpdateForKey( const xbNodeType &ntKey, const xbString &sData )</td><td>Update node for a given key</td></tr>
+</table>
+</center>
+<br><br>
+
+
+<h3>Example program using xbLinkList methods</h3>
+</center>
+<xmp>
+
+/* xb_ex_linklist.cpp
+
+XBase64 Software Library
+
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
+
+The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
+
+Email Contact:
+
+    XDB-devel@lists.sourceforge.net
+    XDB-users@lists.sourceforge.net
+*/
+
+// This program demonstrates usage of the linked list functionality conatined within the library
+
+#include "xbase.h"
+using namespace xb;
+
+int main( int argCnt, char **av )
+{
+  int iRc = 0;
+  xbXBase x;
+  xbString s;
+
+  // set up a linked list of strings
+  xbLinkList<xbString> ll;
+
+  // add a bunch of stuff to the front
+  ll.InsertAtFront( "A" );
+  ll.InsertAtFront( "B" );
+  ll.InsertAtFront( "C" );
+  ll.InsertAtFront( "D" );
+  ll.InsertAtFront( "E" );
+  ll.InsertAtFront( "F" );
+  ll.InsertAtFront( "G" );
+  ll.InsertAtFront( "H" );
+
+  // add a bunch of stuff to the end
+  ll.InsertAtEnd( "1" );
+  ll.InsertAtEnd( "2" );
+  ll.InsertAtEnd( "3" );
+  ll.InsertAtEnd( "4" );
+  ll.InsertAtEnd( "5" );
+  ll.InsertAtEnd( "6" );
+  ll.InsertAtEnd( "7" );
+  ll.InsertAtEnd( "8" );
+
+  std::cout << "iterate list begin to end" << std::endl;
+  xbLinkListNode<xbString> * llN = ll.GetHeadNode();
+  xbUInt32 ulCnt = ll.GetNodeCnt();
+  for( xbUInt32 i = 0; i < ulCnt; i++ ){
+    s = llN->GetKey();
+    std::cout << s.Str() << " ";
+    llN = llN->GetNextNode();
+  }
+
+  std::cout << std::endl << "iterate list end to begin" << std::endl;
+  llN = ll.GetEndNode();
+  for( xbUInt32 i = 0; i < ulCnt; i++ ){
+    s = llN->GetKey();
+    std::cout << s.Str() << " ";
+    llN = llN->GetPrevNode();
+  }
+
+  std::cout << std::endl;
+
+  ll.RemoveFromFront( s );
+  std::cout << "Removed [" << s.Str() << "] from front" << std::endl;
+
+  ll.RemoveFromEnd( s );
+  std::cout << "Removed [" << s.Str() << "] from end" << std::endl;
+
+  std::cout << "Node count before clear = " << ll.GetNodeCnt() << std::endl;
+  ll.Clear();
+  std::cout << "Node count after clear = " << ll.GetNodeCnt() << std::endl;
+
+  // ordered link list 
+  xbLinkListOrd<xbString> llO;
+  llO.SetDupKeys( 0 );
+  llO.InsertKey( "J" );
+
+  if(( iRc = llO.InsertKey( "J" )) != XB_KEY_NOT_UNIQUE )
+    std::cout << "This should error, no dups allowed" << std::endl;
+
+  llO.InsertKey( "M" );
+  llO.InsertKey( "C" );
+  llO.InsertKey( "F" );
+  llO.InsertKey( "Q" );
+  llO.InsertKey( "A" );
+  llO.InsertKey( "T" );
+
+  std::cout << "dumping ordered list begin to end\n";
+  llN = llO.GetHeadNode();
+  while( llN ){
+    s = llN->GetKey();
+    std::cout << s.Str() << " ";
+    llN = llN->GetNextNode();
+  }
+
+  std::cout << std::endl << "dumping node chain from end to begine\n";
+  llN = llO.GetEndNode();
+  while( llN ){
+    s = llN->GetKey();
+    std::cout << s.Str() << " ";
+    llN = llN->GetPrevNode();
+  }
+
+  std::cout << std::endl;
+
+  s = "A";
+  if( llO.KeyExists( s )){
+    std::cout << s.Str() << " exists, deleting." << std::endl;
+    llO.RemoveKey( s );
+  }
+  if( llO.KeyExists( s ))
+    std::cout << s.Str() << " exists" << std::endl;
+  else
+    std::cout << s.Str() << " does not exist" << std::endl;
+
+  return iRc;
+}
+</xmp>
+<br><br>
+<hr>
+<p><img src="xbase.jpg"><br><hr>
+</BODY>
+</HTML>

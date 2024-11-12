@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -41,7 +41,7 @@ xbStmt::~xbStmt(){
 /***********************************************************************/
 xbInt16  xbStmt::CvtSqlExp2DbaseExp( const xbString &sExpIn, xbString &sExpOut ){
 
-  // convert Ansi SQL expression to a DBase compatible expression
+  // convert Ansi SQL expression to a dBASE compatible expression
 
   xbInt16  iRc        = 0;
   xbInt16  iErrorStop = 0;
@@ -69,7 +69,7 @@ xbInt16  xbStmt::CvtSqlExp2DbaseExp( const xbString &sExpIn, xbString &sExpOut )
     xbString sMsg;
     sMsg.Sprintf( "xbStmt::CvtSqlExp2DbaseExp() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -160,7 +160,7 @@ xbInt16 xbStmt::GetNextFromSeg( const xbString &sLineIn, xbString &sFromSegOut )
     xbString sMsg;
     sMsg.Sprintf( "xbStmt::GetNextFromSeg() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -237,7 +237,7 @@ xbInt16 xbStmt::ParseFromStmt( const xbString &sFromLine ){
     xbString sMsg;
     sMsg.Sprintf( "xbStmt::ParseFromSeg() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
 
   return iRc;
@@ -480,7 +480,7 @@ xbInt16 xbStmt::ParseStmt( const xbString &sCmdLine ){
     xbString sMsg;
     sMsg.Sprintf( "xbStmt::ParseStmt() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
 
   return iRc;
@@ -602,7 +602,8 @@ xbInt16 xbStmt::ProcessFromSeg( const xbString &sFromSeg ){
     // open table
     //std::cout << "attempting to open table " << sTable.Str() << "\n";
     xbDbf *d = NULL;
-    if(( iRc = xbase->OpenHighestVersion( sTable, sAlias, &d )) != XB_NO_ERROR ){
+    //if(( iRc = xbase->OpenHighestVersion( sTable, sAlias, &d )) != XB_NO_ERROR ){
+    if(( iRc = xbase->Open( sTable, sAlias, &d )) != XB_NO_ERROR ){
       iErrorStop = 120;
       throw iRc;
     }
@@ -640,7 +641,7 @@ xbInt16 xbStmt::ProcessFromSeg( const xbString &sFromSeg ){
     xbString sMsg;
     sMsg.Sprintf( "xbStmt::ProcessFromSeg() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }

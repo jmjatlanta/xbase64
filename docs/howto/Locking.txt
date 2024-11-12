@@ -3,7 +3,9 @@ Xbase64 - Multi user / Record Locking
 
 
 
-If you are using the Xbase64 library in a multi user environment, 
+If you are using the Xbase64 library in a multi user environment, read this
+section on record and file locking.
+
 
 The Record Locking functionality of Xbase64 is designed to work in an evironment
 where the files are not cached on a local client machine.
@@ -16,7 +18,6 @@ Oplocks is short for Opportunistic Locking.
 
 If you are using Samba software as your file server software, you will
 need to add the following to your smb.conf config files.
-
 
 In the global section of the smb.conf file:
 

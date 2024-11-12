@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -28,18 +28,35 @@ This class manages a list of open tables, open indices are connected to the open
 
 namespace xb{
 
+///@cond
 
 struct XBDLLEXPORT xbSqlFld{
   char     cType;      // F - Database field
                        // L - Literal
                        // E - Expression
+                       // T - Group by total
+  xbDbf    *dbf;       // pointer to table
   xbInt16  iFldNo;     // Field number if db field
   xbExp *  pExp;       // If cType=E, pointer to parsed expression
   xbString sFldAlias;  // Alias name for query display
+  xbString sLiteral;   // For type L - Literal value
   xbSqlFld * Next;     // Next field in list
 };
 
 class xbStmt;
+
+class XBDLLEXPORT xbCursor : public xbCore {
+
+  public:
+             xbCursor( xbXBase * x );
+             ~xbCursor();
+
+  protected:
+    xbXBase *xbase;              /* pointer to the main structures                       */
+
+  private:
+};
+
 
 
 struct XBDLLEXPORT xbTblJoin {            //  structure for defining joined tables in the query
@@ -63,7 +80,7 @@ struct XBDLLEXPORT xbTblJoin {            //  structure for defining joined tabl
 };
 
 
-class XBDLLEXPORT xbStmt : public xbSsv{
+class XBDLLEXPORT xbStmt : public xbCore{
 
  public:
   xbStmt( xbXBase *x );
@@ -81,6 +98,8 @@ class XBDLLEXPORT xbStmt : public xbSsv{
 //  xbInt16 FetchPrev();
 //  xbInt16 FetchLast();
 //  xbString &GetField( const xbString sFldName );
+
+
 
  protected:
 
@@ -116,15 +135,43 @@ class XBDLLEXPORT xbStmt : public xbSsv{
 
 
 };
+///@endcond
 
 
-class XBDLLEXPORT xbSql : public xbSsv {
+
+//! @brief xbSql class.
+/*!
+The xbSql class provides the structure for executing SQL commands against the tables.
+
+Beginning with version 4.1.6, there is limited SQL support.  Additional SQL support will be included
+in future releases.
+
+<a href="../include/Sql.html">Supported SQL Commands</a>
+*/
+
+
+
+class XBDLLEXPORT xbSql : public xbCore {
  public:
-   // xbSql();
+   //! @brief Constructor
    xbSql( xbXBase *x );
+
+   //! @brief Destructor
    ~xbSql();
 
+   //! @brief Execute non query SQL command
+   /*!
+      Execute a non query SQL command
+      @param sCmdLine SQL Command
+      @returns unsigned long int value
+
+      <a href="../include/Sql.html">Supported SQL Commands</a>
+
+   */
    xbInt16 ExecuteNonQuery( const xbString &sCmdLine );
+
+   //! @brief Get pointer to Xbase structure
+   //! @private
    xbXBase *GetXbasePtr() const;
 
  protected:

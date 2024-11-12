@@ -59,7 +59,7 @@ xbInt16 xbIxTdx::Close(){
     xbString sMsg;
     sMsg.Sprintf( "xbIxTdx::Close() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
   return iRc;
 }
@@ -71,14 +71,14 @@ xbInt16 xbIxTdx::Close(){
   the newly created tag.
 
 
-  \param sName Tag Name, including .MDX suffix
-  \param sKey Key Expression
-  \param sFilter Filter expression.
-  \param iDescending 
-  \param iUnique xbtrue - Unique.<br>xbFalse - Not unique.
-  \param iOverLay xbTrue - Overlay if file already exists.<br>xbFalse - Don't overlay.
-  \param vpTag Output from method Pointer to vptag pointer.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
+  @param sName Tag Name, including .MDX suffix
+  @param sKey Key Expression
+  @param sFilter Filter expression.
+  @param iDescending 
+  @param iUnique xbtrue - Unique.<br>xbFalse - Not unique.
+  @param iOverLay xbTrue - Overlay if file already exists.<br>xbFalse - Don't overlay.
+  @param vpTag Output from method Pointer to vptag pointer.
+  @returns <a href="xbretcod_8h.html">Return Codes</a>
 */
 
 
@@ -177,7 +177,7 @@ xbInt16  xbIxTdx::CreateTag( const xbString &sName, const xbString &sKey, const 
 
       // create temp file
       xbString sIxFileName;
-      if(( iRc = CreateUniqueFileName( GetTempDirectory(), "TDX", sIxFileName )) != XB_NO_ERROR ){
+      if(( iRc = CreateUniqueFileName( xbase->GetTempDirectory(), "TDX", sIxFileName )) != XB_NO_ERROR ){
         iErrorStop = 190;
         throw iRc;
       }
@@ -203,7 +203,7 @@ xbInt16  xbIxTdx::CreateTag( const xbString &sName, const xbString &sKey, const 
       GetFileNamePart( sFileName );
       sFileName.ToUpperCase();
 
-      SetBlockSize( (xbUInt32) dbf->GetCreateMdxBlockSize());
+      SetBlockSize( (xbUInt32) xbase->GetCreateMdxBlockSize());
       iBlockFactor     = GetBlockSize() / 512;
 
       cProdIxFlag      = 0;              // MDX is 1
@@ -476,7 +476,7 @@ xbInt16  xbIxTdx::CreateTag( const xbString &sName, const xbString &sKey, const 
     xbString sMsg;
     sMsg.Sprintf( "xbIxTdx::CreateTag() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
 
   return iRc;
@@ -485,8 +485,8 @@ xbInt16  xbIxTdx::CreateTag( const xbString &sName, const xbString &sKey, const 
 /***********************************************************************/
 //! @brief Delete a given tag
 /*!
-  \param vpTag Input tag ptr for tag to be deleted<br>
-  \returns <a href="xbretcod_8h.html">Return Codes</a><br>
+  @param vpTag Input tag ptr for tag to be deleted<br>
+  @returns <a href="xbretcod_8h.html">Return Codes</a><br>
             1 = Deleted entire MDX file, only had one tag
 
 */
@@ -635,7 +635,7 @@ xbInt16 xbIxTdx::DeleteTag( void *vpTag ){
     xbString sMsg;
     sMsg.Sprintf( "xbIxTdx::DeleteTag() Exception Caught. Error Stop = [%d] iRc = [%d]", iErrorStop, iRc );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
     if( n )
       free( n );
   }

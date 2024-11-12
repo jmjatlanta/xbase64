@@ -1,0 +1,160 @@
+\hypertarget{xbtime_8h_source}{}\doxysection{xbtime.\+h}
+\label{xbtime_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbtime.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xbtime.h}}
+\mbox{\hyperlink{xbtime_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*  xbtime.h}}
+\DoxyCodeLine{2 \textcolor{comment}{}}
+\DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2024 Gary A Kunkel}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{Email Contact:}}
+\DoxyCodeLine{10 \textcolor{comment}{}}
+\DoxyCodeLine{11 \textcolor{comment}{    XDB-\/devel@lists.sourceforge.net}}
+\DoxyCodeLine{12 \textcolor{comment}{    XDB-\/users@lists.sourceforge.net}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef \_\_XB\_XBTIME\_H\_\_}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define \_\_XB\_XBTIME\_H\_\_}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifdef XB\_DBF5\_SUPPORT}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacexb}{xb}}\{}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{61 \textcolor{comment}{/*}}
+\DoxyCodeLine{62 \textcolor{comment}{Valid Time Format Specifiers:}}
+\DoxyCodeLine{63 \textcolor{comment}{}}
+\DoxyCodeLine{64 \textcolor{comment}{  \%H -\/ is replaced by the hour (24 hour clock) as a decimal number (00-\/23)}}
+\DoxyCodeLine{65 \textcolor{comment}{  \%I -\/ is replaced by the hour (12 hour clock) as a decimal number (01-\/12)}}
+\DoxyCodeLine{66 \textcolor{comment}{  \%M -\/ is replaced by the minute as a decimal number (00-\/59)}}
+\DoxyCodeLine{67 \textcolor{comment}{  \%S -\/ is replaced by the second as a decimla number (00-\/59)}}
+\DoxyCodeLine{68 \textcolor{comment}{  \%p -\/ is replaced by the locale's equivalent of AM/PM with 12 hour clock}}
+\DoxyCodeLine{69 \textcolor{comment}{*/}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} : \mbox{\hyperlink{classxb_1_1xbCore}{xbCore}} \{}
+\DoxyCodeLine{74  \textcolor{keyword}{public}:}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{77 }
+\DoxyCodeLine{80    \mbox{\hyperlink{classxb_1_1xbTime_adccb3879a583cbfb6ce821770251e72d}{xbTime}}();}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{85    \mbox{\hyperlink{classxb_1_1xbTime_aa6396548116704755490133bf4a706de}{xbTime}}( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTime );}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{90    \mbox{\hyperlink{classxb_1_1xbTime_ae19758290b210914a7371d85c9da06cc}{xbTime}}( \textcolor{keywordtype}{char} *sTime );}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{96    \mbox{\hyperlink{classxb_1_1xbTime_a65f5013a208800a9d82984e488bc2c96}{xbTime}}( xbInt32 lTime );}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{103    \mbox{\hyperlink{classxb_1_1xbTime_ad3fac71e05a997eecf76fcd860a161ca}{xbTime}}( xbInt16 iHH, xbInt16 iMM, xbInt16 iSS = 0 );}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 }
+\DoxyCodeLine{112   xbInt32 \mbox{\hyperlink{classxb_1_1xbTime_a326ee97c6b7e85650dd2227de6273dcc}{Add}}      ( \textcolor{keywordtype}{char} cType, xbInt32 lCnt );}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{   \#ifdef XB\_DEBUG\_SUPPORT}}
+\DoxyCodeLine{117    \textcolor{keywordtype}{void}     \mbox{\hyperlink{classxb_1_1xbTime_a2643ed78845d19a8d1237e6a9aec1045}{Dump}}     ();}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{123    \textcolor{keywordtype}{void}     \mbox{\hyperlink{classxb_1_1xbTime_a7532f5afa56e17a0f2c04c1705c88d1f}{Dump}}     ( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \& sHeader );}
+\DoxyCodeLine{127    \textcolor{keywordtype}{void}     \mbox{\hyperlink{classxb_1_1xbTime_ae1a20f2cc7c9739bebdbfe394736d18e}{Dump}}     ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sHeader );}
+\DoxyCodeLine{128 \textcolor{preprocessor}{   \#endif}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{134   xbInt16  \mbox{\hyperlink{classxb_1_1xbTime_a397ea6335edfde72641d3bc1dee8141b}{FromTimeT}}( time\_t tIn );}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{140   \mbox{\hyperlink{classxb_1_1xbString}{xbString}}\&  \mbox{\hyperlink{classxb_1_1xbTime_a17fc8f3a1d994612c1b868c1590fcf33}{GetDefaultTimeFormat}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{145   xbInt16 \mbox{\hyperlink{classxb_1_1xbTime_a4cbe46923c481de3c21f816eadb474ef}{GetHour}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{150   xbInt16 \mbox{\hyperlink{classxb_1_1xbTime_abd3811c2e2f4c209913c7be2ba7ee4e2}{GetMinute}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{155   xbInt16 \mbox{\hyperlink{classxb_1_1xbTime_af4b84f034e07dee2f744909f73f5552b}{GetSecond}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{161   xbInt32 \mbox{\hyperlink{classxb_1_1xbTime_afc725152044d26bba64b1eee1f684ee3}{GetTime}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{166   xbInt16  \mbox{\hyperlink{classxb_1_1xbTime_a9efe37b3c48939e845e0419403bae803}{GetTime}}  ( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTimeOut );}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{178   xbInt16 \mbox{\hyperlink{classxb_1_1xbTime_aabf997f7f51093cb299470dab31aaaca}{GetTime}}( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTimeOut, \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFmtIn );}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 }
+\DoxyCodeLine{191   xbInt16 \mbox{\hyperlink{classxb_1_1xbTime_a75eff479fcb71e29c17ff4efea0fdcff}{GetTime}}( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTimeOut, \textcolor{keyword}{const} \textcolor{keywordtype}{char} * sFmtIn );}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193 }
+\DoxyCodeLine{201   \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&\mbox{\hyperlink{classxb_1_1xbTime_a8ecb221c4e25879f0283d68d4a3b6ea9}{GetTimeFormat}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{208   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbTime_a2e00b5b789af093161d319622dbfa7b9}{operator!=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} \&tTm ) \textcolor{keyword}{const};}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 }
+\DoxyCodeLine{215   xbInt32 \mbox{\hyperlink{classxb_1_1xbTime_af52426cff980f16216013d388d085cf8}{operator+}}( xbInt32 lSecs ) \textcolor{keyword}{const};}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{219   \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} \&\mbox{\hyperlink{classxb_1_1xbTime_a49e00e777907797616afed8be4823b69}{operator++}}( xbInt32 );}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{224   \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} \&\mbox{\hyperlink{classxb_1_1xbTime_a1103ac479fa86adc5295c67bcd8bb841}{operator+=}}( xbInt32 lSecs );}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{230   xbInt32 \mbox{\hyperlink{classxb_1_1xbTime_ac473c54418dc0c331fae4bd30e488543}{operator-\/}}( xbInt32 lSecs ) \textcolor{keyword}{const};}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{234   \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} \&\mbox{\hyperlink{classxb_1_1xbTime_a155fa6ec93244abb7510f29399b51aa0}{operator-\/-\/}}( xbInt32 lSecs );}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{239   \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} \&\mbox{\hyperlink{classxb_1_1xbTime_a672c4f3de40a4c9bb67cc1a9a42293bd}{operator-\/=}}( xbInt32 lSecs );}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{247   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator< ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} \&tm ) \textcolor{keyword}{const};}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{255   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbTime_a93f96d9ed8fb5ed6a2eef070d4586018}{operator<=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} \&tm ) \textcolor{keyword}{const};}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{261   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbTime_a83c0a9463e04a5c81a0f96333a974f8f}{operator=}}( xbInt32 lTime );}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{267   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbTime_a45d625e1033655163815bba4e488ebe1}{operator=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} \&tm );}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{274   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbTime_a64bc7f3b159d5b58d29c236ba08c060b}{operator==}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} \&tm ) \textcolor{keyword}{const};}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{282   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} operator> ( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} \&tm ) \textcolor{keyword}{const};}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{290   \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} \mbox{\hyperlink{classxb_1_1xbTime_a0f9ec4e4337e34d656442d0d87878c45}{operator>=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} \&tm ) \textcolor{keyword}{const};}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{293 }
+\DoxyCodeLine{300    xbInt16 \mbox{\hyperlink{classxb_1_1xbTime_a4f3d21693accfcf652e43213b8c81a43}{Set}}( xbInt16 iHH = 0, xbInt16 iMM = 0, xbInt16 iSS = 0 );}
+\DoxyCodeLine{301 }
+\DoxyCodeLine{308    xbInt16 \mbox{\hyperlink{classxb_1_1xbTime_a2189804065e67f2be48ad97eb27d6383}{Set}}( xbInt32 lTime );}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{314    xbInt16 \mbox{\hyperlink{classxb_1_1xbTime_a9586d061ec1a1334c65c8eb169e6d92a}{Set}}( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sTime );}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{320    xbInt16 \mbox{\hyperlink{classxb_1_1xbTime_a57822661ec0638a9c3363bb71598e31b}{Set}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sTime );}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{326     xbInt16 \mbox{\hyperlink{classxb_1_1xbTime_a432cba7ff09216b93f1d46f4beb13203}{Set}}( \mbox{\hyperlink{classxb_1_1xbTime}{xbTime}} \&tm );}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{330 }
+\DoxyCodeLine{339   \textcolor{keywordtype}{void}       \mbox{\hyperlink{classxb_1_1xbTime_a44ad5b86616b3f68cb7b3033ac4713e6}{SetDefaultTimeFormat}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sDefaultTimeFormat );}
+\DoxyCodeLine{340   \textcolor{keywordtype}{void}       \mbox{\hyperlink{classxb_1_1xbTime_a0808c4959d5840916f53badcf686f11d}{SetDefaultTimeFormat}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * sDefaultTimeFormat );}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{344 }
+\DoxyCodeLine{353   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbTime_a24da0fc6949e6b0bdbacc0e50b490cd1}{SetTimeFormat}}( \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sFmtIn );}
+\DoxyCodeLine{354   \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbTime_ab5031cdddb510d529ac4f1947bc9db38}{SetTimeFormat}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * sFmtIn );}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{358   xbInt16 \mbox{\hyperlink{classxb_1_1xbTime_abd7bb1a7396e46f0f37ff3bc8154c1dc}{Systime}} ();}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{366   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \& \mbox{\hyperlink{classxb_1_1xbTime_af2baf81cd89d4e7a6476c76ae6f38f44}{Str}}();}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{368 \textcolor{comment}{//  const xbString \&GetTimeFormat() const;}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370 }
+\DoxyCodeLine{375   time\_t \mbox{\hyperlink{classxb_1_1xbTime_a0d50d6dc78e4c9790280c5121474eb07}{ToTimeT}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{376 }
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378  \textcolor{keyword}{private}:}
+\DoxyCodeLine{379   xbInt32  lTime;}
+\DoxyCodeLine{380   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sFmt;}
+\DoxyCodeLine{381   \mbox{\hyperlink{classxb_1_1xbString}{xbString}} sTime;}
+\DoxyCodeLine{382 \};}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{384 }
+\DoxyCodeLine{385 }
+\DoxyCodeLine{386 \}        \textcolor{comment}{/* namespace xb   */}}
+\DoxyCodeLine{387 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* XB\_DBF5\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{388 \textcolor{preprocessor}{\#endif   }\textcolor{comment}{/* \_\_XB\_TIME\_H\_\_  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{389 }
+
+\end{DoxyCode}

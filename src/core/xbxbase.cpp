@@ -18,22 +18,25 @@ Email Contact:
 namespace xb{
 
 /*************************************************************************/
-//! @brief Class Constructor.
 xbXBase::xbXBase() {
   SetEndianType();
 
   xbFile f( this );
   f.SetHomeFolders();
 
-  xbDate d( (xbUInt16) 1);      // initialize xbDate static variables
+  xbDate d( -2 );      // initialize xbDate static variables
 
   #ifdef XB_LOGGING_SUPPORT
   xLog = new xbLog();
   #endif
 
+  #ifdef XB_LOCKING_SUPPORT
+    SetMultiUser( xbOn );
+  #else
+    SetMuliUser( xbOff );
+  #endif
 }
 /*************************************************************************/
-//! @brief Class Deconstructor.
 xbXBase::~xbXBase(){
   CloseAllTables();
   #ifdef XB_LOGGING_SUPPORT
@@ -41,11 +44,6 @@ xbXBase::~xbXBase(){
   #endif
 }
 /*************************************************************************/
-//! @brief Close all tables / files.
-/*!
-   This closes everything and deletes references to the associated xbDbf objects.
-   \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbXBase::CloseAllTables(){
 
   xbInt16 iRc = 0;
@@ -54,13 +52,13 @@ xbInt16 xbXBase::CloseAllTables(){
   try{
     xbDbf *d;
     for( xbInt16 i = 0; i < iOpenTableCnt; i++ ){
-      d = (xbDbf *) GetDbfPtr( 1 );
+      d = (xbDbf *) GetDbfPtr( i+1 );
       if( d ){
         if(( iRc = d->Close()) != XB_NO_ERROR ){
           iErrorStop = 100;
           throw iRc;
         }
-        delete d;
+        // delete d;
       } else {
         iRc = XB_INVALID_OBJECT;
         iErrorStop = 110;
@@ -76,18 +74,7 @@ xbInt16 xbXBase::CloseAllTables(){
   }
   return iRc;
 }
-
 /************************************************************************/
-//! @brief Fully qualified file name from a directory, filename and extension.
-/*!
-  Given a directory, file name and file extension as inputs, create a fully qualified file name.
-
-  \param sDirIn Directory
-  \param sNameIn File Name
-  \param sExtIn File Extension
-  \param sFqnOut   A fully qualifed unique file name as output
-  \returns XB_INVALIED_PARAMETER or XB_NO_ERROR
-*/
 xbInt16 xbXBase::CreateFqn( const xbString &sDirIn, const xbString &sNameIn, const xbString &sExtIn, xbString &sFqnOut ){
 
   if( sNameIn == "" || sExtIn == "" )
@@ -110,32 +97,16 @@ xbInt16 xbXBase::CreateFqn( const xbString &sDirIn, const xbString &sNameIn, con
   }
   return XB_NO_ERROR;
 }
-
 /*************************************************************************/
-//! @brief Parse commmand line options for a given parm request
-/*!
-  \param lArgc Value passed from main( argc, argv[] )
-  \param sArgv Valued passed from main
-  \param sOptRqst Option to search for in the arguments list
-  \param sParmOut String token immediately to the right of the the option request, if found
-  \returns 0 - paramater request not found<br> 1 - Parameter found
-*/
-
+void xbXBase::DisplayError( xbInt16 iErrorCode ) const {
+  std::cout << (const char *) GetErrorMessage( iErrorCode ) << std::endl;
+}
+/*************************************************************************/
 xbInt16  xbXBase::GetCmdLineOpt( xbInt32 lArgc, char **sArgv, const char *sOptRqst, xbString &sParmOut ){
   xbString sOpt( sOptRqst );
   return GetCmdLineOpt( lArgc, sArgv, sOpt, sParmOut );
 }
-
 /*************************************************************************/
-//! @brief Parse commmand line options for a given parm request
-/*!
-  \param lArgc Value passed from main( argc, argv[] )
-  \param sArgv Valued passed from main
-  \param sOptRqst Option to search for in the arguments list
-  \param sParmOut String token immediately to the right of the the option request, if found
-  \returns 0 - paramater request not found<br> 1 - Parameter found
-*/
-
 xbInt16  xbXBase::GetCmdLineOpt( xbInt32 lArgc, char **sArgv, xbString &sOptRqst, xbString &sParmOut ){
 
   xbInt16 iFound = 0;
@@ -154,119 +125,73 @@ xbInt16  xbXBase::GetCmdLineOpt( xbInt32 lArgc, char **sArgv, xbString &sOptRqst
   }
   return iFound;
 }
+/*************************************************************************/
+const char * xbXBase::GetErrorMessage( xbInt16 iErrorCode ) const{
+
+  if( iErrorCode > 0 || iErrorCode <= XB_MAX_ERROR_NO )
+    return "";
+
+   xbBool bFound = xbFalse;
+   xbInt16 iCtr = 0;
+   while( !bFound ){
+     if( xbErrorMessages[iCtr].iErrorNo == XB_MAX_ERROR_NO )
+       return "Unknown Error";
+     if( xbErrorMessages[iCtr].iErrorNo == iErrorCode )
+       return xbErrorMessages[iCtr].sErrorText;
+     iCtr++;
+   }
+   return "";
+}
 
 /*************************************************************************/
 #ifdef XB_LOGGING_SUPPORT
-//! @brief Get fully qualified log file name.
-/*!
-   \returns Returns the fully qualified log file name.
-*/
 const xbString & xbXBase::GetLogFqFileName() const {
   return xLog->GetFqFileName();
 }
-
-//! @brief Get the log file name.
-/*!
-   \returns Returns the log file name.
-*/
-/*
-const xbString & xbXBase::GetLogFileName() const {
-  return xLog->GetFileName();
+xbString & xbXBase::GetLogFileName() const {
+  return sLogFileName;
 }
-*/
-
-//! @brief Get the log directory.
-/*!
-   \returns Returns the log directory.
-*/
-/*
-const xbString & xbXBase::GetLogDirectory() const {
-  return GetLogDirectory();
+void xbXBase::SetLogFileName( const xbString & sLogFileName ){
+  this->sLogFileName = sLogFileName;
 }
-*/
-//! @brief Get the log directory.
-/*!
-   \returns xbTrue - Logging enabled.<br>xbFalse - Logging disables.
-*/
+/*************************************************************************/
+xbString & xbXBase::GetLogDirectory() const {
+  return sLogDirectory;
+}
+/*************************************************************************/
+void xbXBase::SetLogDirectory( const xbString &sLogDirectoryIn ){
+  this->sLogDirectory = sLogDirectoryIn;
+  #ifdef WIN32
+    this->sLogDirectory.SwapChars( '/', '\\' );
+  #else
+    this->sLogDirectory.SwapChars( '\\', '/' );
+  #endif
+}
 xbBool xbXBase::GetLogStatus() const {
   return xLog->LogGetStatus();
 }
-
-//! @brief Set the log file name.
-/*!
-  \param sLogFileName - Log File Name.
-  \return void
-*/
-/*
-void xbXBase::SetLogFileName( const xbString & sLogFileName ){
-
-  xLog->SetFileName( sLogFileName );
-}
-*/
-//! @brief Set the log directory.
-/*!
-  \param sLogDirectory - Log File Directory.
-  \return void
-*/
-/*
-void xbXBase::SetLogDirectory( const xbString & sLogDirectory ){
-  xLog->SetDirectory( sLogDirectory );
-}
-*/
-
-
-//! @brief Set the logfile size.
-/*!
-  \param lSize - Log File Size.
-  \return void
-*/
-void xbXBase::SetLogSize( size_t lSize ) {
+void xbXBase:: SetLogSize( size_t lSize ) {
   xLog->LogSetLogSize( lSize );
 }
-
-//! @brief Get the logfile size.
-/*!
-  \return log file size
-*/
 size_t xbXBase::GetLogSize() const {
   return xLog->LogGetLogSize();
 }
-
-
-//! @brief Write message to logfile.
-/*!
-  \param sLogMessage - Message to write.
-  \param iOpt 0 = stdout<br>
-              1 = Syslog<br>
-              2 = Both<br>
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbXBase::WriteLogMessage( const xbString & sLogMessage, xbInt16 iOpt ){
   return xLog->LogWrite( sLogMessage, iOpt );
 }
 
-//! @brief Write message to logfile.
-/*!
-  \param lCnt - Number of bytes to write.
-  \param p - Pointer to bytes to write to log file.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
 xbInt16 xbXBase::WriteLogBytes( xbUInt32 lCnt, const char *p ){
   return xLog->LogWriteBytes( lCnt, p );
 }
 
-//! @brief Enable message logging.
 void xbXBase::EnableMsgLogging() {
   xLog->LogSetStatus( xbTrue );
 }
 
-//! @brief Disable message logging.
 void xbXBase::DisableMsgLogging() {
   xLog->LogSetStatus( xbFalse );
 }
 
-//! @brief Flush log file updates to disk.
 xbInt16 xbXBase::FlushLog() {
   return xLog->xbFflush();
 }
@@ -276,22 +201,6 @@ xbInt16 xbXBase::FlushLog() {
 const xbString & xbXBase::GetLogFqFileName() const {
   return sNullString;
 }
-/*
-const xbString & xbXBase::GetLogFileName() const {
-  return sNullString;
-}
-const xbString & xbXBase::GetLogDirectory() const {
-  return sNullString;
-}
-*/
-/*
-void xbXBase::SetLogFileName( const xbString & sLogFileName ){
-  return;
-}
-void xbXBase::SetLogDirectory( const xbString & sLogDirectory ){
-  return;
-}
-*/
 xbBool xbXBase::GetLogStatus() const {
   return xbFalse;
 }
@@ -318,22 +227,6 @@ void xbXBase::SetLogSize( size_t lSize ) {
 
 /*************************************************************************/
 #ifdef XB_FUNCTION_SUPPORT
-
-//! @brief Get information regarding expression functions.
-/*!
-  \param sExpLine An expression beginning with function name.
-  \param cReturnType Output - return type of function.
-  \param iCalc Used to calculate the function return value is<br>
-       1 = use value specified in lReturnLenVal<br>
-       2 = use length of operand specified in col 4<br>
-       3 = use valued of numeric operand specified in col 4<br>
-       4 = length of parm 1 * numeric value parm<br>
-       5 = larger length of parm 2 or length of parm 3<br>
-       6 = if two or more parms, use numeric value from second parm, otherwise use col4 value
-  \param lReturnLenVal Used in combination with iReturnLenCalc.
-  \returns <a href="xbretcod_8h.html">Return Codes</a>
-*/
-
 xbInt16 xbXBase::GetFunctionInfo( const xbString &sExpLine, char &cReturnType, xbInt16 &iCalc, xbInt32 &lReturnLenVal ) const{
 
   xbUInt32 iLen;
@@ -605,10 +498,6 @@ xbInt16 xbXBase::GetFunctionInfo( const xbString &sExpLine, char &cReturnType, x
 }
 #endif
 /*************************************************************************/
-//! @brief Cross platform sleep function.
-/*!
-  \param lMillisecs Milliseconds to sleep.
-*/
 void xbXBase::xbSleep( xbInt32 lMillisecs ){
   #ifdef WIN32
   Sleep( (xbUInt32) lMillisecs );
@@ -618,15 +507,6 @@ void xbXBase::xbSleep( xbInt32 lMillisecs ){
 
 }
 /***********************************************************************/
-//! @brief Cross memcmp function.
-/*!
-  \param s1 Left operand to compare.
-  \param s2 Right operand to compare.
-  \param n Number of bytes to compare.
-  \returns 1 s1 > s2<br>
-           0 s1 == s2<br>
-           -1 s1 < s2
-*/
 xbInt16 xbXBase::xbMemcmp( const unsigned char *s1, const unsigned char *s2, size_t n ){
   // The standard memcmp function was found not to behave the same across all platforms
   for( size_t i = 0; i < n; i++ ){
@@ -639,32 +519,21 @@ xbInt16 xbXBase::xbMemcmp( const unsigned char *s1, const unsigned char *s2, siz
 }
 
 /***********************************************************************/
-//! @brief Open highest qualified class available for dbf file.
-/*!
-  This routine opens the highest available version of the dbf file.
-  Defaults to XB_READ_WRITE and XB_MULTI_USER mode.
-  \returns param dbf - Output pointer to dbf file opened or null if error
-*/
+xbInt16 xbXBase::Open( const xbString &sTableName, const xbString &sAlias, xbDbf **dbf ){
+
+  xbInt16 iRc;
+
+  *dbf = Open( sTableName, sAlias, XB_READ_WRITE, XB_MULTI_USER, 0, iRc );
+
+  return iRc;
+}
+
+
+/***********************************************************************/
 xbDbf* xbXBase::Open( const xbString &sTableName, xbInt16 &iRc ){
   return Open( sTableName, "", XB_READ_WRITE, XB_MULTI_USER, 0, iRc );
 }
 /***********************************************************************/
-//! @brief Open highest qualified class available for dbf file.
-/*!
-  This routine can open various versions of the dbf file dependent on the iVersion field
-
-  \param sTableName - Table name to open.
-  \param sAlias - Optional alias name.
-  \param iOpenMode - XB_READ_WRITE or XB_READ
-  \param iShareMode - XB_SINGLE_USER or XB_MULTI_USER
-  \param iRequestVersion 0 - Highest available
-                         4 - Version four dbf
-                         3 - Version three dbf
-  \param iRc - Return code from open request
-  \returns param dbf - Output pointer to dbf file opened or null if error
-*/
-
-
 xbDbf* xbXBase::Open( const xbString &sTableName, const xbString &sAlias, xbInt16 iOpenMode, 
                       xbInt16 iShareMode, xbInt16 iRequestVersion, xbInt16 &iRc ){
 
@@ -674,7 +543,6 @@ xbDbf* xbXBase::Open( const xbString &sTableName, const xbString &sAlias, xbInt1
   xbString sFqFileName;
 
   try{
-
     if( sTableName.Len() == 0 ){
       iErrorStop = 100;
       iRc = XB_FILE_NOT_FOUND;
@@ -702,7 +570,7 @@ xbDbf* xbXBase::Open( const xbString &sTableName, const xbString &sAlias, xbInt1
         pDbf = new xbDbf4( this );
         iRc = pDbf->Open( sFqFileName, sAlias, iOpenMode, iShareMode );        
       #else
-        // std::cout << "Dbase IV file support not build into library. See XB_DBF4_SUPPORT" << std::endl;
+        // std::cout << "dBASE IV file support not build into library. See XB_DBF4_SUPPORT" << std::endl;
         iErrorStop = 130;
         iRc = XB_FILE_TYPE_NOT_SUPPORTED;
         throw iRc;
@@ -714,7 +582,7 @@ xbDbf* xbXBase::Open( const xbString &sTableName, const xbString &sAlias, xbInt1
         pDbf = new xbDbf3( this );
         iRc = pDbf->Open( sFqFileName, sAlias, iOpenMode, iShareMode );  
       #else
-        //std::cout << "Dbase III file support not build into library. See XB_DBF3_SUPPORT" << std::endl;
+        //std::cout << "dBASE III file support not build into library. See XB_DBF3_SUPPORT" << std::endl;
         iErrorStop = 140;
         iRc = XB_FILE_TYPE_NOT_SUPPORTED;
         throw iRc;
@@ -740,8 +608,8 @@ xbDbf* xbXBase::Open( const xbString &sTableName, const xbString &sAlias, xbInt1
   return pDbf;
 }
 
-xbInt16 xbXBase::OpenHighestVersion( const xbString &sTableName, const xbString &sAlias, 
-    xbDbf **dbf )
+/*
+xbInt16 xbXBase::OpenHighestVersion( const xbString &sTableName, const xbString &sAlias, xbDbf **dbf )
 {
   xbInt16 iRc = 0;
   xbInt16 iErrorStop = 0;
@@ -772,7 +640,7 @@ xbInt16 xbXBase::OpenHighestVersion( const xbString &sTableName, const xbString 
         *dbf = pwDbf;
         pwDbf = 0;
       #else
-        // std::cout << "Dbase IV file support not build into library. See XB_DBF4_SUPPORT" << std::endl;
+        // std::cout << "dBASE IV file support not build into library. See XB_DBF4_SUPPORT" << std::endl;
         iErrorStop = 130;
         iRc = XB_FILE_TYPE_NOT_SUPPORTED;
         throw iRc;
@@ -782,7 +650,7 @@ xbInt16 xbXBase::OpenHighestVersion( const xbString &sTableName, const xbString 
       #ifdef XB_DBF3_SUPPORT
         *dbf = new xbDbf3( this );
       #else
-        //std::cout << "Dbase III file support not build into library. See XB_DBF3_SUPPORT" << std::endl;
+        //std::cout << dBASE III file support not build into library. See XB_DBF3_SUPPORT" << std::endl;
         iErrorStop = 140;
         iRc = XB_FILE_TYPE_NOT_SUPPORTED;
         throw iRc;
@@ -796,11 +664,235 @@ xbInt16 xbXBase::OpenHighestVersion( const xbString &sTableName, const xbString 
   }
   catch (xbInt16 iRc ){
     xbString sMsg;
-    sMsg.Sprintf( "xbxbase::OpenHighestVersion() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
+    sMsg.Sprintf( "xbXBase::OpenHighestVersion() Exception Caught. Error Stop = [%d] rc = [%d]", iErrorStop, iRc );
     WriteLogMessage( sMsg.Str() );
     WriteLogMessage( GetErrorMessage( iRc ));
   }
   return iRc;
 }
+*/
 /***********************************************************************/
+#ifdef XB_LOCKING_SUPPORT
+
+xbInt16 xbXBase::GetDefaultLockRetries() const {
+  return iDefaultLockRetries;
+}
+void xbXBase::SetDefaultLockRetries( xbInt16 iDefaultLockRetries ) {
+  this->iDefaultLockRetries = iDefaultLockRetries;
+}
+
+//xbBool xbXBase::GetDefaultAutoLock() const {
+//  return bDefaultAutoLock;
+//}
+//void xbXBase::SetDefaultAutoLock( xbBool bDefaultAutoLock ) {
+//  this->bDefaultAutoLock = bDefaultAutoLock;
+//}
+//void xbXBase::EnableDefaultAutoLock() {
+//  this->bDefaultAutoLock = xbTrue;
+//}
+//void xbXBase::DisableDefaultAutoLock() {
+//  bDefaultAutoLock = xbFalse;
+//}
+/***************************************************************************/
+xbInt16 xbXBase::GetDefaultLockFlavor() const {
+  return iDefaultLockFlavor;
+}
+/***************************************************************************/
+void xbXBase::SetDefaultLockFlavor( xbInt16 iDefaultLockFlavor ) {
+  this->iDefaultLockFlavor = iDefaultLockFlavor;
+}
+/***************************************************************************/
+void xbXBase::SetDefaultLockWait( xbInt32 lLockWait ) {
+  this->lDefaultLockWait = lLockWait;
+}
+/***************************************************************************/
+xbInt32 xbXBase::GetDefaultLockWait() const {
+  return lDefaultLockWait;
+}
+#endif
+
+/************************************************************************/
+#ifdef XB_MDX_SUPPORT
+xbInt16 xbXBase::GetCreateMdxBlockSize() const {
+  return iCreateMdxBlockSize;
+}
+/************************************************************************/
+xbInt16 xbXBase::SetCreateMdxBlockSize( xbInt16 iBlockSize ){
+
+  if( iBlockSize < 512 || iBlockSize > 16384 || iBlockSize % 512  )
+    return XB_INVALID_BLOCK_SIZE;
+  else
+    iCreateMdxBlockSize = iBlockSize;
+
+  return XB_NO_ERROR;
+}
+#endif
+/*************************************************************************/
+xbBool xbXBase::GetDefaultAutoCommit() const {
+  return bDefaultAutoCommit;
+}
+/*************************************************************************/
+xbString &xbXBase::GetDataDirectory() const {
+  return sDataDirectory;
+}
+/*************************************************************************/
+xbString & xbXBase::GetDefaultDateFormat() const {
+  return sDefaultDateFormat;
+}
+/*************************************************************************/
+#ifdef XB_DBF5_SUPPORT
+xbString & xbXBase::GetDefaultTimeFormat() const {
+  return sDefaultTimeFormat;
+}
+#endif  // XB_DBF5_SUPPORT
+/*************************************************************************/
+xbInt16  xbXBase::GetEndianType() const {
+  return iEndianType;
+}
+/*************************************************************************/
+void xbXBase::GetHomeDir( xbString &sHomeDirOut ){
+
+  #if defined(HAVE_GETENV_S_F)
+    char sPath[MAX_PATH];
+    size_t lSize;
+    sHomeDirOut = "";
+    memset( sPath, 0x00, MAX_PATH );
+    getenv_s( &lSize, NULL, 0, "HOMEDRIVE" );
+    if( lSize > 0 ){
+      getenv_s( &lSize, sPath, lSize, "HOMEDRIVE" );
+      sHomeDirOut = sPath;
+      memset( sPath, 0x00, MAX_PATH );
+    }
+    getenv_s( &lSize, NULL, 0, "HOMEPATH" );
+    if( lSize > 0 ){
+      getenv_s( &lSize, sPath, lSize, "HOMEPATH" );
+      sHomeDirOut += sPath;
+    }
+    if( sHomeDirOut == "" )
+      sHomeDirOut = "C:\xbase64";
+
+  #elif defined(WIN32)
+    sHomeDirOut.Sprintf( "%s%s", getenv( "HOMEDRIVE" ), getenv( "HOMEPATH" ));
+
+  #else
+    sHomeDirOut.Sprintf( "%s", getenv( "HOME" ));
+    sHomeDirOut.Trim();
+    if( sHomeDirOut == "" )
+      sHomeDirOut.Sprintf( "%s", getpwuid( getuid())->pw_dir );
+  #endif
+
+  sHomeDirOut.Trim();
+}
+/*************************************************************************/
+void xbXBase::SetTempDirectory( const xbString &sTempDirectory ){
+  this->sTempDirectory = sTempDirectory;
+  #ifdef WIN32
+    this->sTempDirectory.SwapChars( '/', '\\' );
+  #else
+    this->sTempDirectory.SwapChars( '\\', '/' );
+  #endif
+}
+/*************************************************************************/
+void xbXBase::SetDataDirectory( const xbString &sDataDirectory ){
+  this->sDataDirectory = sDataDirectory;
+  #ifdef WIN32
+    this->sDataDirectory.SwapChars( '/', '\\' );
+  #else
+    this->sDataDirectory.SwapChars( '\\', '/' );
+  #endif
+}
+/***************************************************************************/
+xbBool xbXBase::GetMultiUser() const {
+  return bMultiUser;
+}
+xbInt16 xbXBase::SetMultiUser( xbBool bMultiUser ) {
+
+  #ifndef XB_LOCKING_SUPPORT
+  if( bMultiUser != xbOff )
+    return XB_INVALID_OPTION;
+  #endif
+
+  if( bMultiUser != xbOn && bMultiUser != xbOff )
+    return XB_INVALID_OPTION;
+
+  //  check for any open files, return XB_NOT_CLOSED if any open tables
+  xbInt16 iOpenTableCnt = GetOpenTableCount();
+
+  xbDbf *d;
+  for( xbInt16 i = 0; i < iOpenTableCnt; i++ ){
+    d = (xbDbf *) GetDbfPtr( i+1 );
+    if( d ){
+      if( d->GetDbfStatus() != XB_CLOSED ){
+        return XB_NOT_CLOSED;
+      }
+     }
+  }
+
+  this->bMultiUser = bMultiUser;
+  return XB_NO_ERROR;
+}
+/*************************************************************************/
+char xbXBase::GetPathSeparator() const {
+  #ifdef WIN32
+  return '\\';
+  #else
+  return '/';
+  #endif
+}
+/*************************************************************************/
+void xbXBase::SetDefaultDateFormat( const xbString &sDefaultDateFormat ) {
+  this->sDefaultDateFormat = sDefaultDateFormat;
+}
+/*************************************************************************/
+xbString &xbXBase::GetTempDirectory() const {
+  return sTempDirectory;
+}
+/*************************************************************************/
+#ifdef XB_DBF5_SUPPORT
+void xbXBase::SetDefaultTimeFormat( const xbString &sDefaultTimeFormat ) {
+  this->sDefaultTimeFormat = sDefaultTimeFormat;
+}
+#endif // XB_DBF5_SUPPORT
+/*************************************************************************/
+void xbXBase::SetDefaultAutoCommit( xbBool bDefaultAutoCommit ) {
+  this->bDefaultAutoCommit = bDefaultAutoCommit;
+}
+/************************************************************************/
+#ifdef XB_BLOCKREAD_SUPPORT
+xbUInt32 xbXBase::GetDefaultBlockReadSize() const {
+  return ulDefaultBlockReadSize;
+}
+void xbXBase::SetDefaultBlockReadSize( xbUInt32 ulDfltBlockReadSize ){
+   ulDefaultBlockReadSize = ulDfltBlockReadSize;
+}
+#endif  // XB_BLOCKREAD_SUPPORT
+/************************************************************************/
+#if defined (XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
+
+xbInt16 xbXBase::GetDefaultIxTagMode() const {
+  return iDefaultIxTagMode;
+}
+xbInt16 xbXBase::SetDefaultIxTagMode( xbInt16 iMode ){
+
+  if( iMode != XB_IX_DBASE_MODE && iMode != XB_IX_XBASE_MODE )
+    return XB_INVALID_OPTION;
+
+  iDefaultIxTagMode = iMode;
+  return XB_NO_ERROR;
+}
+
+#endif  // defined (XB_NDX_SUPPORT) || defined (XB_MDX_SUPPORT)
+/*************************************************************************/
+void xbXBase::SetEndianType() {
+  xbInt16 e = 1;
+  iEndianType = *(char *) &e;
+  if( iEndianType )
+    iEndianType = 'L';
+  else
+    iEndianType = 'B';
+  return;
+}
+
+
+
 }        /* namespace */

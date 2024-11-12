@@ -2,7 +2,7 @@
 
 XBase64 Software Library
 
-Copyright (c) 1997,2003,2014,2022 Gary A Kunkel
+Copyright (c) 1997,2003,2014,2022,2023,2024 Gary A Kunkel
 
 The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.
 
@@ -77,7 +77,8 @@ xbInt16 xbSql::SqlDelete( const xbString &sCmdLine ){
     //  if not open, attempt to open it
     dbf = xbase->GetDbfPtr( sTable );
     if( !dbf ){
-      if(( iRc = xbase->OpenHighestVersion( sTable, "", &dbf )) != XB_NO_ERROR ){
+      // if(( iRc = xbase->OpenHighestVersion( sTable, "", &dbf )) != XB_NO_ERROR ){
+      if(( iRc = xbase->Open( sTable, "", &dbf )) != XB_NO_ERROR ){
         iErrorStop = 110;
         throw iRc;
       }
@@ -136,7 +137,7 @@ xbInt16 xbSql::SqlDelete( const xbString &sCmdLine ){
     xbString sMsg;
     sMsg.Sprintf( "xbSql::SqlDelete() Exception Caught. Error Stop = [%d] rc = [%d] table = [%s]", iErrorStop, iRc, sTableName.Str() );
     xbase->WriteLogMessage( sMsg.Str() );
-    xbase->WriteLogMessage( GetErrorMessage( iRc ));
+    xbase->WriteLogMessage( xbase->GetErrorMessage( iRc ));
   }
 
   return iRc;

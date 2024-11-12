@@ -1,12 +1,12 @@
 \hypertarget{xblog_8h_source}{}\doxysection{xblog.\+h}
-\label{xblog_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xblog.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.7/src/include/xblog.h}}
+\label{xblog_8h_source}\index{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xblog.h@{/mnt/1Tdata/xbase/xbase64-\/4.1.11/src/include/xblog.h}}
 \mbox{\hyperlink{xblog_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*  xblog.h}}
 \DoxyCodeLine{2 \textcolor{comment}{}}
 \DoxyCodeLine{3 \textcolor{comment}{XBase64 Software Library}}
 \DoxyCodeLine{4 \textcolor{comment}{}}
-\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022 Gary A Kunkel}}
+\DoxyCodeLine{5 \textcolor{comment}{Copyright (c) 1997,2003,2014,2022,2024 Gary A Kunkel}}
 \DoxyCodeLine{6 \textcolor{comment}{}}
 \DoxyCodeLine{7 \textcolor{comment}{The xb64 software library is covered under the terms of the GPL Version 3, 2007 license.}}
 \DoxyCodeLine{8 \textcolor{comment}{}}
@@ -29,32 +29,51 @@
 \DoxyCodeLine{25 \textcolor{preprocessor}{\#ifdef XB\_LOGGING\_SUPPORT}}
 \DoxyCodeLine{26 }
 \DoxyCodeLine{28 }
-\DoxyCodeLine{41 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{namespacexb_a4a31fbe9110c9e55495ce71e642d785c}{xbLog}} : \textcolor{keyword}{public} xbFile \{}
-\DoxyCodeLine{42   \textcolor{keyword}{public}:}
-\DoxyCodeLine{43    \mbox{\hyperlink{namespacexb_a4a31fbe9110c9e55495ce71e642d785c}{xbLog}}();}
-\DoxyCodeLine{44    \mbox{\hyperlink{namespacexb_a4a31fbe9110c9e55495ce71e642d785c}{xbLog}}( \textcolor{keyword}{const} xbString \&sLogFileName );}
-\DoxyCodeLine{45    \string~xbLog();}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47    xbInt16  LogClose     ();}
-\DoxyCodeLine{48    xbInt16  LogGetStatus ();}
-\DoxyCodeLine{49    xbInt16  LogOpen      ();}
-\DoxyCodeLine{50    \textcolor{keywordtype}{void}     LogSetStatus ( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bLogStatus );}
-\DoxyCodeLine{51    \textcolor{keywordtype}{void}     LogSetLogSize( \textcolor{keywordtype}{size\_t} lSize );                  \textcolor{comment}{//   \{ LogSize = size; \}}}
-\DoxyCodeLine{52    xbInt16  LogWrite     ( \textcolor{keyword}{const} xbString \&LogEntry, xbInt16 iOutputOption = 0 );}
-\DoxyCodeLine{53    xbInt16  LogWriteBytes( xbUInt32 lByteCnt, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p );}
-\DoxyCodeLine{54    \textcolor{keywordtype}{size\_t}   LogGetLogSize()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lLogSize; \}}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56   \textcolor{keyword}{private}:}
-\DoxyCodeLine{57    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bLoggingStatus;        \textcolor{comment}{// false = logging off}}
-\DoxyCodeLine{58                                    \textcolor{comment}{// true  = logging on}}
-\DoxyCodeLine{59    \textcolor{keywordtype}{size\_t}   lLogSize;}
-\DoxyCodeLine{60    xbInt16  iShareMode;}
-\DoxyCodeLine{61 \};}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif          }\textcolor{comment}{// XB\_LOGGING\_SUPPORT}}
-\DoxyCodeLine{64 \}               \textcolor{comment}{// namespace}}
-\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif          }\textcolor{comment}{// XB\_XBLOG\_H\_\_}}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67 }
+\DoxyCodeLine{50 \textcolor{keyword}{class }XBDLLEXPORT \mbox{\hyperlink{classxb_1_1xbLog}{xbLog}} : \textcolor{keyword}{public} \mbox{\hyperlink{classxb_1_1xbFile}{xbFile}} \{}
+\DoxyCodeLine{51   \textcolor{keyword}{public}:}
+\DoxyCodeLine{53    \mbox{\hyperlink{classxb_1_1xbLog_a81b74da8f7ea861684b3b65084324514}{xbLog}}();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{59    \mbox{\hyperlink{classxb_1_1xbLog_ad0cc2567950ab57a0e49ccd670d120d0}{xbLog}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sLogFileName );}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{62    \mbox{\hyperlink{classxb_1_1xbLog_af6a28c8c9f32536a8432f41ce2718532}{\string~xbLog}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{68    xbInt16 \mbox{\hyperlink{classxb_1_1xbLog_a30688f1f27334d1cdfc9b9d434b536cb}{LogClose}}();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{71 }
+\DoxyCodeLine{74    xbInt16 \mbox{\hyperlink{classxb_1_1xbLog_af2871addbe4e3f0cc714a4916d3b8b64}{LogGetStatus}}();}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 }
+\DoxyCodeLine{78 }
+\DoxyCodeLine{81    xbInt16 \mbox{\hyperlink{classxb_1_1xbLog_a295f9dfc2ea5f17c17609cf29f59b33c}{LogOpen}}();}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{84 }
+\DoxyCodeLine{87    \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbLog_adb2673208f57da1ed6f7fc78dfc77763}{LogSetStatus}}( \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}} bLogStatus );}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{90 }
+\DoxyCodeLine{94    \textcolor{keywordtype}{void} \mbox{\hyperlink{classxb_1_1xbLog_af4e510ba62ffcb717cf768b3a6217a47}{LogSetLogSize}}( \textcolor{keywordtype}{size\_t} lSize );                  \textcolor{comment}{//   \{ LogSize = size; \}}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{97 }
+\DoxyCodeLine{104    xbInt16 \mbox{\hyperlink{classxb_1_1xbLog_a2fa1acf20c36ddebb4434abea23e609c}{LogWrite}}( \textcolor{keyword}{const} \mbox{\hyperlink{classxb_1_1xbString}{xbString}} \&sLogEntry, xbInt16 iOutputOption = 0 );}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{107 }
+\DoxyCodeLine{112    xbInt16 \mbox{\hyperlink{classxb_1_1xbLog_a033a7b4ed672b426a08414735a727ad9}{LogWriteBytes}}( xbUInt32 ulByteCnt, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *p );}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{115 }
+\DoxyCodeLine{118    \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classxb_1_1xbLog_ada8ceae008ecabf71e263306f8ff41ec}{LogGetLogSize}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120   \textcolor{keyword}{private}:}
+\DoxyCodeLine{121    \mbox{\hyperlink{namespacexb_ab1a750481dd487f0d384aa1d200dff0f}{xbBool}}   bLoggingStatus;        \textcolor{comment}{// false = logging off}}
+\DoxyCodeLine{122                                    \textcolor{comment}{// true  = logging on}}
+\DoxyCodeLine{123    \textcolor{keywordtype}{size\_t}   lLogSize;}
+\DoxyCodeLine{124    xbInt16  iShareMode;}
+\DoxyCodeLine{125 \};}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#endif          }\textcolor{comment}{// XB\_LOGGING\_SUPPORT}}
+\DoxyCodeLine{128 \}               \textcolor{comment}{// namespace}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#endif          }\textcolor{comment}{// XB\_XBLOG\_H\_\_}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 }
 
 \end{DoxyCode}
