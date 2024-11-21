@@ -48,7 +48,7 @@ void xbDbf::InitVars()
   cTransactionFlag = 0x00;
   cEncryptionFlag  = 0x00;
   cIndexFlag       = 0x00;
-  cLangDriver      = 0x00;
+  cLangDriver      = 0x03;         /* Foxpro sets to Windows codepage. 03 is 1252 */
   iFileVersion     = 0;            /* Xbase64 file version */
   iAutoCommit      = -1;
   iMultiUser       = xbSysDflt;
